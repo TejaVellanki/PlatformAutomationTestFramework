@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F09E7C71-8082-430C-B280-12537930F756}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsFormsApplication3</RootNamespace>
+    <AssemblyName>WindowsFormsApplication3</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="nunit.core">
+      <HintPath>..\..\..\..\..\..\..\Selenium\selenium-remote-control-1.0.3\selenium-dotnet-client-driver-1.0.1\nunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Selenium\selenium-remote-control-1.0.3\selenium-dotnet-client-driver-1.0.1\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Selenium.WebDriverBackedSelenium">
+      <HintPath>..\..\..\..\..\..\..\Selenium\selenium-dotnet-2.31.0\net40\Selenium.WebDriverBackedSelenium.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.Selenium.Core">
+      <HintPath>..\..\..\..\..\..\..\Selenium\selenium-dotnet-2.31.0\net40\ThoughtWorks.Selenium.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ThoughtWorks.Selenium.UnitTests">
+      <HintPath>..\..\..\..\..\..\..\Selenium\selenium-remote-control-1.0.3\selenium-dotnet-client-driver-1.0.1\ThoughtWorks.Selenium.UnitTests.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver">
+      <HintPath>..\..\..\..\..\..\..\Selenium\selenium-dotnet-2.31.0\net40\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support">
+      <HintPath>..\..\..\..\..\..\..\Selenium\selenium-dotnet-2.31.0\net40\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addressconfig.cs" />
+    <Compile Include="Baskets.cs" />
+    <Compile Include="Baskets_TPS.cs" />
+    <Compile Include="BatchTesting.cs" />
+    <Compile Include="CategoryScrape.cs" />
+    <Compile Include="ChartForm.cs" />
+    <Compile Include="Checkout.cs" />
+    <Compile Include="Confirm.cs" />
+    <Compile Include="ConverttoHTML.cs" />
+    <Compile Include="CreateAccount.cs" />
+    <Compile Include="Createscrape.cs" />
+    <Compile Include="datarow.cs" />
+    <Compile Include="datarow_TPS.cs" />
+    <Compile Include="Deletebasketstart.cs" />
+    <Compile Include="DeleteBasket_TPS.cs" />
+    <Compile Include="Delivery.cs" />
+    <Compile Include="Footer_TPS.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralLibrary.cs" />
+    <Compile Include="GeneralLibraryTPS.cs" />
+    <Compile Include="GenerateEmail.cs" />
+    <Compile Include="Guest.cs" />
+    <Compile Include="Homepagelinks.cs" />
+    <Compile Include="HomepageTabsModrophenia.cs" />
+    <Compile Include="Imagevalidation.cs" />
+    <Compile Include="links_TPS.cs" />
+    <Compile Include="LoginandRegistration_TPS.cs" />
+    <Compile Include="LoginRegistration.cs" />
+    <Compile Include="LookandFeel.cs" />
+    <Compile Include="Mastercard.cs" />
+    <Compile Include="Modrophenialive.cs" />
+    <Compile Include="Mopay.cs" />
+    <Compile Include="MopayAccount.cs" />
+    <Compile Include="MopayBackup.cs" />
+    <Compile Include="MopayConsol.cs" />
+    <Compile Include="mopayconsoleacctab.cs" />
+    <Compile Include="Mopaysite.cs" />
+    <Compile Include="Mopay_TPS.cs" />
+    <Compile Include="MoShop.cs" />
+    <Compile Include="MoShopConsole.cs" />
+    <Compile Include="MositeGeneral.cs" />
+    <Compile Include="MositeStart.cs" />
+    <Compile Include="Notificationtab.cs" />
+    <Compile Include="Paymentprovider.cs" />
+    <Compile Include="Paymentprovidertypes.cs" />
+    <Compile Include="products.cs" />
+    <Compile Include="ProductScrape.cs" />
+    <Compile Include="products_TPS.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScarperFlow.cs" />
+    <Compile Include="Scheduler.cs" />
+    <Compile Include="Screenshot.cs" />
+    <Compile Include="SubCategory.cs" />
+    <Compile Include="Tickle.cs" />
+    <Compile Include="UserData.cs" />
+    <Compile Include="UserData_TPS.cs" />
+    <Compile Include="UserJourney.cs" />
+    <Compile Include="UserJourney_TPS.cs" />
+    <Compile Include="Visa.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
