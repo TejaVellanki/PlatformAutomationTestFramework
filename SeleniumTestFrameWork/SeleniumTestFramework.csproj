@@ -75,73 +75,73 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Addressconfig.cs" />
-    <Compile Include="Baskets.cs" />
-    <Compile Include="Baskets_TPS.cs" />
+    <Compile Include="MoShop\Addressconfig.cs" />
+    <Compile Include="MoSite\Baskets.cs" />
+    <Compile Include="TPS\Baskets_TPS.cs" />
     <Compile Include="BatchTesting.cs" />
-    <Compile Include="CategoryScrape.cs" />
-    <Compile Include="ChartForm.cs" />
-    <Compile Include="Checkout.cs" />
-    <Compile Include="Confirm.cs" />
-    <Compile Include="ConverttoHTML.cs" />
-    <Compile Include="CreateAccount.cs" />
-    <Compile Include="Createscrape.cs" />
-    <Compile Include="datarow.cs" />
-    <Compile Include="datarow_TPS.cs" />
-    <Compile Include="Deletebasketstart.cs" />
-    <Compile Include="DeleteBasket_TPS.cs" />
-    <Compile Include="Delivery.cs" />
-    <Compile Include="Footer_TPS.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="MoShop\CategoryScrape.cs" />
+    <Compile Include="General Library\ChartForm.cs" />
+    <Compile Include="MoShop\Checkout.cs" />
+    <Compile Include="MoShop\Confirm.cs" />
+    <Compile Include="General Library\ConverttoHTML.cs" />
+    <Compile Include="MoShop\CreateAccount.cs" />
+    <Compile Include="MoShop\Createscrape.cs" />
+    <Compile Include="General Library\datarow.cs" />
+    <Compile Include="TPS\datarow_TPS.cs" />
+    <Compile Include="TPS\Deletebasketstart.cs" />
+    <Compile Include="MoSite\DeleteBasket_TPS.cs" />
+    <Compile Include="MoSite\Delivery.cs" />
+    <Compile Include="TPS\Footer_TPS.cs" />
+    <Compile Include="MoBankUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MoBankUI.Designer.cs">
+      <DependentUpon>MoBankUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GeneralLibrary.cs" />
-    <Compile Include="GeneralLibraryTPS.cs" />
-    <Compile Include="GenerateEmail.cs" />
-    <Compile Include="Guest.cs" />
-    <Compile Include="Homepagelinks.cs" />
-    <Compile Include="HomepageTabsModrophenia.cs" />
-    <Compile Include="Imagevalidation.cs" />
-    <Compile Include="links_TPS.cs" />
-    <Compile Include="LoginandRegistration_TPS.cs" />
-    <Compile Include="LoginRegistration.cs" />
-    <Compile Include="LookandFeel.cs" />
-    <Compile Include="Mastercard.cs" />
-    <Compile Include="Modrophenialive.cs" />
-    <Compile Include="Mopay.cs" />
-    <Compile Include="MopayAccount.cs" />
-    <Compile Include="MopayBackup.cs" />
-    <Compile Include="MopayConsol.cs" />
-    <Compile Include="mopayconsoleacctab.cs" />
-    <Compile Include="Mopaysite.cs" />
-    <Compile Include="Mopay_TPS.cs" />
-    <Compile Include="MoShop.cs" />
-    <Compile Include="MoShopConsole.cs" />
-    <Compile Include="MositeGeneral.cs" />
-    <Compile Include="MositeStart.cs" />
-    <Compile Include="Notificationtab.cs" />
-    <Compile Include="Paymentprovider.cs" />
-    <Compile Include="Paymentprovidertypes.cs" />
-    <Compile Include="products.cs" />
-    <Compile Include="ProductScrape.cs" />
-    <Compile Include="products_TPS.cs" />
+    <Compile Include="General Library\GeneralLibrary.cs" />
+    <Compile Include="TPS\GeneralLibraryTPS.cs" />
+    <Compile Include="General Library\GenerateEmail.cs" />
+    <Compile Include="TPS\Guest.cs" />
+    <Compile Include="MoSite\Homepagelinks.cs" />
+    <Compile Include="MoSite\HomepageTabsModrophenia.cs" />
+    <Compile Include="General Library\Imagevalidation.cs" />
+    <Compile Include="TPS\links_TPS.cs" />
+    <Compile Include="TPS\LoginandRegistration_TPS.cs" />
+    <Compile Include="MoSite\LoginRegistration.cs" />
+    <Compile Include="MoShop\LookandFeel.cs" />
+    <Compile Include="MoPay\Mastercard.cs" />
+    <Compile Include="MoSite\Modrophenialive.cs" />
+    <Compile Include="MoPay\Mopay.cs" />
+    <Compile Include="MoPay\MopayAccount.cs" />
+    <Compile Include="MoPay\MopayBackup.cs" />
+    <Compile Include="MoPay\MopayConsol.cs" />
+    <Compile Include="MoPay\mopayconsoleacctab.cs" />
+    <Compile Include="MoPay\Mopaysite.cs" />
+    <Compile Include="TPS\Mopay_TPS.cs" />
+    <Compile Include="MoShop\MoShop.cs" />
+    <Compile Include="MoShop\MoShopConsole.cs" />
+    <Compile Include="MoSite\MositeGeneral.cs" />
+    <Compile Include="MoSite\MositeStart.cs" />
+    <Compile Include="MoPay\Notificationtab.cs" />
+    <Compile Include="MoPay\Paymentprovider.cs" />
+    <Compile Include="MoPay\Paymentprovidertypes.cs" />
+    <Compile Include="MoSite\products.cs" />
+    <Compile Include="MoShop\ProductScrape.cs" />
+    <Compile Include="MoSite\products_TPS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScarperFlow.cs" />
-    <Compile Include="Scheduler.cs" />
-    <Compile Include="Screenshot.cs" />
-    <Compile Include="SubCategory.cs" />
-    <Compile Include="Tickle.cs" />
-    <Compile Include="UserData.cs" />
-    <Compile Include="UserData_TPS.cs" />
-    <Compile Include="UserJourney.cs" />
-    <Compile Include="UserJourney_TPS.cs" />
-    <Compile Include="Visa.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MoShop\ScarperFlow.cs" />
+    <Compile Include="MoShop\Scheduler.cs" />
+    <Compile Include="General Library\Screenshot.cs" />
+    <Compile Include="MoShop\SubCategory.cs" />
+    <Compile Include="MoSite\Tickle.cs" />
+    <Compile Include="MoSite\UserData.cs" />
+    <Compile Include="TPS\UserData_TPS.cs" />
+    <Compile Include="MoSite\UserJourney.cs" />
+    <Compile Include="TPS\UserJourney_TPS.cs" />
+    <Compile Include="MoPay\Visa.cs" />
+    <EmbeddedResource Include="MoBankUI.resx">
+      <DependentUpon>MoBankUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -165,6 +165,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
