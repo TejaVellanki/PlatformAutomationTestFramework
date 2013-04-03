@@ -11,7 +11,7 @@ namespace MoBankUI
         {
             driver.FindElement(By.Id("BasketInfo")).Click();
             selenium.WaitForPageToLoad("30000");
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(20.0));
             IWebElement element = driver.FindElement(By.XPath("//body[@id='page-basket-index']/div/div[2]/div/div[2]/a/span"));
             if (driver.FindElement(By.Id("BasketInfo")).Text == "(0)")
             {
