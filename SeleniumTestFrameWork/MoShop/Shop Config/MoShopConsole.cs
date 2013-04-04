@@ -2,29 +2,35 @@
 namespace MoBankUI
 {
     using OpenQA.Selenium;
+    using OpenQA.Selenium.Android;
+    using OpenQA.Selenium.Chrome;
+    using OpenQA.Selenium.Firefox;
+    using OpenQA.Selenium.IE;
     using Selenium;
     using System;
+    using System.Drawing;
+    using System.Threading;
+    using System.Windows.Forms;
     
     public class MoShopConsole
     {
-        private MoBankUI.datarow datarow = new MoBankUI.datarow();
+
         private MoBankUI.Screenshot screenshot = new MoBankUI.Screenshot();
         
-        public void Homepagetabs(IWebDriver driver, ISelenium selenium)
+        public void Homepagetabs(IWebDriver driver, ISelenium selenium,MoBankUI.datarow datarow)
         {
             try
             {
                 Exception exception;
-                this.datarow.col();
                 string actual = driver.Title.ToString();
                 if (actual == "Log On : mobank.co.uk/MoShop")
                 {
-                    this.datarow.newrow("MoshopTitle", "Log On : mobank.co.uk/MoShop", actual, "PASS", driver, selenium);
+                    datarow.newrow("MoshopTitle", "Log On : mobank.co.uk/MoShop", actual, "PASS", driver, selenium);
                 }
                 else
                 {
-                    this.datarow.newrow("MoshopTitle", "Log On : mobank.co.uk/MoShop", actual, "FAIL", driver, selenium);
-                    this.screenshot.screenshotfailed(driver, selenium);
+                    datarow.newrow("MoshopTitle", "Log On : mobank.co.uk/MoShop", actual, "FAIL", driver, selenium);
+                    screenshot.screenshotfailed(driver, selenium);
                 }
                 driver.FindElement(By.Id("Email")).Clear();
                 driver.FindElement(By.Id("Email")).SendKeys("teja.vellanki@mobankgroup.com");
@@ -36,22 +42,31 @@ namespace MoBankUI
                 string str2 = driver.Title.ToString();
                 if (str2 == "mobank.co.uk/MoShop")
                 {
-                    this.datarow.newrow("MoshopHomepageTitle", "mobank.co.uk/MoShop", str2, "PASS", driver, selenium);
+                  datarow.newrow("MoshopHomepageTitle", "mobank.co.uk/MoShop", str2, "PASS", driver, selenium);
                 }
                 else
                 {
-                    this.datarow.newrow("MoshopHomepageTitle", "mobank.co.uk/MoShop", str2, "FAIL", driver, selenium);
-                    this.screenshot.screenshotfailed(driver, selenium);
+                    datarow.newrow("MoshopHomepageTitle", "mobank.co.uk/MoShop", str2, "FAIL", driver, selenium);
+                    screenshot.screenshotfailed(driver, selenium);
                 }
+                //Expanding Manage and Security
+                driver.FindElement(By.CssSelector("span.ui-tree-expander")).Click();
+                selenium.WaitForPageToLoad("30000");
+                driver.FindElement(By.CssSelector("#IndexMenuLeaf13 > span.ui-tree-expander")).Click();
+                selenium.WaitForPageToLoad("30000");
+                driver.FindElement(By.CssSelector("#IndexMenuLeaf3 > a")).Click();
+                selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.XPath("//div[@id='IndexMenu']/ul/li/ul/li/a")).Click();
                 string str3 = driver.Title.ToString();
+
+
                 if (str3 == "Scrapes : mobank.co.uk/MoShop")
                 {
-                    this.datarow.newrow("Scrape Page", "Scrapes : mobank.co.uk/MoShop", str3, "PASS", driver, selenium);
+                    datarow.newrow("Scrape Page", "Scrapes : mobank.co.uk/MoShop", str3, "PASS", driver, selenium);
                 }
                 else
                 {
-                    this.datarow.newrow("Scrape Page", "Scrapes : mobank.co.uk/MoShop", str3, "FAIL", driver, selenium);
+                    datarow.newrow("Scrape Page", "Scrapes : mobank.co.uk/MoShop", str3, "FAIL", driver, selenium);
                     this.screenshot.screenshotfailed(driver, selenium);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
@@ -61,12 +76,12 @@ namespace MoBankUI
                 string str4 = driver.Title.ToString();
                 if (str4 == "Shops : mobank.co.uk/MoShop")
                 {
-                    this.datarow.newrow("Shops Page", "Scrapes : mobank.co.uk/MoShop", str4, "PASS", driver, selenium);
+                   datarow.newrow("Shops Page", "Scrapes : mobank.co.uk/MoShop", str4, "PASS", driver, selenium);
                 }
                 else
                 {
-                    this.datarow.newrow("Shops Page", "Scrapes : mobank.co.uk/MoShop", str4, "FAIL", driver, selenium);
-                    this.screenshot.screenshotfailed(driver, selenium);
+                   datarow.newrow("Shops Page", "Scrapes : mobank.co.uk/MoShop", str4, "FAIL", driver, selenium);
+                    screenshot.screenshotfailed(driver, selenium);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
                 selenium.WaitForPageToLoad("30000");
@@ -75,11 +90,11 @@ namespace MoBankUI
                 string str5 = driver.Title.ToString();
                 if (str5 == "Global Customisations : mobank.co.uk/MoShop")
                 {
-                    this.datarow.newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5, "PASS", driver, selenium);
+                    datarow.newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5, "PASS", driver, selenium);
                 }
                 else
                 {
-                    this.datarow.newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5, "FAIL", driver, selenium);
+                    datarow.newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5, "FAIL", driver, selenium);
                     this.screenshot.screenshotfailed(driver, selenium);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
@@ -88,11 +103,11 @@ namespace MoBankUI
                 string str6 = driver.Title.ToString();
                 if (str6 == "Transformations : mobank.co.uk/MoShop")
                 {
-                    this.datarow.newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "PASS", driver, selenium);
+                   datarow.newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "PASS", driver, selenium);
                 }
                 else
                 {
-                    this.datarow.newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "FAIL", driver, selenium);
+                  datarow.newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "FAIL", driver, selenium);
                     this.screenshot.screenshotfailed(driver, selenium);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
@@ -101,11 +116,11 @@ namespace MoBankUI
                 string str7 = driver.Title.ToString();
                 if (str7 == "mobank.co.uk/MoShop")
                 {
-                    this.datarow.newrow("Global settings Page", "mobank.co.uk/MoShop", str7, "PASS", driver, selenium);
+                   datarow.newrow("Global settings Page", "mobank.co.uk/MoShop", str7, "PASS", driver, selenium);
                 }
                 else
                 {
-                    this.datarow.newrow("Global settings Page", "mobank.co.uk/MoShop", str7, "FAIL", driver, selenium);
+                   datarow.newrow("Global settings Page", "mobank.co.uk/MoShop", str7, "FAIL", driver, selenium);
                     this.screenshot.screenshotfailed(driver, selenium);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
@@ -115,11 +130,11 @@ namespace MoBankUI
                 string str8 = driver.Title.ToString();
                 if (str8 == "mobank.co.uk/MoShop")
                 {
-                    this.datarow.newrow("Security Page", "mobank.co.uk/MoShop", str8, "PASS", driver, selenium);
+                    datarow.newrow("Security Page", "mobank.co.uk/MoShop", str8, "PASS", driver, selenium);
                 }
                 else
                 {
-                    this.datarow.newrow("Security Page", "mobank.co.uk/MoShop", str8, "FAIL", driver, selenium);
+                    datarow.newrow("Security Page", "mobank.co.uk/MoShop", str8, "FAIL", driver, selenium);
                     this.screenshot.screenshotfailed(driver, selenium);
                 }
                 driver.FindElement(By.CssSelector("#IndexMenu > ul > li > a")).Click();
@@ -135,44 +150,23 @@ namespace MoBankUI
                 string str9 = driver.Title.ToString();
                 if (str9 == "Teja Vellanki : mobank.co.uk/MoShop")
                 {
-                    this.datarow.newrow("Account Page", "Teja Vellanki : mobank.co.uk/MoShop", str9, "PASS", driver, selenium);
+                    datarow.newrow("Account Page", "Teja Vellanki : mobank.co.uk/MoShop", str9, "PASS", driver, selenium);
                 }
                 else
                 {
-                    this.datarow.newrow("Account Page", "Teja Vellanki : mobank.co.uk/MoShop", str9, "FAIL", driver, selenium);
+                    datarow.newrow("Account Page", "Teja Vellanki : mobank.co.uk/MoShop", str9, "FAIL", driver, selenium);
                     this.screenshot.screenshotfailed(driver, selenium);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
                 selenium.WaitForPageToLoad("30000");
-                try
-                {
-                    new LookandFeel().lookandfeel(driver, selenium, this.datarow);
-                }
-                catch (Exception exception1)
-                {
-                    exception = exception1;
-                }
-                this.datarow.newrow("", "", "Scarpe Configuration", "", driver, selenium);
-                try
-                {
-                    new Createscrape().createscrape(driver, selenium, this.datarow);
-                }
-                catch (Exception exception2)
-                {
-                    exception = exception2;
-                }
+              
             }
             catch (Exception exception3)
             {
                 string str10 = exception3.ToString();
-                this.datarow.newrow("Exception", "Exception Not Expected", str10, "FAIL", driver, selenium);
+               datarow.newrow("Exception", "Exception Not Expected", str10, "FAIL", driver, selenium);
             }
-            finally
-            {
-                this.datarow.excelsave("MoshopConsole", driver, selenium);
-                this.screenshot.screenshotfailed(driver, selenium);
-                driver.Quit();
-            }
+            
         }
         
         private bool IsElementPresent(By by, IWebDriver driver)

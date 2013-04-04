@@ -72,6 +72,7 @@ namespace MoBankUI
                 str6 = driver.FindElement(By.Id("Jobs_" + num + "__EndOn")).GetAttribute("Value");
                 str7 = driver.FindElement(By.Id("Jobs_" + num + "__RepeatInterval_Days")).GetAttribute("Value");
                 str8 = driver.FindElement(By.Id("Jobs_" + num + "__RepeatInterval_Hours")).GetAttribute("Value");
+                #region validation
                 if (str4 == "true")
                 {
                     datarow.newrow("Scheduler Scrape Activation", "Scrape Activated", str4, "PASS", driver, selenium);
@@ -112,6 +113,7 @@ namespace MoBankUI
                 {
                     datarow.newrow("Repeat interval Hours", "0", str8, "FAIL", driver, selenium);
                 }
+                #endregion
                 if (str3 == "off")
                 {
                     driver.FindElement(By.Id("Jobs_1__Active")).Click();
@@ -154,6 +156,7 @@ namespace MoBankUI
                 str11 = driver.FindElement(By.Id("Jobs_" + num2 + "__EndOn")).GetAttribute("Value");
                 str12 = driver.FindElement(By.Id("Jobs_" + num2 + "__RepeatInterval_Days")).GetAttribute("Value");
                 str13 = driver.FindElement(By.Id("Jobs_" + num2 + "__RepeatInterval_Hours")).GetAttribute("Value");
+                #region validations
                 if (str9 == "true")
                 {
                     datarow.newrow("Scheduler DataFeed Activation", "DataFeed Activated", str9, "PASS", driver, selenium);
@@ -194,15 +197,18 @@ namespace MoBankUI
                 {
                     datarow.newrow("Repeat interval Hours", "1", str13, "FAIL", driver, selenium);
                 }
+                #endregion
             }
             else if (str != "")
             {
+                #region Validations
                 num = 0;
                 str4 = driver.FindElement(By.Id("Jobs_" + num + "__Active")).GetAttribute("Value");
                 str5 = driver.FindElement(By.Id("Jobs_" + num + "__StartOn")).GetAttribute("Value");
                 str6 = driver.FindElement(By.Id("Jobs_" + num + "__EndOn")).GetAttribute("Value");
                 str7 = driver.FindElement(By.Id("Jobs_" + num + "__RepeatInterval_Days")).GetAttribute("Value");
                 str8 = driver.FindElement(By.Id("Jobs_" + num + "__RepeatInterval_Hours")).GetAttribute("Value");
+              
                 if (str4 == "true")
                 {
                     datarow.newrow("Scheduler Scrape Activation", "Scrape Activated", str4, "PASS", driver, selenium);
@@ -243,6 +249,7 @@ namespace MoBankUI
                 {
                     datarow.newrow("Repeat interval Hours", "0", str8, "FAIL", driver, selenium);
                 }
+
                 int num3 = 1;
                 str9 = driver.FindElement(By.Id("Jobs_" + num3 + "__Active")).GetAttribute("Value");
                 str10 = driver.FindElement(By.Id("Jobs_" + num3 + "__StartOn")).GetAttribute("Value");
@@ -289,7 +296,9 @@ namespace MoBankUI
                 {
                     datarow.newrow("Repeat interval Hours", "0", str8, "FAIL", driver, selenium);
                 }
+                #endregion
             }
+               
             new Checkout().checkout(driver, selenium, datarow);
         }
     }

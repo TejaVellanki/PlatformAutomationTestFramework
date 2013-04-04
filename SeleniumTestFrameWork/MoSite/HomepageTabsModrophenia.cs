@@ -19,7 +19,7 @@ namespace MoBankUI
                 IWebElement element = driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[3]/ul/li[" + i + "]/div/div/a"));
                 driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[3]/ul/li[" + i + "]/div/div/a")).Click();
                 selenium.WaitForPageToLoad("30000");
-                Thread.Sleep(0x7d0);
+                Thread.Sleep(3000);
                 string actual = driver.Title.ToString();
                 if (i > 1)
                 {

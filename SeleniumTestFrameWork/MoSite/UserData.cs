@@ -143,14 +143,14 @@ namespace MoBankUI
                 string str23 = driver.PageSource;
                 IJavaScriptExecutor executor2 = (IJavaScriptExecutor) driver;
                 executor2.ExecuteScript("window.scrollBy(0,100)", new object[0]);
-                Thread.Sleep(0x7d0);
+                Thread.Sleep(3000);
                 driver.FindElement(By.Id("FormData_2__Value")).Click();
-                Thread.Sleep(0x7d0);
+                Thread.Sleep(3000);
                 executor2.ExecuteScript("window.scrollBy(0,200)", new object[0]);
-                Thread.Sleep(0x7d0);
+                Thread.Sleep(3000);
                 driver.FindElement(By.XPath("//html/body/div/div[2]/div/form/fieldset/div[2]/div/button")).Click();
                 selenium.WaitForPageToLoad("30000");
-                Thread.Sleep(0x7d0);
+                Thread.Sleep(3000);
                 string text = selenium.GetText("css=div.ui-content.ui-body-c > p");
                 if (text == "TestFirstname,TestLastName, 0123456789, Test Address1, TestCity, TestCounty, TestPostcode")
                 {
@@ -161,7 +161,7 @@ namespace MoBankUI
                     datarow.newrow("Details in Process summary page", "TestFirstname,TestLastName, 0123456789, Test Address1, TestCity, TestCounty, TestPostcode", text, "FAIL", driver, selenium);
                 }
                 executor2.ExecuteScript("window.scrollBy(0,200)", new object[0]);
-                Thread.Sleep(0x7d0);
+                Thread.Sleep(3000);
                 driver.FindElement(By.XPath("//html/body/div/div[2]/div[2]/div[2]/a/span/span")).Click();
                 selenium.WaitForPageToLoad("30000");
             }

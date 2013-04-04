@@ -11,23 +11,10 @@ namespace MoBankUI
     {
         public void lookandfeel(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
-            datarow.newrow("", "", "LOOK AND FEEL TAB", "", driver, selenium);
-            driver.FindElement(By.XPath("(//a[contains(text(),'Shops')])[2]")).Click();
-            selenium.WaitForPageToLoad("30000");
-            Thread.Sleep(0x2710);
-            driver.FindElement(By.LinkText("Testshop")).Click();
-            selenium.WaitForPageToLoad("30000");
-            string actual = driver.Title.ToString();
-            if (actual == "Shop : mobank.co.uk/MoShop")
-            {
-                datarow.newrow("ShopTitle", "Shop : mobank.co.uk/MoShop", actual, "PASS", driver, selenium);
-            }
-            else
-            {
-                datarow.newrow("ShopTitle", "Shop : mobank.co.uk/MoShop", actual, "FAIL", driver, selenium);
-            }
+            datarow.newrow("", "", "LOOK AND FEEL TAB", "", driver, selenium);          
             driver.FindElement(By.LinkText("Look & Feel")).Click();
             selenium.WaitForPageToLoad("30000");
+            string actual = driver.Title.ToString();
             if (driver.Title.ToString() == "Look & Feel : mobank.co.uk/MoShop")
             {
                 datarow.newrow("LookAndFeel", "Look & Feel : mobank.co.uk/MoShop", actual, "PASS", driver, selenium);
@@ -39,15 +26,33 @@ namespace MoBankUI
             int num = 0;
             while (true)
             {
-                driver.FindElement(By.Id("Customisations_0__Title")).Clear();
-                driver.FindElement(By.Id("Customisations_0__Title")).SendKeys("QA-TestShop");
-                Thread.Sleep(0x7d0);
-                driver.FindElement(By.CssSelector("input.button")).Click();
-                selenium.WaitForPageToLoad("30000");
-                string attribute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
-                if (attribute == "QA-TestShop")
+                for (int i = 0; ; i++)
                 {
-                    datarow.newrow("Customiastion Title", "QA-TestShop", attribute, "PASS", driver, selenium);
+                    driver.FindElement(By.Id("Customisations_0__Title")).Clear();
+                    driver.FindElement(By.Id("Customisations_0__Title")).SendKeys("QA-TestShop");
+                    Thread.Sleep(2000);
+                    selenium.Focus("id=Customisations_0__Title");
+                    driver.FindElement(By.Id("Customisations_0__Title")).SendKeys(Keys.Enter);
+                    selenium.WaitForPageToLoad("30000");
+                    driver.FindElement(By.CssSelector("input.button")).Click();
+                     selenium.WaitForPageToLoad("30000");
+                   
+                    string attribute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
+                    if (attribute == "QA-TestShop")
+                    {
+                        break;
+                    }
+                    else
+                    {                         
+                    }
+
+                }
+
+                string attriute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
+                if (attriute == "QA-TestShop")
+                {
+                    datarow.newrow("Customiastion Title", "QA-TestShop", attriute, "PASS", driver, selenium);
+                  
                     driver.FindElement(By.XPath("(//input[@id='DefaultCustomisationsId'])[2]")).Click();
                     selenium.WaitForPageToLoad("30000");
                     driver.FindElement(By.CssSelector("input.button")).Click();
@@ -63,16 +68,13 @@ namespace MoBankUI
                     {
                         datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "FAIL", driver, selenium);
                     }
-                    decimal xpathCount = selenium.GetXpathCount("//form[@id='customisation-page-update-form']/div");
-                    for (int i = 1; i <= xpathCount; i++)
+                    for (int j = 3; j <= 8; j++)
                     {
-                        try
+                        if (selenium.IsElementPresent("css=h3.collapsible.collapsed"))
                         {
-                            selenium.Click("//form[@id='customisation-page-update-form']/div[" + i + "]/h3");
+                            selenium.Click("css=h3.collapsible.collapsed");
                         }
-                        catch (Exception)
-                        {
-                        }
+                        //*[@id="customisation-page-update-form"]/div[3]/h3
                     }
                     new SelectElement(driver.FindElement(By.Id("ExternalLinks_0__ExternalLinkConfigId"))).SelectByText("Twitter");
                     driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement")).Clear();
@@ -152,8 +154,8 @@ namespace MoBankUI
                     new Scheduler().schedule(driver, selenium, datarow);
                     return;
                 }
-                datarow.newrow("Customiastion Title", "QA-TestShop", attribute, "FAIL", driver, selenium);
-                num++;
+              
+               
             }
         }
     }

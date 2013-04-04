@@ -21,7 +21,7 @@ namespace MoBankUI
                 executor.ExecuteScript("window.scrollBy(0,80)", new object[0]);
                 driver.FindElement(By.Id("GoToCheckout")).Click();
                 selenium.WaitForPageToLoad("30000");
-                Thread.Sleep(0x7d0);
+                Thread.Sleep(3000);
                 if (!selenium.IsTextPresent("Product unavailable"))
                 {
                     return;

@@ -15,7 +15,7 @@ namespace MoBankUI
         {
             this.datarow.col();
             driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-            Thread.Sleep(0x7d0);
+            Thread.Sleep(3000);
             string Title = selenium.GetTitle();
             try
             {

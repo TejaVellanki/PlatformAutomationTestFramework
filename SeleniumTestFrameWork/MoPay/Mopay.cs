@@ -182,7 +182,7 @@ namespace MoBankUI
                         }
                         selenium.Click("name=PostAction[Complete]");
                         selenium.WaitForPageToLoad("30000");
-                        Thread.Sleep(0x7d0);
+                        Thread.Sleep(3000);
                         if (Regex.IsMatch(str15, "^[0-9'']"))
                         {
                             this.datarow.newrow("Card Number", str15, str15, "PASS", driver, selenium);

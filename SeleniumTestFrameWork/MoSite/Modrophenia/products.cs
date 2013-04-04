@@ -188,7 +188,7 @@ namespace MoBankUI
                     }
                     dt.Rows.Add(row);
                     selenium.GoBack();
-                    Thread.Sleep(0x7d0);
+                    Thread.Sleep(3000);
                 }
                 num++;
                 if (!selenium.IsElementPresent("link=Next 30"))

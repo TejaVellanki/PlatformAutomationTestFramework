@@ -35,9 +35,17 @@ namespace MoBankUI
             {
                 datarow.newrow("Scrape Page Title", "Scrapes :  mobank.co.uk/MoShop", str2, "FAIL", driver, selenium);
             }
-            Thread.Sleep(0x7d0);
-            driver.FindElement(By.LinkText("QA - RegressionTest")).Click();
+           
+
+            driver.FindElement(By.LinkText("Create")).Click();
+            driver.FindElement(By.Id("Name")).Clear();
+            driver.FindElement(By.Id("Name")).SendKeys("TestShop-Scrape");
+            driver.FindElement(By.CssSelector("p.submit.submitInline > input.button")).Click();
             selenium.WaitForPageToLoad("30000");
+            new SelectElement(driver.FindElement(By.Id("Profiles_0__Shop_Value"))).SelectByText("Test Shop");
+            driver.FindElement(By.CssSelector("input.button")).Click();
+            selenium.WaitForPageToLoad("30000");
+
             string str3 = driver.Title.ToString();
             if (str3 == "Scrape : mobank.co.uk/MoShop")
             {

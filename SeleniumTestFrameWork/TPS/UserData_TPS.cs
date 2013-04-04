@@ -108,7 +108,7 @@ namespace MoBankUI
                 {
                     driver.FindElement(By.XPath("//html/body/div/div[2]/div/form/fieldset/div[2]/div/button")).Click();
                     selenium.WaitForPageToLoad("30000");
-                    Thread.Sleep(0x7d0);
+                    Thread.Sleep(3000);
                 }
                 string text = selenium.GetText("css=div.ui-content.ui-body-c > p");
                 if (selenium.IsElementPresent("//html/body/div/div[2]/div[2]/div[2]/a/span/span"))
