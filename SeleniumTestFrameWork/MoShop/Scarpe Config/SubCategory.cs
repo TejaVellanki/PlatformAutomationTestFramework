@@ -11,47 +11,95 @@ namespace MoBankUI
     {
         public void subcategoryscrape(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
-            driver.FindElement(By.Id("Selector")).Clear();
-            driver.FindElement(By.Id("Selector")).SendKeys("div[class^='leftNav'] a,.bdr a");
+            driver.FindElement(By.Id("SubPages_0__Name")).SendKeys("products");
+            driver.FindElement(By.Id("SubPages_0__Name")).SendKeys(Keys.Enter);
+            selenium.WaitForPageToLoad("30000");
+            string[] prod = selenium.GetSelectOptions("id=SubPages_0__ObjectTypeName");
+            foreach (string products in prod)
+            {
+                new SelectElement(driver.FindElement(By.Id("SubPages_0__ObjectTypeName"))).SelectByText(products);
+                if (products == "Product")
+                {
+                    break;
+
+                }
+            }
+            driver.FindElement(By.CssSelector("input.button")).Click();
+            selenium.WaitForPageToLoad("30000");
             driver.FindElement(By.Id("Identifier")).Clear();
             driver.FindElement(By.Id("Identifier")).SendKeys("/acatalog/wrapping-paper-everyday.html");
+            driver.FindElement(By.LinkText("Target Pages")).Click();
+            selenium.WaitForPageToLoad("30000");
+            driver.FindElement(By.Id("Selector")).Clear();
+            driver.FindElement(By.Id("Selector")).SendKeys("div[class^='leftNav'] a,.bdr a");
+            driver.FindElement(By.CssSelector("input.button")).Click();
+            selenium.WaitForPageToLoad("30000");
             driver.FindElement(By.Id("IdentifierTransformationPattern")).Clear();
-            driver.FindElement(By.Id("IdentifierTransformationPattern")).SendKeys(@"\/([a-z0-9\-_]+).html");
+            driver.FindElement(By.Id("IdentifierTransformationPattern")).SendKeys("\\/acatalog\\/([a-z0-9\\-_]*).html");
             driver.FindElement(By.Id("IdentifierTransformationReplacement")).Clear();
             driver.FindElement(By.Id("IdentifierTransformationReplacement")).SendKeys("$1");
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
-            Thread.Sleep(3000);
-            new SelectElement(driver.FindElement(By.Id("MappingId"))).SelectByText("Sub-Categories");
+            driver.FindElement(By.LinkText("Scrape Mappings")).Click();
+            selenium.WaitForPageToLoad("30000");
+            new SelectElement(driver.FindElement(By.Id("MappingId"))).SelectByText("(new mappings)");
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
+            string[] name = selenium.GetSelectOptions("id=MappingItems_0__DataPath");
+            foreach (string names in name)
+            {
+
+                new SelectElement(driver.FindElement(By.Id("MappingItems_0__DataPath"))).SelectByText(names);
+                if (names == "Name")
+                {
+                    break; 
+                }
+            }
             driver.FindElement(By.Id("MappingItems_0__Selector")).Clear();
             driver.FindElement(By.Id("MappingItems_0__Selector")).SendKeys("h1,h2 :first");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_0__DataPath"))).SelectByText("Name");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_0__TransformationId"))).SelectByText("Content Trim");
-            driver.FindElement(By.CssSelector("input.button")).Click();
-            selenium.WaitForPageToLoad("30000");
-            Thread.Sleep(3000);
+            string[] trims = selenium.GetSelectOptions("id=MappingItems_0__TransformationId");
+            foreach (string trim in trims)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_0__TransformationId"))).SelectByText(trim);
+                if (trim == "Content Trim")
+                {
+                    break; 
+                }
+            }
+            string[] datapaths = selenium.GetSelectOptions("id=MappingItems_1__DataPath");
+            foreach (string datapath in datapaths)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_1__DataPath"))).SelectByText(datapath);
+                if (datapath == "Description")
+                {
+                    break;
+                }
+            }
             driver.FindElement(By.Id("MappingItems_1__Selector")).Clear();
             driver.FindElement(By.Id("MappingItems_1__Selector")).SendKeys("#banner");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_1__DataPath"))).SelectByText("Description");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_1__TransformationId"))).SelectByText("Content Trim");
+            string[] trims1 = selenium.GetSelectOptions("id=MappingItems_1__TransformationId");
+            foreach (string trim in trims1)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_1__TransformationId"))).SelectByText(trim);
+                if (trim == "Content Trim")
+                {
+                    break;
+                }
+            }
             driver.FindElement(By.CssSelector("input.button")).Click();
-            selenium.WaitForPageToLoad("30000");
-            Thread.Sleep(3000);
-            driver.FindElement(By.Id("SubPages_0__Name")).Clear();
-            driver.FindElement(By.Id("SubPages_0__Name")).SendKeys("Products");
-            new SelectElement(driver.FindElement(By.Id("SubPages_0__ObjectTypeName"))).SelectByText("Product");
-            driver.FindElement(By.CssSelector("input.button")).Click();
-            selenium.WaitForPageToLoad("30000");
-            Thread.Sleep(3000);
+            selenium.WaitForPageToLoad("300000");
+
+            #region Validation
+
             string attribute = driver.FindElement(By.Id("Selector")).GetAttribute("Value");
             string actual = driver.FindElement(By.Id("Identifier")).GetAttribute("Value");
             string str3 = driver.FindElement(By.Id("IdentifierTransformationPattern")).GetAttribute("Value");
             string str4 = driver.FindElement(By.Id("IdentifierTransformationReplacement")).GetAttribute("Value");
             string str5 = driver.FindElement(By.Id("MappingItems_0__Selector")).GetAttribute("Value");
             string str6 = driver.FindElement(By.Id("MappingItems_1__Selector")).GetAttribute("Value");
-            string str7 = driver.FindElement(By.Id("SubPages_0__Name")).GetAttribute("Value");
+            string str7 = driver.FindElement(By.Id("MappingItems_2__Selector")).GetAttribute("Value");
+           
+            
             if (attribute == "div[class^='leftNav'] a,.bdr a")
             {
                 datarow.newrow("Subcategory Selector", "div[class^='leftNav'] a,.bdr a", attribute, "PASS", driver, selenium);
@@ -108,6 +156,8 @@ namespace MoBankUI
             {
                 datarow.newrow("Sub Pages", "Products", str7, "FAIL", driver, selenium);
             }
+            
+            #endregion         
             new ProductScrape().productscrape(driver, selenium, datarow);
         }
     }

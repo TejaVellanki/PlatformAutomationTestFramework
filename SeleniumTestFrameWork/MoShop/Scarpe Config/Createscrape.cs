@@ -87,6 +87,16 @@ namespace MoBankUI
             }
             driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
             selenium.WaitForPageToLoad("30000");
+            if(selenium.IsTextPresent("Server Error in '/' Application."))
+            {
+                selenium.GoBack();
+                selenium.WaitForPageToLoad("30000");
+                driver.FindElement(By.CssSelector("input.button")).Click();
+                selenium.WaitForPageToLoad("30000");
+                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
+                 selenium.WaitForPageToLoad("30000");
+
+            }
             new CategoryScrape().ScarpeCategory(driver, selenium, datarow);
         }
     }

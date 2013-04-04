@@ -11,7 +11,11 @@ namespace MoBankUI
     {
         public void productscrape(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
+
+
             driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
+            selenium.WaitForPageToLoad("30000");
+            driver.FindElement(By.LinkText("Target Pages")).Click();
             selenium.WaitForPageToLoad("30000");
             driver.FindElement(By.Id("Selector")).Clear();
             driver.FindElement(By.Id("Selector")).SendKeys("div[class^='singleproduct']>a");
@@ -23,35 +27,104 @@ namespace MoBankUI
             driver.FindElement(By.Id("IdentifierTransformationReplacement")).SendKeys("$1");
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
-            Thread.Sleep(3000);
-            new SelectElement(driver.FindElement(By.Id("MappingId"))).SelectByText("Products");
+            Thread.Sleep(3000);        
+       
+            driver.FindElement(By.LinkText("Scrape Mappings")).Click();
+            selenium.WaitForPageToLoad("30000");
+            new SelectElement(driver.FindElement(By.Id("MappingId"))).SelectByText("(new mappings)");
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
             driver.FindElement(By.Id("MappingItems_0__Selector")).Clear();
             driver.FindElement(By.Id("MappingItems_0__Selector")).SendKeys("h1");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_0__DataPath"))).SelectByText("Name");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_0__TransformationId"))).SelectByText("Content Trim");
+            string[] datas = selenium.GetSelectOptions("id=MappingItems_0__DataPath");
+            foreach (string data in datas)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_0__DataPath"))).SelectByText(data);
+                if (data == "Name")
+                {
+                    break;
+                }
+            }
+            string[] trims = selenium.GetSelectOptions("id=MappingItems_0__TransformationId");
+            foreach (string trim in trims)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_0__TransformationId"))).SelectByText(trim);
+                if (trim == "Content Trim")
+                {
+                    break;
+                }
+            }
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
             Thread.Sleep(3000);
             driver.FindElement(By.Id("MappingItems_1__Selector")).Clear();
             driver.FindElement(By.Id("MappingItems_1__Selector")).SendKeys("#contentTab1,#contentTab2");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_1__DataPath"))).SelectByText("Description");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_1__TransformationId"))).SelectByText("Content Trim");
+
+            string[] desc = selenium.GetSelectOptions("id=MappingItems_1__DataPath");
+            foreach (string des in desc)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_1__DataPath"))).SelectByText(des);
+                if (des == "Description")
+                {
+                    break;
+                }
+            }
+            string[] cons = selenium.GetSelectOptions("id=MappingItems_1__TransformationId");
+            foreach (string con in cons)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_1__TransformationId"))).SelectByText(con);
+                if (con == "Content Trim")
+                {
+                    break;
+                }
+            }
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
             Thread.Sleep(3000);
             driver.FindElement(By.Id("MappingItems_2__Selector")).Clear();
             driver.FindElement(By.Id("MappingItems_2__Selector")).SendKeys(".MagicZoomPlus");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_2__DataPath"))).SelectByText("MainImage");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_2__TransformationId"))).SelectByText("Content Trim");
+            string[] images = selenium.GetSelectOptions("id=MappingItems_2__DataPath");
+            foreach(string image in images)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_2__DataPath"))).SelectByText(image);
+                if(image == "MainImage")
+                {
+                    break;
+                }
+            }
+            string[] contrims = selenium.GetSelectOptions("id=MappingItems_2__TransformationId");
+            foreach (string contrim in contrims)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_2__TransformationId"))).SelectByText(contrim);
+                if (contrim == "Content Trim")
+                {
+                    break;
+                }
+            }
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
             Thread.Sleep(3000);
+          
             driver.FindElement(By.Id("MappingItems_3__Selector")).Clear();
             driver.FindElement(By.Id("MappingItems_3__Selector")).SendKeys("[retail_price_prompt]:first");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_3__DataPath"))).SelectByText("Price");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_3__TransformationId"))).SelectByText("Tickle Price");
+            string[] prices = selenium.GetSelectOptions("id=MappingItems_3__DataPath");
+            foreach (string price in prices)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_3__DataPath"))).SelectByText(price);
+                if (price == "Price")
+                {
+                    break;
+                }
+            }
+            string[] tickepr = selenium.GetSelectOptions("id=MappingItems_3__TransformationId");
+            foreach (string tick in tickepr)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_3__TransformationId"))).SelectByText(tick);
+                if (tick == "Tickle Price")
+                {
+                    break;
+                }
+            }
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
             Thread.Sleep(3000);
@@ -59,18 +132,54 @@ namespace MoBankUI
             driver.FindElement(By.Id("MappingItems_4__Selector")).SendKeys("[PROD_REF]:first");
             driver.FindElement(By.Id("MappingItems_4__Attribute")).Clear();
             driver.FindElement(By.Id("MappingItems_4__Attribute")).SendKeys("PROD_REF");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_4__DataPath"))).SelectByText("Code");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_4__TransformationId"))).SelectByText("Trim");
+            string[] codes = selenium.GetSelectOptions("id=MappingItems_4__DataPath");
+            foreach (string code in codes)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_4__DataPath"))).SelectByText(code);
+                if (code == "Code")
+                {
+                    break;
+                }
+            }
+            string[] trimes = selenium.GetSelectOptions("id=MappingItems_4__TransformationId");
+            foreach (string trimm in trimes)
+            {
+
+                new SelectElement(driver.FindElement(By.Id("MappingItems_4__TransformationId"))).SelectByText(trimm);
+                if (trimm == "Trim")
+                {
+                    break;
+                }
+            }
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
             Thread.Sleep(3000);
             driver.FindElement(By.Id("MappingItems_5__Selector")).Clear();
             driver.FindElement(By.Id("MappingItems_5__Selector")).SendKeys(".itemAddtional strong:has([retail_price_prompt]):prev()");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_5__DataPath"))).SelectByText("PriceOriginal");
-            new SelectElement(driver.FindElement(By.Id("MappingItems_5__TransformationId"))).SelectByText("Price");
+            string[] priceorg = selenium.GetSelectOptions("id=MappingItems_5__DataPath");
+            foreach (string proceorigi in priceorg)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_5__DataPath"))).SelectByText(proceorigi);
+                if (proceorigi == "PriceOriginal")
+                {
+                    break;
+                }
+            }
+            string[] pp = selenium.GetSelectOptions("id=MappingItems_5__TransformationId");
+            foreach (string pr in pp)
+            {
+                new SelectElement(driver.FindElement(By.Id("MappingItems_5__TransformationId"))).SelectByText(pr);
+                if (pr == "Price")
+                {
+                    break;
+                }
+            }
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
             Thread.Sleep(3000);
+
+
+
             string attribute = driver.FindElement(By.Id("Selector")).GetAttribute("Value");
             string actual = driver.FindElement(By.Id("Identifier")).GetAttribute("Value");
             string str3 = driver.FindElement(By.Id("IdentifierTransformationPattern")).GetAttribute("Value");
@@ -81,6 +190,7 @@ namespace MoBankUI
             string str8 = driver.FindElement(By.Id("MappingItems_3__Selector")).GetAttribute("Value");
             string str9 = driver.FindElement(By.Id("MappingItems_4__Selector")).GetAttribute("Value");
             string str10 = driver.FindElement(By.Id("MappingItems_5__Selector")).GetAttribute("Value");
+
             if (attribute == "div[class^='singleproduct']>a")
             {
                 datarow.newrow("Product selector", "div[class^='singleproduct']>a", attribute, "PASS", driver, selenium);

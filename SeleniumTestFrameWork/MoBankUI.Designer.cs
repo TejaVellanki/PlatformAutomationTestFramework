@@ -179,7 +179,7 @@
             "General User Journey"});
             this.checkedListBox4.Location = new System.Drawing.Point(454, 80);
             this.checkedListBox4.Name = "checkedListBox4";
-            this.checkedListBox4.Size = new System.Drawing.Size(239, 94);
+            this.checkedListBox4.Size = new System.Drawing.Size(239, 79);
             this.checkedListBox4.TabIndex = 10;
             this.checkedListBox4.SelectedIndexChanged += new System.EventHandler(this.checkedListBox4_SelectedIndexChanged);
             // 
@@ -238,7 +238,7 @@
             this.Controls.Add(this.checkBox12);
             this.Controls.Add(this.checkBox11);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Selenium Test Framework";
             this.ResumeLayout(false);
             this.PerformLayout();
 

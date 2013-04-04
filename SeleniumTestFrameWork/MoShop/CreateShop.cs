@@ -12,9 +12,7 @@ using OpenQA.Selenium.Support.UI;
 namespace MoBankUI
 {
     class createShop
-
     {
-
         public void Testshop(IWebDriver driver,ISelenium selenium,datarow datarow)
         {
            
