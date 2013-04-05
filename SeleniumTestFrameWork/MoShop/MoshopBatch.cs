@@ -36,7 +36,9 @@ namespace MoBankUI
                              break;
 
                         case "Run Manual Scrape":
-                            datarow.newrow("", "", "Run Manual Scrape", "", driver, selenium);                         
+                            datarow.newrow("", "", "Run Manual Scrape", "", driver, selenium);
+                            RunScrape run = new RunScrape();
+                            run.runscrape(driver, selenium, datarow);
                             num++;
                             break;
 
