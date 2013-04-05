@@ -54,9 +54,8 @@ namespace MoBankUI
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.CssSelector("#IndexMenuLeaf13 > span.ui-tree-expander")).Click();
                 selenium.WaitForPageToLoad("30000");
-                driver.FindElement(By.CssSelector("#IndexMenuLeaf3 > a")).Click();
+                driver.FindElement(By.LinkText("Scrapes")).Click();
                 selenium.WaitForPageToLoad("30000");
-                driver.FindElement(By.XPath("//div[@id='IndexMenu']/ul/li/ul/li/a")).Click();
                 string str3 = driver.Title.ToString();
 
 
@@ -100,6 +99,7 @@ namespace MoBankUI
                 driver.FindElement(By.LinkText("MoShop")).Click();
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.XPath("(//a[contains(text(),'Transformations')])[2]")).Click();
+                selenium.WaitForPageToLoad("30000");
                 string str6 = driver.Title.ToString();
                 if (str6 == "Transformations : mobank.co.uk/MoShop")
                 {
@@ -113,6 +113,7 @@ namespace MoBankUI
                 driver.FindElement(By.LinkText("MoShop")).Click();
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.XPath("(//a[contains(text(),'Global Settings')])[2]")).Click();
+                selenium.WaitForPageToLoad("300000");
                 string str7 = driver.Title.ToString();
                 if (str7 == "mobank.co.uk/MoShop")
                 {

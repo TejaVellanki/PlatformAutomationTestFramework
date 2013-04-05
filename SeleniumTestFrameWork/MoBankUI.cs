@@ -165,8 +165,9 @@
                 MoshopBatch batch = new MoshopBatch();
                 batch.batchmoshop(driver, selenium, datarow, items);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                string e = ex.ToString();
             }
         }
         public void mositemodro()

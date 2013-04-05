@@ -16,9 +16,7 @@ namespace MoBankUI
         public void runscrape(IWebDriver driver, ISelenium selenium,datarow datarow)
         {
             try
-            {
-                selenium.Open("https://qaadmin.mobankdev.com/SiteScrape/Scrapes/Update/123");
-                selenium.WaitForPageToLoad("30000");
+            {              
 
                 driver.FindElement(By.LinkText("Execute")).Click();
                 selenium.WaitForPageToLoad("30000");
@@ -31,7 +29,7 @@ namespace MoBankUI
                 string tilte1 = driver.Title.ToString();
                 scarperead(driver, selenium, datarow, tilte1);
 
-                #region  Awaiting
+                #region  Running
                 if (selenium.IsElementPresent("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]"))
                 {
                     for (int i = 0; ; i++)

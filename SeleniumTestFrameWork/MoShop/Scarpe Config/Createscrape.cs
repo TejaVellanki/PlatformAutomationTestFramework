@@ -11,10 +11,8 @@ namespace MoBankUI
     {
         public void createscrape(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
-            driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
-            Thread.Sleep(0x1388);
-            driver.FindElement(By.LinkText("Manage")).Click();
-            selenium.WaitForPageToLoad("30000");
+            driver.FindElement(By.LinkText("MoShop")).Click();
+            selenium.WaitForPageToLoad("30000"); 
             string actual = driver.Title.ToString();
             if (actual == "mobank.co.uk/MoShop")
             {

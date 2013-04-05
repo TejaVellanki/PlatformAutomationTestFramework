@@ -10,53 +10,66 @@ namespace MoBankUI
         public void batchmoshop(IWebDriver driver, ISelenium selenium, datarow datarow,string items)
         {
             Screenshot screenshot = new Screenshot();
-            MoShopConsole moshop = new MoShopConsole();
-            moshop.Homepagetabs(driver, selenium, datarow);
+            try
+            {
+                
+                MoShopConsole moshop = new MoShopConsole();
+                moshop.Homepagetabs(driver, selenium, datarow);
+            }
+            catch (Exception ex)
+            {
+            }
 
             string[] strArray = items.Split(new char[] { ',' });
             int num = 0;
+            try
+            {
             foreach (var str in strArray)
             {
-                try
-                {
-                    switch (str)
+               
+                    if(str!=null)
                     {
-                        case "Create a Test Shop":
+                     
+                        if(str== "Create a Test Shop")
+                        {
                             datarow.newrow("", "", "Create a Test Shop", "", driver, selenium);
-                            createShop testshop = new createShop();                                                   
-                            new LookandFeel().lookandfeel(driver, selenium, datarow);                
-                            num++;
-                            break;
-
-                        case "Create a Test Scrape":
-                            datarow.newrow("", "", "Create a Test Scarpe", "", driver, selenium);                   
+                            createShop testshop = new createShop();
+                           testshop.Testshop(driver, selenium, datarow);                 
+                            new LookandFeel().lookandfeel(driver, selenium, datarow);      
+                        }
+                         if(str =="Create a Test Scrape")
+                        {
+                             datarow.newrow("", "", "Create a Test Scarpe", "", driver, selenium);                
               
-                             new Createscrape().createscrape(driver, selenium, datarow);             
-                             num++;
-                             break;
+                           new Createscrape().createscrape(driver, selenium, datarow);        
+                        }                    
+                                                                               
+                         
 
-                        case "Run Manual Scrape":
+                      if(str== "Run Manual Scrape")
+                        {
                             datarow.newrow("", "", "Run Manual Scrape", "", driver, selenium);
-                            RunScrape run = new RunScrape();
-                            run.runscrape(driver, selenium, datarow);
-                            num++;
-                            break;
+                           RunScrape run = new RunScrape();
+                           run.runscrape(driver, selenium, datarow);
+                        }
+                          
 
-                        case "Validate Localisation feature":
+                     if(str== "Validate Localisation feature")
+                     {
                             datarow.newrow("", "", "Validate Localisation Feature", "", driver, selenium);
-                            num++;
-                            break;
-
-                        case "Validate Custom Domain Name Feature":
-                            datarow.newrow("", "", "Validate Custom domain Name", "", driver, selenium);                          
-                            num++;
-                            break;
-
+                     }
+                     if (str == "Validate Custom Domain Name Feature")
+                     {
+                         datarow.newrow("", "", "Validate Custom domain Name", "", driver, selenium);
+                     }
+                                          
                     
-                    }
+                  }
                 }
                 
-                catch (Exception exception)
+              
+            }
+              catch (Exception exception)
                 {
                     string str2 = exception.ToString();
                     datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver, selenium);
@@ -68,7 +81,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver, selenium);
                     driver.Quit();
                 }
-            }
+            
         }
     }
 }

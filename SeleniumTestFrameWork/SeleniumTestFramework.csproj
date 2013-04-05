@@ -87,7 +87,7 @@
     <Compile Include="MoShop\Scarpe Config\CategoryScrape.cs" />
     <Compile Include="General Library\ChartForm.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\Checkout.cs" />
-    <Compile Include="MoShop\Shop Config\Checkout\Confirm.cs" />
+    <Compile Include="MoShop\Shop Config\Checkout\Confirm\Confirm.cs" />
     <Compile Include="General Library\ConverttoHTML.cs" />
     <Compile Include="MoShop\Shop Config\CreateAccount.cs" />
     <Compile Include="MoShop\Scarpe Config\Createscrape.cs" />
@@ -95,7 +95,7 @@
     <Compile Include="TPS\datarow_TPS.cs" />
     <Compile Include="MoSite\Basket\Deletebasketstart.cs" />
     <Compile Include="TPS\DeleteBasket_TPS.cs" />
-    <Compile Include="MoSite\Delivery.cs" />
+    <Compile Include="MoShop\Shop Config\Checkout\Delivery\Delivery.cs" />
     <Compile Include="TPS\Footer_TPS.cs" />
     <Compile Include="MoBankUI.cs">
       <SubType>Form</SubType>
