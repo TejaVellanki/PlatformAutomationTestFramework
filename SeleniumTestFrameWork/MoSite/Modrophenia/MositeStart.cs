@@ -7,7 +7,8 @@ namespace MoBankUI
     
     internal class MositeStart
     {
-        private MoBankUI.datarow datarow = new MoBankUI.datarow();
+        
+        datarow datarow = new datarow();
         private GeneralLibrary generalLibrary;
         
         public void Mositestart(IWebDriver driver, ISelenium selenium)
@@ -16,11 +17,11 @@ namespace MoBankUI
             try
             {
                 this.datarow.col();
-                new Modrophenialive().modrophenialiveproducts(selenium, driver);
+              //  new Modrophenialive().modrophenialiveproducts(selenium, driver);
                 new products().product(this.datarow, driver, selenium);
-                new UserJourney().UserJourn(this.datarow, driver, selenium);
-                new UserData().Userdata(this.datarow, driver, selenium);
-                new Mopaysite().MoPay(driver, selenium, this.datarow);
+               // new UserJourney().UserJourn(this.datarow, driver, selenium);
+               // new UserData().Userdata(this.datarow, driver, selenium);
+               // new Mopaysite().MoPay(driver, selenium, this.datarow);
             }
             catch (Exception exception)
             {

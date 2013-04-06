@@ -107,7 +107,7 @@ namespace MoBankUI
                 if (appendDateField)
                 {
 
-                    string randomNumber = GenerateRandomNumberTPS();
+                    string randomNumber = GenerateRandomNumber();
 
                     fileName = fileName + "-" + randomNumber;
 
@@ -171,7 +171,7 @@ namespace MoBankUI
         #endregion
 
         #region GenerateRandomNumber
-        public string GenerateRandomNumberTPS()
+        public string GenerateRandomNumber()
         {
 
             string randomNumber = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture) + "-" +
@@ -203,7 +203,7 @@ namespace MoBankUI
 
 
 
-        public void SaveAndCloseExcelTPS(_Workbook workbook)
+        public void SaveAndCloseExcel(_Workbook workbook)
         {
 
             for (int sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
@@ -262,7 +262,7 @@ namespace MoBankUI
 
         /// <param name="statusFlag"></param>
 
-        public string ConsolidatedXmlExportToExcelTPS(System.Data.DataTable dt, _Worksheet ws, bool nextRow, bool isCompare, bool isPolicyWiseSummary)
+        public string ConsolidatedXmlExportToExcel(System.Data.DataTable dt, _Worksheet ws, bool nextRow, bool isCompare, bool isPolicyWiseSummary)
         {
 
             // Copy the DataTable to an object array
@@ -489,44 +489,49 @@ namespace MoBankUI
 
             int j = 2;
 
-            for (int i = 0; i < dt.Rows.Count; i++)
+            try
             {
-                ((Range)ws.Rows[1, Type.Missing]).Font.Bold = true;
-                ((Range)ws.Rows[1, Type.Missing]).Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray);
-                ((Range)ws.Rows[1, Type.Missing]).Interior.Color = System.Drawing.Color.Blue;
 
-                ((Range)ws.Rows[j, Type.Missing]).Borders.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Black);
-                ((Range)ws.Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray);
-                string text = dt.Rows[i]["Total Number Of Test Cases Passed/Failed"].ToString();
-                string value = dt.Rows[i]["PASS or FAIL"].ToString();
-                if (value == "PASS")
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ((Range)ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
-                    ((Range)ws.Columns[2, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
-                    ((Range)ws.Columns[3, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
-                    ((Range)ws.Columns[4, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
-                }
-                if (value == "FAIL")
-                {
+                    ((Range)ws.Rows[1, Type.Missing]).Font.Bold = true;
+                    ((Range)ws.Rows[1, Type.Missing]).Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray);
+                    ((Range)ws.Rows[1, Type.Missing]).Interior.Color = System.Drawing.Color.Blue;
 
-                    ((Range)ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
-                    ((Range)ws.Columns[2, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
-                    ((Range)ws.Columns[3, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
-                    ((Range)ws.Columns[4, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
-                }
-                j++;
-                if (text.Contains("Passed"))
-                {
-                    ((Range)ws.Columns[5, Type.Missing]).Rows[2, Type.Missing].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Green);
-                }
-                if (text.Contains("Failed"))
-                {
-                    ((Range)ws.Columns[5, Type.Missing]).Rows[3, Type.Missing].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
-                }
+                    ((Range)ws.Rows[j, Type.Missing]).Borders.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Black);
+                    ((Range)ws.Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray);
+                    string text = dt.Rows[i]["Total Number Of Test Cases Passed/Failed"].ToString();
+                    string value = dt.Rows[i]["PASS or FAIL"].ToString();
+                    if (value == "PASS")
+                    {
+                        ((Range)ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
+                        ((Range)ws.Columns[2, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
+                        ((Range)ws.Columns[3, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
+                        ((Range)ws.Columns[4, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
+                    }
+                    if (value == "FAIL")
+                    {
 
+                        ((Range)ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                        ((Range)ws.Columns[2, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                        ((Range)ws.Columns[3, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                        ((Range)ws.Columns[4, Type.Missing].Rows[j, Type.Missing]).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                    }
+                    j++;
+                    //   if (text.Contains("Passed"))
+                    // {
+                    //     ((Range)ws.Columns[5, Type.Missing]).Rows[2, Type.Missing].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Green);
+                    //  }
+                    //   if (text.Contains("Failed"))
+                    //   {
+                    //       ((Range)ws.Columns[5, Type.Missing]).Rows[3, Type.Missing].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                    //   }
+
+                }
             }
-
-
+            catch (Exception ex)
+            {
+            }
             return finalColLetter + "," + intRowNum;
 
 

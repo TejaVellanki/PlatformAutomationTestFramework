@@ -33,7 +33,7 @@ namespace MoBankUI
                     Thread.Sleep(0x1388);
                 }
                 decimal xpathCount = selenium.GetXpathCount("//div[@id='content']/div/div");
-                for (int i = 1; i <= (xpathCount - 2M); i++)
+                for (int i = 1; i <= xpathCount-2; i++)
                 {
                     string str3;
                     string str4;
@@ -47,6 +47,7 @@ namespace MoBankUI
                             i++;
                             break;
                     }
+                    //div[@id='content']/div/div[3]/div/a/img 
                     selenium.Click("//div[@id='content']/div/div[" + i + "]/div/a/img");
                     selenium.WaitForPageToLoad("30000");
                     string text = selenium.GetText("css=span.isPrice");
@@ -163,8 +164,9 @@ namespace MoBankUI
                 selenium.Click("link=New Arrivals");
                 selenium.WaitForPageToLoad("30000");
                 this.loop(driver, selenium, dt);
-                //this.generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
-               // this.generalLibrary.SaveAndCloseExcel(workbook);
+                System.Data.DataTable ddd = dt;
+                this.generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
+                this.generalLibrary.SaveAndCloseExcel(workbook);
             }
             catch (Exception exception)
             {

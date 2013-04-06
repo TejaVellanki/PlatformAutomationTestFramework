@@ -126,10 +126,13 @@ namespace MoBankUI
                     if (selenium.IsElementPresent("id=Variants_0__OptionValue"))
                     {
                         try
-                        {
-                            if (selenium.GetXpathCount("//html/body/div/div[2]/div/div[4]/form/ul/li[2]/fieldset/div[2]/div/label/span") != 1M)
+                        {                               
+                            if (selenium.GetXpathCount("//html/body/div/div[2]/div/div[3]/form/ul/li[2]/fieldset/div[2]/div/label/span") != 1)
                             {
-                                string[] selectOptions = selenium.GetSelectOptions("id=Variants_0__OptionValue");
+                                try
+                                {
+                                    string[] selectOptions = selenium.GetSelectOptions("id=Variants_0__OptionValue");
+                               
                                 str5 = null;
                                 foreach (string str6 in selectOptions)
                                 {
@@ -140,6 +143,10 @@ namespace MoBankUI
                                     }
                                 }
                                 row[4] = str5;
+                                }
+                                catch (Exception ex)
+                                {
+                                }
                             }
                             else
                             {
@@ -201,7 +208,8 @@ namespace MoBankUI
                 //flag = true;
                 goto Label_0099;
             Label_0451:
-                this.comparedatarow(driver, selenium, datarow, dt);
+                this.comparedatarow(driver, selenium, datarow, dt);            
+              
             }
             catch (Exception exception3)
             {

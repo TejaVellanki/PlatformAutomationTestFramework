@@ -108,8 +108,8 @@ namespace MoBankUI
                 generalLibrary = new GeneralLibrary();
                 Workbook wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report", ".xlsx", false, true);
                 Worksheet ws = wb.Sheets[1];
-                generalLibrary.ConsolidatedXmlExportToExcelTPS(dt, ws, true, false, false);
-                generalLibrary.SaveAndCloseExcelTPS(wb);
+                generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
+                generalLibrary.SaveAndCloseExcel(wb);
                 GenerateEmail ghdg = new GenerateEmail();
                 ghdg.SendEMail(ReportName,email);
                 clonetable = dt.Copy();
@@ -214,8 +214,8 @@ namespace MoBankUI
 
                 Workbook wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report", ".xlsx", false, true);
                 Worksheet ws = wb.Sheets[1];
-                generalLibrary.ConsolidatedXmlExportToExcelTPS(mergeTable, ws, true, false, false);
-                generalLibrary.SaveAndCloseExcelTPS(wb);
+                generalLibrary.ConsolidatedXmlExportToExcel(mergeTable, ws, true, false, false);
+                generalLibrary.SaveAndCloseExcel(wb);
                 GenerateEmail ghdg = new GenerateEmail();
                 ghdg.SendEMail(ReportName, emails);
                 
