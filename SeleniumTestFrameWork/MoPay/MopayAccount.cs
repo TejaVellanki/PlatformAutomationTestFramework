@@ -92,11 +92,11 @@ namespace MoBankUI
             {
                 string str9 = exception.ToString();
                 datarow.newrow("Exception", "Not Expected", str9, "FAIL", driver, selenium);
-                datarow.excelsave("MoPay Account Creation", driver, selenium);
+                datarow.excelsave("MoPay Account Creation", driver, selenium, "teja.vellanki@mobankgroup.com");
             }
             finally
             {
-                datarow.excelsave("MoPay Account Creation", driver, selenium);
+                datarow.excelsave("MoPay Account Creation", driver, selenium, "teja.vellanki@mobankgroup.com");
             }
         }
     }

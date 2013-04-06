@@ -228,7 +228,7 @@ namespace MoBankUI
             finally
             {
                 this.screenshot.screenshotfailed(driver, selenium);
-                datarow.excelsave("MopayConsole", driver, selenium);
+                datarow.excelsave("MopayConsole", driver, selenium, "teja.vellanki@mobankgroup.com");
                 driver.Quit();
             }
         }

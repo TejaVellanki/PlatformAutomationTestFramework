@@ -8,11 +8,11 @@ namespace MoBankUI
     
     internal class Tickle
     {
-        public void HomepageTabsTickle(string OurStory, string refud, string paymentaccepted, datarow datarow, IWebDriver driver, ISelenium selenium)
+        public void HomepageTabsTickle(datarow datarow, IWebDriver driver, ISelenium selenium,string url)
         {
             try
             {
-                driver.Navigate().GoToUrl("http://qatheticklecompany.mobankdev.com/");
+                driver.Navigate().GoToUrl(url);
                 selenium.WaitForPageToLoad("30000");
                 Thread.Sleep(0xbb8);
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));

@@ -346,7 +346,7 @@ namespace MoBankUI
             {
                 string emails = null;
                 new MoBankUI.Screenshot().screenshotnotifications(driver, selenium);
-                this.datarow.excelsave("MoPayReport", driver, selenium);
+                this.datarow.excelsave("MoPayReport", driver, selenium, "teja.vellanki@mobankgroup.com");
                 new GenerateEmail().SendEMail("MoPayReport", emails);
                 driver.Quit();
             }

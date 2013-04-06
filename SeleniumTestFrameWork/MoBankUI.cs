@@ -37,7 +37,7 @@
                 bool MoPayAccount  = this.checkBox17.Checked;
                 bool MoSite= this.checkBox12.Checked;
                 bool Firefox= this.checkBox14.Checked;
-                bool Mosite_TPS= this.checkBox13.Checked;
+                bool mositetps= this.checkBox13.Checked;
               
 
                 if (mopaytestharness)
@@ -60,36 +60,42 @@
                 {
                     this.mositemodro();
                 }
-                #region TPS
-                if (Mosite_TPS)
+                #region MositeTPS
+                if (mositetps == true)
                 {
-                    if (this.textBox3.Text != null)
+                    if (textBox3.Text != "Please Enter Mosite URL's Seperated By Comma(,)")
                     {
-                        datarow_TPS datarowTPS = new datarow_TPS();
-                        datarowTPS.colTPS();
-                        string text = this.textBox3.Text;
-                        if (text != "")
+                        datarow datarow = new datarow();
+                        datarow.col();
+                        string urls = textBox3.Text;
+                        if (urls != "")
                         {
-                            string[] strArray = text.Split(new char[] { ',' });
-                            foreach (string str2 in strArray)
+                            //Seperating the URL's. 
+                            string[] url = urls.Split(',');
+                            foreach (string oneurl in url)
                             {
-                                datarowTPS.dataflush();
-                                this.mositetp(str2, datarowTPS);
+                                datarow.dataflush();
+                                mositetp(oneurl, datarow, selenium);
+
                             }
                         }
                         else
                         {
                             MessageBox.Show("Please Enter Atleast One Merchant URL To Test in Text Field");
                         }
-                        string emails = this.textBox4.Text;
-                        datarowTPS.consolidatedreport(emails);
+                        string emails = textBox4.Text;
+
                     }
+
                     else
                     {
                         MessageBox.Show("Please Enter Atleast One Merchant URL To Test in Text Field");
                     }
+
+
                 }
-                #endregion
+                #endregion             
+
             }
             catch (Exception exception)
             {
@@ -98,7 +104,77 @@
 
         }
 
+     
+
         #region Firefox
+
+        public void mositetp(string url, datarow datarow, ISelenium selenium)
+        {
+            try
+            {
+                string item = null;
+                foreach (var items in checkedListBox3.CheckedItems)
+                {
+                    item = item + "," + items;
+                }
+                if (item == null)
+                {
+                    MessageBox.Show("Please Select Atleast One Functionality To Test From Options Available");
+                }
+                else
+                {
+                    try
+                    {
+                        // Initialising the firefox driver                    
+
+                        IWebDriver driver = new FirefoxDriver();
+                        // An Static url should be given for the browser to launch. 
+                        selenium = new WebDriverBackedSelenium(driver, url);
+                        selenium.Start();
+                        driver.Navigate().GoToUrl(url);
+                        selenium.WaitForPageToLoad("30000");
+                        FirefoxProfile prof = new FirefoxProfile();
+                        //changing the User agent to Iphone 4.
+                        prof.SetPreference("general.useragent.override", "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7");
+                        driver = new FirefoxDriver(prof);
+                        selenium = new WebDriverBackedSelenium(driver, url);
+                        selenium.Start();
+                        driver.Navigate().GoToUrl(url);
+                        selenium.WaitForPageToLoad("30000");
+                        Thread.Sleep(2000);
+
+                        string mobileurl = selenium.GetLocation();
+                        if (mobileurl == url)
+                        {
+                            datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl, "FAIL", driver, selenium);
+                        }
+                        else
+                        {
+                            datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl, "PASS", driver, selenium);
+                        }
+
+                        BatchTesting testing = new BatchTesting();
+                        testing.batchtesting(item, url, driver, selenium, datarow);
+                        string emails = textBox2.Text;
+                        MositeGeneral site = new MositeGeneral();
+                        site.Finally(driver, selenium, url, datarow, emails);
+                    }
+                    catch (Exception ex)
+                    {
+                        string e = ex.ToString();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                string u = ex.ToString();
+                MessageBox.Show(u);
+            }
+
+
+        }
 
         public void mopayaccountcreation()
         {
@@ -364,36 +440,7 @@
             catch (Exception)
             {
             }
-        }                
-
-        public void mositetp(string url, datarow_TPS datarowTPS)
-        {
-            try
-            {
-                string items = null;
-                foreach (object obj2 in this.checkedListBox1.CheckedItems)
-                {
-                    items = items + "," + obj2;
-                }
-                if (items == null)
-                {
-                    MessageBox.Show("Please Select Atleast One Functionality To Test From Options Available");
-                }
-                else
-                {
-                    IWebDriver driver = new FirefoxDriver();
-                    this.selenium = new WebDriverBackedSelenium(driver, "https://qaadmin.mobankdev.com/");
-                    this.selenium.Start();
-                    this.selenium.WindowMaximize();
-                    new BatchTesting().batchtesting(items, url, driver, this.selenium, datarowTPS);
-                    new MositeGeneral().Mosite(driver, this.selenium, url, datarowTPS);
-                }
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.ToString());
-            }
-        }
+        }                       
 
         #region UI 
         private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)

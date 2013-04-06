@@ -77,7 +77,7 @@ namespace MoBankUI
                 }
                 finally
                 {
-                    datarow.excelsave("MoshopConsole", driver, selenium);
+                    datarow.excelsave("MoshopConsole", driver, selenium, "teja.vellanki@mobankgroup.com");
                     screenshot.screenshotfailed(driver, selenium);
                     driver.Quit();
                 }

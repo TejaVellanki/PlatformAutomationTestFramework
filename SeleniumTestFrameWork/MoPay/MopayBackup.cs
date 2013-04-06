@@ -305,7 +305,7 @@ namespace MoBankUI
             finally
             {
                 new MoBankUI.Screenshot().screenshotnotifications(driver, selenium);
-                this.datarow.excelsave("MoPayReport", driver, selenium);
+                this.datarow.excelsave("MoPayReport", driver, selenium, "teja.vellanki@mobankgroup.com");
                 driver.Quit();
             }
         }

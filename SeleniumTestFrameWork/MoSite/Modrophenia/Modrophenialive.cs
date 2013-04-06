@@ -163,8 +163,8 @@ namespace MoBankUI
                 selenium.Click("link=New Arrivals");
                 selenium.WaitForPageToLoad("30000");
                 this.loop(driver, selenium, dt);
-                this.generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
-                this.generalLibrary.SaveAndCloseExcel(workbook);
+                //this.generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
+               // this.generalLibrary.SaveAndCloseExcel(workbook);
             }
             catch (Exception exception)
             {
