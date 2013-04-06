@@ -140,7 +140,7 @@ namespace MoBankUI
                         Assert.AreEqual("Secure Payment Page", driver.Title);
                         selenium.Type("//*[@id='Card_Number']", str15);
                         selenium.Type("//*[@id='Card_SecurityCode']", str16);
-                        selenium.Select("id=Card_Type", "label=Visa");
+                        selenium.Select("id=Card_Type", "label=Visa Debit");
                         selenium.Select("id=Card_ExpiryDate_Month", optionLocator);
                         selenium.Select("id=Card_ExpiryDate_Year", str20);
                         selenium.Type("//div[@id='Card.NameControl']/input", str18);

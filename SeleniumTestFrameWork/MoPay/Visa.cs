@@ -5,9 +5,9 @@ namespace MoBankUI
     using Selenium;
     using System;
     
-    internal class Visa
+    internal class VisaDebit
     {
-        public void visa(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void Visadebit(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             string attribute = driver.FindElement(By.Id("NumberPattern")).GetAttribute("value");
             if (attribute == "^4")

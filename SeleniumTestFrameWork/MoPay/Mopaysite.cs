@@ -58,7 +58,7 @@ namespace MoBankUI
                     string str15 = table.Rows[i]["Post Code"].ToString();
                     string str16 = table.Rows[i]["County"].ToString();
                     string str17 = table.Rows[i]["Country"].ToString();
-                    new SelectElement(driver.FindElement(By.Id("Card_Type"))).SelectByText("Visa");
+                    new SelectElement(driver.FindElement(By.Id("Card_Type"))).SelectByText("Visa Debit");
                     driver.FindElement(By.Id("Card_Number")).Clear();
                     driver.FindElement(By.Id("Card_Number")).SendKeys(str5);
                     driver.FindElement(By.Id("Card_SecurityCode")).Clear();
@@ -145,7 +145,7 @@ namespace MoBankUI
                     }
                     else
                     {
-                        datarow.newrow("Card Type", "VISA", "VISA", "PASS", driver, selenium);
+                        datarow.newrow("Card Type", "Visa Debit", "Visa Debit", "PASS", driver, selenium);
                     }
                     Regex regex = new Regex("^[0-9]{3}$");
                     if (regex.IsMatch(str6))

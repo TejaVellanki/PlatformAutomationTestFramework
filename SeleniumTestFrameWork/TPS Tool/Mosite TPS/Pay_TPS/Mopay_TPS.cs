@@ -214,8 +214,8 @@ namespace MoBankUI
                     string County = personaldata.Rows[icount]["County"].ToString();
                     string Country = personaldata.Rows[icount]["Country"].ToString();
                     #endregion
-                   
-                    new SelectElement(driver.FindElement(By.Id("Card_Type"))).SelectByText("Visa");
+
+                    new SelectElement(driver.FindElement(By.Id("Card_Type"))).SelectByText("Visa Debit");
                     driver.FindElement(By.Id("Card_Number")).Clear();
                     driver.FindElement(By.Id("Card_Number")).SendKeys(CardNumber);                 
                     driver.FindElement(By.Id("Card_SecurityCode")).Clear();
@@ -317,7 +317,7 @@ namespace MoBankUI
                     }
                     else
                     {
-                        datarow.newrow("Card Type", "VISA", "VISA", "PASS", driver, selenium);
+                        datarow.newrow("Card Type", "Visa Debit", "Visa Debit", "PASS", driver, selenium);
 
                     }
 

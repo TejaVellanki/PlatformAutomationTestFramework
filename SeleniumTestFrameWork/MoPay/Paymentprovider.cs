@@ -72,10 +72,10 @@ namespace MoBankUI
             selenium.Click("//html/body/div/div[2]/div/div/div/form/div[5]/div/div/table/tbody/tr/th[2]/a");
             selenium.WaitForPageToLoad("30000");
             string str11 = driver.FindElement(By.Id("Name")).GetAttribute("value");
-            if (str11 == "Visa")
+            if (str11 == "Visa Debit")
             {
-                datarow.newrow("Card Type -VISA", "VISA", str11, "PASS", driver, selenium);
-                new Visa().visa(driver, selenium, datarow);
+                datarow.newrow("Card Type -Visa Debit", "Visa Debit", str11, "PASS", driver, selenium);
+                new VisaDebit().Visadebit(driver, selenium, datarow);
             }
             selenium.GoBack();
             selenium.WaitForPageToLoad("30000");
