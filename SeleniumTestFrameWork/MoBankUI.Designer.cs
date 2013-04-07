@@ -148,7 +148,8 @@
             "Create a Test Scrape",
             "Run Manual Scrape",
             "Validate Localisation Feature",
-            "Vslidate Custom Domain Name Feature"});
+            "Validate Custom Domain Name Feature",
+            "Run the Test Site"});
             this.checkedListBox2.Location = new System.Drawing.Point(69, 80);
             this.checkedListBox2.Name = "checkedListBox2";
             this.checkedListBox2.Size = new System.Drawing.Size(247, 79);
