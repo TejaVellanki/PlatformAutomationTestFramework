@@ -15,8 +15,7 @@
     {
        
         public WebDriverBackedSelenium selenium;       
-        private CheckedListBox checkedListBox1;    
-       
+        private CheckedListBox checkedListBox1;           
         private TextBox textBox1;
         private TextBox textbox3;
         private TextBox textbox4;
