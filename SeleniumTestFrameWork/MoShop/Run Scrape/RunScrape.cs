@@ -28,45 +28,9 @@ namespace MoBankUI
                 selenium.WaitForPageToLoad("30000");
                 string tilte1 = driver.Title.ToString();
                 scarperead(driver, selenium, datarow, tilte1);
+                scrapeandfeedrunning(driver, selenium, datarow);
 
-                #region  Running
-                if (selenium.IsElementPresent("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]"))
-                {
-                    for (int i = 0; ; i++)
-                    {
-                        try
-                        {
-                            string comp = selenium.GetText("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]");
-                            if (comp.Contains("100%"))
-                            {
-                                datarow.newrow("Scarep status", "", comp, "PASS", driver, selenium);
-                                break;
-                            }
-                            else
-                            {
-                                datarow.newrow("Scarep status", "", comp, "PASS", driver, selenium);
-                                Thread.Sleep(5000);
-                                selenium.Refresh();
-                                selenium.WaitForPageToLoad("30000");
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            datarow.newrow("Scarpe Status", "100%", "100%", "PASS", driver, selenium);
-                            break;
-                        }
-                    }
-                }
-                #endregion
-
-
-                selenium.Click("link=Completed");
-                selenium.WaitForPageToLoad("30000");
-                string completed = selenium.GetText("css=td.markedCell");
-                if (completed.Contains("100%"))
-                {
-                    datarow.newrow("Scrape Job Completed", "", completed, "PASS", driver, selenium);
-                }
+               
             }
             catch (Exception ex)
             {
@@ -119,6 +83,45 @@ namespace MoBankUI
                 }
             }
             
+        }
+        public void scrapeandfeedrunning(IWebDriver driver, ISelenium selenium, datarow datarow)
+        {
+            #region  Running
+            if (selenium.IsElementPresent("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]"))
+            {
+                for (int i = 0; ; i++)
+                {
+                    try
+                    {
+                        string comp = selenium.GetText("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]");
+                        if (comp.Contains("100%"))
+                        {
+                            datarow.newrow("Scarpe status", "", comp, "PASS", driver, selenium);
+                            break;
+                        }
+                        else
+                        {
+                            datarow.newrow("Scarpe/Datafeed status", "", comp, "PASS", driver, selenium);
+                            Thread.Sleep(5000);
+                            selenium.Refresh();
+                            selenium.WaitForPageToLoad("30000");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        datarow.newrow("Scarpe/DataFeed Status", "100%", "100%", "PASS", driver, selenium);
+                        break;
+                    }
+                }
+            }
+            #endregion
+            selenium.Click("link=Completed");
+            selenium.WaitForPageToLoad("30000");
+            string completed = selenium.GetText("css=td.markedCell");
+            if (completed.Contains("100%"))
+            {
+                datarow.newrow("Scrape/DataFeed Job Completed", "", completed, "PASS", driver, selenium);
+            }
         }
     }
 }

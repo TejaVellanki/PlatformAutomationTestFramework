@@ -64,30 +64,36 @@ namespace MoBankUI
                      }
                      if (str == "Run the Test Site")
                      {
+                         
                          datarow.newrow("", "", "Run the Test Site", "", driver, selenium);
                          datarow.newrow("", "", "All Links in Mosite - Validations", "", driver, selenium);
                          links_TPS hom = new links_TPS();
-                         hom.Links(datarow, driver, selenium, "http://test-shop.mobankdev.com/");
+                         hom.Links(datarow, driver, selenium, "testshop.mobankdev.com");
                          datarow.newrow("", "", "Footer Links", "", driver, selenium);
                          Footer_TPS footer = new Footer_TPS();
-                         footer.Footerhome(driver, selenium, "http://test-shop.mobankdev.com/", datarow);
+                         footer.Footerhome(driver, selenium, "testshop.mobankdev.com", datarow);
                          datarow.newrow("", "", "Basket Functionality", "", driver, selenium);
                          Baskets_TPS basket = new Baskets_TPS();
-                         basket.Basket(driver, selenium, datarow,"http://test-shop.mobankdev.com/");
+                         basket.Basket(driver, selenium, datarow, "testshop.mobankdev.com");
                          datarow.newrow("", "", "User Journey", "", driver, selenium);
                          UserJourney_TPS userjour = new UserJourney_TPS();
-                         userjour.UserJourn(datarow, driver, selenium,"http://test-shop.mobankdev.com/");
+                         userjour.UserJourn(datarow, driver, selenium, "testshop.mobankdev.com");
                          datarow.newrow("", "", "Delete From Basket", "", driver, selenium);
                          Deletebasketstart delete = new Deletebasketstart();
                          delete.deletebasstart(driver, selenium, datarow);
                          BatchCheckout ckout = new BatchCheckout();
-                         ckout.checkout(driver, selenium, "http://test-shop.mobankdev.com/", datarow);
+                         ckout.checkout(driver, selenium, "testshop.mobankdev.com", datarow);
                          datarow.newrow("", "", "Registration/Login", "", driver, selenium);
                          LoginRegistration login = new LoginRegistration();
                          login.registration(driver, selenium, datarow);
                          datarow.newrow("", "", "Mopay", "", driver, selenium);
                          BatchPay pay = new BatchPay();
-                         pay.batchpay(driver, selenium, "http://test-shop.mobankdev.com/", datarow);
+                         pay.batchpay(driver, selenium, "testshop.mobankdev.com", datarow);
+                     }
+                     if (str == "DataFeed XML")
+                     {
+                         DatafeedXML datafeed = new DatafeedXML();
+                         datafeed.datafeed(driver, selenium, datarow);
                      }
                                           
                     

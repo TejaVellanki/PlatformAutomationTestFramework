@@ -75,12 +75,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MoShop\CreateShop.cs" />
-    <Compile Include="MoShop\MoshopBatch.cs" />
+    <Compile Include="MoShop\Shop Config\Shop General\CreateTestShop.cs" />
+    <Compile Include="MoShop\Shop Config\Shop General\MoshopBatch.cs" />
     <Compile Include="MoShop\Run Scrape\RunScrape.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\Address Config\Addressconfig.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\Address Config\AddressElements.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\ConfigureCheckout.cs" />
+    <Compile Include="MoShop\Shop Config\Shop Tab\DatafeedXMLcs.cs" />
+    <Compile Include="MoShop\Shop Config\Shop Tab\shop.cs" />
     <Compile Include="MoSite\Other\BatchMosite.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\BatchCheckout.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\Checkout Guest and Register\Guest.cs" />
@@ -109,7 +111,7 @@
     <Compile Include="MoShop\Scarpe Config\CategoryScrape.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\Checkout.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\Confirm\Confirm.cs" />
-    <Compile Include="MoShop\Shop Config\CreateAccount.cs" />
+    <Compile Include="MoShop\Shop Config\Look And Feel\CreateAccount.cs" />
     <Compile Include="MoShop\Scarpe Config\Createscrape.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\Delivery\Delivery.cs" />
     <Compile Include="MoBankUI.cs">
@@ -129,7 +131,7 @@
     <Compile Include="MoPay\MopayConsol.cs" />
     <Compile Include="MoPay\mopayconsoleacctab.cs" />
     <Compile Include="MoPay\Mopaysite.cs" />
-    <Compile Include="MoShop\Shop Config\MoShopConsole.cs" />
+    <Compile Include="MoShop\Shop Config\Shop General\MoShopConsole.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Modrophenia\MositeStart.cs" />
     <Compile Include="MoPay\Notificationtab.cs" />
     <Compile Include="MoPay\Paymentprovider.cs" />
@@ -156,6 +158,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="MoShop\Shop Config\Catalogue XML%27s\test-catalogue-big.zip" />
+    <None Include="MoShop\Shop Config\test-catalogue-big.zip" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -169,7 +173,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="MoShop\Shop Config\Catalogue XML%27s\test-catalogue-small.xml" />
+    <Content Include="MoShop\Shop Config\Images\basket_white.png" />
+    <Content Include="MoShop\Shop Config\Images\ion.ico" />
+    <Content Include="MoShop\Shop Config\Images\ticklelogo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

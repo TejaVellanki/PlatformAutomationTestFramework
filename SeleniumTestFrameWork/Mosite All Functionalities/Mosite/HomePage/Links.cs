@@ -29,6 +29,7 @@ namespace MoBankUI
             {
                 Imagevalidation Image = new Imagevalidation();
                 //Home Page Image validation
+                driver.Navigate().GoToUrl(url);
                 Image.homepageimage(driver, selenium, datarow);
                 decimal linkcount = driver.FindElements(By.XPath("//html/body/div/div[2]/div/ul/li")).Count;
                 if (linkcount == 0)

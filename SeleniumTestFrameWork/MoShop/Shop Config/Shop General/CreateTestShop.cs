@@ -24,7 +24,7 @@ namespace MoBankUI
                 driver.FindElement(By.LinkText("Create")).Click();
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.Id("Name")).Clear();
-                driver.FindElement(By.Id("Name")).SendKeys("Test Shop");
+                driver.FindElement(By.Id("Name")).SendKeys("TestShop");
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("30000");
                 string title = driver.Title;
@@ -36,6 +36,18 @@ namespace MoBankUI
                 {
                     datarow.newrow("Test Shop Title", "Shop : mobank.co.uk/MoShop", title, "FAIL", driver, selenium);
                 }
+
+                if (selenium.IsChecked("id=IsOffLine"))
+                {
+                    datarow.newrow("Shop Offline", "Shop should be offline", "Shop is Offline", "PASS", driver, selenium);
+                    driver.FindElement(By.Id("IsOffLine")).Click();
+                }
+                else
+                {
+                    datarow.newrow("Shop Offline", "Shop should be offline", "Shop is not set to Offline", "FAIL", driver, selenium);
+                }
+                driver.FindElement(By.Id("IsOffLine")).Click();
+                driver.FindElement(By.Id("IsOffLine")).Click();
 
                 driver.FindElement(By.Id("Catalogues_1__Name")).Clear();
                 driver.FindElement(By.Id("Catalogues_1__Name")).SendKeys("Default");

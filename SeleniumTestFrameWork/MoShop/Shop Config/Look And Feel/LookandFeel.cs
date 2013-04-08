@@ -11,6 +11,8 @@ namespace MoBankUI
     {
         public void lookandfeel(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
+            try
+            {
             datarow.newrow("", "", "LOOK AND FEEL TAB", "", driver, selenium);          
             driver.FindElement(By.LinkText("Look & Feel")).Click();
             selenium.WaitForPageToLoad("30000");
@@ -52,7 +54,7 @@ namespace MoBankUI
                 if (attriute == "QA-TestShop")
                 {
                     datarow.newrow("Customiastion Title", "QA-TestShop", attriute, "PASS", driver, selenium);
-                  
+
                     driver.FindElement(By.XPath("(//input[@id='DefaultCustomisationsId'])[2]")).Click();
                     selenium.WaitForPageToLoad("30000");
                     driver.FindElement(By.CssSelector("input.button")).Click();
@@ -90,6 +92,7 @@ namespace MoBankUI
                     driver.FindElement(By.CssSelector("input.button")).Click();
                     selenium.WaitForPageToLoad("30000");
                     Thread.Sleep(0x1388);
+                    #region Validations
                     string str5 = driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement")).GetAttribute("Value");
                     string str6 = driver.FindElement(By.Id("OrderConfirmationOrderNumberText")).GetAttribute("Value");
                     string str7 = driver.FindElement(By.Id("OrderConfirmationSuccessMessage")).GetAttribute("Value");
@@ -135,6 +138,7 @@ namespace MoBankUI
                     {
                         datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9, "FAIL", driver, selenium);
                     }
+                    #endregion
                     new SelectElement(driver.FindElement(By.Id("ExternalLinks_1__ExternalLinkConfigId"))).SelectByText("Facebook");
                     driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).Clear();
                     driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).SendKeys("TheTickleCompany");
@@ -151,12 +155,39 @@ namespace MoBankUI
                     }
                     driver.FindElement(By.CssSelector("input.button")).Click();
                     selenium.WaitForPageToLoad("30000");
-                    new Scheduler().schedule(driver, selenium, datarow);
-                    return;
-                }
-              
+
+                    for (int j = 3; j <= 8; j++)
+                    {
+                        if (selenium.IsElementPresent("css=h3.collapsible.collapsed"))
+                        {
+                            selenium.Click("css=h3.collapsible.collapsed");
+                            selenium.WaitForPageToLoad("30000");
+                        }
+                        //*[@id="customisation-page-update-form"]/div[3]/h3
+                    }
+
+
+                    selenium.Type("id=HomeImage_ImageUpload", "C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images\\ticklelogo.png");                  
+                    selenium.Type("id=HomeImage_ImageUpload","C:\\Users\\teja/Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images/ion.ico");
+                    new SelectElement(driver.FindElement(By.Id("HomeImage_Justification"))).SelectByText("Centre");
+
+                    selenium.Type("id=CustomBasketImage_ImageUpload", "C:\\Users\\teja/Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images\\basket_white.png");
+                   // selenium.Type("id=CustomBasketImage_ImageUpload", "C:\\Users\\teja/Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images\\basket_white.png");
+                    driver.FindElement(By.CssSelector("input.button")).Click();
+                    selenium.WaitForPageToLoad("30000");
+                }            
+
+               
+                    
+                }              
                
             }
+            catch (Exception ex)
+            {
+                string e = ex.ToString();
+                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
+            }
+            new Scheduler().schedule(driver, selenium, datarow);
         }
     }
 }

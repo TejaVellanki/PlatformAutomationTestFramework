@@ -40,7 +40,7 @@ namespace MoBankUI
             driver.FindElement(By.Id("Name")).SendKeys("TestShop-Scrape");
             driver.FindElement(By.CssSelector("p.submit.submitInline > input.button")).Click();
             selenium.WaitForPageToLoad("30000");
-            new SelectElement(driver.FindElement(By.Id("Profiles_0__Shop_Value"))).SelectByText("Test Shop");
+            new SelectElement(driver.FindElement(By.Id("Profiles_0__Shop_Value"))).SelectByText("TestShop");
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
 

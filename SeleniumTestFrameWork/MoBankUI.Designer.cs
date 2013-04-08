@@ -149,6 +149,7 @@
             "Run Manual Scrape",
             "Validate Localisation Feature",
             "Validate Custom Domain Name Feature",
+            "DataFeed XML",
             "Run the Test Site"});
             this.checkedListBox2.Location = new System.Drawing.Point(69, 80);
             this.checkedListBox2.Name = "checkedListBox2";
