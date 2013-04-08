@@ -11,7 +11,7 @@ namespace MoBankUI
     internal class Paymentprovidertypes
     {
         private GeneralLibrary genaralLibrary;
-        private MoBankUI.Screenshot screenshot = new MoBankUI.Screenshot();
+        Screenshot screenshot = new Screenshot();
         
         public void paymenttypes(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
