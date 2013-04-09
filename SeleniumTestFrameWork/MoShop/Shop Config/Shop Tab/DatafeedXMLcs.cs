@@ -32,9 +32,7 @@ namespace MoBankUI
             run.scarperead(driver, selenium, datarow, title);
             run.scrapeandfeedrunning(driver, selenium, datarow);
             links_TPS hom = new links_TPS();
-            hom.Links(datarow, driver, selenium, "testshop.mobankdev.com");
-
-          
+            hom.Links(datarow, driver, selenium, "testshop.mobankdev.com");         
 
 
         }
