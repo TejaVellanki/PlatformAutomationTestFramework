@@ -147,7 +147,7 @@
             "Create a Test Shop",
             "Create a Test Scrape",
             "Run Manual Scrape",
-            "Validate Localisation Feature",
+            "Validate Localisation feature",
             "Validate Custom Domain Name Feature",
             "DataFeed XML",
             "Run the Test Site"});

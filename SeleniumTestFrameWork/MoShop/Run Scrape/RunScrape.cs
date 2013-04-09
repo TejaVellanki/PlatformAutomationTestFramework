@@ -23,14 +23,13 @@ namespace MoBankUI
                 string[] catalogues = selenium.GetSelectOptions("TestCatalogueId");
 
                 foreach (string lt in catalogues)
-                {  
+                {
                     new SelectElement(driver.FindElement(By.Id("TestCatalogueId"))).SelectByText(lt);
-                    if(lt.Contains("Default"))
+                    if (lt.Contains("Default"))
                     {
                         break;
                     }
-                }
-                   
+                }              
               
 
                 driver.FindElement(By.Name("PostAction[]")).Click();

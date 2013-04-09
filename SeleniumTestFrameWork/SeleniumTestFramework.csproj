@@ -83,6 +83,7 @@
     <Compile Include="MoShop\Shop Config\Checkout\ConfigureCheckout.cs" />
     <Compile Include="MoShop\Shop Config\Shop Tab\DatafeedXMLcs.cs" />
     <Compile Include="MoShop\Shop Config\Shop Tab\shop.cs" />
+    <Compile Include="MoShop\teststub.cs" />
     <Compile Include="MoSite\Other\BatchMosite.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\BatchCheckout.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\Checkout Guest and Register\Guest.cs" />

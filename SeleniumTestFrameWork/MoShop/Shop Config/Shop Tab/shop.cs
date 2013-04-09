@@ -14,7 +14,14 @@ namespace MoBankUI
         public void culture(IWebDriver driver, ISelenium selenium,datarow datarow)
         {
 
-          try{
+          try
+          {
+              driver.FindElement(By.LinkText("MoShop")).Click();
+              selenium.WaitForPageToLoad("30000");
+              driver.FindElement(By.CssSelector("#IndexMenuLeaf3 > a")).Click();
+              selenium.WaitForPageToLoad("30000");
+              driver.FindElement(By.LinkText("TestShop")).Click();
+              selenium.WaitForPageToLoad("30000");
 
             selenium.Click("link=Shop");
             selenium.WaitForPageToLoad("30000");
@@ -28,7 +35,7 @@ namespace MoBankUI
             selenium.Select("id=DefaultCultureSelected", "label=Telugu (India) - ₹ [te-IN]");       
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
-            selenium.Open("m.testshop.com");
+            selenium.Open("");
             selenium.WaitForPageToLoad("30000");
             string url = selenium.GetLocation();
             if (url == "m.testshop.com")

@@ -166,13 +166,13 @@ namespace MoBankUI
                         //*[@id="customisation-page-update-form"]/div[3]/h3
                     }
 
-
-                    selenium.Type("id=HomeImage_ImageUpload", "C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images\\ticklelogo.png");                  
-                    selenium.Type("id=HomeImage_ImageUpload","C:\\Users\\teja/Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images/ion.ico");
+                    driver.FindElement(By.Id("HomeImage_ImageUpload")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images\\ticklelogo.png");
+                    Thread.Sleep(2000);
+                    driver.FindElement(By.Id("Icon_ImageUpload")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images\\ion.ico");
+                    Thread.Sleep(2000);
                     new SelectElement(driver.FindElement(By.Id("HomeImage_Justification"))).SelectByText("Centre");
-
-                    selenium.Type("id=CustomBasketImage_ImageUpload", "C:\\Users\\teja/Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images\\basket_white.png");
-                   // selenium.Type("id=CustomBasketImage_ImageUpload", "C:\\Users\\teja/Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images\\basket_white.png");
+                    Thread.Sleep(2000);
+                    driver.FindElement(By.Id("CustomBasketImage_ImageUpload")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images\\basket_white.png");
                     driver.FindElement(By.CssSelector("input.button")).Click();
                     selenium.WaitForPageToLoad("30000");
                 }            

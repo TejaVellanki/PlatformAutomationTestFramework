@@ -26,7 +26,8 @@ namespace MoBankUI
             {
             foreach (var str in strArray)
             {
-               
+                teststub test = new teststub();
+                test.stub(driver, selenium);
                     if(str!=null)
                     {
                      
@@ -57,6 +58,7 @@ namespace MoBankUI
                      if(str== "Validate Localisation feature")
                      {
                             datarow.newrow("", "", "Validate Localisation Feature", "", driver, selenium);
+                            new shop().culture(driver, selenium, datarow);
                      }
                      if (str == "Validate Custom Domain Name Feature")
                      {
@@ -64,31 +66,41 @@ namespace MoBankUI
                      }
                      if (str == "Run the Test Site")
                      {
-                         
-                         datarow.newrow("", "", "Run the Test Site", "", driver, selenium);
-                         datarow.newrow("", "", "All Links in Mosite - Validations", "", driver, selenium);
-                         links_TPS hom = new links_TPS();
-                         hom.Links(datarow, driver, selenium, "testshop.mobankdev.com");
-                         datarow.newrow("", "", "Footer Links", "", driver, selenium);
-                         Footer_TPS footer = new Footer_TPS();
-                         footer.Footerhome(driver, selenium, "testshop.mobankdev.com", datarow);
-                         datarow.newrow("", "", "Basket Functionality", "", driver, selenium);
-                         Baskets_TPS basket = new Baskets_TPS();
-                         basket.Basket(driver, selenium, datarow, "testshop.mobankdev.com");
-                         datarow.newrow("", "", "User Journey", "", driver, selenium);
-                         UserJourney_TPS userjour = new UserJourney_TPS();
-                         userjour.UserJourn(datarow, driver, selenium, "testshop.mobankdev.com");
-                         datarow.newrow("", "", "Delete From Basket", "", driver, selenium);
-                         Deletebasketstart delete = new Deletebasketstart();
-                         delete.deletebasstart(driver, selenium, datarow);
-                         BatchCheckout ckout = new BatchCheckout();
-                         ckout.checkout(driver, selenium, "testshop.mobankdev.com", datarow);
-                         datarow.newrow("", "", "Registration/Login", "", driver, selenium);
-                         LoginRegistration login = new LoginRegistration();
-                         login.registration(driver, selenium, datarow);
-                         datarow.newrow("", "", "Mopay", "", driver, selenium);
-                         BatchPay pay = new BatchPay();
-                         pay.batchpay(driver, selenium, "testshop.mobankdev.com", datarow);
+
+                         try
+                         {
+
+                             datarow.newrow("", "", "Run the Test Site", "", driver, selenium);
+                             datarow.newrow("", "", "All Links in Mosite - Validations", "", driver, selenium);
+                             links_TPS hom = new links_TPS();
+                             hom.Links(datarow, driver, selenium, "testshop.mobankdev.com");
+                             datarow.newrow("", "", "Footer Links", "", driver, selenium);
+                             Footer_TPS footer = new Footer_TPS();
+                             footer.Footerhome(driver, selenium, "testshop.mobankdev.com", datarow);
+                             datarow.newrow("", "", "Basket Functionality", "", driver, selenium);
+                             Baskets_TPS basket = new Baskets_TPS();
+                             basket.Basket(driver, selenium, datarow, "testshop.mobankdev.com");
+                             datarow.newrow("", "", "User Journey", "", driver, selenium);
+                             UserJourney_TPS userjour = new UserJourney_TPS();
+                             userjour.UserJourn(datarow, driver, selenium, "testshop.mobankdev.com");
+                             datarow.newrow("", "", "Delete From Basket", "", driver, selenium);
+                             Deletebasketstart delete = new Deletebasketstart();
+                             delete.deletebasstart(driver, selenium, datarow);
+                             BatchCheckout ckout = new BatchCheckout();
+                             ckout.checkout(driver, selenium, "testshop.mobankdev.com", datarow);
+                             datarow.newrow("", "", "Registration/Login", "", driver, selenium);
+                             LoginRegistration login = new LoginRegistration();
+                             login.registration(driver, selenium, datarow);
+                             datarow.newrow("", "", "Mopay", "", driver, selenium);
+                             BatchPay pay = new BatchPay();
+                             pay.batchpay(driver, selenium, "testshop.mobankdev.com", datarow);
+                         }
+                         catch (Exception ex)
+                         {
+                             string e = ex.ToString();
+                             datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
+                         }
+
                      }
                      if (str == "DataFeed XML")
                      {
@@ -105,7 +117,7 @@ namespace MoBankUI
               catch (Exception exception)
                 {
                     string str2 = exception.ToString();
-                    datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver, selenium);
+                    datarow.newrow("Exception","Exception Not Expected", str2 , "FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
                 finally
