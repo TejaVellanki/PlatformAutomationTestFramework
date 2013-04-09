@@ -20,6 +20,19 @@ namespace MoBankUI
 
                 driver.FindElement(By.LinkText("Execute")).Click();
                 selenium.WaitForPageToLoad("30000");
+                string[] catalogues = selenium.GetSelectOptions("TestCatalogueId");
+
+                foreach (string lt in catalogues)
+                {  
+                    new SelectElement(driver.FindElement(By.Id("TestCatalogueId"))).SelectByText(lt);
+                    if(lt.Contains("Default"))
+                    {
+                        break;
+                    }
+                }
+                   
+              
+
                 driver.FindElement(By.Name("PostAction[]")).Click();
                 selenium.WaitForPageToLoad("30000");
                 string title = driver.Title.ToString();

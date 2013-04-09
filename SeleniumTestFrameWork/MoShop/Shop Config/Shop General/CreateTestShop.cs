@@ -56,6 +56,19 @@ namespace MoBankUI
                 driver.FindElement(By.Id("DefaultCatalogueId")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("30000");
+                driver.FindElement(By.Id("DefaultCatalogueId")).Click();
+                driver.FindElement(By.CssSelector("input.button")).Click();
+                selenium.WaitForPageToLoad("30000");
+                if (selenium.IsChecked("id=DefaultCatalogueId"))
+                {
+                    datarow.newrow("Default Catalogue Selection", "Default Catalogue is expected to be selected", "Default Catalogue is selected", "PASS", driver, selenium);
+                }
+                else
+                {
+                    driver.FindElement(By.Id("DefaultCatalogueId")).Click();
+                    driver.FindElement(By.CssSelector("input.button")).Click();
+                    selenium.WaitForPageToLoad("30000");
+                }
                 driver.FindElement(By.LinkText("Look & Feel")).Click();
                 selenium.WaitForPageToLoad("30000");
             }
