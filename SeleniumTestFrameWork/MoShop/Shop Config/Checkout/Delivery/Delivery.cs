@@ -17,6 +17,7 @@ namespace MoBankUI
                 driver.FindElement(By.LinkText("Checkout Process")).Click();
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
+                selenium.WaitForPageToLoad("30000");
                 new SelectElement(driver.FindElement(By.Id("Method"))).SelectByText("POST");
                 driver.FindElement(By.Id("DynamicSourceUrl")).Clear();
                 driver.FindElement(By.Id("DynamicSourceUrl")).SendKeys("https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?");
@@ -83,7 +84,7 @@ namespace MoBankUI
                 selenium.WaitForPageToLoad("30000");
 
                 #region Validation
-                string text = selenium.GetText("id=DynamicSourceUrl");
+                string text = driver.FindElement(By.Id("DynamicSourceUrl")).GetAttribute("Value");
                 string attribute = driver.FindElement(By.Id("Parameters")).GetAttribute("Value");
                 string actual = driver.FindElement(By.Id("Sequence")).GetAttribute("Value");
                 string str4 = driver.FindElement(By.Id("LiveScrapeForm_HeaderSelector")).GetAttribute("Value");

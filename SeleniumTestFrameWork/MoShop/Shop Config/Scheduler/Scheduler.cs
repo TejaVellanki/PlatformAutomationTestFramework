@@ -81,21 +81,21 @@ namespace MoBankUI
                 {
                     datarow.newrow("Scheduler Scrape Activation", "Scrape Not Activated", str4, "FAIL", driver, selenium);
                 }
-                if (str5 == "7/31/2012 11:19:00 AM")
+                if (str5 == "31 Jul 2012 11:19")
                 {
-                    datarow.newrow("Schduler Start Time", "7/31/2012 11:19:00 AM", str5, "PASS", driver, selenium);
+                    datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Schduler Start Time", "7/31/2012 11:19:00 AM", str5, "FAIL", driver, selenium);
+                    datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5, "FAIL", driver, selenium);
                 }
-                if (str6 == "7/31/2013 11:19:00 AM")
+                if (str6 == "31 Jul 2013 11:19")
                 {
-                    datarow.newrow("Schduler End Time", "7/31/2013 11:19:00 AM", str6, "PASS", driver, selenium);
+                    datarow.newrow("Schduler End Time", "31 Jul 2013 11:19", str6, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Schduler End Time", "7/31/2013 11:19:00 AM", str6, "PASS", driver, selenium);
+                    datarow.newrow("Schduler End Time", "31 Jul 2013 11:19", str6, "PASS", driver, selenium);
                 }
                 if (str7 == "2")
                 {
@@ -105,13 +105,13 @@ namespace MoBankUI
                 {
                     datarow.newrow("Repeat interval Days", "2", str7, "FAIL", driver, selenium);
                 }
-                if (str8 == "0")
+                if (str8 == "1")
                 {
-                    datarow.newrow("Repeat interval Hours", "0", str8, "PASS", driver, selenium);
+                    datarow.newrow("Repeat interval Hours", "1", str8, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Repeat interval Hours", "0", str8, "FAIL", driver, selenium);
+                    datarow.newrow("Repeat interval Hours", "1", str8, "FAIL", driver, selenium);
                 }
                 #endregion
                 if (str3 == "off")
@@ -165,21 +165,21 @@ namespace MoBankUI
                 {
                     datarow.newrow("Scheduler DataFeed Activation", "DataFeed Not Activated", str9, "FAIL", driver, selenium);
                 }
-                if (str10 == "7/31/2012 11:19:00 AM")
+                if (str10 == "31 Jul 2012 11:19")
                 {
-                    datarow.newrow("Scheduler Start Time", "7/31/2012 11:19:00 AM", str10, "PASS", driver, selenium);
+                    datarow.newrow("Scheduler Start Time", "31 Jul 2012 11:19", str10, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Scheduler Start Time", "7/31/2012 11:19:00 AM", str10, "FAIL", driver, selenium);
+                    datarow.newrow("Scheduler Start Time", "31 Jul 2012 11:19", str10, "FAIL", driver, selenium);
                 }
-                if (str11 == "7/31/2013 11:19:00 AM")
+                if (str11 == "31 Jul 2012 11:19")
                 {
-                    datarow.newrow("Scheduler End Time", "7/31/2013 11:19:00 AM", str11, "PASS", driver, selenium);
+                    datarow.newrow("Scheduler End Time", "31 Jul 2012 11:19", str11, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Scheduler End Time", "7/31/2013 11:19:00 AM", str11, "PASS", driver, selenium);
+                    datarow.newrow("Scheduler End Time", "31 Jul 2012 11:19", str11, "PASS", driver, selenium);
                 }
                 if (str12 == "1")
                 {
@@ -189,7 +189,7 @@ namespace MoBankUI
                 {
                     datarow.newrow("Repeat interval Days", "1", str12, "FAIL", driver, selenium);
                 }
-                if (str13 == "0")
+                if (str13 == "1")
                 {
                     datarow.newrow("Repeat interval Hours", "1", str13, "PASS", driver, selenium);
                 }
@@ -217,21 +217,21 @@ namespace MoBankUI
                 {
                     datarow.newrow("Scheduler Scrape Activation", "Scrape Not Activated", str4, "FAIL", driver, selenium);
                 }
-                if (str5 == "7/31/2012 11:19:00 AM")
+                if (str5 == "31 Jul 2012 11:19")
                 {
-                    datarow.newrow("Schduler Start Time", "7/31/2012 11:19:00 AM", str5, "PASS", driver, selenium);
+                    datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Schduler Start Time", "7/31/2012 11:19:00 AM", str5, "FAIL", driver, selenium);
+                    datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5, "FAIL", driver, selenium);
                 }
-                if (str6 == "7/31/2013 11:19:00 AM")
+                if (str6 == "31 Jul 2012 11:19")
                 {
-                    datarow.newrow("Schduler End Time", "7/31/2013 11:19:00 AM", str6, "PASS", driver, selenium);
+                    datarow.newrow("Schduler End Time", "31 Jul 2012 11:19", str6, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Schduler End Time", "7/31/2013 11:19:00 AM", str6, "PASS", driver, selenium);
+                    datarow.newrow("Schduler End Time", "31 Jul 2012 11:19", str6, "PASS", driver, selenium);
                 }
                 if (str7 == "2")
                 {
@@ -241,13 +241,13 @@ namespace MoBankUI
                 {
                     datarow.newrow("Repeat interval Days", "2", str7, "FAIL", driver, selenium);
                 }
-                if (str8 == "0")
+                if (str8 == "1")
                 {
-                    datarow.newrow("Repeat interval Hours", "0", str8, "PASS", driver, selenium);
+                    datarow.newrow("Repeat interval Hours", "1", str8, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Repeat interval Hours", "0", str8, "FAIL", driver, selenium);
+                    datarow.newrow("Repeat interval Hours", "1", str8, "FAIL", driver, selenium);
                 }
 
                 int num3 = 1;
@@ -264,21 +264,21 @@ namespace MoBankUI
                 {
                     datarow.newrow("Scheduler Scrape Activation", "Scrape Not Activated", str4, "FAIL", driver, selenium);
                 }
-                if (str10 == "7/31/2012 11:19:00 AM")
+                if (str10 == "31 Jul 2012 11:19")
                 {
-                    datarow.newrow("Schduler Start Time", "7/31/2012 11:19:00 AM", str5, "PASS", driver, selenium);
+                    datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Schduler Start Time", "7/31/2012 11:19:00 AM", str5, "FAIL", driver, selenium);
+                    datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5, "FAIL", driver, selenium);
                 }
-                if (str11 == "7/31/2013 11:19:00 AM")
+                if (str11 == "31 Jul 2012 11:19")
                 {
-                    datarow.newrow("Schduler End Time", "7/31/2013 11:19:00 AM", str6, "PASS", driver, selenium);
+                    datarow.newrow("Schduler End Time", "31 Jul 2012 11:19", str6, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Schduler End Time", "7/31/2013 11:19:00 AM", str6, "PASS", driver, selenium);
+                    datarow.newrow("Schduler End Time", "31 Jul 2012 11:19", str6, "PASS", driver, selenium);
                 }
                 if (str12 == "2")
                 {
@@ -290,11 +290,11 @@ namespace MoBankUI
                 }
                 if (str13 == "24")
                 {
-                    datarow.newrow("Repeat interval Hours", "0", str8, "PASS", driver, selenium);
+                    datarow.newrow("Repeat interval Hours", "1", str8, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Repeat interval Hours", "0", str8, "FAIL", driver, selenium);
+                    datarow.newrow("Repeat interval Hours", "1", str8, "FAIL", driver, selenium);
                 }
                 #endregion
             }

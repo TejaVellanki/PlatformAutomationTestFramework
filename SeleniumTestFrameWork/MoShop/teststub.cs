@@ -13,9 +13,9 @@ namespace MoBankUI
 {
     class teststub
     {
-        public void stub(IWebDriver driver, ISelenium selenium)
+        public void stub(IWebDriver driver, ISelenium selenium,datarow datarow)
         {
-           
+            new Delivery().delivery(driver, selenium, datarow);
 
         }
     }

@@ -5,6 +5,7 @@
     using OpenQA.Selenium.Chrome;
     using OpenQA.Selenium.Firefox;
     using OpenQA.Selenium.IE;
+    using OpenQA.Selenium.Android;
     using Selenium;
     using System;
     using System.Drawing;
@@ -37,6 +38,7 @@
                 bool MoSite= this.checkBox12.Checked;
                 bool Firefox= this.checkBox14.Checked;
                 bool mositetps= this.checkBox13.Checked;
+                bool tabletview = checkBox1.Checked;
               
 
                 if (mopaytestharness)
@@ -58,6 +60,10 @@
                 if (MoSite)
                 {
                     this.mositemodro();
+                }
+                if (tabletview)
+                {
+                    this.tabletview();
                 }
                 #region MositeTPS
                 if (mositetps == true)
@@ -425,6 +431,14 @@
 
         #endregion
 
+        public void tabletview()
+        {
+            IWebDriver driver = new AndroidDriver();
+            driver.Navigate().GoToUrl("http://tablet.mobankdev.com");
+
+
+
+        }
         public void mositemodroandroid()
         {
             try
@@ -550,6 +564,11 @@
 
         }
         #endregion
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
 
       
     }

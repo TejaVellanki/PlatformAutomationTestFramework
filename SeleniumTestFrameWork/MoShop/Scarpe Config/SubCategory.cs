@@ -97,7 +97,7 @@ namespace MoBankUI
             string str4 = driver.FindElement(By.Id("IdentifierTransformationReplacement")).GetAttribute("Value");
             string str5 = driver.FindElement(By.Id("MappingItems_0__Selector")).GetAttribute("Value");
             string str6 = driver.FindElement(By.Id("MappingItems_1__Selector")).GetAttribute("Value");
-            string str7 = driver.FindElement(By.Id("MappingItems_2__Selector")).GetAttribute("Value");
+          
            
             
             if (attribute == "div[class^='leftNav'] a,.bdr a")
@@ -116,13 +116,13 @@ namespace MoBankUI
             {
                 datarow.newrow("Sub-Category Identifier", "/acatalog/wrapping-paper-everyday.html", actual, "FAIL", driver, selenium);
             }
-            if (str3 == @"\/([a-z0-9\-_]+).html")
+            if (str3 == @"\/acatalog\/([a-z0-9\-_]*).html")
             {
-                datarow.newrow("Sub-Category Identifier Transformation", @"\/([a-z0-9\-_]+).html", str3, "PASS", driver, selenium);
+                datarow.newrow("Sub-Category Identifier Transformation",  @"\/acatalog\/([a-z0-9\-_]*).html", str3, "PASS", driver, selenium);
             }
             else
             {
-                datarow.newrow("Sub-Category Identifier Transformation", @"\/([a-z0-9\-_]+).html", str3, "FAIL", driver, selenium);
+                datarow.newrow("Sub-Category Identifier Transformation", @"\/acatalog\/([a-z0-9\-_]*).html", str3, "FAIL", driver, selenium);
             }
             if (str4 == "$1")
             {
@@ -148,15 +148,7 @@ namespace MoBankUI
             {
                 datarow.newrow("Sub-category mapping selector2", "#banner", str6, "FAIL", driver, selenium);
             }
-            if (str7 == "Products")
-            {
-                datarow.newrow("Sub Pages", "Products", str7, "PASS", driver, selenium);
-            }
-            else
-            {
-                datarow.newrow("Sub Pages", "Products", str7, "FAIL", driver, selenium);
-            }
-            
+         
             #endregion         
             new ProductScrape().productscrape(driver, selenium, datarow);
         }

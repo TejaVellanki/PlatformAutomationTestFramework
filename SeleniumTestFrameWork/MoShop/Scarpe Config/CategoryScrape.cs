@@ -81,7 +81,7 @@ namespace MoBankUI
             {
                 datarow.newrow("Selector", "#menu .lrga:gt(1)>a", attribute, "FAIL", driver, selenium);
             }
-            if (actual == "/acatalog/greeting-cards.html")
+            if (actual == "/acatalog/gift-wrap.html")
             {
                 datarow.newrow("Identifier", "/acatalog/gift-wrap.html", actual, "PASS", driver, selenium);
             }
@@ -121,13 +121,13 @@ namespace MoBankUI
             {
                 datarow.newrow("Transformation ID", "Content Trim", str6, "FAIL", driver, selenium);
             }
-            if (str7 == "h1,h2")
+            if (str7 == "a[class^='select']")
             {
-                datarow.newrow("Mapping Selector", "h1,h2", str7, "PASS", driver, selenium);
+                datarow.newrow("Mapping Selector", "a[class^='select']", str7, "PASS", driver, selenium);
             }
             else
             {
-                datarow.newrow("Mapping Selector", "h1,h2", str7, "FAIL", driver, selenium);
+                datarow.newrow("Mapping Selector", "a[class^='select']", str7, "FAIL", driver, selenium);
             }
             if (str8 == "Sub-Categories")
             {

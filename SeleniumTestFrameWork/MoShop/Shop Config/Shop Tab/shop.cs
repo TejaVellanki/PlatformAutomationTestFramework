@@ -17,12 +17,12 @@ namespace MoBankUI
           try
           {
 
-              driver.FindElement(By.LinkText("MoShop")).Click();
-              selenium.WaitForPageToLoad("30000");
-              driver.FindElement(By.CssSelector("#IndexMenuLeaf3 > a")).Click();
-              selenium.WaitForPageToLoad("30000");
-              driver.FindElement(By.LinkText("TestShop")).Click();
-              selenium.WaitForPageToLoad("30000");
+             driver.FindElement(By.LinkText("MoShop")).Click();
+             selenium.WaitForPageToLoad("30000");
+             driver.FindElement(By.CssSelector("#IndexMenuLeaf3 > a")).Click();
+             selenium.WaitForPageToLoad("30000");
+             driver.FindElement(By.LinkText("TestShop")).Click();
+             selenium.WaitForPageToLoad("30000");
             selenium.Click("link=Shop");
             selenium.WaitForPageToLoad("30000");
             selenium.Click("css=h3.collapsible.collapsed");
