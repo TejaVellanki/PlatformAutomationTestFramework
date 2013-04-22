@@ -26,8 +26,7 @@ namespace MoBankUI
             {
             foreach (var str in strArray)
             {
-                teststub test = new teststub();
-                test.stub(driver, selenium,datarow);
+               
                     if(str!=null)
                     {
                      
