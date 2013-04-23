@@ -62,7 +62,7 @@
             // 
             this.checkBox12.AutoSize = true;
             this.checkBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox12.Location = new System.Drawing.Point(434, 45);
+            this.checkBox12.Location = new System.Drawing.Point(714, 45);
             this.checkBox12.Name = "checkBox12";
             this.checkBox12.Size = new System.Drawing.Size(75, 20);
             this.checkBox12.TabIndex = 1;
@@ -74,11 +74,11 @@
             // 
             this.checkBox13.AutoSize = true;
             this.checkBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox13.Location = new System.Drawing.Point(41, 249);
+            this.checkBox13.Location = new System.Drawing.Point(362, 45);
             this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(111, 20);
+            this.checkBox13.Size = new System.Drawing.Size(165, 20);
             this.checkBox13.TabIndex = 2;
-            this.checkBox13.Text = "Mosite_TPS";
+            this.checkBox13.Text = "Mosite All Functions";
             this.checkBox13.UseVisualStyleBackColor = true;
             this.checkBox13.CheckedChanged += new System.EventHandler(this.checkBox13_CheckedChanged);
             // 
@@ -86,7 +86,7 @@
             // 
             this.checkBox14.AutoSize = true;
             this.checkBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox14.Location = new System.Drawing.Point(556, 249);
+            this.checkBox14.Location = new System.Drawing.Point(879, 192);
             this.checkBox14.Name = "checkBox14";
             this.checkBox14.Size = new System.Drawing.Size(79, 20);
             this.checkBox14.TabIndex = 3;
@@ -98,7 +98,7 @@
             // 
             this.checkBox15.AutoSize = true;
             this.checkBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox15.Location = new System.Drawing.Point(552, 195);
+            this.checkBox15.Location = new System.Drawing.Point(467, 195);
             this.checkBox15.Name = "checkBox15";
             this.checkBox15.Size = new System.Drawing.Size(168, 20);
             this.checkBox15.TabIndex = 4;
@@ -110,7 +110,7 @@
             // 
             this.checkBox16.AutoSize = true;
             this.checkBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox16.Location = new System.Drawing.Point(316, 195);
+            this.checkBox16.Location = new System.Drawing.Point(279, 195);
             this.checkBox16.Name = "checkBox16";
             this.checkBox16.Size = new System.Drawing.Size(136, 20);
             this.checkBox16.TabIndex = 5;
@@ -132,7 +132,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(266, 652);
+            this.button3.Location = new System.Drawing.Point(409, 553);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(215, 35);
             this.button3.TabIndex = 7;
@@ -170,9 +170,9 @@
             "Test Delete From Basket - Test product Unavailable",
             "Test Registration/Login - CheckOut Pages",
             "Test Mopay"});
-            this.checkedListBox3.Location = new System.Drawing.Point(69, 287);
+            this.checkedListBox3.Location = new System.Drawing.Point(388, 71);
             this.checkedListBox3.Name = "checkedListBox3";
-            this.checkedListBox3.Size = new System.Drawing.Size(333, 94);
+            this.checkedListBox3.Size = new System.Drawing.Size(286, 94);
             this.checkedListBox3.TabIndex = 9;
             this.checkedListBox3.SelectedIndexChanged += new System.EventHandler(this.checkedListBox3_SelectedIndexChanged);
             // 
@@ -183,16 +183,16 @@
             this.checkedListBox4.Items.AddRange(new object[] {
             "Validate Products Against Live Website",
             "General User Journey"});
-            this.checkedListBox4.Location = new System.Drawing.Point(454, 80);
+            this.checkedListBox4.Location = new System.Drawing.Point(733, 71);
             this.checkedListBox4.Name = "checkedListBox4";
-            this.checkedListBox4.Size = new System.Drawing.Size(239, 79);
+            this.checkedListBox4.Size = new System.Drawing.Size(214, 94);
             this.checkedListBox4.TabIndex = 10;
             this.checkedListBox4.SelectedIndexChanged += new System.EventHandler(this.checkedListBox4_SelectedIndexChanged);
             // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox3.Location = new System.Drawing.Point(69, 468);
+            this.textBox3.Location = new System.Drawing.Point(69, 330);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(566, 20);
             this.textBox3.TabIndex = 11;
@@ -200,7 +200,7 @@
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox4.Location = new System.Drawing.Point(69, 572);
+            this.textBox4.Location = new System.Drawing.Point(69, 450);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(566, 20);
             this.textBox4.TabIndex = 12;
@@ -209,7 +209,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 437);
+            this.label1.Location = new System.Drawing.Point(50, 283);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(365, 16);
             this.label1.TabIndex = 13;
@@ -219,7 +219,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(66, 540);
+            this.label2.Location = new System.Drawing.Point(50, 401);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(415, 16);
             this.label2.TabIndex = 14;
@@ -228,7 +228,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(556, 296);
+            this.checkBox1.Location = new System.Drawing.Point(693, 195);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(82, 17);
             this.checkBox1.TabIndex = 15;
@@ -241,7 +241,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(732, 716);
+            this.ClientSize = new System.Drawing.Size(986, 623);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
