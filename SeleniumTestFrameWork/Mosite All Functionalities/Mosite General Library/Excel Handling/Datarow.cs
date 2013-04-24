@@ -1,48 +1,31 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Linq;
 using System.Data;
-using System.Collections;
-using System.Web;
-using System.Drawing;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using Selenium;
-using System.Data.OleDb;
-using System.IO;
-using System.Timers;
-using System.Net;
-using System.Net.Mail;
+using System.Diagnostics;
 using Microsoft.Office.Interop.Excel;
-using Excel = Microsoft.Office.Interop.Excel;
+using OpenQA.Selenium;
+using Selenium;
+using DataTable = System.Data.DataTable;
 
 namespace MoBankUI
 {
-   
     public class datarow
     {
-        GeneralLibrary generalLibrary;
-        
-        Screenshot screenshot = new Screenshot();
-       
-        System.Data.DataTable mergeTable = new System.Data.DataTable();
-        System.Data.DataTable clonetable= new System.Data.DataTable();
-        System.Data.DataTable dt = new System.Data.DataTable();
-        string TotalPass = null;
-        string TotalFail = null;
+        private readonly DataTable dt = new DataTable();
+        private readonly DataTable mergeTable = new DataTable();
+        private string TotalFail;
+        private string TotalPass;
+        private DataTable clonetable = new DataTable();
+        private GeneralLibrary generalLibrary;
+
+        private Screenshot screenshot = new Screenshot();
+
         public void dataflush()
         {
             dt.Clear();
         }
+
         public void col()
         {
-            
             dt.Columns.Add("Field Validated");
             dt.Columns.Add("Expected Result");
             dt.Columns.Add("Actual Result");
@@ -50,9 +33,9 @@ namespace MoBankUI
             dt.Columns.Add("Total Number Of Test Cases Passed/Failed");
             mergeTable.Columns.Add("Merchant Name");
             mergeTable.Columns.Add("Total Number of Test Cases Passed/Failed");
-
         }
-        public void newrow(string validation, string expected, string actual, string passorfail, IWebDriver driver, ISelenium selenium)
+
+        public void newrow(string validation, string expected, string actual, string passorfail)
         {
             DataRow newrow = dt.NewRow();
             newrow[0] = validation;
@@ -62,11 +45,10 @@ namespace MoBankUI
             dt.Rows.Add(newrow);
         }
 
-        public void excelsave(string ReportName, IWebDriver driver, ISelenium selenium,string email)
+        public void excelsave(string ReportName, IWebDriver driver, ISelenium selenium, string email)
         {
             try
             {
-
                 int p = 0;
                 int f = 0;
                 for (int i = 0; i < dt.Rows.Count; i++)
@@ -80,7 +62,6 @@ namespace MoBankUI
                     {
                         f = f + 1;
                     }
-
                 }
                 string P = p.ToString();
                 string F = f.ToString();
@@ -106,12 +87,13 @@ namespace MoBankUI
                 }
 
                 generalLibrary = new GeneralLibrary();
-                Workbook wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report", ".xlsx", false, true);
+                Workbook wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report",
+                                                                    ".xlsx", false, true);
                 Worksheet ws = wb.Sheets[1];
                 generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
                 generalLibrary.SaveAndCloseExcel(wb);
-                GenerateEmail ghdg = new GenerateEmail();
-                ghdg.SendEMail(ReportName,email);
+                var ghdg = new GenerateEmail();
+                ghdg.SendEMail(ReportName, email);
                 clonetable = dt.Copy();
                 //mergeTable.Merge(clonetable);
                 int s = 0;
@@ -120,7 +102,8 @@ namespace MoBankUI
                     if (s <= 2)
                     {
                         DataRow destRow = mergeTable.NewRow();
-                        destRow["Total Number of Test Cases Passed/Failed"] = sourcerow["Total Number of Test Cases Passed/Failed"];
+                        destRow["Total Number of Test Cases Passed/Failed"] =
+                            sourcerow["Total Number of Test Cases Passed/Failed"];
                         if (s == 0)
                         {
                             destRow["Merchant Name"] = ReportName;
@@ -140,18 +123,15 @@ namespace MoBankUI
 
                 try
                 {
-
-                    ConverttoHTML Html = new ConverttoHTML();
-                    Html.ConvertDataTableToHtml(dt, ReportName,P,F);
+                    var Html = new ConverttoHTML();
+                    Html.ConvertDataTableToHtml(dt, ReportName, P, F);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    
-
                 }
 
                 dt.WriteXml(@"C:\Selenium\Input Data\XML Reports\" + ReportName + ".xml");
-                foreach (System.Diagnostics.Process process in System.Diagnostics.Process.GetProcessesByName("EXCEL"))
+                foreach (Process process in Process.GetProcessesByName("EXCEL"))
                 {
                     if (process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE"))
                     {
@@ -159,12 +139,10 @@ namespace MoBankUI
                         break;
                     }
                 }
-
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
-               
             }
         }
 
@@ -185,7 +163,6 @@ namespace MoBankUI
                     {
                         f = f + 1;
                     }
-
                 }
                 string P = p.ToString();
                 string F = f.ToString();
@@ -212,22 +189,23 @@ namespace MoBankUI
 
                 generalLibrary = new GeneralLibrary();
 
-                Workbook wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report", ".xlsx", false, true);
+                Workbook wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report",
+                                                                    ".xlsx", false, true);
                 Worksheet ws = wb.Sheets[1];
                 generalLibrary.ConsolidatedXmlExportToExcel(mergeTable, ws, true, false, false);
                 generalLibrary.SaveAndCloseExcel(wb);
-                GenerateEmail ghdg = new GenerateEmail();
+                var ghdg = new GenerateEmail();
                 ghdg.SendEMail(ReportName, emails);
-                
+
                 try
                 {
-                    ConverttoHTML Html = new ConverttoHTML();
-                    Html.ConvertDataTableToHtml(mergeTable, ReportName,P,F);
+                    var Html = new ConverttoHTML();
+                    Html.ConvertDataTableToHtml(mergeTable, ReportName, P, F);
                 }
                 catch (Exception ex)
                 {
                 }
-                foreach (System.Diagnostics.Process process in System.Diagnostics.Process.GetProcessesByName("EXCEL"))
+                foreach (Process process in Process.GetProcessesByName("EXCEL"))
                 {
                     if (process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE"))
                     {
@@ -239,24 +217,18 @@ namespace MoBankUI
             catch (Exception ex)
             {
                 string e = ex.ToString();
-               
             }
-            }
-           
-        
-        
+        }
 
+        public void newrow(string validation, string expected, string actual, string passorfail, IWebDriver driver, ISelenium selenium)
+        {
 
-
+            DataRow newrow = dt.NewRow();
+            newrow[0] = validation;
+            newrow[1] = expected;
+            newrow[2] = actual;
+            newrow[3] = passorfail;
+            dt.Rows.Add(newrow);
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-

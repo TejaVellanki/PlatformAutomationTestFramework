@@ -1,23 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using Selenium;
-using OpenQA.Selenium.Support.UI;
-
 
 namespace MoBankUI
 {
-    class createShop
+    internal class createShop
     {
-        public void Testshop(IWebDriver driver,ISelenium selenium,datarow datarow)
+        public void Testshop(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             try
             {
-
                 driver.FindElement(By.LinkText("Shops")).Click();
                 selenium.WaitForPageToLoad("30000");
 
@@ -44,7 +36,8 @@ namespace MoBankUI
                 }
                 else
                 {
-                    datarow.newrow("Shop Offline", "Shop should be offline", "Shop is not set to Offline", "FAIL", driver, selenium);
+                    datarow.newrow("Shop Offline", "Shop should be offline", "Shop is not set to Offline", "FAIL",
+                                   driver, selenium);
                 }
                 driver.FindElement(By.Id("IsOffLine")).Click();
                 driver.FindElement(By.Id("IsOffLine")).Click();
@@ -61,7 +54,8 @@ namespace MoBankUI
                 selenium.WaitForPageToLoad("30000");
                 if (selenium.IsChecked("id=DefaultCatalogueId"))
                 {
-                    datarow.newrow("Default Catalogue Selection", "Default Catalogue is expected to be selected", "Default Catalogue is selected", "PASS", driver, selenium);
+                    datarow.newrow("Default Catalogue Selection", "Default Catalogue is expected to be selected",
+                                   "Default Catalogue is selected", "PASS", driver, selenium);
                 }
                 else
                 {
@@ -75,9 +69,7 @@ namespace MoBankUI
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                
             }
-          
         }
     }
 }

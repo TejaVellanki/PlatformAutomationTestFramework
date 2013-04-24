@@ -32,6 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>packages\HtmlAgilityPack.1.4.0\lib\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SHDocVw">
+      <HintPath>packages\WatiN.2.1.0\lib\net40\Interop.SHDocVw.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+      <HintPath>packages\WatiN.2.1.0\lib\net40\Microsoft.mshtml.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -67,11 +79,18 @@
     <Reference Include="ThoughtWorks.Selenium.UnitTests">
       <HintPath>..\..\..\..\..\..\..\Selenium\selenium-remote-control-1.0.3\selenium-dotnet-client-driver-1.0.1\ThoughtWorks.Selenium.UnitTests.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver">
-      <HintPath>..\..\..\..\..\..\..\Selenium\selenium-dotnet-2.31.0\net40\WebDriver.dll</HintPath>
+    <Reference Include="WatiN.Core">
+      <HintPath>packages\WatiN.2.1.0\lib\net40\WatiN.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=2.32.0.0, Culture=neutral, PublicKeyToken=1c2bd1631853048f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Selenium.WebDriver.2.32.0\lib\net40\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver.Support">
       <HintPath>..\..\..\..\..\..\..\Selenium\selenium-dotnet-2.31.0\net40\WebDriver.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="Webinator">
+      <HintPath>packages\Webinator.2.0.30\lib\Webinator.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +166,10 @@
     <Compile Include="MoSite\Other\UserData.cs" />
     <Compile Include="MoSite\Other\UserJourney.cs" />
     <Compile Include="MoPay\Visa.cs" />
+    <Compile Include="Tablet View\batch_tab.cs" />
+    <Compile Include="Tablet View\Homepage_tab.cs" />
+    <Compile Include="WebDriver Defining\driverdefining.cs" />
+    <Compile Include="WebDriver Defining\ObjectRepository.cs" />
     <EmbeddedResource Include="MoBankUI.resx">
       <DependentUpon>MoBankUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +184,7 @@
     </Compile>
     <None Include="MoShop\Shop Config\Catalogue XML%27s\test-catalogue-big.zip" />
     <None Include="MoShop\Shop Config\test-catalogue-big.zip" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
