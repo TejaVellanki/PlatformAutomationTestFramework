@@ -1,11 +1,12 @@
 ﻿using MoBankUI;
 using OpenQA.Selenium;
+using Selenium;
 
 namespace Tablet_View
 {
     internal class batch_tab
     {
-        public void tabbatch(IWebDriver driver,datarow datarow)
+        public void tabbatch(datarow datarow,ISelenium selenium,IWebDriver driver)
         {
             //Method Homapge validations
             #region HomePage Validations
@@ -21,7 +22,7 @@ namespace Tablet_View
                 datarow.newrow("Home Page Title", "Tablet: Tickle Shop", title, "FAIL");
             }
             var home = new Homepage_tab();
-            home.homepage(driver, datarow);
+            home.homepage(driver, selenium, datarow);
            #endregion
         }
     }

@@ -20,6 +20,7 @@ namespace MoBankUI
         private TextBox textBox2;
         private TextBox textbox3;
         private TextBox textbox4;
+    
 
         public Form1()
         {
@@ -110,12 +111,11 @@ namespace MoBankUI
             datarow datarow = new datarow();
             datarow.col();
             //Opening the Firefox driver
-            IWebDriver driver = new FirefoxDriver();
-            driver.Navigate().GoToUrl("http://tablet.mobankdev.com");
-            driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));
-            //redirecting to the batch class to redirect to diiferent options. 
-            var batch = new batch_tab();
-            batch.tabbatch(driver,datarow);
+             IWebDriver driver = new FirefoxDriver();
+            selenium = new WebDriverBackedSelenium(driver,"http://tablet.mobankdev.com");
+            selenium.Start();
+            batch_tab batch = new batch_tab();
+            batch.tabbatch(datarow,selenium,driver);
         }
 
         public void mositemodroandroid()

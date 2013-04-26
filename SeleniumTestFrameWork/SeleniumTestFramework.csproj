@@ -103,6 +103,8 @@
     <Compile Include="MoShop\Shop Config\Shop Tab\DatafeedXMLcs.cs" />
     <Compile Include="MoShop\Shop Config\Shop Tab\shop.cs" />
     <Compile Include="MoShop\teststub.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\HomePage\HomepageLinks.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\HomePage\Productpage.cs" />
     <Compile Include="MoSite\Other\BatchMosite.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\BatchCheckout.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\Checkout Guest and Register\Guest.cs" />
@@ -113,7 +115,7 @@
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\CountryHouse Checkout\register.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\HomePage\Basket.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\HomePage\Footer.cs" />
-    <Compile Include="Mosite All Functionalities\Mosite\HomePage\Links.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\HomePage\Readingelements.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Mosite Start\BatchTesting.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Mosite Start\Finally.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Pay\Batchpay.cs" />
@@ -158,6 +160,7 @@
     <Compile Include="MoPay\Paymentprovidertypes.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Modrophenia\products.cs" />
     <Compile Include="MoShop\Scarpe Config\ProductScrape.cs" />
+    <Compile Include="Object Repository\ObjectRepositoryV1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MoShop\Shop Config\Scheduler\Scheduler.cs" />
@@ -169,7 +172,7 @@
     <Compile Include="Tablet View\batch_tab.cs" />
     <Compile Include="Tablet View\Homepage_tab.cs" />
     <Compile Include="WebDriver Defining\driverdefining.cs" />
-    <Compile Include="WebDriver Defining\ObjectRepository.cs" />
+    <Compile Include="Object Repository\ObjectRepositoryV2.cs" />
     <EmbeddedResource Include="MoBankUI.resx">
       <DependentUpon>MoBankUI.cs</DependentUpon>
     </EmbeddedResource>
