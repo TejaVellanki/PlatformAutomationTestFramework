@@ -170,6 +170,7 @@
     <Compile Include="MoSite\Other\UserJourney.cs" />
     <Compile Include="MoPay\Visa.cs" />
     <Compile Include="Tablet View\batch_tab.cs" />
+    <Compile Include="Tablet View\BlobStorageValidations.cs" />
     <Compile Include="Tablet View\Homepage_tab.cs" />
     <Compile Include="WebDriver Defining\driverdefining.cs" />
     <Compile Include="Object Repository\ObjectRepositoryV2.cs" />
