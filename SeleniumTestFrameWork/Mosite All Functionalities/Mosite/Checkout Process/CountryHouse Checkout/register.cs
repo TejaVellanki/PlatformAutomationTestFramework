@@ -1,31 +1,15 @@
-﻿using System;
-using System.ComponentModel;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Linq;
-using System.Data;
-//using System.Drawing;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
+﻿using OpenQA.Selenium;
 using Selenium;
-using System.Data.OleDb;
-using System.IO;
-using System.Timers;
-using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using Excel = Microsoft.Office.Interop.Excel;
+//using System.Drawing;
 
 namespace TPS
 {
-    class countryhouseregister
+    internal class countryhouseregister
     {
         public void register(IWebDriver driver, ISelenium selenium)
         {
             //country house registration process
-           
+
             driver.FindElement(By.Id("Pagecontent_TextBoxFirstName")).Clear();
             driver.FindElement(By.Id("Pagecontent_TextBoxFirstName")).SendKeys("TEST");
             driver.FindElement(By.Id("Pagecontent_TextBoxLastName")).Clear();
@@ -48,6 +32,5 @@ namespace TPS
             driver.FindElement(By.Id("Pagecontent_TextBoxStateText")).SendKeys("TEST");
             driver.FindElement(By.Id("Pagecontent_ButtonRegister")).Click();
         }
-
     }
 }

@@ -1,31 +1,22 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Text;
+using System.Data;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Linq;
-using System.Data;
-//using System.Drawing;
-using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using Selenium;
-using System.Data.OleDb;
-using System.IO;
-using System.Timers;
-using Microsoft.Office.Interop.Excel;
-using Excel = Microsoft.Office.Interop.Excel;
+//using System.Drawing;
 
 namespace MoBankUI
 {
-    class Mopay_TPS
+    internal class Mopay_TPS
     {
         //Testing the Payment page. 
         // Two Payment methods do the same 
-        GeneralLibrary generalLibrary;
-        Screenshot screenshot = new Screenshot();
-        public void Mopay(IWebDriver driver, ISelenium selenium,datarow datarow)
+        private GeneralLibrary generalLibrary;
+        private Screenshot screenshot = new Screenshot();
+
+        public void Mopay(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             try
             {
@@ -36,10 +27,11 @@ namespace MoBankUI
                     {
                         string[] paymentoptions = selenium.GetSelectOptions("id=Pagecontent_ddlPaymentOption");
                         string values = null;
-                        foreach (string payment in paymentoptions)                        
+                        foreach (string payment in paymentoptions)
                         {
                             values = values + "\r\n" + payment;
-                            new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlPaymentOption"))).SelectByText(payment);
+                            new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlPaymentOption"))).SelectByText(
+                                payment);
                         }
                         datarow.newrow("Payment Options", "", values, "PASS", driver, selenium);
                     }
@@ -67,7 +59,8 @@ namespace MoBankUI
                     foreach (string expirymonth in Month)
                     {
                         valus = valus + "\r\n" + expirymonth;
-                        new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlExpiryMonth"))).SelectByText(expirymonth);
+                        new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlExpiryMonth"))).SelectByText(
+                            expirymonth);
                     }
                     datarow.newrow("Payment Options", "", valus, "PASS", driver, selenium);
                     // Expiry Date  id="Pagecontent_ddlExpiryYear"
@@ -76,7 +69,8 @@ namespace MoBankUI
                     foreach (string expirydate in Date)
                     {
                         vlus = valus + "\r\n" + expirydate;
-                        new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlExpiryYear"))).SelectByText(expirydate);
+                        new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlExpiryYear"))).SelectByText(
+                            expirydate);
                     }
                     datarow.newrow("Payment Options", "", vlus, "PASS", driver, selenium);
                     // Name id="Pagecontent_TextBoxCardOwner"
@@ -147,31 +141,32 @@ namespace MoBankUI
                 else
                 {
                     string url = selenium.GetTitle();
-                    if (url=="Secure Payment Page")
+                    if (url == "Secure Payment Page")
                     {
-                        datarow.newrow("Mopay Method Not covered in Framework", "Expected", url, "FAIL", driver, selenium);
+                        datarow.newrow("Mopay Method Not covered in Framework", "Expected", url, "FAIL", driver,
+                                       selenium);
                     }
                     else
                     {
-                        datarow.newrow("MoPay Page Validation", "Not Expected",url + "-"+"User Could Not Reach Mopay Page", "FAIL", driver, selenium);
+                        datarow.newrow("MoPay Page Validation", "Not Expected",
+                                       url + "-" + "User Could Not Reach Mopay Page", "FAIL", driver, selenium);
                     }
-
                 }
-            }             
+            }
             catch (Exception ex)
             {
                 string e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
             }
         }
+
         public void MoPayTPS(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
-
             generalLibrary = new GeneralLibrary();
             DataSet dss = generalLibrary.GetExcelData(@"C:\Selenium\Input Data\CardDetails.xls", "CardDetails");
-           
-            System.Data.DataTable personaldata = dss.Tables[0];
-            Screenshot screenshot = new Screenshot();
+
+            DataTable personaldata = dss.Tables[0];
+            var screenshot = new Screenshot();
             try
             {
                 string totalamount = driver.FindElement(By.XPath("//div[@id='total-amount']/dl/dd")).Text;
@@ -183,21 +178,21 @@ namespace MoBankUI
                 {
                     datarow.newrow("Currency Validation", "£", totalamount, "FAIL", driver, selenium);
                 }
-
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
             }
-            int j=0;
-            int n = personaldata.Rows.Count;            
+            int j = 0;
+            int n = personaldata.Rows.Count;
 
             for (int icount = 0; icount < n; icount++)
             {
                 try
                 {
                     #region Read Excel
+
                     string FirstName = personaldata.Rows[icount]["FirstName"].ToString();
                     string LastName = personaldata.Rows[icount]["LastName"].ToString();
                     string CardNumber = personaldata.Rows[icount]["Card Number"].ToString();
@@ -213,77 +208,77 @@ namespace MoBankUI
                     string PostCode = personaldata.Rows[icount]["Post Code"].ToString();
                     string County = personaldata.Rows[icount]["County"].ToString();
                     string Country = personaldata.Rows[icount]["Country"].ToString();
+
                     #endregion
 
                     new SelectElement(driver.FindElement(By.Id("Card_Type"))).SelectByText("Visa Debit");
                     driver.FindElement(By.Id("Card_Number")).Clear();
-                    driver.FindElement(By.Id("Card_Number")).SendKeys(CardNumber);                 
+                    driver.FindElement(By.Id("Card_Number")).SendKeys(CardNumber);
                     driver.FindElement(By.Id("Card_SecurityCode")).Clear();
-                    driver.FindElement(By.Id("Card_SecurityCode")).SendKeys(SecurityCode);                 
+                    driver.FindElement(By.Id("Card_SecurityCode")).SendKeys(SecurityCode);
                     driver.FindElement(By.Id("Card_Name")).Clear();
                     driver.FindElement(By.Id("Card_Name")).SendKeys(NameonCard);
-                    new SelectElement(driver.FindElement(By.Id("Card_ExpiryDate_Month"))).SelectByText(Expirymonth);                    
+                    new SelectElement(driver.FindElement(By.Id("Card_ExpiryDate_Month"))).SelectByText(Expirymonth);
                     new SelectElement(driver.FindElement(By.Id("Card_ExpiryDate_Year"))).SelectByText(Expiryyear);
 
                     if (j < 1)
                     {
-
                         driver.FindElement(By.Id("change-address")).Click();
                         selenium.WaitForPageToLoad("30000");
                         j++;
                     }
-                        driver.FindElement(By.Id("BillingContact_FirstName")).Clear();
-                        driver.FindElement(By.Id("BillingContact_FirstName")).SendKeys(FirstName);
-                        driver.FindElement(By.Id("BillingContact_LastName")).Clear();
-                        driver.FindElement(By.Id("BillingContact_LastName")).SendKeys(LastName);
-                        driver.FindElement(By.Id("BillingContact_Email")).Clear();
-                        driver.FindElement(By.Id("BillingContact_Email")).SendKeys(Email);
-                        driver.FindElement(By.Id("BillingContact_Phone_Number")).Clear();                  
-                        driver.FindElement(By.Id("BillingContact_Phone_Number")).SendKeys(PhoneNumber);
-                        driver.FindElement(By.Id("BillingContact_Address_Line1")).Clear();
-                        driver.FindElement(By.Id("BillingContact_Address_Line1")).SendKeys(Address);
-                        driver.FindElement(By.Id("BillingContact_Address_Line2")).Clear();
-                        driver.FindElement(By.Id("BillingContact_Address_Line2")).SendKeys("Address2");
-                        driver.FindElement(By.Id("BillingContact_Address_Postcode")).Clear();
-                        driver.FindElement(By.Id("BillingContact_Address_Postcode")).SendKeys(PostCode);
-                        driver.FindElement(By.Id("BillingContact_Address_Town")).Clear();
-                        driver.FindElement(By.Id("BillingContact_Address_Town")).SendKeys(City);
-                        driver.FindElement(By.Id("BillingContact_Address_County")).Clear();
-                        driver.FindElement(By.Id("BillingContact_Address_County")).SendKeys(County);
-                        if (Country.Length == 0)
+                    driver.FindElement(By.Id("BillingContact_FirstName")).Clear();
+                    driver.FindElement(By.Id("BillingContact_FirstName")).SendKeys(FirstName);
+                    driver.FindElement(By.Id("BillingContact_LastName")).Clear();
+                    driver.FindElement(By.Id("BillingContact_LastName")).SendKeys(LastName);
+                    driver.FindElement(By.Id("BillingContact_Email")).Clear();
+                    driver.FindElement(By.Id("BillingContact_Email")).SendKeys(Email);
+                    driver.FindElement(By.Id("BillingContact_Phone_Number")).Clear();
+                    driver.FindElement(By.Id("BillingContact_Phone_Number")).SendKeys(PhoneNumber);
+                    driver.FindElement(By.Id("BillingContact_Address_Line1")).Clear();
+                    driver.FindElement(By.Id("BillingContact_Address_Line1")).SendKeys(Address);
+                    driver.FindElement(By.Id("BillingContact_Address_Line2")).Clear();
+                    driver.FindElement(By.Id("BillingContact_Address_Line2")).SendKeys("Address2");
+                    driver.FindElement(By.Id("BillingContact_Address_Postcode")).Clear();
+                    driver.FindElement(By.Id("BillingContact_Address_Postcode")).SendKeys(PostCode);
+                    driver.FindElement(By.Id("BillingContact_Address_Town")).Clear();
+                    driver.FindElement(By.Id("BillingContact_Address_Town")).SendKeys(City);
+                    driver.FindElement(By.Id("BillingContact_Address_County")).Clear();
+                    driver.FindElement(By.Id("BillingContact_Address_County")).SendKeys(County);
+                    if (Country.Length == 0)
+                    {
+                        string[] con = selenium.GetSelectOptions("id=BillingContact_Address_Country");
+                        foreach (string cou in con)
                         {
-                            string[] con = selenium.GetSelectOptions("id=BillingContact_Address_Country");
-                            foreach (string cou in con)
+                            new SelectElement(driver.FindElement(By.Id("BillingContact_Address_Country"))).SelectByText(
+                                cou);
+                            if (cou == "")
                             {
-                                new SelectElement(driver.FindElement(By.Id("BillingContact_Address_Country"))).SelectByText(cou);
-                                if (cou == "")
-                                {
-                                    break;
-                                }
-
+                                break;
                             }
                         }
+                    }
 
-                        if(Country.Length>0)
+                    if (Country.Length > 0)
 
-                         {
-                             string[] countries = selenium.GetSelectOptions("id=BillingContact_Address_Country");
-                             foreach (string country in countries)
-                             {
-                                 new SelectElement(driver.FindElement(By.Id("BillingContact_Address_Country"))).SelectByText(country);
-                                 if (country == "United Kingdom")
-                                 {
-                                     break;
-                                 }
-                             } 
-
-                         }
-                        driver.FindElement(By.Name("PostAction[Complete]")).Click();
-                        selenium.WaitForPageToLoad("30000");
-                        Thread.Sleep(3000);
-                                     
+                    {
+                        string[] countries = selenium.GetSelectOptions("id=BillingContact_Address_Country");
+                        foreach (string country in countries)
+                        {
+                            new SelectElement(driver.FindElement(By.Id("BillingContact_Address_Country"))).SelectByText(
+                                country);
+                            if (country == "United Kingdom")
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    driver.FindElement(By.Name("PostAction[Complete]")).Click();
+                    selenium.WaitForPageToLoad("30000");
+                    Thread.Sleep(3000);
 
                     #region Validation
+
                     if (Regex.IsMatch(CardNumber, "^[0-9'']"))
                     {
                         datarow.newrow("Card Number", CardNumber, CardNumber, "PASS", driver, selenium);
@@ -291,7 +286,6 @@ namespace MoBankUI
                     else if (selenium.IsTextPresent("Number required") || selenium.IsTextPresent("Number invalid"))
                     {
                         datarow.newrow("Card Number", CardNumber, "Number Invalid", "PASS", driver, selenium);
-
                     }
                     else
                     {
@@ -302,11 +296,9 @@ namespace MoBankUI
 
                     if (CardType == null)
                     {
-
                         if (selenium.IsTextPresent("Type required"))
                         {
                             datarow.newrow("Card Type", CardType, "Type Required", "PASS", driver, selenium);
-
                         }
                         else
                         {
@@ -318,42 +310,40 @@ namespace MoBankUI
                     else
                     {
                         datarow.newrow("Card Type", "Visa Debit", "Visa Debit", "PASS", driver, selenium);
-
                     }
 
 
-                    Regex reg = new Regex("^[0-9]{3}$");
+                    var reg = new Regex("^[0-9]{3}$");
                     if (reg.IsMatch(SecurityCode))
                     {
                         datarow.newrow("Security Code", SecurityCode, "Valid 3 Digits", "PASS", driver, selenium);
-
                     }
-                    else if (selenium.IsTextPresent("Security code required") || selenium.IsTextPresent("Security code invalid"))
+                    else if (selenium.IsTextPresent("Security code required") ||
+                             selenium.IsTextPresent("Security code invalid"))
                     {
-                        datarow.newrow("Security Code", SecurityCode, "Security code required", "PASS", driver, selenium);
-
+                        datarow.newrow("Security Code", SecurityCode, "Security code required", "PASS", driver,
+                                       selenium);
                     }
                     else
                     {
-                        datarow.newrow("Security Code", SecurityCode, "No Error Message Displayed", "FAIL", driver, selenium);
+                        datarow.newrow("Security Code", SecurityCode, "No Error Message Displayed", "FAIL", driver,
+                                       selenium);
 
                         screenshot.screenshotfailed(driver, selenium);
-
                     }
 
                     if (Regex.IsMatch(NameonCard, "^[a-zA-Z'']"))
                     {
                         datarow.newrow("Name on Card", NameonCard, NameonCard, "PASS", driver, selenium);
-
                     }
                     else if (selenium.IsTextPresent("Name required"))
                     {
                         datarow.newrow("Name on Card", NameonCard, "Name Required", "PASS", driver, selenium);
-
                     }
                     else
                     {
-                        datarow.newrow("Name on Card", NameonCard, "No Error Message Displayed", "PASS", driver, selenium);
+                        datarow.newrow("Name on Card", NameonCard, "No Error Message Displayed", "PASS", driver,
+                                       selenium);
 
                         screenshot.screenshotfailed(driver, selenium);
                     }
@@ -364,8 +354,8 @@ namespace MoBankUI
 
                     else if (selenium.IsTextPresent("The First Name field is required."))
                     {
-                        datarow.newrow("First Name", FirstName, "The First Name field is required.", "PASS", driver, selenium);
-
+                        datarow.newrow("First Name", FirstName, "The First Name field is required.", "PASS", driver,
+                                       selenium);
                     }
                     else
                     {
@@ -377,13 +367,11 @@ namespace MoBankUI
                     if (Regex.IsMatch(LastName, "^[a-zA-Z'']"))
                     {
                         datarow.newrow("Last Name", LastName, LastName, "PASS", driver, selenium);
-
-
                     }
                     else if (selenium.IsTextPresent("The Last Name field is required."))
                     {
-                        datarow.newrow("Last Name", LastName, "The Last Name field is required.", "PASS", driver, selenium);
-
+                        datarow.newrow("Last Name", LastName, "The Last Name field is required.", "PASS", driver,
+                                       selenium);
                     }
                     else
                     {
@@ -395,13 +383,10 @@ namespace MoBankUI
                     if (Regex.IsMatch(Address, "^[a-zA-Z0-9'']"))
                     {
                         datarow.newrow("Address", Address, Address, "PASS", driver, selenium);
-
                     }
                     else if (selenium.IsTextPresent("The Address field is required"))
                     {
                         datarow.newrow("Address", Address, "The Address field is required", "PASS", driver, selenium);
-
-
                     }
                     else
                     {
@@ -413,12 +398,11 @@ namespace MoBankUI
                     if (Regex.IsMatch(PostCode, "^[a-zA-Z0-9'']"))
                     {
                         datarow.newrow("Post Code", PostCode, PostCode, "PASS", driver, selenium);
-
                     }
                     else if (selenium.IsTextPresent("The Postcode field is required"))
                     {
-                        datarow.newrow("Post Code", PostCode, "The Postcode field is required.", "PASS", driver, selenium);
-
+                        datarow.newrow("Post Code", PostCode, "The Postcode field is required.", "PASS", driver,
+                                       selenium);
                     }
                     else
                     {
@@ -430,67 +414,56 @@ namespace MoBankUI
                     if (Regex.IsMatch(Country, "^[a-zA-Z'']"))
                     {
                         datarow.newrow("Country", Country, Country, "PASS", driver, selenium);
-
                     }
                     else if (selenium.IsTextPresent("The Country field is required."))
                     {
                         datarow.newrow("Country", Country, "The Country field is required.", "PASS", driver, selenium);
-
                     }
                     else
                     {
                         datarow.newrow("Country", Country, "No Error Message", "FAIL", driver, selenium);
                         screenshot.screenshotfailed(driver, selenium);
-
                     }
+
                     #endregion
 
                     string title = selenium.GetTitle();
                     if (title == "Secure Payment Page")
                     {
-
                     }
-                  
-                    string url = selenium.GetLocation();
-                    string title1 = driver.Title.ToString();
-                    if (url.Contains("State=Accepted")||title1.Contains("Payment Accepted"))
-                        {
-                            datarow.newrow("Transaction", url, "State=Accepted", "PASS", driver, selenium);
-                            break;
 
-                        }
+                    string url = selenium.GetLocation();
+                    string title1 = driver.Title;
+                    if (url.Contains("State=Accepted") || title1.Contains("Payment Accepted"))
+                    {
+                        datarow.newrow("Transaction", url, "State=Accepted", "PASS", driver, selenium);
+                        break;
+                    }
 
                     if (url.Contains("State=NotAccepted"))
                     {
                         datarow.newrow("Transaction", url, "Transaction Declined", "FAIL", driver, selenium);
                         break;
-                       
                     }
 
-                    else if (selenium.IsTextPresent("Checkout Declined") || selenium.IsTextPresent("Checkout Error")|| selenium.IsTextPresent("Not Found"))
+                    else if (selenium.IsTextPresent("Checkout Declined") || selenium.IsTextPresent("Checkout Error") ||
+                             selenium.IsTextPresent("Not Found"))
                     {
-                        datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver, selenium);                        
+                        datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver,
+                                       selenium);
                         break;
                     }
-                   
                 }
 
                 catch (Exception e)
                 {
                     Console.Write(e);
                     string ex = e.ToString();
-                    Screenshot scree = new Screenshot();
+                    var scree = new Screenshot();
                     datarow.newrow("Exception", "Exceptio not Expected", ex, "FAIL", driver, selenium);
                     scree.screenshotfailed(driver, selenium);
-
                 }
-
             }
-          
-              
-        
-
-
         }
     }
 }

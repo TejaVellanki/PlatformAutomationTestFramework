@@ -1,33 +1,30 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+﻿using System;
+using OpenQA.Selenium;
 using Selenium;
-using System;
 
 namespace MoBankUI
 {
-    class Mositebatch
+    internal class Mositebatch
     {
-        public void mosite(IWebDriver driver, ISelenium selenium, datarow datarow, string urls,string items)
+        public void mosite(IWebDriver driver, ISelenium selenium, datarow datarow, string urls, string items)
         {
-            Screenshot screenshot = new Screenshot();
-           
-            string[] strArray = items.Split(new char[] { ',' });
-            string[] urlarray = urls.Split(new char[] { ',' });
+            var screenshot = new Screenshot();
+
+            string[] strArray = items.Split(new[] {','});
+            string[] urlarray = urls.Split(new[] {','});
             int num = 0;
             try
             {
                 foreach (string url in urlarray)
                 {
-                    foreach (var str in strArray)
+                    foreach (string str in strArray)
                     {
-
                         if (str != null)
                         {
-
                             if (str == "Test All Links in Mosite")
                             {
                                 datarow.newrow("", "", "Test All Links in Mosite", "", driver, selenium);
-                                Tickle tick = new Tickle();
+                                var tick = new Tickle();
                                 tick.HomepageTabsTickle(datarow, driver, selenium, url);
                             }
 
@@ -35,20 +32,20 @@ namespace MoBankUI
                             if (str == "Test Footer Links")
                             {
                                 datarow.newrow("", "", "Test Footer Links", "", driver, selenium);
-
                             }
                             if (str == "Test Basket Functionality")
                             {
                                 datarow.newrow("", "", "Test Basket Functionality", "", driver, selenium);
-
                             }
                             if (str == "Test Produict Page - Test Add Product to Basket")
                             {
-                                datarow.newrow("", "", "Test Produict Page - Test Add Product to Basket", "", driver, selenium);
+                                datarow.newrow("", "", "Test Produict Page - Test Add Product to Basket", "", driver,
+                                               selenium);
                             }
                             if (str == "Test Delete From Basket - Test Product Unavailable")
                             {
-                                datarow.newrow("", "", "Test Delete From Basket - Test Product Unavailable", "", driver, selenium);
+                                datarow.newrow("", "", "Test Delete From Basket - Test Product Unavailable", "", driver,
+                                               selenium);
                             }
                             if (str == "Test Registration/Login - CheckOut Pages")
                             {
@@ -58,13 +55,9 @@ namespace MoBankUI
                             {
                                 datarow.newrow("", "", "Test Mopay", "", driver, selenium);
                             }
-
-
                         }
                     }
-                }           
-
-
+                }
             }
             catch (Exception exception)
             {
@@ -78,7 +71,6 @@ namespace MoBankUI
                 screenshot.screenshotfailed(driver, selenium);
                 driver.Quit();
             }
-
         }
     }
 }

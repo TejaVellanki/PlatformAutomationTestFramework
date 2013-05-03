@@ -1,35 +1,19 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Linq;
-using System.Data;
-//using System.Drawing;
-using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
 using Selenium;
-using System.Data.OleDb;
-using System.IO;
-using System.Timers;
-using Microsoft.Office.Interop.Excel;
-using Excel = Microsoft.Office.Interop.Excel;
+//using System.Drawing;
 
 namespace MoBankUI
 {
-    class MositeGeneral 
+    internal class MositeGeneral
     {
+        private GeneralLibrary generalLibrary;
 
-        GeneralLibrary generalLibrary;
-       
-        public void Finally(IWebDriver driver, ISelenium selenium, string url,datarow datarow,string emails)
+        public void Finally(IWebDriver driver, ISelenium selenium, string url, datarow datarow, string emails)
         {
             generalLibrary = new GeneralLibrary();
             try
-            {            
-                               
+            {
                 //Footer_TPS footer = new Footer_TPS();
                 //footer.Footer(driver, selenium, url, datarow);
 
@@ -44,31 +28,28 @@ namespace MoBankUI
 
                 //Mopay_TPS Mopay = new Mopay_TPS();
                 //Mopay.Mopay(driver, selenium, datarow);
-              
             }
             catch (Exception e)
             {
                 Console.Write(e);
                 string ex = e.ToString();
-                Screenshot scree = new Screenshot();
+                var scree = new Screenshot();
                 datarow.newrow("Exception", "Not Expected", ex, "FAIL", driver, selenium);
                 scree.screenshotfailed(driver, selenium);
-
             }
             finally
             {
-                
-                string[] split = url.Split(new Char[] { ' ', ',', '.', '/', '\t' });
+                string[] split = url.Split(new[] {' ', ',', '.', '/', '\t'});
 
                 foreach (string sr in split)
                 {
-                    if (split[2] == "m"||split[2]== "www")
+                    if (split[2] == "m" || split[2] == "www")
                     {
                         if (sr == split[3])
                         {
                             datarow.consolidatedreport(emails);
-                            datarow.excelsave("Mosite-" + sr + "",driver,selenium,emails);
-                          
+                            datarow.excelsave("Mosite-" + sr + "", driver, selenium, emails);
+
                             driver.Quit();
                             break;
                         }
@@ -78,18 +59,14 @@ namespace MoBankUI
                         if (sr == split[2])
                         {
                             datarow.consolidatedreport(emails);
-                            datarow.excelsave("Mosite-" + sr + "",driver,selenium,emails);
-                           
+                            datarow.excelsave("Mosite-" + sr + "", driver, selenium, emails);
+
                             driver.Quit();
                             break;
                         }
                     }
                 }
-                
-
             }
-
         }
-
     }
 }

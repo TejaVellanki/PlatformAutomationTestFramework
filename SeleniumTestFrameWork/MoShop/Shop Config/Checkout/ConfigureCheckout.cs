@@ -1,35 +1,32 @@
 ﻿using System;
 using System.Threading;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Selenium;
 
-
 namespace MoBankUI
 {
-    class ConfigureCheckout
+    internal class ConfigureCheckout
     {
-
-        public void configure(IWebDriver driver, ISelenium selenium,datarow datarow)
+        public void configure(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             new SelectElement(driver.FindElement(By.Id("CheckoutType"))).SelectByText("Configure Checkout");
             selenium.WaitForPageToLoad("30000");
             for (int i = 0; i <= 2; i++)
-            {               
-                    driver.FindElement(By.CssSelector("h3.collapsible.collapsed")).Click();               
+            {
+                driver.FindElement(By.CssSelector("h3.collapsible.collapsed")).Click();
             }
 
 
-            new SelectElement(driver.FindElement(By.Id("Encoding_Value"))).SelectByText("iso-8859-1 - Western European (ISO)");
+            new SelectElement(driver.FindElement(By.Id("Encoding_Value"))).SelectByText(
+                "iso-8859-1 - Western European (ISO)");
             //Add To Basket Page           
-            driver.FindElement(By.Id("BasketPage_Url")).SendKeys("http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl");
+            driver.FindElement(By.Id("BasketPage_Url"))
+                  .SendKeys("http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl");
             new SelectElement(driver.FindElement(By.Id("BasketPage_Method"))).SelectByText("POST");
             driver.FindElement(By.Id("BasketPage_Parameters")).Clear();
-            driver.FindElement(By.Id("BasketPage_Parameters")).SendKeys("SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}");
+            driver.FindElement(By.Id("BasketPage_Parameters"))
+                  .SendKeys("SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}");
             driver.FindElement(By.Id("BasketPage_SuccessSelector")).Clear();
             driver.FindElement(By.Id("BasketPage_SuccessSelector")).SendKeys("#productsresults form h2");
             driver.FindElement(By.Id("BasketPage_ErrorMessageSelector")).Clear();
@@ -37,7 +34,8 @@ namespace MoBankUI
             driver.FindElement(By.Id("BasketPage_ErrorMessageTransformer")).Clear();
             driver.FindElement(By.Id("BasketPage_ErrorMessageTransformer")).SendKeys(@"(?<=\<hr \/\>).*(?=\<hr \/\>)");
             driver.FindElement(By.Id("BasketPage_BasketTotalSelector")).Clear();
-            driver.FindElement(By.Id("BasketPage_BasketTotalSelector")).SendKeys("div#productsresults table:eq(0) tr:last-child td strong:eq(1)");
+            driver.FindElement(By.Id("BasketPage_BasketTotalSelector"))
+                  .SendKeys("div#productsresults table:eq(0) tr:last-child td strong:eq(1)");
             Thread.Sleep(3000);
             driver.FindElement(By.XPath("//div[@id='configureCheckoutForm']/div[2]/h3")).Click();
             int num = 0;
@@ -95,21 +93,26 @@ namespace MoBankUI
             string str14 = driver.FindElement(By.Id("CountryMappings_0__Source")).GetAttribute("Value");
 
             #region Validations
+
             if (str8 == "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl")
             {
-                datarow.newrow("Basket Page URL", "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl", str8, "PASS", driver, selenium);
+                datarow.newrow("Basket Page URL", "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl", str8,
+                               "PASS", driver, selenium);
             }
             else
             {
-                datarow.newrow("Basket Page URL", "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl", str8, "FAIL", driver, selenium);
+                datarow.newrow("Basket Page URL", "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl", str8,
+                               "FAIL", driver, selenium);
             }
             if (str9 == "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}")
             {
-                datarow.newrow("Basket Page Parameters", "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}", str9, "PASS", driver, selenium);
+                datarow.newrow("Basket Page Parameters", "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}", str9,
+                               "PASS", driver, selenium);
             }
             else
             {
-                datarow.newrow("Basket Page Parameters", "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}", str9, "FAIL", driver, selenium);
+                datarow.newrow("Basket Page Parameters", "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}", str9,
+                               "FAIL", driver, selenium);
             }
             if (str10 == "#productsresults form h2")
             {
@@ -129,19 +132,23 @@ namespace MoBankUI
             }
             if (str12 == @"(?<=\<hr \/\>).*(?=\<hr \/\>)")
             {
-                datarow.newrow("Basket Error Transformation", @"(?<=\<hr \/\>).*(?=\<hr \/\>)", str12, "PASS", driver, selenium);
+                datarow.newrow("Basket Error Transformation", @"(?<=\<hr \/\>).*(?=\<hr \/\>)", str12, "PASS", driver,
+                               selenium);
             }
             else
             {
-                datarow.newrow("Basket Error Transformation", @"(?<=\<hr \/\>).*(?=\<hr \/\>)", str12, "FAIL", driver, selenium);
+                datarow.newrow("Basket Error Transformation", @"(?<=\<hr \/\>).*(?=\<hr \/\>)", str12, "FAIL", driver,
+                               selenium);
             }
             if (str13 == "div#productsresults table:eq(0) tr:last-child td strong:eq(1)")
             {
-                datarow.newrow("Basket Total Selector", "div#productsresults table:eq(0) tr:last-child td strong:eq(1)", str13, "PASS", driver, selenium);
+                datarow.newrow("Basket Total Selector", "div#productsresults table:eq(0) tr:last-child td strong:eq(1)",
+                               str13, "PASS", driver, selenium);
             }
             else
             {
-                datarow.newrow("Basket Total Selector", "div#productsresults table:eq(0) tr:last-child td strong:eq(1)", str13, "PASS", driver, selenium);
+                datarow.newrow("Basket Total Selector", "div#productsresults table:eq(0) tr:last-child td strong:eq(1)",
+                               str13, "PASS", driver, selenium);
             }
             if (str14 == "UK")
             {
@@ -180,16 +187,19 @@ namespace MoBankUI
             }
 
             #endregion
+
             driver.FindElement(By.LinkText("…")).Click();
             selenium.WaitForPageToLoad("30000");
-            string str18 = driver.Title.ToString();
+            string str18 = driver.Title;
             if (str18 == "Page Update : mobank.co.uk/MoShop")
             {
-                datarow.newrow("Address Page Title", "Page Update : mobank.co.uk/MoShop", str18, "PASS", driver, selenium);
+                datarow.newrow("Address Page Title", "Page Update : mobank.co.uk/MoShop", str18, "PASS", driver,
+                               selenium);
             }
             else
             {
-                datarow.newrow("Address Page Title", "Page Update : mobank.co.uk/MoShop", str18, "FAIL", driver, selenium);
+                datarow.newrow("Address Page Title", "Page Update : mobank.co.uk/MoShop", str18, "FAIL", driver,
+                               selenium);
             }
             new Addressconfig().addressconfig(driver, selenium, datarow);
         }

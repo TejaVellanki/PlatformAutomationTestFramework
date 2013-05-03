@@ -1,60 +1,52 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Linq;
-using System.Data;
-using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using Selenium;
-using System.Data.OleDb;
-using System.IO;
-using System.Timers;
-using Microsoft.Office.Interop.Excel;
-using Excel = Microsoft.Office.Interop.Excel;
-
 
 namespace MoBankUI
 {
-    class LoginandRegistration_TPS 
+    internal class LoginandRegistration_TPS
     {
-        public void Login_TPS(IWebDriver driver,ISelenium selenium,datarow datarow)
+        public void Login_TPS(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
-            Screenshot screenshot = new Screenshot();
+            var screenshot = new Screenshot();
             try
             {
-                
                 if (selenium.IsElementPresent("//form[@id='ctl00']/section/div/input"))
                 {
-                    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div/input")).SendKeys("mopoweredtest@mobankgroup.com");
-                    datarow.newrow("Login Name Element", "Login Name Field Is Expected", "Login Name Field Is Present", "PASS", driver, selenium);
+                    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div/input"))
+                          .SendKeys("mopoweredtest@mobankgroup.com");
+                    datarow.newrow("Login Name Element", "Login Name Field Is Expected", "Login Name Field Is Present",
+                                   "PASS", driver, selenium);
                 }
-                else if(selenium.IsElementPresent("id=UserName"))
+                else if (selenium.IsElementPresent("id=UserName"))
                 {
                     driver.FindElement(By.Id("UserName")).SendKeys("mopoweredtest@mobankgroup.com");
-                    datarow.newrow("Login Name Element", "Login Name Field Is Expected", "Login Name Field Is Present", "PASS", driver, selenium);
+                    datarow.newrow("Login Name Element", "Login Name Field Is Expected", "Login Name Field Is Present",
+                                   "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Login Name Element", "Login Name Field Is Expected", "Blocker-Login Name Field Is Not Present", "FAIL", driver, selenium);
+                    datarow.newrow("Login Name Element", "Login Name Field Is Expected",
+                                   "Blocker-Login Name Field Is Not Present", "FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
                 if (selenium.IsElementPresent("//form[@id='ctl00']/section/div[2]/input"))
                 {
                     driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[2]/input")).SendKeys("M0Test08");
-                    datarow.newrow("Login Name Element", "Login Password Field Is Expected", "Login Password Field Is Present", "PASS", driver, selenium);
+                    datarow.newrow("Login Name Element", "Login Password Field Is Expected",
+                                   "Login Password Field Is Present", "PASS", driver, selenium);
                 }
-                else if(selenium.IsElementPresent("id=Password"))                   
+                else if (selenium.IsElementPresent("id=Password"))
                 {
                     driver.FindElement(By.Id("Password")).SendKeys("M0Test08");
-                    datarow.newrow("Login Name Element", "Login Password Field Is Expected", "Login Password Field Is Present", "PASS", driver, selenium);
+                    datarow.newrow("Login Name Element", "Login Password Field Is Expected",
+                                   "Login Password Field Is Present", "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Login Password Element", "Login Password Field Is Expected", "Blocker - Login Password Field Is Not Present", "FAIL", driver, selenium);
+                    datarow.newrow("Login Password Element", "Login Password Field Is Expected",
+                                   "Blocker - Login Password Field Is Not Present", "FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
                 if (selenium.IsElementPresent("//form[@id='ctl00']/section/div[3]/div/input"))
@@ -62,14 +54,15 @@ namespace MoBankUI
                     driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[3]/div/input")).Click();
                     selenium.WaitForPageToLoad("30000");
                 }
-                else if (selenium.IsElementPresent("css=input.ui-btn-hidden"))   
+                else if (selenium.IsElementPresent("css=input.ui-btn-hidden"))
                 {
                     selenium.Click("css=input.ui-btn-hidden");
                     selenium.WaitForPageToLoad("30000");
                 }
                 else
                 {
-                    datarow.newrow("Login Element", "Login Button Is Expected", "Blocker - Login Button Is Not Present", "FAIL", driver, selenium);
+                    datarow.newrow("Login Element", "Login Button Is Expected", "Blocker - Login Button Is Not Present",
+                                   "FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
                 if (selenium.IsElementPresent("id=BasketInfo"))
@@ -79,13 +72,11 @@ namespace MoBankUI
                     if (basvalue == "(1)")
                     {
                         datarow.newrow("Basket Value", "(1)", basvalue, "PASS", driver, selenium);
-
                     }
                     else
                     {
                         datarow.newrow("Basket Value", "(1)", basvalue, "FAIL", driver, selenium);
                         screenshot.screenshotfailed(driver, selenium);
-
                     }
                 }
                 else
@@ -96,84 +87,90 @@ namespace MoBankUI
 
                 if (selenium.IsElementPresent("//html/body/div/div[2]/div[2]/form/section/p/a/span/span/span/span"))
                 {
-                    datarow.newrow("Change Details Element", "Change Details Button is Expected", "Change Details Button Is Present", "PASS", driver, selenium);
+                    datarow.newrow("Change Details Element", "Change Details Button is Expected",
+                                   "Change Details Button Is Present", "PASS", driver, selenium);
                     selenium.Click("//html/body/div/div[2]/div[2]/form/section/p/a/span/span/span/span");
                     selenium.WaitForPageToLoad("30000");
                     try
                     {
-                    decimal count = selenium.GetXpathCount("//form[@id='ctl00']/section/div");
-                    for (int i = 1; i <= count; i++)
-                    {
-                        if (selenium.IsElementPresent("//form[@id='ctl00']/section/div[" + i + "]/label"))
+                        decimal count = selenium.GetXpathCount("//form[@id='ctl00']/section/div");
+                        for (int i = 1; i <= count; i++)
                         {
-                            var valuet = driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/label")).Text;
-                            //if (valuet == "Telephone:")
-                            //{
-                            //    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/input")).SendKeys("123456789");
-                            //}
-
-                            if (valuet.Contains("*") || valuet != "Country: *")
+                            if (selenium.IsElementPresent("//form[@id='ctl00']/section/div[" + i + "]/label"))
                             {
-                                try
-                                {
-                                    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/input")).SendKeys("TEST");
-                                    datarow.newrow("Registration Field Name", "", valuet, "PASS", driver, selenium);
+                                string valuet =
+                                    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/label"))
+                                          .Text;
+                                //if (valuet == "Telephone:")
+                                //{
+                                //    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/input")).SendKeys("123456789");
+                                //}
 
-                                }
-                                catch (Exception ex)
+                                if (valuet.Contains("*") || valuet != "Country: *")
                                 {
-                                    Console.Write(ex);
+                                    try
+                                    {
+                                        driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/input"))
+                                              .SendKeys("TEST");
+                                        datarow.newrow("Registration Field Name", "", valuet, "PASS", driver, selenium);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Console.Write(ex);
+                                    }
                                 }
-                            }
 
-                            if (valuet == "Country: *")
-                            {
-                                string[] varinats = selenium.GetSelectOptions("id=Pagecontent_ddlCountry");
-                                string values = null;
-                                foreach (string value in varinats)
+                                if (valuet == "Country: *")
                                 {
-                                    
+                                    string[] varinats = selenium.GetSelectOptions("id=Pagecontent_ddlCountry");
+                                    string values = null;
+                                    foreach (string value in varinats)
+                                    {
                                         values = values + "\r\n" + value;
-                                        new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlCountry"))).SelectByText(value);
-                                       
+                                        new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlCountry")))
+                                            .SelectByText(value);
+                                    }
+                                    datarow.newrow("Registration Field Countries", "", values, "PASS", driver, selenium);
                                 }
-                                datarow.newrow("Registration Field Countries", "", values, "PASS", driver, selenium);
                             }
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        string e = ex.ToString();
+                        datarow.newrow("Exception", "exception Not Expected", e, "FAIL", driver, selenium);
+                        screenshot.screenshotfailed(driver, selenium);
+                    }
                 }
-                catch(Exception ex)
+                string loc = selenium.GetLocation();
+                if (loc.Contains("Error"))
                 {
-                    string e = ex.ToString();
-                    datarow.newrow("Exception", "exception Not Expected", e, "FAIL", driver, selenium);
+                    datarow.newrow("Error Page", "Error Page After Logging Not Expected", loc, "FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
 
-                }
-                string loc = selenium.GetLocation();
-                if(loc.Contains("Error"))
-                {
-                    datarow.newrow("Error Page", "Error Page After Logging Not Expected",loc,"FAIL",driver,selenium);
-                    screenshot.screenshotfailed(driver, selenium);
-                }
-               
 
                 driver.Navigate().Back();
                 selenium.WaitForPageToLoad("30000");
-               
-                
+
+
                 //selecting delivery method
                 try
                 {
-                    if (selenium.IsElementPresent("//html/body/div/div[2]/div[2]/form/section/div[2]/fieldset/div/label/span/span"))
+                    if (
+                        selenium.IsElementPresent(
+                            "//html/body/div/div[2]/div[2]/form/section/div[2]/fieldset/div/label/span/span"))
                     {
-                        decimal count = selenium.GetXpathCount("/html/body/div/div[2]/div[2]/form/section/div[2]/fieldset/div");
+                        decimal count =
+                            selenium.GetXpathCount("/html/body/div/div[2]/div[2]/form/section/div[2]/fieldset/div");
                         for (int i = 1; i < count; i++)
                         {
-                            string text = selenium.GetText("//html/body/div/div[2]/div[2]/form/section/div[2]/fieldset/div[" + i + "]/label/span/span");
-                            selenium.Click("//html/body/div/div[2]/div[2]/form/section/div[2]/fieldset/div[" + i + "]/label/span/span");
+                            string text =
+                                selenium.GetText("//html/body/div/div[2]/div[2]/form/section/div[2]/fieldset/div[" + i +
+                                                 "]/label/span/span");
+                            selenium.Click("//html/body/div/div[2]/div[2]/form/section/div[2]/fieldset/div[" + i +
+                                           "]/label/span/span");
                             datarow.newrow("Delivery Method", "", text, "PASS", driver, selenium);
-
                         }
                     }
                     else
@@ -201,7 +198,8 @@ namespace MoBankUI
                     }
                     else
                     {
-                        datarow.newrow("Continue Button in Checkout Page", "Error Not Expected", "Pagecontent_ButtonCheckoutStep2-Element Not Present", "FAIL", driver, selenium);
+                        datarow.newrow("Continue Button in Checkout Page", "Error Not Expected",
+                                       "Pagecontent_ButtonCheckoutStep2-Element Not Present", "FAIL", driver, selenium);
                         screenshot.screenshotfailed(driver, selenium);
                     }
                 }
@@ -218,12 +216,14 @@ namespace MoBankUI
                     {
                         driver.FindElement(By.Id("Pagecontent_ButtonConfirmCheckout")).Click();
                         selenium.WaitForPageToLoad("30000");
-                        string title = driver.Title.ToString();
+                        string title = driver.Title;
                         datarow.newrow("Mopay Title", "", title, "PASS", driver, selenium);
                     }
                     else
                     {
-                        datarow.newrow("Confirm Button in Checkout page", "Error Not Expected", "Pagecontent_ButtonConfirmCheckout - Element Not Present", "FAIL", driver, selenium);
+                        datarow.newrow("Confirm Button in Checkout page", "Error Not Expected",
+                                       "Pagecontent_ButtonConfirmCheckout - Element Not Present", "FAIL", driver,
+                                       selenium);
                         screenshot.screenshotfailed(driver, selenium);
                     }
                 }
@@ -233,14 +233,12 @@ namespace MoBankUI
                     datarow.newrow("Pay Button Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
-
             }
             catch (Exception ex)
             {
                 string exc = ex.ToString();
-                datarow.newrow("Exception","Exception Not Expected",exc,"FAIL",driver,selenium);
+                datarow.newrow("Exception", "Exception Not Expected", exc, "FAIL", driver, selenium);
                 screenshot.screenshotfailed(driver, selenium);
-
             }
         }
     }
