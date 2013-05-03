@@ -12,7 +12,7 @@ namespace Tablet_View
         {
             //Method Homapge validations
             #region HomePage Validations
-            driver.Navigate().GoToUrl("http://tablet.mobankdev.com");
+             driver.Navigate().GoToUrl("http://tablet.mobankdev.com");
              driverdefining Driver = new driverdefining();
             
             string title = driver.Title.ToString();
@@ -30,7 +30,10 @@ namespace Tablet_View
             blob.Blob( selenium,driver,datarow);
             var home = new Homepage_tab();
             home.homepage(driver, selenium, datarow);
-           #endregion
+            LinksExpand allproducts = new LinksExpand();
+            allproducts.AllLink(driver,selenium,datarow);
+
+            #endregion
         }
     }
 }

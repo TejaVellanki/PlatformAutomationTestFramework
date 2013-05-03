@@ -31,8 +31,6 @@ namespace MoBankUI
             }
             // This method counts the categories,sub-categories, product pages and validate every product link
             Screenshot screenshot = new Screenshot();
-        
-          
            
             try
             {
@@ -44,8 +42,7 @@ namespace MoBankUI
                 decimal linkcount = driver.FindElements(By.XPath(categorylink)).Count;
                 if (linkcount == 0)
                 {
-                    datarow.newrow("Category Validation in Home Page", "Atleast One Category/product is Expected",
-                                   "No Categories/Products are Identified", "FAIL", driver, selenium);
+                    datarow.newrow("Category Validation in Home Page", "Atleast One Category/product is Expected","No Categories/Products are Identified", "FAIL", driver, selenium);
                 }
                 int j = 0;
                 int s = 1;
@@ -56,8 +53,7 @@ namespace MoBankUI
                     try
                     {
                         driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                        IWebElement myDynamicElement1 =
-                            driver.FindElement(By.XPath(""+categorylink+"["+ i +"]"+cat+""));
+                        IWebElement myDynamicElement1 =driver.FindElement(By.XPath(""+categorylink+"["+ i +"]"+cat+""));
                         driver.FindElement(By.XPath("" + categorylink + "[" + i + "]" + cat + "")).Click();
                         selenium.WaitForPageToLoad("30000");
                         string title = driver.Title;
@@ -84,8 +80,7 @@ namespace MoBankUI
                                 string location = selenium.GetLocation();
                                 // Category Image validation
                                 Image.categoryimage(driver, selenium, datarow);
-                                driver.FindElement(By.XPath("" + categorylink + "[" + k + "]" + cat + ""))
-                                      .Click();
+                                driver.FindElement(By.XPath("" + categorylink + "[" + k + "]" + cat + "")).Click();
                                 selenium.WaitForPageToLoad("30000");
                                 string titlecategory = driver.Title;
                                 string url1 = selenium.GetLocation();
@@ -105,8 +100,8 @@ namespace MoBankUI
                                         Image.productImage(driver, selenium, datarow);
                                         datarow.newrow("Product Title", "", titlecategory, "PASS", driver, selenium);
                                         //This is to test the product page
-                                        //Productpage page = new Productpage();
-                                       // page.productPage(driver,selenium,datarow);
+                                        Productpage page = new Productpage();
+                                        page.productPage(driver,selenium,datarow);
                                      
                                     }
                                     catch (Exception ex)
@@ -140,8 +135,7 @@ namespace MoBankUI
                         catch (Exception ex)
                         {
                             string e = ex.ToString();
-                            datarow.newrow("Category/Product Link Exception", "Exception Not Expected", e, "FAIL",
-                                           driver, selenium);
+                            datarow.newrow("Category/Product Link Exception", "Exception Not Expected", e, "FAIL",driver, selenium);
                             screenshot.screenshotfailed(driver, selenium);
                         }
                     }
