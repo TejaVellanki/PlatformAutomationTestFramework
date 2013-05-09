@@ -240,7 +240,7 @@
             // checkedListBox5
             // 
             this.checkedListBox5.FormattingEnabled = true;
-            this.checkedListBox5.Location = new System.Drawing.Point(69, 245);
+            this.checkedListBox5.Location = new System.Drawing.Point(69, 232);
             this.checkedListBox5.Name = "checkedListBox5";
             this.checkedListBox5.Size = new System.Drawing.Size(247, 49);
             this.checkedListBox5.TabIndex = 16;

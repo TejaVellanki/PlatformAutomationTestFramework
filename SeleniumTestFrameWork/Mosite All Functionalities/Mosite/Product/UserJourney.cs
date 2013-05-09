@@ -2,6 +2,7 @@
 using System.Threading;
 using OpenQA.Selenium;
 using Selenium;
+using ObjectRepository;
 //using System.Drawing;
 
 namespace MoBankUI
@@ -14,55 +15,64 @@ namespace MoBankUI
         {
             try
             {
+                string categorylink = null;
+                string cat = null;
+                string products = null;
+                string productlink = null; 
+                string URL = driver.Title.ToString();
+                if (URL.Contains("Tablet"))
+                {
+                    categorylink = CollectionMapV2.categorylink;
+                    cat = CollectionMapV2.cat;
+                    products = CollectionMapV2.products;
+                    productlink = CollectionMapV2.productlink;
+                }
+                else
+                {
+                    categorylink = CollectionMapV1.categorylink;
+                    cat = CollectionMapV1.catlink;
+                    products = CollectionMapV1.products;
+                    productlink = CollectionMapV1.productlink;
+                }
+
                 var Image = new Imagevalidation();
                 var footer = new Footer_TPS();
                 driver.Navigate().Back();
                 driver.Navigate().GoToUrl(url);
-                selenium.Click("css=img");
-                selenium.WaitForPageToLoad("30000");
-                Image.homepageimage(driver, selenium, datarow);
+             
+               // Image.homepageimage(driver, selenium, datarow);
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                IWebElement myDynamicElement1 =
-                    driver.FindElement(By.XPath("//html/body/div/div[2]/div/ul/li/div/div/a/h2"));
-                driver.FindElement(By.XPath("//html/body/div/div[2]/div/ul/li/div/div/a/h2")).Click();
+                IWebElement myDynamicElement1 =driver.FindElement(By.XPath(""+categorylink+""+cat+""));
+                driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
                 selenium.WaitForPageToLoad("30000");
                 string title = driver.Title;
-                Image.categoryimage(driver, selenium, datarow);
-                footer.Footer(driver, selenium, datarow);
-                decimal categorycount = selenium.GetXpathCount("//html/body/div/div[2]/div/ul/li");
-                for (int i = 1;; i++)
-                {
-                    if (selenium.IsElementPresent("//html/body/div/div[2]/div/ul/li/div/div/a/h2"))
+
+
+                // Activate After Debug
+               // Image.categoryimage(driver, selenium, datarow);
+               // footer.Footer(driver, selenium, datarow);
+                decimal categorycount = selenium.GetXpathCount(categorylink);
+              
+
+                    if (selenium.IsElementPresent("" + categorylink + "[" + 1 + "]" + cat + ""))
                     {
-                        driver.FindElement(By.XPath("//html/body/div/div[2]/div/ul/li/div/div/a/h2")).Click();
+                        //*[@id="productList"]/article[1]/a/div[1]/img
+                        string location = selenium.GetLocation();
+                        // Category Image validation
+                        Image.categoryimage(driver, selenium, datarow);
+                        driver.FindElement(By.XPath("" + categorylink + "[" + 1 + "]" + cat + "")).Click();
                         selenium.WaitForPageToLoad("30000");
-                        Image.subcategoryimage(driver, selenium, datarow);
-                        footer.Footer(driver, selenium, datarow);
                         string titlecategory = driver.Title;
                         string url1 = selenium.GetLocation();
-
-                        if (url1.Contains("category"))
+                        if (selenium.IsElementPresent("" + products + "[" + 1 + "]" + productlink + ""))
                         {
-                            datarow.newrow("Category Title", "", titlecategory, "PASS", driver, selenium);
+                            string url2 = driver.Title.ToString();
+                            selenium.Click("" + products + "" + productlink + "");
+                            selenium.WaitForPageToLoad("30000");
                         }
-                        else
-                        {
-                            datarow.newrow("Product Title", "", titlecategory, "PASS", driver, selenium);
-                            break;
-                        }
+                       
                     }
-                    else
-                    {
-                        if (i == 1)
-                        {
-                            datarow.newrow("Categories Of Merchant", "Expected Atleast One Category",
-                                           "No Category is identified " + "-" +
-                                           "//html/body/div/div[2]/div/ul/li/div/div/a/h2(Element Not Identified)",
-                                           "FAIL", driver, selenium);
-                            screenshot.screenshotfailed(driver, selenium);
-                        }
-                    }
-                }
+                
 
                 var prod = new products_TPS();
                 prod.product(driver, selenium, datarow);

@@ -8,7 +8,7 @@ namespace MoBankUI
 {
     internal class Productpage
     {
-        private CollectionMapV2 str;
+       
 
         public void productPage(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
@@ -45,29 +45,50 @@ namespace MoBankUI
             }
 
 
-            if (selenium.IsElementPresent(productprice))
+            try
             {
                 string price = driver.FindElement(By.XPath(productprice)).Text;
                 datarow.newrow("Product Price", "", price, "PASS", driver, selenium);
             }
+            catch (Exception)
+            {
+                
+                throw;
+            }
 
-            //Click and  Expand Details Tab
+            //Deleted Click and  Expand Details Tab
 
-            selenium.Click(productdescriptiontab);
-
-            if (selenium.IsElementPresent(productdescription))
+            try
             {
                 string detail = selenium.GetText(Detail);
                 datarow.newrow("Product Detail", "", detail, "PASS", driver, selenium);
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
 
 
-            if (selenium.IsElementPresent(producttitle))
+
+
+
+            try
             {
                 string titles = selenium.GetText(producttitle);
                 datarow.newrow("Product Title", "", titles, "PASS", driver, selenium);
             }
+            catch (Exception)
+            {
+                
+                throw;
+            }
 
+            try
+            {
+
+           
             if (selenium.IsElementPresent("id=" + productVarinat + ""))
             {
                 try
@@ -128,6 +149,12 @@ namespace MoBankUI
                     }
                 }
                 datarow.newrow("Variants", "", values, "PASS", driver, selenium);
+            }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
