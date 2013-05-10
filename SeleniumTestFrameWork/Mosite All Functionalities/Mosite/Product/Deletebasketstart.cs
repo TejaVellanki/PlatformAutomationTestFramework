@@ -82,7 +82,7 @@ namespace MoBankUI
                 deletebasket= CollectionMapV2.deletebasket;
                 products = CollectionMapV2.products;
                 homeimage = CollectionMapV2.homeimage;
-                  productlink = CollectionMapV2.productlink;
+                productlink = CollectionMapV2.productlink;
             }
             else
             {
@@ -91,7 +91,7 @@ namespace MoBankUI
                 deletebasket= CollectionMapV1.deletebasket;
                 products = CollectionMapV1.products;
                 homeimage = CollectionMapV1.homeimage;
-                  productlink = CollectionMapV1.productlink;
+                productlink = CollectionMapV1.productlink;
             }
               //body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span
 

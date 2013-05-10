@@ -18,6 +18,7 @@ namespace MoBankUI
 
         public void Mopay(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
+            string title1 = driver.Title.ToString(); 
             try
             {
                 // payment selector id="Pagecontent_ddlPaymentOption"
@@ -134,7 +135,8 @@ namespace MoBankUI
                         datarow.newrow("Countries", "", vaus, "PASS", driver, selenium);
                     }
                 }
-                else if (selenium.IsElementPresent("id=Card_Number"))
+               
+                else if(selenium.IsElementPresent("id=Card_Number")||title1=="Index")
                 {
                     MoPayTPS(driver, selenium, datarow);
                 }

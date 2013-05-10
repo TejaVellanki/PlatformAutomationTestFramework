@@ -30,6 +30,24 @@ namespace ObjectRepository
         public const string homeimage = "//div[@id='main-page']/div[3]/a/img";
 
     }
+    public static class AddressMapV2
+    {
+        public const string submitbutton = "//div[@id='main-page']/div[7]/div/div[2]/div/button";
+        public const string field = "//form[@id='checkoutForm']/section/div/div";
+        public const string terms = "/fieldset/div[2]/div/label/span/span[2]";
+        public const string fieldlabel = "/label";
+        public const string fieldinput = "/div/input";
+        public const string fieldcountry = "FormData_";
+        public const string coutryvalue = "__Value";
+    }
+    public static class CheckoutMapV2
+    {
+        public const string termsncond =
+            "//form[@id='checkoutForm']/section/div/div[3]/fieldset/div[2]/div/label/span/span[2]";
+
+        public const string paybutton = "//a[@id='PayButton']/span/span";
+
+    }
 
 }
 

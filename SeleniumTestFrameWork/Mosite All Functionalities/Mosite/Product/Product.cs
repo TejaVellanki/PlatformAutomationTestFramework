@@ -76,8 +76,9 @@ namespace MoBankUI
 
                 #region Product Detail
 
-                if (selenium.IsElementPresent(productdescription))
+                try
                 {
+              
                     selenium.Click(productdescriptiontab);
 
                     if (selenium.IsElementPresent(productdescription))
@@ -94,18 +95,28 @@ namespace MoBankUI
                         datarow.newrow("Product Detail", "Product Details are Expected","Product Details Not identified", "FAIL", driver, selenium);
                     }
                 }
+                catch (Exception ex)
+                {
+
+                    string e = ex.ToString();
+                }
 
                 #endregion
 
                 #region Product Title
 
                 // Product Title
-                if (selenium.IsElementPresent(producttitle))
+                try
                 {
                     string title = selenium.GetText(producttitle);
                     datarow.newrow("Product Title", "", title, "PASS", driver, selenium);
                 }
-                else if (!selenium.IsElementPresent(producttitle))
+                catch (Exception ex)
+                {
+                    string e = ex.ToString(); 
+                  
+                }
+                if (!selenium.IsElementPresent(producttitle))
                 {
                     datarow.newrow("Product Title", "Product Title Element is Expected","Product Title Element Not Found", "FAIL", driver, selenium);
                 }
@@ -184,9 +195,9 @@ namespace MoBankUI
                     }
                     datarow.newrow("Variants", "", values, "PASS", driver, selenium);
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-
+                        string e = ex.ToString();
                         throw;
                     }
                 }
@@ -198,6 +209,7 @@ namespace MoBankUI
                 js.ExecuteScript("window.scrollBy(0,400)");
                 try
                 {
+                    
                     driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
                     driver.FindElement(By.XPath(AddToBasket)).Click();
                     datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected",AddToBasket + "Add To Basket Element Is Present","PASS", driver, selenium);

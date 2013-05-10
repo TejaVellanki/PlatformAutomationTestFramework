@@ -30,7 +30,27 @@ namespace ObjectRepository
           public const string  addtobasket = "//p[@id='AddToBasketButton']/div[2]/input";
           public const string  checkout = "//a[@id='GoToCheckout']/span/span";
           public const string  deletebasket = "//ul[@id='Basket']/li/a/span";
-          public const string homeimage = "css=img";
+          public const string  homeimage = "css=img";
+
+    }
+
+    public static class AddressMapV1
+    {
+        public const string submitbutton ="//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button";
+        public const string field = "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div";
+        public const string sendletters = "/fieldset/div[2]/div/label/span/span[2]";
+        public const string fieldlabel = "/label";
+        public const string fieldinput = "/input[2]";
+        public const string fieldcountry = "id=FormData_";
+        public const string coutryvalue  =  "__Value";
+    }
+
+    public static class CheckoutMapV1
+    {
+        public const string termsncond =
+             "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[3]/fieldset/div[2]/div/label/span/span[2]";
+
+        public const string paybutton = "//a[@id='PayButton']/span/span";
 
     }
 }
