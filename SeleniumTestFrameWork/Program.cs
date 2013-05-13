@@ -16,7 +16,7 @@ namespace MoBankUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MoBankUI.Form1());
+            Application.Run(new MoBankUI.Next());
         }
     }
 }

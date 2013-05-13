@@ -55,6 +55,17 @@ namespace MoBankUI
         public void newrow(string validation, string expected, string actual, string passorfail, IWebDriver driver, ISelenium selenium)
         {
             DataRow newrow = dt.NewRow();
+          
+            newrow[0] = validation;
+            newrow[1] = expected;
+            newrow[2] = actual;
+            newrow[3] = passorfail;
+            dt.Rows.Add(newrow);
+        }
+
+        public void newrow(string validation, string expected, string actual, string passorfail, ISelenium selenium)
+        {
+            DataRow newrow = dt.NewRow();
             newrow[0] = validation;
             newrow[1] = expected;
             newrow[2] = actual;

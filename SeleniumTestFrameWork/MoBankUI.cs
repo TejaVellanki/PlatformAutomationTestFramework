@@ -11,8 +11,9 @@
     using System.Drawing;
     using System.Threading;
     using System.Windows.Forms;
+    using Next_Mobi;
 
-    public partial class Form1 : Form
+    public partial class Next : Form
     {
        
         public WebDriverBackedSelenium selenium;       
@@ -22,7 +23,7 @@
         private TextBox textbox4;
         private TextBox textBox2;
 
-        public Form1()
+        public Next()
         {
             this.InitializeComponent();
         }
@@ -39,6 +40,7 @@
                 bool Firefox= this.checkBox14.Checked;
                 bool mositetps= this.checkBox13.Checked;
                 bool tabletview = checkBox1.Checked;
+                bool NextMobi = checkBox2.Checked;
               
 
                 if (mopaytestharness)
@@ -64,6 +66,10 @@
                 if (tabletview)
                 {
                     this.tabletview();
+                }
+                if (NextMobi)
+                {
+                    this.nextmobi();
                 }
                 #region MositeTPS
                 if (mositetps == true)
@@ -265,6 +271,26 @@
             catch (Exception)
             {
             }
+        }
+        public void nextmobi()
+        {
+                string items = null;
+                datarow datarow = new datarow();
+                datarow.col();
+                int count = checkedListBox6.CheckedItems.Count;
+                foreach (var item in checkedListBox6.CheckedItems)
+                {
+                    items += item.ToString() +",";
+                }
+                IWebDriver driver = new FirefoxDriver();
+                this.selenium = new WebDriverBackedSelenium(driver, "http://m.next.co.uk/");
+                this.selenium.Start();
+                this.selenium.WindowMaximize();
+                driver.Navigate().GoToUrl("http://m.next.co.uk/");
+             
+            mobibatch mobi = new mobibatch();
+            mobi.nextmobi(driver, selenium, datarow,items);
+            datarow.excelsave("NextMobi", driver, selenium, "vaishali.mongia@mobankgroup.com");
         }
 
         #endregion 
@@ -566,6 +592,26 @@
         #endregion
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NextMobi_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
