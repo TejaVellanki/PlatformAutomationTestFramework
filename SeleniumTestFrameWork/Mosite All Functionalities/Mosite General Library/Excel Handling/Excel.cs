@@ -42,8 +42,7 @@ namespace MoBankUI
 
             var objDataset = new DataSet();
 
-            objDataset.Locale =
-                CultureInfo.InvariantCulture;
+            objDataset.Locale =CultureInfo.InvariantCulture;
 
             objAdapter1.Fill(objDataset);
 

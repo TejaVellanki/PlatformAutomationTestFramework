@@ -26,6 +26,7 @@ namespace MoBankUI
                                 datarow.newrow("", "", "Test All Links in Mosite", "", driver, selenium);
                                 var tick = new Tickle();
                                 tick.HomepageTabsTickle(datarow, driver, selenium, url);
+                             
                             }
 
 

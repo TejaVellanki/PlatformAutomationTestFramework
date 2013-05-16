@@ -111,11 +111,7 @@ namespace MoBankUI
             datarow datarow = new datarow();
             datarow.col();
             //Opening the Firefox driver
-             IWebDriver driver = new FirefoxDriver();
-            selenium = new WebDriverBackedSelenium(driver,"http://tablet.mobankdev.com");
-            selenium.Start();
-            batch_tab batch = new batch_tab();
-            batch.tabbatch(datarow,selenium,driver);
+          
         }
 
         public void mositemodroandroid()

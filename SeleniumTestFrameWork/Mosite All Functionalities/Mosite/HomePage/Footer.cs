@@ -1,4 +1,5 @@
 ﻿using System;
+using ObjectRepository;
 using OpenQA.Selenium;
 using Selenium;
 //using System.Drawing;
@@ -28,17 +29,53 @@ namespace MoBankUI
         public void Footer(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             // Generic Method to test footer links on all the sites. 
+            try
+            {
+
+            string url = driver.Title;
+
+            string footer = null;
+            string footerlink = null;
+            string sociallin = null;
+            string sociallink = null;
+            string mopowered = null;
+            string lowerfooter = null;
+            string lowerfooterlink = null;
 
             #region
 
-            try
-            {
+           
+                var screenshot = new Screenshot();
+
+                if (url.Contains("Tablet"))
+                {
+
+                    footer = FooterV2.footer;
+                    footerlink = FooterV2.footerlink;
+                    sociallink = FooterV2.sociallink;
+                    sociallin = FooterV2.sociallin;
+                    mopowered = FooterV2.mopowered;
+                    lowerfooter = FooterV2.lowerfooter;
+                    lowerfooterlink = FooterV2.lowerfooterlink;
+
+                }
+                else
+                {
+                    footer = FooterV1.footer;
+                    footerlink = FooterV1.footerlink;
+                    sociallink = FooterV1.sociallink;
+                    sociallin = FooterV1.sociallin;
+                    mopowered = FooterV1.mopowered;
+                    lowerfooter = FooterV1.lowerfooter;
+                    lowerfooterlink = FooterV1.lowerfooterlink;
+                   
+                }
                 try
                 {
-                    decimal count = selenium.GetXpathCount("//html/body/div/div[3]/ul/li");
+                    decimal count = selenium.GetXpathCount(footer);
                     for (int i = 1; i <= count; i++)
                     {
-                        driver.FindElement(By.XPath("//html/body/div/div[3]/ul/li[" + i + "]/div/div/a")).Click();
+                        driver.FindElement(By.XPath(""+footer+"[" + i + "]"+footerlink+"")).Click();
                         selenium.WaitForPageToLoad("30000");
                         string Title = driver.Title;
                         datarow.newrow("Footer Title", "", Title, "PASS", driver, selenium);
@@ -55,13 +92,13 @@ namespace MoBankUI
 
                 try
                 {
-                    decimal count1 = selenium.GetXpathCount("//html/body/div/div[3]/div/a");
+                    decimal count1 = selenium.GetXpathCount(sociallin);
                     for (int i = 1; i <= count1; i++)
                     {
-                        driver.FindElement(By.XPath("//html/body/div/div[3]/div/a[" + i + "]/img")).Click();
+                        driver.FindElement(By.XPath(""+sociallin+"[" + i + "]"+sociallink+"")).Click();
                         selenium.WaitForPageToLoad("30000");
                         string tile = driver.Title;
-                        datarow.newrow("Footer Image Title", "", tile, "PASS", driver, selenium);
+                        datarow.newrow("Footer Social Image Title", "", tile, "PASS", driver, selenium);
                         driver.Navigate().Back();
                         selenium.WaitForPageToLoad("30000");
                     }
@@ -72,36 +109,13 @@ namespace MoBankUI
                     datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
+
                 try
                 {
-                    if (selenium.IsElementPresent("//html/body/div/div[3]/p/a"))
-                    {
-                        driver.FindElement(By.XPath("//html/body/div/div[3]/p/a")).Click();
-                        selenium.WaitForPageToLoad("30000");
-                        string tile = driver.Title;
-                        datarow.newrow("Footer Title", "", tile, "PASS", driver, selenium);
-                        driver.Navigate().Back();
-                        selenium.WaitForPageToLoad("30000");
-                    }
-                    else
-                    {
-                        datarow.newrow("Fotter Element", "", "Footer Element Not Present" + "//html/body/div/div[3]/p/a",
-                                       "FAIL", driver, selenium);
-                        screenshot.screenshotfailed(driver, selenium);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    string e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
-                    screenshot.screenshotfailed(driver, selenium);
-                }
-                try
-                {
-                    decimal count3 = selenium.GetXpathCount("//html/body/div/div[3]/p[2]/a");
+                    decimal count3 = selenium.GetXpathCount(lowerfooter);
                     for (int i = 1; i <= count3; i++)
                     {
-                        driver.FindElement(By.XPath("//html/body/div/div[3]/p[2]/a[" + i + "]")).Click();
+                        driver.FindElement(By.XPath("" + lowerfooter + "[" + i + "]"+lowerfooterlink+"")).Click();
                         selenium.WaitForPageToLoad("30000");
                         string tile = driver.Title;
                         datarow.newrow("Lower Footer Title", "", tile, "PASS", driver, selenium);
@@ -115,6 +129,30 @@ namespace MoBankUI
                     datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
+                try
+                {
+                    if (selenium.IsElementPresent(mopowered))
+                    {
+                        driver.FindElement(By.XPath(mopowered)).Click();
+                        selenium.WaitForPageToLoad("30000");
+                        string tile = driver.Title;
+                        datarow.newrow("Footer Title", "", tile, "PASS", driver, selenium);
+                        driver.Navigate().Back();
+                        selenium.WaitForPageToLoad("30000");
+                    }
+                    else
+                    {
+                        datarow.newrow("Footer Element", "", "Footer Element Not Present" + mopowered,"FAIL", driver, selenium);
+                        screenshot.screenshotfailed(driver, selenium);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string e = ex.ToString();
+                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
+                    screenshot.screenshotfailed(driver, selenium);
+                }
+               
             }
             catch (Exception ex)
             {

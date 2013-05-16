@@ -79,7 +79,7 @@ namespace MoBankUI
                 try
                 {
               
-                    selenium.Click(productdescriptiontab);
+                 //selenium.Click(productdescriptiontab);
 
                     if (selenium.IsElementPresent(productdescription))
                     {
@@ -92,7 +92,18 @@ namespace MoBankUI
                     }
                     else
                     {
-                        datarow.newrow("Product Detail", "Product Details are Expected","Product Details Not identified", "FAIL", driver, selenium);
+                        selenium.Click(productdescriptiontab);
+                        if (selenium.IsElementPresent(productdescription))
+                        {
+                            string detail = selenium.GetText(Detail);
+                            datarow.newrow("Product Detail", "", detail, "PASS", driver, selenium);
+                        }
+                        else
+                        {
+                            datarow.newrow("Product Detail", "Product Details are Expected", "Product Details Not identified", "FAIL", driver, selenium);
+                            
+                        }
+                       
                     }
                 }
                 catch (Exception ex)

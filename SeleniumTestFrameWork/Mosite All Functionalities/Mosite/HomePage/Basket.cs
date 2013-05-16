@@ -1,4 +1,5 @@
 ﻿using System;
+using ObjectRepository;
 using OpenQA.Selenium;
 using Selenium;
 //using System.Drawing;
@@ -13,12 +14,23 @@ namespace MoBankUI
         {
             try
             {
+                string basketempty = null;
+                string title = driver.Title;
+                if (title.Contains("Tablet"))
+                {
+                    basketempty = BasketV2.basketempty;
+
+                }
+                else
+                {
+                    basketempty = BasketV1.basketempty;
+                    
+                }
                 try
                 {
                     driver.FindElement(By.Id("BasketInfo")).Click();
                     selenium.WaitForPageToLoad("30000");
-                    datarow.newrow("Basket Info Button", "Basket Info Button Is Expected",
-                                   "Basket Info Button is Present", "PASS", driver, selenium);
+                    datarow.newrow("Basket Info Button", "Basket Info Button Is Expected","Basket Info Button is Present", "PASS", driver, selenium);
                 }
                 catch (Exception ex)
                 {
@@ -29,18 +41,34 @@ namespace MoBankUI
 
                 try
                 {
-                    string value = driver.FindElement(By.Id("BasketInfo")).Text;
-
-
-                    if (value == "(0)")
+                    if (!title.Contains("Tablet"))
                     {
-                        datarow.newrow("Basket Value", "(0)", value, "PASS", driver, selenium);
+                        string value = driver.FindElement(By.Id("BasketInfo")).Text;
+                        if (value == "(0)")
+                        {
+                            datarow.newrow("Basket Value", "(0)", value, "PASS", driver, selenium);
+                        }
+                        else
+                        {
+                            datarow.newrow("Basket Value", "(0)", value, "FAIL", driver, selenium);
+                            screenshot.screenshotfailed(driver, selenium);
+                        }
                     }
-                    else
+                   
+                    
+                    string basket = selenium.GetText(basketempty);
+                    if (basket == "Your basket is empty")
                     {
-                        datarow.newrow("Basket Value", "(0)", value, "FAIL", driver, selenium);
-                        screenshot.screenshotfailed(driver, selenium);
+                        
+                            datarow.newrow("Basket Page Text", "Your basket is empty", basket, "PASS", driver, selenium);
                     }
+                   else
+                     {
+                            datarow.newrow("Basket Page Text", "Your basket is empty", basket, "FAIL", driver, selenium);
+                            screenshot.screenshotfailed(driver, selenium);
+                      }
+
+                    
                 }
                 catch (Exception ex)
                 {

@@ -1,4 +1,5 @@
 ﻿using System;
+using ObjectRepository;
 using OpenQA.Selenium;
 using Selenium;
 //using System.Drawing;
@@ -15,12 +16,21 @@ namespace MoBankUI
             try
             {
                 string url = selenium.GetLocation();
+                string Homepageimage = null;
+                string title = driver.Title;
+                if (title.Contains("Tablet"))
+                {
+                    Homepageimage = ImagesV2.Homepageimage;
+                }
+                else
+                {
+                    Homepageimage = ImagesV1.Homepageimage;
+                }
 
                 // Home Page Image Validation
-                if (selenium.IsElementPresent("//body[@id='page-home-index']/div/div[2]/div/img"))
+                if (selenium.IsElementPresent(Homepageimage))
                 {
-                    IWebElement element =
-                        driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/img"));
+                    IWebElement element =driver.FindElement(By.XPath(Homepageimage));
                     string path = element.GetAttribute("src");
                     datarow.newrow("Image Validation", "", path, "PASS", driver, selenium);
                     if (path.Contains("http") || path.Contains("https")||path.Contains("blob"))
@@ -55,14 +65,29 @@ namespace MoBankUI
 
         public void categoryimage(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
+            string CategoryImage = null;
+            string categoryimagecss = null;
             try
             {
                 if (l < 3)
                 {
-                    string location = selenium.GetLocation();
-                    if (selenium.IsElementPresent("css=img.categoryImage"))
+                    string title = driver.Title;
+                    if (title.Contains("Tablet"))
                     {
-                        IWebElement element =driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/img"));
+                        CategoryImage = ImagesV2.Categoryimage;
+                        categoryimagecss = ImagesV2.Categoryimagecss;
+
+                    }
+                    else
+                    {
+                        CategoryImage = ImagesV1.Categoryimage;
+                        categoryimagecss = ImagesV1.Categoryimagecss;
+
+                    }
+                    string location = selenium.GetLocation();
+                    if (selenium.IsElementPresent(categoryimagecss))
+                    {
+                        IWebElement element =driver.FindElement(By.XPath(CategoryImage));
                         string path = element.GetAttribute("src");
                         datarow.newrow("Image Validation", "", path, "PASS", driver, selenium);
                         if (path.Contains("http") || path.Contains("https") || path.Contains("blob"))
@@ -71,15 +96,13 @@ namespace MoBankUI
                         }
                         else
                         {
-                            datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path, "PASS",
-                                           driver, selenium);
+                            datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path, "PASS",driver, selenium);
 
                         }
                     }
                     else
                     {
-                        datarow.newrow("Image Validation", "", "No Image for Category page" + "-" + location, "FAIL",
-                                       driver, selenium);
+                        datarow.newrow("Image Validation", "", "No Image for Category page" + "-" + location, "FAIL",driver, selenium);
                     }
                     l++;
                 }
@@ -120,31 +143,47 @@ namespace MoBankUI
         {
             try
             {
+                string Productimage = null;
+                string Productimagelink = null;
+                string multiproductimage = null;
+
+                string url = driver.Title;
                 string location = selenium.GetLocation();
-                //single product Image ////body[@id='page-products-details']/div/div[2]/div/div[2]/ul/li/img
-                if (selenium.IsElementPresent("//body[@id='page-products-details']/div/div[2]/div/div[2]/ul/li/img"))
+                if (url.Contains("Tablet"))
                 {
-                    IWebElement element =driver.FindElement(By.XPath("//body[@id='page-products-details']/div/div[2]/div/div[2]/ul/li/img"));
+                    Productimage = ImagesV2.productimage;
+                    Productimagelink = ImagesV2.productimagelink;
+                    multiproductimage = ImagesV2.multiproductimage;
+                }
+                else
+                {
+                    Productimage = ImagesV1.productimage;
+                    Productimagelink = ImagesV1.productimagelink;
+                    multiproductimage = ImagesV1.multiproductimage;
+
+                }
+                //single product Image ////body[@id='page-products-details']/div/div[2]/div/div[2]/ul/li/img
+                if(selenium.IsElementPresent(""+Productimage+""+Productimagelink+""))
+                {
+                    IWebElement element = driver.FindElement(By.XPath("" + Productimage + "" + Productimagelink + ""));
                     string path = element.GetAttribute("src");
                     datarow.newrow("Image Validation", "", path, "PASS", driver, selenium);
                 }
                     //multi- Product Image
                     //body[@id='page-products-details']/div/div[2]/div/div[2]/div/ul/li[2]/img
-                else if (selenium.IsElementPresent("css=li.flex-active-slide > img"))
+                else if(selenium.IsElementPresent(multiproductimage))
                 {
-                    decimal count =
-                        selenium.GetXpathCount("//body[@id='page-products-details']/div/div[2]/div/div[2]/div/ul/li");
+                    decimal count =selenium.GetXpathCount(""+Productimage+"");
                     for (int o = 2; o < count; o++)
                     {
-                        IWebElement element =driver.FindElement(By.XPath("//body[@id='page-products-details']/div/div[2]/div/div[2]/div/ul/li[" + o +"]/img"));
+                        IWebElement element =driver.FindElement(By.XPath(""+Productimage+"[" + o +"]"+Productimagelink+""));
                         string path = element.GetAttribute("src");
                         datarow.newrow("Image Validation", "", path, "PASS", driver, selenium);
                     }
                 }
                 else
                 {
-                    datarow.newrow("Image Validation", "", "No Image in Product Page" + "-" + location, "PASS", driver,
-                                   selenium);
+                    datarow.newrow("Image Validation", "", "No Image in Product Page" + "-" + location, "FAIL", driver,selenium);
                 }
             }
             catch (Exception ex)
