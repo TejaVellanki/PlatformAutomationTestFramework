@@ -26,7 +26,7 @@ namespace MoBankUI
                     checkout = CollectionMapV1.checkout;
                 }
             
-                var basket = new DeleteBasket_TPS();
+                var basket = new DeleteBasket();
                 basket.basket(driver, selenium, datarow);
 
                 var js = (IJavaScriptExecutor) driver;
@@ -86,8 +86,8 @@ namespace MoBankUI
             }
             else
             {
-                categorylink = CollectionMapV2.categorylink;
-                cat = CollectionMapV2.cat;
+                categorylink = CollectionMapV1.categorylink;
+                cat = CollectionMapV1.cat;
                 deletebasket= CollectionMapV1.deletebasket;
                 products = CollectionMapV1.products;
                 homeimage = CollectionMapV1.homeimage;
@@ -110,8 +110,7 @@ namespace MoBankUI
                 selenium.Click(homeimage);
                 selenium.WaitForPageToLoad("30000");
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                IWebElement myDynamicElement1 =
-                    driver.FindElement(By.XPath(""+categorylink+""+cat+""));
+                IWebElement myDynamicElement1 =    driver.FindElement(By.XPath(""+categorylink+""+cat+""));
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
                 selenium.WaitForPageToLoad("30000");
                 string title = driver.Title;

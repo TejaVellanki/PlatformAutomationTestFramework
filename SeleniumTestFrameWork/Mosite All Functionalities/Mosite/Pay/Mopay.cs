@@ -213,7 +213,7 @@ namespace MoBankUI
 
                     #endregion
 
-                    new SelectElement(driver.FindElement(By.Id("Card_Type"))).SelectByText("Visa Debit");
+                    new SelectElement(driver.FindElement(By.Id("Card_Type"))).SelectByText(CardType);
                     driver.FindElement(By.Id("Card_Number")).Clear();
                     driver.FindElement(By.Id("Card_Number")).SendKeys(CardNumber);
                     driver.FindElement(By.Id("Card_SecurityCode")).Clear();
@@ -296,7 +296,7 @@ namespace MoBankUI
                     }
 
 
-                    if (CardType == null)
+                    if (CardType.Length == 0)
                     {
                         if (selenium.IsTextPresent("Type required"))
                         {
@@ -309,6 +309,7 @@ namespace MoBankUI
                             screenshot.screenshotfailed(driver, selenium);
                         }
                     }
+
                     else
                     {
                         datarow.newrow("Card Type", "Visa Debit", "Visa Debit", "PASS", driver, selenium);

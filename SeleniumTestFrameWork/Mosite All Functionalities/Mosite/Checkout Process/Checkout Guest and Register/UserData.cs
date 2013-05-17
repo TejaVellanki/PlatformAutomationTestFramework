@@ -72,7 +72,7 @@ namespace MoBankUI
                         string valuet = driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldlabel + "")).Text;
 
                         if (!valuet.Contains("Country"))
-                        {
+                        {  
                             driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).Clear();
                             driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).SendKeys("TEST");
                             datarow.newrow("Form Field", "", valuet, "PASS", driver, selenium);

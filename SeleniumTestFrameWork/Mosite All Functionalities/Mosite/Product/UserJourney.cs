@@ -30,7 +30,7 @@ namespace MoBankUI
                 else
                 {
                     categorylink = CollectionMapV1.categorylink;
-                    cat = CollectionMapV1.catlink;
+                    cat = CollectionMapV1.cat;
                     products = CollectionMapV1.products;
                     productlink = CollectionMapV1.productlink;
                 }

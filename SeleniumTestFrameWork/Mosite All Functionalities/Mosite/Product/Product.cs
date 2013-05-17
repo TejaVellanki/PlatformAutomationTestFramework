@@ -28,9 +28,10 @@ namespace MoBankUI
                 string Detail = null;
                 string AddToBasket = null;
                 string checkout = null;
+                string basketvalue = null;
                
                 var screenshot = new Screenshot();
-
+                #region object reading
                 if (url.Contains("Tablet"))
                 {
                     productprice = CollectionMapV2.ProductPrice;
@@ -41,6 +42,7 @@ namespace MoBankUI
                     productVarinat = CollectionMapV2.productVariant;
                     AddToBasket = CollectionMapV2.addtobasket;
                     checkout = CollectionMapV2.checkout;
+                    basketvalue = BasketV2.basketvalue;
                 }
                 else
                 {
@@ -52,7 +54,11 @@ namespace MoBankUI
                     productVarinat = CollectionMapV1.productVariant;
                     AddToBasket = CollectionMapV1.addtobasket;
                     checkout = CollectionMapV1.checkout;
+                    basketvalue = BasketV1.basketvalue;
                 }
+                #endregion
+
+
                 Image.productImage(driver, selenium, datarow);
 
                 #region Product price
@@ -127,13 +133,9 @@ namespace MoBankUI
                     string e = ex.ToString(); 
                   
                 }
-                if (!selenium.IsElementPresent(producttitle))
+                if(selenium.IsElementPresent(producttitle)==false)
                 {
                     datarow.newrow("Product Title", "Product Title Element is Expected","Product Title Element Not Found", "FAIL", driver, selenium);
-                }
-                else
-                {
-                    datarow.newrow("Product Title", "Product Title is Expected", "Product Title Not Found", "FAIL",driver, selenium);
                 }
 
                 #endregion
@@ -220,11 +222,13 @@ namespace MoBankUI
                 js.ExecuteScript("window.scrollBy(0,400)");
                 try
                 {
+                   
+                        driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
+                        driver.FindElement(By.XPath(AddToBasket)).Click();
+                        datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected",
+                                       AddToBasket + "Add To Basket Element Is Present", "PASS", driver, selenium);
+                        Thread.Sleep(5000);
                     
-                    driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                    driver.FindElement(By.XPath(AddToBasket)).Click();
-                    datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected",AddToBasket + "Add To Basket Element Is Present","PASS", driver, selenium);
-                    Thread.Sleep(5000);
                 }
                 catch (Exception ex)
                 {
@@ -232,17 +236,20 @@ namespace MoBankUI
                     datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected", e, "FAIL", driver,selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
-                string basval = driver.FindElement(By.Id("BasketInfo")).Text;
 
-                if (basval == "(1)")
-                {
-                    datarow.newrow("Basket Value", "(1)", basval, "PASS", driver, selenium);
-                }
-                else
-                {
-                    datarow.newrow("Basket Value", "(1)", basval, "FAIL", driver, selenium);
-                    screenshot.screenshotfailed(driver, selenium);
-                }
+               
+                    string basval = driver.FindElement(By.XPath(basketvalue)).Text;
+
+                    if (basval == "(1)")
+                    {
+                        datarow.newrow("Basket Value", "(1)", basval, "PASS", driver, selenium);
+                    }
+                    else
+                    {
+                        datarow.newrow("Basket Value", "(1)", basval, "FAIL", driver, selenium);
+                        screenshot.screenshotfailed(driver, selenium);
+                    }
+              
                 //Footer_TPS footer = new Footer_TPS();
                 //footer.Footer(driver, selenium, datarow);
 
@@ -256,29 +263,33 @@ namespace MoBankUI
 
                 selenium.Select("id=Items_0__Quantity", "label=4");
                 selenium.WaitForPageToLoad("30000");
+                Thread.Sleep(3000);
                 string prirc = selenium.GetText("css=strong");
 
                 if (pric == prirc)
                 {
-                    datarow.newrow("Price Change with Quantity in Basket Page", pric, prirc, "PASS", driver, selenium);
+                    datarow.newrow("Price Change with Quantity in Basket Page", pric, prirc, "FAIL", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Price Change with Quantity in Basket Page", pric, prirc, "FAIL", driver, selenium);
+                    datarow.newrow("Price Change with Quantity in Basket Page", pric, prirc, "PASS", driver, selenium);
                 }
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
                 IWebElement myDynamicElement4 = driver.FindElement(By.XPath(checkout));
-                string value1 = driver.FindElement(By.Id("BasketInfo")).Text;
+                 if (url.Contains("Tablet")==false)
+                {
+                    string value1 = driver.FindElement(By.Id("BasketInfo")).Text;
 
-                if (value1 == "(1)")
-                {
-                    datarow.newrow("Basket Value", "(1)", value1, "PASS", driver, selenium);
-                }
-                else
-                {
-                    datarow.newrow("Basket Value", "(1)", value1, "FAIL", driver, selenium);
-                    screenshot.screenshotfailed(driver, selenium);
+                    if (value1 == "(1)")
+                    {
+                        datarow.newrow("Basket Value", "(1)", value1, "PASS", driver, selenium);
+                    }
+                    else
+                    {
+                        datarow.newrow("Basket Value", "(1)", value1, "FAIL", driver, selenium);
+                        screenshot.screenshotfailed(driver, selenium);
+                    }
                 }
             }
             catch (Exception ex)

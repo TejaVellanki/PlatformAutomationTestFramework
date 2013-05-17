@@ -11,10 +11,10 @@ namespace ObjectRepository
 {
     public static class CollectionMapV1
     {
-
+        //*[@id='categoryList']/div/article/a/span/span[1]/h3
 
         public const string categorylink = "//html/body/div/div[2]/div/ul/li";
-        public const string catlink = "/div/div/a/h2";
+        public const string cat = "/div/div/a/h2";
         public const string products = "//*[@id='page-categories-details']/div[1]/div[2]/div[1]/ul/li";
         public const string productlink = "/div/div/a";
         public const string ProductPrice ="//*[@id='page-products-details']/div[1]/div[2]/div/div[1]/div[1]/div/p/strong";
@@ -28,12 +28,14 @@ namespace ObjectRepository
 
         public const string LowerFooter = "//*[@id='links']/div/div/div/a[1]/img";
         public const string poweredLink = "https://tablet.mobankdev.com/";
-
         public const string Search = "searchText";
-        public const string addtobasket = "//p[@id='AddToBasketButton']/div[2]/input";
-        public const string checkout = "//a[@id='GoToCheckout']/span/span";
-        public const string deletebasket = "//ul[@id='Basket']/li/a/span";
         public const string homeimage = "css=img";
+        public const string checkout = "//a[@id='GoToCheckout']/span/span";
+
+
+        public const string addtobasket = "//*[@id='AddToBasketButton']/div/div[2]/input";
+        public const string deletebasket = "//ul[@id='Basket']/li/a/span";
+      
 
     }
 
@@ -54,6 +56,7 @@ namespace ObjectRepository
     public static class BasketV1
     {
         public const string basketempty = "//form[@id='UpdateBasketForm']/ul/li";
+        public const string basketvalue = "//body[@id='page-checkout-process']/div/div/div/div/div/div[2]/a";
     }
 
     public static class ImagesV1
@@ -74,8 +77,8 @@ namespace ObjectRepository
         public const string field = "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div";
         public const string sendletters = "/fieldset/div[2]/div/label/span/span[2]";
         public const string fieldlabel = "/label";
-        public const string fieldinput = "/input[2]";
-        public const string fieldcountry = "id=FormData_";
+        public const string fieldinput = "/div/input";
+        public const string fieldcountry = "FormData_";
         public const string coutryvalue  =  "__Value";
     }
 
