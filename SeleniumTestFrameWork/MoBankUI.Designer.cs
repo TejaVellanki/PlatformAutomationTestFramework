@@ -263,7 +263,8 @@
             // 
             this.checkedListBox6.FormattingEnabled = true;
             this.checkedListBox6.Items.AddRange(new object[] {
-            "Mens"});
+            "Mens",
+            "Clearance"});
             this.checkedListBox6.Location = new System.Drawing.Point(500, 402);
             this.checkedListBox6.Name = "checkedListBox6";
             this.checkedListBox6.Size = new System.Drawing.Size(120, 34);

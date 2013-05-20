@@ -108,3 +108,4 @@ C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestF
 C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
 C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csproj.GenerateResource.Cache
 C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\MoBankUI.Next.resources
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csprojResolveAssemblyReference.cache
