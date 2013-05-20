@@ -281,13 +281,13 @@ namespace MoBankUI
                 {
                     string value1 = driver.FindElement(By.Id("BasketInfo")).Text;
 
-                    if (value1 == "(1)")
+                    if (value1 == "(4)")
                     {
-                        datarow.newrow("Basket Value", "(1)", value1, "PASS", driver, selenium);
+                        datarow.newrow("Basket Value", "(4)", value1, "PASS", driver, selenium);
                     }
                     else
                     {
-                        datarow.newrow("Basket Value", "(1)", value1, "FAIL", driver, selenium);
+                        datarow.newrow("Basket Value", "(4)", value1, "FAIL", driver, selenium);
                         screenshot.screenshotfailed(driver, selenium);
                     }
                 }

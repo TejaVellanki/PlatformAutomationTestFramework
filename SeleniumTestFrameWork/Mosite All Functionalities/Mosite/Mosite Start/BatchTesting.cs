@@ -1,6 +1,7 @@
 ﻿using System;
 using OpenQA.Selenium;
 using Selenium;
+using Tablet_View;
 //using System.Drawing;
 
 namespace MoBankUI
@@ -14,7 +15,9 @@ namespace MoBankUI
 
             try
             {
-
+                BlobStorage blob = new BlobStorage();
+                blob.Blob(selenium,driver,datarow);
+               
                 string[] selectedvalue = items.Split(',');
                 int i = 0;
                 foreach (string function in selectedvalue)

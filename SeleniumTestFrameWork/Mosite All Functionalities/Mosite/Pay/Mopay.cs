@@ -443,17 +443,15 @@ namespace MoBankUI
                         break;
                     }
 
-                    if (url.Contains("State=NotAccepted"))
+                    if(url.Contains("State=NotAccepted"))
                     {
                         datarow.newrow("Transaction", url, "Transaction Declined", "FAIL", driver, selenium);
                         break;
                     }
 
-                    else if (selenium.IsTextPresent("Checkout Declined") || selenium.IsTextPresent("Checkout Error") ||
-                             selenium.IsTextPresent("Not Found"))
+                    if(selenium.IsTextPresent("Checkout Declined") || selenium.IsTextPresent("Error") ||selenium.IsTextPresent("Not Found"))
                     {
-                        datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver,
-                                       selenium);
+                        datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver,selenium);
                         break;
                     }
                 }

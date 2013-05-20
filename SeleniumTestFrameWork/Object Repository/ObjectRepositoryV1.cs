@@ -56,7 +56,7 @@ namespace ObjectRepository
     public static class BasketV1
     {
         public const string basketempty = "//form[@id='UpdateBasketForm']/ul/li";
-        public const string basketvalue = "//body[@id='page-checkout-process']/div/div/div/div/div/div[2]/a";
+        public const string basketvalue = "//a[@id='BasketInfo']";
     }
 
     public static class ImagesV1
