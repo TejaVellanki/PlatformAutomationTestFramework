@@ -18,16 +18,23 @@ namespace MoBankUI
             string url = driver.Title.ToString();
             string categorylink = null;
             string cat = null;
+            string products = null;
+            string productlink = null;
             if (url.Contains("Tablet"))
             {
                 categorylink = CollectionMapV2.categorylink;
                 cat = CollectionMapV2.cat;
-
+                products = CollectionMapV2.products;
+                productlink = CollectionMapV2.productlink;
+                
             }
             else
             {
                 categorylink = CollectionMapV1.categorylink;
-                cat = CollectionMapV1.catlink;
+                cat = CollectionMapV1.cat;
+                products = CollectionMapV1.products;
+                productlink = CollectionMapV1.productlink;
+
             }
             // This method counts the categories,sub-categories, product pages and validate every product link
             Screenshot screenshot = new Screenshot();
@@ -75,8 +82,9 @@ namespace MoBankUI
                     {
                         try
                         {
-                            if (selenium.IsElementPresent(""+categorylink+"[" + k + "]"+cat+""))
+                            if (selenium.IsElementPresent("" + categorylink + "[" + k + "]" + cat + ""))
                             {
+                                //*[@id="productList"]/article[1]/a/div[1]/img
                                 string location = selenium.GetLocation();
                                 // Category Image validation
                                 Image.categoryimage(driver, selenium, datarow);
@@ -87,35 +95,48 @@ namespace MoBankUI
 
                                 // Sub-Category Image validation
                                 Image.subcategoryimage(driver, selenium, datarow);
-                                if (url1.Contains("category"))
+
+                                try
                                 {
-                                    datarow.newrow("Category Title", "", titlecategory, "PASS", driver, selenium);
-                                    k = 0;
-                                }
-                                else
-                                {
-                                    
-                                    try
+                                    if (selenium.IsElementPresent("" + products + "[" + 1 + "]" + productlink + ""))
                                     {
-                                        Image.productImage(driver, selenium, datarow);
                                         datarow.newrow("Product Title", "", titlecategory, "PASS", driver, selenium);
                                         //This is to test the product page
-                                        Productpage page = new Productpage();
-                                        page.productPage(driver,selenium,datarow);
-                                     
+                                       decimal productcount =selenium.GetXpathCount(products);
+                                        for (int p = 1; p <= productcount; p++)
+                                        {
+                                            selenium.Click(""+ products+"["+p+"]"+productlink+"");
+                                            selenium.WaitForPageToLoad("30000");
+                                            try
+                                            {
+                                                Productpage page = new Productpage();
+                                                page.productPage(driver, selenium, datarow);
+                                            }
+                                            catch (Exception ex)
+                                            {
+
+                                                string e = ex.ToString();
+                                            }
+                                          
+                                            driver.Navigate().Back();
+                                            selenium.WaitForPageToLoad("30000");
+                                        }
                                     }
-                                    catch (Exception ex)
+                                    else
                                     {
-                                        string e = ex.ToString();
-                                        datarow.newrow("Exception For Product Details", "Exception Not Expected", e,"FAIL", driver, selenium);
-                                        screenshot.screenshotfailed(driver, selenium);
+                                        datarow.newrow("Category Title", "", titlecategory, "PASS", driver, selenium);
+                                        k = 0;
                                     }
-                                    driver.Navigate().Back();
-                                    selenium.WaitForPageToLoad("30000");
+
+                                }
+                                catch (Exception exc)
+                                {
+                                    string e = exc.ToString();
+                                    datarow.newrow("Exception For Product Details", "Exception Not Expected", e, "FAIL",driver, selenium);
+                                    screenshot.screenshotfailed(driver, selenium);
                                 }
                             }
-                            else
-                            {
+
                                 k = s;
                                 driver.Navigate().Back();
                                 selenium.WaitForPageToLoad("30000");
@@ -130,7 +151,7 @@ namespace MoBankUI
                                     s = 1;
                                     break;
                                 }
-                            }
+                           
                         }
                         catch (Exception ex)
                         {

@@ -14,13 +14,12 @@ namespace MoBankUI
       
         public void Links(datarow datarow,IWebDriver driver, ISelenium selenium, string url)
         {
+           
          
             try
             {
                 if (url.Contains("tablet"))
                 { 
-                    
-                    
                     LinksExpand link = new LinksExpand();
                     link.AllLink(driver, selenium, datarow);
                     //Productpage page = new Productpage();
@@ -29,7 +28,6 @@ namespace MoBankUI
                 }
                 else
                 {
-                    
                     LinksExpand link = new LinksExpand();
                     link.AllLink(driver, selenium, datarow);
                   //  Productpage page = new Productpage();

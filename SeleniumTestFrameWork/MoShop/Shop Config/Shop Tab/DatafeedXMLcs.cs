@@ -17,7 +17,7 @@ namespace MoBankUI
             selenium.WaitForPageToLoad("30000");
             driver.FindElement(By.LinkText("…")).Click();
             selenium.WaitForPageToLoad("30000");
-            driver.FindElement(By.Id("File")).Clear();
+          
             driver.FindElement(By.Id("File"))
                   .SendKeys(
                       "C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Catalogue XML's\\test-catalogue-big.zip");
@@ -26,7 +26,6 @@ namespace MoBankUI
             string title = driver.Title;
             var run = new RunScrape();
             run.scarperead(driver, selenium, datarow, title);
-            run.scrapeandfeedrunning(driver, selenium, datarow);
             var hom = new links_TPS();
             hom.Links(datarow, driver, selenium, "testshop.mobankdev.com");
         }

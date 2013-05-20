@@ -48,7 +48,11 @@ namespace MoBankUI
                             run.runscrape(driver, selenium, datarow);
                         }
 
-
+                        if (str == "DataFeed XML")
+                        {
+                            DatafeedXML datafeed = new DatafeedXML();
+                            datafeed.datafeed(driver,selenium,datarow);
+                        }
                         if (str == "Validate Localisation feature")
                         {
                             datarow.newrow("", "", "Validate Localisation Feature", "", driver, selenium);
@@ -63,6 +67,8 @@ namespace MoBankUI
                             try
                             {
                                 datarow.newrow("", "", "Run the Test Site", "", driver, selenium);
+                                driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
+                                selenium.WaitForPageToLoad("30000");
                                 datarow.newrow("", "", "All Links in Mosite - Validations", "", driver, selenium);
                                 var hom = new links_TPS();
                                 hom.Links(datarow, driver, selenium, "testshop.mobankdev.com");

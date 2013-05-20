@@ -18,6 +18,7 @@ namespace MoBankUI
 
         public void Mopay(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
+            string title1 = driver.Title.ToString(); 
             try
             {
                 // payment selector id="Pagecontent_ddlPaymentOption"
@@ -134,7 +135,8 @@ namespace MoBankUI
                         datarow.newrow("Countries", "", vaus, "PASS", driver, selenium);
                     }
                 }
-                else if (selenium.IsElementPresent("id=Card_Number"))
+               
+                else if(selenium.IsElementPresent("id=Card_Number")||title1=="Index")
                 {
                     MoPayTPS(driver, selenium, datarow);
                 }
@@ -211,7 +213,7 @@ namespace MoBankUI
 
                     #endregion
 
-                    new SelectElement(driver.FindElement(By.Id("Card_Type"))).SelectByText("Visa Debit");
+                    new SelectElement(driver.FindElement(By.Id("Card_Type"))).SelectByText(CardType);
                     driver.FindElement(By.Id("Card_Number")).Clear();
                     driver.FindElement(By.Id("Card_Number")).SendKeys(CardNumber);
                     driver.FindElement(By.Id("Card_SecurityCode")).Clear();
@@ -294,7 +296,7 @@ namespace MoBankUI
                     }
 
 
-                    if (CardType == null)
+                    if (CardType.Length == 0)
                     {
                         if (selenium.IsTextPresent("Type required"))
                         {
@@ -307,6 +309,7 @@ namespace MoBankUI
                             screenshot.screenshotfailed(driver, selenium);
                         }
                     }
+
                     else
                     {
                         datarow.newrow("Card Type", "Visa Debit", "Visa Debit", "PASS", driver, selenium);
@@ -440,17 +443,15 @@ namespace MoBankUI
                         break;
                     }
 
-                    if (url.Contains("State=NotAccepted"))
+                    if(url.Contains("State=NotAccepted"))
                     {
                         datarow.newrow("Transaction", url, "Transaction Declined", "FAIL", driver, selenium);
                         break;
                     }
 
-                    else if (selenium.IsTextPresent("Checkout Declined") || selenium.IsTextPresent("Checkout Error") ||
-                             selenium.IsTextPresent("Not Found"))
+                    if(selenium.IsTextPresent("Checkout Declined") || selenium.IsTextPresent("Error") ||selenium.IsTextPresent("Not Found"))
                     {
-                        datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver,
-                                       selenium);
+                        datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver,selenium);
                         break;
                     }
                 }

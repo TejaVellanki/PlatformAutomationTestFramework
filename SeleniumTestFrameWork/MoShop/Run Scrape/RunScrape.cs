@@ -30,11 +30,7 @@ namespace MoBankUI
                 selenium.WaitForPageToLoad("30000");
                 string title = driver.Title;
                 scarperead(driver, selenium, datarow, title);
-                selenium.Click("link=Running");
-                selenium.WaitForPageToLoad("30000");
-                string tilte1 = driver.Title;
-                scarperead(driver, selenium, datarow, tilte1);
-                scrapeandfeedrunning(driver, selenium, datarow);
+               
             }
             catch (Exception ex)
             {
@@ -82,6 +78,10 @@ namespace MoBankUI
                     break;
                 }
             }
+            selenium.Click("link=Running");
+            selenium.WaitForPageToLoad("30000");
+            string tilte1 = driver.Title;
+            scrapeandfeedrunning(driver, selenium, datarow);
         }
 
         public void scrapeandfeedrunning(IWebDriver driver, ISelenium selenium, datarow datarow)

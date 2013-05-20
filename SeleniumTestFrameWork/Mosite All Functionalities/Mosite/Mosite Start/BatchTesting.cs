@@ -1,6 +1,7 @@
 ﻿using System;
 using OpenQA.Selenium;
 using Selenium;
+using Tablet_View;
 //using System.Drawing;
 
 namespace MoBankUI
@@ -11,12 +12,17 @@ namespace MoBankUI
 
         public void batchtesting(string items, string url, IWebDriver driver, ISelenium selenium, datarow datarow)
         {
-            string[] selectedvalue = items.Split(',');
-            int i = 0;
-            foreach (string function in selectedvalue)
+
+            try
             {
-                try
+                BlobStorage blob = new BlobStorage();
+                blob.Blob(selenium,driver,datarow);
+               
+                string[] selectedvalue = items.Split(',');
+                int i = 0;
+                foreach (string function in selectedvalue)
                 {
+
                     if (function == "Test All Links in Mosite")
                     {
                         datarow.newrow("", "", "All Links in Mosite - Validations", "", driver, selenium);
@@ -82,13 +88,20 @@ namespace MoBankUI
                         i++;
                     }
                 }
-                catch (Exception ex)
-                {
-                    string e = ex.ToString();
-                    datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver, selenium);
-                    screenshot.screenshotfailed(driver, selenium);
-                }
+            }
+            catch (Exception ex)
+            {
+                string e = ex.ToString();
+                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver, selenium);
+                screenshot.screenshotfailed(driver, selenium);
+            }
+              
+            finally
+            {
+                datarow.excelsave("Mosite", driver, selenium, "teja.vellanki@mobankgroup.com");
+                screenshot.screenshotfailed(driver, selenium);
+                driver.Quit();
             }
         }
-    }
-}
+      }
+  }
