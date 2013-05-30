@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using OpenQA.Selenium;
@@ -38,8 +39,6 @@ namespace MoBankUI
                 bool MoSite = checkBox12.Checked;
                 bool Firefox = checkBox14.Checked;
                 bool mositetps = checkBox13.Checked;
-                bool tabletview = checkBox1.Checked;
-
 
                 if (mopaytestharness)
                 {
@@ -61,11 +60,7 @@ namespace MoBankUI
                 {
                     mositemodro();
                 }
-                if (tabletview)
-                {
-                    this.tabletview();
-                }
-
+                
                 #region MositeTPS
 
                 if (mositetps)
@@ -106,13 +101,7 @@ namespace MoBankUI
             }
         }
         //tablet View Method which Initializes the process. 
-        public void tabletview()
-        {
-            datarow datarow = new datarow();
-            datarow.col();
-            //Opening the Firefox driver
-          
-        }
+     
 
         public void mositemodroandroid()
         {
@@ -240,10 +229,12 @@ namespace MoBankUI
             try
             {
                 string item = null;
+             
                 foreach (object items in checkedListBox3.CheckedItems)
                 {
                     item = item + "," + items;
                 }
+               
                 if (item == null)
                 {
                     MessageBox.Show("Please Select Atleast One Functionality To Test From Options Available");
@@ -352,13 +343,21 @@ namespace MoBankUI
         {
             try
             {
+              
                 string items = null;
+                string versions = null;
                 var datarow = new datarow();
                 datarow.col();
                 int count = checkedListBox2.CheckedItems.Count;
+
                 foreach (object item in checkedListBox2.CheckedItems)
                 {
                     items += item + ",";
+                }
+                int vers = checkedListBox5.CheckedItems.Count;
+                foreach (object version in checkedListBox5.CheckedItems)
+                {
+                    versions += version + ",";
                 }
                 IWebDriver driver = new FirefoxDriver();
                 selenium = new WebDriverBackedSelenium(driver, "https://qaadmin.mobankdev.com/");
@@ -366,7 +365,7 @@ namespace MoBankUI
                 selenium.WindowMaximize();
                 driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
                 var batch = new MoshopBatch();
-                batch.batchmoshop(driver, selenium, datarow, items);
+                batch.batchmoshop(driver, selenium, datarow, items,versions);
             }
             catch (Exception ex)
             {
@@ -557,5 +556,13 @@ namespace MoBankUI
         }
 
         #endregion
-    }
+
+        private void checkedListBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+          
+        }
+  
 }
+

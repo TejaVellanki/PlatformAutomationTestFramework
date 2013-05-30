@@ -6,17 +6,27 @@ namespace MoBankUI
 {
     internal class createShop
     {
-        public void Testshop(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void Testshop(IWebDriver driver, ISelenium selenium, datarow datarow,string version)
         {
             try
             {
+                string shop = null;
+
+                if (version == "Version1")
+                {
+                    shop = "TestShop";
+                }
+                if (version == "Version2")
+                {
+                    shop = "Tablet: TestShop";
+                }
                 driver.FindElement(By.LinkText("Shops")).Click();
                 selenium.WaitForPageToLoad("30000");
 
                 driver.FindElement(By.LinkText("Create")).Click();
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.Id("Name")).Clear();
-                driver.FindElement(By.Id("Name")).SendKeys("TestShop");
+                driver.FindElement(By.Id("Name")).SendKeys(shop);
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("30000");
                 string title = driver.Title;

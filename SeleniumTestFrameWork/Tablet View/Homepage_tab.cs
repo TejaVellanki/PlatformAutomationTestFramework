@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using MoBankUI;
 using OpenQA.Selenium;
 using ObjectRepository;
-using Webinator;
+
 using WebDriver_Refining;
 using MoBankUI;
 using Selenium; 

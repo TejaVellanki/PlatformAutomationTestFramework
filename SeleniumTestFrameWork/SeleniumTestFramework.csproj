@@ -91,11 +91,9 @@
     <Reference Include="WebDriver.Support">
       <HintPath>..\..\..\..\..\..\..\Selenium\selenium-dotnet-2.31.0\net40\WebDriver.Support.dll</HintPath>
     </Reference>
-    <Reference Include="Webinator">
-      <HintPath>packages\Webinator.2.0.30\lib\Webinator.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MoShop\Shop Config\Look And Feel\LookandFeelImages.cs" />
     <Compile Include="MoShop\Shop Config\Shop General\CreateTestShop.cs" />
     <Compile Include="MoShop\Shop Config\Shop General\MoshopBatch.cs" />
     <Compile Include="MoShop\Run Scrape\RunScrape.cs" />
@@ -162,7 +160,8 @@
     <Compile Include="MoPay\Paymentprovidertypes.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Modrophenia\products.cs" />
     <Compile Include="MoShop\Scarpe Config\ProductScrape.cs" />
-    <Compile Include="Object Repository\ObjectRepositoryV1.cs" />
+    <Compile Include="ObjectRepository\ObjectRepositoryV1.cs" />
+    <Compile Include="ObjectRepository\versionselection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MoShop\Shop Config\Scheduler\Scheduler.cs" />
@@ -175,7 +174,7 @@
     <Compile Include="Tablet View\BlobStorageValidations.cs" />
     <Compile Include="Tablet View\Homepage_tab.cs" />
     <Compile Include="WebDriver Defining\driverdefining.cs" />
-    <Compile Include="Object Repository\ObjectRepositoryV2.cs" />
+    <Compile Include="ObjectRepository\ObjectRepositoryV2.cs" />
     <EmbeddedResource Include="MoBankUI.resx">
       <DependentUpon>MoBankUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,9 +205,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MoShop\Shop Config\Catalogue XML%27s\test-catalogue-small.xml" />
-    <Content Include="MoShop\Shop Config\Images\basket_white.png" />
-    <Content Include="MoShop\Shop Config\Images\ion.ico" />
-    <Content Include="MoShop\Shop Config\Images\ticklelogo.png" />
+    <Content Include="ObjectRepository\Images\Failure.png" />
+    <Content Include="ObjectRepository\Images\ion.ico" />
+    <Content Include="ObjectRepository\Images\success.png" />
+    <Content Include="ObjectRepository\Images\Teja Custom Basket Image.png" />
+    <Content Include="ObjectRepository\Images\ticklelogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

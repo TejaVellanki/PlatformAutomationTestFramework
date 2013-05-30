@@ -17,7 +17,14 @@ namespace MoBankUI
             {
                 BlobStorage blob = new BlobStorage();
                 blob.Blob(selenium,driver,datarow);
-               
+
+                //string[] vesion = verson.Split(',');
+
+                //foreach (string vsion in vesion)
+                //{
+                //    public const string version = vsion;
+                //}
+
                 string[] selectedvalue = items.Split(',');
                 int i = 0;
                 foreach (string function in selectedvalue)

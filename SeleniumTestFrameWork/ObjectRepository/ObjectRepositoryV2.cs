@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using Webinator;
-using Webinator.Enums;
+
 
 
 namespace ObjectRepository

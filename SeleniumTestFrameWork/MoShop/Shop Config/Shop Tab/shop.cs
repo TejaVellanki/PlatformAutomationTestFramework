@@ -20,15 +20,15 @@ namespace MoBankUI
                 selenium.WaitForPageToLoad("30000");
                 selenium.Click("css=h3.collapsible.collapsed");
                 selenium.WaitForPageToLoad("30000");
-                selenium.Click("css=h3.collapsible.collapsed");
-                selenium.WaitForPageToLoad("30000");
+                //selenium.Click("css=h3.collapsible.collapsed");
+                //selenium.WaitForPageToLoad("30000");
                 selenium.Type("id=CustomDomainName", "m.testshop.com");
                 selenium.Click("css=input.button");
                 selenium.WaitForPageToLoad("30000");
                 selenium.Select("id=DefaultCultureSelected", "label=Telugu (India) - ₹ [te-IN]");
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("30000");
-                selenium.Open("m.testshop.com");
+                selenium.Open("http://m.testshop.com");
                 selenium.WaitForPageToLoad("30000");
                 string url = selenium.GetLocation();
                 if (url == "m.testshop.com")

@@ -90,9 +90,7 @@ C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrame
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WatiN.Core.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.dll
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Webinator.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.xml
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WatiN.Core.xml
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.xml
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Webinator.pdb

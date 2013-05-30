@@ -43,7 +43,6 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkedListBox5 = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
@@ -51,7 +50,7 @@
             // 
             this.checkBox11.AutoSize = true;
             this.checkBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox11.Location = new System.Drawing.Point(41, 45);
+            this.checkBox11.Location = new System.Drawing.Point(38, 54);
             this.checkBox11.Name = "checkBox11";
             this.checkBox11.Size = new System.Drawing.Size(84, 20);
             this.checkBox11.TabIndex = 0;
@@ -63,7 +62,7 @@
             // 
             this.checkBox12.AutoSize = true;
             this.checkBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox12.Location = new System.Drawing.Point(714, 45);
+            this.checkBox12.Location = new System.Drawing.Point(714, 54);
             this.checkBox12.Name = "checkBox12";
             this.checkBox12.Size = new System.Drawing.Size(75, 20);
             this.checkBox12.TabIndex = 1;
@@ -75,7 +74,7 @@
             // 
             this.checkBox13.AutoSize = true;
             this.checkBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox13.Location = new System.Drawing.Point(362, 45);
+            this.checkBox13.Location = new System.Drawing.Point(342, 54);
             this.checkBox13.Name = "checkBox13";
             this.checkBox13.Size = new System.Drawing.Size(165, 20);
             this.checkBox13.TabIndex = 2;
@@ -87,7 +86,7 @@
             // 
             this.checkBox14.AutoSize = true;
             this.checkBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox14.Location = new System.Drawing.Point(714, 245);
+            this.checkBox14.Location = new System.Drawing.Point(788, 226);
             this.checkBox14.Name = "checkBox14";
             this.checkBox14.Size = new System.Drawing.Size(79, 20);
             this.checkBox14.TabIndex = 3;
@@ -99,7 +98,7 @@
             // 
             this.checkBox15.AutoSize = true;
             this.checkBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox15.Location = new System.Drawing.Point(540, 194);
+            this.checkBox15.Location = new System.Drawing.Point(312, 226);
             this.checkBox15.Name = "checkBox15";
             this.checkBox15.Size = new System.Drawing.Size(168, 20);
             this.checkBox15.TabIndex = 4;
@@ -111,7 +110,7 @@
             // 
             this.checkBox16.AutoSize = true;
             this.checkBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox16.Location = new System.Drawing.Point(362, 194);
+            this.checkBox16.Location = new System.Drawing.Point(69, 226);
             this.checkBox16.Name = "checkBox16";
             this.checkBox16.Size = new System.Drawing.Size(136, 20);
             this.checkBox16.TabIndex = 5;
@@ -123,7 +122,7 @@
             // 
             this.checkBox17.AutoSize = true;
             this.checkBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox17.Location = new System.Drawing.Point(714, 195);
+            this.checkBox17.Location = new System.Drawing.Point(530, 226);
             this.checkBox17.Name = "checkBox17";
             this.checkBox17.Size = new System.Drawing.Size(196, 20);
             this.checkBox17.TabIndex = 6;
@@ -153,7 +152,7 @@
             "Validate Custom Domain Name Feature",
             "DataFeed XML",
             "Run the Test Site"});
-            this.checkedListBox2.Location = new System.Drawing.Point(69, 80);
+            this.checkedListBox2.Location = new System.Drawing.Point(53, 120);
             this.checkedListBox2.Name = "checkedListBox2";
             this.checkedListBox2.Size = new System.Drawing.Size(247, 79);
             this.checkedListBox2.TabIndex = 8;
@@ -171,7 +170,7 @@
             "Test Delete From Basket - Test product Unavailable",
             "Test Registration/Login - CheckOut Pages",
             "Test Mopay"});
-            this.checkedListBox3.Location = new System.Drawing.Point(386, 80);
+            this.checkedListBox3.Location = new System.Drawing.Point(362, 120);
             this.checkedListBox3.Name = "checkedListBox3";
             this.checkedListBox3.Size = new System.Drawing.Size(286, 79);
             this.checkedListBox3.TabIndex = 9;
@@ -184,7 +183,7 @@
             this.checkedListBox4.Items.AddRange(new object[] {
             "Validate Products Against Live Website",
             "General User Journey"});
-            this.checkedListBox4.Location = new System.Drawing.Point(726, 80);
+            this.checkedListBox4.Location = new System.Drawing.Point(714, 120);
             this.checkedListBox4.Name = "checkedListBox4";
             this.checkedListBox4.Size = new System.Drawing.Size(214, 79);
             this.checkedListBox4.TabIndex = 10;
@@ -226,24 +225,18 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Please Enter the email Addresses for the reports to be sent";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(41, 197);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(82, 17);
-            this.checkBox1.TabIndex = 15;
-            this.checkBox1.Text = "Tablet View";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // checkedListBox5
             // 
+            this.checkedListBox5.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.checkedListBox5.FormattingEnabled = true;
-            this.checkedListBox5.Location = new System.Drawing.Point(69, 232);
+            this.checkedListBox5.Items.AddRange(new object[] {
+            "Version1",
+            "Version2"});
+            this.checkedListBox5.Location = new System.Drawing.Point(53, 80);
             this.checkedListBox5.Name = "checkedListBox5";
-            this.checkedListBox5.Size = new System.Drawing.Size(247, 49);
+            this.checkedListBox5.Size = new System.Drawing.Size(151, 34);
             this.checkedListBox5.TabIndex = 16;
+            this.checkedListBox5.SelectedIndexChanged += new System.EventHandler(this.checkedListBox5_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -252,7 +245,6 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(986, 623);
             this.Controls.Add(this.checkedListBox5);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox4);
@@ -292,7 +284,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckedListBox checkedListBox5;
     }
 }

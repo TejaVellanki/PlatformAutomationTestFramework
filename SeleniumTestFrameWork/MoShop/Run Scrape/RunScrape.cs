@@ -56,6 +56,9 @@ namespace MoBankUI
 
                         datarow.newrow("Scarpe Tilte", "", title, "PASS", driver, selenium);
                         datarow.newrow("Scarpe Type", "", type, "PASS", driver, selenium);
+                        Thread.Sleep(5000);
+                        selenium.Refresh();
+                        selenium.WaitForPageToLoad("30000");
                         break;
                     }
                     catch (Exception ex)
@@ -73,8 +76,7 @@ namespace MoBankUI
                 }
                 if (j == 10)
                 {
-                    datarow.newrow("Scarpe Start", "Scrape should start", "Scrape didnt start after 60 sec", "FAIL",
-                                   driver, selenium);
+                    datarow.newrow("Scarpe/Datafeed Start", "Scarpe/Datafeed should start", "Scarpe/Datafeed didnt start after 60 sec", "FAIL", driver, selenium);
                     break;
                 }
             }
@@ -88,31 +90,47 @@ namespace MoBankUI
         {
             #region  Running
 
-            if (selenium.IsElementPresent("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]"))
+            for (int j = 1;;)
             {
-                for (int i = 0;; i++)
+                if (selenium.IsElementPresent("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]"))
                 {
-                    try
+                    for (int i = 0;; i++)
                     {
-                        string comp = selenium.GetText("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]");
-                        if (comp.Contains("100%"))
+                        try
                         {
-                            datarow.newrow("Scarpe status", "", comp, "PASS", driver, selenium);
+                            string comp = selenium.GetText("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]");
+                            if (comp.Contains("100%"))
+                            {
+                                datarow.newrow("Scarpe status", "", comp, "PASS", driver, selenium);
+                                break;
+                            }
+                            else
+                            {
+                                datarow.newrow("Scarpe/Datafeed status", "", comp, "PASS", driver, selenium);
+                                Thread.Sleep(5000);
+                                selenium.Refresh();
+                                selenium.WaitForPageToLoad("30000");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            datarow.newrow("Scarpe/DataFeed Status", "100%", "100%", "PASS", driver, selenium);
                             break;
                         }
-                        else
-                        {
-                            datarow.newrow("Scarpe/Datafeed status", "", comp, "PASS", driver, selenium);
-                            Thread.Sleep(5000);
-                            selenium.Refresh();
-                            selenium.WaitForPageToLoad("30000");
-                        }
                     }
-                    catch (Exception ex)
-                    {
-                        datarow.newrow("Scarpe/DataFeed Status", "100%", "100%", "PASS", driver, selenium);
-                        break;
-                    }
+                    break;
+                }
+                else
+                {
+                    Thread.Sleep(5000);
+                    selenium.Refresh();
+                    selenium.WaitForPageToLoad("30000");
+                    j++;
+                }
+                if (j == 10)
+                {
+                    datarow.newrow("Scarpe/Datafeed Start", "Scrape/Datafeed should start", "Scrape/Datafeed didnt start after 60 sec", "FAIL", driver, selenium);
+                    break;
                 }
             }
 

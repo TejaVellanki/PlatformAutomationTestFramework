@@ -17,8 +17,7 @@ namespace MoBankUI
            
             datarow.newrow("", "", "ADDRESS CONFIGURATION", "", driver, selenium);
             driver.FindElement(By.Id("DynamicSourceUrl")).Clear();
-            driver.FindElement(By.Id("DynamicSourceUrl"))
-                  .SendKeys("https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?ACTION=Start");
+            driver.FindElement(By.Id("DynamicSourceUrl")).SendKeys("https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?ACTION=Start");
             new SelectElement(driver.FindElement(By.Id("Method"))).SelectByText("POST");
             driver.FindElement(By.Id("Url")).Clear();
             driver.FindElement(By.Id("Url")).SendKeys("https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl");
@@ -29,9 +28,7 @@ namespace MoBankUI
             driver.FindElement(By.Id("LiveScrapeForm_ErrorSelector")).Clear();
             driver.FindElement(By.Id("LiveScrapeForm_ErrorSelector")).SendKeys("#errormessage blockquote");
             driver.FindElement(By.Id("Parameters")).Clear();
-            driver.FindElement(By.Id("Parameters"))
-                  .SendKeys(
-                      "RANDOM=0.346205551018105&SEQUENCE=0&ActCheckoutPhase=INVOICE&ActCheckoutPhase=DELIVER&ActCheckoutPhase=PRELIM&INVOICENAME={{FirstName}}+{{LastName}}&DELIVERNAME={{FirstName}}+{{LastName}}&INVOICEPOSTALCODE={{INVOICEPOSTALCODE}}&DELIVERPOSTALCODE={{INVOICEPOSTALCODE}}&INVOICEADDRESS1={{INVOICEADDRESS1}}&DELIVERADDRESS1={{INVOICEADDRESS1}}&INVOICEADDRESS2={{INVOICEADDRESS2}}&DELIVERADDRESS2={{INVOICEADDRESS2}}&INVOICEADDRESS3={{INVOICEADDRESS3}}&DELIVERADDRESS3={{INVOICEADDRESS3}}&LocationInvoiceCountry={{INVOICECOUNTRY}}&INVOICECOUNTRY={{INVOICECOUNTRY}}&LocationDeliveryCountry={{INVOICECOUNTRY}}&LocationInvoiceRegion=UndefinedRegion&INVOICEADDRESS4={{INVOICEADDRESS4}}&LocationDeliveryRegion=UndefinedRegion&DELIVERADDRESS4={{INVOICEADDRESS4}}&INVOICEPHONE={{INVOICEPHONE}}&DELIVERPHONE={{INVOICEPHONE}}&INVOICEEMAIL={{INVOICEEMAIL}}&DELIVEREMAIL={{INVOICEEMAIL}}&INVOICEEMAIL_CONFIRM={{INVOICEEMAIL}}&DELIVEREMAIL_CONFIRM={{INVOICEEMAIL}}&INVOICEUSERDEFINED={{INVOICEUSERDEFINED}}&ACTION_NEXT.x=87&ACTION_NEXT.y=12");
+            driver.FindElement(By.Id("Parameters")).SendKeys("RANDOM=0.346205551018105&SEQUENCE=0&ActCheckoutPhase=INVOICE&ActCheckoutPhase=DELIVER&ActCheckoutPhase=PRELIM&INVOICENAME={{FirstName}}+{{LastName}}&DELIVERNAME={{FirstName}}+{{LastName}}&INVOICEPOSTALCODE={{INVOICEPOSTALCODE}}&DELIVERPOSTALCODE={{INVOICEPOSTALCODE}}&INVOICEADDRESS1={{INVOICEADDRESS1}}&DELIVERADDRESS1={{INVOICEADDRESS1}}&INVOICEADDRESS2={{INVOICEADDRESS2}}&DELIVERADDRESS2={{INVOICEADDRESS2}}&INVOICEADDRESS3={{INVOICEADDRESS3}}&DELIVERADDRESS3={{INVOICEADDRESS3}}&LocationInvoiceCountry={{INVOICECOUNTRY}}&INVOICECOUNTRY={{INVOICECOUNTRY}}&LocationDeliveryCountry={{INVOICECOUNTRY}}&LocationInvoiceRegion=UndefinedRegion&INVOICEADDRESS4={{INVOICEADDRESS4}}&LocationDeliveryRegion=UndefinedRegion&DELIVERADDRESS4={{INVOICEADDRESS4}}&INVOICEPHONE={{INVOICEPHONE}}&DELIVERPHONE={{INVOICEPHONE}}&INVOICEEMAIL={{INVOICEEMAIL}}&DELIVEREMAIL={{INVOICEEMAIL}}&INVOICEEMAIL_CONFIRM={{INVOICEEMAIL}}&DELIVEREMAIL_CONFIRM={{INVOICEEMAIL}}&INVOICEUSERDEFINED={{INVOICEUSERDEFINED}}&ACTION_NEXT.x=87&ACTION_NEXT.y=12");
             driver.FindElement(By.CssSelector("input.button")).Click();
             selenium.WaitForPageToLoad("30000");
 

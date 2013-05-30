@@ -3,8 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Selenium;
 using ObjectRepository;
-using Webinator;
-using Webinator.Enums;
+
 //using System.Drawing;
 
 namespace MoBankUI
