@@ -15,8 +15,8 @@ namespace MoBankUI
             try
             {
                 string basketempty = null;
-                string title = driver.Title;
-                if (title.Contains("Tablet"))
+                string title = driver.PageSource.ToString();
+                if (title.Contains("smallDevice"))
                 {
                     basketempty = BasketV2.basketempty;
 
@@ -41,7 +41,7 @@ namespace MoBankUI
 
                 try
                 {
-                    if (!title.Contains("Tablet"))
+                    if (!title.Contains("smallDevice"))
                     {
                         string value = driver.FindElement(By.Id("BasketInfo")).Text;
                         if (value == "(0)")

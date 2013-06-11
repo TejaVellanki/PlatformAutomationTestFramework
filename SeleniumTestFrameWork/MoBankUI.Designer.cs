@@ -168,6 +168,7 @@
             "Test Basket Functionality",
             "Test Product page - Test Add Product to Basket",
             "Test Delete From Basket - Test product Unavailable",
+            "Custom Checkout",
             "Test Registration/Login - CheckOut Pages",
             "Test Mopay"});
             this.checkedListBox3.Location = new System.Drawing.Point(362, 120);

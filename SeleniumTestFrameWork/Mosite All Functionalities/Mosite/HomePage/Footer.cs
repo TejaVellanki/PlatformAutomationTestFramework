@@ -32,7 +32,7 @@ namespace MoBankUI
             try
             {
 
-            string url = driver.Title;
+            string url = driver.PageSource.ToString();
 
             string footer = null;
             string footerlink = null;
@@ -47,7 +47,7 @@ namespace MoBankUI
            
                 var screenshot = new Screenshot();
 
-                if (url.Contains("Tablet"))
+                if (url.Contains("smallDevice"))
                 {
 
                     footer = FooterV2.footer;

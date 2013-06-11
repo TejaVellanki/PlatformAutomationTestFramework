@@ -15,8 +15,8 @@ namespace MoBankUI
             try
             {
                 string deletebasket = null;
-                string url = driver.Title.ToString();
-                if (url.Contains("Tablet"))
+                string url = driver.PageSource.ToString();
+                if (url.Contains("smallDevice"))
                 {
                     deletebasket = CollectionMapV2.deletebasket;
                 }
@@ -59,9 +59,9 @@ namespace MoBankUI
             string categorylink = null;
             string cat = null;
             string homeimage = null;
-            string url = driver.Title.ToString();
+            string url = driver.PageSource.ToString();
 
-            if (url.Contains("Tablet"))
+            if (url.Contains("smallDevice"))
             {
                 categorylink = CollectionMapV2.categorylink;
                 cat = CollectionMapV2.cat;
@@ -79,7 +79,7 @@ namespace MoBankUI
             }
             try
             {
-                if (!url.Contains("Tablet"))
+                if (!url.Contains("smallDevice"))
                 {
                     string value = driver.FindElement(By.Id("BasketInfo")).Text;
 

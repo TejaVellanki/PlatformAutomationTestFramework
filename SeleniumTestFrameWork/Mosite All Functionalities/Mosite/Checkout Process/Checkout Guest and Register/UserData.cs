@@ -14,7 +14,7 @@ namespace MoBankUI
         public void userdata_TPS(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
           
-                string url = driver.Title;
+                string url = driver.PageSource.ToString();
 
                 string field = null;
                 string fieldlabel = null;
@@ -29,7 +29,7 @@ namespace MoBankUI
 
                 var screenshot = new Screenshot();
 
-                if (url.Contains("Tablet"))
+                if (url.Contains("smallDevice"))
                 {
                     field = AddressMapV2.field;
                     fieldlabel = AddressMapV2.fieldlabel;

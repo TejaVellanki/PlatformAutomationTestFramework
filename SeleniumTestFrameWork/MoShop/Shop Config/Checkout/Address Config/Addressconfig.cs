@@ -104,13 +104,6 @@ namespace MoBankUI
             #endregion
 
             new AddressElements().elements(driver, selenium, datarow);
-            }
-            catch (Exception)
-            {
-
-
-                throw;
-            }
 
             #region Validations
 
@@ -389,6 +382,12 @@ namespace MoBankUI
 
             new Delivery().delivery(driver, selenium, datarow);
 
+            }
+            catch (Exception ex)
+            {
+                string e = ex.ToString();
+                datarow.newrow("Exception", "Exception not expectd", e, "FAIL");
+            }
         }
     }
 }

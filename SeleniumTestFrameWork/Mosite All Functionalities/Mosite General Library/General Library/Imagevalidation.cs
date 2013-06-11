@@ -17,8 +17,8 @@ namespace MoBankUI
             {
                 string url = selenium.GetLocation();
                 string Homepageimage = null;
-                string title = driver.Title;
-                if (title.Contains("Tablet"))
+                string title = driver.PageSource.ToString();
+                if (title.Contains("smallDevice"))
                 {
                     Homepageimage = ImagesV2.Homepageimage;
                 }
@@ -71,8 +71,8 @@ namespace MoBankUI
             {
                 if (l < 3)
                 {
-                    string title = driver.Title;
-                    if (title.Contains("Tablet"))
+                    string title = driver.PageSource.ToString();
+                    if (title.Contains("smallDevice"))
                     {
                         CategoryImage = ImagesV2.Categoryimage;
                         categoryimagecss = ImagesV2.Categoryimagecss;
@@ -147,9 +147,9 @@ namespace MoBankUI
                 string Productimagelink = null;
                 string multiproductimage = null;
 
-                string url = driver.Title;
+                string url = driver.PageSource.ToString();
                 string location = selenium.GetLocation();
-                if (url.Contains("Tablet"))
+                if (url.Contains("smallDevice"))
                 {
                     Productimage = ImagesV2.productimage;
                     Productimagelink = ImagesV2.productimagelink;

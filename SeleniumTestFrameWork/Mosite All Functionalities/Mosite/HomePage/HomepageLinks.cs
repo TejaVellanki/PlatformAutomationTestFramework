@@ -15,12 +15,12 @@ namespace MoBankUI
        
         public void AllLink(IWebDriver driver, ISelenium selenium,datarow datarow)
         {
-            string url = driver.Title.ToString();
+            string url = driver.PageSource.ToString();
             string categorylink = null;
             string cat = null;
             string products = null;
             string productlink = null;
-            if (url.Contains("Tablet"))
+            if (url.Contains("smallDevice"))
             {
                 categorylink = CollectionMapV2.categorylink;
                 cat = CollectionMapV2.cat;

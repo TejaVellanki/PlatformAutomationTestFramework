@@ -15,8 +15,7 @@ namespace MoBankUI
             string logintitle = selenium.GetLocation();
             try
             {
-                if (logintitle.Contains("Login") || logintitle.Contains("StepSelectAccountType") ||
-                    selenium.IsTextPresent("Login"))
+                if (logintitle.Contains("Login") || logintitle.Contains("StepSelectAccountType") ||selenium.IsTextPresent("Login"))
                 {
                     //IF the User is a Guest Activate guest Class
 
@@ -37,8 +36,7 @@ namespace MoBankUI
                 }
                 else
                 {
-                    datarow.newrow("Checkout Process Not covered in the Framework", "Expected", logintitle, "FAIL",
-                                   driver, selenium);
+                    datarow.newrow("Checkout Process Not covered in the Framework", "Expected", logintitle, "FAIL",driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
             }

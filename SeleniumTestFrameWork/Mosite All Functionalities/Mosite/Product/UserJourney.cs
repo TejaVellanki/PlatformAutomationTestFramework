@@ -19,8 +19,8 @@ namespace MoBankUI
                 string cat = null;
                 string products = null;
                 string productlink = null; 
-                string URL = driver.Title.ToString();
-                if (URL.Contains("Tablet"))
+                string URL = driver.PageSource.ToString();
+                if (URL.Contains("smallDevice"))
                 {
                     categorylink = CollectionMapV2.categorylink;
                     cat = CollectionMapV2.cat;

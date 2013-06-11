@@ -20,12 +20,10 @@ namespace MoBankUI
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
                 selenium.WaitForPageToLoad("30000");
                 new SelectElement(driver.FindElement(By.Id("Method"))).SelectByText("POST");
-                driver.FindElement(By.Id("DynamicSourceUrl")).Clear();
-                driver.FindElement(By.Id("DynamicSourceUrl"))
-                      .SendKeys("https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?");
+                driver.FindElement(By.Id("Url")).Clear();
+                driver.FindElement(By.Id("Url")).SendKeys("https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?");
                 driver.FindElement(By.Id("Parameters")).Clear();
-                driver.FindElement(By.Id("Parameters"))
-                      .SendKeys(
+                driver.FindElement(By.Id("Parameters")).SendKeys(
                           "RANDOM=0.708711438653157&SEQUENCE=1&ActCheckoutPhase=SHIPPING&ShippingClass={{ShippingClass}}&SHIPUSERDEFINED={{SHIPUSERDEFINED}}&ActCheckoutPhase=TANDC&ActCheckoutPhase=GENERAL&GENERALHOWFOUND={{GENERALHOWFOUND}}&GENERALWHYBUY={{GENERALWHYBUY}}&ACTION_NEXT.x=82&ACTION_NEXT.y=7{{AGREETERMSCONDITIONS}}");
                 driver.FindElement(By.Id("Sequence")).Clear();
                 driver.FindElement(By.Id("Sequence")).SendKeys("20");
@@ -42,8 +40,7 @@ namespace MoBankUI
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__LabelSelector")).Clear();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__LabelSelector")).SendKeys(".actrequired");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__KeysValuesSelector")).Clear();
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_0__KeysValuesSelector"))
-                      .SendKeys("select[name=\"ShippingClass\"] option");
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_0__KeysValuesSelector")).SendKeys("select[name=\"ShippingClass\"] option");
                 new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Type"))).SelectByText("DropList");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_1__LabelSelector")).Clear();
@@ -69,32 +66,65 @@ namespace MoBankUI
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_4__LabelSelector")).Clear();
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__LabelSelector"))
-                      .SendKeys("label[for=\"AGREETERMSCONDITIONS\"]");
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__LabelSelector")).SendKeys("label[for=\"AGREETERMSCONDITIONS\"]");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_4__CheckBoxReplacement")).Clear();
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__CheckBoxReplacement"))
-                      .SendKeys("&AGREETERMSCONDITIONS=NO");
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__CheckBoxReplacement")).SendKeys("&AGREETERMSCONDITIONS=NO");
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Type")).Click();
-                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Type"))).SelectByText("Check");
+
+                string[] check = selenium.GetSelectOptions("id=LiveScrapeForm_Elements_2__Type");
+                foreach (string chk in check)
+                {
+                    new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Type"))).SelectByText(chk);
+                    if (chk == "Check")
+                    {
+                        break;
+                    }
+                }
+              
                 new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Type"))).SelectByText("Text");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Type")).Click();
-                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Type"))).SelectByText("Check");
+                foreach (var chek in check)
+                {
+                    new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Type"))).SelectByText(chek);
+                    if (chek == "Check")
+                    {
+                        break;
+                    }
+                }
+               
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Type")).Click();
-                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Type"))).SelectByText("DropList");
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_3__Type")).Click();
-                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_3__Type"))).SelectByText("DropList");
+                foreach (var ck in check)
+                {
+                    new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Type"))).SelectByText(ck);
+                    driver.FindElement(By.Id("LiveScrapeForm_Elements_3__Type")).Click();
+                    new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_3__Type"))).SelectByText(ck);
+                    if (ck == "DropList")
+                    {
+                        break;
+                    }
+                }
+               
+              
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("30000");
 
                 driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).Clear();
-                driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector"))
-                      .SendKeys(".checkout-cart strong:eq(3)");
-                new SelectElement(driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__PropertyPath")))
-                    .SelectByText("ShippingChargeAmount");
+                driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).SendKeys(".checkout-cart strong:eq(3)");
+                string[] shippingamount = selenium.GetSelectOptions("id=ScrapedDataValueConfigurations_0__PropertyPath");
+                foreach (var shipping in shippingamount)
+                {
+                    new SelectElement(driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__PropertyPath"))).SelectByText(shipping);
+                    if (shipping == "ShippingChargeAmount")
+                    {
+                        break;
+                        
+                    }
+                }
+              
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("30000");
 
@@ -266,6 +296,8 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
+                string e = ex.ToString();
+                datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver, selenium);
             }
             driver.FindElement(By.LinkText("Checkout Process")).Click();
             selenium.WaitForPageToLoad("30000");

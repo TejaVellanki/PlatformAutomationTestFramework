@@ -10,6 +10,10 @@ namespace MoBankUI
     {
         public void configure(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
+            try
+            {
+
+            
             new SelectElement(driver.FindElement(By.Id("CheckoutType"))).SelectByText("Configure Checkout");
             selenium.WaitForPageToLoad("30000");
             for (int i = 0; i <= 2; i++)
@@ -200,6 +204,12 @@ namespace MoBankUI
             {
                 datarow.newrow("Address Page Title", "Page Update : mobank.co.uk/MoShop", str18, "FAIL", driver,
                                selenium);
+            }
+            }
+            catch (Exception ex)
+            {
+                string e = ex.ToString();
+                datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver, selenium);
             }
             new Addressconfig().addressconfig(driver, selenium, datarow);
         }

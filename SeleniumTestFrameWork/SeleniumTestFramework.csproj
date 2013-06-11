@@ -103,6 +103,7 @@
     <Compile Include="MoShop\Shop Config\Shop Tab\DatafeedXMLcs.cs" />
     <Compile Include="MoShop\Shop Config\Shop Tab\shop.cs" />
     <Compile Include="MoShop\teststub.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\Wolford-UK\WolfordCheckout.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\HomePage\HomepageLinks.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\HomePage\Productpage.cs" />
     <Compile Include="MoSite\Other\BatchMosite.cs" />

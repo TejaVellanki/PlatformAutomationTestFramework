@@ -16,8 +16,8 @@ namespace MoBankUI
             try
             {
                 string checkout = null;
-                string url = driver.Title.ToString();
-                if (url.Contains("Tablet"))
+                string url = driver.PageSource.ToString();
+                if (url.Contains("smallDevice"))
                 {
                     checkout = CollectionMapV2.checkout;
                 }
@@ -74,24 +74,17 @@ namespace MoBankUI
             string categorylink = null;
             string cat = null;
             string homeimage = null;
-            string url = driver.Title.ToString();
-            if (url.Contains("Tablet"))
-            {
-                categorylink = CollectionMapV2.categorylink;
-                cat = CollectionMapV2.cat;
+            string url = driver.PageSource.ToString();
+            if (url.Contains("smallDevice"))
+            {            
+               
                 deletebasket= CollectionMapV2.deletebasket;
-                products = CollectionMapV2.products;
                 homeimage = CollectionMapV2.homeimage;
-                productlink = CollectionMapV2.productlink;
             }
             else
             {
-                categorylink = CollectionMapV1.categorylink;
-                cat = CollectionMapV1.cat;
                 deletebasket= CollectionMapV1.deletebasket;
-                products = CollectionMapV1.products;
                 homeimage = CollectionMapV1.homeimage;
-                productlink = CollectionMapV1.productlink;
             }
               //body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span
 
@@ -109,29 +102,41 @@ namespace MoBankUI
                 }
                 selenium.Click(homeimage);
                 selenium.WaitForPageToLoad("30000");
-                driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                IWebElement myDynamicElement1 =    driver.FindElement(By.XPath(""+categorylink+""+cat+""));
+               
+                string url1 = driver.PageSource.ToString();
+                if (url1.Contains("smallDevice"))
+                {
+
+                    categorylink = CollectionMapV2.categorylink;
+                    cat = CollectionMapV2.cat;
+                    products = CollectionMapV2.products;
+                    productlink = CollectionMapV2.productlink;
+                }
+                else
+                {
+                    categorylink = CollectionMapV1.categorylink;
+                    cat = CollectionMapV1.cat;
+                    products = CollectionMapV1.products;
+                    productlink = CollectionMapV1.productlink;
+                }
+                //body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span
+
+               
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
                 selenium.WaitForPageToLoad("30000");
-                string title = driver.Title;
-
                 decimal categorycount = selenium.GetXpathCount(categorylink);
                 for (int i = 1;; i++)
                 {
                     if (selenium.IsElementPresent(""+categorylink+"[" + l + "]"+cat+""))
                     {
-                        driver.FindElement(By.XPath("" + categorylink + "[" + l + "]" + cat + "")).Click();
+                        driver.FindElement(By.XPath(""+ categorylink + "[" + l + "]" + cat + "")).Click();
                         selenium.WaitForPageToLoad("30000");
                         string titlecategory = driver.Title;
-                        string url1 = selenium.GetLocation();
 
                         if (selenium.IsElementPresent(products))
                         {
                             selenium.Click(""+products+""+productlink+"");
                             selenium.WaitForPageToLoad("30000");
-                        }
-                        else
-                        {
                             break;
                         }
                     }

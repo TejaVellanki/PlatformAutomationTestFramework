@@ -18,7 +18,7 @@ namespace MoBankUI
             try
             {
 
-                string url = driver.Title;
+                string url = driver.PageSource.ToString();
 
                 string productprice = null;
                 string productVarinat = null;
@@ -29,10 +29,11 @@ namespace MoBankUI
                 string AddToBasket = null;
                 string checkout = null;
                 string basketvalue = null;
+                string productvariant2 = null;
                
                 var screenshot = new Screenshot();
                 #region object reading
-                if (url.Contains("Tablet"))
+                if (url.Contains("smallDevice"))
                 {
                     productprice = CollectionMapV2.ProductPrice;
                     productdescription = CollectionMapV2.productDescription;
@@ -40,6 +41,7 @@ namespace MoBankUI
                     producttitle = CollectionMapV2.producttitle;
                     Detail  = CollectionMapV2.detail;
                     productVarinat = CollectionMapV2.productVariant;
+                    productvariant2 = CollectionMapV2.productvariant2;
                     AddToBasket = CollectionMapV2.addtobasket;
                     checkout = CollectionMapV2.checkout;
                     basketvalue = BasketV2.basketvalue;
@@ -151,8 +153,7 @@ namespace MoBankUI
 
                         if (couent != 1)
                         {
-                            string[] varinats =
-                                selenium.GetSelectOptions("id=" + productVarinat + "");
+                            string[] varinats =selenium.GetSelectOptions("id=" + productVarinat + "");
                             string values = null;
                             foreach (string value in varinats)
                             {
@@ -212,6 +213,54 @@ namespace MoBankUI
                     {
                         string e = ex.ToString();
                         throw;
+                    }
+                }
+
+                #endregion
+
+                #region V2 Product Variant
+
+                if (url.Contains("smallDevice"))
+                {
+                    if (selenium.IsElementPresent("xpath=//a[@id='showOptions']/span"))
+                    {
+                        driver.FindElement(By.XPath("//a[@id='showOptions']/span")).Click();
+                        selenium.WaitForPageToLoad("30000");
+                        string[] vainats = selenium.GetSelectOptions("id=Variants_1__OptionValue");
+                        string vales = null;
+                        foreach (string value in vainats)
+                        {
+                            if (value != "Please Select")
+                            {
+                                vales = vales + "\r\n" + value;
+                                new SelectElement(driver.FindElement(By.Id("Variants_1__OptionValue"))).SelectByText(
+                                    value);
+                            }
+                        }
+
+                        datarow.newrow("Variants", "", vales, "PASS", driver, selenium);
+                        if (selenium.IsElementPresent("id=" + productvariant2 + "_0"))
+                        {
+
+                            string values = null;
+                            for (int q = 1;; q++)
+                            {
+                                if (selenium.IsElementPresent("id=" + productvariant2 + "_" + q + ""))
+                                {
+                                    string varinats = selenium.GetText("id=" + productvariant2 + "_" + q + "");
+                                    if (varinats != "Please Select" || varinats != null)
+                                    {
+                                        values = values + "\r\n" + varinats;
+                                        selenium.Click("id=" + productvariant2 + "_" + q + "");
+                                       
+                                    }
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -277,7 +326,7 @@ namespace MoBankUI
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
                 IWebElement myDynamicElement4 = driver.FindElement(By.XPath(checkout));
-                 if (url.Contains("Tablet")==false)
+                 if (url.Contains("smallDevice")==false)
                 {
                     string value1 = driver.FindElement(By.Id("BasketInfo")).Text;
 
@@ -291,6 +340,8 @@ namespace MoBankUI
                         screenshot.screenshotfailed(driver, selenium);
                     }
                 }
+                 selenium.Select("id=Items_0__Quantity", "label=1");
+                 selenium.WaitForPageToLoad(("30000"));
             }
             catch (Exception ex)
             {

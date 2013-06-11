@@ -66,11 +66,15 @@ namespace MoBankUI
                         i++;
                     }
 
-
-                    if (function == "Test Registration/Login - CheckOut Pages")
+                    if (function == "Custom Checkout")
                     {
                         var ckout = new BatchCheckout();
                         ckout.checkout(driver, selenium, url, datarow);
+                    }
+
+                    if (function == "Test Registration/Login - CheckOut Pages")
+                    {
+                       
                         datarow.newrow("", "", "Registration/Login", "", driver, selenium);
                         var login = new LoginRegistration();
                         login.registration(driver, selenium, datarow);

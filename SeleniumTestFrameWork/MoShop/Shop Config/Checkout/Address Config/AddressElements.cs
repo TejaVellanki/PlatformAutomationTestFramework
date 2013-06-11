@@ -182,6 +182,7 @@ namespace MoBankUI
             catch (NotFoundException ex)
             {
                 string e = ex.ToString();
+                datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver, selenium);
 
             }
             driver.FindElement(By.CssSelector("input.button")).Click();

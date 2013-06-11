@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 using Selenium;
 
 namespace MoBankUI
@@ -7,6 +8,10 @@ namespace MoBankUI
     {
         public void datafeed(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
+            try
+            {
+
+            
             driver.FindElement(By.LinkText("MoShop")).Click();
             selenium.WaitForPageToLoad("30000");
             driver.FindElement(By.CssSelector("#IndexMenuLeaf3 > a")).Click();
@@ -28,6 +33,12 @@ namespace MoBankUI
             run.scarperead(driver, selenium, datarow, title);
             var hom = new links_TPS();
             hom.Links(datarow, driver, selenium, "testshop.mobankdev.com");
+            }
+            catch (Exception ex)
+            {
+                string e = ex.ToString();
+                datarow.newrow("Exception","Exception Not Expected",e,"FAIL");
+            }
         }
     }
 }

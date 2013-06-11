@@ -12,7 +12,7 @@ namespace MoBankUI
 
         public void productPage(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
-            string url = driver.Title;
+            string url = driver.PageSource.ToString();
 
             string productprice = null;
             string productVarinat = null;
@@ -25,7 +25,7 @@ namespace MoBankUI
             var Image = new Imagevalidation();
             var screenshot = new Screenshot();
 
-            if (url.Contains("Tablet"))
+            if (url.Contains("smallDevice"))
             {
                 productprice = CollectionMapV2.ProductPrice;
                 productdescription = CollectionMapV2.productDescription;

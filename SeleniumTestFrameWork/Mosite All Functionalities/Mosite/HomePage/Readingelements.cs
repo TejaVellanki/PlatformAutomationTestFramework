@@ -17,7 +17,7 @@ namespace MoBankUI
          
             try
             {
-                if (url.Contains("tablet"))
+                if (url.Contains("smallDevice"))
                 { 
                     LinksExpand link = new LinksExpand();
                     link.AllLink(driver, selenium, datarow);

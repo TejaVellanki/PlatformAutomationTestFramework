@@ -11,14 +11,13 @@ namespace MoBankUI
         public void images(IWebDriver driver, ISelenium selenium,datarow datarow)
         {
             try
-            {
-                //*[@id="customisation-page-update-form"]/p/input
+            {//*[@id="customisation-page-update-form"]/p/input
                
             driver.FindElement(By.Id("HomeImageImport_Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\ObjectRepository\\Images\\ticklelogo.png");
             Thread.Sleep(2000);
             selenium.Click("css=input.button");
             selenium.WaitForPageToLoad("30000");
-                pagerefresh(driver,selenium);
+            pagerefresh(driver,selenium);
             driver.FindElement(By.Id("IconImageImport_Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\SeleniumTestFrameWork\\ObjectRepository\\Images\\ion.ico");
             Thread.Sleep(2000);
             selenium.Click("css=input.button");
@@ -31,7 +30,6 @@ namespace MoBankUI
             pagerefresh(driver, selenium);
             driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[10]/h3")).Click();
             selenium.WaitForPageToLoad("30000");
-
             driver.FindElement(By.Id("CustomBasketImageImport_Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\ObjectRepository\\Images\\basket_white.png");
             selenium.Click("css=input.button");
             selenium.WaitForPageToLoad("30000");
