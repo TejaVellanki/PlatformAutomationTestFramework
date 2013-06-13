@@ -22,8 +22,8 @@ namespace Next_Mobi
         public string itemid;
         public string oldprice;
         public string newprice;
-        public int k = 1;  //This element is declared so that the output in the report can be printed only in 1 row and not in 2 rows
-
+        public int k = 1;                                       //This element is declared so that the output in the report can be printed only in 1 row and not in 2 rows
+        public decimal p;
         public void clearance(ISelenium selenium, datarow datarow)
         {
 
@@ -44,17 +44,18 @@ namespace Next_Mobi
                // selenium.Click("//html/body/div/div[3]/div/div[2]/div/div[2]/div[15]/div/div/a/img");                                        //Click the product 
 
 
-                selenium.Click("//html/body/div/div[3]/div/div[2]/div/div[2]/div[19]/div/div/a/img");
-                        
+                selenium.Click("//html/body/div/div[3]/div/div[2]/div/div[2]/div[10]/div/div/a/img");
+                                
                 selenium.WaitForPageToLoad("30000");
 
                 itemdescm = selenium.GetText("//html/body/div/div[3]/div/div/div[2]/div/div/div/div/div/h1");                                         //Store the title of the product in this string
                 
          
                 Thread.Sleep(3000);
-                itemidm=selenium.GetText("//html/body/div/div[3]/div/div/div[2]/div/div/div[2]/div[2]/div/div[2]");                              //Store Item id
-                itemidm = itemidm.Remove(itemidm.LastIndexOf('G')); 
-
+                itemidm=selenium.GetText("//html/body/div/div[3]/div/div/div[2]/div/div/div[2]/div[2]/div/div[2]");   
+                //Store Item id
+                itemidm = Regex.Replace(itemidm, "[A-Za-z ]", "");             
+               
                 Thread.Sleep(2000);
                 oldpricem = selenium.GetText("//html/body/div/div[3]/div/div/div[2]/div/div/div[2]/div[2]/div/div[3]");                            //Store Old Price
                 Thread.Sleep(3000);
@@ -147,20 +148,32 @@ namespace Next_Mobi
                                 //  if (it== itemidm && oldprice == oldpricem && newprice == newpricem)                                               //Comapring the item id,old price and new price
 
                                 //  if (itemdesc == a && itemdesc == b && itemdesc == c && itemdesc == d)                                                //If the title,item number,old price and new price of Desktop Site = All the variants of Clearance Mobi       
-                               
+
                                 if (it == itemidm)
                                 {
-                                    datarow.newrow("Bag Title", "Product present", "As expected", "PASS", selenium);                                    //Then print Pass
+                                    datarow.newrow("Bag Title", "Item number matches", itemidm, "PASS", selenium);                                    //Then print Pass
                                     k++;                                                                                                               //This prevents from publishing the rows twice.It will only print 1 row per item
-                                    
+
+                                }
+                                else
+                                {
+                                    datarow.newrow("Bag Title", "Item number matches", itemidm, "FAIL", selenium); 
                                 }
                                 if (oldprice == oldpricem)
                                 {
-                                    datarow.newrow("Old Price","Old price matches","As expected","PASS",selenium);
+                                    datarow.newrow("Old Price", oldprice, oldpricem, "PASS", selenium);
                                 }
-                                if (newprice ==newpricem)
+                                else
                                 {
-                                    datarow.newrow("New Price","New price matches","As expected","PASS",selenium);
+                                    datarow.newrow("Old Price", oldprice, oldpricem, "FAIL", selenium);
+                                }
+                                if (newprice == newpricem)
+                                {
+                                    datarow.newrow("New Price", newprice, newpricem, "PASS", selenium);
+                                }
+                                else
+                                {
+                                    datarow.newrow("New Price", newprice, newpricem, "PASS", selenium);
                                 }
 
                                 break;
@@ -172,12 +185,13 @@ namespace Next_Mobi
                 {
                     string e = ex.ToString();
                     Console.WriteLine(e);
+                    datarow.newrow("Exception", "Not Expected", e,"FAIL", selenium);
                 }
-                    if (k == 1)                                                                                                                //This is the fail statement.
+                    if (k == 1)                                                                                                              //This is the fail statement.
                   
 
                     {
-                        datarow.newrow("Bag Name", "Product present", "Not As expected", "FAIL", selenium);                     //Else Print Fail
+                        datarow.newrow("Bag Name", "Product present", "Fields don't match", "FAIL", selenium);                     //Else Print Fail
 
                     }
 
@@ -187,6 +201,7 @@ namespace Next_Mobi
             {
                 string e = ex.ToString();
                 Console.WriteLine(e);
+                datarow.newrow("Exception", "Not Expected", e, "FAIL", selenium);
             }
         }
     

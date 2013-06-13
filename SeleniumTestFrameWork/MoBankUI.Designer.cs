@@ -264,10 +264,11 @@
             this.checkedListBox6.FormattingEnabled = true;
             this.checkedListBox6.Items.AddRange(new object[] {
             "Mens",
-            "Clearance"});
-            this.checkedListBox6.Location = new System.Drawing.Point(500, 402);
+            "Clearance",
+            "Delete from Bag"});
+            this.checkedListBox6.Location = new System.Drawing.Point(488, 402);
             this.checkedListBox6.Name = "checkedListBox6";
-            this.checkedListBox6.Size = new System.Drawing.Size(120, 34);
+            this.checkedListBox6.Size = new System.Drawing.Size(147, 49);
             this.checkedListBox6.TabIndex = 17;
             this.checkedListBox6.SelectedIndexChanged += new System.EventHandler(this.checkedListBox6_SelectedIndexChanged);
             // 

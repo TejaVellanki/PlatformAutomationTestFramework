@@ -30,7 +30,7 @@ namespace Next_Mobi
                                
                 decimal count = selenium.GetXpathCount("//html/body/div/div[3]/div[6]/ul/li");
 
-                for (int i = 1; i <= count; )
+                for (int i = 1; i <= 2; )
                 {
                     //clicking on Subcategory page  
 
@@ -48,19 +48,19 @@ namespace Next_Mobi
                     {
                         if (selenium.IsElementPresent("id=Imgtoggle"))
                         {
-                            datarow.newrow("Toggle", "Toggle Present", "Present", "PASS", selenium);
+                            datarow.newrow("Toggle", "Toggle should be Present", "id=Imgtoggle is Present", "PASS", selenium);
                         }
                         else
                         {
-                            datarow.newrow("Toggle", "Toggle Present", "Present", "FAIL", selenium);
+                            datarow.newrow("Toggle", "Toggle should be Present", "id=Imgtoggle is not Present", "FAIL", selenium);
                         }
                         if (selenium.IsElementPresent("id=ddlSort"))
                         {
-                            datarow.newrow("Sort", "Sort button Present", "Present", "PASS", selenium);
+                            datarow.newrow("Sort", "Sort button should be Present", "id=ddlSort is Present", "PASS", selenium);
                         }
                         else
                         {
-                            datarow.newrow("Toggle", "Sort button Present", "Present", "FAIL", selenium);
+                            datarow.newrow("Toggle", "Sort button should be Present", "id=ddlSort is not Present", "FAIL", selenium);
                         }
                         Thread.Sleep(5000);
 
@@ -130,8 +130,8 @@ namespace Next_Mobi
             //{
             //    selenium.Close();
             //}
-
         }
 
+        
     }
 }

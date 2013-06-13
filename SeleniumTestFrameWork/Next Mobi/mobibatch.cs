@@ -31,6 +31,13 @@ namespace Next_Mobi
                         c.clearance(selenium, datarow);
                         c.clear(selenium, datarow);
                     }
+                    if (function == "Delete from Bag")
+                    {
+                        Bag b=new Bag();
+                        b.bag(selenium,datarow);
+                    }
+
+
                 }
                 catch (Exception ex)
                 {

@@ -139,6 +139,7 @@
     <Compile Include="MoPay\Paymentprovidertypes.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Modrophenia\products.cs" />
     <Compile Include="MoShop\Scarpe Config\ProductScrape.cs" />
+    <Compile Include="Next Mobi\Bag.cs" />
     <Compile Include="Next Mobi\Clearance.cs" />
     <Compile Include="Next Mobi\Variants.cs" />
     <Compile Include="Next Mobi\Men.cs" />
