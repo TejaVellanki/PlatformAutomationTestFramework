@@ -207,6 +207,7 @@
   <ItemGroup>
     <Content Include="MoShop\Shop Config\Catalogue XML%27s\test-catalogue-small.xml" />
     <Content Include="ObjectRepository\Images\Failure.png" />
+    <Content Include="ObjectRepository\Images\Contact Us.jpg" />
     <Content Include="ObjectRepository\Images\ion.ico" />
     <Content Include="ObjectRepository\Images\success.png" />
     <Content Include="ObjectRepository\Images\Teja Custom Basket Image.png" />

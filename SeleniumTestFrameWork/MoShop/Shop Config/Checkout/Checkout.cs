@@ -53,14 +53,14 @@ namespace MoBankUI
             {
                 datarow.newrow("Checkout Name", "Tickle (copy of QA by SB)", attribute, "FAIL", driver, selenium);
             }
-            if (str3 == "59f285d7-6de0-48f3-917c-40de0177e13f")
+            if (str3 == "45af07ff-a7dc-4453-89b0-285b85deef2a")
             {
-                datarow.newrow("Payment Identifier", "59f285d7-6de0-48f3-917c-40de0177e13f", str3, "PASS", driver,
+                datarow.newrow("Payment Identifier", "45af07ff-a7dc-4453-89b0-285b85deef2a", str3, "PASS", driver,
                                selenium);
             }
             else
             {
-                datarow.newrow("Payment Identifier", "59f285d7-6de0-48f3-917c-40de0177e13f", str3, "FAIL", driver,
+                datarow.newrow("Payment Identifier", "45af07ff-a7dc-4453-89b0-285b85deef2a", str3, "FAIL", driver,
                                selenium);
             }
             Thread.Sleep(3000);

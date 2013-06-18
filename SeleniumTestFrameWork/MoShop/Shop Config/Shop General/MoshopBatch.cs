@@ -1,6 +1,9 @@
 ﻿using System;
 using OpenQA.Selenium;
 using Selenium;
+using NUnit.Framework;
+using Tablet_View;
+
 
 namespace MoBankUI
 {
@@ -21,6 +24,7 @@ namespace MoBankUI
 
                         foreach (string str in strArray)
                         {
+
                             if (str.Length != 0)
                             {
                                 if (str == "Create a Test Shop")
@@ -53,11 +57,12 @@ namespace MoBankUI
                                 if (str == "Validate Localisation feature")
                                 {
                                     datarow.newrow("", "", "Validate Localisation Feature", "", driver, selenium);
-                                    new shop().culture(driver, selenium, datarow);
+                                    
                                 }
                                 if (str == "Validate Custom Domain Name Feature")
                                 {
                                     datarow.newrow("", "", "Validate Custom domain Name", "", driver, selenium);
+                                    new shop().culture(driver, selenium, datarow);
                                 }
                                 if (str == "Run the Test Site")
                                 {
@@ -67,21 +72,10 @@ namespace MoBankUI
                                         datarow.newrow("", "", "Run the Test Site", "", driver, selenium);
                                         driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
                                         selenium.WaitForPageToLoad("30000");
-                                        datarow.newrow("", "", "All Links in Mosite - Validations", "", driver, selenium);
-                                        /*
-                                        var hom = new links_TPS();
-                                        hom.Links(datarow, driver, selenium, "testshop.mobankdev.com");                                    
-                                          
-                                        datarow.newrow("", "", "Footer Links", "", driver, selenium);
-                                        var footer = new Footer_TPS();
-                                        footer.Footerhome(driver, selenium, "testshop.mobankdev.com", datarow);
-                                        datarow.newrow("", "", "Basket Functionality", "", driver, selenium);
-                                      */
-                                        var basket = new Baskets_TPS();
-                                        basket.Basket(driver, selenium, datarow, "testshop.mobankdev.com");
-                                        datarow.newrow("", "", "User Journey", "", driver, selenium);
+                                        BlobStorage blob = new BlobStorage();
+                                        blob.Blob(selenium, driver, datarow, "http://testshop.mobankdev.com/");
                                         var userjour = new UserJourney_TPS();
-                                        userjour.UserJourn(datarow, driver, selenium, "testshop.mobankdev.com");
+                                        userjour.UserJourn(datarow, driver, selenium, "http://testshop.mobankdev.com/");
                                         datarow.newrow("", "", "Delete From Basket", "", driver, selenium);
                                         var delete = new Deletebasketstart();
                                         delete.deletebasstart(driver, selenium, datarow);
@@ -90,7 +84,7 @@ namespace MoBankUI
                                         login.registration(driver, selenium, datarow);
                                         datarow.newrow("", "", "Mopay", "", driver, selenium);
                                         var pay = new BatchPay();
-                                        pay.batchpay(driver, selenium, "testshop.mobankdev.com", datarow);
+                                        pay.batchpay(driver, selenium, "http://testshop.mobankdev.com/", datarow);
                                         
                                     }
                                     catch (Exception ex)
@@ -104,6 +98,21 @@ namespace MoBankUI
                                 {
                                     var datafeed = new DatafeedXML();
                                     datafeed.datafeed(driver, selenium, datarow);
+                                    driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
+                                    selenium.WaitForPageToLoad("30000");
+                                    datarow.newrow("", "", "Footer Links", "", driver, selenium);
+                                    var footer = new Footer_TPS();
+                                    footer.Footerhome(driver, selenium, "http://testshop.mobankdev.com/", datarow);
+                                    datarow.newrow("", "", "Basket Functionality", "", driver, selenium);
+                                    var basket = new Baskets_TPS();
+                                    basket.Basket(driver, selenium, datarow, "http://testshop.mobankdev.com/");
+                                    datarow.newrow("", "", "User Journey", "", driver, selenium);
+                                    var userjour = new UserJourney_TPS();
+                                    userjour.UserJourn(datarow, driver, selenium, "http://testshop.mobankdev.com/");
+                                    datarow.newrow("", "", "Delete From Basket", "", driver, selenium);
+                                    var delete = new Deletebasketstart();
+                                    delete.deletebasstart(driver, selenium, datarow);
+                                    datarow.newrow("", "", "Registration/Login", "", driver, selenium);
                                 }
                             }
                         }
@@ -123,5 +132,12 @@ namespace MoBankUI
                 driver.Quit();
             }
         }
+
+        [Test]
+        public void fail()
+        {
+            Assert.AreEqual(1,2);
+        }
+
     }
 }

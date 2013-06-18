@@ -49,8 +49,8 @@ namespace MoBankUI
                 string str3 = driver.FindElement(By.Id("Sequence")).GetAttribute("Value");
                 string str4 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).GetAttribute("Value");
                 string str5 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Attribute")).GetAttribute("Value");
-                string str6 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Selector")).GetAttribute("Value");
-                string str7 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Attribute")).GetAttribute("Value");
+                //string str6 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Selector")).GetAttribute("Value");
+               // string str7 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Attribute")).GetAttribute("Value");
 
                 if (attribute == "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl")
                 {
@@ -80,13 +80,13 @@ namespace MoBankUI
                 {
                     datarow.newrow("Sequence", "30", str3, "FAIL", driver, selenium);
                 }
-                if (str4 == "input[name=ORDERNUMBER]")
+                if (str4 == "input[name='CALLBACKURLUSER']")
                 {
-                    datarow.newrow("Scraped Data", "input[name=ORDERNUMBER]", str4, "PASS", driver, selenium);
+                    datarow.newrow("Scraped Data", "input[name='CALLBACKURLUSER']", str4, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Scraped Data", "input[name=ORDERNUMBER]", str4, "FAIL", driver, selenium);
+                    datarow.newrow("Scraped Data", "input[name='CALLBACKURLUSER']", str4, "FAIL", driver, selenium);
                 }
                 if (str5 == "value")
                 {
@@ -96,6 +96,7 @@ namespace MoBankUI
                 {
                     datarow.newrow("Scrapped Data Configuration", "value", str5, "FAIL", driver, selenium);
                 }
+                /*
                 if (str6 == "input[name=\"CALLBACKURLUSER\"]")
                 {
                     datarow.newrow("Scraped Data Selector1", "input[name=\"CALLBACKURLUSER\"]", str6, "PASS", driver,
@@ -106,6 +107,7 @@ namespace MoBankUI
                     datarow.newrow("Scraped Data Selector1", "input[name=\"CALLBACKURLUSER\"]", str6, "PASS", driver,
                                    selenium);
                 }
+                /*
                 if (str7 == "value")
                 {
                     datarow.newrow("Scraped Data Configuration1", "value", str7, "PASS", driver, selenium);
@@ -114,7 +116,7 @@ namespace MoBankUI
                 {
                     datarow.newrow("Scraped Data Configuration1", "value", str7, "FAIL", driver, selenium);
                 }
-
+                */
                 #endregion
             }
             catch (Exception ex)

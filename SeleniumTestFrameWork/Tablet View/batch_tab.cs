@@ -27,7 +27,7 @@ namespace Tablet_View
                 datarow.newrow("Home Page Title", "Tablet: Tickle Shop", title, "FAIL");
             }
             BlobStorage blob = new BlobStorage();
-            blob.Blob( selenium,driver,datarow);
+            blob.Blob( selenium,driver,datarow,"http://tablet.mobankdev.com");
             var home = new Homepage_tab();
             home.homepage(driver, selenium, datarow);
             LinksExpand allproducts = new LinksExpand();

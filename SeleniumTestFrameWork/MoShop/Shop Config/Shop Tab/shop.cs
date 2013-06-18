@@ -14,14 +14,22 @@ namespace MoBankUI
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.CssSelector("#IndexMenuLeaf3 > a")).Click();
                 selenium.WaitForPageToLoad("30000");
-                driver.FindElement(By.LinkText("TestShop")).Click();
+                driver.FindElement(By.LinkText("testshop")).Click();
                 selenium.WaitForPageToLoad("30000");
                 selenium.Click("link=Shop");
                 selenium.WaitForPageToLoad("30000");
-                selenium.Click("css=h3.collapsible.collapsed");
-                selenium.WaitForPageToLoad("30000");
-                //selenium.Click("css=h3.collapsible.collapsed");
-                //selenium.WaitForPageToLoad("30000");
+                try
+                {
+                    selenium.Click("css=h3.collapsible.collapsed");
+                    selenium.WaitForPageToLoad("30000");
+                    selenium.Click("css=h3.collapsible.collapsed");
+                    selenium.WaitForPageToLoad("30000");
+                }
+                catch (Exception ex)
+                {
+                    ex.ToString();
+                }
+                
                 selenium.Type("id=CustomDomainName", "m.testshop.com");
                 selenium.Click("css=input.button");
                 selenium.WaitForPageToLoad("30000");

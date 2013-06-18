@@ -8,14 +8,14 @@ namespace Tablet_View
 {
     internal class BlobStorage
     {
-        public void Blob(ISelenium selenium, IWebDriver driver, datarow datarow)
+        public void Blob(ISelenium selenium, IWebDriver driver, datarow datarow,string url)
         {
             // Validating the Cache control and Cache - Public
-            var request = (HttpWebRequest) WebRequest.Create("http://tablet.mobankdev.com");
+            var request = (HttpWebRequest) WebRequest.Create(url);
             request.Method = "GET";
             request.ServicePoint.Expect100Continue = false;
             request.ContentType = "application/x-www-form-urlencoded";
-
+            datarow.newrow("", "", "Validating Blob URL", "");
             using (WebResponse response = request.GetResponse())
             {
                 using (var reader = new StreamReader(response.GetResponseStream()))
@@ -44,20 +44,33 @@ namespace Tablet_View
                 {
                     if (ss.Contains("http") || ss.Contains("https") || ss.Contains("blob"))
                     {
-                        datarow.newrow("CSS Validation", "Http/Https and Blob shouldnot be contained inside the CSS Url",
-                                       ss, "PASS");
+                        datarow.newrow("CSS Validation", "Http/Https and Blob shouldnot contain inside the CSS Url",ss, "FAIL");
+                       
                     }
                     else
                     {
-                        datarow.newrow("CSS Validation", "Http/Https and Blob shouldnot be contained inside the CSS Url",
-                                       ss, "FAIL");
+                        datarow.newrow("CSS Validation", "Http/Https and Blob shouldnot contain inside the CSS Url",ss, "PASS");
                     }
 
 
                     break;
                 }
             }
+            datarow.newrow("","","Validating GET for Search Results","");
+            foreach (var get in selectedvalue)
+            {
+                int i = 1;
+                string GET = get;
+                if (GET.Contains("GET"))
+                {
+                    
+                    datarow.newrow("Validate Search Results Using GET","Search Results Using GET method", GET,"PASS");
+                    i++;
+                }
+               
 
+            }
+           
             var image = new Imagevalidation();
             image.homepageimage(driver, selenium, datarow);
         }

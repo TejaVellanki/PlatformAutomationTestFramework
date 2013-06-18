@@ -14,7 +14,7 @@ namespace MoBankUI
         {
             try
             {
-                Footer(driver, selenium, datarow);
+                Footer(driver, selenium, datarow,url);
                 var Image = new Imagevalidation();
                 Image.homepageimage(driver, selenium, datarow);
             }
@@ -26,13 +26,13 @@ namespace MoBankUI
             }
         }
 
-        public void Footer(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void Footer(IWebDriver driver, ISelenium selenium, datarow datarow,string url)
         {
             // Generic Method to test footer links on all the sites. 
             try
             {
 
-            string url = driver.PageSource.ToString();
+            string pagesource = driver.PageSource.ToString();
 
             string footer = null;
             string footerlink = null;
@@ -44,10 +44,10 @@ namespace MoBankUI
 
             #region
 
-           
+                string title = selenium.GetTitle();
                 var screenshot = new Screenshot();
 
-                if (url.Contains("smallDevice"))
+                if (pagesource.Contains("smallDevice"))
                 {
 
                     footer = FooterV2.footer;
@@ -99,8 +99,17 @@ namespace MoBankUI
                         selenium.WaitForPageToLoad("30000");
                         string tile = driver.Title;
                         datarow.newrow("Footer Social Image Title", "", tile, "PASS", driver, selenium);
-                        driver.Navigate().Back();
-                        selenium.WaitForPageToLoad("30000");
+                        if (title == "testshop")
+                        {
+                            driver.Navigate().GoToUrl(url);
+                            selenium.WaitForPageToLoad("30000");
+                        }
+                        else
+                        {
+                            driver.Navigate().Back();
+                            selenium.WaitForPageToLoad("30000");
+                        }
+                       
                     }
                 }
                 catch (Exception ex)
@@ -119,8 +128,14 @@ namespace MoBankUI
                         selenium.WaitForPageToLoad("30000");
                         string tile = driver.Title;
                         datarow.newrow("Lower Footer Title", "", tile, "PASS", driver, selenium);
-                        driver.Navigate().Back();
-                        selenium.WaitForPageToLoad("30000");
+                        if (title == "testshop")
+                        {
+                        }
+                        else
+                        {
+                            driver.Navigate().Back();
+                            selenium.WaitForPageToLoad("30000");
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -137,8 +152,16 @@ namespace MoBankUI
                         selenium.WaitForPageToLoad("30000");
                         string tile = driver.Title;
                         datarow.newrow("Footer Title", "", tile, "PASS", driver, selenium);
-                        driver.Navigate().Back();
-                        selenium.WaitForPageToLoad("30000");
+                        if (title == "testshop")
+                        {
+                            driver.Navigate().GoToUrl(url);
+                            selenium.WaitForPageToLoad("30000");
+                        }
+                        else
+                        {
+                            driver.Navigate().Back();
+                            selenium.WaitForPageToLoad("30000");
+                        }
                     }
                     else
                     {
@@ -160,7 +183,6 @@ namespace MoBankUI
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver, selenium);
                 screenshot.screenshotfailed(driver, selenium);
             }
-
             #endregion
         }
     }

@@ -29,7 +29,8 @@ namespace ObjectRepository
         public const string productVariant = "Variants_0__OptionValue";
         public const string productvariant2 = "OptionValue";
         public const string addtobasket = "//div[@id='AddToBasketButton']/div/div[2]/button";
-        public const string checkout = "//div[@id='main-page']/div[8]/div/div[2]/a/span/span";
+        public const string checkout = "//*[@id='GoToCheckout']/span";
+        
         public const string deletebasket = "//*[@id='UpdateBasketForm']/ul/li/a/span";
         public const string homeimage = "//div[@id='main-page']/div[3]/a/img";
 
@@ -65,7 +66,7 @@ namespace ObjectRepository
     //form[@id='checkoutForm']/section/div/div[3]/div/input
     public static class AddressMapV2
     {
-        public const string submitbutton = "//div[@id='main-page']/div[8]/div/div[2]/div/button";
+        public const string submitbutton = "//*[@id='main-page']/div[9]/div/div[2]/div/button";
         public const string field = "//form[@id='checkoutForm']/section/div/div";
         public const string terms = "/fieldset/div[2]/div/label/span/span[2]";
         public const string fieldlabel = "/label";
@@ -75,7 +76,7 @@ namespace ObjectRepository
     }
     public static class CheckoutMapV2
     {
-        public const string termsncond ="//form[@id='checkoutForm']/section/div/div[3]/fieldset/div[2]/div/label/span/span[2]";
+        public const string termsncond ="//form[@id='checkoutForm']/section/div/div[5]/fieldset/div[2]/div/label/span/span[2]";
         public const string paybutton = "//a[@id='PayButton']/span/span";
     }
 
@@ -84,7 +85,7 @@ namespace ObjectRepository
 
 
 
- 
+
 
   
 

@@ -30,6 +30,13 @@ namespace MoBankUI
                 // Home Page Image Validation
                 if (selenium.IsElementPresent(Homepageimage))
                 {
+                    if (title.Contains("smallDevice"))
+                    {
+                        IWebElement contactus = driver.FindElement(By.XPath("//*[@id='main-page']/div[4]/h1/a/img"));
+                        string path1 = contactus.GetAttribute("src");
+                        datarow.newrow("Contact US Image Validation", "", path1, "PASS", driver, selenium);
+
+                    }
                     IWebElement element =driver.FindElement(By.XPath(Homepageimage));
                     string path = element.GetAttribute("src");
                     datarow.newrow("Image Validation", "", path, "PASS", driver, selenium);

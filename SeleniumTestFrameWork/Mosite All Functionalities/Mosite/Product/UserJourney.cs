@@ -15,6 +15,8 @@ namespace MoBankUI
         {
             try
             {
+                driver.Navigate().GoToUrl(url);
+                selenium.WaitForPageToLoad("30000");
                 string categorylink = null;
                 string cat = null;
                 string products = null;

@@ -12,7 +12,7 @@ namespace MoBankUI
         {
             try
             {//*[@id="customisation-page-update-form"]/p/input
-               
+               //Logo and Home Page Image
             driver.FindElement(By.Id("HomeImageImport_Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\ObjectRepository\\Images\\ticklelogo.png");
             Thread.Sleep(2000);
             selenium.Click("css=input.button");
@@ -28,14 +28,29 @@ namespace MoBankUI
             selenium.Click("css=input.button");
             selenium.WaitForPageToLoad("30000");
             pagerefresh(driver, selenium);
+
+                //Custom Basket Image
             driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[10]/h3")).Click();
             selenium.WaitForPageToLoad("30000");
             driver.FindElement(By.Id("CustomBasketImageImport_Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\ObjectRepository\\Images\\basket_white.png");
             selenium.Click("css=input.button");
             selenium.WaitForPageToLoad("30000");
             pagerefresh(driver, selenium);
-                
-                //Add Click TO Call - Still ijn Developement
+
+                // Click TO Call Image
+
+            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[10]/h3")).Click();
+            driver.FindElement(By.Id("ClickToCallImage_Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\ObjectRepository\\Images\\Contact Us.jpg");
+            driver.FindElement(By.Id("ClickToCallEnabled")).Click();
+            driver.FindElement(By.CssSelector("input.button")).Click();
+            selenium.WaitForPageToLoad("30000");
+            driver.FindElement(By.Id("ClickToCallPhoneNumber")).Clear();
+            driver.FindElement(By.Id("ClickToCallPhoneNumber")).SendKeys("0123456789");
+            driver.FindElement(By.Id("ClickToCallText")).Clear();
+            driver.FindElement(By.Id("ClickToCallText")).SendKeys("Call US");
+            driver.FindElement(By.CssSelector("input.button")).Click();
+            selenium.WaitForPageToLoad("30000");
+
            //driver.FindElement(By.Id("ClickToCallImage_Image")).SendKeys("C:\\Users\\teja\\Desktop\\Images and catalogues\\Teja Custom Basket Image.png");
 
             selenium.Click("css=input.button");

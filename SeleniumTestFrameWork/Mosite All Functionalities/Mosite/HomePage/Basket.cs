@@ -16,6 +16,7 @@ namespace MoBankUI
             {
                 string basketempty = null;
                 string title = driver.PageSource.ToString();
+               
                 if (title.Contains("smallDevice"))
                 {
                     basketempty = BasketV2.basketempty;
@@ -76,8 +77,9 @@ namespace MoBankUI
                     datarow.newrow("Basket Info Text", "Basket Info Text Is Expected", e, "FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
+                string basketurl = selenium.GetLocation();
                 var footer = new Footer_TPS();
-                footer.Footer(driver, selenium, datarow);
+                footer.Footer(driver, selenium, datarow,basketurl);
             }
             catch (Exception ex)
             {

@@ -16,7 +16,8 @@ namespace MoBankUI
             try
             {
                 BlobStorage blob = new BlobStorage();
-                blob.Blob(selenium,driver,datarow);
+                blob.Blob(selenium,driver,datarow,url);
+
 
                 //string[] vesion = verson.Split(',');
 

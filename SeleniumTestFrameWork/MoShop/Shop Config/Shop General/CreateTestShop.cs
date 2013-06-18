@@ -10,7 +10,7 @@ namespace MoBankUI
         {
             try
             {
-                string shop = "Tablet: TestShop";
+                string shop = "testshop";
                 
                 driver.FindElement(By.LinkText("Shops")).Click();
                 selenium.WaitForPageToLoad("30000");
