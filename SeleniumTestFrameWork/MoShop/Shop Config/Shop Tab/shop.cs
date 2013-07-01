@@ -1,5 +1,6 @@
 ﻿using System;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using Selenium;
 
 namespace MoBankUI
@@ -36,35 +37,40 @@ namespace MoBankUI
                 selenium.Select("id=DefaultCultureSelected", "label=Telugu (India) - ₹ [te-IN]");
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("30000");
+
+
+            
+                decimal count = selenium.GetXpathCount("//div[@id='CataloguesControl']/div/table/tbody/tr");
+                for (int i = 1; i <= count; i++)
+                {
+
+                    string name =selenium.GetValue("//div[@id='CataloguesControl']/div/table/tbody/tr[" + i + "]/td/input");
+                    if (name == "Default")
+                    {
+                        driver.FindElement(By.XPath("//*[@id='CataloguesControl']/div/table/tbody/tr["+i+"]/th[2]/a")).Click();
+                        driver.FindElement(By.CssSelector("input.button")).Click();
+                        selenium.WaitForPageToLoad("30000");
+                        new SelectElement(driver.FindElement(By.Id("Culture_Value"))).SelectByText("Telugu (India) - ₹ [te-IN]");
+                        driver.FindElement(By.CssSelector("input.button")).Click();
+                        selenium.WaitForPageToLoad("30000");
+                        break;
+                        
+
+                    }
+                }
+
                 selenium.Open("http://m.testshop.com");
                 selenium.WaitForPageToLoad("30000");
                 string url = selenium.GetLocation();
-                if (url == "m.testshop.com")
+                if (url == "http://m.testshop.com")
                 {
-                    datarow.newrow("Customa Domain Name", "m.testshop.com", url, "PASS", driver, selenium);
+                    datarow.newrow("Customa Domain Name", "http://m.testshop.com", url, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Customa Domain Name", "m.testshop.com", url, "FAIL", driver, selenium);
+                    datarow.newrow("Customa Domain Name", "http://m.testshop.com", url, "FAIL", driver, selenium);
                 }
-
-                selenium.Click("css=img");
-                selenium.WaitForPageToLoad("30000");
-                selenium.Click("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a");
-                selenium.WaitForPageToLoad("30000");
-                selenium.Click("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a");
-                selenium.WaitForPageToLoad("30000");
-                selenium.Click("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/p[2]");
-                selenium.WaitForPageToLoad("30000");
-                string price = selenium.GetText("css=p.price");
-                if (price.Contains("₹"))
-                {
-                    datarow.newrow("Culture Validation", "₹", price, "PASS", driver, selenium);
-                }
-                else
-                {
-                    datarow.newrow("Culture Validation", "₹", price, "FAIL", driver, selenium);
-                }
+              
             }
 
             catch (Exception ex)

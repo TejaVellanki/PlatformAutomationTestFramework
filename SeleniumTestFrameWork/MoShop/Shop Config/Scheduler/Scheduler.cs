@@ -59,7 +59,7 @@ namespace MoBankUI
                 driver.FindElement(By.Id("Jobs_0__RepeatInterval_Days")).Clear();
                 driver.FindElement(By.Id("Jobs_0__RepeatInterval_Days")).SendKeys("1");
                 driver.FindElement(By.Id("Jobs_0__RepeatInterval_Hours")).Clear();
-                driver.FindElement(By.Id("Jobs_0__RepeatInterval_Hours")).SendKeys("24");
+                driver.FindElement(By.Id("Jobs_0__RepeatInterval_Hours")).SendKeys("0");
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("30000");
                 new SelectElement(driver.FindElement(By.Id("Jobs_1__JobType"))).SelectByText("Data Feed");
@@ -77,7 +77,6 @@ namespace MoBankUI
                 str6 = driver.FindElement(By.Id("Jobs_" + num + "__EndOn")).GetAttribute("Value");
                 str7 = driver.FindElement(By.Id("Jobs_" + num + "__RepeatInterval_Days")).GetAttribute("Value");
                 str8 = driver.FindElement(By.Id("Jobs_" + num + "__RepeatInterval_Hours")).GetAttribute("Value");
-
                 #region validation
 
                 if (str4 == "true")
@@ -112,13 +111,13 @@ namespace MoBankUI
                 {
                     datarow.newrow("Repeat interval Days", "2", str7, "FAIL", driver, selenium);
                 }
-                if (str8 == "1")
+                if (str8 == "0")
                 {
-                    datarow.newrow("Repeat interval Hours", "1", str8, "PASS", driver, selenium);
+                    datarow.newrow("Repeat interval Hours", "0", str8, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Repeat interval Hours", "1", str8, "FAIL", driver, selenium);
+                    datarow.newrow("Repeat interval Hours", "0", str8, "FAIL", driver, selenium);
                 }
 
                 #endregion
@@ -147,9 +146,9 @@ namespace MoBankUI
                     driver.FindElement(By.Id("Jobs_0__Url"))
                           .SendKeys("https://dl.dropbox.com/u/93702113/test-catalogue-small.xml");
                     driver.FindElement(By.Id("Jobs_0__StartOn")).Clear();
-                    driver.FindElement(By.Id("Jobs_0__StartOn")).SendKeys("7/31/2012 11:19:00 AM");
+                    driver.FindElement(By.Id("Jobs_0__StartOn")).SendKeys("7/31/2012 11:20:00 AM");
                     driver.FindElement(By.Id("Jobs_0__EndOn")).Clear();
-                    driver.FindElement(By.Id("Jobs_0__EndOn")).SendKeys("7/31/2013 11:19:00 AM");
+                    driver.FindElement(By.Id("Jobs_0__EndOn")).SendKeys("7/31/2013 11:20:00 AM");
                     driver.FindElement(By.Id("Jobs_0__RepeatInterval_Days")).Clear();
                     driver.FindElement(By.Id("Jobs_0__RepeatInterval_Days")).SendKeys("1");
                     driver.FindElement(By.Id("Jobs_0__RepeatInterval_Hours")).Clear();

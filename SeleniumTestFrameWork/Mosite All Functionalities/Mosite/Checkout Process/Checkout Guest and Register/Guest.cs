@@ -34,7 +34,8 @@ namespace MoBankUI
                             //    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/input")).SendKeys("123456789");
                             //}
 
-                            if (valuet.Contains("*") || valuet != "Country: *" || valuet.Contains("Country") ||valuet.Contains("Email") || valuet != "Continue")
+                            if (valuet.Contains("*") || valuet != "Country: *" || valuet.Contains("Country") ||
+                                valuet.Contains("Email") || valuet != "Continue")
                             {
                                 try
                                 {

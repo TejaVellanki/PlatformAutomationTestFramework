@@ -6,7 +6,7 @@ using Selenium;
 
 namespace MoBankUI
 {
-    internal class Createscrape
+    public class Createscrape
     {
         public void createscrape(IWebDriver driver, ISelenium selenium, datarow datarow)
         {

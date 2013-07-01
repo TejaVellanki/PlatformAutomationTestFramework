@@ -16,16 +16,18 @@ namespace ObjectRepository
         public const string categorylink = "//*[@id='categoryList']/div/article";
         public const string cat = "/a/span/span[1]/h3";
 
-        public const string products = "//*[@id='productList']/article";
-        public const string productlink = "/a/div[1]/img";
-
-        public const string ProductPrice = "//html/body/div/div[4]/div/div/div[2]/div/div/p/strong";
+        public const string products = "//*[@id='productList']/li";
+        public const string productlink = "/div/div[1]/a/img";
+        //*[@id="productList"]/li[1]/div/div[1]/a/img
+        //*[@id="productList"]/li[2]/div/div[1]/a/img
+        
+        public const string ProductPrice = "//*[@id='mainContent']/div/div[1]/div[2]/div/div/p/strong";
         public const string ProductDescriptiontab = "//html/body/div/div[4]/div/div[2]/div[2]/div/div/h4/a/span";
         public const string productDescription = "//div[@id='mainContent']/div/div[2]/div[2]/div/div/div";
-
+        
         public const string detail = "css=html.ui-mobile body#page-products-details.ui-mobile-viewport div#main-page.ui-page div#mainContent.ui-content div.productDetailsContent div.ui-grid-a div.ui-block-b div.ui-collapsible-set div.ui-collapsible div.ui-collapsible-content";
-        public const string producttitle = "//html/body/div/div[4]/div/div/div/h2";
-
+        public const string producttitle = "//*[@id='mainContent']/div/div[1]/div[1]/h2";
+        
         public const string productVariant = "Variants_0__OptionValue";
         public const string productvariant2 = "OptionValue";
         public const string addtobasket = "//div[@id='AddToBasketButton']/div/div[2]/button";

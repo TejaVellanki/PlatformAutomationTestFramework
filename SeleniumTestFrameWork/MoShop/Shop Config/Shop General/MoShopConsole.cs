@@ -3,22 +3,28 @@
 using System;
 using OpenQA.Selenium;
 using Selenium;
-
+using NUnit.Framework;
 namespace MoBankUI
 {
+    [TestFixture]
     public class MoShopConsole
     {
         private readonly Screenshot screenshot = new Screenshot();
-
+       
+        
+        [Test]
+        [Category("Fixture")]
         public void Homepagetabs(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             try
             {
-                Exception exception;
+                
                 string actual = driver.Title;
+               
                 if (actual == "Log On : mobank.co.uk/MoShop")
                 {
                     datarow.newrow("MoshopTitle", "Log On : mobank.co.uk/MoShop", actual, "PASS", driver, selenium);
+                    
                 }
                 else
                 {
@@ -33,9 +39,11 @@ namespace MoBankUI
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 IWebElement element = driver.FindElement(By.XPath("//div[@id='IndexMenu']/ul/li/ul/li/a"));
                 string str2 = driver.Title;
+                
                 if (str2 == "mobank.co.uk/MoShop")
                 {
                     datarow.newrow("MoshopHomepageTitle", "mobank.co.uk/MoShop", str2, "PASS", driver, selenium);
+                   
                 }
                 else
                 {
@@ -43,9 +51,9 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver, selenium);
                 }
                 //Expanding Manage and Security
-                driver.FindElement(By.CssSelector("span.ui-tree-expander")).Click();
+                driver.FindElement(By.XPath("//li[@id='IndexMenuLeaf1']/span")).Click();
                 selenium.WaitForPageToLoad("30000");
-                driver.FindElement(By.CssSelector("#IndexMenuLeaf13 > span.ui-tree-expander")).Click();
+                driver.FindElement(By.XPath("//li[@id='IndexMenuLeaf8']/span")).Click();
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.LinkText("Scrapes")).Click();
                 selenium.WaitForPageToLoad("30000");
@@ -82,13 +90,11 @@ namespace MoBankUI
                 string str5 = driver.Title;
                 if (str5 == "Global Customisations : mobank.co.uk/MoShop")
                 {
-                    datarow.newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5,
-                                   "PASS", driver, selenium);
+                    datarow.newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5,"PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5,
-                                   "FAIL", driver, selenium);
+                    datarow.newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5,"FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
@@ -98,17 +104,17 @@ namespace MoBankUI
                 string str6 = driver.Title;
                 if (str6 == "Transformations : mobank.co.uk/MoShop")
                 {
-                    datarow.newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "PASS", driver,
-                                   selenium);
+                    datarow.newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "PASS", driver,selenium);
                 }
                 else
                 {
-                    datarow.newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "FAIL", driver,
-                                   selenium);
+                    datarow.newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "FAIL", driver,selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
                 selenium.WaitForPageToLoad("30000");
+
+
                 driver.FindElement(By.XPath("(//a[contains(text(),'Global Settings')])[2]")).Click();
                 selenium.WaitForPageToLoad("300000");
                 string str7 = driver.Title;
@@ -177,5 +183,7 @@ namespace MoBankUI
                 return false;
             }
         }
+
+        
     }
 }

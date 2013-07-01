@@ -2,6 +2,7 @@
 using ObjectRepository;
 using OpenQA.Selenium;
 using Selenium;
+
 //using System.Drawing;
 
 namespace MoBankUI
@@ -15,23 +16,22 @@ namespace MoBankUI
             try
             {
                 string basketempty = null;
-                string title = driver.PageSource.ToString();
-               
+                string title = driver.PageSource;
+
                 if (title.Contains("smallDevice"))
                 {
                     basketempty = BasketV2.basketempty;
-
                 }
                 else
                 {
                     basketempty = BasketV1.basketempty;
-                    
                 }
                 try
                 {
                     driver.FindElement(By.Id("BasketInfo")).Click();
                     selenium.WaitForPageToLoad("30000");
-                    datarow.newrow("Basket Info Button", "Basket Info Button Is Expected","Basket Info Button is Present", "PASS", driver, selenium);
+                    datarow.newrow("Basket Info Button", "Basket Info Button Is Expected",
+                                   "Basket Info Button is Present", "PASS", driver, selenium);
                 }
                 catch (Exception ex)
                 {
@@ -55,21 +55,18 @@ namespace MoBankUI
                             screenshot.screenshotfailed(driver, selenium);
                         }
                     }
-                   
-                    
+
+
                     string basket = selenium.GetText(basketempty);
                     if (basket == "Your basket is empty")
                     {
-                        
-                            datarow.newrow("Basket Page Text", "Your basket is empty", basket, "PASS", driver, selenium);
+                        datarow.newrow("Basket Page Text", "Your basket is empty", basket, "PASS", driver, selenium);
                     }
-                   else
-                     {
-                            datarow.newrow("Basket Page Text", "Your basket is empty", basket, "FAIL", driver, selenium);
-                            screenshot.screenshotfailed(driver, selenium);
-                      }
-
-                    
+                    else
+                    {
+                        datarow.newrow("Basket Page Text", "Your basket is empty", basket, "FAIL", driver, selenium);
+                        screenshot.screenshotfailed(driver, selenium);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -79,7 +76,7 @@ namespace MoBankUI
                 }
                 string basketurl = selenium.GetLocation();
                 var footer = new Footer_TPS();
-                footer.Footer(driver, selenium, datarow,basketurl);
+                footer.Footer(driver, selenium, datarow, basketurl);
             }
             catch (Exception ex)
             {

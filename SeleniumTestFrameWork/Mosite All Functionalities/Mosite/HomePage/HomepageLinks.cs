@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ObjectRepository;
 using OpenQA.Selenium;
 using Selenium;
-using ObjectRepository;
 
 namespace MoBankUI
 {
-    internal class LinksExpand 
+    internal class LinksExpand
     {
-        
-       
-        public void AllLink(IWebDriver driver, ISelenium selenium,datarow datarow)
+        public void AllLink(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
-            string url = driver.PageSource.ToString();
+            string url = driver.PageSource;
             string categorylink = null;
             string cat = null;
             string products = null;
@@ -26,7 +20,6 @@ namespace MoBankUI
                 cat = CollectionMapV2.cat;
                 products = CollectionMapV2.products;
                 productlink = CollectionMapV2.productlink;
-                
             }
             else
             {
@@ -34,22 +27,22 @@ namespace MoBankUI
                 cat = CollectionMapV1.cat;
                 products = CollectionMapV1.products;
                 productlink = CollectionMapV1.productlink;
-
             }
             // This method counts the categories,sub-categories, product pages and validate every product link
-            Screenshot screenshot = new Screenshot();
-           
+            var screenshot = new Screenshot();
+
             try
             {
-             var Image = new Imagevalidation();
+                var Image = new Imagevalidation();
                 //Home Page Image validation
-             
+
                 Image.homepageimage(driver, selenium, datarow);
                 //Counting the number of Categories 
                 decimal linkcount = driver.FindElements(By.XPath(categorylink)).Count;
                 if (linkcount == 0)
                 {
-                    datarow.newrow("Category Validation in Home Page", "Atleast One Category/product is Expected","No Categories/Products are Identified", "FAIL", driver, selenium);
+                    datarow.newrow("Category Validation in Home Page", "Atleast One Category/product is Expected",
+                                   "No Categories/Products are Identified", "FAIL", driver, selenium);
                 }
                 int j = 0;
                 int s = 1;
@@ -60,7 +53,8 @@ namespace MoBankUI
                     try
                     {
                         driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                        IWebElement myDynamicElement1 =driver.FindElement(By.XPath(""+categorylink+"["+ i +"]"+cat+""));
+                        IWebElement myDynamicElement1 =
+                            driver.FindElement(By.XPath("" + categorylink + "[" + i + "]" + cat + ""));
                         driver.FindElement(By.XPath("" + categorylink + "[" + i + "]" + cat + "")).Click();
                         selenium.WaitForPageToLoad("30000");
                         string title = driver.Title;
@@ -68,13 +62,15 @@ namespace MoBankUI
                     catch (Exception ex)
                     {
                         string e = ex.ToString();
-                        datarow.newrow("Category Element Exception", "Exception Not Expected", e, "FAIL", driver,selenium);
+                        datarow.newrow("Category Element Exception", "Exception Not Expected", e, "FAIL", driver,
+                                       selenium);
                         screenshot.screenshotfailed(driver, selenium);
                     }
                     decimal categorycount = selenium.GetXpathCount(categorylink);
                     if (categorycount == 0)
                     {
-                        datarow.newrow("Category Validation in  Page", "Atleast One Category/product","No Categories/Products", "FAIL", driver, selenium);
+                        datarow.newrow("Category Validation in  Page", "Atleast One Category/product",
+                                       "No Categories/Products", "FAIL", driver, selenium);
                         screenshot.screenshotfailed(driver, selenium);
                     }
                     //Running the loop through sub category pages. 
@@ -102,22 +98,21 @@ namespace MoBankUI
                                     {
                                         datarow.newrow("Product Title", "", titlecategory, "PASS", driver, selenium);
                                         //This is to test the product page
-                                       decimal productcount =selenium.GetXpathCount(products);
+                                        decimal productcount = selenium.GetXpathCount(products);
                                         for (int p = 1; p <= productcount; p++)
                                         {
-                                            selenium.Click(""+ products+"["+p+"]"+productlink+"");
+                                            selenium.Click("" + products + "[" + p + "]" + productlink + "");
                                             selenium.WaitForPageToLoad("30000");
                                             try
                                             {
-                                                Productpage page = new Productpage();
+                                                var page = new Productpage();
                                                 page.productPage(driver, selenium, datarow);
                                             }
                                             catch (Exception ex)
                                             {
-
                                                 string e = ex.ToString();
                                             }
-                                          
+
                                             driver.Navigate().Back();
                                             selenium.WaitForPageToLoad("30000");
                                         }
@@ -127,36 +122,36 @@ namespace MoBankUI
                                         datarow.newrow("Category Title", "", titlecategory, "PASS", driver, selenium);
                                         k = 0;
                                     }
-
                                 }
                                 catch (Exception exc)
                                 {
                                     string e = exc.ToString();
-                                    datarow.newrow("Exception For Product Details", "Exception Not Expected", e, "FAIL",driver, selenium);
+                                    datarow.newrow("Exception For Product Details", "Exception Not Expected", e, "FAIL",
+                                                   driver, selenium);
                                     screenshot.screenshotfailed(driver, selenium);
                                 }
                             }
 
-                                k = s;
-                                driver.Navigate().Back();
-                                selenium.WaitForPageToLoad("30000");
-                                s++;
-                                string url2 = selenium.GetLocation();
-                                if (url2.Contains("category"))
-                                {
-                                    datarow.newrow("Category URL", "", url2, "PASS", driver, selenium);
-                                }
-                                else
-                                {
-                                    s = 1;
-                                    break;
-                                }
-                           
+                            k = s;
+                            driver.Navigate().Back();
+                            selenium.WaitForPageToLoad("30000");
+                            s++;
+                            string url2 = selenium.GetLocation();
+                            if (url2.Contains("category"))
+                            {
+                                datarow.newrow("Category URL", "", url2, "PASS", driver, selenium);
+                            }
+                            else
+                            {
+                                s = 1;
+                                break;
+                            }
                         }
                         catch (Exception ex)
                         {
                             string e = ex.ToString();
-                            datarow.newrow("Category/Product Link Exception", "Exception Not Expected", e, "FAIL",driver, selenium);
+                            datarow.newrow("Category/Product Link Exception", "Exception Not Expected", e, "FAIL",
+                                           driver, selenium);
                             screenshot.screenshotfailed(driver, selenium);
                         }
                     }
@@ -173,7 +168,6 @@ namespace MoBankUI
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver, selenium);
                 screenshot.screenshotfailed(driver, selenium);
             }
-         }
         }
-   }
-
+    }
+}

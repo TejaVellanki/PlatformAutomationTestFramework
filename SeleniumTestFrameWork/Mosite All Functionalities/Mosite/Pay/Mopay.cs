@@ -5,6 +5,7 @@ using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Selenium;
+
 //using System.Drawing;
 
 namespace MoBankUI
@@ -18,7 +19,7 @@ namespace MoBankUI
 
         public void Mopay(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
-            string title1 = driver.Title.ToString(); 
+            string title1 = driver.Title;
             try
             {
                 // payment selector id="Pagecontent_ddlPaymentOption"
@@ -135,8 +136,8 @@ namespace MoBankUI
                         datarow.newrow("Countries", "", vaus, "PASS", driver, selenium);
                     }
                 }
-               
-                else if(selenium.IsElementPresent("id=Card_Number")||title1=="Index")
+
+                else if (selenium.IsElementPresent("id=Card_Number") || title1 == "Index")
                 {
                     MoPayTPS(driver, selenium, datarow);
                 }
@@ -443,15 +444,16 @@ namespace MoBankUI
                         break;
                     }
 
-                    if(url.Contains("State=NotAccepted"))
+                    if (url.Contains("State=NotAccepted"))
                     {
                         datarow.newrow("Transaction", url, "Transaction Declined", "FAIL", driver, selenium);
                         break;
                     }
 
-                    if(selenium.IsTextPresent("Checkout Declined") || selenium.IsTextPresent("Error") ||selenium.IsTextPresent("Not Found"))
+                    if (selenium.IsTextPresent("Checkout Declined") || selenium.IsTextPresent("Error") ||
+                        selenium.IsTextPresent("Not Found"))
                     {
-                        datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver,selenium);
+                        datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver, selenium);
                         break;
                     }
                 }

@@ -3,20 +3,21 @@ using System.Threading;
 using ObjectRepository;
 using OpenQA.Selenium;
 using Selenium;
+
 //using System.Drawing;
 
 namespace MoBankUI
 {
-    internal class Deletebasketstart
+    public class Deletebasketstart
     {
         private readonly Screenshot screenshot = new Screenshot();
-        
+
         public void deletebasstart(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             try
             {
                 string checkout = null;
-                string url = driver.PageSource.ToString();
+                string url = driver.PageSource;
                 if (url.Contains("smallDevice"))
                 {
                     checkout = CollectionMapV2.checkout;
@@ -25,7 +26,7 @@ namespace MoBankUI
                 {
                     checkout = CollectionMapV1.checkout;
                 }
-            
+
                 var basket = new DeleteBasket();
                 basket.basket(driver, selenium, datarow);
 
@@ -74,19 +75,18 @@ namespace MoBankUI
             string categorylink = null;
             string cat = null;
             string homeimage = null;
-            string url = driver.PageSource.ToString();
+            string url = driver.PageSource;
             if (url.Contains("smallDevice"))
-            {            
-               
-                deletebasket= CollectionMapV2.deletebasket;
+            {
+                deletebasket = CollectionMapV2.deletebasket;
                 homeimage = CollectionMapV2.homeimage;
             }
             else
             {
-                deletebasket= CollectionMapV1.deletebasket;
+                deletebasket = CollectionMapV1.deletebasket;
                 homeimage = CollectionMapV1.homeimage;
             }
-              //body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span
+            //body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span
 
             try
             {
@@ -102,11 +102,10 @@ namespace MoBankUI
                 }
                 selenium.Click(homeimage);
                 selenium.WaitForPageToLoad("30000");
-               
-                string url1 = driver.PageSource.ToString();
+
+                string url1 = driver.PageSource;
                 if (url1.Contains("smallDevice"))
                 {
-
                     categorylink = CollectionMapV2.categorylink;
                     cat = CollectionMapV2.cat;
                     products = CollectionMapV2.products;
@@ -121,21 +120,21 @@ namespace MoBankUI
                 }
                 //body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span
 
-               
+
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
                 selenium.WaitForPageToLoad("30000");
                 decimal categorycount = selenium.GetXpathCount(categorylink);
                 for (int i = 1;; i++)
                 {
-                    if (selenium.IsElementPresent(""+categorylink+"[" + l + "]"+cat+""))
+                    if (selenium.IsElementPresent("" + categorylink + "[" + l + "]" + cat + ""))
                     {
-                        driver.FindElement(By.XPath(""+ categorylink + "[" + l + "]" + cat + "")).Click();
+                        driver.FindElement(By.XPath("" + categorylink + "[" + l + "]" + cat + "")).Click();
                         selenium.WaitForPageToLoad("30000");
                         string titlecategory = driver.Title;
 
                         if (selenium.IsElementPresent(products))
                         {
-                            selenium.Click(""+products+""+productlink+"");
+                            selenium.Click("" + products + "" + productlink + "");
                             selenium.WaitForPageToLoad("30000");
                             break;
                         }

@@ -6,7 +6,7 @@ using Selenium;
 
 namespace Tablet_View
 {
-    internal class BlobStorage
+    public class BlobStorage
     {
         public void Blob(ISelenium selenium, IWebDriver driver, datarow datarow,string url)
         {

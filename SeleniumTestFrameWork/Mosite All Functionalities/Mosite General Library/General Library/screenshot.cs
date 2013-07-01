@@ -4,14 +4,14 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using OpenQA.Selenium;
 using Selenium;
-//using System.Drawing;
 
+//using System.Drawing;
 
 namespace MoBankUI
 {
     public class Screenshot
     {
-        public WebDriverBackedSelenium selenium;
+      
 
 
         public void screenshotnotifications(IWebDriver driver, ISelenium selenium)

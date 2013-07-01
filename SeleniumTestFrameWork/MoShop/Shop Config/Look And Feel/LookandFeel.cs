@@ -8,7 +8,7 @@ using Selenium;
 
 namespace MoBankUI
 {
-    internal class LookandFeel
+    public class LookandFeel
     {
         public void lookandfeel(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
@@ -52,11 +52,7 @@ namespace MoBankUI
                     {
                         try
                         {
-
-                       
-                       
                         datarow.newrow("Customiastion Title", "QA-TestShop", attriute, "PASS", driver, selenium);
-
                         driver.FindElement(By.XPath("(//input[@id='DefaultCustomisationsId'])[2]")).Click();
                         selenium.WaitForPageToLoad("30000");
                         driver.FindElement(By.CssSelector("input.button")).Click();

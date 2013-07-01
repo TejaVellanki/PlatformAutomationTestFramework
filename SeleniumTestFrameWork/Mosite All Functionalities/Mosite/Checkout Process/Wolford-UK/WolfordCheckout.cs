@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using NUnit.Framework;
-using OpenQA.Selenium.Support.UI;
-using Selenium;
 using OpenQA.Selenium;
-using  OpenQA.Selenium.Interactions;
+using Selenium;
 
 namespace MoBankUI
 {
@@ -46,7 +39,7 @@ namespace MoBankUI
                 driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep2")).Click();
                 selenium.WaitForPageToLoad("30000");
                 string page3 = selenium.GetLocation();
-                datarow.newrow("Reached the Confirm Page to Accept Terms and Conditions", "",page3, "");
+                datarow.newrow("Reached the Confirm Page to Accept Terms and Conditions", "", page3, "");
                 //terms and conditions
                 driver.FindElement(By.XPath("//label[@id='lblTnc']/span")).Click();
                 driver.FindElement(By.Id("Pagecontent_ButtonConfirmCheckout")).Click();
@@ -54,14 +47,10 @@ namespace MoBankUI
                 Assert.AreEqual("Checkout - Wolford UK", driver.Title);
                 string page4 = selenium.GetLocation();
                 datarow.newrow("Reached the Payment Page", "", page4, "");
-
             }
             catch (Exception ex)
             {
-
             }
-
         }
-
     }
 }

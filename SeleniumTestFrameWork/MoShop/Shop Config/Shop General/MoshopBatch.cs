@@ -9,6 +9,7 @@ namespace MoBankUI
 {
     internal class MoshopBatch
     {
+       
         public void batchmoshop(IWebDriver driver, ISelenium selenium, datarow datarow, string items, string vers)
         {
             var screenshot = new Screenshot();
@@ -27,6 +28,7 @@ namespace MoBankUI
 
                             if (str.Length != 0)
                             {
+                               
                                 if (str == "Create a Test Shop")
                                 {
                                     datarow.newrow("", "", "Create a Test Shop", "", driver, selenium);
@@ -37,7 +39,6 @@ namespace MoBankUI
                                 if (str == "Create a Test Scrape")
                                 {
                                     datarow.newrow("", "", "Create a Test Scarpe", "", driver, selenium);
-
                                     new Createscrape().createscrape(driver, selenium, datarow);
                                 }
 
@@ -48,23 +49,12 @@ namespace MoBankUI
                                     var run = new RunScrape();
                                     run.runscrape(driver, selenium, datarow);
                                 }
-
-                                if (str == "DataFeed XML")
-                                {
-                                    var datafeed = new DatafeedXML();
-                                    datafeed.datafeed(driver, selenium, datarow);
-                                }
-                                if (str == "Validate Localisation feature")
-                                {
-                                    datarow.newrow("", "", "Validate Localisation Feature", "", driver, selenium);
-                                    
-                                }
-                                if (str == "Validate Custom Domain Name Feature")
+                                if (str == "Validate Custom Domain Name Feature and Localisation")
                                 {
                                     datarow.newrow("", "", "Validate Custom domain Name", "", driver, selenium);
                                     new shop().culture(driver, selenium, datarow);
                                 }
-                                if (str == "Run the Test Site")
+                                if (str == "Run the Test Site - Scrape")
                                 {
                                     try
                                     {
@@ -90,11 +80,10 @@ namespace MoBankUI
                                     catch (Exception ex)
                                     {
                                         string e = ex.ToString();
-                                        datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver,
-                                                       selenium);
+                                        datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver,selenium);
                                     }
                                 }
-                                if (str == "DataFeed XML")
+                                if (str == "Run the Test Site - DataFeed XML")
                                 {
                                     var datafeed = new DatafeedXML();
                                     datafeed.datafeed(driver, selenium, datarow);
@@ -131,12 +120,6 @@ namespace MoBankUI
                 screenshot.screenshotfailed(driver, selenium);
                 driver.Quit();
             }
-        }
-
-        [Test]
-        public void fail()
-        {
-            Assert.AreEqual(1,2);
         }
 
     }

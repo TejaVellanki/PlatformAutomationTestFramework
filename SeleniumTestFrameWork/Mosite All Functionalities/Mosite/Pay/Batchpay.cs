@@ -1,12 +1,13 @@
 ﻿using System.Threading;
+using MoBankUI;
 using OpenQA.Selenium;
 using Selenium;
-//using System.Drawing;
 
+//using System.Drawing;
 
 namespace MoBankUI
 {
-    internal class BatchPay
+    public class BatchPay
     {
 // This needs to be extended for all the merchants
 

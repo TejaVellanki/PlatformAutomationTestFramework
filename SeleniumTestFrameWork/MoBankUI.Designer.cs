@@ -74,7 +74,7 @@
             // 
             this.checkBox13.AutoSize = true;
             this.checkBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox13.Location = new System.Drawing.Point(342, 54);
+            this.checkBox13.Location = new System.Drawing.Point(396, 54);
             this.checkBox13.Name = "checkBox13";
             this.checkBox13.Size = new System.Drawing.Size(165, 20);
             this.checkBox13.TabIndex = 2;
@@ -148,13 +148,12 @@
             "Create a Test Shop",
             "Create a Test Scrape",
             "Run Manual Scrape",
-            "Validate Localisation feature",
-            "Validate Custom Domain Name Feature",
-            "DataFeed XML",
-            "Run the Test Site"});
+            "Validate Custom Domain Name Feature and Localisation",
+            "Run the Test Site - Scrape",
+            "Run the Test Site - DataFeed XML"});
             this.checkedListBox2.Location = new System.Drawing.Point(53, 120);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(247, 79);
+            this.checkedListBox2.Size = new System.Drawing.Size(310, 79);
             this.checkedListBox2.TabIndex = 8;
             this.checkedListBox2.SelectedIndexChanged += new System.EventHandler(this.checkedListBox2_SelectedIndexChanged);
             // 
@@ -163,6 +162,7 @@
             this.checkedListBox3.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.checkedListBox3.FormattingEnabled = true;
             this.checkedListBox3.Items.AddRange(new object[] {
+            "Bathrooms",
             "Test All Links in Mosite",
             "Test Footer Links",
             "Test Basket Functionality",
@@ -171,7 +171,7 @@
             "Custom Checkout",
             "Test Registration/Login - CheckOut Pages",
             "Test Mopay"});
-            this.checkedListBox3.Location = new System.Drawing.Point(362, 120);
+            this.checkedListBox3.Location = new System.Drawing.Point(396, 120);
             this.checkedListBox3.Name = "checkedListBox3";
             this.checkedListBox3.Size = new System.Drawing.Size(286, 79);
             this.checkedListBox3.TabIndex = 9;
@@ -183,7 +183,8 @@
             this.checkedListBox4.FormattingEnabled = true;
             this.checkedListBox4.Items.AddRange(new object[] {
             "Validate Products Against Live Website",
-            "General User Journey"});
+            "General User Journey",
+            "Bathrooms"});
             this.checkedListBox4.Location = new System.Drawing.Point(714, 120);
             this.checkedListBox4.Name = "checkedListBox4";
             this.checkedListBox4.Size = new System.Drawing.Size(214, 79);

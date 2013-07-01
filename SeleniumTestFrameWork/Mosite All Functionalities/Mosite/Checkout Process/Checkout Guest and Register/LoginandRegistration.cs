@@ -16,31 +16,37 @@ namespace MoBankUI
                 {
                     driver.FindElement(By.XPath("//form[@id='ctl00']/section/div/input"))
                           .SendKeys("mopoweredtest@mobankgroup.com");
-                    datarow.newrow("Login Name Element", "Login Name Field Is Expected", "Login Name Field Is Present","PASS", driver, selenium);
+                    datarow.newrow("Login Name Element", "Login Name Field Is Expected", "Login Name Field Is Present",
+                                   "PASS", driver, selenium);
                 }
                 else if (selenium.IsElementPresent("id=UserName"))
                 {
                     driver.FindElement(By.Id("UserName")).SendKeys("mopoweredtest@mobankgroup.com");
-                    datarow.newrow("Login Name Element", "Login Name Field Is Expected", "Login Name Field Is Present","PASS", driver, selenium);
+                    datarow.newrow("Login Name Element", "Login Name Field Is Expected", "Login Name Field Is Present",
+                                   "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Login Name Element", "Login Name Field Is Expected","Blocker-Login Name Field Is Not Present", "FAIL", driver, selenium);
+                    datarow.newrow("Login Name Element", "Login Name Field Is Expected",
+                                   "Blocker-Login Name Field Is Not Present", "FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
                 if (selenium.IsElementPresent("//form[@id='ctl00']/section/div[2]/input"))
                 {
                     driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[2]/input")).SendKeys("M0Test08");
-                    datarow.newrow("Login Name Element", "Login Password Field Is Expected","Login Password Field Is Present", "PASS", driver, selenium);
+                    datarow.newrow("Login Name Element", "Login Password Field Is Expected",
+                                   "Login Password Field Is Present", "PASS", driver, selenium);
                 }
                 else if (selenium.IsElementPresent("id=Password"))
                 {
                     driver.FindElement(By.Id("Password")).SendKeys("M0Test08");
-                    datarow.newrow("Login Name Element", "Login Password Field Is Expected","Login Password Field Is Present", "PASS", driver, selenium);
+                    datarow.newrow("Login Name Element", "Login Password Field Is Expected",
+                                   "Login Password Field Is Present", "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Login Password Element", "Login Password Field Is Expected","Blocker - Login Password Field Is Not Present", "FAIL", driver, selenium);
+                    datarow.newrow("Login Password Element", "Login Password Field Is Expected",
+                                   "Blocker - Login Password Field Is Not Present", "FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
                 if (selenium.IsElementPresent("//form[@id='ctl00']/section/div[3]/div/input"))
@@ -55,7 +61,8 @@ namespace MoBankUI
                 }
                 else
                 {
-                    datarow.newrow("Login Element", "Login Button Is Expected", "Blocker - Login Button Is Not Present","FAIL", driver, selenium);
+                    datarow.newrow("Login Element", "Login Button Is Expected", "Blocker - Login Button Is Not Present",
+                                   "FAIL", driver, selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
                 if (selenium.IsElementPresent("id=BasketInfo"))
@@ -80,7 +87,8 @@ namespace MoBankUI
 
                 if (selenium.IsElementPresent("//html/body/div/div[2]/div[2]/form/section/p/a/span/span/span/span"))
                 {
-                    datarow.newrow("Change Details Element", "Change Details Button is Expected","Change Details Button Is Present", "PASS", driver, selenium);
+                    datarow.newrow("Change Details Element", "Change Details Button is Expected",
+                                   "Change Details Button Is Present", "PASS", driver, selenium);
                     selenium.Click("//html/body/div/div[2]/div[2]/form/section/p/a/span/span/span/span");
                     selenium.WaitForPageToLoad("30000");
                     try
@@ -90,7 +98,9 @@ namespace MoBankUI
                         {
                             if (selenium.IsElementPresent("//form[@id='ctl00']/section/div[" + i + "]/label"))
                             {
-                                string valuet =driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/label")).Text;
+                                string valuet =
+                                    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/label"))
+                                          .Text;
                                 //if (valuet == "Telephone:")
                                 //{
                                 //    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/input")).SendKeys("123456789");

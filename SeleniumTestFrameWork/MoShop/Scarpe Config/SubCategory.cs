@@ -116,7 +116,7 @@ namespace MoBankUI
                 datarow.newrow("Sub-Category Identifier", "/acatalog/wrapping-paper-everyday.html", actual, "FAIL",
                                driver, selenium);
             }
-            if (str3 == @"\/acatalog\/([a-z0-9\-_]*).html")
+            if (str3 == @"\/([a-z0-9\-_]+).html")
             {
                 datarow.newrow("Sub-Category Identifier Transformation", @"\/([a-z0-9\-_]+).html", str3,
                                "PASS", driver, selenium);

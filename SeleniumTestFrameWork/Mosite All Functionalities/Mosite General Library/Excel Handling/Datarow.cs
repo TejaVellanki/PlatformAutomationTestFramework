@@ -10,12 +10,12 @@ namespace MoBankUI
 {
     public class datarow
     {
-        private readonly DataTable dt = new DataTable();
-        private readonly DataTable mergeTable = new DataTable();
-        private string TotalFail;
-        private string TotalPass;
-        private DataTable clonetable = new DataTable();
-        private GeneralLibrary generalLibrary;
+        public DataTable dt = new DataTable();
+        public readonly DataTable mergeTable = new DataTable();
+        public string TotalFail;
+        public string TotalPass;
+        public DataTable clonetable = new DataTable();
+        public GeneralLibrary generalLibrary;
 
         private Screenshot screenshot = new Screenshot();
 
@@ -220,9 +220,9 @@ namespace MoBankUI
             }
         }
 
-        public void newrow(string validation, string expected, string actual, string passorfail, IWebDriver driver, ISelenium selenium)
+        public void newrow(string validation, string expected, string actual, string passorfail, IWebDriver driver,
+                           ISelenium selenium)
         {
-
             DataRow newrow = dt.NewRow();
             newrow[0] = validation;
             newrow[1] = expected;

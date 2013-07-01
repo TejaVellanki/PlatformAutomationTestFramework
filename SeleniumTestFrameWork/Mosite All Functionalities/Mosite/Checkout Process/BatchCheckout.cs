@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using Selenium;
+
 //using System.Drawing;
 
 namespace MoBankUI
@@ -17,9 +18,8 @@ namespace MoBankUI
 
             if (url.Contains("wolford"))
             {
-                Wolford wolford = new Wolford();
-                wolford.wolfordcheckout(driver,selenium,datarow);
-
+                var wolford = new Wolford();
+                wolford.wolfordcheckout(driver, selenium, datarow);
             }
         }
     }
