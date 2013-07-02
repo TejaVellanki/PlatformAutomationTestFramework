@@ -1,10 +1,10 @@
-﻿           using System;
+﻿using System;
 using System.Threading;
-           using NUnit.Framework;
-           using OpenQA.Selenium;
-           using OpenQA.Selenium.Support.PageObjects;
-           using OpenQA.Selenium.Support.UI;
-using Selenium;
+using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
+using Selenium;          
 
 namespace MoBankUI
 {
@@ -15,8 +15,7 @@ namespace MoBankUI
 
             driver.Navigate().GoToUrl("http://m.bathrooms.com/");
             selenium.WaitForPageToLoad("30000");
-             PageFactory.InitElements(driver, "WikiMainPage.class");
-          
+            driver.Manage().Cookies.DeleteAllCookies();
             driver.FindElement(By.LinkText("Bathroom suites")).Click();
             selenium.WaitForPageToLoad("30000");
             driver.FindElement(By.LinkText("Bathroom Ranges")).Click();
@@ -28,22 +27,11 @@ namespace MoBankUI
             driver.FindElement(By.XPath("(//input[@value='Add To Basket'])[2]")).Click();
             selenium.WaitForPageToLoad("30000");
             Thread.Sleep(5000);
-            if(selenium.IsElementPresent("//div[@id='AddedDetail']/ul/li/p/a/span/span"))
-            {
-                driver.FindElement(By.XPath("//div[@id='AddedDetail']/ul/li/p/a/span/span")).Click();
-                selenium.WaitForPageToLoad("30000");
-                Thread.Sleep(5000);
-            }
-            else
-            {
-                Thread.Sleep(5000);
-                driver.FindElement(By.XPath("//div[@id='AddedDetail']/ul/li/p/a/span/span")).Click();
-                selenium.WaitForPageToLoad("30000");
-                Thread.Sleep(5000);
-            }
-            driver.FindElement(By.CssSelector("#GoToCheckout > span.ui-btn-inner > span.ui-btn-text")).Click();
+            driver.FindElement(By.XPath("//div[@id='AddedDetail']/ul/li/p/a/span/span")).Click();
             selenium.WaitForPageToLoad("30000");
             Thread.Sleep(5000);
+            driver.FindElement(By.CssSelector("#GoToCheckout > span.ui-btn-inner > span.ui-btn-text")).Click();
+            selenium.WaitForPageToLoad("30000");
             Assert.AreEqual("Checkout - Bathrooms", driver.Title);
             new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlTitle"))).SelectByText("Mr");
             driver.FindElement(By.CssSelector("option.ui-state-valid")).Click();
@@ -60,17 +48,16 @@ namespace MoBankUI
             driver.FindElement(By.Id("Pagecontent_TextBoxPostCode")).Clear();
             driver.FindElement(By.Id("Pagecontent_TextBoxPostCode")).SendKeys("se1 7tl");
             driver.FindElement(By.Id("Pagecontent_TextBoxEmail")).SendKeys("mopowered@mopowered.com");
-            
+
             driver.FindElement(By.Id("Pagecontent_TextBoxTelephone1")).Clear();
             driver.FindElement(By.Id("Pagecontent_TextBoxTelephone1")).SendKeys("0123456789");
             new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlHearAbout"))).SelectByText("Online Search");
             driver.FindElement(By.XPath("//form[@id='checkout']/section/div[16]/div/label/span")).Click();
             driver.FindElement(By.Id("Pagecontent_ButtonContinue")).Click();
             selenium.WaitForPageToLoad("30000");
-            Thread.Sleep(5000);
-           
-                Assert.AreEqual("Checkout - Bathrooms", driver.Title);
-          
+
+            Assert.AreEqual("Checkout - Bathrooms", driver.Title);
+
             driver.FindElement(By.Id("Pagecontent_TextBoxFirstName")).Clear();
             driver.FindElement(By.Id("Pagecontent_TextBoxFirstName")).SendKeys("mobank");
             driver.FindElement(By.Id("Pagecontent_TextBoxLastname")).Clear();
@@ -83,38 +70,20 @@ namespace MoBankUI
             driver.FindElement(By.Id("Pagecontent_TextBoxCity")).SendKeys("vauxhall");
             driver.FindElement(By.Id("Pagecontent_TextBoxPostCode")).Clear();
             driver.FindElement(By.Id("Pagecontent_TextBoxPostCode")).SendKeys("se1 7tl");
-            string chkout = selenium.GetLocation();
 
-            if(chkout=="https://platformcustom.mopowered.co.uk/bathrooms/DeliveryAddress.aspx")
-            {
-                datarow.newrow("Checkout Page 1","https://platformcustom.mopowered.co.uk/bathrooms/DeliveryAddress.aspx", chkout, "PASS");
-            }
-           else
-            {
-                 datarow.newrow("Checkout Page 1","https://platformcustom.mopowered.co.uk/bathrooms/DeliveryAddress.aspx", chkout,"FAIL");
-                
-            }
             driver.FindElement(By.Id("Pagecontent_ButtonContinue")).Click();
             selenium.WaitForPageToLoad("30000");
-            Thread.Sleep(5000);
-         
+
             driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep2")).Click();
             selenium.WaitForPageToLoad("30000");
 
-            Thread.Sleep(5000);
+
             driver.FindElement(By.Id("Pagecontent_ButtonConfirmCheckout")).Click();
             selenium.WaitForPageToLoad("30000");
-            Thread.Sleep(5000);
+
             Assert.AreEqual("Secure Payment Page", driver.Title);
             string title = driver.Title;
-            if (title == "Secure Payment Page")
-            {
-                datarow.newrow("Reached Payment Page", "Expected to Reach Payment page ", driver.Title, "PASS");
-            }
-            else
-            {
-                datarow.newrow("Reached Payment Page", "Expected to Reach Payment page ", driver.Title, "FAIL");
-            }
+           
            
            
         }

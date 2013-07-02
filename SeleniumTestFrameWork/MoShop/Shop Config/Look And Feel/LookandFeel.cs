@@ -27,8 +27,7 @@ namespace MoBankUI
                     datarow.newrow("LookAndFeel", "Look & Feel : mobank.co.uk/MoShop", actual, "FAIL", driver, selenium);
                 }
                 int num = 0;
-                while (true)
-                {
+               
                     for (int i = 0;; i++)
                     {
                         driver.FindElement(By.Id("Customisations_0__Title")).Clear();
@@ -178,7 +177,7 @@ namespace MoBankUI
 
                        
                     }
-                }
+                
             }
             catch (Exception ex)
             {

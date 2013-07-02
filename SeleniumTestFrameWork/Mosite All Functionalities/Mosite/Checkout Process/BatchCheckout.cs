@@ -21,6 +21,11 @@ namespace MoBankUI
                 var wolford = new Wolford();
                 wolford.wolfordcheckout(driver, selenium, datarow);
             }
+            if (url.Contains("bathrooms"))
+            {
+                var contry = new Countryhouse();
+                contry.bathroomcheckout(driver, selenium);
+            }
         }
     }
 }
