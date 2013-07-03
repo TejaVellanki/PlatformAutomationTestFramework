@@ -1,6 +1,6 @@
 ﻿namespace MoBankUI
 {
-    partial class Form1
+    partial class Next
     {
         /// <summary>
         /// Required designer variable.
@@ -43,7 +43,14 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.checkedListBox5 = new System.Windows.Forms.CheckedListBox();
+=======
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkedListBox5 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBox6 = new System.Windows.Forms.CheckedListBox();
+>>>>>>> origin/NEXT-Mobi
             this.SuspendLayout();
             // 
             // checkBox11
@@ -171,7 +178,11 @@
             "Custom Checkout",
             "Test Registration/Login - CheckOut Pages",
             "Test Mopay"});
+<<<<<<< HEAD
             this.checkedListBox3.Location = new System.Drawing.Point(396, 120);
+=======
+            this.checkedListBox3.Location = new System.Drawing.Point(69, 275);
+>>>>>>> origin/NEXT-Mobi
             this.checkedListBox3.Name = "checkedListBox3";
             this.checkedListBox3.Size = new System.Drawing.Size(286, 79);
             this.checkedListBox3.TabIndex = 9;
@@ -229,6 +240,7 @@
             // 
             // checkedListBox5
             // 
+<<<<<<< HEAD
             this.checkedListBox5.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.checkedListBox5.FormattingEnabled = true;
             this.checkedListBox5.Items.AddRange(new object[] {
@@ -239,14 +251,65 @@
             this.checkedListBox5.Size = new System.Drawing.Size(151, 34);
             this.checkedListBox5.TabIndex = 16;
             this.checkedListBox5.SelectedIndexChanged += new System.EventHandler(this.checkedListBox5_SelectedIndexChanged);
+=======
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(468, 275);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(82, 17);
+            this.checkBox1.TabIndex = 15;
+            this.checkBox1.Text = "Tablet View";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+>>>>>>> origin/NEXT-Mobi
             // 
-            // Form1
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(468, 379);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(71, 17);
+            this.checkBox2.TabIndex = 16;
+            this.checkBox2.Text = "NextMobi";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // checkedListBox5
+            // 
+            this.checkedListBox5.FormattingEnabled = true;
+            this.checkedListBox5.Location = new System.Drawing.Point(408, 298);
+            this.checkedListBox5.Name = "checkedListBox5";
+            this.checkedListBox5.Size = new System.Drawing.Size(186, 19);
+            this.checkedListBox5.TabIndex = 10;
+            this.checkedListBox5.SelectedIndexChanged += new System.EventHandler(this.checkedListBox5_SelectedIndexChanged);
+            // 
+            // checkedListBox6
+            // 
+            this.checkedListBox6.FormattingEnabled = true;
+            this.checkedListBox6.Items.AddRange(new object[] {
+            "Mens",
+            "Clearance",
+            "Delete from Bag"});
+            this.checkedListBox6.Location = new System.Drawing.Point(488, 402);
+            this.checkedListBox6.Name = "checkedListBox6";
+            this.checkedListBox6.Size = new System.Drawing.Size(147, 49);
+            this.checkedListBox6.TabIndex = 17;
+            this.checkedListBox6.SelectedIndexChanged += new System.EventHandler(this.checkedListBox6_SelectedIndexChanged);
+            // 
+            // Next
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(986, 623);
             this.Controls.Add(this.checkedListBox5);
+=======
+            this.ClientSize = new System.Drawing.Size(732, 716);
+            this.Controls.Add(this.checkedListBox6);
+            this.Controls.Add(this.checkedListBox5);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
+>>>>>>> origin/NEXT-Mobi
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox4);
@@ -262,8 +325,9 @@
             this.Controls.Add(this.checkBox13);
             this.Controls.Add(this.checkBox12);
             this.Controls.Add(this.checkBox11);
-            this.Name = "Form1";
+            this.Name = "Next";
             this.Text = "Selenium Test Framework";
+            this.Activated += new System.EventHandler(this.checkedListBox2_SelectedIndexChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,7 +350,14 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+<<<<<<< HEAD
         private System.Windows.Forms.CheckedListBox checkedListBox5;
+=======
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckedListBox checkedListBox5;
+        private System.Windows.Forms.CheckedListBox checkedListBox6;
+>>>>>>> origin/NEXT-Mobi
     }
 }
 

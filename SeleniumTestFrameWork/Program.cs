@@ -13,7 +13,11 @@ namespace MoBankUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             Application.Run(new Form1());
+=======
+            Application.Run(new MoBankUI.Next());
+>>>>>>> origin/NEXT-Mobi
         }
     }
 }

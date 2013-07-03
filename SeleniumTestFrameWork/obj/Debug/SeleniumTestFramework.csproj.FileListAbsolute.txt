@@ -102,5 +102,20 @@ C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrame
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\MoBankUI.Form1.resources
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csproj.GenerateResource.Cache
+<<<<<<< HEAD
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.exe
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.pdb
+=======
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.exe.config
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.exe
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.pdb
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.exe
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.pdb
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.framework.dll
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.framework.xml
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ThoughtWorks.Selenium.Core.xml
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csproj.GenerateResource.Cache
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\MoBankUI.Next.resources
+C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csprojResolveAssemblyReference.cache
+>>>>>>> origin/NEXT-Mobi
