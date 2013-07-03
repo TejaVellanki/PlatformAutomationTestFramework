@@ -31,9 +31,9 @@ namespace MoBankUI
             driver.FindElement(By.Id("Selector")).Clear();
             driver.FindElement(By.Id("Selector")).SendKeys("div[class^='leftNav'] a,.bdr a");
             driver.FindElement(By.CssSelector("input.button")).Click();
-            selenium.WaitForPageToLoad("30000");
+            selenium.WaitForPageToLoad("30000");                                         
             driver.FindElement(By.Id("IdentifierTransformationPattern")).Clear();
-            driver.FindElement(By.Id("IdentifierTransformationPattern")).SendKeys("\\/acatalog\\/([a-z0-9\\-_]*).html");
+            driver.FindElement(By.Id("IdentifierTransformationPattern")).SendKeys(@"\/([a-z0-9\-_]+).html");
             driver.FindElement(By.Id("IdentifierTransformationReplacement")).Clear();
             driver.FindElement(By.Id("IdentifierTransformationReplacement")).SendKeys("$1");
             driver.FindElement(By.CssSelector("input.button")).Click();
@@ -116,14 +116,14 @@ namespace MoBankUI
                 datarow.newrow("Sub-Category Identifier", "/acatalog/wrapping-paper-everyday.html", actual, "FAIL",
                                driver, selenium);
             }
-            if (str3 == @"\/acatalog\/([a-z0-9\-_]*).html")
+            if (str3 == @"\/([a-z0-9\-_]+).html")
             {
-                datarow.newrow("Sub-Category Identifier Transformation", @"\/acatalog\/([a-z0-9\-_]*).html", str3,
+                datarow.newrow("Sub-Category Identifier Transformation", @"\/([a-z0-9\-_]+).html", str3,
                                "PASS", driver, selenium);
             }
             else
             {
-                datarow.newrow("Sub-Category Identifier Transformation", @"\/acatalog\/([a-z0-9\-_]*).html", str3,
+                datarow.newrow("Sub-Category Identifier Transformation", @"\/([a-z0-9\-_]+).html", str3,
                                "FAIL", driver, selenium);
             }
             if (str4 == "$1")

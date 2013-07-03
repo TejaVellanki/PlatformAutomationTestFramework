@@ -2,6 +2,7 @@
 using ObjectRepository;
 using OpenQA.Selenium;
 using Selenium;
+
 //using System.Drawing;
 
 namespace MoBankUI
@@ -15,8 +16,8 @@ namespace MoBankUI
             try
             {
                 string deletebasket = null;
-                string url = driver.Title.ToString();
-                if (url.Contains("Tablet"))
+                string url = driver.PageSource;
+                if (url.Contains("smallDevice"))
                 {
                     deletebasket = CollectionMapV2.deletebasket;
                 }
@@ -36,11 +37,12 @@ namespace MoBankUI
                     selenium.WaitForPageToLoad("30000");
                     basketvalidation(driver, selenium, datarow);
                 }
-           else
-            {
-                datarow.newrow("Delete From Basket", "Delete Basket Element Expected","//ul[@id='Basket']/li/a/span" + "Element Not Present", "FAIL", driver, selenium);
-                screenshot.screenshotfailed(driver, selenium);
-            }
+                else
+                {
+                    datarow.newrow("Delete From Basket", "Delete Basket Element Expected",
+                                   "//ul[@id='Basket']/li/a/span" + "Element Not Present", "FAIL", driver, selenium);
+                    screenshot.screenshotfailed(driver, selenium);
+                }
             }
             catch (Exception ex)
             {
@@ -51,17 +53,16 @@ namespace MoBankUI
         }
 
 
-        private void basketvalidation(IWebDriver driver, ISelenium selenium,datarow datarow)
+        private void basketvalidation(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
-           
             string products = null;
             string productlink = null;
             string categorylink = null;
             string cat = null;
             string homeimage = null;
-            string url = driver.Title.ToString();
+            string url = driver.PageSource;
 
-            if (url.Contains("Tablet"))
+            if (url.Contains("smallDevice"))
             {
                 categorylink = CollectionMapV2.categorylink;
                 cat = CollectionMapV2.cat;
@@ -79,7 +80,7 @@ namespace MoBankUI
             }
             try
             {
-                if (!url.Contains("Tablet"))
+                if (!url.Contains("smallDevice"))
                 {
                     string value = driver.FindElement(By.Id("BasketInfo")).Text;
 
@@ -94,10 +95,7 @@ namespace MoBankUI
                     }
                 }
                 //selenium.Click("//*[@id='UpdateBasketForm']/div/div[2]/a/span/span");
-              //  selenium.WaitForPageToLoad("30000");
-
-
-
+                //  selenium.WaitForPageToLoad("30000");
 
 
                 selenium.Click(homeimage);
@@ -109,7 +107,7 @@ namespace MoBankUI
                 string title = driver.Title;
 
                 decimal categorycount = selenium.GetXpathCount(categorylink);
-                for (int i = 1; ; i++)
+                for (int i = 1;; i++)
                 {
                     if (selenium.IsElementPresent("" + categorylink + "" + cat + ""))
                     {
@@ -142,11 +140,6 @@ namespace MoBankUI
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
                 screenshot.screenshotfailed(driver, selenium);
             }
-       
         }
-
-
-
     }
-    
 }

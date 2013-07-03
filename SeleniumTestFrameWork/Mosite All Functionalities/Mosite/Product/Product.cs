@@ -4,6 +4,7 @@ using ObjectRepository;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Selenium;
+
 //using System.Drawing;
 
 namespace MoBankUI
@@ -17,8 +18,7 @@ namespace MoBankUI
             var Image = new Imagevalidation();
             try
             {
-
-                string url = driver.Title;
+                string url = driver.PageSource;
 
                 string productprice = null;
                 string productVarinat = null;
@@ -29,17 +29,21 @@ namespace MoBankUI
                 string AddToBasket = null;
                 string checkout = null;
                 string basketvalue = null;
-               
+                string productvariant2 = null;
+
                 var screenshot = new Screenshot();
+
                 #region object reading
-                if (url.Contains("Tablet"))
+
+                if (url.Contains("smallDevice"))
                 {
                     productprice = CollectionMapV2.ProductPrice;
                     productdescription = CollectionMapV2.productDescription;
                     productdescriptiontab = CollectionMapV2.ProductDescriptiontab;
                     producttitle = CollectionMapV2.producttitle;
-                    Detail  = CollectionMapV2.detail;
+                    Detail = CollectionMapV2.detail;
                     productVarinat = CollectionMapV2.productVariant;
+                    productvariant2 = CollectionMapV2.productvariant2;
                     AddToBasket = CollectionMapV2.addtobasket;
                     checkout = CollectionMapV2.checkout;
                     basketvalue = BasketV2.basketvalue;
@@ -56,8 +60,8 @@ namespace MoBankUI
                     checkout = CollectionMapV1.checkout;
                     basketvalue = BasketV1.basketvalue;
                 }
-                #endregion
 
+                #endregion
 
                 Image.productImage(driver, selenium, datarow);
 
@@ -66,16 +70,18 @@ namespace MoBankUI
                 // Product Price
                 if (selenium.IsElementPresent(productprice))
                 {
-                    string price =driver.FindElement(By.XPath(productprice)).Text;
+                    string price = driver.FindElement(By.XPath(productprice)).Text;
                     datarow.newrow("Product Price", "", price, "PASS", driver, selenium);
                 }
                 else if (!selenium.IsElementPresent(productprice))
                 {
-                    datarow.newrow("Product Price", "Product Price is Expected", "Element Not Identified", "FAIL",driver, selenium);
+                    datarow.newrow("Product Price", "Product Price is Expected", "Element Not Identified", "FAIL",
+                                   driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Product Price", "Product Price is Expected", "Product Is Not Displayed", "FAIL",driver, selenium);
+                    datarow.newrow("Product Price", "Product Price is Expected", "Product Is Not Displayed", "FAIL",
+                                   driver, selenium);
                 }
 
                 #endregion
@@ -84,17 +90,17 @@ namespace MoBankUI
 
                 try
                 {
-              
-                 //selenium.Click(productdescriptiontab);
+                    //selenium.Click(productdescriptiontab);
 
                     if (selenium.IsElementPresent(productdescription))
                     {
-                        string detail =selenium.GetText(Detail);
+                        string detail = selenium.GetText(Detail);
                         datarow.newrow("Product Detail", "", detail, "PASS", driver, selenium);
                     }
                     else if (!selenium.IsElementPresent(productdescriptiontab))
                     {
-                        datarow.newrow("Product Detail", "Product Details Element Is Expected","Product Detail Element Not identified", "FAIL", driver, selenium);
+                        datarow.newrow("Product Detail", "Product Details Element Is Expected",
+                                       "Product Detail Element Not identified", "FAIL", driver, selenium);
                     }
                     else
                     {
@@ -106,15 +112,13 @@ namespace MoBankUI
                         }
                         else
                         {
-                            datarow.newrow("Product Detail", "Product Details are Expected", "Product Details Not identified", "FAIL", driver, selenium);
-                            
+                            datarow.newrow("Product Detail", "Product Details are Expected",
+                                           "Product Details Not identified", "FAIL", driver, selenium);
                         }
-                       
                     }
                 }
                 catch (Exception ex)
                 {
-
                     string e = ex.ToString();
                 }
 
@@ -130,12 +134,12 @@ namespace MoBankUI
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString(); 
-                  
+                    string e = ex.ToString();
                 }
-                if(selenium.IsElementPresent(producttitle)==false)
+                if (selenium.IsElementPresent(producttitle) == false)
                 {
-                    datarow.newrow("Product Title", "Product Title Element is Expected","Product Title Element Not Found", "FAIL", driver, selenium);
+                    datarow.newrow("Product Title", "Product Title Element is Expected",
+                                   "Product Title Element Not Found", "FAIL", driver, selenium);
                 }
 
                 #endregion
@@ -147,12 +151,13 @@ namespace MoBankUI
                 {
                     try
                     {
-                        decimal couent = selenium.GetXpathCount("//html/body/div/div[2]/div/div[4]/form/ul/li[2]/fieldset/div[2]/div/label/span");
+                        decimal couent =
+                            selenium.GetXpathCount(
+                                "//html/body/div/div[2]/div/div[4]/form/ul/li[2]/fieldset/div[2]/div/label/span");
 
                         if (couent != 1)
                         {
-                            string[] varinats =
-                                selenium.GetSelectOptions("id=" + productVarinat + "");
+                            string[] varinats = selenium.GetSelectOptions("id=" + productVarinat + "");
                             string values = null;
                             foreach (string value in varinats)
                             {
@@ -170,7 +175,6 @@ namespace MoBankUI
                             string varinats = selenium.GetValue("id=" + productVarinat + "");
                             datarow.newrow("Variants", "", varinats, "PASS", driver, selenium);
                         }
-
                     }
                     catch (Exception ex)
                     {
@@ -178,35 +182,31 @@ namespace MoBankUI
 
                         datarow.newrow("Exception Not Expected", "Exception Not Expected", e, "FAIL");
                     }
-
-
                 }
 
                 else if (selenium.IsElementPresent("id=" + productVarinat + "_0"))
                 {
                     try
                     {
-
-                  
-                    string values = null;
-                    for (int q = 1; ; q++)
-                    {
-                        if (selenium.IsElementPresent("id=" + productVarinat + "" + q + ""))
+                        string values = null;
+                        for (int q = 1;; q++)
                         {
-                            string varinats = selenium.GetText("id=" + productVarinat + "" + q + "");
-                            if (varinats != "Please Select" || varinats != null)
+                            if (selenium.IsElementPresent("id=" + productVarinat + "" + q + ""))
                             {
-                                values = values + "\r\n" + varinats;
-                                selenium.Click("id=" + productVarinat + "" + q + "");
+                                string varinats = selenium.GetText("id=" + productVarinat + "" + q + "");
+                                if (varinats != "Please Select" || varinats != null)
+                                {
+                                    values = values + "\r\n" + varinats;
+                                    selenium.Click("id=" + productVarinat + "" + q + "");
+                                }
+                            }
+
+                            else
+                            {
+                                break;
                             }
                         }
-
-                        else
-                        {
-                            break;
-                        }
-                    }
-                    datarow.newrow("Variants", "", values, "PASS", driver, selenium);
+                        datarow.newrow("Variants", "", values, "PASS", driver, selenium);
                     }
                     catch (Exception ex)
                     {
@@ -217,39 +217,84 @@ namespace MoBankUI
 
                 #endregion
 
+                #region V2 Product Variant
+
+                if (url.Contains("smallDevice"))
+                {
+                    if (selenium.IsElementPresent("xpath=//a[@id='showOptions']/span"))
+                    {
+                        driver.FindElement(By.XPath("//a[@id='showOptions']/span")).Click();
+                        selenium.WaitForPageToLoad("30000");
+                        string[] vainats = selenium.GetSelectOptions("id=Variants_1__OptionValue");
+                        string vales = null;
+                        foreach (string value in vainats)
+                        {
+                            if (value != "Please Select")
+                            {
+                                vales = vales + "\r\n" + value;
+                                new SelectElement(driver.FindElement(By.Id("Variants_1__OptionValue"))).SelectByText(
+                                    value);
+                            }
+                        }
+
+                        datarow.newrow("Variants", "", vales, "PASS", driver, selenium);
+                        if (selenium.IsElementPresent("id=" + productvariant2 + "_0"))
+                        {
+                            string values = null;
+                            for (int q = 1;; q++)
+                            {
+                                if (selenium.IsElementPresent("id=" + productvariant2 + "_" + q + ""))
+                                {
+                                    string varinats = selenium.GetText("id=" + productvariant2 + "_" + q + "");
+                                    if (varinats != "Please Select" || varinats != null)
+                                    {
+                                        values = values + "\r\n" + varinats;
+                                        selenium.Click("id=" + productvariant2 + "_" + q + "");
+                                    }
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                #endregion
+
                 string product = driver.PageSource;
                 var js = (IJavaScriptExecutor) driver;
                 js.ExecuteScript("window.scrollBy(0,400)");
                 try
                 {
-                   
-                        driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                        driver.FindElement(By.XPath(AddToBasket)).Click();
-                        datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected",
-                                       AddToBasket + "Add To Basket Element Is Present", "PASS", driver, selenium);
-                        Thread.Sleep(5000);
-                    
+                    driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
+                    driver.FindElement(By.XPath(AddToBasket)).Click();
+                    datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected",
+                                   AddToBasket + "Add To Basket Element Is Present", "PASS", driver, selenium);
+                    Thread.Sleep(5000);
                 }
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected", e, "FAIL", driver,selenium);
+                    datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected", e, "FAIL", driver,
+                                   selenium);
                     screenshot.screenshotfailed(driver, selenium);
                 }
 
-               
-                    string basval = driver.FindElement(By.XPath(basketvalue)).Text;
 
-                    if (basval == "(1)")
-                    {
-                        datarow.newrow("Basket Value", "(1)", basval, "PASS", driver, selenium);
-                    }
-                    else
-                    {
-                        datarow.newrow("Basket Value", "(1)", basval, "FAIL", driver, selenium);
-                        screenshot.screenshotfailed(driver, selenium);
-                    }
-              
+                string basval = driver.FindElement(By.XPath(basketvalue)).Text;
+
+                if (basval == "(1)")
+                {
+                    datarow.newrow("Basket Value", "(1)", basval, "PASS", driver, selenium);
+                }
+                else
+                {
+                    datarow.newrow("Basket Value", "(1)", basval, "FAIL", driver, selenium);
+                    screenshot.screenshotfailed(driver, selenium);
+                }
+
                 //Footer_TPS footer = new Footer_TPS();
                 //footer.Footer(driver, selenium, datarow);
 
@@ -277,7 +322,7 @@ namespace MoBankUI
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
                 IWebElement myDynamicElement4 = driver.FindElement(By.XPath(checkout));
-                 if (url.Contains("Tablet")==false)
+                if (url.Contains("smallDevice") == false)
                 {
                     string value1 = driver.FindElement(By.Id("BasketInfo")).Text;
 
@@ -291,6 +336,8 @@ namespace MoBankUI
                         screenshot.screenshotfailed(driver, selenium);
                     }
                 }
+                selenium.Select("id=Items_0__Quantity", "label=1");
+                selenium.WaitForPageToLoad(("30000"));
             }
             catch (Exception ex)
             {

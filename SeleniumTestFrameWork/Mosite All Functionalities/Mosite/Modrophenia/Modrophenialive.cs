@@ -84,7 +84,8 @@ namespace MoBankUI
                     dt.Rows.Add(row);
                     selenium.GoBack();
                     driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                    IWebElement element =driver.FindElement(By.XPath("//div[@id='content']/div/div[" + i + "]/div/a/img"));
+                    IWebElement element =
+                        driver.FindElement(By.XPath("//div[@id='content']/div/div[" + i + "]/div/a/img"));
                 }
                 num++;
             }

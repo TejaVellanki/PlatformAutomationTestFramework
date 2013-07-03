@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ShowCheckBoxes="false">
+  <TopNode>[0-1003]C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\RunNUnuitTests\bin\Debug\RunNUnuitTests.dll</TopNode>
+  <SelectedNode>[0-1002]SeleniumTests.seleniumnunittests.bathroomproduct</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1003]C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\RunNUnuitTests\bin\Debug\RunNUnuitTests.dll" Expanded="true" />
+    <Node UniqueName="[0-1004]SeleniumTests" Expanded="true" />
+    <Node UniqueName="[0-1000]SeleniumTests.seleniumnunittests" Expanded="true" />
+  </Nodes>
+</VisualState>

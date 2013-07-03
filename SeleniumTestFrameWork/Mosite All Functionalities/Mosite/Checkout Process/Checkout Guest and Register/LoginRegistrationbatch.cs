@@ -1,12 +1,12 @@
 ﻿using System;
 using OpenQA.Selenium;
 using Selenium;
-//using System.Drawing;
 
+//using System.Drawing;
 
 namespace MoBankUI
 {
-    internal class LoginRegistration
+    public class LoginRegistration
     {
         public void registration(IWebDriver driver, ISelenium selenium, datarow datarow)
         {

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Webinator;
-using Webinator.Enums;
+
 
 
 namespace ObjectRepository
@@ -84,7 +83,7 @@ namespace ObjectRepository
 
     public static class CheckoutMapV1
     {
-        public const string termsncond ="//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[3]/fieldset/div[2]/div/label/span/span[2]";
+        public const string termsncond = "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[5]/fieldset/div[2]/div/label/span/span";
         public const string paybutton = "//a[@id='PayButton']/span/span";
     }
 }

@@ -1,22 +1,25 @@
 ﻿using System;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using Selenium;
 
 namespace MoBankUI
 {
-    internal class createShop
+   public class createShop
     {
+       [Test]
         public void Testshop(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             try
             {
+               
+                string shop = "testshop";
                 driver.FindElement(By.LinkText("Shops")).Click();
                 selenium.WaitForPageToLoad("30000");
-
                 driver.FindElement(By.LinkText("Create")).Click();
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.Id("Name")).Clear();
-                driver.FindElement(By.Id("Name")).SendKeys("TestShop");
+                driver.FindElement(By.Id("Name")).SendKeys(shop);
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("30000");
                 string title = driver.Title;
@@ -36,8 +39,7 @@ namespace MoBankUI
                 }
                 else
                 {
-                    datarow.newrow("Shop Offline", "Shop should be offline", "Shop is not set to Offline", "FAIL",
-                                   driver, selenium);
+                    datarow.newrow("Shop Offline", "Shop should be offline", "Shop is not set to Offline", "FAIL",driver, selenium);
                 }
                 driver.FindElement(By.Id("IsOffLine")).Click();
                 driver.FindElement(By.Id("IsOffLine")).Click();
@@ -54,8 +56,7 @@ namespace MoBankUI
                 selenium.WaitForPageToLoad("30000");
                 if (selenium.IsChecked("id=DefaultCatalogueId"))
                 {
-                    datarow.newrow("Default Catalogue Selection", "Default Catalogue is expected to be selected",
-                                   "Default Catalogue is selected", "PASS", driver, selenium);
+                    datarow.newrow("Default Catalogue Selection", "Default Catalogue is expected to be selected","Default Catalogue is selected", "PASS", driver, selenium);
                 }
                 else
                 {

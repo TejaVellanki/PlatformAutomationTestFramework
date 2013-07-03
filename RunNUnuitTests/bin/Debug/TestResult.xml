@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\RunNUnuitTests\bin\Debug\RunNUnuitTests.dll" total="2" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-07-02" time="08:54:29">
+  <environment nunit-version="2.6.2.12296" clr-version="4.0.30319.18046" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="TEJA-PC" user="teja" user-domain="teja-pc" />
+  <culture-info current-culture="en-GB" current-uiculture="en-GB" />
+  <test-suite type="Assembly" name="C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\RunNUnuitTests\bin\Debug\RunNUnuitTests.dll" executed="True" result="Failure" success="False" time="172.543" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="SeleniumTests" executed="True" result="Failure" success="False" time="172.543" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="seleniumnunittests" executed="True" result="Failure" success="False" time="172.543" asserts="0">
+            <results>
+              <test-case name="SeleniumTests.seleniumnunittests.bathroomproduct" executed="True" result="Error" success="False" time="102.787" asserts="1">
+                <failure>
+                  <message><![CDATA[Selenium.SeleniumException : Element //*[@id='Top']/div[1]/div[2]/div[2]/ul/li[0]/a/span not found]]></message>
+                  <stack-trace><![CDATA[at Selenium.Internal.CommandTimer.Execute(SeleneseCommand commandToExecute, IWebDriver commandDriver, String[] commandArguments) in c:\Projects\WebDriver\trunk\dotnet\src\Selenium.WebDriverBackedSelenium\Internal\CommandTimer.cs:line 59
+at Selenium.WebDriverCommandProcessor.DoCommand(String command, String[] args) in c:\Projects\WebDriver\trunk\dotnet\src\Selenium.WebDriverBackedSelenium\WebDriverCommandProcessor.cs:line 91
+at SeleniumTests.seleniumnunittests.checkout() in c:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\RunNUnuitTests\RunNUnitTests.cs:line 205
+at SeleniumTests.seleniumnunittests.bathroomproduct() in c:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\RunNUnuitTests\RunNUnitTests.cs:line 165
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="SeleniumTests.seleniumnunittests.bathroomTest" executed="True" result="Success" success="True" time="69.696" asserts="1" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

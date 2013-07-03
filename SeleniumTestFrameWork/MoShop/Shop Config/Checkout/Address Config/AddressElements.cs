@@ -9,24 +9,23 @@ namespace MoBankUI
         public void elements(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             try
-            {  driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Name")).Click();
-              
+            {
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Name")).Click();
+
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Label")).Clear();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Label")).SendKeys("First Name: *");
-                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_0__PropertyPath"))).SelectByText(
-                    "FirstName");
+                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_0__PropertyPath"))).SelectByText("FirstName");
                 if (selenium.GetValue("id=LiveScrapeForm_Elements_0__Required") == "off")
                 {
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Required")).Click();
                 }
-               
+
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Name")).Click();
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Label")).Clear();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Label")).SendKeys("Last Name: *");
-                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_1__PropertyPath"))).SelectByText(
-                    "LastName");
+                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_1__PropertyPath"))).SelectByText("LastName");
                 if (selenium.GetValue("id=LiveScrapeForm_Elements_1__Required") == "off")
                 {
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Required")).Click();
@@ -120,21 +119,52 @@ namespace MoBankUI
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_9__LabelSelector")).SendKeys("#idINVOICEEMAILlabel");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_9__Label")).Clear();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_9__Label")).SendKeys("Email Address: *");
-                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_9__PropertyPath"))).SelectByText(
-                    "Email");
+                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_9__PropertyPath"))).SelectByText("Email");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_9__Required")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_10__Name")).Click();
                 selenium.WaitForPageToLoad("30000");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_10__LabelSelector")).Clear();
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_10__LabelSelector"))
-                      .SendKeys("label[for=INVOICEUSERDEFINED]");
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_10__LabelSelector")).SendKeys("label[for=INVOICEUSERDEFINED]");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_10__Type")).Click();
 
-                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_10__Type"))).SelectByText("Check");
+
+                string[] Check = selenium.GetSelectOptions("id=LiveScrapeForm_Elements_10__Type");
+                foreach(string check in Check)
+                {
+                    new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_10__Type"))).SelectByText(check);
+                    if (check == "Check")
+                    {
+                        break;
+
+                    }
+
+                }
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_9__Type")).Click();
-                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_9__Type"))).SelectByText("Email");
+                string[] Email = selenium.GetSelectOptions("id=LiveScrapeForm_Elements_9__Type");
+                foreach (string email in Email)
+                {
+                    new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_9__Type"))).SelectByText(email);
+                    if (email== "Email")
+                    {
+                       
+                        break;
+
+                    }
+                }
+
+
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_8__Type")).Click();
-                new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_8__Type"))).SelectByText("Phone");
+                string[] Phone = selenium.GetSelectOptions("id=LiveScrapeForm_Elements_8__Type");
+                foreach (string phone in Phone)
+                {
+                    new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_8__Type"))).SelectByText(phone);
+                    if (phone == "Phone")
+                    {
+                       
+                        break;
+
+                    }
+                }
                 driver.FindElement(By.XPath("//select[@id='LiveScrapeForm_Elements_8__Type']/option[3]")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_6__Type")).Click();
 
@@ -144,6 +174,7 @@ namespace MoBankUI
                     new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_6__Type"))).SelectByText(contry);
                     if (contry == "DropList")
                     {
+                        
                         break;
                     }
                 }
@@ -151,6 +182,7 @@ namespace MoBankUI
             catch (NotFoundException ex)
             {
                 string e = ex.ToString();
+                datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver, selenium);
 
             }
             driver.FindElement(By.CssSelector("input.button")).Click();

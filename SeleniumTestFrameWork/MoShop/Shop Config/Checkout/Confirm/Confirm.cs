@@ -19,30 +19,26 @@ namespace MoBankUI
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
                 selenium.WaitForPageToLoad("30000");
 
-
                 driver.FindElement(By.Id("Url")).Clear();
                 driver.FindElement(By.Id("Url")).SendKeys("https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl");
                 driver.FindElement(By.Id("Parameters")).Clear();
-                driver.FindElement(By.Id("Parameters"))
-                      .SendKeys("RANDOM=0.825800705309124&ACTION=GETPSPFORM&PAYMENTMETHOD=4");
+                driver.FindElement(By.Id("Parameters")).SendKeys("RANDOM=0.825800705309124&ACTION=GETPSPFORM&PAYMENTMETHOD=4");
                 driver.FindElement(By.Id("Sequence")).Clear();
                 driver.FindElement(By.Id("Sequence")).SendKeys("30");
+                /*
                 driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).Clear();
-                driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector"))
-                      .SendKeys("input[name=ORDERNUMBER]");
+                driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).SendKeys("input[name=ORDERNUMBER]");
                 driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Attribute")).Clear();
                 driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Attribute")).SendKeys("value");
-                new SelectElement(driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__PropertyPath")))
-                    .SelectByText("Reference");
+                new SelectElement(driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__PropertyPath"))).SelectByText("Reference");
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("30000");
-                driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Selector")).Clear();
-                driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Selector"))
-                      .SendKeys("input[name=\"CALLBACKURLUSER\"]");
-                driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Attribute")).Clear();
-                driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Attribute")).SendKeys("value");
-                new SelectElement(driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__PropertyPath")))
-                    .SelectByText("PaymentAcceptedUrl");
+                 * */
+                driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).Clear();
+                driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).SendKeys("input[name='CALLBACKURLUSER']");
+                driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Attribute")).Clear();
+                driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Attribute")).SendKeys("value");
+                new SelectElement(driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__PropertyPath"))).SelectByText("PaymentAcceptedUrl");
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 selenium.WaitForPageToLoad("300000");
 
@@ -51,14 +47,10 @@ namespace MoBankUI
                 string attribute = driver.FindElement(By.Id("Url")).GetAttribute("Value");
                 string actual = driver.FindElement(By.Id("Parameters")).GetAttribute("Value");
                 string str3 = driver.FindElement(By.Id("Sequence")).GetAttribute("Value");
-                string str4 =
-                    driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).GetAttribute("Value");
-                string str5 =
-                    driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Attribute")).GetAttribute("Value");
-                string str6 =
-                    driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Selector")).GetAttribute("Value");
-                string str7 =
-                    driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Attribute")).GetAttribute("Value");
+                string str4 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).GetAttribute("Value");
+                string str5 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Attribute")).GetAttribute("Value");
+                //string str6 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Selector")).GetAttribute("Value");
+               // string str7 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Attribute")).GetAttribute("Value");
 
                 if (attribute == "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl")
                 {
@@ -88,13 +80,13 @@ namespace MoBankUI
                 {
                     datarow.newrow("Sequence", "30", str3, "FAIL", driver, selenium);
                 }
-                if (str4 == "input[name=ORDERNUMBER]")
+                if (str4 == "input[name='CALLBACKURLUSER']")
                 {
-                    datarow.newrow("Scraped Data", "input[name=ORDERNUMBER]", str4, "PASS", driver, selenium);
+                    datarow.newrow("Scraped Data", "input[name='CALLBACKURLUSER']", str4, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Scraped Data", "input[name=ORDERNUMBER]", str4, "FAIL", driver, selenium);
+                    datarow.newrow("Scraped Data", "input[name='CALLBACKURLUSER']", str4, "FAIL", driver, selenium);
                 }
                 if (str5 == "value")
                 {
@@ -104,6 +96,7 @@ namespace MoBankUI
                 {
                     datarow.newrow("Scrapped Data Configuration", "value", str5, "FAIL", driver, selenium);
                 }
+                /*
                 if (str6 == "input[name=\"CALLBACKURLUSER\"]")
                 {
                     datarow.newrow("Scraped Data Selector1", "input[name=\"CALLBACKURLUSER\"]", str6, "PASS", driver,
@@ -114,6 +107,7 @@ namespace MoBankUI
                     datarow.newrow("Scraped Data Selector1", "input[name=\"CALLBACKURLUSER\"]", str6, "PASS", driver,
                                    selenium);
                 }
+                /*
                 if (str7 == "value")
                 {
                     datarow.newrow("Scraped Data Configuration1", "value", str7, "PASS", driver, selenium);
@@ -122,11 +116,13 @@ namespace MoBankUI
                 {
                     datarow.newrow("Scraped Data Configuration1", "value", str7, "FAIL", driver, selenium);
                 }
-
+                */
                 #endregion
             }
             catch (Exception ex)
             {
+                string e = ex.ToString();
+                datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver, selenium);
             }
         }
     }

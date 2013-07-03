@@ -8,7 +8,7 @@ using Selenium;
 
 namespace MoBankUI
 {
-    internal class LookandFeel
+    public class LookandFeel
     {
         public void lookandfeel(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
@@ -27,8 +27,7 @@ namespace MoBankUI
                     datarow.newrow("LookAndFeel", "Look & Feel : mobank.co.uk/MoShop", actual, "FAIL", driver, selenium);
                 }
                 int num = 0;
-                while (true)
-                {
+               
                     for (int i = 0;; i++)
                     {
                         driver.FindElement(By.Id("Customisations_0__Title")).Clear();
@@ -45,16 +44,14 @@ namespace MoBankUI
                         {
                             break;
                         }
-                        else
-                        {
-                        }
                     }
 
                     string attriute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
                     if (attriute == "QA-TestShop")
                     {
+                        try
+                        {
                         datarow.newrow("Customiastion Title", "QA-TestShop", attriute, "PASS", driver, selenium);
-
                         driver.FindElement(By.XPath("(//input[@id='DefaultCustomisationsId'])[2]")).Click();
                         selenium.WaitForPageToLoad("30000");
                         driver.FindElement(By.CssSelector("input.button")).Click();
@@ -64,13 +61,11 @@ namespace MoBankUI
                         string str4 = driver.Title;
                         if (str4 == "Customisation : mobank.co.uk/MoShop")
                         {
-                            datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "PASS",
-                                           driver, selenium);
+                            datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "PASS",driver, selenium);
                         }
                         else
                         {
-                            datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "FAIL",
-                                           driver, selenium);
+                            datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "FAIL",driver, selenium);
                         }
                         for (int j = 3; j <= 8; j++)
                         {
@@ -80,36 +75,45 @@ namespace MoBankUI
                             }
                             //*[@id="customisation-page-update-form"]/div[3]/h3
                         }
-                        new SelectElement(driver.FindElement(By.Id("ExternalLinks_0__ExternalLinkConfigId")))
-                            .SelectByText("Twitter");
+
+                        }
+                         catch (Exception ex)
+                         {
+
+                             string e = ex.ToString();
+                         }
+                        try
+                        {
+
+                       
+                       
+                        new SelectElement(driver.FindElement(By.Id("ExternalLinks_0__ExternalLinkConfigId"))).SelectByText("Feefo");
                         driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement")).Clear();
                         driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement")).SendKeys("ticklecompany");
                         driver.FindElement(By.Id("OrderConfirmationOrderNumberText")).Clear();
-                        driver.FindElement(By.Id("OrderConfirmationOrderNumberText"))
-                              .SendKeys("Your order number is {0}.");
+                        driver.FindElement(By.Id("OrderConfirmationOrderNumberText")).SendKeys("Your order number is {0}.");
                         driver.FindElement(By.Id("OrderConfirmationSuccessMessage")).Clear();
-                        driver.FindElement(By.Id("OrderConfirmationSuccessMessage"))
-                              .SendKeys("Your order has been succesfull");
+                        driver.FindElement(By.Id("OrderConfirmationSuccessMessage")).SendKeys("Your order has been succesfull");
                         driver.FindElement(By.Id("OrderConfirmationFailureMessage")).Clear();
-                        driver.FindElement(By.Id("OrderConfirmationFailureMessage"))
-                              .SendKeys("Your order couldnot be processed.");
+                        driver.FindElement(By.Id("OrderConfirmationFailureMessage")).SendKeys("Your order couldnot be processed.");
                         driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).Clear();
-                        driver.FindElement(By.Id("OrderConfirmationDeclinedMessage"))
-                              .SendKeys("Your order couldnot be processed.");
+                        driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).SendKeys("Your order couldnot be processed.");
                         driver.FindElement(By.CssSelector("input.button")).Click();
                         selenium.WaitForPageToLoad("30000");
                         Thread.Sleep(0x1388);
+                        }
+                        catch (Exception ex)
+                        {
 
+                            string e = ex.ToString();
+                        }
                         #region Validations
 
-                        string str5 = driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement"))
-                                            .GetAttribute("Value");
-                        string str6 = driver.FindElement(By.Id("OrderConfirmationOrderNumberText"))
-                                            .GetAttribute("Value");
+                        string str5 = driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement")).GetAttribute("Value");
+                        string str6 = driver.FindElement(By.Id("OrderConfirmationOrderNumberText")).GetAttribute("Value");
                         string str7 = driver.FindElement(By.Id("OrderConfirmationSuccessMessage")).GetAttribute("Value");
                         string str8 = driver.FindElement(By.Id("OrderConfirmationFailureMessage")).GetAttribute("Value");
-                        string str9 = driver.FindElement(By.Id("OrderConfirmationDeclinedMessage"))
-                                            .GetAttribute("Value");
+                        string str9 = driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).GetAttribute("Value");
                         if (str5 == "ticklecompany")
                         {
                             datarow.newrow("Link Replacement", "ticklecompany", str5, "PASS", driver, selenium);
@@ -120,49 +124,40 @@ namespace MoBankUI
                         }
                         if (str6 == "Your order number is {0}.")
                         {
-                            datarow.newrow("Order Confirmation", "Your order number is {0}.", str6, "PASS", driver,
-                                           selenium);
+                            datarow.newrow("Order Confirmation", "Your order number is {0}.", str6, "PASS", driver,selenium);
                         }
                         else
                         {
-                            datarow.newrow("Order Confirmation", "Your order number is {0}.", str6, "FAIL", driver,
-                                           selenium);
+                            datarow.newrow("Order Confirmation", "Your order number is {0}.", str6, "FAIL", driver,selenium);
                         }
                         if (str7 == "Your order has been succesfull")
                         {
-                            datarow.newrow("ConfirmSuccess", "Your order has been succesfull", str7, "PASS", driver,
-                                           selenium);
+                            datarow.newrow("ConfirmSuccess", "Your order has been succesfull", str7, "PASS", driver,selenium);
                         }
                         else
                         {
-                            datarow.newrow("ConfirmSuccess", "Your order has been succesfull", str7, "FAIL", driver,
-                                           selenium);
+                            datarow.newrow("ConfirmSuccess", "Your order has been succesfull", str7, "FAIL", driver,selenium);
                         }
                         if (str8 == "Your order couldnot be processed.")
                         {
-                            datarow.newrow("Confirm Failure", "Your order couldnot be processed.", str8, "PASS", driver,
-                                           selenium);
+                            datarow.newrow("Confirm Failure", "Your order couldnot be processed.", str8, "PASS", driver,selenium);
                         }
                         else
                         {
-                            datarow.newrow("Confirm Failure", "Your order couldnot be processed.", str8, "FAIL", driver,
-                                           selenium);
+                            datarow.newrow("Confirm Failure", "Your order couldnot be processed.", str8, "FAIL", driver,selenium);
                         }
                         if (str9 == "Your order couldnot be processed.")
                         {
-                            datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9, "PASS", driver,
-                                           selenium);
+                            datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9, "PASS", driver,selenium);
                         }
                         else
                         {
-                            datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9, "FAIL", driver,
-                                           selenium);
+                            datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9, "FAIL", driver,selenium);
                         }
 
                         #endregion
 
-                        new SelectElement(driver.FindElement(By.Id("ExternalLinks_1__ExternalLinkConfigId")))
-                            .SelectByText("Facebook");
+                        new SelectElement(driver.FindElement(By.Id("ExternalLinks_1__ExternalLinkConfigId"))).SelectByText("Facebook");
                         driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).Clear();
                         driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).SendKeys("TheTickleCompany");
                         driver.FindElement(By.CssSelector("input.button")).Click();
@@ -180,39 +175,17 @@ namespace MoBankUI
                         driver.FindElement(By.CssSelector("input.button")).Click();
                         selenium.WaitForPageToLoad("30000");
 
-                        for (int j = 3; j <= 8; j++)
-                        {
-                            if (selenium.IsElementPresent("css=h3.collapsible.collapsed"))
-                            {
-                                selenium.Click("css=h3.collapsible.collapsed");
-                                selenium.WaitForPageToLoad("30000");
-                            }
-                            //*[@id="customisation-page-update-form"]/div[3]/h3
-                        }
-
-                        driver.FindElement(By.Id("HomeImage_ImageUpload"))
-                              .SendKeys(
-                                  "C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images\\ticklelogo.png");
-                        Thread.Sleep(2000);
-                        driver.FindElement(By.Id("Icon_ImageUpload"))
-                              .SendKeys(
-                                  "C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images\\ion.ico");
-                        Thread.Sleep(2000);
-                        new SelectElement(driver.FindElement(By.Id("HomeImage_Justification"))).SelectByText("Centre");
-                        Thread.Sleep(2000);
-                        driver.FindElement(By.Id("CustomBasketImage_ImageUpload"))
-                              .SendKeys(
-                                  "C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Images\\basket_white.png");
-                        driver.FindElement(By.CssSelector("input.button")).Click();
-                        selenium.WaitForPageToLoad("30000");
+                       
                     }
-                }
+                
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
             }
+            LookandFeelImages images = new LookandFeelImages();
+            images.images(driver, selenium, datarow);
             new Scheduler().schedule(driver, selenium, datarow);
         }
     }

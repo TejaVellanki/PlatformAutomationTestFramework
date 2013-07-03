@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using Selenium;
 using Tablet_View;
+
 //using System.Drawing;
 
 namespace MoBankUI
@@ -12,17 +13,29 @@ namespace MoBankUI
 
         public void batchtesting(string items, string url, IWebDriver driver, ISelenium selenium, datarow datarow)
         {
-
             try
             {
-                BlobStorage blob = new BlobStorage();
-                blob.Blob(selenium,driver,datarow);
-               
+                var blob = new BlobStorage();
+                blob.Blob(selenium, driver, datarow, url);
+
+
+                //string[] vesion = verson.Split(',');
+
+                //foreach (string vsion in vesion)
+                //{
+                //    public const string version = vsion;
+                //}
+
                 string[] selectedvalue = items.Split(',');
                 int i = 0;
                 foreach (string function in selectedvalue)
                 {
+                    if (function == "Bathrooms")
+                    {
+                        Bathrooms bathrooms= new Bathrooms();
+                        bathrooms.bathroom(driver,selenium,datarow);
 
+                    }
                     if (function == "Test All Links in Mosite")
                     {
                         datarow.newrow("", "", "All Links in Mosite - Validations", "", driver, selenium);
@@ -59,11 +72,14 @@ namespace MoBankUI
                         i++;
                     }
 
-
-                    if (function == "Test Registration/Login - CheckOut Pages")
+                    if (function == "Custom Checkout")
                     {
                         var ckout = new BatchCheckout();
                         ckout.checkout(driver, selenium, url, datarow);
+                    }
+
+                    if (function == "Test Registration/Login - CheckOut Pages")
+                    {
                         datarow.newrow("", "", "Registration/Login", "", driver, selenium);
                         var login = new LoginRegistration();
                         login.registration(driver, selenium, datarow);
@@ -95,7 +111,7 @@ namespace MoBankUI
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver, selenium);
                 screenshot.screenshotfailed(driver, selenium);
             }
-              
+
             finally
             {
                 datarow.excelsave("Mosite", driver, selenium, "teja.vellanki@mobankgroup.com");
@@ -103,5 +119,5 @@ namespace MoBankUI
                 driver.Quit();
             }
         }
-      }
-  }
+    }
+}

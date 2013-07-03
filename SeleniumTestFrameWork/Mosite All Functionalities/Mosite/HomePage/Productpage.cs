@@ -8,11 +8,9 @@ namespace MoBankUI
 {
     internal class Productpage
     {
-       
-
         public void productPage(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
-            string url = driver.Title;
+            string url = driver.PageSource;
 
             string productprice = null;
             string productVarinat = null;
@@ -25,7 +23,7 @@ namespace MoBankUI
             var Image = new Imagevalidation();
             var screenshot = new Screenshot();
 
-            if (url.Contains("Tablet"))
+            if (url.Contains("smallDevice"))
             {
                 productprice = CollectionMapV2.ProductPrice;
                 productdescription = CollectionMapV2.productDescription;
@@ -52,7 +50,6 @@ namespace MoBankUI
             }
             catch (Exception)
             {
-                
                 throw;
             }
 
@@ -62,16 +59,11 @@ namespace MoBankUI
             {
                 string detail = selenium.GetText(Detail);
                 datarow.newrow("Product Detail", "", detail, "PASS", driver, selenium);
-
             }
             catch (Exception)
             {
-                
                 throw;
             }
-
-
-
 
 
             try
@@ -81,79 +73,74 @@ namespace MoBankUI
             }
             catch (Exception)
             {
-                
                 throw;
             }
 
             try
             {
-
-           
-            if (selenium.IsElementPresent("id=" + productVarinat + ""))
-            {
-                try
+                if (selenium.IsElementPresent("id=" + productVarinat + ""))
                 {
-                    decimal couent =selenium.GetXpathCount("//html/body/div/div[2]/div/div[4]/form/ul/li[2]/fieldset/div[2]/div/label/span");
-
-                    if (couent != 1)
+                    try
                     {
-                        string[] varinats =
-                            selenium.GetSelectOptions("id=" + productVarinat + "");
-                        string values = null;
-                        foreach (string value in varinats)
+                        decimal couent =
+                            selenium.GetXpathCount(
+                                "//html/body/div/div[2]/div/div[4]/form/ul/li[2]/fieldset/div[2]/div/label/span");
+
+                        if (couent != 1)
                         {
-                            if (value != "Please Select")
+                            string[] varinats =
+                                selenium.GetSelectOptions("id=" + productVarinat + "");
+                            string values = null;
+                            foreach (string value in varinats)
                             {
-                                values = values + "\r\n" + value;
-                                new SelectElement(driver.FindElement(By.Id(productVarinat))).SelectByText(value);
+                                if (value != "Please Select")
+                                {
+                                    values = values + "\r\n" + value;
+                                    new SelectElement(driver.FindElement(By.Id(productVarinat))).SelectByText(value);
+                                }
+                            }
+                            datarow.newrow("Variants", "", values, "PASS", driver, selenium);
+                        }
+
+                        else
+                        {
+                            string varinats = selenium.GetValue("id=" + productVarinat + "");
+                            datarow.newrow("Variants", "", varinats, "PASS", driver, selenium);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        string e = ex.ToString();
+
+                        datarow.newrow("Exception Not Expected", "Exception Not Expected", e, "FAIL");
+                    }
+                }
+
+                else if (selenium.IsElementPresent("id=" + productVarinat + "_0"))
+                {
+                    string values = null;
+                    for (int q = 1;; q++)
+                    {
+                        if (selenium.IsElementPresent("id=" + productVarinat + "" + q + ""))
+                        {
+                            string varinats = selenium.GetText("id=" + productVarinat + "" + q + "");
+                            if (varinats != "Please Select" || varinats != null)
+                            {
+                                values = values + "\r\n" + varinats;
+                                selenium.Click("id=" + productVarinat + "" + q + "");
                             }
                         }
-                        datarow.newrow("Variants", "", values, "PASS", driver, selenium);
-                    }
 
-                    else
-                    {
-                        string varinats = selenium.GetValue("id=" + productVarinat + "");
-                        datarow.newrow("Variants", "", varinats, "PASS", driver, selenium);
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    string e = ex.ToString();
-
-                    datarow.newrow("Exception Not Expected","Exception Not Expected",e,"FAIL");
-                }
-
-
-            }
-
-            else if (selenium.IsElementPresent("id=" + productVarinat + "_0"))
-            {
-                string values = null;
-                for (int q = 1;; q++)
-                {
-                    if (selenium.IsElementPresent("id=" + productVarinat + "" + q + ""))
-                    {
-                        string varinats = selenium.GetText("id=" + productVarinat + "" + q + "");
-                        if (varinats != "Please Select" || varinats != null)
+                        else
                         {
-                            values = values + "\r\n" + varinats;
-                            selenium.Click("id=" + productVarinat + "" + q + "");
+                            break;
                         }
                     }
-
-                    else
-                    {
-                        break;
-                    }
+                    datarow.newrow("Variants", "", values, "PASS", driver, selenium);
                 }
-                datarow.newrow("Variants", "", values, "PASS", driver, selenium);
-            }
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
