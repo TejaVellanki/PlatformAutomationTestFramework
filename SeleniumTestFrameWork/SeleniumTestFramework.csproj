@@ -126,6 +126,7 @@
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\Wolford-UK\WolfordCheckout.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\HomePage\HomepageLinks.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\HomePage\Productpage.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Related Products\RelatedProducts.cs" />
     <Compile Include="MoSite\Other\BatchMosite.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\BatchCheckout.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\Checkout Guest and Register\Guest.cs" />
@@ -257,6 +258,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
