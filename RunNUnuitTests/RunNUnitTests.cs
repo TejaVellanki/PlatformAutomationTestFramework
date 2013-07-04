@@ -91,60 +91,6 @@ namespace SeleniumTests
            
         }
         
-        [Test]
-        public void Bathroomrandomproducts()
-        { 
-            #region Random Products
-            
-            selenium.Open("http://m.bathrooms.com/");
-            selenium.WaitForPageToLoad("30000");
-            decimal homepagecat = selenium.GetXpathCount("//body[@id='page-home-index']/div/div[2]/div/ul/li");
-            for (int j = 2; j < homepagecat; j++)
-            {
-                driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li["+j+"]/div/div/a/h2")).Click();
-                selenium.WaitForPageToLoad("30000");
-                string homepage = selenium.GetLocation();
-                Console.WriteLine(homepage);
-                decimal catelem = selenium.GetXpathCount("//body[@id='page-categories-details']/div/div[2]/div/ul/li");
-                for (int k = 2; k <= catelem; k++)
-                {
-                    driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li["+k+"]/div/div/a")).Click();
-                    selenium.WaitForPageToLoad("30000");
-                    break;
-                }
-                decimal subcat = selenium.GetXpathCount("//body[@id='page-categories-details']/div/div[2]/div/ul/li");
-                for (int s = 1; s <= subcat; s++)
-                {
-                    driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li[" + s + "]/div/div/a/h2")).Click();
-                    selenium.WaitForPageToLoad("30000");
-                    string catpage = selenium.GetLocation();
-                    Console.WriteLine(catpage);
-                    break;
-
-                }
-                decimal subsubcat =selenium.GetXpathCount("//body[@id='page-categories-details']/div/div[2]/div/ul/li");
-                for (int p = 1; p <= subsubcat; p++)
-                {
-
-                    selenium.Click("//body[@id='page-categories-details']/div/div[2]/div/ul/li["+p+"]/div/div/a");
-                    selenium.WaitForPageToLoad("30000");
-                    string productpage = selenium.GetLocation();
-                    Console.WriteLine(productpage);
-                    if (productpage.Contains("product"))
-                    {
-                        driver.FindElement(By.XPath("(//input[@value='Add To Basket'])[2]")).Click();
-                        selenium.WaitForPageToLoad("30000");
-                        Thread.Sleep(5000);
-                      
-                    }
-                    selenium.GoBack();
-                    selenium.WaitForPageToLoad("30000");
-                }
-                break;
-            }
-            #endregion
-            checkout();
-        }
 
         public void checkout()
         {
@@ -182,8 +128,6 @@ namespace SeleniumTests
                     {
                         // Validating the Product Availability
                        Console.WriteLine("Product Unavailable");
-                        driver.Quit();
-
                     }
                 }
                 else
@@ -196,7 +140,7 @@ namespace SeleniumTests
                     }
                     Assert.AreEqual("Checkout - Bathrooms", driver.Title);
                     address();
-            }
+                }
         }
 
         public void address()

@@ -64,11 +64,11 @@ namespace MoBankUI
                 string url = selenium.GetLocation();
                 if (url == "http://m.testshop.com")
                 {
-                    datarow.newrow("Customa Domain Name", "http://m.testshop.com", url, "PASS", driver, selenium);
+                    datarow.newrow("Customa Domain Name", "http://m.testshop.com/", url, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Customa Domain Name", "http://m.testshop.com", url, "FAIL", driver, selenium);
+                    datarow.newrow("Customa Domain Name", "http://m.testshop.com/", url, "FAIL", driver, selenium);
                 }
               
             }
