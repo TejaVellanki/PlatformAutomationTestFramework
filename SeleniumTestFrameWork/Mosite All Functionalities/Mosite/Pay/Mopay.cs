@@ -173,13 +173,13 @@ namespace MoBankUI
             try
             {
                 string totalamount = driver.FindElement(By.XPath("//div[@id='total-amount']/dl/dd")).Text;
-                if (totalamount.Contains("£"))
+                if (totalamount.Contains("₹"))
                 {
-                    datarow.newrow("Currency Validation", "£", totalamount, "PASS", driver, selenium);
+                    datarow.newrow("Currency Validation", "₹", totalamount, "PASS", driver, selenium);
                 }
                 else
                 {
-                    datarow.newrow("Currency Validation", "£", totalamount, "FAIL", driver, selenium);
+                    datarow.newrow("Currency Validation", "₹", totalamount, "FAIL", driver, selenium);
                 }
             }
             catch (Exception ex)

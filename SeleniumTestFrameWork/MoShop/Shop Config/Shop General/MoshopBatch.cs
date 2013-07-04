@@ -15,9 +15,8 @@ namespace MoBankUI
             var screenshot = new Screenshot();
             try
             {
-                
-                            var moshop = new MoShopConsole();
-                            moshop.Homepagetabs(driver, selenium, datarow);
+                var moshop = new MoShopConsole();
+                moshop.Homepagetabs(driver, selenium, datarow);
                       
 
                         string[] strArray = items.Split(new[] {','});
@@ -25,7 +24,6 @@ namespace MoBankUI
 
                         foreach (string str in strArray)
                         {
-
                             if (str.Length != 0)
                             {
                                
@@ -87,14 +85,14 @@ namespace MoBankUI
                                 {
                                     var datafeed = new DatafeedXML();
                                     datafeed.datafeed(driver, selenium, datarow);
+                                    datarow.newrow("", "", "Run the Test Site-DataFeed", "", driver, selenium);
                                     driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
                                     selenium.WaitForPageToLoad("30000");
                                     datarow.newrow("", "", "Footer Links", "", driver, selenium);
                                     var footer = new Footer_TPS();
                                     footer.Footerhome(driver, selenium, "http://testshop.mobankdev.com/", datarow);
-                                    datarow.newrow("", "", "Basket Functionality", "", driver, selenium);
-                                    var basket = new Baskets_TPS();
-                                    basket.Basket(driver, selenium, datarow, "http://testshop.mobankdev.com/");
+                                    var relatedproducts = new RelatedProducts();
+                                    relatedproducts.relatedproducts(driver, selenium, datarow);
                                     datarow.newrow("", "", "User Journey", "", driver, selenium);
                                     var userjour = new UserJourney_TPS();
                                     userjour.UserJourn(datarow, driver, selenium, "http://testshop.mobankdev.com/");
@@ -102,6 +100,12 @@ namespace MoBankUI
                                     var delete = new Deletebasketstart();
                                     delete.deletebasstart(driver, selenium, datarow);
                                     datarow.newrow("", "", "Registration/Login", "", driver, selenium);
+                                    var login = new LoginRegistration();
+                                    login.registration(driver, selenium, datarow);
+                                    datarow.newrow("", "", "Mopay", "", driver, selenium);
+                                    var pay = new BatchPay();
+                                    pay.batchpay(driver, selenium, "http://testshop.mobankdev.com/", datarow);
+                                   
                                 }
                             }
                         }

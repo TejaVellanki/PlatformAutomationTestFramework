@@ -13,10 +13,7 @@ namespace MoBankUI
 
                 driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com");
                 selenium.WaitForPageToLoad("300000");
-                MoShopConsole shop = new MoShopConsole();
 
-
-            shop.Homepagetabs(driver,selenium,datarow);
             driver.FindElement(By.LinkText("MoShop")).Click();
             selenium.WaitForPageToLoad("30000");
             driver.FindElement(By.CssSelector("#IndexMenuLeaf3 > a")).Click();
