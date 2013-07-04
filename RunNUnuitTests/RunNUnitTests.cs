@@ -90,7 +90,7 @@ namespace SeleniumTests
            checkout();
            
         }
-
+        
         [Test]
         public void Bathroomrandomproducts()
         { 
@@ -181,9 +181,7 @@ namespace SeleniumTests
                 if (productunvail == "Product unavailable" || selenium.IsTextPresent("Product unavailable"))
                     {
                         // Validating the Product Availability
-                        selenium.Open("http://m.bathroom.com");
-                        selenium.WaitForPageToLoad("30000");
-                        Console.WriteLine("Product Unavailable");
+                       Console.WriteLine("Product Unavailable");
                         driver.Quit();
 
                     }
