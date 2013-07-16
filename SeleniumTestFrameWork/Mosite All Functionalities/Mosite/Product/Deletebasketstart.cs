@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using NUnit.Framework;
 using ObjectRepository;
 using OpenQA.Selenium;
 using Selenium;
@@ -12,6 +13,7 @@ namespace MoBankUI
     {
         private readonly Screenshot screenshot = new Screenshot();
 
+        [Test]
         public void deletebasstart(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             try
@@ -67,6 +69,7 @@ namespace MoBankUI
         }
 
         //Tests if the product is Unavailable
+         [Test]
         public void productunavailabl(ISelenium selenium, IWebDriver driver, int l, datarow datarow)
         {
             string deletebasket = null;

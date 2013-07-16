@@ -44,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkedListBox5 = new System.Windows.Forms.CheckedListBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // checkBox11
@@ -150,7 +151,8 @@
             "Run Manual Scrape",
             "Validate Custom Domain Name Feature and Localisation",
             "Run the Test Site - Scrape",
-            "Run the Test Site - DataFeed XML"});
+            "Run the Test Site - DataFeed XML",
+            "Validate Products Against Live Site - Modropenia"});
             this.checkedListBox2.Location = new System.Drawing.Point(53, 120);
             this.checkedListBox2.Name = "checkedListBox2";
             this.checkedListBox2.Size = new System.Drawing.Size(310, 79);
@@ -240,12 +242,24 @@
             this.checkedListBox5.TabIndex = 16;
             this.checkedListBox5.SelectedIndexChanged += new System.EventHandler(this.checkedListBox5_SelectedIndexChanged);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(312, 269);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(61, 17);
+            this.checkBox1.TabIndex = 17;
+            this.checkBox1.Text = "Appium";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(986, 623);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.checkedListBox5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -287,6 +301,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox checkedListBox5;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

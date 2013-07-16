@@ -1,6 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net;
 using MoBankUI;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using Selenium;
 
@@ -8,9 +10,13 @@ namespace Tablet_View
 {
     public class BlobStorage
     {
+    [Test]
         public void Blob(ISelenium selenium, IWebDriver driver, datarow datarow,string url)
         {
-            // Validating the Cache control and Cache - Public
+        try
+        {
+
+     // Validating the Cache control and Cache - Public
             var request = (HttpWebRequest) WebRequest.Create(url);
             request.Method = "GET";
             request.ServicePoint.Expect100Continue = false;
@@ -26,11 +32,22 @@ namespace Tablet_View
                     if (rawHeaders.Contains("public"))
                     {
                         datarow.newrow("Cache Control", "Cache Control is Public", rawHeaders, "PASS");
+                        string[] cache = rawHeaders.Split('f');
+                        foreach (string s in cache)
+                        {
+                            if (s.Contains("Date"))
+                            {
+                                datarow.newrow("Cache Control", "Cache Limit is Set to 30 Mins", s, "PASS");
+                            }
+                        }
+
                     }
                     else
                     {
                         datarow.newrow("Cache Control", "Cache Control is not Public", rawHeaders, "PASS");
                     }
+                    
+                   
                 }
             }
 
@@ -74,5 +91,13 @@ namespace Tablet_View
             var image = new Imagevalidation();
             image.homepageimage(driver, selenium, datarow);
         }
+        catch (Exception ex)
+        {
+
+            string e =ex.ToString();
+            datarow.newrow("Exception","Exception Not Expected",e,"FAIL");
+        } 
+        }
+          
     }
 }

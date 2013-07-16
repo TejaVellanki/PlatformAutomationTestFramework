@@ -18,7 +18,7 @@ namespace MoBankUI
             {
                 datarow.col();
                 //  new Modrophenialive().modrophenialiveproducts(selenium, driver);
-                new products().product(datarow, driver, selenium);
+                new modropheniaproducts().product(datarow, driver, selenium);
                 // new UserJourney().UserJourn(this.datarow, driver, selenium);
                 // new UserData().Userdata(this.datarow, driver, selenium);
                 // new Mopaysite().MoPay(driver, selenium, this.datarow);

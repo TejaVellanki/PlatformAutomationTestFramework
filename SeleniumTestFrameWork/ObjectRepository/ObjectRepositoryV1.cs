@@ -11,7 +11,7 @@ namespace ObjectRepository
     public static class CollectionMapV1
     {
         //*[@id='categoryList']/div/article/a/span/span[1]/h3
-
+       
         public const string categorylink = "//html/body/div/div[2]/div/ul/li";
         public const string cat = "/div/div/a/h2";
         public const string products = "//*[@id='page-categories-details']/div[1]/div[2]/div[1]/ul/li";

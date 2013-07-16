@@ -153,8 +153,7 @@ namespace MoBankUI
                 generalLibrary = new GeneralLibrary();
                 var dt = new DataTable();
                 string fileName = "ModrophenialiveProducts";
-                Workbook workbook = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref fileName,
-                                                                          "Products", ".xlsx", false, false);
+                Workbook workbook = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref fileName,"Products", ".xlsx", false, false);
                 var ws = (Worksheet) workbook.Sheets[1];
                 var datarow = new datarow();
                 dt.Columns.Add("Product Price");
@@ -168,7 +167,9 @@ namespace MoBankUI
                 selenium.Click("link=New Arrivals");
                 selenium.WaitForPageToLoad("30000");
                 loop(driver, selenium, dt);
-                DataTable ddd = dt;
+                driver.FindElement(By.LinkText("Sale Items")).Click();
+                selenium.WaitForPageToLoad("30000");
+                loop(driver, selenium, dt);
                 generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
                 generalLibrary.SaveAndCloseExcel(workbook);
             }
@@ -188,5 +189,7 @@ namespace MoBankUI
                 }
             }
         }
+
+        public object xml { get; set; }
     }
 }

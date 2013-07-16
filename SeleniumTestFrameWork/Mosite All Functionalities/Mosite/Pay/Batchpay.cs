@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using MoBankUI;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using Selenium;
 
@@ -10,7 +11,7 @@ namespace MoBankUI
     public class BatchPay
     {
 // This needs to be extended for all the merchants
-
+         [Test]
         public void batchpay(IWebDriver driver, ISelenium selenium, string url, datarow datarow)
         {
             // Payment for Physioroom 

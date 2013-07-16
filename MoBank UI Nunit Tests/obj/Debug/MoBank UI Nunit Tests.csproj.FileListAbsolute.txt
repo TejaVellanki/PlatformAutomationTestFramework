@@ -1,0 +1,1 @@
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\MoBank UI Nunit Tests\obj\Debug\MoBank UI Nunit Tests.csprojResolveAssemblyReference.cache

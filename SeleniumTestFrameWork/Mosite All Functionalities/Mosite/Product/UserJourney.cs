@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using NUnit.Framework;
 using ObjectRepository;
 using OpenQA.Selenium;
 using Selenium;
@@ -12,6 +13,7 @@ namespace MoBankUI
     {
         private readonly Screenshot screenshot = new Screenshot();
         //General user journey to the checkout page
+        [Test]
         public void UserJourn(datarow datarow, IWebDriver driver, ISelenium selenium, string url)
         {
             try

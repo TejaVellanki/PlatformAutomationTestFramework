@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTestFramework", "Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunNUnitTests", "..\RunNUnuitTests\RunNUnitTests.csproj", "{232FE68C-2E55-4A36-82FF-EAA11ED89947}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoBank UI Nunit Tests", "..\MoBank UI Nunit Tests\MoBank UI Nunit Tests.csproj", "{F0CA7F8A-9E41-4EF1-A0DD-2341F9926392}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{232FE68C-2E55-4A36-82FF-EAA11ED89947}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{232FE68C-2E55-4A36-82FF-EAA11ED89947}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{232FE68C-2E55-4A36-82FF-EAA11ED89947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0CA7F8A-9E41-4EF1-A0DD-2341F9926392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0CA7F8A-9E41-4EF1-A0DD-2341F9926392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0CA7F8A-9E41-4EF1-A0DD-2341F9926392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0CA7F8A-9E41-4EF1-A0DD-2341F9926392}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

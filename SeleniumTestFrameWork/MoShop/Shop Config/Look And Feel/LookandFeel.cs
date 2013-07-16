@@ -2,6 +2,7 @@
 
 using System;
 using System.Threading;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Selenium;
@@ -10,6 +11,7 @@ namespace MoBankUI
 {
     public class LookandFeel
     {
+        [Test]
         public void lookandfeel(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             try

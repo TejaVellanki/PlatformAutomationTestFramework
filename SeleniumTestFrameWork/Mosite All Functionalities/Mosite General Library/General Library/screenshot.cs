@@ -11,8 +11,6 @@ namespace MoBankUI
 {
     public class Screenshot
     {
-      
-
 
         public void screenshotnotifications(IWebDriver driver, ISelenium selenium)
         {

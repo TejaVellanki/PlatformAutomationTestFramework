@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Selenium;
@@ -8,6 +9,7 @@ namespace MoBankUI
 {
     public class RunScrape
     {
+     [Test]
         public void runscrape(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             try

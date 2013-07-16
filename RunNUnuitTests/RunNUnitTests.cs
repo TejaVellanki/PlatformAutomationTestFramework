@@ -147,7 +147,6 @@ namespace SeleniumTests
         {
             //Populating the Address page
             new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlTitle"))).SelectByText("Mr");
-            driver.FindElement(By.CssSelector("option.ui-state-valid")).Click();
             driver.FindElement(By.Id("Pagecontent_TextBoxFirstName")).Clear();
             driver.FindElement(By.Id("Pagecontent_TextBoxFirstName")).SendKeys("Mobank");
             driver.FindElement(By.Id("Pagecontent_TextBoxLastname")).Clear();
@@ -165,7 +164,7 @@ namespace SeleniumTests
             driver.FindElement(By.Id("Pagecontent_TextBoxTelephone1")).SendKeys("0123456789");
 
             new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlHearAbout"))).SelectByText("Online Search");
-            driver.FindElement(By.XPath("//form[@id='checkout']/section/div[16]/div/label/span")).Click();
+            driver.FindElement(By.XPath("//form[@id='checkout']/section/div[17]/div/label/span/span")).Click();
 
 
             //Clicking On Continue Button
@@ -204,6 +203,8 @@ namespace SeleniumTests
             string url7 = selenium.GetLocation();
             Console.WriteLine(url7);
 
+            driver.FindElement(By.XPath("//*[@id='checkout']/fieldset/div[2]/label/span")).Click();
+            Thread.Sleep(2000);
             //Clicking on Continute Button Page 4
 
             driver.FindElement(By.Id("Pagecontent_ButtonConfirmCheckout")).Click();

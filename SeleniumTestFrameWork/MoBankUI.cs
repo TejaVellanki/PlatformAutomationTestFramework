@@ -9,6 +9,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using Selenium;
 using Tablet_View;
+using AppiumTest;
 
 
 namespace MoBankUI
@@ -39,6 +40,15 @@ namespace MoBankUI
                 bool MoSite = checkBox12.Checked;
                 bool Firefox = checkBox14.Checked;
                 bool mositetps = checkBox13.Checked;
+                bool appium = checkBox1.Checked;
+
+                if (appium)
+                {
+                   
+                    AppClass app = new AppClass();
+                    app.appium();
+                }
+
 
                 if (mopaytestharness)
                 {
@@ -243,7 +253,7 @@ namespace MoBankUI
                 {
                     try
                     {
-                        // Initialising the firefox driver                    
+                        // Initialising the firefox driver                  
 
                         IWebDriver driver = new FirefoxDriver();
                         // An Static url should be given for the browser to launch. 
@@ -558,6 +568,11 @@ namespace MoBankUI
         #endregion
 
         private void checkedListBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
 
         }
