@@ -128,6 +128,7 @@ namespace SeleniumTests
                     {
                         // Validating the Product Availability
                        Console.WriteLine("Product Unavailable");
+                       Assert.AreEqual("Checkout - Bathrooms", driver.Title);
                     }
                 }
                 else

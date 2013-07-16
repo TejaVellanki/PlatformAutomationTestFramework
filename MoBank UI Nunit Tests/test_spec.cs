@@ -1,8 +1,5 @@
-﻿using System;
-using MoBankUI;
-using TechTalk.SpecFlow;
-using OpenQA.Selenium;
-
+﻿
+/*
 namespace specflowSelenium
 {
     [Binding]
@@ -33,3 +30,4 @@ namespace specflowSelenium
         }
     }
 }
+*/

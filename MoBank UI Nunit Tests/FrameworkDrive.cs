@@ -1,15 +1,5 @@
-﻿using System;
-using System.Text;
-using System.Threading;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
-using Selenium;
-using MoBankUI;
-using Tablet_View;
-using TechTalk.SpecFlow;
-
+﻿
+/*
 namespace FrameworkDrive
 {
     [TestFixture]
@@ -114,3 +104,4 @@ namespace FrameworkDrive
 
     }
 }
+*/

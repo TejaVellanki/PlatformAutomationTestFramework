@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appium\Appium.cs" />
+    <Compile Include="MoShop\Delete Features\Delete Test Shop.cs" />
     <Compile Include="MoShop\Shop Config\Global Settings\GlobalSetting.cs" />
     <Compile Include="MoShop\Shop Config\Look And Feel\LookandFeelImages.cs" />
     <Compile Include="MoShop\Shop Config\Shop General\CreateTestShop.cs" />
@@ -239,6 +240,7 @@
     <Content Include="MoShop\Shop Config\Catalogue XML%27s\TickleTest_WithProductGroups.xml" />
     <Content Include="ObjectRepository\Images\Failure.png" />
     <Content Include="ObjectRepository\Images\Contact Us.jpg" />
+    <Content Include="ObjectRepository\Images\fb.png" />
     <Content Include="ObjectRepository\Images\ion.ico" />
     <Content Include="ObjectRepository\Images\success.png" />
     <Content Include="ObjectRepository\Images\Teja Custom Basket Image.png" />
