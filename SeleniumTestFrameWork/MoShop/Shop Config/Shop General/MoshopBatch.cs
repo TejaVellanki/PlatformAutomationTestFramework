@@ -26,31 +26,43 @@ namespace MoBankUI
                             if (str.Length != 0)
                             {
                                
+                                #region Test Shop
+
                                 if (str == "Create a Test Shop")
                                 {
                                     datarow.newrow("", "", "Create a Test Shop", "", driver, selenium);
                                     var testshop = new createShop();
                                     testshop.Testshop(driver, selenium, datarow);
                                     new LookandFeel().lookandfeel(driver, selenium, datarow);
+                                    #region Global Settings
+                                    GlobalSetting global = new GlobalSetting();
+                                    global.globalsetting(driver,selenium);
+                                    #endregion
                                 }
+                                #endregion
+                                #region Test Scrape
                                 if (str == "Create a Test Scrape")
                                 {
                                     datarow.newrow("", "", "Create a Test Scarpe", "", driver, selenium);
                                     new Createscrape().createscrape(driver, selenium, datarow);
                                 }
-
-
+                                #endregion
+                                #region Run Manual Scrape
                                 if (str == "Run Manual Scrape")
                                 {
                                     datarow.newrow("", "", "Run Manual Scrape", "", driver, selenium);
                                     var run = new RunScrape();
                                     run.runscrape(driver, selenium, datarow);
                                 }
+                                #endregion
+                                #region Custom Domain Name Feature and Localisation
                                 if (str == "Validate Custom Domain Name Feature and Localisation")
                                 {
                                     datarow.newrow("", "", "Validate Custom domain Name", "", driver, selenium);
                                     new shop().culture(driver, selenium, datarow);
                                 }
+                                #endregion
+                                #region "Run the Test Site - Scrape
                                 if (str == "Run the Test Site - Scrape")
                                 {
                                     try
@@ -69,6 +81,9 @@ namespace MoBankUI
                                         datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver,selenium);
                                     }
                                 }
+                                #endregion
+                                #region Run the Test Site - DataFeed XML
+
                                 if (str == "Run the Test Site - DataFeed XML")
                                 {
                                     var datafeed = new DatafeedXML();
@@ -83,7 +98,8 @@ namespace MoBankUI
                                     relatedproducts.relatedproducts(driver, selenium, datarow);
                                     commtest(driver, selenium, datarow);
                                 }
-
+                                #endregion
+                                #region Validate Products Against Live Site - Modropenia
                                 if (str == "Validate Products Against Live Site - Modropenia")
                                 {
                                     Modrophenialive modrophenia = new Modrophenialive();
@@ -92,6 +108,11 @@ namespace MoBankUI
                                     products.product(datarow,driver,selenium);
 
                                 }
+                                #endregion
+
+                                DeleteTestShop delete = new DeleteTestShop();
+                                delete.deleteshop(driver, selenium);
+                                delete.deletedscrape(driver,selenium);
                             }
                         }
                     }

@@ -9,6 +9,7 @@
 //      the code is regenerated.
 //  </auto-generated>
 // ------------------------------------------------------------------------------
+/*
 #region Designer generated code
 #pragma warning disable
 namespace RunNUnuitTests
@@ -88,3 +89,4 @@ this.ScenarioSetup(scenarioInfo);
 }
 #pragma warning restore
 #endregion
+*/
