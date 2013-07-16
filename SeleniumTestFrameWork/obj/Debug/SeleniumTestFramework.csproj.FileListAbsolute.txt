@@ -57,11 +57,7 @@ C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameW
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.pdb
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.core.dll
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.framework.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Selenium.WebDriverBackedSelenium.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ThoughtWorks.Selenium.Core.dll
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ThoughtWorks.Selenium.UnitTests.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.Support.dll
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nmock.dll
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Selenium.WebDriverBackedSelenium.pdb
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Selenium.WebDriverBackedSelenium.xml
@@ -110,3 +106,14 @@ C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrame
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Appium.pdb
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.xml
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WatiN.Core.dll
+C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Appium.pdb
+C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.framework.xml
+C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WatiN.Core.xml
+C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.xml
