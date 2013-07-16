@@ -3,13 +3,14 @@
 using System;
 using System.Data;
 using System.Threading;
+using ObjectRepository;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Selenium;
 
 namespace MoBankUI
 {
-    internal class products
+    internal class modropheniaproducts
     {
         private GeneralLibrary gereneralLibrary;
 
@@ -80,39 +81,76 @@ namespace MoBankUI
             try
             {
                 var dt = new DataTable();
-                driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com/");
-                driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li[1]/div/div/a/h2"))
-                      .Click();
-                selenium.WaitForPageToLoad("60000");
                 dt.Columns.Add("Price");
                 dt.Columns.Add("Title");
                 dt.Columns.Add("Detail");
                 dt.Columns.Add("Item Number");
                 dt.Columns.Add("Variants");
+
+
+                driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com/");
+                selenium.WaitForPageToLoad("30000");
+                driver.FindElement(By.XPath("//*[@id='page-home-index']/div[1]/div[2]/div[1]/ul/li[1]/div/div/a/h2"))
+                      .Click();
+                selenium.WaitForPageToLoad("60000");
+                loop(datarow, driver, selenium, dt);
+                driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com/");
+                selenium.WaitForPageToLoad("30000");
+                driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li[12]/div/div/a/h2"))
+                      .Click();
+                selenium.WaitForPageToLoad("60000");
+                loop(datarow, driver, selenium, dt);
+                comparedatarow(driver, selenium, datarow, dt);
+
+            }
+            catch (Exception exception3)
+            {
+                str8 = exception3.ToString();
+                datarow.newrow("Exception", "Not Expected", str8, "FAIL", driver, selenium);
+            }
+        }
+
+        public void loop(datarow datarow, IWebDriver driver, ISelenium selenium, DataTable dt)
+        {
+            string str8;
+            try
+            {
+                int j;
                 int num = 1;
                 int num2 = 0;
                 goto Label_0449;
                 Label_0099:
-                if ((num > 1) && selenium.IsElementPresent("link=Next 30"))
+
+                //*[@id="page-categories-details"]/div[1]/div[2]/div[1]/div/div
+                //*[@id="page-categories-details"]/div[1]/div[2]/div[1]/div/div/a[3]/span/span[1]
+                if ((num > 1) &&selenium.IsElementPresent("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/div/div/a[3]"))
                 {
-                    selenium.Click("link=Next 30");
-                    selenium.WaitForPageToLoad("30000");
+                    IWebElement ele =driver.FindElement(By.XPath("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/div/div/a[3]"));
+                    string cource = ele.GetAttribute("outerHTML");
+                    if (cource.Contains("ui-disabled"))
+                    {
+                    }
+                    else
+                    {
+                        driver.FindElement(By.XPath("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/div/div/a[3]")).Click();selenium.WaitForPageToLoad("30000");
+                    }
                 }
-                decimal xpathCount = selenium.GetXpathCount("//body[@id='page-categories-details']/div/div[2]/div/ul/li");
+                decimal xpathCount =selenium.GetXpathCount("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/ul/li");
                 for (int i = 1; i <= xpathCount; i++)
                 {
+                    //*[@id="page-categories-details"]/div[1]/div[2]/div[1]/ul/li[32]/div/div/a/div[2]/p
                     string text;
                     string str4;
                     string str5;
                     string str7;
-                    driver.FindElement(
-                        By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li[" + i + "]/div/div/a"))
-                          .Click();
+                    driver.FindElement(By.XPath("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/ul/li[" + i +"]/div/div/a/div[2]/p")).Click();
                     selenium.WaitForPageToLoad("60000");
                     DataRow row = dt.NewRow();
+                    j = 1;
                     string str =
                         driver.FindElement(
-                            By.XPath("//body[@id='page-products-details']/div/div[2]/div/div/div/p/strong")).Text;
+                            By.XPath("//*[@id='page-products-details']/div[1]/div[2]/div/div[1]/div[1]/div/p/strong"))
+                              .Text;
                     string str2 = driver.FindElement(By.XPath("//html/body/div/div/div[2]/h2")).Text;
                     row[0] = str;
                     row[1] = str2;
@@ -130,88 +168,87 @@ namespace MoBankUI
                         row[2] = text;
                         row[3] = str4;
                     }
-                    if (selenium.IsElementPresent("id=Variants_0__OptionValue"))
+                    #region Select Options
+                    try
                     {
-                        try
+                        if (selenium.GetXpathCount("//html/body/div/div[2]/div/div[3]/form/ul/li[2]/fieldset/div[2]/div/label/span") != 1)
                         {
-                            if (
-                                selenium.GetXpathCount(
-                                    "//html/body/div/div[2]/div/div[3]/form/ul/li[2]/fieldset/div[2]/div/label/span") !=
-                                1)
+                            try
                             {
-                                try
-                                {
-                                    string[] selectOptions = selenium.GetSelectOptions("id=Variants_0__OptionValue");
+                                string[] selectOptions = selenium.GetSelectOptions("id=Variants_0__OptionValue");
 
-                                    str5 = null;
-                                    foreach (string str6 in selectOptions)
-                                    {
-                                        if (str6 != "Please Select")
-                                        {
-                                            str5 = str5 + "\r\n" + str6;
-                                            new SelectElement(driver.FindElement(By.Id("Variants_0__OptionValue")))
-                                                .SelectByText(str6);
-                                        }
-                                    }
-                                    row[4] = str5;
-                                }
-                                catch (Exception ex)
+                                str5 = null;
+                                foreach (string str6 in selectOptions)
                                 {
+                                    if (str6 != "Please Select")
+                                    {
+                                        str5 = str5 + "\r\n" + str6;
+                                        new SelectElement(driver.FindElement(By.Id("Variants_0__OptionValue")))
+                                            .SelectByText(str6);
+                                    }
                                 }
+                                row[4] = str5;
+                                j++;
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                str7 = selenium.GetValue("id=Variants_0__OptionValue");
-                                row[4] = str7;
                             }
-                        }
-                        catch (Exception exception1)
+                        } //*[@id="AddToBasketForm"]/ul/li[2]/fieldset/div[2]/div[2]/label
+                        else
                         {
-                            Exception exception = exception1;
-                            str8 = exception.ToString();
-                            datarow.newrow("Exception at Product variants", "Exception Not Expected", str8, "FAIL",
-                                           driver, selenium);
+                            str7 = selenium.GetValue("id=Variants_0__OptionValue");
+                            row[4] = str7;
+                            j++;
                         }
                     }
-                    else if (selenium.IsElementPresent("id=OptionValue_0"))
+                    catch (Exception exception1)
                     {
-                        try
+                        Exception exception = exception1;
+                        str8 = exception.ToString();
+                        // datarow.newrow("Exception at Product variants", "Exception Not Expected", str8, "FAIL",driver, selenium);
+                    }
+                    #endregion
+
+                    #region Radio Buttons
+                    try
+                    {
+                        if (j == 1)
                         {
                             bool flag;
                             str5 = null;
-                            int num6 = 1;
-                            goto Label_03A7;
-                            Label_0319:
-                            if (!selenium.IsElementPresent("id=OptionValue_" + num6))
+
+                            decimal count =
+                                selenium.GetXpathCount("//*[@id='AddToBasketForm']/ul/li[2]/fieldset/div[2]/div");
+
+                            for (int num6 = 0; num6 < count; num6++)
                             {
-                                goto Label_03AF;
+                                str7 = driver.FindElement(By.Id("OptionValue_" + num6)).GetAttribute("Value");
+                                if ((str7 != "Please Select") || (str7 != null))
+                                {
+                                    str5 = str5 + "\r\n" + str7;
+                                    selenium.Click("id=OptionValue_" + num6);
+                                }
                             }
-                            str7 = selenium.GetText("id=OptionValue_" + num6);
-                            if ((str7 != "Please Select") || (str7 != null))
-                            {
-                                str5 = str5 + "\r\n" + str7;
-                                selenium.Click("id=OptionValue_" + num6);
-                            }
-                            num6++;
-                            Label_03A7:
-                            flag = true;
-                            goto Label_0319;
-                            Label_03AF:
+
+
                             row[4] = str5;
                         }
-                        catch (Exception exception2)
-                        {
-                            str8 = exception2.ToString();
-                            datarow.newrow("Exception at Product Variants", "Exception Not Expected", str8, "FAIL",
-                                           driver, selenium);
-                        }
                     }
+                    catch (Exception exception2)
+                    {
+                        str8 = exception2.ToString();
+                        //  datarow.newrow("Exception at Product Variants", "Exception Not Expected", str8, "FAIL",driver, selenium);
+                    }
+                    #endregion
+
                     dt.Rows.Add(row);
                     selenium.GoBack();
                     Thread.Sleep(3000);
                 }
                 num++;
-                if (!selenium.IsElementPresent("link=Next 30"))
+                IWebElement elem =driver.FindElement(By.XPath("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/div/div/a[3]"));
+                string courc = elem.GetAttribute("outerHTML");
+                if (courc.Contains("ui-disabled"))
                 {
                     goto Label_0451;
                 }
@@ -220,12 +257,11 @@ namespace MoBankUI
                 Label_0449:
                 //flag = true;
                 goto Label_0099;
-                Label_0451:
-                comparedatarow(driver, selenium, datarow, dt);
+                Label_0451:;
             }
-            catch (Exception exception3)
+            catch (Exception ex)
             {
-                str8 = exception3.ToString();
+                str8 = ex.ToString();
                 datarow.newrow("Exception", "Not Expected", str8, "FAIL", driver, selenium);
             }
         }

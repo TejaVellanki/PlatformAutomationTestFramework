@@ -2,6 +2,7 @@
 using System.Data;
 using System.Text.RegularExpressions;
 using System.Threading;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Selenium;
@@ -16,7 +17,7 @@ namespace MoBankUI
         // Two Payment methods do the same 
         private GeneralLibrary generalLibrary;
         private Screenshot screenshot = new Screenshot();
-
+        [Test]
         public void Mopay(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             string title1 = driver.Title;
@@ -162,7 +163,7 @@ namespace MoBankUI
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
             }
         }
-
+         [Test]
         public void MoPayTPS(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             generalLibrary = new GeneralLibrary();

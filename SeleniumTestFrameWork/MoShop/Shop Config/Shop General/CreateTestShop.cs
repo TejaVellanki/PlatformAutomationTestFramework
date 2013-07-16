@@ -64,6 +64,13 @@ namespace MoBankUI
                     driver.FindElement(By.CssSelector("input.button")).Click();
                     selenium.WaitForPageToLoad("30000");
                 }
+
+                // Adding 30 mins Cache for the Site
+                driver.FindElement(By.Id("CacheLength")).SendKeys("30");
+                driver.FindElement(By.CssSelector("input.button")).Click();
+                selenium.WaitForPageToLoad("30000");
+
+
                 driver.FindElement(By.LinkText("Look & Feel")).Click();
                 selenium.WaitForPageToLoad("30000");
             }

@@ -29,7 +29,6 @@ namespace MoBankUI
                              
                             }
 
-
                             if (str == "Test Footer Links")
                             {
                                 datarow.newrow("", "", "Test Footer Links", "", driver, selenium);

@@ -1,4 +1,5 @@
 ﻿using System;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using Selenium;
 
@@ -8,6 +9,7 @@ namespace MoBankUI
 {
     public class LoginRegistration
     {
+         [Test]
         public void registration(IWebDriver driver, ISelenium selenium, datarow datarow)
         {
             var screenshot = new Screenshot();

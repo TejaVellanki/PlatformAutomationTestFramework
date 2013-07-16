@@ -22,3 +22,5 @@ C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\RunNUnuitTests\bi
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\RunNUnuitTests\obj\Debug\RunNUnitTests.csprojResolveAssemblyReference.cache
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\RunNUnuitTests\obj\Debug\RunNUnuitTests.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\RunNUnuitTests\obj\Debug\RunNUnuitTests.pdb
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\RunNUnuitTests\bin\Debug\RunNUnuitTests.dll.config
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\RunNUnuitTests\bin\Debug\TechTalk.SpecFlow.dll
