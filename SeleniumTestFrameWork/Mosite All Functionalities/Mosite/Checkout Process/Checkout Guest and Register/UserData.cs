@@ -1,17 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using ObjectRepository;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using Selenium;
+using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class UserData_TPS
+    internal class UserData_TPS : driverdefining
     {
         private readonly Screenshot screenshot = new Screenshot();
 
-        public void userdata_TPS(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void userdata_TPS(IWebDriver driver, datarow datarow)
         {
             string url = driver.PageSource;
 
@@ -57,16 +58,16 @@ namespace MoBankUI
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
                 IWebElement myDynamicElement8 = driver.FindElement(By.XPath(submitbutton));
 
-                decimal count = selenium.GetXpathCount(field);
+                decimal count = GetXpathCount(driver,field);
                 if (count == 0)
                 {
                     datarow.newrow("User Data Form Details", "Expected User Form Fields",
-                                   "User Form Fields Doesnot Exist", "FAIL", driver, selenium);
+                                   "User Form Fields Doesnot Exist", "FAIL",driver);
                 }
                 //Populating Customer Details from Excel Sheet
                 for (int i = 1; i <= count; i++)
                 {
-                    if (selenium.IsElementPresent("" + field + "[" + i + "]" + fieldlabel + ""))
+                    if (IsElementPresent(driver,By.XPath("" + field + "[" + i + "]" + fieldlabel + "")))
                     {
                         string valuet = driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldlabel + "")).Text;
 
@@ -74,7 +75,7 @@ namespace MoBankUI
                         {
                             driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).Clear();
                             driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).SendKeys("TEST");
-                            datarow.newrow("Form Field", "", valuet, "PASS", driver, selenium);
+                            datarow.newrow("Form Field", "", valuet, "PASS",driver);
                         }
 
                         #region Country
@@ -86,20 +87,20 @@ namespace MoBankUI
                             {
                                 int j = i - 1;
                                 string id = "id=" + fieldcountry + "" + j + "" + countryvalue + "";
-                                string[] varinats =
-                                    selenium.GetSelectOptions("id=" + fieldcountry + "" + j + "" + countryvalue + "");
+                                IWebElement con = driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + ""));
+                                 IList<IWebElement> countries = con.FindElements(By.TagName("option"));
+                              
                                 string values = null;
-                                foreach (string value in varinats)
+                                foreach (IWebElement value in countries)
                                 {
-                                    if (!value.Contains("Please") || value != "Select country")
+                                    if (!value.Text.Contains("Please") || value.Text != "Select country")
                                     {
-                                        if (value == "United Kingdom")
+                                        if (value.Text == "United Kingdom")
                                         {
                                             values = values + "\r\n" + value;
                                             new SelectElement(
                                                 driver.FindElement(
-                                                    By.Id("" + fieldcountry + "" + j + "" + countryvalue + "")))
-                                                .SelectByText(value);
+                                                    By.Id("" + fieldcountry + "" + j + "" + countryvalue + ""))).SelectByText(value.Text);
                                             break;
                                         }
                                         else
@@ -107,7 +108,7 @@ namespace MoBankUI
                                             try
                                             {
                                                 values = values + "\r\n" + value;
-                                                // new SelectElement(driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + ""))).SelectByText(value);
+                                                // new SelectElement(driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + "")))  new SelectElement(driver.FindElement(By.Id(""))).SelectByText("");ByText(value);
                                             }
                                             catch (Exception EX)
                                             {
@@ -116,13 +117,13 @@ namespace MoBankUI
                                         }
                                     }
                                 }
-                                datarow.newrow("Country Field", "", values, "PASS", driver, selenium);
+                                datarow.newrow("Country Field", "", values, "PASS",driver);
                             }
                             catch (Exception ex)
                             {
                                 string e = ex.ToString();
-                                datarow.newrow("Country Field Exception", "Exception Not Expected", e, "PASS", driver,
-                                               selenium);
+                                datarow.newrow("Country Field Exception", "Exception Not Expected", e, "PASS", driver
+                                               );
                             }
                         }
 
@@ -141,9 +142,9 @@ namespace MoBankUI
                             catch (Exception ex)
                             {
                                 string e = ex.ToString();
-                                datarow.newrow("Email Field Exception", "Exception Not Expected", e, "FAIL", driver,
-                                               selenium);
-                                screenshot.screenshotfailed(driver, selenium);
+                                datarow.newrow("Email Field Exception", "Exception Not Expected", e, "FAIL", driver
+                                               );
+                                screenshot.screenshotfailed(driver);
                             }
                         }
 
@@ -154,13 +155,13 @@ namespace MoBankUI
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL", driver, selenium);
-                screenshot.screenshotfailed(driver, selenium);
+                datarow.newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL",driver);
+                screenshot.screenshotfailed(driver);
             }
             try
             {
                 //Email/ Letter sending Confirmation
-                if (selenium.IsElementPresent("" + field + "[" + 11 + "]" + letters + ""))
+                if (IsElementPresent(driver,By.XPath("" + field + "[" + 11 + "]" + letters + "")))
                 {
                     driver.FindElement(By.XPath("" + field + "[" + 11 + "]" + letters + "")).Click();
                 }
@@ -168,41 +169,41 @@ namespace MoBankUI
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
                 IWebElement myDynamicElement9 = driver.FindElement(By.XPath(submitbutton));
                 driver.FindElement(By.XPath(submitbutton)).Click();
-                selenium.WaitForPageToLoad("30000");
+                waitforpagetoload(driver,30000);
 
 
                 string pagetitle = driver.Title;
                 string basval = driver.FindElement(By.Id("BasketInfo")).Text;
 
                 // Terms and Conditions
-                if (selenium.IsElementPresent(termsncond))
+                if (IsElementPresent(driver,By.Id(termsncond)))
                 {
                     driver.FindElement(By.XPath(termsncond)).Click();
                 }
                 //Submit button
-                if (selenium.IsElementPresent(submitbutton))
+                if (IsElementPresent(driver,By.Id(submitbutton)))
                     //body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button
                 {
                     //html/body/div/div[7]/div/div[2]/div/button
                     driver.FindElement(By.XPath(submitbutton)).Click();
-                    selenium.WaitForPageToLoad("30000");
+                    waitforpagetoload(driver,30000);
                     Thread.Sleep(2000);
                 }
-                //string details = selenium.GetText("css=div.ui-content.ui-body-c > p");
+                //string details =  driver.FindElement(By.Id("")).Text;("css=div.ui-content.ui-body-c > p");
 
                 //Pay Button 
-                if (selenium.IsElementPresent(paybutton))
+                if (IsElementPresent(driver,By.Id(paybutton)))
                 {
                     //html/body/div/div[7]/div/div[2]/a/span/span
                     driver.FindElement(By.XPath(paybutton)).Click();
-                    selenium.WaitForPageToLoad("30000");
+                    waitforpagetoload(driver,30000);
                 }
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL", driver, selenium);
-                screenshot.screenshotfailed(driver, selenium);
+                datarow.newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL",driver);
+                screenshot.screenshotfailed(driver);
             }
         }
     }

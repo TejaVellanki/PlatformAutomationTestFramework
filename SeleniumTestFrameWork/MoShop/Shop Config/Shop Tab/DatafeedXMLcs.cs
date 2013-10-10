@@ -1,32 +1,33 @@
 ﻿using System;
 using OpenQA.Selenium;
-using Selenium;
+using WebDriver_Refining;
+
 
 namespace MoBankUI
 {
-    internal class DatafeedXML
+    internal class DatafeedXML : driverdefining
     {
-        public void datafeed(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void datafeed(IWebDriver driver, datarow datarow)
         {
             try
             {
 
                 driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com");
-                selenium.WaitForPageToLoad("300000");
+                 waitforpagetoload(driver,30000);
 
             driver.FindElement(By.LinkText("MoShop")).Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
             driver.FindElement(By.CssSelector("#IndexMenuLeaf3 > a")).Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
             driver.FindElement(By.LinkText("testshop")).Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
             driver.FindElement(By.LinkText("Shop")).Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
 
 
           
 
-                decimal count = selenium.GetXpathCount("//div[@id='CataloguesControl']/div/table/tbody/tr");
+                decimal count = driver.FindElements(By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr")).Count;
                 for (int i = 1; i <= count; i++)
                 {
                     decimal j= count;
@@ -35,46 +36,46 @@ namespace MoBankUI
                         driver.FindElement(By.Id("Catalogues_"+j+"__Name")).Clear();
                         driver.FindElement(By.Id("Catalogues_" + j + "__Name")).SendKeys("Datafeed");
                         driver.FindElement(By.Id("Catalogues_" + j + "__Name")).SendKeys(Keys.Enter);
-                        selenium.WaitForPageToLoad("30000");
+                        waitforpagetoload(driver,30000);
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                        selenium.WaitForPageToLoad("30000");
+                        waitforpagetoload(driver,30000);
                     }
 
-                    string name = selenium.GetValue("//div[@id='CataloguesControl']/div/table/tbody/tr["+i+"]/td/input");
+                    string name = GetValue(driver,By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr["+i+"]/td/input"),30);
                     if (name == "Datafeed")
                     {
                         driver.FindElement(By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr["+i+"]/th/input[4]")).Click();
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                        selenium.WaitForPageToLoad("30000");
+                        waitforpagetoload(driver,30000);
 
 
-            if (selenium.IsChecked("//div[@id='CataloguesControl']/div/table/tbody/tr["+i+"]/th/input[4]"))
+            if (driver.FindElement(By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr["+i+"]/th/input[4]")).Enabled)
             {
                 datarow.newrow("Datafeed Catalogue Selection", "Datafeed Catalogue is expected to be selected",
-                               "Datafeed Catalogue is selected", "PASS", driver, selenium);
+                               "Datafeed Catalogue is selected", "PASS",driver);
             }
             else
             {
                 driver.FindElement(By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr/th/input[4]")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                selenium.WaitForPageToLoad("30000");
+                waitforpagetoload(driver,30000);
             }
 
 
 
             driver.FindElement(By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr["+i+"]/th[2]/a")).Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
             break;
                     }
                 }
             driver.FindElement(By.Id("File"))
                   .SendKeys(
-                      @"C:\\Users\\teja\Documents\\GitHub\PlatformAutomationTestFramework\\SeleniumTestFrameWork\\MoShop\\Shop Config\\Catalogue XML's\\TickleTest_WithProductGroups.xml");
+                      @"C:\\Users\\teja\Documents\\GitHub\PlatformAutomationTestFramework\\TestFrameWork\\MoShop\\Shop Config\\Catalogue XML's\\TickleTest_WithProductGroups.xml");
             driver.FindElement(By.CssSelector("div.box > p.right > input.button")).Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
             string title = driver.Title;
             var run = new RunScrape();
-            run.scarperead(driver, selenium, datarow, title);
+            run.scarperead(driver, datarow, title);
             }
             catch (Exception ex)
             {

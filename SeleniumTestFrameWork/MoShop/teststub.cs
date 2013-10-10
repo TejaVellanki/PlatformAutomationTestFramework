@@ -1,13 +1,13 @@
 ﻿using OpenQA.Selenium;
-using Selenium;
+
 
 namespace MoBankUI
 {
     internal class teststub
     {
-        public void stub(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void stub(IWebDriver driver, datarow datarow)
         {
-            new Delivery().delivery(driver, selenium, datarow);
+            new Delivery().delivery(driver,datarow);
         }
     }
 }

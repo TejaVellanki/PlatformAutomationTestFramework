@@ -7,13 +7,13 @@ using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 
-using Selenium;
+using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    class RelatedProducts
+    class RelatedProducts : driverdefining
     {
-        public void relatedproducts(IWebDriver driver, ISelenium selenium,datarow datarow)
+        public void relatedproducts(IWebDriver driver,datarow datarow)
         {
             try
             {
@@ -27,15 +27,15 @@ namespace MoBankUI
             
             datarow.newrow("","", "First Product","");
             driver.Navigate().GoToUrl("http://qatheticklecompany.mobankdev.com/product/three-today-birthday-card");
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
             //Validating Products
-            Validateproduct(selenium, datarow,driver);
+            Validateproduct(datarow,driver);
             
             //Validating click Working or  not 
-            click(selenium,driver,datarow);
+            click(driver,datarow);
 
             //Validating Basket 
-            if (selenium.IsElementPresent("css=input.ui-btn-hidden"))
+            if (IsElementPresent(driver,By.CssSelector("input.ui-btn-hidden")))
             {
                 datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present", "Add a Basket Element should not be present", "FAIL");
             }
@@ -49,13 +49,13 @@ namespace MoBankUI
             //Second Product
             datarow.newrow("", "", "Second Product", "");
             driver.Navigate().GoToUrl("http://qatheticklecompany.mobankdev.com/product/two-today-birthday-card");
-            selenium.WaitForPageToLoad("30000");
-            Validateproduct(selenium, datarow, driver);
+            waitforpagetoload(driver,30000);
+            Validateproduct(datarow, driver);
             try
             {
          
             driver.FindElement(By.XPath("//ul[@id='productList']/li/div/div/a/img")).Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
             datarow.newrow("Validating Element Clickable or not", "Element should be Clikcable","Elemenet is Clickable", "PASS");
             }
             catch (Exception ex)
@@ -64,11 +64,11 @@ namespace MoBankUI
                 datarow.newrow("Validating Element Clickable or not", "Element should be Clikcable","Elemenet is Clickable", "FAIL");
             }
 
-            selenium.GoBack();
-            selenium.WaitForPageToLoad("30000");
+             driver.Navigate().Back();
+            waitforpagetoload(driver,30000);
 
             //Validating Basket 
-            if (selenium.IsElementPresent("css=input.ui-btn-hidden"))
+            if (IsElementPresent(driver,By.CssSelector("input.ui-btn-hidden")))
             {
                 datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present", "Add a Basket Element should not be present", "FAIL");
             }
@@ -82,12 +82,12 @@ namespace MoBankUI
             //Third Product
             datarow.newrow("", "", "Third Product", "");
             driver.Navigate().GoToUrl("http://qatheticklecompany.mobankdev.com/product/one-today-birthday-card");
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
             //Validating Click
-            Validateproduct(selenium,datarow,driver);
-            click(selenium,driver,datarow);
+            Validateproduct(datarow,driver);
+            click(driver,datarow);
 
-            if (selenium.IsElementPresent("css=input.ui-btn-hidden"))
+            if (IsElementPresent(driver,By.CssSelector("input.ui-btn-hidden")))
             {
                 datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present", "Add a Basket Element should be present", "PASS");
             }
@@ -101,13 +101,14 @@ namespace MoBankUI
             //Fourth Product
             datarow.newrow("", "", "Fourth Product", "");
             driver.Navigate().GoToUrl("http://qatheticklecompany.mobankdev.com/product/70-and-disgracefully-birthday-card");
-            selenium.WaitForPageToLoad("30000");
-            Validateproduct(selenium, datarow, driver);
-            if (selenium.IsElementPresent("css=input.ui-btn-hidden"))
+            waitforpagetoload(driver,30000);
+            Validateproduct(datarow, driver);
+            if (IsElementPresent(driver,By.CssSelector("input.ui-btn-hidden")))
             {
                 datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present", "Add a Basket Element should be present", "PASS");
-                selenium.Click("css=input.ui-btn-hidden");
-                selenium.WaitForPageToLoad("30000");
+
+                driver.FindElement(By.CssSelector("input.ui-btn-hidden")).Click(); 
+                  waitforpagetoload(driver,30000);
                 Thread.Sleep(3000);
                 string basketcount = driver.FindElement(By.Id("BasketInfo")).Text;
                 if (basketcount == "(1)")
@@ -126,7 +127,7 @@ namespace MoBankUI
                 datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present", "Add a Basket Element should be present", "FAIL");
             }
             driver.FindElement(By.XPath("//ul[@id='productList']/li/div/div/a/img")).Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
 
             #endregion
             }
@@ -138,7 +139,7 @@ namespace MoBankUI
            
         }
 
-        public void Validateproduct(ISelenium selenium,datarow datarow,IWebDriver driver)
+        public void Validateproduct(datarow datarow,IWebDriver driver)
         {
             try
             {
@@ -153,7 +154,7 @@ namespace MoBankUI
 
                 }
 
-                decimal count = selenium.GetXpathCount("//ul[@id='productList']/li");
+                decimal count = GetXpathCount(driver,"//ul[@id='productList']/li");
                 if (count == 0)
                 {
                     datarow.newrow("Validating Related Products", "Atleast one Related Product should be Present",
@@ -162,13 +163,13 @@ namespace MoBankUI
                 for (int i = 1; i <= count; i++)
                 {
 
-                    if (selenium.IsElementPresent("//ul[@id='productList']/li[" + i + "]/div/div/img"))
+                    if (IsElementPresent(driver,By.XPath("//ul[@id='productList']/li[" + i + "]/div/div/img")))
                     {
                         datarow.newrow("Validating Related Product one", "Related Product one is Present",
                                        "//ul[@id='productList']/li[" + i + "]/div/div/img" +
                                        "Related Product one is Present", "PASS");
                     }
-                    if (selenium.IsElementPresent("//ul[@id='productList']/li[" + i + "]/div/div/a/img"))
+                    if (IsElementPresent(driver,By.XPath("//ul[@id='productList']/li[" + i + "]/div/div/a/img")))
                     {
                         datarow.newrow("Validating Related Product one", "Related Product one is Present",
                                        "//ul[@id='productList']/li[" + i + "]/div/div/a/img" +
@@ -187,13 +188,13 @@ namespace MoBankUI
             }
         }
 
-        public void click(ISelenium selenium,IWebDriver driver, datarow datarow)
+        public void click(IWebDriver driver, datarow datarow)
         {
             /*
             try
             {
                 driver.FindElement(By.XPath("//ul[@id='productList']/li/div/div/img")).Click();
-                selenium.WaitForPageToLoad("30000");
+                waitforpagetoload(driver,30000);
                 datarow.newrow("Validating Elemnet Clickable or not", "Element should not be Clikcable",
                                "Elemenet is Clickable", "FAIL");
             }

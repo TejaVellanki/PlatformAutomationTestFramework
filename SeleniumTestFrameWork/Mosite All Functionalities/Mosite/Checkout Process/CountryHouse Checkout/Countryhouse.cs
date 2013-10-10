@@ -1,15 +1,15 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using Selenium;
+using WebDriver_Refining;
 
 //using System.Drawing;
 
 namespace MoBankUI
 {
-    internal class Countryhouse
+    internal class Countryhouse : driverdefining
     {
-        public void checkoutprocess(IWebDriver driver, ISelenium selenium)
+        public void checkoutprocess(IWebDriver driver)
         {
             //country house checkout process
             driver.FindElement(By.Id("Pagecontent_TextBoxUserName")).Clear();
@@ -17,10 +17,10 @@ namespace MoBankUI
             driver.FindElement(By.Id("Pagecontent_TextBoxPassword")).Clear();
             driver.FindElement(By.Id("Pagecontent_TextBoxPassword")).SendKeys("M0Test08");
             driver.FindElement(By.Id("Pagecontent_ButtonLogin")).Click();
-            selenium.WaitForPageToLoad("30000");
-            driver.FindElement(By.XPath("//span[@id='Pagecontent_RadioButtonListDeliveryMethods']/div/label/span"))
-                  .Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
+            driver.FindElement(By.XPath("//span[@id='Pagecontent_RadioButtonListDeliveryMethods']/div/label/span")).Click();
+                 
+            waitforpagetoload(driver,30000);
             driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[2]/input")).Clear();
             driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[2]/input")).SendKeys("test");
             driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[3]/input")).Clear();
@@ -44,7 +44,7 @@ namespace MoBankUI
             driver.FindElement(By.Id("Pagecontent_ButtonConfirmCheckout")).Click();
         }
 
-        public void bathroomcheckout(IWebDriver driver, ISelenium selenium)
+        public void bathroomcheckout(IWebDriver driver)
         {
             Assert.AreEqual("Checkout - Bathrooms", driver.Title);
             new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlTitle"))).SelectByText("Mr");
@@ -68,7 +68,7 @@ namespace MoBankUI
             new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlHearAbout"))).SelectByText("Online Search");
             driver.FindElement(By.XPath("//form[@id='checkout']/section/div[16]/div/label/span")).Click();
             driver.FindElement(By.Id("Pagecontent_ButtonContinue")).Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
 
             Assert.AreEqual("Checkout - Bathrooms", driver.Title);
 
@@ -86,14 +86,14 @@ namespace MoBankUI
             driver.FindElement(By.Id("Pagecontent_TextBoxPostCode")).SendKeys("se1 7tl");
 
             driver.FindElement(By.Id("Pagecontent_ButtonContinue")).Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
 
             driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep2")).Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
 
 
             driver.FindElement(By.Id("Pagecontent_ButtonConfirmCheckout")).Click();
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
 
             Assert.AreEqual("Secure Payment Page", driver.Title);
             string title = driver.Title;

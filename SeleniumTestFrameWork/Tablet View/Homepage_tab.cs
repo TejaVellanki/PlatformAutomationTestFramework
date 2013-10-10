@@ -6,7 +6,7 @@ using ObjectRepository;
 
 using WebDriver_Refining;
 using MoBankUI;
-using Selenium; 
+
 
 namespace Tablet_View
 {
@@ -14,7 +14,7 @@ namespace Tablet_View
     {
         driverdefining Driver;
       
-        public void homepage(IWebDriver driver,ISelenium selenium ,datarow datarow)
+        public void homepage(IWebDriver driver,datarow datarow)
         {
             /*
               IWebElement element;
@@ -24,7 +24,7 @@ namespace Tablet_View
                   {
                      element = driver.FindElement(By.Id(basket));
                      driver.FindElement(By.Id(basket)).Click();
-                     Driver.waitforpagetoload(30000);
+                     Driver.  waitforpagetoload(driver,30000);
                     
                   }
                       // Identifying the Basket Element. 

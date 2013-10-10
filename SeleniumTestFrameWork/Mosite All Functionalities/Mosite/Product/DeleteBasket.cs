@@ -1,17 +1,18 @@
 ﻿using System;
 using ObjectRepository;
+using WebDriver_Refining;
 using OpenQA.Selenium;
-using Selenium;
+    
 
 //using System.Drawing;
 
 namespace MoBankUI
 {
-    internal class DeleteBasket
+    internal class DeleteBasket :driverdefining
     {
         private readonly Screenshot screenshot = new Screenshot();
 
-        public void basket(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void basket(IWebDriver driver, datarow datarow)
         {
             try
             {
@@ -25,35 +26,35 @@ namespace MoBankUI
                 {
                     deletebasket = CollectionMapV1.deletebasket;
                 }
-                if (selenium.IsElementPresent("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span"))
+                if (IsElementPresent(driver,By.XPath("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span"),30))
                 {
-                    selenium.Click("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span");
-                    selenium.WaitForPageToLoad("30000");
-                    basketvalidation(driver, selenium, datarow);
+                    driver.FindElement(By.XPath("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span")).Click();
+                    waitforpagetoload(driver,30000);
+                    basketvalidation(driver, datarow);
                 }
-                else if (selenium.IsElementPresent(deletebasket))
+                else if (IsElementPresent(driver,By.XPath(deletebasket),30))
                 {
                     driver.FindElement(By.XPath(deletebasket)).Click();
-                    selenium.WaitForPageToLoad("30000");
-                    basketvalidation(driver, selenium, datarow);
+                      waitforpagetoload(driver,30000);
+                    basketvalidation(driver, datarow);
                 }
                 else
                 {
                     datarow.newrow("Delete From Basket", "Delete Basket Element Expected",
-                                   "//ul[@id='Basket']/li/a/span" + "Element Not Present", "FAIL", driver, selenium);
-                    screenshot.screenshotfailed(driver, selenium);
+                                   "//ul[@id='Basket']/li/a/span" + "Element Not Present", "FAIL",driver);
+                    screenshot.screenshotfailed(driver);
                 }
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
-                screenshot.screenshotfailed(driver, selenium);
+                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                screenshot.screenshotfailed(driver);
             }
         }
 
 
-        private void basketvalidation(IWebDriver driver, ISelenium selenium, datarow datarow)
+        private void basketvalidation(IWebDriver driver, datarow datarow)
         {
             string products = null;
             string productlink = null;
@@ -86,40 +87,40 @@ namespace MoBankUI
 
                     if (value == "(0)")
                     {
-                        datarow.newrow("Delete Basket Value", "(0)", value, "PASS", driver, selenium);
+                        datarow.newrow("Delete Basket Value", "(0)", value, "PASS",driver);
                     }
                     else
                     {
-                        datarow.newrow("Delete Basket Value", "(0)", value, "FAIL", driver, selenium);
-                        screenshot.screenshotfailed(driver, selenium);
+                        datarow.newrow("Delete Basket Value", "(0)", value, "FAIL",driver);
+                        screenshot.screenshotfailed(driver);
                     }
                 }
-                //selenium.Click("//*[@id='UpdateBasketForm']/div/div[2]/a/span/span");
-                //  selenium.WaitForPageToLoad("30000");
+                //.Click("//*[@id='UpdateBasketForm']/div/div[2]/a/span/span");
+                // waitforpagetoload("30000");
 
 
-                selenium.Click(homeimage);
-                selenium.WaitForPageToLoad("30000");
+                driver.FindElement(By.CssSelector(homeimage)).Click(); 
+                  waitforpagetoload(driver,30000);
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
                 IWebElement myDynamicElement1 = driver.FindElement(By.XPath("" + categorylink + "" + cat + ""));
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
-                selenium.WaitForPageToLoad("30000");
+                  waitforpagetoload(driver,30000);
                 string title = driver.Title;
 
-                decimal categorycount = selenium.GetXpathCount(categorylink);
+                decimal categorycount = driver.FindElements(By.XPath(categorylink)).Count;
                 for (int i = 1;; i++)
                 {
-                    if (selenium.IsElementPresent("" + categorylink + "" + cat + ""))
+                    if (IsElementPresent(driver,By.XPath("" + categorylink + "" + cat + ""),30))
                     {
                         driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
-                        selenium.WaitForPageToLoad("30000");
+                        waitforpagetoload(driver,30000);
                         string titlecategory = driver.Title;
-                        string url1 = selenium.GetLocation();
+                        string url1 = driver.Url;
 
-                        if (selenium.IsElementPresent(products))
+                        if (IsElementPresent(driver,By.XPath(products),30))
                         {
-                            selenium.Click("" + products + "" + productlink + "");
-                            selenium.WaitForPageToLoad("30000");
+                            driver.FindElement(By.XPath("" + products + "" + productlink + "")).Click();
+                              waitforpagetoload(driver,30000);
                         }
                         else
                         {
@@ -132,13 +133,13 @@ namespace MoBankUI
                     }
                 }
                 var prd = new products_TPS();
-                prd.product(driver, selenium, datarow);
+                prd.product(driver, datarow);
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
-                screenshot.screenshotfailed(driver, selenium);
+                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                screenshot.screenshotfailed(driver);
             }
         }
     }

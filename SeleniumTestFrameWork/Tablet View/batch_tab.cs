@@ -1,14 +1,14 @@
 ﻿using MoBankUI;
 using OpenQA.Selenium;
-using Selenium;
 using MoBankUI;
+using OpenQA.Selenium;
 using WebDriver_Refining;
 
 namespace Tablet_View
 {
     internal class batch_tab
     {
-        public void tabbatch(datarow datarow,ISelenium selenium,IWebDriver driver)
+        public void tabbatch(datarow datarow,IWebDriver driver)
         {
             //Method Homapge validations
             #region HomePage Validations
@@ -27,11 +27,11 @@ namespace Tablet_View
                 datarow.newrow("Home Page Title", "Tablet: Tickle Shop", title, "FAIL");
             }
             BlobStorage blob = new BlobStorage();
-            blob.Blob( selenium,driver,datarow,"http://tablet.mobankdev.com");
+            blob.Blob( driver,datarow,"http://tablet.mobankdev.com");
             var home = new Homepage_tab();
-            home.homepage(driver, selenium, datarow);
+            home.homepage(driver, datarow);
             LinksExpand allproducts = new LinksExpand();
-            allproducts.AllLink(driver,selenium,datarow);
+            allproducts.AllLink(driver,datarow);
 
             #endregion
         }

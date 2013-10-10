@@ -6,7 +6,7 @@ namespace FrameworkDrive
     public class frameworkdrive
     {
         public IWebDriver driver;
-        public WebDriverBackedSelenium selenium;
+        public WebDriverBacked ;
         public StringBuilder verificationErrors;
         public MoBankUI.Screenshot screenshot;
         datarow datarow = new datarow();
@@ -20,9 +20,9 @@ namespace FrameworkDrive
             firefoxProfile.SetPreference("browser.private.browsing.autostart", true);
             driver = new FirefoxDriver(firefoxProfile);
             driver.Manage().Cookies.DeleteAllCookies();
-            selenium = new WebDriverBackedSelenium(driver, "https://qaadmin.mobankdev.com/");
+             = new WebDriverBacked(driver, "https://qaadmin.mobankdev.com/");
             verificationErrors = new StringBuilder();
-            selenium.Start();
+            .Start();
             
         }
 
@@ -59,17 +59,17 @@ namespace FrameworkDrive
             driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));
             MoShopConsole moshop = new MoShopConsole();
-            moshop.Homepagetabs(driver, selenium, datarow);
+            moshop.Homepagetabs(driver, datarow);
         }
 
        
         public void MoShop_CreateShop()
         {
            
-            datarow.newrow("", "", "Create a Test Shop", "", driver, selenium);
+            datarow.newrow("", "", "Create a Test Shop", "",driver);
             var testshop = new createShop();
-            testshop.Testshop(driver, selenium, datarow);
-            new LookandFeel().lookandfeel(driver, selenium, datarow);
+            testshop.Testshop(driver, datarow);
+            new LookandFeel().lookandfeel(driver, datarow);
 
         }
 
@@ -77,28 +77,28 @@ namespace FrameworkDrive
         public void MoShop_CScrape()
         {
            
-            datarow.newrow("", "", "Create a Test Scarpe", "", driver, selenium);
-            new Createscrape().createscrape(driver, selenium, datarow);
+            datarow.newrow("", "", "Create a Test Scarpe", "",driver);
+            new Createscrape().createscrape(driver, datarow);
         }
 
        
         public void MoShop_RunScrape()
         {
-            datarow.newrow("", "", "Run Manual Scrape", "", driver, selenium);
+            datarow.newrow("", "", "Run Manual Scrape", "",driver);
             var run = new RunScrape();
-            run.runscrape(driver, selenium, datarow);
+            run.runscrape(driver, datarow);
         }
 
        
         public void MoShop_RunSite()
         {
-            datarow.newrow("", "", "Run the Test Site", "", driver, selenium);
+            datarow.newrow("", "", "Run the Test Site", "",driver);
             driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
-            selenium.WaitForPageToLoad("30000");
+            waitforpagetoload(driver,30000);
             BlobStorage blob = new BlobStorage();
-            blob.Blob(selenium, driver, datarow, "http://testshop.mobankdev.com/");
+            blob.Blob(,driverdatarow, "http://testshop.mobankdev.com/");
             MoshopBatch moshop =new MoshopBatch();
-            moshop.commtest(driver, selenium, datarow);
+            moshop.commtest(driver, datarow);
         }
 
 

@@ -33,7 +33,7 @@ namespace MoBankUI
                 //subject of the email
                 mM.Subject = "Test Report";
                 //deciding for the attachment
-                mM.Attachments.Add(new Attachment(@"C:\Selenium\Input Data\" + ReportName + ".xlsx"));
+                mM.Attachments.Add(new Attachment(@"C:\\Input Data\" + ReportName + ".xlsx"));
                 //add the body of the email
 
                 var mailBody = new StringBuilder();
@@ -46,7 +46,7 @@ namespace MoBankUI
                 mailBody.AppendFormat("<br />");
                 mailBody.AppendFormat("<p>Thank You</p>");
                 mailBody.AppendFormat("<br />");
-                mailBody.AppendFormat("<p>Selenium</p>");
+                mailBody.AppendFormat("<p></p>");
 
                 mM.Body = mailBody.ToString();
                 //mM.Body = mailBody.ToString();

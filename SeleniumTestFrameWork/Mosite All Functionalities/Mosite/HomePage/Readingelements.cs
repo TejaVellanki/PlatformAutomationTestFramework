@@ -1,5 +1,6 @@
-﻿using OpenQA.Selenium;
-using Selenium;
+﻿
+using OpenQA.Selenium;
+    
 
 //using System.Drawing;
 
@@ -7,23 +8,23 @@ namespace MoBankUI
 {
     public class links_TPS
     {
-        public void Links(datarow datarow, IWebDriver driver, ISelenium selenium, string url)
+        public void Links(datarow datarow, IWebDriver driver, string url)
         {
             try
             {
                 if (url.Contains("smallDevice"))
                 {
                     var link = new LinksExpand();
-                    link.AllLink(driver, selenium, datarow);
+                    link.AllLink(driver,datarow);
                     //Productpage page = new Productpage();
-                    // page.productPage(driver, selenium, datarow);
+                    // page.productPage(driver, datarow);
                 }
                 else
                 {
                     var link = new LinksExpand();
-                    link.AllLink(driver, selenium, datarow);
+                    link.AllLink(driver,datarow);
                     //  Productpage page = new Productpage();
-                    // page.productPage(driver, selenium, datarow);
+                    // page.productPage(driver, datarow);
                 }
             }
             catch

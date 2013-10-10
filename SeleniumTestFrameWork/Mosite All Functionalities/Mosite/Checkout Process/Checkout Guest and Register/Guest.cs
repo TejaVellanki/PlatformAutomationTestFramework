@@ -1,30 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using Selenium;
+using WebDriver_Refining;
 
 namespace MoBankUI
 {
     //This class Test the user as a guest. 
-    internal class Guest
+    internal class Guest :driverdefining
     {
-        public void guest(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void guest(IWebDriver driver, datarow datarow)
         {
-            if (selenium.IsElementPresent("id=at-GuestUser"))
+            if (IsElementPresent(driver,By.Id("at-GuestUser")))
             {
-                selenium.Click("id=at-GuestUser");
-                if (selenium.IsElementPresent("//input[@value='Continue']"))
+                driver.FindElement(By.Id("at-GuestUser")).Click();
+                if (IsElementPresent(driver,By.XPath("//input[@value='Continue']")))
                 {
-                    selenium.Click("//input[@value='Continue']");
-                    selenium.WaitForPageToLoad("30000");
+                    driver.FindElement(By.XPath("//input[@value='Continue']")).Click();
+                    waitforpagetoload(driver,30000);
                 }
 
                 try
                 {
-                    decimal count = selenium.GetXpathCount("//html/body/div[1]/div[2]/div/form/div");
+                    decimal count = GetXpathCount(driver,"//html/body/div[1]/div[2]/div/form/div");
                     for (int i = 1; i <= count; i++)
                     {
-                        if (selenium.IsElementPresent("//html/body/div[1]/div[2]/div/form/div[" + i + "]/label"))
+                        if (IsElementPresent(driver,By.XPath("//html/body/div[1]/div[2]/div/form/div[" + i + "]/label")))
                         {
                             string valuet =
                                 driver.FindElement(By.XPath("html/body/div[1]/div[2]/div/form/div[" + i + "]/label"))
@@ -42,7 +43,7 @@ namespace MoBankUI
                                     driver.FindElement(
                                         By.XPath("//html/body/div[1]/div[2]/div/form/div[" + i + "]/input"))
                                           .SendKeys("TEST");
-                                    datarow.newrow("Registration Field Name", "", valuet, "PASS", driver, selenium);
+                                    datarow.newrow("Registration Field Name", "", valuet, "PASS",driver);
                                 }
                                 catch (Exception ex)
                                 {
@@ -57,21 +58,23 @@ namespace MoBankUI
 
                             if (valuet == "Country: *" || valuet == "Country")
                             {
-                                string[] varinats = selenium.GetSelectOptions("id=Country");
+                                 IWebElement con = driver.FindElement(By.Id("Country"));
+                                 IList<IWebElement> countries = con.FindElements(By.TagName("option"));
+                             
 
                                 string values = null;
-                                foreach (string value in varinats)
+                                foreach (IWebElement value in countries)
                                 {
                                     values = values + "\r\n" + value;
-                                    new SelectElement(driver.FindElement(By.Id("Country"))).SelectByText(value);
+                                    new SelectElement(driver.FindElement(By.Id("Country"))).SelectByText(value.Text);
                                 }
-                                datarow.newrow("Registration Field Countries", "", values, "PASS", driver, selenium);
+                                datarow.newrow("Registration Field Countries", "", values, "PASS",driver);
                             }
 
                             if (valuet == "Continue")
                             {
-                                selenium.Click("//html/body/div[1]/div[2]/div/form/div[" + i + "]/div/input");
-                                selenium.WaitForPageToLoad("30000");
+                                driver.FindElement(By.XPath("//html/body/div[1]/div[2]/div/form/div[" + i + "]/div/input")).Click();
+                                 waitforpagetoload(driver,30000);
                             }
                         }
                     }
@@ -79,7 +82,7 @@ namespace MoBankUI
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
+                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
                 }
             }
         }

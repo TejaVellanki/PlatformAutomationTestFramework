@@ -1,6 +1,6 @@
 ﻿
 /*
-namespace specflowSelenium
+namespace specflow
 {
     [Binding]
     public class MoShopSteps

@@ -2,121 +2,111 @@
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using Selenium;
+using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class RunScrape
+    public class RunScrape : driverdefining
     {
      [Test]
-        public void runscrape(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void runscrape(IWebDriver driver, datarow datarow)
         {
             try
             {
                 driver.FindElement(By.LinkText("Execute")).Click();
-                selenium.WaitForPageToLoad("30000");
-                string[] catalogues = selenium.GetSelectOptions("TestCatalogueId");
-
-                foreach (string lt in catalogues)
-                {
-                    new SelectElement(driver.FindElement(By.Id("TestCatalogueId"))).SelectByText(lt);
-                    if (lt.Contains("Default"))
-                    {
-                        break;
-                    }
-                }
-
-
+                  waitforpagetoload(driver,30000);
+                  Selectanoption(driver, By.Id("TestCatalogueId"), "Default");
+                //new SelectElement(driver.FindElement(By.Id("TestCatalogueId"))).SelectByText("Default");
                 driver.FindElement(By.Name("PostAction[]")).Click();
-                selenium.WaitForPageToLoad("30000");
+                  waitforpagetoload(driver,30000);
                 string title = driver.Title;
-                scarperead(driver, selenium, datarow, title);
+                scarperead(driver,datarow, title);
                
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver, selenium);
+                datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
         }
 
-        public void scarperead(IWebDriver driver, ISelenium selenium, datarow datarow, string job)
+        public void scarperead(IWebDriver driver, datarow datarow, string job)
         {
             int j = 1;
             for (int i = 0;; i++)
             {
-                if (selenium.IsElementPresent("//div[@id='Grid']/div[2]/table/tbody/tr/td[2]"))
+                if (IsElementPresent(driver,By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[2]"),30))
                 {
                     try
                     {
-                        string title = selenium.GetText("//div[@id='Grid']/div[2]/table/tbody/tr/td[2]");
-                        string type = selenium.GetText("//div[@id='Grid']/div[2]/table/tbody/tr/td[3]");
-                        string startson = selenium.GetText("//div[@id='Grid']/div[2]/table/tbody/tr/td[4]");
-                        string Action = selenium.GetText("//div[@id='Grid']/div[2]/table/tbody/tr/td[5]");
+                        string title = driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[2]")).Text;
+                        string type = driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[3]")).Text;
+                        string startson = driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[4]")).Text;
+                        string Action =driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[5]")).Text;
 
-
-                        datarow.newrow("Scarpe Tilte", "", title, "PASS", driver, selenium);
-                        datarow.newrow("Scarpe Type", "", type, "PASS", driver, selenium);
+                        datarow.newrow("Scarpe Tilte", "", title, "PASS", driver);
+                        datarow.newrow("Scarpe Type", "", type, "PASS", driver);
                         Thread.Sleep(5000);
-                        selenium.Refresh();
-                        selenium.WaitForPageToLoad("30000");
+                        driver.Navigate().Refresh();
+                          waitforpagetoload(driver,30000);
                         break;
                     }
                     catch (Exception ex)
                     {
                         string e = ex.ToString();
-                        datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver, selenium);
+                        datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
                     }
                 }
                 else
                 {
                     Thread.Sleep(5000);
-                    selenium.Refresh();
-                    selenium.WaitForPageToLoad("30000");
+                     driver.Navigate().Refresh();
+                       waitforpagetoload(driver,30000);
                     j++;
                 }
                 if (j == 10)
                 {
-                    datarow.newrow("Scarpe/Datafeed Start", "Scarpe/Datafeed should start", "Scarpe/Datafeed didnt start after 60 sec", "FAIL", driver, selenium);
+                    datarow.newrow("Scarpe/Datafeed Start", "Scarpe/Datafeed should start", "Scarpe/Datafeed didnt start after 60 sec", "FAIL", driver);
                     break;
                 }
             }
-            selenium.Click("link=Running");
-            selenium.WaitForPageToLoad("30000");
+            driver.FindElement(By.LinkText("Running")).Click();
+              waitforpagetoload(driver,30000);
             string tilte1 = driver.Title;
-            scrapeandfeedrunning(driver, selenium, datarow);
+            scrapeandfeedrunning(driver,datarow);
         }
 
-        public void scrapeandfeedrunning(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void scrapeandfeedrunning(IWebDriver driver, datarow datarow)
         {
             #region  Running
 
             for (int j = 1;;)
             {
-                if (selenium.IsElementPresent("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]"))
+                if (IsElementPresent(driver,By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]"),30))
                 {
                     for (int i = 0;; i++)
                     {
                         try
                         {
-                            string comp = selenium.GetText("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]");
+                            string comp = driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]")).Text;
                             if (comp.Contains("100%"))
                             {
-                                datarow.newrow("Scarpe status", "", comp, "PASS", driver, selenium);
+                                datarow.newrow("Scarpe status", "", comp, "PASS", driver);
                                 break;
                             }
                             else
                             {
-                                datarow.newrow("Scarpe/Datafeed status", "", comp, "PASS", driver, selenium);
+                                datarow.newrow("Scarpe/Datafeed status", "", comp, "PASS", driver);
                                 Thread.Sleep(5000);
-                                selenium.Refresh();
-                                selenium.WaitForPageToLoad("30000");
+                                driver.Navigate().Refresh();
+                                  waitforpagetoload(driver,30000);
                             }
                         }
                         catch (Exception ex)
                         {
-                            datarow.newrow("Scarpe/DataFeed Status", "100%", "100%", "PASS", driver, selenium);
+                            datarow.newrow("Scarpe/DataFeed Status", "100%", "100%", "PASS", driver);
                             break;
                         }
                     }
@@ -125,25 +115,25 @@ namespace MoBankUI
                 else
                 {
                     Thread.Sleep(5000);
-                    selenium.Refresh();
-                    selenium.WaitForPageToLoad("30000");
+                    driver.Navigate().Refresh();
+                       waitforpagetoload(driver,30000);
                     j++;
                 }
                 if (j == 10)
                 {
-                    datarow.newrow("Scarpe/Datafeed Start", "Scrape/Datafeed should start", "Scrape/Datafeed didnt start after 60 sec", "FAIL", driver, selenium);
+                    datarow.newrow("Scarpe/Datafeed Start", "Scrape/Datafeed should start", "Scrape/Datafeed didnt start after 60 sec", "FAIL", driver);
                     break;
                 }
             }
 
             #endregion
 
-            selenium.Click("link=Completed");
-            selenium.WaitForPageToLoad("30000");
-            string completed = selenium.GetText("css=td.markedCell");
+            driver.FindElement(By.LinkText("Completed")).Click();
+              waitforpagetoload(driver,30000);
+            string completed = driver.FindElement(By.CssSelector("td.markedCell")).Text;
             if (completed.Contains("100%"))
             {
-                datarow.newrow("Scrape/DataFeed Job Completed", "", completed, "PASS", driver, selenium);
+                datarow.newrow("Scrape/DataFeed Job Completed", "", completed, "PASS", driver);
             }
         }
     }
