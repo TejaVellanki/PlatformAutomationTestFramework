@@ -1,5 +1,6 @@
-﻿using OpenQA.Selenium;
-using Selenium;
+﻿
+using OpenQA.Selenium;
+
 
 //using System.Drawing;
 
@@ -7,24 +8,24 @@ namespace MoBankUI
 {
     internal class BatchCheckout
     {
-        public void checkout(IWebDriver driver, ISelenium selenium, string url, datarow datarow)
+        public void checkout(IWebDriver driver, string url, datarow datarow)
         {
             if (url.Contains("countryhouseoutdoor"))
             {
                 //country house checkout process 
                 var contry = new Countryhouse();
-                contry.checkoutprocess(driver, selenium);
+                contry.checkoutprocess(driver);
             }
 
             if (url.Contains("wolford"))
             {
                 var wolford = new Wolford();
-                wolford.wolfordcheckout(driver, selenium, datarow);
+                wolford.wolfordcheckout(driver,datarow);
             }
             if (url.Contains("bathrooms"))
             {
                 var contry = new Countryhouse();
-                contry.bathroomcheckout(driver, selenium);
+                contry.bathroomcheckout(driver);
             }
         }
     }

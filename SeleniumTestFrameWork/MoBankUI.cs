@@ -7,10 +7,9 @@ using OpenQA.Selenium.Android;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using Selenium;
 using Tablet_View;
 using AppiumTest;
-
+using WebDriver_Refining;
 
 namespace MoBankUI
 {
@@ -34,7 +33,6 @@ namespace MoBankUI
 >>>>>>> origin/NEXT-Mobi
     {
         private CheckedListBox checkedListBox1;
-        public WebDriverBackedSelenium selenium;
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textbox3;
@@ -81,8 +79,11 @@ namespace MoBankUI
                     app.appium();
                 }
 
+<<<<<<< HEAD
 >>>>>>> origin/TabletView
 
+=======
+>>>>>>> TabletView
                 if (mopaytestharness)
                 {
                     this.mopaytestharness();
@@ -127,7 +128,7 @@ namespace MoBankUI
                             foreach (string oneurl in url)
                             {
                                 datarow.dataflush();
-                                mositetp(oneurl, datarow, selenium);
+                                mositetp(oneurl, datarow);
                             }
                         }
                         else
@@ -158,11 +159,10 @@ namespace MoBankUI
             try
             {
                 IWebDriver driver = new AndroidDriver();
-                selenium = new WebDriverBackedSelenium(driver, "https://qamodrophenia.mobankdev.com");
-                selenium.Start();
-                selenium.WindowMaximize();
                 driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
-                new MositeStart().Mositestart(driver, selenium);
+                driver.Manage().Window.Maximize();
+                driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
+                new MositeStart().Mositestart(driver);
             }
             catch (Exception)
             {
@@ -274,7 +274,7 @@ namespace MoBankUI
 
         #region Firefox
 
-        public void mositetp(string url, datarow datarow, ISelenium selenium)
+        public void mositetp(string url, datarow datarow) 
         {
             try
             {
@@ -297,36 +297,31 @@ namespace MoBankUI
 
                         IWebDriver driver = new FirefoxDriver();
                         // An Static url should be given for the browser to launch. 
-                        selenium = new WebDriverBackedSelenium(driver, url);
-                        selenium.Start();
-                        driver.Navigate().GoToUrl(url);
-                        selenium.WaitForPageToLoad("30000");
+                       
                         var prof = new FirefoxProfile();
                         //changing the User agent to Iphone 4.
                         prof.SetPreference("general.useragent.override",
                                            "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7");
                         driver = new FirefoxDriver(prof);
-                        selenium = new WebDriverBackedSelenium(driver, url);
-                        selenium.Start();
-                        driver.Navigate().GoToUrl(url);
-                        selenium.WaitForPageToLoad("30000");
+                       driver.Navigate().GoToUrl(url);
+                       
                         Thread.Sleep(2000);
 
-                        string mobileurl = selenium.GetLocation();
+                        string mobileurl = driver.Url;
                         if (mobileurl == url)
                         {
-                            datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl, "FAIL", driver, selenium);
+                            datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl, "FAIL",driver);
                         }
                         else
                         {
-                            datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl, "PASS", driver, selenium);
+                            datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl, "PASS",driver);
                         }
 
                         var testing = new BatchTesting();
-                        testing.batchtesting(item, url, driver, selenium, datarow);
+                        testing.batchtesting(item, url,driver, datarow);
                         string emails = textBox2.Text;
                         var site = new MositeGeneral();
-                        site.Finally(driver, selenium, url, datarow, emails);
+                        site.Finally(driver,url, datarow, emails);
                     }
                     catch (Exception ex)
                     {
@@ -346,11 +341,8 @@ namespace MoBankUI
             try
             {
                 IWebDriver driver = new FirefoxDriver();
-                selenium = new WebDriverBackedSelenium(driver, "https://devpay.mobankdev.com/Management");
-                selenium.Start();
-                selenium.WindowMaximize();
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayAccount().create(driver, selenium);
+                new MopayAccount().create(driver);
             }
             catch (Exception)
             {
@@ -362,11 +354,8 @@ namespace MoBankUI
             try
             {
                 IWebDriver driver = new FirefoxDriver();
-                selenium = new WebDriverBackedSelenium(driver, "https://devpay.mobankdev.com/Management");
-                selenium.Start();
-                selenium.WindowMaximize();
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayConsol().HomepageTabs(driver, selenium);
+                new MopayConsol().HomepageTabs(driver);
             }
             catch (Exception)
             {
@@ -378,11 +367,8 @@ namespace MoBankUI
             try
             {
                 IWebDriver driver = new FirefoxDriver();
-                selenium = new WebDriverBackedSelenium(driver, "http://devpaytest.mobankdev.com/");
-                selenium.Start();
-                selenium.WindowMaximize();
                 driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
-                new Mopay().MoPay(driver, selenium);
+                new Mopay().MoPay(driver);
             }
             catch (Exception)
             {
@@ -410,12 +396,9 @@ namespace MoBankUI
                     versions += version + ",";
                 }
                 IWebDriver driver = new FirefoxDriver();
-                selenium = new WebDriverBackedSelenium(driver, "https://qaadmin.mobankdev.com/");
-                selenium.Start();
-                selenium.WindowMaximize();
                 driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
                 var batch = new MoshopBatch();
-                batch.batchmoshop(driver, selenium, datarow, items,versions);
+                batch.batchmoshop(driver, datarow, items,versions);
             }
             catch (Exception ex)
             {
@@ -428,11 +411,8 @@ namespace MoBankUI
             try
             {
                 IWebDriver driver = new FirefoxDriver();
-                selenium = new WebDriverBackedSelenium(driver, "https://qamodrophenia.mobankdev.com");
-                selenium.Start();
-                selenium.WindowMaximize();
-                driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
-                new MositeStart().Mositestart(driver, selenium);
+              driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
+                new MositeStart().Mositestart(driver);
             }
             catch (Exception)
             {
@@ -467,12 +447,10 @@ namespace MoBankUI
         {
             try
             {
-                IWebDriver driver = new ChromeDriver(@"C:\Selenium\net40\");
-                selenium = new WebDriverBackedSelenium(driver, "https://devpay.mobankdev.com/Management");
-                selenium.Start();
-                selenium.WindowMaximize();
+                IWebDriver driver = new ChromeDriver(@"C:\\net40\");
+               
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayAccount().create(driver, selenium);
+                new MopayAccount().create(driver);
             }
             catch (Exception)
             {
@@ -483,12 +461,10 @@ namespace MoBankUI
         {
             try
             {
-                IWebDriver driver = new ChromeDriver(@"C:\Selenium\net40\");
-                selenium = new WebDriverBackedSelenium(driver, "https://devpay.mobankdev.com/Management");
-                selenium.Start();
-                selenium.WindowMaximize();
+                IWebDriver driver = new ChromeDriver(@"C:\\net40\");
+                
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayConsol().HomepageTabs(driver, selenium);
+                new MopayConsol().HomepageTabs(driver);
             }
             catch (Exception)
             {
@@ -499,12 +475,10 @@ namespace MoBankUI
         {
             try
             {
-                IWebDriver driver = new ChromeDriver(@"C:\Selenium\net40\");
-                selenium = new WebDriverBackedSelenium(driver, "http://devpaytest.mobankdev.com/");
-                selenium.Start();
-                selenium.WindowMaximize();
+                IWebDriver driver = new ChromeDriver(@"C:\\net40\");
+               
                 driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
-                new Mopay().MoPay(driver, selenium);
+                new Mopay().MoPay(driver);
             }
             catch (Exception)
             {
@@ -515,10 +489,7 @@ namespace MoBankUI
         {
             try
             {
-                IWebDriver driver = new ChromeDriver(@"C:\Selenium\net40\");
-                selenium = new WebDriverBackedSelenium(driver, "https://qaadmin.mobankdev.com/");
-                selenium.Start();
-                selenium.WindowMaximize();
+                IWebDriver driver = new ChromeDriver(@"C:\\net40\");
                 driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
             }
             catch (Exception)
@@ -530,12 +501,9 @@ namespace MoBankUI
         {
             try
             {
-                IWebDriver driver = new ChromeDriver(@"C:\Selenium\net40\");
-                selenium = new WebDriverBackedSelenium(driver, "https://qamodrophenia.mobankdev.com");
-                selenium.Start();
-                selenium.WindowMaximize();
+                IWebDriver driver = new ChromeDriver(@"C:\\net40\");
                 driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
-                new MositeStart().Mositestart(driver, selenium);
+                new MositeStart().Mositestart(driver);
             }
             catch (Exception)
             {
@@ -550,12 +518,9 @@ namespace MoBankUI
         {
             try
             {
-                IWebDriver driver = new InternetExplorerDriver(@"C:\Selenium\net40\");
-                selenium = new WebDriverBackedSelenium(driver, "https://devpay.mobankdev.com/Management");
-                selenium.Start();
-                selenium.WindowMaximize();
+                IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayAccount().create(driver, selenium);
+                new MopayAccount().create(driver);
             }
             catch (Exception)
             {
@@ -566,12 +531,9 @@ namespace MoBankUI
         {
             try
             {
-                IWebDriver driver = new InternetExplorerDriver(@"C:\Selenium\net40\");
-                selenium = new WebDriverBackedSelenium(driver, "https://devpay.mobankdev.com/Management");
-                selenium.Start();
-                selenium.WindowMaximize();
+                IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayConsol().HomepageTabs(driver, selenium);
+                new MopayConsol().HomepageTabs(driver);
             }
             catch (Exception)
             {
@@ -582,12 +544,9 @@ namespace MoBankUI
         {
             try
             {
-                IWebDriver driver = new InternetExplorerDriver(@"C:\Selenium\net40\");
-                selenium = new WebDriverBackedSelenium(driver, "http://devpaytest.mobankdev.com/");
-                selenium.Start();
-                selenium.WindowMaximize();
+                IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
                 driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
-                new Mopay().MoPay(driver, selenium);
+                new Mopay().MoPay(driver);
             }
             catch (Exception)
             {
@@ -598,10 +557,7 @@ namespace MoBankUI
         {
             try
             {
-                IWebDriver driver = new InternetExplorerDriver(@"C:\Selenium\net40\");
-                selenium = new WebDriverBackedSelenium(driver, "https://qaadmin.mobankdev.com/");
-                selenium.Start();
-                selenium.WindowMaximize();
+                IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
                 driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
             }
             catch (Exception)
@@ -613,12 +569,9 @@ namespace MoBankUI
         {
             try
             {
-                IWebDriver driver = new InternetExplorerDriver(@"C:\Selenium\net40\");
-                selenium = new WebDriverBackedSelenium(driver, "https://qamodrophenia.mobankdev.com");
-                selenium.Start();
-                selenium.WindowMaximize();
+                IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
                 driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
-                new MositeStart().Mositestart(driver, selenium);
+                new MositeStart().Mositestart(driver);
             }
             catch (Exception)
             {

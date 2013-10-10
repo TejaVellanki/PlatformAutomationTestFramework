@@ -1,21 +1,22 @@
 ﻿using System;
 using ObjectRepository;
 using OpenQA.Selenium;
-using Selenium;
+using WebDriver_Refining;
+
 
 //using System.Drawing;
 
 namespace MoBankUI
 {
-    internal class Imagevalidation
+    internal class Imagevalidation :driverdefining
     {
         private int l = 1;
 
-        public void homepageimage(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void homepageimage(IWebDriver driver, datarow datarow)
         {
             try
             {
-                string url = selenium.GetLocation();
+                string url = driver.Url;
                 string Homepageimage = null;
                 string title = driver.PageSource;
                 if (title.Contains("smallDevice"))
@@ -28,49 +29,48 @@ namespace MoBankUI
                 }
 
                 // Home Page Image Validation
-                if (selenium.IsElementPresent(Homepageimage))
+                if (IsElementPresent(driver,By.XPath("Homepageimage"),30))
                 {
                     if (title.Contains("smallDevice"))
                     {
                         IWebElement contactus = driver.FindElement(By.XPath("//*[@id='main-page']/div[4]/h1/a/img"));
                         string path1 = contactus.GetAttribute("src");
-                        datarow.newrow("Contact US Image Validation", "", path1, "PASS", driver, selenium);
+                        datarow.newrow("Contact US Image Validation", "", path1, "PASS",driver);
                     }
                     IWebElement element = driver.FindElement(By.XPath(Homepageimage));
                     string path = element.GetAttribute("src");
-                    datarow.newrow("Image Validation", "", path, "PASS", driver, selenium);
+                    datarow.newrow("Image Validation", "", path, "PASS",driver);
                     if (path.Contains("http") || path.Contains("https") || path.Contains("blob"))
                     {
                         datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path, "FAIL",
-                                       driver, selenium);
+                                      driver);
                     }
                     else
                     {
                         datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path, "PASS",
-                                       driver, selenium);
+                                      driver);
                     }
                 }
-                else if (selenium.IsElementPresent("css=img.categoryImage"))
+                else if (IsElementPresent(driver,By.CssSelector("img.categoryImage"),30))
                 {
                     IWebElement element = driver.FindElement(By.CssSelector("img.categoryImage"));
                     string path = element.GetAttribute("src");
-                    datarow.newrow("Image Validation", "", path, "PASS", driver, selenium);
+                    datarow.newrow("Image Validation", "", path, "PASS",driver);
                 }
                 else
                 {
-                    datarow.newrow("Image Validation", "", "No Image for Home Page" + "-" + url, "FAIL", driver,
-                                   selenium);
+                    datarow.newrow("Image Validation", "", "No Image for Home Page" + "-" + url, "FAIL", driver);
                 }
             }
 
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver, selenium);
+                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL",driver);
             }
         }
 
-        public void categoryimage(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void categoryimage(IWebDriver driver , datarow datarow)
         {
             string CategoryImage = null;
             string categoryimagecss = null;
@@ -89,27 +89,27 @@ namespace MoBankUI
                         CategoryImage = ImagesV1.Categoryimage;
                         categoryimagecss = ImagesV1.Categoryimagecss;
                     }
-                    string location = selenium.GetLocation();
-                    if (selenium.IsElementPresent(categoryimagecss))
+                    string location = driver.Url;
+                    if (IsElementPresent(driver,By.XPath(categoryimagecss),30))
                     {
                         IWebElement element = driver.FindElement(By.XPath(CategoryImage));
                         string path = element.GetAttribute("src");
-                        datarow.newrow("Image Validation", "", path, "PASS", driver, selenium);
+                        datarow.newrow("Image Validation", "", path, "PASS",driver);
                         if (path.Contains("http") || path.Contains("https") || path.Contains("blob"))
                         {
                             datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path,
-                                           "FAIL", driver, selenium);
+                                           "FAIL",driver);
                         }
                         else
                         {
                             datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path,
-                                           "PASS", driver, selenium);
+                                           "PASS",driver);
                         }
                     }
                     else
                     {
                         datarow.newrow("Image Validation", "", "No Image for Category page" + "-" + location, "FAIL",
-                                       driver, selenium);
+                                      driver);
                     }
                     l++;
                 }
@@ -117,36 +117,36 @@ namespace MoBankUI
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver, selenium);
+                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL",driver);
             }
         }
 
-        public void subcategoryimage(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void subcategoryimage(IWebDriver driver , datarow datarow)
         {
             try
             {
-                //string location = selenium.GetLocation();
-                //if (selenium.IsElementPresent("css=img.categoryImage"))
+                //string location = driver.Url;
+                //if (IsElementPresent("css=img.categoryImage"))
                 //{
                 //    IWebElement element = driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/img"));
                 //    string path = element.GetAttribute("src");
-                //    datarow.newrow("Image Validation", "", path, "PASS", driver, selenium);
+                //    datarow.newrow("Image Validation", "", path, "PASS",driver);
 
                 //}
                 //else
                 //{
-                //    datarow.newrow("Image Validation", "", "No Image for Sub-Category page" + "-" + location, "FAIL", driver, selenium);
+                //    datarow.newrow("Image Validation", "", "No Image for Sub-Category page" + "-" + location, "FAIL",driver);
 
                 //}
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver, selenium);
+                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL",driver);
             }
         }
 
-        public void productImage(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void productImage(IWebDriver driver , datarow datarow)
         {
             try
             {
@@ -155,7 +155,7 @@ namespace MoBankUI
                 string multiproductimage = null;
 
                 string url = driver.PageSource;
-                string location = selenium.GetLocation();
+                string location = driver.Url;
                 if (url.Contains("smallDevice"))
                 {
                     Productimage = ImagesV2.productimage;
@@ -169,35 +169,34 @@ namespace MoBankUI
                     multiproductimage = ImagesV1.multiproductimage;
                 }
                 //single product Image ////body[@id='page-products-details']/div/div[2]/div/div[2]/ul/li/img
-                if (selenium.IsElementPresent("" + Productimage + "" + Productimagelink + ""))
+                if (IsElementPresent(driver,By.XPath("" + Productimage + "" + Productimagelink + ""),30))
                 {
                     IWebElement element = driver.FindElement(By.XPath("" + Productimage + "" + Productimagelink + ""));
                     string path = element.GetAttribute("src");
-                    datarow.newrow("Image Validation", "", path, "PASS", driver, selenium);
+                    datarow.newrow("Image Validation", "", path, "PASS",driver);
                 }
                     //multi- Product Image
                     //body[@id='page-products-details']/div/div[2]/div/div[2]/div/ul/li[2]/img
-                else if (selenium.IsElementPresent(multiproductimage))
+                else if (IsElementPresent(driver,By.XPath(multiproductimage),30))
                 {
-                    decimal count = selenium.GetXpathCount("" + Productimage + "");
+                    decimal count = driver.FindElements(By.XPath("" + Productimage + "")).Count;
                     for (int o = 2; o < count; o++)
                     {
                         IWebElement element =
                             driver.FindElement(By.XPath("" + Productimage + "[" + o + "]" + Productimagelink + ""));
                         string path = element.GetAttribute("src");
-                        datarow.newrow("Image Validation", "", path, "PASS", driver, selenium);
+                        datarow.newrow("Image Validation", "", path, "PASS",driver);
                     }
                 }
                 else
                 {
-                    datarow.newrow("Image Validation", "", "No Image in Product Page" + "-" + location, "FAIL", driver,
-                                   selenium);
+                    datarow.newrow("Image Validation", "", "No Image in Product Page" + "-" + location, "FAIL", driver);
                 }
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver, selenium);
+                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL",driver);
             }
         }
     }

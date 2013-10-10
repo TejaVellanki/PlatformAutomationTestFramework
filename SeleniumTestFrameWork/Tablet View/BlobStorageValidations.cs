@@ -4,14 +4,14 @@ using System.Net;
 using MoBankUI;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using Selenium;
+
 
 namespace Tablet_View
 {
     public class BlobStorage
     {
     [Test]
-        public void Blob(ISelenium selenium, IWebDriver driver, datarow datarow,string url)
+        public void Blob( IWebDriver driver, datarow datarow,string url)
         {
         try
         {
@@ -52,7 +52,7 @@ namespace Tablet_View
             }
 
             // Validating CSS URL from the page source
-            string css = selenium.GetHtmlSource();
+            string css = driver.PageSource;
             string[] selectedvalue = css.Split('<');
             foreach (string s in selectedvalue)
             {
@@ -89,7 +89,7 @@ namespace Tablet_View
             }
            
             var image = new Imagevalidation();
-            image.homepageimage(driver, selenium, datarow);
+            image.homepageimage(driver,datarow);
         }
         catch (Exception ex)
         {

@@ -72,16 +72,24 @@ C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameW
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\MoBankUI.Form1.resources
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csproj.GenerateResource.Cache
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\MoBankUI.Form1.resources
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csproj.GenerateResource.Cache
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.exe.config
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.exe
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.pdb
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Appium.exe
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.framework.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Selenium.WebDriverBackedSelenium.dll
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\TechTalk.SpecFlow.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ThoughtWorks.Selenium.Core.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WatiN.Core.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.Support.dll
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.dll
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Appium.pdb
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.xml
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.framework.xml
@@ -94,6 +102,7 @@ C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrame
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.xml
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.Support.pdb
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.Support.xml
+<<<<<<< HEAD
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csprojResolveAssemblyReference.cache
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\MoBankUI.Form1.resources
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
@@ -117,6 +126,12 @@ C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestF
 C:\Users\Vaishali\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csprojResolveAssemblyReference.cache
 >>>>>>> origin/NEXT-Mobi
 =======
+=======
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.xml
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.exe
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.pdb
+<<<<<<< HEAD
+>>>>>>> TabletView
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Appium.exe
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ICSharpCode.SharpZipLib.dll
@@ -137,4 +152,10 @@ C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameW
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.framework.xml
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WatiN.Core.xml
 C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.xml
+<<<<<<< HEAD
 >>>>>>> origin/TabletView
+=======
+=======
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csprojResolveAssemblyReference.cache
+>>>>>>> Updated code moved to WebDriver
+>>>>>>> TabletView

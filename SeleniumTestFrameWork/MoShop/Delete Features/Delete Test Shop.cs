@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using OpenQA.Selenium;
-using Selenium;
-
+    
 namespace MoBankUI
 {
     class DeleteTestShop
     {
-        public void deleteshop(IWebDriver driver, ISelenium selenium)
+        public void deleteshop(IWebDriver driver)
         {
             driver.FindElement(By.LinkText("MoShop")).Click();
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));
@@ -23,7 +19,7 @@ namespace MoBankUI
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));
 
         }
-        public void deletedscrape(IWebDriver driver, ISelenium selenium)
+        public void deletedscrape(IWebDriver driver)
         {
             driver.FindElement(By.LinkText("MoShop")).Click();
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));

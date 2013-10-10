@@ -1,5 +1,5 @@
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\MoBank UI Nunit Tests\obj\Debug\MoBank UI Nunit Tests.csprojResolveAssemblyReference.cache
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\MoBank UI Nunit Tests\bin\Debug\MoBank UI Nunit Tests.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\MoBank UI Nunit Tests\bin\Debug\MoBank UI Nunit Tests.pdb
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\MoBank UI Nunit Tests\obj\Debug\MoBank UI Nunit Tests.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\MoBank UI Nunit Tests\obj\Debug\MoBank UI Nunit Tests.pdb
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\MoBank UI Nunit Tests\obj\Debug\MoBank UI Nunit Tests.csprojResolveAssemblyReference.cache

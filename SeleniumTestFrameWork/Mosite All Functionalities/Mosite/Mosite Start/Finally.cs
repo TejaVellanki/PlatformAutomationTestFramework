@@ -1,6 +1,6 @@
 ﻿using System;
 using OpenQA.Selenium;
-using Selenium;
+using WebDriver_Refining;
 
 //using System.Drawing;
 
@@ -10,33 +10,33 @@ namespace MoBankUI
     {
         private GeneralLibrary generalLibrary;
 
-        public void Finally(IWebDriver driver, ISelenium selenium, string url, datarow datarow, string emails)
+        public void Finally(IWebDriver driver, string url, datarow datarow, string emails)
         {
             generalLibrary = new GeneralLibrary();
             try
             {
                 //Footer_TPS footer = new Footer_TPS();
-                //footer.Footer(driver, selenium, url, datarow);
+                //footer.Footer(driver, , url, datarow);
 
                 //Baskets_TPS basket = new Baskets_TPS();
-                //basket.Basket(driver, selenium, datarow);
+                //basket.Basket(driver, datarow);
 
                 //links_TPS hom = new links_TPS();
-                //hom.Links(datarow, driver, selenium, url);
+                //hom.Links(datarow,driver, url);
 
                 //UserJourney_TPS userjour = new UserJourney_TPS();
-                //userjour.UserJourn(datarow, driver, selenium, url);
+                //userjour.UserJourn(datarow,driver, url);
 
                 //Mopay_TPS Mopay = new Mopay_TPS();
-                //Mopay.Mopay(driver, selenium, datarow);
+                //Mopay.Mopay(driver, datarow);
             }
             catch (Exception e)
             {
                 Console.Write(e);
                 string ex = e.ToString();
                 var scree = new Screenshot();
-                datarow.newrow("Exception", "Not Expected", ex, "FAIL", driver, selenium);
-                scree.screenshotfailed(driver, selenium);
+                datarow.newrow("Exception", "Not Expected", ex, "FAIL",driver);
+                scree.screenshotfailed(driver);
             }
             finally
             {
@@ -49,7 +49,7 @@ namespace MoBankUI
                         if (sr == split[3])
                         {
                             datarow.consolidatedreport(emails);
-                            datarow.excelsave("Mosite-" + sr + "", driver, selenium, emails);
+                            datarow.excelsave("Mosite-" + sr + "",driver, emails);
 
                             driver.Quit();
                             break;
@@ -60,7 +60,7 @@ namespace MoBankUI
                         if (sr == split[2])
                         {
                             datarow.consolidatedreport(emails);
-                            datarow.excelsave("Mosite-" + sr + "", driver, selenium, emails);
+                            datarow.excelsave("Mosite-" + sr + "",driver, emails);
 
                             driver.Quit();
                             break;

@@ -226,7 +226,9 @@
     </Compile>
     <None Include="MoShop\Shop Config\Catalogue XML%27s\test-catalogue-big.zip" />
     <None Include="MoShop\Shop Config\test-catalogue-big.zip" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

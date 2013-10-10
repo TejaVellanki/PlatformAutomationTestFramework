@@ -1,17 +1,17 @@
 ﻿using System;
 using ObjectRepository;
 using OpenQA.Selenium;
-using Selenium;
+using WebDriver_Refining;
 
 //using System.Drawing;
 
 namespace MoBankUI
 {
-    internal class Baskets_TPS
+    internal class Baskets_TPS : driverdefining
     {
         private readonly Screenshot screenshot = new Screenshot();
 
-        public void Basket(IWebDriver driver, ISelenium selenium, datarow datarow, string url)
+        public void Basket(IWebDriver driver, datarow datarow, string url)
         {
             try
             {
@@ -29,15 +29,15 @@ namespace MoBankUI
                 try
                 {
                     driver.FindElement(By.Id("BasketInfo")).Click();
-                    selenium.WaitForPageToLoad("30000");
+                    waitforpagetoload(driver,30000);
                     datarow.newrow("Basket Info Button", "Basket Info Button Is Expected",
-                                   "Basket Info Button is Present", "PASS", driver, selenium);
+                                   "Basket Info Button is Present", "PASS",driver);
                 }
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Basket Info Button", "Basket Info Button Is Expected", e, "FAIL", driver, selenium);
-                    screenshot.screenshotfailed(driver, selenium);
+                    datarow.newrow("Basket Info Button", "Basket Info Button Is Expected", e, "FAIL",driver);
+                    screenshot.screenshotfailed(driver);
                 }
 
                 try
@@ -47,42 +47,42 @@ namespace MoBankUI
                         string value = driver.FindElement(By.Id("BasketInfo")).Text;
                         if (value == "(0)")
                         {
-                            datarow.newrow("Basket Value", "(0)", value, "PASS", driver, selenium);
+                            datarow.newrow("Basket Value", "(0)", value, "PASS",driver);
                         }
                         else
                         {
-                            datarow.newrow("Basket Value", "(0)", value, "FAIL", driver, selenium);
-                            screenshot.screenshotfailed(driver, selenium);
+                            datarow.newrow("Basket Value", "(0)", value, "FAIL",driver);
+                            screenshot.screenshotfailed(driver);
                         }
                     }
 
 
-                    string basket = selenium.GetText(basketempty);
+                    string basket =  driver.FindElement(By.Id(basketempty)).Text;
                     if (basket == "Your basket is empty")
                     {
-                        datarow.newrow("Basket Page Text", "Your basket is empty", basket, "PASS", driver, selenium);
+                        datarow.newrow("Basket Page Text", "Your basket is empty", basket, "PASS",driver);
                     }
                     else
                     {
-                        datarow.newrow("Basket Page Text", "Your basket is empty", basket, "FAIL", driver, selenium);
-                        screenshot.screenshotfailed(driver, selenium);
+                        datarow.newrow("Basket Page Text", "Your basket is empty", basket, "FAIL",driver);
+                        screenshot.screenshotfailed(driver);
                     }
                 }
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Basket Info Text", "Basket Info Text Is Expected", e, "FAIL", driver, selenium);
-                    screenshot.screenshotfailed(driver, selenium);
+                    datarow.newrow("Basket Info Text", "Basket Info Text Is Expected", e, "FAIL",driver);
+                    screenshot.screenshotfailed(driver);
                 }
-                string basketurl = selenium.GetLocation();
+                string basketurl = driver.Url;
                 var footer = new Footer_TPS();
-                footer.Footer(driver, selenium, datarow, basketurl);
+                footer.Footer(driver, datarow, basketurl);
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "Excepetion Not Expected", e, "FAIL", driver, selenium);
-                screenshot.screenshotfailed(driver, selenium);
+                datarow.newrow("Exception", "Excepetion Not Expected", e, "FAIL",driver);
+                screenshot.screenshotfailed(driver);
             }
         }
     }

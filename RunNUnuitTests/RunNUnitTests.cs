@@ -5,17 +5,18 @@ using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
-using Selenium;
+using WebDriver_Refining;
 using MoBankUI;
 
-namespace SeleniumTests
+namespace Tests
 {
     [TestFixture]
-    public class seleniumnunittests
+    public class nunittests :driverdefining
     {
         public IWebDriver driver;
-        public WebDriverBackedSelenium selenium;
+       
         public StringBuilder verificationErrors;
         public MoBankUI.Screenshot screenshot;
         private string baseURL;
@@ -28,9 +29,8 @@ namespace SeleniumTests
             firefoxProfile.SetPreference("browser.private.browsing.autostart", true);
             driver = new FirefoxDriver(firefoxProfile);
             driver.Manage().Cookies.DeleteAllCookies();
-            selenium = new WebDriverBackedSelenium(driver, "http://m.bathrooms.com/");
             verificationErrors = new StringBuilder();
-            selenium.Start();
+            
 
         }
 
@@ -53,24 +53,24 @@ namespace SeleniumTests
         public void BathroomLinearTestRun()
         {
             driver.Navigate().GoToUrl("http://m.bathrooms.com/");
-            selenium.WaitForPageToLoad("30000");
+          waitforpagetoload(30000);
             driver.Manage().Cookies.DeleteAllCookies();
             driver.FindElement(By.LinkText("Bathroom suites")).Click();
-            selenium.WaitForPageToLoad("30000");
-            string url = selenium.GetLocation();
+          waitforpagetoload(30000);
+            string url = driver.Url;
             Console.WriteLine(url);
             driver.FindElement(By.LinkText("Bathroom Ranges")).Click();
-            selenium.WaitForPageToLoad("30000");
-            string url1 = selenium.GetLocation();
+          waitforpagetoload(30000);
+            string url1 = driver.Url;
             Console.WriteLine(url1);
             driver.FindElement(By.CssSelector("h2.wrappable.ui-li-heading")).Click();
-            selenium.WaitForPageToLoad("30000");
+          waitforpagetoload(30000);
             driver.FindElement(By.CssSelector("div.price > p.ui-li-desc")).Click();
-            selenium.WaitForPageToLoad("30000");
+          waitforpagetoload(30000);
             driver.FindElement(By.XPath("(//input[@value='Add To Basket'])[2]")).Click();
-            selenium.WaitForPageToLoad("30000");
+          waitforpagetoload(30000);
             Thread.Sleep(5000);
-            string url2 = selenium.GetLocation();
+            string url2 = driver.Url;
             Console.WriteLine(url2);
 
 
@@ -96,15 +96,15 @@ namespace SeleniumTests
         {
             //Navigating to Bathroom Page
             driver.FindElement(By.Id("BasketInfo")).Click();
-            selenium.WaitForPageToLoad("30000");
-            string url3 = selenium.GetLocation();
+          waitforpagetoload(30000);
+            string url3 = driver.Url;
             Console.WriteLine(url3);
 
             //Clicking on Checkout Button 
             driver.FindElement(By.CssSelector("#GoToCheckout > span.ui-btn-inner > span.ui-btn-text")).Click();
-            selenium.WaitForPageToLoad("30000");
+          waitforpagetoload(30000);
             Thread.Sleep(10000);
-            string url4 = selenium.GetLocation();
+            string url4 = driver.Url;
             Console.WriteLine(url4);
          
 
@@ -112,19 +112,19 @@ namespace SeleniumTests
             //Validating the Stock Status Page
             if (url4.Contains("StockStatus"))
             {
-                decimal productsinbasket = selenium.GetXpathCount("//*[@id='Top']/div[1]/div[2]/div[2]/ul/li");
+                decimal productsinbasket = GetXpathCount("//*[@id='Top']/div[1]/div[2]/div[2]/ul/li");
                 for (int j = 1; j <= productsinbasket; j++)
                 {
-                    if (selenium.IsElementPresent("//*[@id='Top']/div[1]/div[2]/div[2]/ul/li[" + j + "]/div/div/p"))
+                    if (IsElementPresent(driver, By.XPath("//*[@id='Top']/div[1]/div[2]/div[2]/ul/li[" + j + "]/div/div/p")))
                     {
-                        productunvail = selenium.GetText("//*[@id='Top']/div[1]/div[2]/div[2]/ul/li[" + j + "]/div/div/p");
+                        productunvail =  driver.FindElement(By.XPath("//*[@id='Top']/div[1]/div[2]/div[2]/ul/li[" + j + "]/div/div/p")).Text;
                         if (productunvail == "Product unavailable")
                         {
                             break;
                         }
                     }
                 }
-                if (productunvail == "Product unavailable" || selenium.IsTextPresent("Product unavailable"))
+                if (productunvail == "Product unavailable" ||  driver.PageSource.Contains("Product unavailable"))
                     {
                         // Validating the Product Availability
                        Console.WriteLine("Product Unavailable");
@@ -134,10 +134,10 @@ namespace SeleniumTests
                 else
                 {
                    
-                    if (selenium.IsElementPresent("id=Pagecontent_ButtonContinue"))
+                    if (IsElementPresent(driver,By.Id("Pagecontent_ButtonContinue")))
                     {
                         driver.FindElement(By.Id("Pagecontent_ButtonContinue")).Click();
-                        selenium.WaitForPageToLoad("30000");
+                      waitforpagetoload(30000);
                     }
                     Assert.AreEqual("Checkout - Bathrooms", driver.Title);
                     address();
@@ -170,8 +170,8 @@ namespace SeleniumTests
 
             //Clicking On Continue Button
             driver.FindElement(By.Id("Pagecontent_ButtonContinue")).Click();
-            selenium.WaitForPageToLoad("30000");
-            string url5 = selenium.GetLocation();
+          waitforpagetoload(30000);
+            string url5 = driver.Url;
             Console.WriteLine(url5);
 
             //Asserting the Checkout Page Title
@@ -194,14 +194,14 @@ namespace SeleniumTests
 
             //Clicking on Continute Button Page 2
             driver.FindElement(By.Id("Pagecontent_ButtonContinue")).Click();
-            selenium.WaitForPageToLoad("30000");
-            string url6 = selenium.GetLocation();
+          waitforpagetoload(30000);
+            string url6 = driver.Url;
             Console.WriteLine(url6);
 
             //Clicking on Continute Button Page 3
             driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep2")).Click();
-            selenium.WaitForPageToLoad("30000");
-            string url7 = selenium.GetLocation();
+          waitforpagetoload(30000);
+            string url7 = driver.Url;
             Console.WriteLine(url7);
 
             driver.FindElement(By.XPath("//*[@id='checkout']/fieldset/div[2]/label/span")).Click();
@@ -209,8 +209,8 @@ namespace SeleniumTests
             //Clicking on Continute Button Page 4
 
             driver.FindElement(By.Id("Pagecontent_ButtonConfirmCheckout")).Click();
-            selenium.WaitForPageToLoad("30000");
-            string url8 = selenium.GetLocation();
+          waitforpagetoload(30000);
+            string url8 = driver.Url;
             Console.WriteLine(url8);
 
             //Asserting the MoPay Page
@@ -221,7 +221,7 @@ namespace SeleniumTests
         }
 
 
-        private bool IsElementPresent(By by)
+        private bool IsElementPresent(IWebDriver unknown, By @by)
         {
             try
             {

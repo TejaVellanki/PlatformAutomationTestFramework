@@ -1,5 +1,6 @@
-﻿using OpenQA.Selenium;
-using Selenium;
+﻿
+using OpenQA.Selenium;
+  
 
 //using System.Drawing;
 
@@ -7,7 +8,7 @@ namespace TPS
 {
     internal class countryhouseregister
     {
-        public void register(IWebDriver driver, ISelenium selenium)
+        public void register(IWebDriver driver)
         {
             //country house registration process
 

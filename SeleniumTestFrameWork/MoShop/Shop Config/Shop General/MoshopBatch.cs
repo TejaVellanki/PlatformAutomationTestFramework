@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Drawing;
-using OpenQA.Selenium;
-using Selenium;
+using WebDriver_Refining;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using Tablet_View;
 
 
 namespace MoBankUI
 {
-    public class MoshopBatch
+    public class MoshopBatch :driverdefining
     {
-        public void batchmoshop(IWebDriver driver, ISelenium selenium, datarow datarow, string items, string vers) 
+        public void batchmoshop(IWebDriver driver, datarow datarow, string items, string vers) 
         {
             var screenshot = new Screenshot();
             try
             {
                 var moshop = new MoShopConsole();
-                 moshop.Homepagetabs(driver, selenium, datarow);
-
+                 moshop.Homepagetabs(driver, datarow);
+               
                         string[] strArray = items.Split(new[] {','});
                         int num = 0;
 
@@ -30,36 +30,37 @@ namespace MoBankUI
 
                                 if (str == "Create a Test Shop")
                                 {
-                                    datarow.newrow("", "", "Create a Test Shop", "", driver, selenium);
+                                    datarow.newrow("", "", "Create a Test Shop", "", driver);
                                     var testshop = new createShop();
-                                    testshop.Testshop(driver, selenium, datarow);
-                                    new LookandFeel().lookandfeel(driver, selenium, datarow);
+                                    testshop.Testshop(driver,datarow);
+                                   
+                                    new LookandFeel().lookandfeel(driver,datarow);
                                     #region Global Settings
                                     GlobalSetting global = new GlobalSetting();
-                                    global.globalsetting(driver,selenium);
+                                   // global.globalsetting(driver);
                                     #endregion
                                 }
                                 #endregion
                                 #region Test Scrape
                                 if (str == "Create a Test Scrape")
                                 {
-                                    datarow.newrow("", "", "Create a Test Scarpe", "", driver, selenium);
-                                    new Createscrape().createscrape(driver, selenium, datarow);
+                                    datarow.newrow("", "", "Create a Test Scarpe", "", driver);
+                                    new Createscrape().createscrape(driver,datarow);
                                 }
                                 #endregion
                                 #region Run Manual Scrape
                                 if (str == "Run Manual Scrape")
                                 {
-                                    datarow.newrow("", "", "Run Manual Scrape", "", driver, selenium);
+                                    datarow.newrow("", "", "Run Manual Scrape", "",driver);
                                     var run = new RunScrape();
-                                    run.runscrape(driver, selenium, datarow);
+                                    run.runscrape(driver, datarow);
                                 }
                                 #endregion
                                 #region Custom Domain Name Feature and Localisation
                                 if (str == "Validate Custom Domain Name Feature and Localisation")
                                 {
-                                    datarow.newrow("", "", "Validate Custom domain Name", "", driver, selenium);
-                                    new shop().culture(driver, selenium, datarow);
+                                    datarow.newrow("", "", "Validate Custom domain Name", "",driver);
+                                    new shop().culture(driver, datarow);
                                 }
                                 #endregion
                                 #region "Run the Test Site - Scrape
@@ -67,18 +68,18 @@ namespace MoBankUI
                                 {
                                     try
                                     {
-                                        driver.Manage().Window.Size = new Size(320,480);
-                                        datarow.newrow("", "", "Run the Test Site", "", driver, selenium);
-                                        driver.Navigate().GoToUrl("http://qatheticklecompany.mobankdev.com/");
-                                        selenium.WaitForPageToLoad("30000");
+                                        driver.Manage().Window.Size = new Size(400,550);
+                                        datarow.newrow("", "", "Run the Test Site", "",driver);
+                                        driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
+                                        waitforpagetoload(driver,30000);
                                         BlobStorage blob = new BlobStorage();
-                                        blob.Blob(selenium, driver, datarow, "http://qatheticklecompany.mobankdev.com/");
-                                        commtest(driver,selenium,datarow);
+                                        blob.Blob(driver,datarow, "http://testshop.mobankdev.com/");
+                                        commtest(driver,datarow);
                                     }
                                     catch (Exception ex)
                                     {
                                         string e = ex.ToString();
-                                        datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver,selenium);
+                                        datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                                     }
                                 }
                                 #endregion
@@ -86,33 +87,39 @@ namespace MoBankUI
 
                                 if (str == "Run the Test Site - DataFeed XML")
                                 {
+                                   
                                     var datafeed = new DatafeedXML();
-                                    datafeed.datafeed(driver, selenium, datarow);
-                                    datarow.newrow("", "", "Run the Test Site-DataFeed", "", driver, selenium);
+                                    datafeed.datafeed(driver,datarow);
+                                    datarow.newrow("", "", "Run the Test Site-DataFeed", "",driver);
                                     driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
-                                    selenium.WaitForPageToLoad("30000");
-                                    datarow.newrow("", "", "Footer Links", "", driver, selenium);
+                                    waitforpagetoload(driver,30000);
+                                    datarow.newrow("", "", "Footer Links", "",driver);
                                     var footer = new Footer_TPS();
-                                    footer.Footerhome(driver, selenium, "http://testshop.mobankdev.com/", datarow);
+                                    footer.Footerhome(driver, "http://testshop.mobankdev.com/", datarow);
                                     var relatedproducts = new RelatedProducts();
-                                    relatedproducts.relatedproducts(driver, selenium, datarow);
-                                    commtest(driver, selenium, datarow);
+                                    relatedproducts.relatedproducts(driver,datarow);
+                                    commtest(driver, datarow);
                                 }
                                 #endregion
                                 #region Validate Products Against Live Site - Modropenia
                                 if (str == "Validate Products Against Live Site - Modropenia")
                                 {
                                     Modrophenialive modrophenia = new Modrophenialive();
-                                    modrophenia.modrophenialiveproducts(selenium,driver);
+                                    modrophenia.modrophenialiveproducts(driver);
                                     modropheniaproducts products = new modropheniaproducts();
-                                    products.product(datarow,driver,selenium);
+                                    products.product(datarow,driver);
 
                                 }
                                 #endregion
+                                # region Delete Shop And Scrape
+                                if (str == "Delete TestShop And TestScrape")
+                                {
+                                     DeleteTestShop delete = new DeleteTestShop();
+                                     delete.deleteshop(driver);
+                                     delete.deletedscrape(driver);
+                                }
+                                #endregion
 
-                                DeleteTestShop delete = new DeleteTestShop();
-                                delete.deleteshop(driver, selenium);
-                                delete.deletedscrape(driver,selenium);
                             }
                         }
                     }
@@ -120,32 +127,32 @@ namespace MoBankUI
             catch (Exception exception)
             {
                 string str2 = exception.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", str2, "FAIL", driver, selenium);
-                screenshot.screenshotfailed(driver, selenium);
+                datarow.newrow("Exception", "Exception Not Expected", str2, "FAIL",driver);
+                screenshot.screenshotfailed(driver);
             }
            
             finally
             {
-                datarow.excelsave("MoshopConsole", driver, selenium, "teja.vellanki@mobankgroup.com");
-                screenshot.screenshotfailed(driver, selenium);
+                datarow.excelsave("MoshopConsole",driver, "teja.vellanki@mobankgroup.com");
+                screenshot.screenshotfailed(driver);
                 driver.Quit();
             }
         }
 
         [Test]
-        public void commtest(IWebDriver driver, ISelenium selenium, datarow datarow)
+        public void commtest(IWebDriver driver, datarow datarow)
         {
             var userjour = new UserJourney_TPS();
-            userjour.UserJourn(datarow, driver, selenium, "http://testshop.mobankdev.com/");
-            datarow.newrow("", "", "Delete From Basket", "", driver, selenium);
+            userjour.UserJourn(datarow,driver, "http://testshop.mobankdev.com/");
+            datarow.newrow("", "", "Delete From Basket", "",driver);
             var delete = new Deletebasketstart();
-            delete.deletebasstart(driver, selenium, datarow);
-            datarow.newrow("", "", "Registration/Login", "", driver, selenium);
+            delete.deletebasstart(driver, datarow);
+            datarow.newrow("", "", "Registration/Login", "",driver);
             var login = new LoginRegistration();
-            login.registration(driver, selenium, datarow);
-            datarow.newrow("", "", "Mopay", "", driver, selenium);
+            login.registration(driver, datarow);
+            datarow.newrow("", "", "Mopay", "",driver);
             var pay = new BatchPay();
-            pay.batchpay(driver, selenium, "http://testshop.mobankdev.com/", datarow);
+            pay.batchpay(driver,"http://testshop.mobankdev.com/", datarow);
                                         
         }
 

@@ -1,33 +1,33 @@
 ﻿using System;
 using ObjectRepository;
 using OpenQA.Selenium;
-using Selenium;
+using WebDriver_Refining;
 
 //using System.Drawing;
 
 namespace MoBankUI
 {
-    internal class Footer_TPS
+    internal class Footer_TPS :driverdefining
     {
         private readonly Screenshot screenshot = new Screenshot();
 
-        public void Footerhome(IWebDriver driver, ISelenium selenium, string url, datarow datarow)
+        public void Footerhome(IWebDriver driver, string url, datarow datarow)
         {
             try
             {
-                Footer(driver, selenium, datarow, url);
+                Footer(driver, datarow, url);
                 var Image = new Imagevalidation();
-                Image.homepageimage(driver, selenium, datarow);
+                Image.homepageimage(driver, datarow);
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
-                screenshot.screenshotfailed(driver, selenium);
+                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                screenshot.screenshotfailed(driver);
             }
         }
 
-        public void Footer(IWebDriver driver, ISelenium selenium, datarow datarow, string url)
+        public void Footer(IWebDriver driver, datarow datarow, string url)
         {
             // Generic Method to test footer links on all the sites. 
             try
@@ -44,7 +44,7 @@ namespace MoBankUI
 
                 #region
 
-                string title = selenium.GetTitle();
+                string title = driver.Title;
                 var screenshot = new Screenshot();
 
                 if (pagesource.Contains("smallDevice"))
@@ -69,115 +69,115 @@ namespace MoBankUI
                 }
                 try
                 {
-                    decimal count = selenium.GetXpathCount(footer);
+                    decimal count = GetXpathCount(driver,footer);
                     for (int i = 1; i <= count; i++)
                     {
                         driver.FindElement(By.XPath("" + footer + "[" + i + "]" + footerlink + "")).Click();
-                        selenium.WaitForPageToLoad("30000");
+                        waitforpagetoload(driver,30000);
                         string Title = driver.Title;
-                        datarow.newrow("Footer Title", "", Title, "PASS", driver, selenium);
+                        datarow.newrow("Footer Title", "", Title, "PASS",driver);
                         driver.Navigate().Back();
-                        selenium.WaitForPageToLoad("30000");
+                        waitforpagetoload(driver,30000);
                     }
                 }
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
-                    screenshot.screenshotfailed(driver, selenium);
+                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                    screenshot.screenshotfailed(driver);
                 }
 
                 try
                 {
-                    decimal count1 = selenium.GetXpathCount(sociallin);
+                    decimal count1 = GetXpathCount(driver,sociallin);
                     for (int i = 1; i <= count1; i++)
                     {
                         driver.FindElement(By.XPath("" + sociallin + "[" + i + "]" + sociallink + "")).Click();
-                        selenium.WaitForPageToLoad("30000");
+                        waitforpagetoload(driver,30000);
                         string tile = driver.Title;
-                        datarow.newrow("Footer Social Image Title", "", tile, "PASS", driver, selenium);
+                        datarow.newrow("Footer Social Image Title", "", tile, "PASS",driver);
                         if (title == "testshop")
                         {
                             driver.Navigate().GoToUrl(url);
-                            selenium.WaitForPageToLoad("30000");
+                            waitforpagetoload(driver,30000);
                         }
                         else
                         {
                             driver.Navigate().Back();
-                            selenium.WaitForPageToLoad("30000");
+                            waitforpagetoload(driver,30000);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
-                    screenshot.screenshotfailed(driver, selenium);
+                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                    screenshot.screenshotfailed(driver);
                 }
 
                 try
                 {
-                    decimal count3 = selenium.GetXpathCount(lowerfooter);
+                    decimal count3 = GetXpathCount(driver,lowerfooter);
                     for (int i = 1; i <= count3; i++)
                     {
                         driver.FindElement(By.XPath("" + lowerfooter + "[" + i + "]" + lowerfooterlink + "")).Click();
-                        selenium.WaitForPageToLoad("30000");
+                        waitforpagetoload(driver,30000);
                         string tile = driver.Title;
-                        datarow.newrow("Lower Footer Title", "", tile, "PASS", driver, selenium);
+                        datarow.newrow("Lower Footer Title", "", tile, "PASS",driver);
                         if (title == "testshop")
                         {
                         }
                         else
                         {
                             driver.Navigate().Back();
-                            selenium.WaitForPageToLoad("30000");
+                            waitforpagetoload(driver,30000);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
-                    screenshot.screenshotfailed(driver, selenium);
+                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                    screenshot.screenshotfailed(driver);
                 }
                 try
                 {
-                    if (selenium.IsElementPresent(mopowered))
+                    if (IsElementPresent(driver,By.Name(mopowered)))
                     {
                         driver.FindElement(By.XPath(mopowered)).Click();
-                        selenium.WaitForPageToLoad("30000");
+                        waitforpagetoload(driver,30000);
                         string tile = driver.Title;
-                        datarow.newrow("Footer Title", "", tile, "PASS", driver, selenium);
+                        datarow.newrow("Footer Title", "", tile, "PASS",driver);
                         if (title == "testshop")
                         {
                             driver.Navigate().GoToUrl(url);
-                            selenium.WaitForPageToLoad("30000");
+                            waitforpagetoload(driver,30000);
                         }
                         else
                         {
                             driver.Navigate().Back();
-                            selenium.WaitForPageToLoad("30000");
+                            waitforpagetoload(driver,30000);
                         }
                     }
                     else
                     {
-                        datarow.newrow("Footer Element", "", "Footer Element Not Present" + mopowered, "FAIL", driver,
-                                       selenium);
-                        screenshot.screenshotfailed(driver, selenium);
+                        datarow.newrow("Footer Element", "", "Footer Element Not Present" + mopowered, "FAIL", driver
+                                       );
+                        screenshot.screenshotfailed(driver);
                     }
                 }
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver, selenium);
-                    screenshot.screenshotfailed(driver, selenium);
+                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                    screenshot.screenshotfailed(driver);
                 }
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver, selenium);
-                screenshot.screenshotfailed(driver, selenium);
+                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL",driver);
+                screenshot.screenshotfailed(driver);
             }
 
             #endregion
