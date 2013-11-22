@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using OpenQA.Selenium.Support.UI;
 using WebDriver_Refining;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -17,6 +19,7 @@ namespace MoBankUI
             {
                 var moshop = new MoShopConsole();
                  moshop.Homepagetabs(driver, datarow);
+                 driver.Manage().Window.Maximize();
                
                         string[] strArray = items.Split(new[] {','});
                         int num = 0;
@@ -73,7 +76,7 @@ namespace MoBankUI
                                         driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
                                         waitforpagetoload(driver,30000);
                                         BlobStorage blob = new BlobStorage();
-                                        blob.Blob(driver,datarow, "http://testshop.mobankdev.com/");
+                                        //blob.Blob(driver,datarow, "http://testshop.mobankdev.com/");
                                         commtest(driver,datarow);
                                     }
                                     catch (Exception ex)
@@ -96,9 +99,9 @@ namespace MoBankUI
                                     datarow.newrow("", "", "Footer Links", "",driver);
                                     var footer = new Footer_TPS();
                                     footer.Footerhome(driver, "http://testshop.mobankdev.com/", datarow);
-                                    var relatedproducts = new RelatedProducts();
-                                    relatedproducts.relatedproducts(driver,datarow);
-                                    commtest(driver, datarow);
+                                    var relatedproduct = new RelatedProducts();
+                                    relatedproduct.relatedproducts(driver,datarow);
+                                    //commtest(driver, datarow);
                                 }
                                 #endregion
                                 #region Validate Products Against Live Site - Modropenia

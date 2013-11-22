@@ -12,7 +12,7 @@ namespace MoBankUI
         {
             try
             {
-                if (url.Contains("smallDevice"))
+                if (url.Contains("user-scalable=yes"))
                 {
                     var link = new LinksExpand();
                     link.AllLink(driver,datarow);

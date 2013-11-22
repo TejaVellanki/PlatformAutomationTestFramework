@@ -16,13 +16,6 @@ namespace MoBankUI
         {
             try
             {
-            driver.FindElement(By.Id("SubPages_0__Name")).SendKeys("products");
-            driver.FindElement(By.Id("SubPages_0__Name")).SendKeys(Keys.Enter);
-              waitforpagetoload(driver,30000);
-              Selectanoption(driver, By.Id("SubPages_0__ObjectTypeName"), "Product");
-            
-            driver.FindElement(By.CssSelector("input.button")).Click();
-              waitforpagetoload(driver,30000);
             driver.FindElement(By.Id("Identifier")).Clear();
             driver.FindElement(By.Id("Identifier")).SendKeys("/acatalog/wrapping-paper-everyday.html");
             driver.FindElement(By.LinkText("Target Pages")).Click();
@@ -58,6 +51,16 @@ namespace MoBankUI
             
             driver.FindElement(By.CssSelector("input.button")).Click();
             waitforpagetoload(driver,30000);
+
+            driver.FindElement(By.Id("SubPages_0__Name")).SendKeys("products");
+            driver.FindElement(By.Id("SubPages_0__Name")).SendKeys(Keys.Enter);
+            waitforpagetoload(driver, 30000);
+            Selectanoption(driver, By.Id("SubPages_0__ObjectTypeName"), "Product");
+
+            driver.FindElement(By.CssSelector("input.button")).Click();
+            waitforpagetoload(driver, 30000);
+
+
             #region Validation
 
             string attribute = driver.FindElement(By.Id("Selector")).GetAttribute("Value");

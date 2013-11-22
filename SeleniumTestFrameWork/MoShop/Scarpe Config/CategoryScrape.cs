@@ -52,7 +52,7 @@ namespace MoBankUI
 
 
 
-            string selectedLabel = driver.FindElement(By.Id("MappingItems_0__DataPath")).GetAttribute("Value");
+            string selectedLabel = driver.FindElement(By.Id("MappingItems_0__DataPath")).Selected.ToString();
             string str6 = driver.FindElement(By.Id("MappingItems_0__TransformationId")).GetAttribute("Value");
             string str7 = driver.FindElement(By.Id("MappingItems_0__Selector")).GetAttribute("Value");
             string str8 = driver.FindElement(By.Id("SubPages_0__Name")).GetAttribute("Value");

@@ -18,7 +18,7 @@ namespace MoBankUI
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
                 waitforpagetoload(driver,30000);
                 driver.FindElement(By.LinkText("Target Pages")).Click();
-                  waitforpagetoload(driver,30000);
+                waitforpagetoload(driver,30000);
                 driver.FindElement(By.Id("Selector")).Clear();
                 driver.FindElement(By.Id("Selector")).SendKeys("div[class^='singleproduct']>a");
                 driver.FindElement(By.Id("Identifier")).Clear();
@@ -28,29 +28,30 @@ namespace MoBankUI
                 driver.FindElement(By.Id("IdentifierTransformationReplacement")).Clear();
                 driver.FindElement(By.Id("IdentifierTransformationReplacement")).SendKeys("$1");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  waitforpagetoload(driver,30000);
-                Thread.Sleep(3000);
+                waitforpagetoload(driver,30000);
+               
                 driver.FindElement(By.LinkText("Scrape Mappings")).Click();
-                  waitforpagetoload(driver,30000);
+                waitforpagetoload(driver,30000);
                 Selectanoption(driver,By.Id("MappingId"),"(new mappings)");
                 //new SelectElement(driver.FindElement(By.Id("MappingId"))).SelectByText("(new mappings)");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  waitforpagetoload(driver,30000);
+                waitforpagetoload(driver,30000);
+
+              
                 driver.FindElement(By.Id("MappingItems_0__Selector")).Clear();
                 driver.FindElement(By.Id("MappingItems_0__Selector")).SendKeys("h1");
+                Selectanoption(driver, By.Id("MappingItems_0__DataPath"), "Name");
                 driver.FindElement(By.Id("MappingItems_0__Selector")).SendKeys(Keys.Enter);
-                  waitforpagetoload(driver,30000);
-                  Selectanoption(driver, By.Id("MappingItems_0__DataPath"), "Name");
-                  Selectanoption(driver, By.Id("MappingItems_0__TransformationId"), "Content Trim");
-               // new SelectElement(driver.FindElement(By.Id("MappingItems_0__DataPath"))).SelectByText("Name");
-               // new SelectElement(driver.FindElement(By.Id("MappingItems_0__TransformationId"))).SelectByText("Content Trim");
+                Selectanoption(driver, By.Id("MappingItems_0__TransformationId"), "Content Trim");
+                waitforpagetoload(driver, 30000);
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 waitforpagetoload(driver,30000);
-                Thread.Sleep(3000);
-          
+
+              
                 driver.FindElement(By.Id("MappingItems_1__Selector")).Clear();
                 driver.FindElement(By.Id("MappingItems_1__Selector")).SendKeys("#contentTab1,#contentTab2");
                 Selectanoption(driver, By.Id("MappingItems_1__DataPath"),"Description");
+                driver.FindElement(By.Id("MappingItems_1__Selector")).SendKeys(Keys.Enter);
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 waitforpagetoload(driver, 30000);
                 Selectanoption(driver, By.Id("MappingItems_1__TransformationId"), "Content Trim");
@@ -58,53 +59,68 @@ namespace MoBankUI
                  //new SelectElement(driver.FindElement(By.Id("MappingItems_1__TransformationId"))).SelectByText("Content Trim");
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 waitforpagetoload(driver, 30000);
-                Thread.Sleep(3000);
+              
+                
                 driver.FindElement(By.Id("MappingItems_2__Selector")).Clear();
                 driver.FindElement(By.Id("MappingItems_2__Selector")).SendKeys(".MagicZoomPlus");
                 Selectanoption(driver, By.Id("MappingItems_2__DataPath"), "MainImage");
+                driver.FindElement(By.Id("MappingItems_2__DataPath")).SendKeys(Keys.Enter);
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 waitforpagetoload(driver, 30000);
                 Selectanoption(driver, By.Id("MappingItems_2__TransformationId"), "Content Trim");
                 //new SelectElement(driver.FindElement(By.Id("MappingItems_2__DataPath"))).SelectByText("MainImage");
-               // new SelectElement(driver.FindElement(By.Id("MappingItems_2__TransformationId"))).SelectByText("Content Trim");    
+               // new SelectElement(driver.FindElement(By.Id("MappingItems_2__TransformationId"))).SelectByText("Content Trim");   
                 driver.FindElement(By.CssSelector("input.button")).Click();
                   waitforpagetoload(driver,30000);
-                Thread.Sleep(3000);
+                  driver.FindElement(By.Id("MappingItems_2__Selector")).SendKeys(Keys.Enter);
+               
+                
+                
                 driver.FindElement(By.Id("MappingItems_3__Selector")).Clear();
                 driver.FindElement(By.Id("MappingItems_3__Selector")).SendKeys("[retail_price_prompt]:first");
                 Selectanoption(driver, By.Id("MappingItems_3__DataPath"), "Price");
+                driver.FindElement(By.Id("MappingItems_3__DataPath")).SendKeys(Keys.Enter);
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 waitforpagetoload(driver, 30000);
                 Selectanoption(driver, By.Id("MappingItems_3__TransformationId"), "Tickle Price");
                  //new SelectElement(driver.FindElement(By.Id("MappingItems_3__DataPath"))).SelectByText("Price");
                  //new SelectElement(driver.FindElement(By.Id("MappingItems_3__TransformationId"))).SelectByText("Tickle Price");
+                driver.FindElement(By.Id("MappingItems_3__Selector")).SendKeys(Keys.Enter);
                 driver.FindElement(By.CssSelector("input.button")).Click();
                   waitforpagetoload(driver,30000);
-                Thread.Sleep(3000);
+               
+                
+                
                 driver.FindElement(By.Id("MappingItems_4__Selector")).Clear();
                 driver.FindElement(By.Id("MappingItems_4__Selector")).SendKeys("[PROD_REF]:first");
                 driver.FindElement(By.Id("MappingItems_4__Attribute")).Clear();
                 driver.FindElement(By.Id("MappingItems_4__Attribute")).SendKeys("PROD_REF");
                 Selectanoption(driver, By.Id("MappingItems_4__DataPath"), "Code");
+                driver.FindElement(By.Id("MappingItems_4__DataPath")).SendKeys(Keys.Enter);
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 waitforpagetoload(driver, 30000);
                 Selectanoption(driver, By.Id("MappingItems_4__TransformationId"), "Trim");
                // new SelectElement(driver.FindElement(By.Id("MappingItems_4__DataPath"))).SelectByText("Code");
                // new SelectElement(driver.FindElement(By.Id("MappingItems_4__TransformationId"))).SelectByText( "Trim");
+                driver.FindElement(By.Id("MappingItems_4__Selector")).SendKeys(Keys.Enter);
                 driver.FindElement(By.CssSelector("input.button")).Click();
                   waitforpagetoload(driver,30000);
-                Thread.Sleep(3000);
+               
+               
+                
                 driver.FindElement(By.Id("MappingItems_5__Selector")).Clear();
                 driver.FindElement(By.Id("MappingItems_5__Selector")).SendKeys(".itemAddtional strong:has([retail_price_prompt]):prev()");
                 Selectanoption(driver, By.Id("MappingItems_5__DataPath"), "PriceOriginal");
+                driver.FindElement(By.Id("MappingItems_5__DataPath")).SendKeys(Keys.Enter);
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 waitforpagetoload(driver, 30000);
                 Selectanoption(driver, By.Id("MappingItems_5__TransformationId"), "Price");
                 // new SelectElement(driver.FindElement(By.Id("MappingItems_5__DataPath"))).SelectByText("PriceOriginal");
                 // new SelectElement(driver.FindElement(By.Id("MappingItems_5__TransformationId"))).SelectByText("Price");
+                driver.FindElement(By.Id("MappingItems_5__Selector")).SendKeys(Keys.Enter);
                 driver.FindElement(By.CssSelector("input.button")).Click();
                   waitforpagetoload(driver,30000);
-                Thread.Sleep(3000);
+              
 
                 #region Validations
 

@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
+using AppiumTest;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Android;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using Tablet_View;
-using AppiumTest;
-using WebDriver_Refining;
 
 namespace MoBankUI
 {
@@ -20,7 +17,7 @@ namespace MoBankUI
         private TextBox textBox2;
         private TextBox textbox3;
         private TextBox textbox4;
-    
+
 
         public Form1()
         {
@@ -42,8 +39,7 @@ namespace MoBankUI
 
                 if (appium)
                 {
-                   
-                    AppClass app = new AppClass();
+                    var app = new AppClass();
                     app.appium();
                 }
 
@@ -67,7 +63,7 @@ namespace MoBankUI
                 {
                     mositemodro();
                 }
-                
+
                 #region MositeTPS
 
                 if (mositetps)
@@ -107,8 +103,9 @@ namespace MoBankUI
                 MessageBox.Show(exception.ToString());
             }
         }
+
         //tablet View Method which Initializes the process. 
-     
+
 
         public void mositemodroandroid()
         {
@@ -126,6 +123,14 @@ namespace MoBankUI
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void checkedListBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
         }
 
@@ -230,17 +235,17 @@ namespace MoBankUI
 
         #region Firefox
 
-        public void mositetp(string url, datarow datarow) 
+        public void mositetp(string url, datarow datarow)
         {
             try
             {
                 string item = null;
-             
+
                 foreach (object items in checkedListBox3.CheckedItems)
                 {
                     item = item + "," + items;
                 }
-               
+
                 if (item == null)
                 {
                     MessageBox.Show("Please Select Atleast One Functionality To Test From Options Available");
@@ -253,31 +258,31 @@ namespace MoBankUI
 
                         IWebDriver driver = new FirefoxDriver();
                         // An Static url should be given for the browser to launch. 
-                       
+
                         var prof = new FirefoxProfile();
                         //changing the User agent to Iphone 4.
                         prof.SetPreference("general.useragent.override",
                                            "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7");
                         driver = new FirefoxDriver(prof);
-                       driver.Navigate().GoToUrl(url);
-                       
+                        driver.Navigate().GoToUrl(url);
+
                         Thread.Sleep(2000);
 
                         string mobileurl = driver.Url;
                         if (mobileurl == url)
                         {
-                            datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl, "FAIL",driver);
+                            datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl, "FAIL", driver);
                         }
                         else
                         {
-                            datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl, "PASS",driver);
+                            datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl, "PASS", driver);
                         }
 
                         var testing = new BatchTesting();
-                        testing.batchtesting(item, url,driver, datarow);
+                        testing.batchtesting(item, url, driver, datarow);
                         string emails = textBox2.Text;
                         var site = new MositeGeneral();
-                        site.Finally(driver,url, datarow, emails);
+                        site.Finally(driver, url, datarow, emails);
                     }
                     catch (Exception ex)
                     {
@@ -335,7 +340,6 @@ namespace MoBankUI
         {
             try
             {
-              
                 string items = null;
                 string versions = null;
                 var datarow = new datarow();
@@ -354,7 +358,7 @@ namespace MoBankUI
                 IWebDriver driver = new FirefoxDriver();
                 driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
                 var batch = new MoshopBatch();
-                batch.batchmoshop(driver, datarow, items,versions);
+                batch.batchmoshop(driver, datarow, items, versions);
             }
             catch (Exception ex)
             {
@@ -367,7 +371,7 @@ namespace MoBankUI
             try
             {
                 IWebDriver driver = new FirefoxDriver();
-              driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
+                driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
                 new MositeStart().Mositestart(driver);
             }
             catch (Exception)
@@ -384,7 +388,7 @@ namespace MoBankUI
             try
             {
                 IWebDriver driver = new ChromeDriver(@"C:\\net40\");
-               
+
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 new MopayAccount().create(driver);
             }
@@ -398,7 +402,7 @@ namespace MoBankUI
             try
             {
                 IWebDriver driver = new ChromeDriver(@"C:\\net40\");
-                
+
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 new MopayConsol().HomepageTabs(driver);
             }
@@ -412,7 +416,7 @@ namespace MoBankUI
             try
             {
                 IWebDriver driver = new ChromeDriver(@"C:\\net40\");
-               
+
                 driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
                 new Mopay().MoPay(driver);
             }
@@ -515,18 +519,5 @@ namespace MoBankUI
         }
 
         #endregion
-
-        private void checkedListBox5_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
-        {
-
-        }
-          
-        }
-  
+    }
 }
-

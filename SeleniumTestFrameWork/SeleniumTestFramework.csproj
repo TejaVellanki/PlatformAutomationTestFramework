@@ -121,12 +121,14 @@
     <Compile Include="MoShop\Delete Features\Delete Test Shop.cs" />
     <Compile Include="MoShop\Shop Config\Global Settings\GlobalSetting.cs" />
     <Compile Include="MoShop\Shop Config\Look And Feel\LookandFeelImages.cs" />
+    <Compile Include="MoShop\Shop Config\Look And Feel\ProductSocialShare.cs" />
     <Compile Include="MoShop\Shop Config\Shop General\CreateTestShop.cs" />
     <Compile Include="MoShop\Shop Config\Shop General\MoshopBatch.cs" />
     <Compile Include="MoShop\Run Scrape\RunScrape.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\Address Config\Addressconfig.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\Address Config\AddressElements.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\ConfigureCheckout.cs" />
+    <Compile Include="MoShop\Shop Config\Shop Tab\Category Images.cs" />
     <Compile Include="MoShop\Shop Config\Shop Tab\DatafeedXMLcs.cs" />
     <Compile Include="MoShop\Shop Config\Shop Tab\shop.cs" />
     <Compile Include="MoShop\teststub.cs" />
@@ -135,6 +137,12 @@
     <Compile Include="Mosite All Functionalities\Mosite\HomePage\HomepageLinks.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\HomePage\Productpage.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Modrophenia\ScemaValidation.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\MoSiteButtons.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Product\CookieDisclosure.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Product\ProductDetail.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Product\ProductPrice.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Product\SocialMediaSharing.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Product\SuccessMessage.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Related Products\RelatedProducts.cs" />
     <Compile Include="MoSite\Other\BatchMosite.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\BatchCheckout.cs" />
@@ -208,6 +216,7 @@
     <Compile Include="ObjectRepository\ObjectRepositoryV2.cs" />
     <EmbeddedResource Include="MoBankUI.resx">
       <DependentUpon>MoBankUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -240,6 +249,9 @@
   <ItemGroup>
     <Content Include="MoShop\Shop Config\Catalogue XML%27s\test-catalogue-small.xml" />
     <Content Include="MoShop\Shop Config\Catalogue XML%27s\TickleTest_WithProductGroups.xml" />
+    <Content Include="ObjectRepository\Homepage and CategoryImages\dw_new_in_15_10_13.jpg" />
+    <Content Include="ObjectRepository\Homepage and CategoryImages\Teja Home Image.jpg" />
+    <Content Include="ObjectRepository\Homepage and CategoryImages\wolford_home.jpeg" />
     <Content Include="ObjectRepository\Images\Failure.png" />
     <Content Include="ObjectRepository\Images\Contact Us.jpg" />
     <Content Include="ObjectRepository\Images\fb.png" />

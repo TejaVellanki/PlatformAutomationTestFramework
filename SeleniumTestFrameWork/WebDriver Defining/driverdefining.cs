@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading;
+using MoBankUI;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -15,21 +14,18 @@ namespace WebDriver_Refining
         }
 
 
-       internal static bool IsElementPresent(IWebDriver driver, By by, int timeoutSeconds=10)
+       public bool IsElementPresent(IWebDriver driver, By by,int timeoutSeconds=05)
         {
-
         for (int second = 0; second< timeoutSeconds ; second++)
         {
             try
             {
-                driver.FindElement(by);
+                 driver.FindElement(by);
             }
             catch (NoSuchElementException e)
             {
-                Thread.Sleep(1000);
-                continue;
+                break;
             }
-
             return true;
         }
 
@@ -41,19 +37,24 @@ namespace WebDriver_Refining
         {
             try
             {
-                
                 string value = driver.FindElement(by).GetAttribute("Value");
                 return value;
-               
-
             }
             catch (NoSuchElementException e)
             {
                 string ex = e.ToString();
                 return ex;
             }
+        }
 
-            
+        public string Option(IWebDriver driver, By by, int timeoutseconds = 10)
+        {
+            IWebElement data = driver.FindElement(by);
+            //IList<IWebElement> dataoptions = data.FindElements(By.TagName("option"));
+            SelectElement select = new SelectElement(data);
+            string option=  driver.FindElement(By.TagName("option")).GetAttribute("Value");
+            string optio = driver.FindElement(By.TagName("option")).Text;
+            return option;
         }
 
         public decimal GetXpathCount(IWebDriver driver,string xpath)
@@ -63,13 +64,14 @@ namespace WebDriver_Refining
 
         public void Selectanoption(IWebDriver driver, By by, string optiontoselect)
         {
-
             try
             {
                  IWebElement data = driver.FindElement(by);
                  //IList<IWebElement> dataoptions = data.FindElements(By.TagName("option"));
                  SelectElement select = new SelectElement(data);
                  select.SelectByText(optiontoselect);
+              
+                
             }
             catch (Exception ex)
             {

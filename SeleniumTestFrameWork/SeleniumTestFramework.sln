@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTestFramework", "SeleniumTestFramework.csproj", "{F09E7C71-8082-430C-B280-12537930F756}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoBank UI Nunit Tests", "..\MoBank UI Nunit Tests\MoBank UI Nunit Tests.csproj", "{F0CA7F8A-9E41-4EF1-A0DD-2341F9926392}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +13,6 @@ Global
 		{F09E7C71-8082-430C-B280-12537930F756}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F09E7C71-8082-430C-B280-12537930F756}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F09E7C71-8082-430C-B280-12537930F756}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F0CA7F8A-9E41-4EF1-A0DD-2341F9926392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0CA7F8A-9E41-4EF1-A0DD-2341F9926392}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0CA7F8A-9E41-4EF1-A0DD-2341F9926392}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0CA7F8A-9E41-4EF1-A0DD-2341F9926392}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -70,7 +70,7 @@ namespace MoBankUI
                 }
             driver.FindElement(By.Id("File"))
                   .SendKeys(
-                      @"C:\\Users\\teja\Documents\\GitHub\PlatformAutomationTestFramework\\TestFrameWork\\MoShop\\Shop Config\\Catalogue XML's\\TickleTest_WithProductGroups.xml");
+                      @"C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\MoShop\Shop Config\Catalogue XML's\TickleTest_WithProductGroups.xml");
             driver.FindElement(By.CssSelector("div.box > p.right > input.button")).Click();
             waitforpagetoload(driver,30000);
             string title = driver.Title;

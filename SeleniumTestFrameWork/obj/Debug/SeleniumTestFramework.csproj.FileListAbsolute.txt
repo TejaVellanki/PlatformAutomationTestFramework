@@ -1,84 +1,6 @@
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\SeleniumTestFramework.csprojResolveAssemblyReference.cache
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\MoBankUI.Form1.resources
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\SeleniumTestFramework.csproj.GenerateResource.Cache
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.pdb
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\nunit.core.dll
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\nunit.framework.dll
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Selenium.WebDriverBackedSelenium.dll
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ThoughtWorks.Selenium.Core.dll
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ThoughtWorks.Selenium.UnitTests.dll
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WebDriver.dll
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WebDriver.Support.dll
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\nmock.dll
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Selenium.WebDriverBackedSelenium.pdb
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Selenium.WebDriverBackedSelenium.xml
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ThoughtWorks.Selenium.Core.pdb
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ThoughtWorks.Selenium.Core.xml
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ThoughtWorks.Selenium.UnitTests.pdb
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WebDriver.pdb
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WebDriver.xml
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WebDriver.Support.pdb
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WebDriver.Support.xml
-c:\users\rav\documents\visual studio 2012\Projects\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\nunit.core.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\nunit.framework.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\Selenium.WebDriverBackedSelenium.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\ThoughtWorks.Selenium.Core.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\ThoughtWorks.Selenium.UnitTests.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\WebDriver.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\WebDriver.Support.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\nmock.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\Selenium.WebDriverBackedSelenium.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\Selenium.WebDriverBackedSelenium.xml
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\ThoughtWorks.Selenium.Core.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\ThoughtWorks.Selenium.Core.xml
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\ThoughtWorks.Selenium.UnitTests.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\WebDriver.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\WebDriver.xml
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\WebDriver.Support.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\bin\Debug\WebDriver.Support.xml
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\obj\Debug\SeleniumTestFramework.csprojResolveAssemblyReference.cache
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\obj\Debug\MoBankUI.Form1.resources
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\WindowsFormsApplication3\obj\Debug\SeleniumTestFramework.csproj.GenerateResource.Cache
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.exe.config
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.exe
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.exe
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.core.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.framework.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ThoughtWorks.Selenium.UnitTests.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nmock.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Selenium.WebDriverBackedSelenium.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Selenium.WebDriverBackedSelenium.xml
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ThoughtWorks.Selenium.Core.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ThoughtWorks.Selenium.Core.xml
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ThoughtWorks.Selenium.UnitTests.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.xml
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.Support.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.Support.xml
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csprojResolveAssemblyReference.cache
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\MoBankUI.Form1.resources
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csproj.GenerateResource.Cache
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\MoBankUI.Form1.resources
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csproj.GenerateResource.Cache
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.exe.config
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.exe
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WindowsFormsApplication3.pdb
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Appium.exe
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.framework.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Selenium.WebDriverBackedSelenium.dll
@@ -87,9 +9,6 @@ C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrame
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WatiN.Core.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.dll
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.Support.dll
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.dll
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Appium.pdb
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.xml
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.framework.xml
@@ -102,27 +21,8 @@ C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrame
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.xml
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.Support.pdb
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WebDriver.Support.xml
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.xml
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\MoBankUI.Form1.resources
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csproj.GenerateResource.Cache
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.exe
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\WindowsFormsApplication3.pdb
-<<<<<<< HEAD
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Appium.exe
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.dll
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Appium.pdb
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.xml
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\TechTalk.SpecFlow.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\TechTalk.SpecFlow.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WatiN.Core.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Appium.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.pdb
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\HtmlAgilityPack.xml
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\nunit.framework.xml
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\WatiN.Core.xml
-C:\Users\Rav\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Debug\Newtonsoft.Json.xml
-=======
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Debug\SeleniumTestFramework.csprojResolveAssemblyReference.cache
->>>>>>> Updated code moved to WebDriver

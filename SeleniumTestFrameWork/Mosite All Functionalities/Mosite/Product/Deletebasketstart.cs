@@ -20,7 +20,7 @@ namespace MoBankUI
             {
                 string checkout = null;
                 string url = driver.PageSource;
-                if (url.Contains("smallDevice"))
+                if (url.Contains("user-scalable=yes"))
                 {
                     checkout = CollectionMapV2.checkout;
                 }
@@ -31,19 +31,13 @@ namespace MoBankUI
 
                 var basket = new DeleteBasket();
                 basket.basket(driver, datarow);
-
-                var js = (IJavaScriptExecutor) driver;
-                js.ExecuteScript("window.scrollBy(0,400)");
-                js.ExecuteScript("window.scrollBy(0,80)");
-                driver.FindElement(By.XPath(checkout)).Click();
-                waitforpagetoload(driver,30000);
-                Thread.Sleep(2000);
+            
                 // Product unavailable
-                if ( driver.PageSource.Contains("Product unavailable"))
+                if (driver.PageSource.Contains("Product unavailable"))
                 {
                     for (int l = 2;; l++)
                     {
-                        if ( driver.PageSource.Contains("Product unavailable"))
+                        if (driver.PageSource.Contains("Product unavailable"))
                         {
                             datarow.newrow("Product Unavailable", "", "Product Unavilable", "FAIL",driver);
                             screenshot.screenshotfailed(driver);
@@ -51,7 +45,6 @@ namespace MoBankUI
                             driver.FindElement(By.XPath(checkout)).Click();
                             waitforpagetoload(driver,30000);
                         }
-
                         else
                         {
                             break;
@@ -79,7 +72,8 @@ namespace MoBankUI
             string cat = null;
             string homeimage = null;
             string url = driver.PageSource;
-            if (url.Contains("smallDevice"))
+
+            if (url.Contains("user-scalable=yes"))
             {
                 deletebasket = CollectionMapV2.deletebasket;
                 homeimage = CollectionMapV2.homeimage;
@@ -89,8 +83,7 @@ namespace MoBankUI
                 deletebasket = CollectionMapV1.deletebasket;
                 homeimage = CollectionMapV1.homeimage;
             }
-            //body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span
-
+          
             try
             {
                 if (IsElementPresent(driver,By.XPath("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span")))
@@ -107,7 +100,7 @@ namespace MoBankUI
                 waitforpagetoload(driver,30000);
 
                 string url1 = driver.PageSource;
-                if (url1.Contains("smallDevice"))
+                if (url1.Contains("user-scalable=yes"))
                 {
                     categorylink = CollectionMapV2.categorylink;
                     cat = CollectionMapV2.cat;

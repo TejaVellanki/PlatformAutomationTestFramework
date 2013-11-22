@@ -18,7 +18,7 @@ namespace MoBankUI
                 string basketempty = null;
                 string title = driver.PageSource;
 
-                if (title.Contains("smallDevice"))
+                if (title.Contains("user-scalable=yes"))
                 {
                     basketempty = BasketV2.basketempty;
                 }
@@ -42,7 +42,7 @@ namespace MoBankUI
 
                 try
                 {
-                    if (!title.Contains("smallDevice"))
+                    if (!title.Contains("user-scalable=yes"))
                     {
                         string value = driver.FindElement(By.Id("BasketInfo")).Text;
                         if (value == "(0)")

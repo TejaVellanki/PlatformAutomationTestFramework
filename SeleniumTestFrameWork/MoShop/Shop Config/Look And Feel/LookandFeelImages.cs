@@ -15,42 +15,43 @@ namespace MoBankUI
             {
                 //*[@id="customisation-page-update-form"]/p/input
                //Logo and Home Page Image
-            driver.FindElement(By.Id("HomeImageImport_Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\TestFrameWork\\ObjectRepository\\Images\\ticklelogo.png");
+            driver.FindElement(By.Id("HomeImageImport_Image")).SendKeys(@"C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\ObjectRepository\Images\ticklelogo.png");
             Thread.Sleep(2000);
             driver.FindElement(By.CssSelector("input.button")).Click();
             if(driver.PageSource.Contains("Server"))
                 driver.Navigate().Back();
             waitforpagetoload(driver,30000);
-            pagerefresh(driver);
-            driver.FindElement(By.Id("IconImageImport_Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\TestFrameWork\\TestFrameWork\\ObjectRepository\\Images\\ion.ico");
+           // pagerefresh(driver);
+            driver.FindElement(By.Id("IconImageImport_Image")).SendKeys(@"C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\ObjectRepository\Images\ion.ico");
             Thread.Sleep(2000);
             driver.FindElement(By.CssSelector("input.button")).Click();
             waitforpagetoload(driver,30000);
             if (driver.PageSource.Contains("Server"))
                 driver.Navigate().Back();
-            pagerefresh(driver);
+            //pagerefresh(driver);
             new SelectElement(driver.FindElement(By.Id("HomeImageJustification"))).SelectByText("Centre");
             Thread.Sleep(2000);
             driver.FindElement(By.CssSelector("input.button")).Click();
             waitforpagetoload(driver,30000);
-            pagerefresh(driver);
+          //  pagerefresh(driver);
 
                 //Custom Basket Image
-            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[10]/h3")).Click();
+           
+       
+                
+            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[11]/h3")).Click();
             waitforpagetoload(driver,30000);
-            driver.FindElement(By.Id("CustomBasketImageImport_Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\TestFrameWork\\ObjectRepository\\Images\\basket_white.png");
-            driver.FindElement(By.CssSelector("input.button")).Click();
-            waitforpagetoload(driver,30000);
+            driver.FindElement(By.Id("CustomBasketImageImport_Image")).SendKeys(@"C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\ObjectRepository\Images\Teja Custom Basket Image.png");
+          
             if (driver.PageSource.Contains("Server"))
                 driver.Navigate().Back();
-            pagerefresh(driver);
+          //  pagerefresh(driver);
 
                 // Click TO Call Image
 
-            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[10]/h3")).Click();
-            driver.FindElement(By.Id("ClickToCallImage_Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\TestFrameWork\\ObjectRepository\\Images\\Contact Us.jpg");
+           // driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[11]/h3")).Click();
+            driver.FindElement(By.Id("ClickToCallImage_Image")).SendKeys(@"C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\ObjectRepository\Images\Contact Us.jpg");
             driver.FindElement(By.Id("ClickToCallEnabled")).Click();
-            driver.FindElement(By.CssSelector("input.button")).Click();
             waitforpagetoload(driver,30000);
             if (driver.PageSource.Contains("Server"))
                 driver.Navigate().Back();
@@ -63,18 +64,18 @@ namespace MoBankUI
 
            //driver.FindElement(By.Id("ClickToCallImage_Image")).SendKeys("C:\\Users\\teja\\Desktop\\Images and catalogues\\Teja Custom Basket Image.png");
         
-            driver.FindElement(By.Id("SuccessImageImport_Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\TestFrameWork\\ObjectRepository\\Images\\success.png");
+            driver.FindElement(By.Id("SuccessImageImport_Image")).SendKeys(@"C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\ObjectRepository\Images\success.png");
             driver.FindElement(By.CssSelector("input.button")).Click();
             waitforpagetoload(driver,30000);
             if (driver.PageSource.Contains("Server"))
                 driver.Navigate().Back();
-            pagerefresh(driver);
-            driver.FindElement(By.Id("FailureImageImport_Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\TestFrameWork\\ObjectRepository\\Images\\Failure.png");
+           // pagerefresh(driver);
+            driver.FindElement(By.Id("FailureImageImport_Image")).SendKeys(@"C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\ObjectRepository\Images\Failure.png");
           driver.FindElement(By.CssSelector("input.button")).Click();
             waitforpagetoload(driver,30000);
             if (driver.PageSource.Contains("Server"))
                 driver.Navigate().Back();
-            pagerefresh(driver);
+          //  pagerefresh(driver);
 
             #region validations
             if (IsElementPresent(driver,By.CssSelector("img[alt=\"Home Image\"]"),30))
@@ -139,9 +140,9 @@ namespace MoBankUI
         public void pagerefresh(IWebDriver driver)
         {
 
-            driver.FindElement(By.LinkText("Look & Feel")).Click();
+               driver.FindElement(By.LinkText("Look & Feel")).Click();
                waitforpagetoload(driver,30000);
-            driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
+               driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
                waitforpagetoload(driver,30000);
         }
     }

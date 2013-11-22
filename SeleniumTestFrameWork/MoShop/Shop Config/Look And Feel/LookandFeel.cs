@@ -20,7 +20,7 @@ namespace MoBankUI
             {
                 datarow.newrow("", "", "LOOK AND FEEL TAB", "", driver);
                 driver.FindElement(By.LinkText("Look & Feel")).Click();
-                  waitforpagetoload(driver,30000);
+                waitforpagetoload(driver,30000);
                 string actual = driver.Title;
                 if (driver.Title == "Look & Feel : mobank.co.uk/MoShop")
                 {
@@ -56,11 +56,11 @@ namespace MoBankUI
                         try
                         {
                         datarow.newrow("Customiastion Title", "QA-TestShop", attriute, "PASS", driver);
-                        driver.FindElement(By.XPath("(//input[@id='DefaultCustomisationsId'])[2]")).Click();
+                        driver.FindElement(By.Id("Customisations_0__Title")).Click();
                           waitforpagetoload(driver,30000);
                         driver.FindElement(By.CssSelector("input.button")).Click();
                          waitforpagetoload(driver,30000);
-                        driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
+                         driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
                           waitforpagetoload(driver,30000);
                         string str4 = driver.Title;
                         if (str4 == "Customisation : mobank.co.uk/MoShop")
@@ -190,6 +190,7 @@ namespace MoBankUI
             }
             LookandFeelImages images = new LookandFeelImages();
             images.images(driver,datarow);
+            new ProductSocialShare().productsocialshare(driver,datarow);
             new Scheduler().schedule(driver,datarow);
         }
     }

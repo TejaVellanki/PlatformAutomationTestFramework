@@ -101,7 +101,7 @@ namespace MoBankUI
 
                     int currentSheetCount = workbook.Sheets.Count;
 
-                    var reqSheetConsolidated = (Worksheet)sheets.get_Item(currentSheetCount);
+                    var reqSheetConsolidated = (Worksheet)sheets.Item[currentSheetCount];
 
                     var newSheetConsolidated =
                         (Worksheet)sheets.Add(Type.Missing, reqSheetConsolidated, 1, Type.Missing);

@@ -14,7 +14,6 @@ namespace MoBankUI
             try
             {
 
-           
             datarow.newrow("", "", "ADDRESS CONFIGURATION", "", driver);
             driver.FindElement(By.Id("DynamicSourceUrl")).Clear();
             driver.FindElement(By.Id("DynamicSourceUrl")).SendKeys("https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?ACTION=Start");
@@ -112,7 +111,7 @@ namespace MoBankUI
             {
                 datarow.newrow("First Name", "First Name: *", str13, "FAIL", driver);
             }
-            string str14 = GetValue(driver,By.Id("LiveScrapeForm_Elements_0__PropertyPath"),30);
+            string str14 = Option(driver,By.Id("LiveScrapeForm_Elements_0__PropertyPath"),30);
             if (str14 == "FirstName")
             {
                 datarow.newrow("FirstName Property", "FirstName", str14, "PASS", driver);
@@ -130,7 +129,7 @@ namespace MoBankUI
             {
                 datarow.newrow("LastName", "Last Name: *", str15, "FAIL", driver);
             }
-            string str16 = GetValue(driver,By.Id("LiveScrapeForm_Elements_1__PropertyPath"),30);
+            string str16 = Option(driver,By.Id("LiveScrapeForm_Elements_1__PropertyPath"),30);
             if (str16 == "LastName")
             {
                 datarow.newrow("Last Name Property", "LastName", str16, "PASS", driver);
@@ -157,7 +156,7 @@ namespace MoBankUI
             {
                 datarow.newrow("PostCode Equation", ".actrequired:eq(1)", str18, "FAIL", driver);
             }
-            string str19 = GetValue(driver,By.Id("LiveScrapeForm_Elements_2__PropertyPath"),30);
+            string str19 = Option(driver,By.Id("LiveScrapeForm_Elements_2__PropertyPath"),30);
             if (str19 == "PostCode")
             {
                 datarow.newrow("Postcode Property", "PostCode", str19, "PASS", driver);
@@ -211,7 +210,7 @@ namespace MoBankUI
             {
                 datarow.newrow("Address2", "Address Line 2:", str24, "FAIL", driver);
             }
-            string str25 = GetValue(driver,By.Id("LiveScrapeForm_Elements_4__PropertyPath"),30);
+            string str25 = Option(driver,By.Id("LiveScrapeForm_Elements_4__PropertyPath"),30);
             if (str25 == "Address2")
             {
                 datarow.newrow("Address2Property", "Address2", str25, "PASS", driver);
@@ -238,7 +237,7 @@ namespace MoBankUI
             {
                 datarow.newrow("Billing City", "City/Town: *", str27, "FAIL", driver);
             }
-            string str28 = GetValue(driver,By.Id("LiveScrapeForm_Elements_5__PropertyPath"),30);
+            string str28 = Option(driver,By.Id("LiveScrapeForm_Elements_5__PropertyPath"),30);
             if (str28 == "BillingCity")
             {
                 datarow.newrow("Billing City Property", "BillingCity", str28, "PASS", driver);
@@ -275,7 +274,7 @@ namespace MoBankUI
             {
                 datarow.newrow("Country Option", "#lstInvoiceCountry option", str31, "FAIL", driver);
             }
-            string str32 = GetValue(driver,By.Id("LiveScrapeForm_Elements_6__PropertyPath"),30);
+            string str32 = Option(driver,By.Id("LiveScrapeForm_Elements_6__PropertyPath"),30);
             if (str32 == "Country")
             {
                 datarow.newrow("Country Property", "Country", str32, "PASS", driver);
@@ -329,7 +328,7 @@ namespace MoBankUI
             {
                 datarow.newrow("Phone Number", "Phone Number:", str37, "FAIL", driver);
             }
-            string str38 = GetValue(driver,By.Id("LiveScrapeForm_Elements_8__PropertyPath"),30);
+            string str38 = Option(driver,By.Id("LiveScrapeForm_Elements_8__PropertyPath"),30);
             if (str38 == "Phone")
             {
                 datarow.newrow("Phone Property", "Phone", str38, "PASS", driver);
@@ -356,7 +355,7 @@ namespace MoBankUI
             {
                 datarow.newrow("Email", "Email Address: *", str40, "FAIL", driver);
             }
-            string str41 = GetValue(driver,By.Id("LiveScrapeForm_Elements_9__PropertyPath"),30);
+            string str41 = Option(driver,By.Id("LiveScrapeForm_Elements_9__PropertyPath"),30);
             if (str41 == "Email")
             {
                 datarow.newrow("Email Property", "Email", str41, "PASS", driver);

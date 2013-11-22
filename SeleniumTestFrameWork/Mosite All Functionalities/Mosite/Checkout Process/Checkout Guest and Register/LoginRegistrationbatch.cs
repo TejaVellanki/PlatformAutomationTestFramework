@@ -17,8 +17,7 @@ namespace MoBankUI
             string logintitle = driver.Url;
             try
             {
-                if (logintitle.Contains("Login") || logintitle.Contains("StepSelectAccountType") ||
-                     driver.PageSource.Contains("Login"))
+                if (logintitle.Contains("Login") || logintitle.Contains("StepSelectAccountType") || driver.PageSource.Contains("Login"))
                 {
                     //IF the User is a Guest Activate guest Class
 

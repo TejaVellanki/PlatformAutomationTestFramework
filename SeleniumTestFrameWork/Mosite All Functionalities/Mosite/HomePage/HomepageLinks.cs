@@ -15,7 +15,7 @@ namespace MoBankUI
             string cat = null;
             string products = null;
             string productlink = null;
-            if (url.Contains("smallDevice"))
+            if (url.Contains("user-scalable=yes"))
             {
                 categorylink = CollectionMapV2.categorylink;
                 cat = CollectionMapV2.cat;

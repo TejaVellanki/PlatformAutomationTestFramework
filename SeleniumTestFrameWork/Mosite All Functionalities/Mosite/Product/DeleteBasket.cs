@@ -18,7 +18,7 @@ namespace MoBankUI
             {
                 string deletebasket = null;
                 string url = driver.PageSource;
-                if (url.Contains("smallDevice"))
+                if (url.Contains("user-scalable=yes"))
                 {
                     deletebasket = CollectionMapV2.deletebasket;
                 }
@@ -26,22 +26,23 @@ namespace MoBankUI
                 {
                     deletebasket = CollectionMapV1.deletebasket;
                 }
-                if (IsElementPresent(driver,By.XPath("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span"),30))
+                /*
+                if (IsElementPresent(driver,By.XPath("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span"),05))
                 {
                     driver.FindElement(By.XPath("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span")).Click();
                     waitforpagetoload(driver,30000);
                     basketvalidation(driver, datarow);
-                }
-                else if (IsElementPresent(driver,By.XPath(deletebasket),30))
+                }#
+                 */
+                if(IsElementPresent(driver,By.XPath(deletebasket),05))
                 {
                     driver.FindElement(By.XPath(deletebasket)).Click();
-                      waitforpagetoload(driver,30000);
+                    waitforpagetoload(driver,30000);
                     basketvalidation(driver, datarow);
                 }
                 else
                 {
-                    datarow.newrow("Delete From Basket", "Delete Basket Element Expected",
-                                   "//ul[@id='Basket']/li/a/span" + "Element Not Present", "FAIL",driver);
+                    datarow.newrow("Delete From Basket", "Delete Basket Element Expected","//ul[@id='Basket']/li/a/span" + "Element Not Present", "FAIL",driver);
                     screenshot.screenshotfailed(driver);
                 }
             }
@@ -63,7 +64,7 @@ namespace MoBankUI
             string homeimage = null;
             string url = driver.PageSource;
 
-            if (url.Contains("smallDevice"))
+            if (url.Contains("user-scalable=yes"))
             {
                 categorylink = CollectionMapV2.categorylink;
                 cat = CollectionMapV2.cat;
@@ -81,7 +82,7 @@ namespace MoBankUI
             }
             try
             {
-                if (!url.Contains("smallDevice"))
+                if (!url.Contains("user-scalable=yes"))
                 {
                     string value = driver.FindElement(By.Id("BasketInfo")).Text;
 
@@ -99,7 +100,7 @@ namespace MoBankUI
                 // waitforpagetoload("30000");
 
 
-                driver.FindElement(By.CssSelector(homeimage)).Click(); 
+                driver.FindElement(By.ClassName(homeimage)).Click(); 
                   waitforpagetoload(driver,30000);
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
                 IWebElement myDynamicElement1 = driver.FindElement(By.XPath("" + categorylink + "" + cat + ""));
@@ -134,6 +135,7 @@ namespace MoBankUI
                 }
                 var prd = new products_TPS();
                 prd.product(driver, datarow);
+                driver.FindElement(By.XPath("//a[@id='GoToCheckout']/span/span")).Click();
             }
             catch (Exception ex)
             {
