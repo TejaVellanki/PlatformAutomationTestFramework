@@ -214,6 +214,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="MoShop\Shop Config\Catalogue XML%27s\test-catalogue-big.zip" />
     <None Include="MoShop\Shop Config\test-catalogue-big.zip" />
     <None Include="packages.config">
@@ -228,9 +229,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MoShop\Shop Config\Catalogue XML%27s\test-catalogue-small.xml" />
