@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
-using AppiumTest;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Android;
 using OpenQA.Selenium.Chrome;
@@ -36,12 +35,7 @@ namespace MoBankUI
                 bool Firefox = checkBox14.Checked;
                 bool mositetps = checkBox13.Checked;
                 bool appium = checkBox1.Checked;
-
-                if (appium)
-                {
-                    var app = new AppClass();
-                    app.appium();
-                }
+                
 
                 if (mopaytestharness)
                 {

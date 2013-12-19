@@ -30,6 +30,13 @@ namespace MoBankUI
                 int i = 0;
                 foreach (string function in selectedvalue)
                 {
+
+                    if (function == "Search")
+                    {
+                        datarow.newrow("", "", "Search", "", driver);
+                        new searchsort().search(driver);
+
+                    }
                     if (function == "Test All Links in Mosite")
                     {
                         datarow.newrow("", "", "All Links in Mosite - Validations", "",driver);
