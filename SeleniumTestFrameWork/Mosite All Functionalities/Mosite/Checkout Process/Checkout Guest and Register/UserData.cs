@@ -24,12 +24,13 @@ namespace MoBankUI
             string submitbutton = null;
             string letters = null;
             string termsncond = null;
+            string submitterms = null;
             string paybutton = null;
 
 
             var screenshot = new Screenshot();
 
-            if (url.Contains("smallDevice"))
+            if (url.Contains("user-scalable=yes"))
             {
                 field = AddressMapV2.field;
                 fieldlabel = AddressMapV2.fieldlabel;
@@ -39,6 +40,7 @@ namespace MoBankUI
                 submitbutton = AddressMapV2.submitbutton;
                 letters = AddressMapV2.terms;
                 termsncond = CheckoutMapV2.termsncond;
+                submitterms = CheckoutMapV2.submitterms;
                 paybutton = CheckoutMapV2.paybutton;
             }
             else
@@ -76,10 +78,10 @@ namespace MoBankUI
                             driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).Clear();
                             driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).SendKeys("TEST");
                             datarow.newrow("Form Field", "", valuet, "PASS",driver);
-                        }
-
+                       }
+                       
                         #region Country
-
+                        
                         // selecting the country
                         if (valuet.Contains("Country"))
                         {
@@ -126,7 +128,7 @@ namespace MoBankUI
                                                );
                             }
                         }
-
+                         
                         #endregion
 
                         #region Email
@@ -147,7 +149,7 @@ namespace MoBankUI
                                 screenshot.screenshotfailed(driver);
                             }
                         }
-
+                       
                         #endregion
                     }
                 }
@@ -176,23 +178,23 @@ namespace MoBankUI
                 string basval = driver.FindElement(By.Id("BasketInfo")).Text;
 
                 // Terms and Conditions
-                if (IsElementPresent(driver,By.Id(termsncond)))
+                if (IsElementPresent(driver,By.XPath(termsncond)))
                 {
                     driver.FindElement(By.XPath(termsncond)).Click();
                 }
                 //Submit button
-                if (IsElementPresent(driver,By.Id(submitbutton)))
-                    //body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button
+                if (IsElementPresent(driver, By.XPath(submitterms)))
+                //*[@id="main-page"]/div[9]/div/div[2]/div/button
                 {
                     //html/body/div/div[7]/div/div[2]/div/button
-                    driver.FindElement(By.XPath(submitbutton)).Click();
+                    driver.FindElement(By.XPath(submitterms)).Click();
                     waitforpagetoload(driver,30000);
                     Thread.Sleep(2000);
                 }
                 //string details =  driver.FindElement(By.Id("")).Text;("css=div.ui-content.ui-body-c > p");
 
                 //Pay Button 
-                if (IsElementPresent(driver,By.Id(paybutton)))
+                if (IsElementPresent(driver,By.XPath(paybutton)))
                 {
                     //html/body/div/div[7]/div/div[2]/a/span/span
                     driver.FindElement(By.XPath(paybutton)).Click();

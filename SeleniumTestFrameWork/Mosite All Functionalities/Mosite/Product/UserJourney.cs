@@ -19,13 +19,13 @@ namespace MoBankUI
             try
             {
                 driver.Navigate().GoToUrl(url);
-               waitforpagetoload(driver,30000);
+                waitforpagetoload(driver,30000);
                 string categorylink = null;
                 string cat = null;
                 string products = null;
                 string productlink = null;
                 string URL = driver.PageSource;
-                if (URL.Contains("smallDevice"))
+                if (URL.Contains("user-scalable=yes"))
                 {
                     categorylink = CollectionMapV2.categorylink;
                     cat = CollectionMapV2.cat;
@@ -42,19 +42,21 @@ namespace MoBankUI
 
                 var Image = new Imagevalidation();
                 var footer = new Footer_TPS();
-                driver.Navigate().Back();
+              
+                Image.homepageimage(driver, datarow);
                 driver.Navigate().GoToUrl(url);
+                waitforpagetoload(driver, 30000);
+                Thread.Sleep(5000);
+                new CookieDisclosure().cookie(driver, datarow);
 
-                // Image.homepageimage(driver, datarow);
-                driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                IWebElement myDynamicElement1 = driver.FindElement(By.XPath("" + categorylink + "" + cat + ""));
+                IWebElement myDynamicElement1 = driver.FindElement(By.XPath(""+ categorylink + "" + cat +""));
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
                  waitforpagetoload(driver,30000);
                 string title = driver.Title;
-
-
+               
                 // Activate After Debug
-                // Image.categoryimage(driver, datarow);
+                Image.categoryimage(driver, datarow);
+               
                 // footer.Footer(driver, datarow);
                 decimal categorycount = GetXpathCount(driver,categorylink);
 
@@ -66,7 +68,7 @@ namespace MoBankUI
                     // Category Image validation
                     Image.categoryimage(driver, datarow);
                     driver.FindElement(By.XPath("" + categorylink + "[" + 1 + "]" + cat + "")).Click();
-                     waitforpagetoload(driver,30000);
+                    waitforpagetoload(driver,30000);
                     string titlecategory = driver.Title;
                     string url1 = driver.Url;
                     if (IsElementPresent(driver,By.XPath("" + products + "[" + 1 + "]" + productlink + "")))

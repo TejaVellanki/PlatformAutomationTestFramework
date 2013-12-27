@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
-using NUnit.Framework;
 using OpenQA.Selenium;
 
 using WebDriver_Refining;
@@ -26,7 +21,7 @@ namespace MoBankUI
             #region First Product
             
             datarow.newrow("","", "First Product","");
-            driver.Navigate().GoToUrl("http://qatheticklecompany.mobankdev.com/product/three-today-birthday-card");
+            driver.Navigate().GoToUrl("http://testshop.mobankdev.com/product/three-today-birthday-card");
             waitforpagetoload(driver,30000);
             //Validating Products
             Validateproduct(datarow,driver);
@@ -48,7 +43,7 @@ namespace MoBankUI
             #region Second Product
             //Second Product
             datarow.newrow("", "", "Second Product", "");
-            driver.Navigate().GoToUrl("http://qatheticklecompany.mobankdev.com/product/two-today-birthday-card");
+            driver.Navigate().GoToUrl("http://testshop.mobankdev.com/product/two-today-birthday-card");
             waitforpagetoload(driver,30000);
             Validateproduct(datarow, driver);
             try
@@ -81,7 +76,7 @@ namespace MoBankUI
             #region Third Product
             //Third Product
             datarow.newrow("", "", "Third Product", "");
-            driver.Navigate().GoToUrl("http://qatheticklecompany.mobankdev.com/product/one-today-birthday-card");
+            driver.Navigate().GoToUrl("http://testshop.mobankdev.com/product/one-today-birthday-card");
             waitforpagetoload(driver,30000);
             //Validating Click
             Validateproduct(datarow,driver);
@@ -100,7 +95,7 @@ namespace MoBankUI
             #region Fourth Product
             //Fourth Product
             datarow.newrow("", "", "Fourth Product", "");
-            driver.Navigate().GoToUrl("http://qatheticklecompany.mobankdev.com/product/70-and-disgracefully-birthday-card");
+            driver.Navigate().GoToUrl("http://testshop.mobankdev.com/product/70-and-disgracefully-birthday-card");
             waitforpagetoload(driver,30000);
             Validateproduct(datarow, driver);
             if (IsElementPresent(driver,By.CssSelector("input.ui-btn-hidden")))
@@ -157,28 +152,20 @@ namespace MoBankUI
                 decimal count = GetXpathCount(driver,"//ul[@id='productList']/li");
                 if (count == 0)
                 {
-                    datarow.newrow("Validating Related Products", "Atleast one Related Product should be Present",
-                                     "No Related Products are found "+count+" ", "FAIL");
+                    datarow.newrow("Validating Related Products", "Atleast one Related Product should be Present","No Related Products are found "+count+" ", "FAIL");
                 }
                 for (int i = 1; i <= count; i++)
                 {
 
                     if (IsElementPresent(driver,By.XPath("//ul[@id='productList']/li[" + i + "]/div/div/img")))
                     {
-                        datarow.newrow("Validating Related Product one", "Related Product one is Present",
-                                       "//ul[@id='productList']/li[" + i + "]/div/div/img" +
-                                       "Related Product one is Present", "PASS");
+                        datarow.newrow("Validating Related Product one", "Related Product one is Present","//ul[@id='productList']/li[" + i + "]/div/div/img" +"Related Product one is Present", "PASS");
                     }
                     if (IsElementPresent(driver,By.XPath("//ul[@id='productList']/li[" + i + "]/div/div/a/img")))
                     {
-                        datarow.newrow("Validating Related Product one", "Related Product one is Present",
-                                       "//ul[@id='productList']/li[" + i + "]/div/div/a/img" +
-                                       "Related Product one is Present", "PASS");
+                        datarow.newrow("Validating Related Product one", "Related Product one is Present","//ul[@id='productList']/li[" + i + "]/div/div/a/img" +"Related Product one is Present", "PASS");
                     }
-                    {
-//ul[@id='productList']/li       /div/div/a/img
-                    }
-                }
+                 }
 
             }
             catch (Exception ex)
@@ -190,7 +177,7 @@ namespace MoBankUI
 
         public void click(IWebDriver driver, datarow datarow)
         {
-            /*
+           
             try
             {
                 driver.FindElement(By.XPath("//ul[@id='productList']/li/div/div/img")).Click();
@@ -204,20 +191,9 @@ namespace MoBankUI
                                "Elemenet is not Clickable", "PASS");
 
             }
-             * */
+           
         }
 
-        private bool IsElementPresent(By by, IWebDriver driver)
-        {
-            try
-            {
-                driver.FindElement(by);
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-        }
+        
     }
 }

@@ -48,12 +48,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Appium">
-      <HintPath>..\..\..\..\..\..\Selenium\Appium\Appium.exe</HintPath>
-    </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>packages\HtmlAgilityPack.1.4.0\lib\HtmlAgilityPack.dll</HintPath>
-    </Reference>
     <Reference Include="Interop.SHDocVw">
       <HintPath>packages\WatiN.2.1.0\lib\net40\Interop.SHDocVw.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -74,12 +68,12 @@
     <Reference Include="nunit.core">
       <HintPath>..\..\..\..\..\..\..\Selenium\selenium-remote-control-1.0.3\selenium-dotnet-client-driver-1.0.1\nunit.core.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Selenium.WebDriverBackedSelenium, Version=2.31.0.0, Culture=neutral, PublicKeyToken=1c2bd1631853048f, processorArchitecture=MSIL">
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Selenium\selenium-dotnet-2.33.0\net40\Selenium.WebDriverBackedSelenium.dll</HintPath>
+      <HintPath>packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Selenium.WebDriverBackedSelenium">
+      <HintPath>packages\Selenium.WebDriverBackedSelenium.2.39.0\lib\net40\Selenium.WebDriverBackedSelenium.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -94,39 +88,32 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TechTalk.SpecFlow">
-      <HintPath>packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+    <Reference Include="ThoughtWorks.Selenium.Core">
+      <HintPath>packages\Selenium.RC.2.39.0\lib\net40\ThoughtWorks.Selenium.Core.dll</HintPath>
     </Reference>
-    <Reference Include="ThoughtWorks.Selenium.Core, Version=2.31.0.0, Culture=neutral, PublicKeyToken=1c2bd1631853048f, processorArchitecture=MSIL">
+    <Reference Include="WatiN.Core, Version=2.1.0.1196, Culture=neutral, PublicKeyToken=db7cfd3acb5ad44e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Selenium\selenium-dotnet-2.33.0\net40\ThoughtWorks.Selenium.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="ThoughtWorks.Selenium.UnitTests">
-      <HintPath>..\..\..\..\..\..\..\Selenium\selenium-remote-control-1.0.3\selenium-dotnet-client-driver-1.0.1\ThoughtWorks.Selenium.UnitTests.dll</HintPath>
-    </Reference>
-    <Reference Include="WatiN.Core">
       <HintPath>packages\WatiN.2.1.0\lib\net40\WatiN.Core.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver, Version=2.32.0.0, Culture=neutral, PublicKeyToken=1c2bd1631853048f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Selenium\selenium-dotnet-2.33.0\net40\WebDriver.dll</HintPath>
+    <Reference Include="WebDriver">
+      <HintPath>packages\Selenium.WebDriver.2.39.0\lib\net40\WebDriver.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver.Support, Version=2.31.0.0, Culture=neutral, PublicKeyToken=1c2bd1631853048f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Selenium\selenium-dotnet-2.33.0\net40\WebDriver.Support.dll</HintPath>
+    <Reference Include="WebDriver.Support">
+      <HintPath>packages\Selenium.Support.2.39.0\lib\net40\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Appium\Appium.cs" />
     <Compile Include="MoShop\Delete Features\Delete Test Shop.cs" />
     <Compile Include="MoShop\Shop Config\Global Settings\GlobalSetting.cs" />
     <Compile Include="MoShop\Shop Config\Look And Feel\LookandFeelImages.cs" />
+    <Compile Include="MoShop\Shop Config\Look And Feel\ProductSocialShare.cs" />
     <Compile Include="MoShop\Shop Config\Shop General\CreateTestShop.cs" />
     <Compile Include="MoShop\Shop Config\Shop General\MoshopBatch.cs" />
     <Compile Include="MoShop\Run Scrape\RunScrape.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\Address Config\Addressconfig.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\Address Config\AddressElements.cs" />
     <Compile Include="MoShop\Shop Config\Checkout\ConfigureCheckout.cs" />
+    <Compile Include="MoShop\Shop Config\Shop Tab\Category Images.cs" />
     <Compile Include="MoShop\Shop Config\Shop Tab\DatafeedXMLcs.cs" />
     <Compile Include="MoShop\Shop Config\Shop Tab\shop.cs" />
     <Compile Include="MoShop\teststub.cs" />
@@ -135,7 +122,14 @@
     <Compile Include="Mosite All Functionalities\Mosite\HomePage\HomepageLinks.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\HomePage\Productpage.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Modrophenia\ScemaValidation.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\MoSiteButtons.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Product\CookieDisclosure.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Product\ProductDetail.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Product\ProductPrice.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Product\SocialMediaSharing.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Product\SuccessMessage.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Related Products\RelatedProducts.cs" />
+    <Compile Include="Mosite All Functionalities\Mosite\Search\searchsort.cs" />
     <Compile Include="MoSite\Other\BatchMosite.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\BatchCheckout.cs" />
     <Compile Include="Mosite All Functionalities\Mosite\Checkout Process\Checkout Guest and Register\Guest.cs" />
@@ -213,6 +207,7 @@
     <Compile Include="ObjectRepository\ObjectRepositoryV2.cs" />
     <EmbeddedResource Include="MoBankUI.resx">
       <DependentUpon>MoBankUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -224,6 +219,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="MoShop\Shop Config\Catalogue XML%27s\test-catalogue-big.zip" />
     <None Include="MoShop\Shop Config\test-catalogue-big.zip" />
     <None Include="packages.config">
@@ -240,11 +236,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="MoShop\Shop Config\Catalogue XML%27s\test-catalogue-small.xml" />
     <Content Include="MoShop\Shop Config\Catalogue XML%27s\TickleTest_WithProductGroups.xml" />
+    <Content Include="ObjectRepository\Homepage and CategoryImages\dw_new_in_15_10_13.jpg" />
+    <Content Include="ObjectRepository\Homepage and CategoryImages\Teja Home Image.jpg" />
+    <Content Include="ObjectRepository\Homepage and CategoryImages\wolford_home.jpeg" />
     <Content Include="ObjectRepository\Images\Failure.png" />
     <Content Include="ObjectRepository\Images\Contact Us.jpg" />
     <Content Include="ObjectRepository\Images\fb.png" />

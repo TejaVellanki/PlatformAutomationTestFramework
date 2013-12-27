@@ -180,7 +180,7 @@ namespace MoBankUI
         public void MoPayTPS(IWebDriver driver, datarow datarow)
         {
             generalLibrary = new GeneralLibrary();
-            DataSet dss = generalLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "CardDetails");
+            DataSet dss = generalLibrary.GetExcelData(@"C:\Selenium\Input Data\CardDetails.xls", "CardDetails");
 
             DataTable personaldata = dss.Tables[0];
             var screenshot = new Screenshot();
@@ -283,19 +283,14 @@ namespace MoBankUI
                     if (Country.Length > 0)
 
                     {
-                          IWebElement con = driver.FindElement(By.Id("BillingContact_Address_Country"));
-                         IList<IWebElement> countries = con.FindElements(By.TagName("option"));
+                          //IWebElement con = driver.FindElement(By.Id("BillingContact_Address_Country"));
+                         //IList<IWebElement> countries = con.FindElements(By.TagName("option"));
                     
                     
-                        foreach (IWebElement country in countries)
-                        {
-                            new SelectElement(driver.FindElement(By.Id("BillingContact_Address_Country"))).SelectByText(
-                                country.Text);
-                            if (country.Text == "United Kingdom")
-                            {
-                                break;
-                            }
-                        }
+                        //foreach (IWebElement country in countries)
+                        //{
+                            new SelectElement(driver.FindElement(By.Id("BillingContact_Address_Country"))).SelectByText("United Kingdom");
+                        //}
                     }
                     driver.FindElement(By.Name("PostAction[Complete]")).Click();
                     waitforpagetoload(driver,30000);

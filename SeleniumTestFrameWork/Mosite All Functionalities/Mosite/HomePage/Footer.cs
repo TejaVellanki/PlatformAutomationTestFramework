@@ -47,7 +47,7 @@ namespace MoBankUI
                 string title = driver.Title;
                 var screenshot = new Screenshot();
 
-                if (pagesource.Contains("smallDevice"))
+                if (pagesource.Contains("user-scalable=yes"))
                 {
                     footer = FooterV2.footer;
                     footerlink = FooterV2.footerlink;

@@ -17,7 +17,16 @@ namespace MoBankUI
             {
                 driver.FindElement(By.LinkText("Execute")).Click();
                   waitforpagetoload(driver,30000);
-                  Selectanoption(driver, By.Id("TestCatalogueId"), "Default");
+                try
+                {
+                    Selectanoption(driver, By.Id("TestCatalogueId"), "testshop (Default)");
+                }
+                catch (Exception ex)
+                {
+                    string e = ex.ToString();
+                    Selectanoption(driver, By.Id("TestCatalogueId"), "testshop (0.1)");
+                }
+                  
                 //new SelectElement(driver.FindElement(By.Id("TestCatalogueId"))).SelectByText("Default");
                 driver.FindElement(By.Name("PostAction[]")).Click();
                   waitforpagetoload(driver,30000);

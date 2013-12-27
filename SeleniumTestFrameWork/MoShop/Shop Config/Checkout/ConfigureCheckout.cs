@@ -40,7 +40,7 @@ namespace MoBankUI
                   .SendKeys("div#productsresults table:eq(0) tr:last-child td strong:eq(1)");
             Thread.Sleep(3000);
             driver.FindElement(By.XPath("//div[@id='configureCheckoutForm']/div[2]/h3")).Click();
-            int num = 0;
+            const int num = 0;
 
             if (num == 0)
             {

@@ -24,7 +24,7 @@ namespace MoBankUI
             var Image = new Imagevalidation();
             var screenshot = new Screenshot();
 
-            if (url.Contains("smallDevice"))
+            if (url.Contains("user-scalable=yes"))
             {
                 productprice = CollectionMapV2.ProductPrice;
                 productdescription = CollectionMapV2.productDescription;

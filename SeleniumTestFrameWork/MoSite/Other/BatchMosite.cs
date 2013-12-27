@@ -1,9 +1,14 @@
-﻿using System;
-using OpenQA.Selenium;
-using WebDriver_Refining;
+﻿//-----------------------------------------------------------------------
+// <copyright company="MoPowered">
+//     Copyright (c) MoPowered. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace MoBankUI
 {
+    using System;
+    using OpenQA.Selenium;
+   
     internal class Mositebatch
     {
         public void mosite(IWebDriver driver, datarow datarow, string urls, string items)
@@ -26,8 +31,9 @@ namespace MoBankUI
                                 datarow.newrow("", "", "Test All Links in Mosite", "",driver);
                                 var tick = new Tickle();
                                 tick.HomepageTabsTickle(datarow,driver, url);
-                             
                             }
+
+                          
 
                             if (str == "Test Footer Links")
                             {

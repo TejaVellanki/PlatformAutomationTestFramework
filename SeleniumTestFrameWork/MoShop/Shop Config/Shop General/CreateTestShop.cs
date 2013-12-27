@@ -53,7 +53,7 @@ namespace MoBankUI
                    waitforpagetoload(driver,30000);
                 driver.FindElement(By.Id("DefaultCatalogueId")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                   waitforpagetoload(driver,30000);
+                waitforpagetoload(driver,30000);
                 if(driver.FindElement(By.Id("DefaultCatalogueId")).Enabled)
                 {
                     datarow.newrow("Default Catalogue Selection", "Default Catalogue is expected to be selected","Default Catalogue is selected", "PASS", driver);
@@ -66,7 +66,7 @@ namespace MoBankUI
                 }
 
                 // Adding 30 mins Cache for the Site
-                driver.FindElement(By.Id("CacheLength")).SendKeys("30");
+                driver.FindElement(By.Id("CacheLength")).SendKeys("0");
                 driver.FindElement(By.CssSelector("input.button")).Click();
                   waitforpagetoload(driver,30000);
 

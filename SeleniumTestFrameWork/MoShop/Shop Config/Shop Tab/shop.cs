@@ -5,60 +5,48 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class shop : driverdefining
+    internal class shop : driverdefining 
     {
         public void culture(IWebDriver driver , datarow datarow)
         {
             try
             {
               driver.FindElement(By.LinkText("MoShop")).Click();
-                waitforpagetoload(driver,30000);
               driver.FindElement(By.CssSelector("#IndexMenuLeaf3 > a")).Click();
-                waitforpagetoload(driver,30000);
               driver.FindElement(By.LinkText("testshop")).Click();
-                waitforpagetoload(driver,30000);
-             driver.FindElement(By.LinkText("Shop")).Click();  
-                waitforpagetoload(driver,30000);
+              driver.FindElement(By.LinkText("Shop")).Click();  
+              
                 try
                 {
                      driver.FindElement(By.CssSelector("h3.collapsible.collapsed")).Click();
-                    waitforpagetoload(driver,30000);
                      driver.FindElement(By.CssSelector("h3.collapsible.collapsed")).Click();
-                    waitforpagetoload(driver,30000);
                 }
                 catch (Exception ex)
                 {
                     ex.ToString();
                 }
                 
-                driver.FindElement(By.Id("CustomDomainName")).SendKeys("m.testshop.com");
+               driver.FindElement(By.Id("CustomDomainName")).SendKeys("m.testshop.com");
                driver.FindElement(By.CssSelector("input.button")).Click();
-                waitforpagetoload(driver,30000);
-                  new SelectElement(driver.FindElement(By.Id("DefaultCultureSelected"))).SelectByText("Telugu (India) - ₹ [te-IN]");
-              
-                driver.FindElement(By.CssSelector("input.button")).Click();
-                waitforpagetoload(driver,30000);
+              new SelectElement(driver.FindElement(By.Id("DefaultCultureSelected"))).SelectByText("Telugu (India) - ₹ [te-IN]");
+              driver.FindElement(By.CssSelector("input.button")).Click();
 
-
-            
                 decimal count = driver.FindElements(By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr")).Count;
                 for (int i = 1; i <= count; i++)
                 {
-
                     string name =GetValue(driver,By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr[" + i + "]/td/input"),30);
                     if (name == "Default")
                     {
                         driver.FindElement(By.XPath("//*[@id='CataloguesControl']/div/table/tbody/tr["+i+"]/th[2]/a")).Click();
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                          waitforpagetoload(driver,30000);
                         new SelectElement(driver.FindElement(By.Id("Culture_Value"))).SelectByText("Telugu (India) - ₹ [te-IN]");
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                           waitforpagetoload(driver,30000);
                         break;
-                        
-
                     }
                 }
+                //Inserting Category Images. 
+                new CategoryImages().images(driver,datarow);
+
 
                 driver.Navigate().GoToUrl("http://m.testshop.com"); 
                   waitforpagetoload(driver,30000);

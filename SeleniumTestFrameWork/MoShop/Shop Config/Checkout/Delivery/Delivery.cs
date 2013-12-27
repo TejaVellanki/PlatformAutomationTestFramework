@@ -8,7 +8,7 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Delivery : driverdefining
+    public class Delivery : driverdefining
     {
         public void delivery(IWebDriver driver, datarow datarow) 
         {
@@ -16,13 +16,15 @@ namespace MoBankUI
             {
                 datarow.newrow("", "", "DELIVERY CONFIGURATION", "", driver);
                 driver.FindElement(By.LinkText("Checkout Process")).Click(); 
-                  waitforpagetoload(driver,30000);
+                waitforpagetoload(driver,30000);
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
-                  waitforpagetoload(driver,30000);
-                  Selectanoption(driver, By.Id("Method"), "POST");
-               // new SelectElement(driver.FindElement(By.Id("Method"))).SelectByText("POST");
+                
+                waitforpagetoload(driver,30000);
+                Selectanoption(driver, By.Id("Method"), "POST");
+           
                 driver.FindElement(By.Id("Url")).Clear();
                 driver.FindElement(By.Id("Url")).SendKeys("https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?");
+
                 driver.FindElement(By.Id("Parameters")).Clear();
                 driver.FindElement(By.Id("Parameters")).SendKeys(
                           "RANDOM=0.708711438653157&SEQUENCE=1&ActCheckoutPhase=SHIPPING&ShippingClass={{ShippingClass}}&SHIPUSERDEFINED={{SHIPUSERDEFINED}}&ActCheckoutPhase=TANDC&ActCheckoutPhase=GENERAL&GENERALHOWFOUND={{GENERALHOWFOUND}}&GENERALWHYBUY={{GENERALWHYBUY}}&ACTION_NEXT.x=82&ACTION_NEXT.y=7{{AGREETERMSCONDITIONS}}");
@@ -37,101 +39,86 @@ namespace MoBankUI
                 driver.FindElement(By.Id("LiveScrapeForm_ErrorSelector")).SendKeys("#errormessage blockquote");
                 driver.FindElement(By.CssSelector("input.button")).Click();
                 waitforpagetoload(driver,30000);
+
+
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Name")).Click();
-                Thread.Sleep(2000);
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_0__LabelSelector")).Clear();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__LabelSelector")).SendKeys(".actrequired");
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_0__KeysValuesSelector")).Clear();
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__KeysValuesSelector")).SendKeys("select[name=\"ShippingClass\"] option");
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Name")).Click();
                 Selectanoption(driver, By.Id("LiveScrapeForm_Elements_0__Type"), "DropList");
-                //new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Type"))).SelectByText("DropList");
+                waitforpagetoload(driver, 30000);
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Type")).SendKeys(Keys.Enter);
+
+
+
+
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Name")).Click();
-                Thread.Sleep(2000);
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_1__LabelSelector")).Clear();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_1__LabelSelector"))
                       .SendKeys("label[for=\"SHIPUSERDEFINED\"]");
+
+
+              
+
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Name")).Click();
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_2__LabelSelector")).Clear();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_2__LabelSelector"))
                       .SendKeys("label[for=\"idGENERALHOWFOUND\"]");
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_2__KeysValuesSelector")).Clear();
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_2__KeysValuesSelector"))
                       .SendKeys("select[name=\"GENERALHOWFOUND\"] option");
+
+
+
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_3__Name")).Click();
-                Thread.Sleep(2000);
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_3__LabelSelector")).Clear();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_3__LabelSelector"))
                       .SendKeys("label[for=\"GENERALWHYBUY\"]");
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_3__KeysValuesSelector")).Clear();
+               driver.FindElement(By.Id("LiveScrapeForm_Elements_3__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_3__KeysValuesSelector"))
                       .SendKeys("select[name=\"GENERALWHYBUY\"] option");
+
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_3__Name")).Click();
+                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_3__Type"), "DropList");
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_3__Type")).SendKeys(Keys.Enter);
+
+               
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Name")).Click();
-                Thread.Sleep(2000);
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__LabelSelector")).SendKeys("label[for=\"AGREETERMSCONDITIONS\"]");
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Name")).Click();
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__CheckBoxReplacement")).SendKeys("&AGREETERMSCONDITIONS=NO");
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Name")).Click();
+                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_4__Type"), "Check");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Name")).Click();
                 driver.FindElement(By.XPath("//div[@id='LiveScrapeForm.Elements[4].NameControl']/div")).Click();
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Name")).Click();
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Name")).Click();
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__LabelSelector")).Clear();
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__LabelSelector")).SendKeys("label[for=\"AGREETERMSCONDITIONS\"]");
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__CheckBoxReplacement")).Clear();
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__CheckBoxReplacement")).SendKeys("&AGREETERMSCONDITIONS=NO");
+                waitforpagetoload(driver, 30000);
+          
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  waitforpagetoload(driver,30000);
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Type")).Click();
-                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_2__Type"), "Check");
-                //new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Type"))).SelectByText("Check");
-                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_2__Type"), "Text");
-                //new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Type"))).SelectByText("Text");
-
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Type")).Click();
-                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_4__Type"), "Check");
-                //new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Type"))).SelectByText("Check");
-             
-               
-                driver.FindElement(By.CssSelector("input.button")).Click();
-                  waitforpagetoload(driver,30000);
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Type")).Click();
-                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_2__Type"), "DropList");
-               // new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Type"))).SelectByText("DropList");
-                driver.FindElement(By.Id("LiveScrapeForm_Elements_3__Type")).Click();
-                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_3__Type"), "DropList");
-               // new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_3__Type"))).SelectByText("DropList");
-                driver.FindElement(By.CssSelector("input.button")).Click();
-                  waitforpagetoload(driver,30000);
+                waitforpagetoload(driver,30000);
 
                 driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).Clear();
                 driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).SendKeys(".checkout-cart strong:eq(3)");
                 Selectanoption(driver, By.Id("ScrapedDataValueConfigurations_0__PropertyPath"), "ShippingChargeAmount");
-               // new SelectElement(driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__PropertyPath"))).SelectByText("ShippingChargeAmount");
+                driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__PropertyPath")).SendKeys(Keys.Enter);
+              
                 driver.FindElement(By.CssSelector("input.button")).Click();
                   waitforpagetoload(driver,30000);
 
                 #region Validation
 
-                string text = driver.FindElement(By.Id("DynamicSourceUrl")).GetAttribute("Value");
+                string text = driver.FindElement(By.Id("DynamicSourceUrl")).Selected.ToString();
                 string attribute = driver.FindElement(By.Id("Parameters")).GetAttribute("Value");
                 string actual = driver.FindElement(By.Id("Sequence")).GetAttribute("Value");
                 string str4 = driver.FindElement(By.Id("LiveScrapeForm_HeaderSelector")).GetAttribute("Value");
                 string str5 = driver.FindElement(By.Id("LiveScrapeForm_SuccessSelector")).GetAttribute("Value");
                 string str6 = driver.FindElement(By.Id("LiveScrapeForm_ErrorSelector")).GetAttribute("Value");
-                string str7 = driver.FindElement(By.Id("LiveScrapeForm_Elements_0__LabelSelector"))
-                                    .GetAttribute("Value");
-                string str8 =
-                    driver.FindElement(By.Id("LiveScrapeForm_Elements_0__KeysValuesSelector")).GetAttribute("Value");
-                string str9 = driver.FindElement(By.Id("LiveScrapeForm_Elements_1__LabelSelector"))
-                                    .GetAttribute("Value");
-                string str10 =
-                    driver.FindElement(By.Id("LiveScrapeForm_Elements_2__LabelSelector")).GetAttribute("Value");
-                string str11 =
-                    driver.FindElement(By.Id("LiveScrapeForm_Elements_3__LabelSelector")).GetAttribute("Value");
-                string str12 =
-                    driver.FindElement(By.Id("LiveScrapeForm_Elements_2__KeysValuesSelector")).GetAttribute("Value");
-                string str13 =
-                    driver.FindElement(By.Id("LiveScrapeForm_Elements_4__LabelSelector")).GetAttribute("Value");
-                string str14 =
-                    driver.FindElement(By.Id("LiveScrapeForm_Elements_4__CheckBoxReplacement")).GetAttribute("Value");
-                string str15 =
-                    driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).GetAttribute("Value");
+                string str7 = driver.FindElement(By.Id("LiveScrapeForm_Elements_0__LabelSelector")).GetAttribute("Value");
+                string str8 =driver.FindElement(By.Id("LiveScrapeForm_Elements_0__KeysValuesSelector")).GetAttribute("Value");
+                string str9 = driver.FindElement(By.Id("LiveScrapeForm_Elements_1__LabelSelector")).GetAttribute("Value");
+                string str10 =driver.FindElement(By.Id("LiveScrapeForm_Elements_2__LabelSelector")).GetAttribute("Value");
+                string str11 =driver.FindElement(By.Id("LiveScrapeForm_Elements_3__LabelSelector")).GetAttribute("Value");
+                string str12 =driver.FindElement(By.Id("LiveScrapeForm_Elements_2__KeysValuesSelector")).GetAttribute("Value");
+                string str13 =driver.FindElement(By.Id("LiveScrapeForm_Elements_4__LabelSelector")).GetAttribute("Value");
+                string str14 =driver.FindElement(By.Id("LiveScrapeForm_Elements_4__CheckBoxReplacement")).GetAttribute("Value");
+                string str15 = driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).GetAttribute("Value");
 
 
                 if (text == "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?")

@@ -79,7 +79,7 @@ namespace MoBankUI
             driver.FindElement(By.CssSelector("input.button")).Click();
             waitforpagetoload(driver,30000);
             string str6 = driver.FindElement(By.Id("Pages_0__Name")).GetAttribute("Value");
-            string str7 = driver.FindElement(By.Id("Pages_0__ObjectTypeName")).GetAttribute("Value");
+            string str7 = driver.FindElement(By.Id("Pages_0__ObjectTypeName")).GetAttribute("option value");
             if (str6 == "Categories")
             {
                 datarow.newrow("Page Name", "Categories", str6, "PASS", driver);
