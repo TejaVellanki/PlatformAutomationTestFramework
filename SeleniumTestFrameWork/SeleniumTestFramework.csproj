@@ -187,6 +187,11 @@
     <Compile Include="MoShop\Scarpe Config\ProductScrape.cs" />
     <Compile Include="ObjectRepository\ObjectRepositoryV1.cs" />
     <Compile Include="ObjectRepository\versionselection.cs" />
+    <Compile Include="Next Mobi\Bag.cs" />
+    <Compile Include="Next Mobi\Clearance.cs" />
+    <Compile Include="Next Mobi\Variants.cs" />
+    <Compile Include="Next Mobi\Men.cs" />
+    <Compile Include="Next Mobi\mobibatch.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MoShop\Shop Config\Scheduler\Scheduler.cs" />

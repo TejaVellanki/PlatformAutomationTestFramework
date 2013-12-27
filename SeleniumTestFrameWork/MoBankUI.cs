@@ -9,7 +9,24 @@ using OpenQA.Selenium.IE;
 
 namespace MoBankUI
 {
+<<<<<<< HEAD
     public partial class Form1 : Form
+=======
+    using OpenQA.Selenium;
+    using OpenQA.Selenium.Android;
+    using OpenQA.Selenium.Chrome;
+    using OpenQA.Selenium.Firefox;
+    using OpenQA.Selenium.IE;
+    using OpenQA.Selenium.Android;
+    using Selenium;
+    using System;
+    using System.Drawing;
+    using System.Threading;
+    using System.Windows.Forms;
+    using Next_Mobi;
+
+    public partial class Next : Form
+>>>>>>> origin/NEXT-Mobi
     {
         private CheckedListBox checkedListBox1;
         private TextBox textBox1;
@@ -18,7 +35,7 @@ namespace MoBankUI
         private TextBox textbox4;
 
 
-        public Form1()
+        public Next()
         {
             InitializeComponent();
         }
@@ -27,6 +44,7 @@ namespace MoBankUI
         {
             try
             {
+<<<<<<< HEAD
                 bool mopaytestharness = checkBox15.Checked;
                 bool Mopayconsole = checkBox16.Checked;
                 bool Moshop = checkBox11.Checked;
@@ -34,9 +52,28 @@ namespace MoBankUI
                 bool MoSite = checkBox12.Checked;
                 bool Firefox = checkBox14.Checked;
                 bool mositetps = checkBox13.Checked;
+<<<<<<< HEAD
+=======
+                bool mopaytestharness = this.checkBox15.Checked;
+                bool Mopayconsole = this.checkBox16.Checked;
+                bool Moshop = this.checkBox11.Checked;
+                bool MoPayAccount  = this.checkBox17.Checked;
+                bool MoSite= this.checkBox12.Checked;
+                bool Firefox= this.checkBox14.Checked;
+                bool mositetps= this.checkBox13.Checked;
+                bool tabletview = checkBox1.Checked;
+                bool NextMobi = checkBox2.Checked;
+              
+>>>>>>> origin/NEXT-Mobi
+=======
                 bool appium = checkBox1.Checked;
                 
 
+<<<<<<< HEAD
+>>>>>>> origin/TabletView
+
+=======
+>>>>>>> TabletView
                 if (mopaytestharness)
                 {
                     this.mopaytestharness();
@@ -57,7 +94,18 @@ namespace MoBankUI
                 {
                     mositemodro();
                 }
+<<<<<<< HEAD
+<<<<<<< HEAD
+                
+=======
+                if (NextMobi)
+                {
+                    this.nextmobi();
+                }
+>>>>>>> origin/NEXT-Mobi
+=======
 
+>>>>>>> TabletView
                 #region MositeTPS
 
                 if (mositetps)
@@ -372,6 +420,26 @@ namespace MoBankUI
             {
             }
         }
+        public void nextmobi()
+        {
+                string items = null;
+                datarow datarow = new datarow();
+                datarow.col();
+                int count = checkedListBox6.CheckedItems.Count;
+                foreach (var item in checkedListBox6.CheckedItems)
+                {
+                    items += item.ToString() +",";
+                }
+                IWebDriver driver = new FirefoxDriver();
+                this.selenium = new WebDriverBackedSelenium(driver, "http://m.next.co.uk/");
+                this.selenium.Start();
+                this.selenium.WindowMaximize();
+                driver.Navigate().GoToUrl("http://m.next.co.uk/");
+             
+            mobibatch mobi = new mobibatch();
+            mobi.nextmobi(driver, selenium, datarow,items);
+            datarow.excelsave("NextMobi", driver, selenium, "vaishali.mongia@mobankgroup.com");
+        }
 
         #endregion
 
@@ -513,5 +581,65 @@ namespace MoBankUI
         }
 
         #endregion
+<<<<<<< HEAD
+
+        private void checkedListBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+          
+        }
+<<<<<<< HEAD
+  
+=======
+
+        private void checkBox12_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox16_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NextMobi_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+      
+    }
+>>>>>>> origin/NEXT-Mobi
+}
+
+=======
     }
 }
+>>>>>>> TabletView
