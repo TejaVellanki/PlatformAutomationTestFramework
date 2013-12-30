@@ -18,7 +18,7 @@ namespace MoBankUI
                 string confirm = driver.FindElement(By.XPath("//*[@id='Pages_1__Name']")).Text;
 
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
-                  waitforpagetoload(driver,30000);
+                  
 
                 driver.FindElement(By.Id("Url")).Clear();
                 driver.FindElement(By.Id("Url")).SendKeys("https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl");
@@ -33,7 +33,7 @@ namespace MoBankUI
                 driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Attribute")).SendKeys("value");
                 new SelectElement(driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__PropertyPath")))  new SelectElement(driver.FindElement(By.Id(""))).SelectByText("");ByText("Reference");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                  * */
                 driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).Clear();
                 driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).SendKeys("input[name='CALLBACKURLUSER']");
@@ -42,7 +42,7 @@ namespace MoBankUI
                 Selectanoption(driver, By.Id("ScrapedDataValueConfigurations_0__PropertyPath"), "PaymentAcceptedUrl");
                 // new SelectElement(driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__PropertyPath"))).SelectByText("PaymentAcceptedUrl");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  waitforpagetoload(driver,30000);
+                  
 
                 #region validations
 

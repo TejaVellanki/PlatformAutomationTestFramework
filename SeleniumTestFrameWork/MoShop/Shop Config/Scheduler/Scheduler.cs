@@ -28,10 +28,11 @@ namespace MoBankUI
             string str11;
             string str12;
             string str13;
-            driver.FindElement(By.LinkText("Shop")).Click();
-              waitforpagetoload(driver,30000);
+            driver.FindElement(By.LinkText("Shops")).Click();
+            driver.FindElement(By.LinkText("testshop")).Click();
+              
             driver.FindElement(By.LinkText("Scheduler")).Click();
-              waitforpagetoload(driver,30000);
+              
             datarow.newrow("", "", "SCHEDULER", "", driver );
             if(IsElementPresent(driver,By.CssSelector("h3.collapsible.collapsed"),30))
             {
@@ -43,7 +44,7 @@ namespace MoBankUI
                 Selectanoption(driver, By.Id("Jobs_0__JobType"), "Scrape");
                 //new SelectElement(driver.FindElement(By.Id("Jobs_0__JobType"))).SelectByText("Scrape");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 string attribute = driver.FindElement(By.Id("Jobs_0__JobType")).GetAttribute("Value");
                 if (attribute == "Scrape")
                 {
@@ -63,11 +64,11 @@ namespace MoBankUI
                 driver.FindElement(By.Id("Jobs_0__RepeatInterval_Hours")).Clear();
                 driver.FindElement(By.Id("Jobs_0__RepeatInterval_Hours")).SendKeys("0");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                waitforpagetoload(driver,30000);
+                
                 Selectanoption(driver, By.Id("Jobs_1__JobType"), "Data Feed");
                 //new SelectElement(driver.FindElement(By.Id("Jobs_1__JobType"))).SelectByText("Data Feed");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                waitforpagetoload(driver,30000);
+                
                 Thread.Sleep(0x1388);
                 string str3 = GetValue(driver,By.Id("Jobs_1__Active"),30);
                 num = 0;
@@ -140,7 +141,7 @@ namespace MoBankUI
                     driver.FindElement(By.Id("Jobs_1__RepeatInterval_Hours")).Clear();
                     driver.FindElement(By.Id("Jobs_1__RepeatInterval_Hours")).SendKeys("1");
                     driver.FindElement(By.CssSelector("input.button")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                 }
                 else
                 {
@@ -157,7 +158,7 @@ namespace MoBankUI
                     driver.FindElement(By.Id("Jobs_0__RepeatInterval_Hours")).Clear();
                     driver.FindElement(By.Id("Jobs_0__RepeatInterval_Hours")).SendKeys("1");
                     driver.FindElement(By.CssSelector("input.button")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                 }
                 int num2 = 0;
                 if (str3 == "false")

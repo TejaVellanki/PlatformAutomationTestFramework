@@ -16,7 +16,7 @@ namespace MoBankUI
             try
             {
                 driver.FindElement(By.LinkText("Execute")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 try
                 {
                     Selectanoption(driver, By.Id("TestCatalogueId"), "testshop (Default)");
@@ -29,7 +29,7 @@ namespace MoBankUI
                   
                 //new SelectElement(driver.FindElement(By.Id("TestCatalogueId"))).SelectByText("Default");
                 driver.FindElement(By.Name("PostAction[]")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 string title = driver.Title;
                 scarperead(driver,datarow, title);
                
@@ -59,7 +59,7 @@ namespace MoBankUI
                         datarow.newrow("Scarpe Type", "", type, "PASS", driver);
                         Thread.Sleep(5000);
                         driver.Navigate().Refresh();
-                          waitforpagetoload(driver,30000);
+                          
                         break;
                     }
                     catch (Exception ex)
@@ -72,7 +72,7 @@ namespace MoBankUI
                 {
                     Thread.Sleep(5000);
                      driver.Navigate().Refresh();
-                       waitforpagetoload(driver,30000);
+                       
                     j++;
                 }
                 if (j == 10)
@@ -82,7 +82,7 @@ namespace MoBankUI
                 }
             }
             driver.FindElement(By.LinkText("Running")).Click();
-              waitforpagetoload(driver,30000);
+              
             string tilte1 = driver.Title;
             scrapeandfeedrunning(driver,datarow);
         }
@@ -110,7 +110,7 @@ namespace MoBankUI
                                 datarow.newrow("Scarpe/Datafeed status", "", comp, "PASS", driver);
                                 Thread.Sleep(5000);
                                 driver.Navigate().Refresh();
-                                  waitforpagetoload(driver,30000);
+                                  
                             }
                         }
                         catch (Exception ex)
@@ -125,7 +125,7 @@ namespace MoBankUI
                 {
                     Thread.Sleep(5000);
                     driver.Navigate().Refresh();
-                       waitforpagetoload(driver,30000);
+                       
                     j++;
                 }
                 if (j == 10)
@@ -138,7 +138,7 @@ namespace MoBankUI
             #endregion
 
             driver.FindElement(By.LinkText("Completed")).Click();
-              waitforpagetoload(driver,30000);
+              
             string completed = driver.FindElement(By.CssSelector("td.markedCell")).Text;
             if (completed.Contains("100%"))
             {

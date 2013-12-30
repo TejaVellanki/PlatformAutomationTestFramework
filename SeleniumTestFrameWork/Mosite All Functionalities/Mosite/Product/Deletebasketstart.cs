@@ -43,7 +43,7 @@ namespace MoBankUI
                             screenshot.screenshotfailed(driver);
                             productunavailabl(driver,l, datarow);
                             driver.FindElement(By.XPath(checkout)).Click();
-                            waitforpagetoload(driver,30000);
+                            
                         }
                         else
                         {
@@ -89,15 +89,15 @@ namespace MoBankUI
                 if (IsElementPresent(driver,By.XPath("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span")))
                 {
                     driver.FindElement(By.XPath("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                 }
                 else if (IsElementPresent(driver,By.Id(deletebasket)))
                 {
                     driver.FindElement(By.XPath(deletebasket)).Click();
-                    waitforpagetoload(driver,30000);
+                    
                 }
                 driver.FindElement(By.Id(homeimage)).Click();
-                waitforpagetoload(driver,30000);
+                
 
                 string url1 = driver.PageSource;
                 if (url1.Contains("user-scalable=yes"))
@@ -118,20 +118,20 @@ namespace MoBankUI
 
 
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
-                waitforpagetoload(driver,30000);
+                
                 decimal categorycount = GetXpathCount(driver,categorylink);
                 for (int i = 1;; i++)
                 {
                     if (IsElementPresent(driver,By.XPath("" + categorylink + "[" + l + "]" + cat + "")))
                     {
                         driver.FindElement(By.XPath("" + categorylink + "[" + l + "]" + cat + "")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                         string titlecategory = driver.Title;
 
                         if (IsElementPresent(driver,By.XPath(products)))
                         {
                             driver.FindElement(By.Id("" + products + "" + productlink + "")).Click();
-                            waitforpagetoload(driver,30000);
+                            
                             break;
                         }
                     }

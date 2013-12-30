@@ -100,7 +100,7 @@ namespace MoBankUI
                             By.XPath(
                                 "//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"))
                               .Click();
-                        waitforpagetoload(driver,30000);
+                        
                         if (!(driver.Title == "Checkout - Address - QA - The Tickle Company"))
                         {
                             break;
@@ -221,7 +221,7 @@ namespace MoBankUI
                 executor2.ExecuteScript("window.scrollBy(0,200)", new object[0]);
                 Thread.Sleep(3000);
                 driver.FindElement(By.XPath("//html/body/div/div[2]/div/form/fieldset/div[2]/div/button")).Click();
-                   waitforpagetoload(driver,30000);
+                   
                 Thread.Sleep(3000);
                 string text =  driver.FindElement(By.CssSelector("div.ui-content.ui-body-c > p")).Text;
                 if (text == "TestFirstname,TestLastName, 0123456789, Test Address1, TestCity, TestCounty, TestPostcode")
@@ -239,7 +239,7 @@ namespace MoBankUI
                 executor2.ExecuteScript("window.scrollBy(0,200)", new object[0]);
                 Thread.Sleep(3000);
                 driver.FindElement(By.XPath("//html/body/div/div[2]/div[2]/div[2]/a/span/span")).Click();
-                waitforpagetoload(driver,30000);
+                
             }
             catch (Exception exception)
             {

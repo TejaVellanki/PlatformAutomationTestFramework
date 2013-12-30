@@ -15,13 +15,13 @@ namespace MoBankUI
                
                 string shop = "testshop";
                 driver.FindElement(By.LinkText("Shops")).Click();
-                waitforpagetoload(driver,30000);
+                
                 driver.FindElement(By.LinkText("Create")).Click();
-                waitforpagetoload(driver,30000);
+                
                 driver.FindElement(By.Id("Name")).Clear();
                 driver.FindElement(By.Id("Name")).SendKeys(shop);
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                waitforpagetoload(driver,30000);
+                
                 string title = driver.Title;
                 if (title == "Shop : mobank.co.uk/MoShop")
                 {
@@ -47,13 +47,13 @@ namespace MoBankUI
                 driver.FindElement(By.Id("Catalogues_1__Name")).Clear();
                 driver.FindElement(By.Id("Catalogues_1__Name")).SendKeys("Default");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                   waitforpagetoload(driver,30000);
+                   
                 driver.FindElement(By.Id("DefaultCatalogueId")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                   waitforpagetoload(driver,30000);
+                   
                 driver.FindElement(By.Id("DefaultCatalogueId")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                waitforpagetoload(driver,30000);
+                
                 if(driver.FindElement(By.Id("DefaultCatalogueId")).Enabled)
                 {
                     datarow.newrow("Default Catalogue Selection", "Default Catalogue is expected to be selected","Default Catalogue is selected", "PASS", driver);
@@ -62,17 +62,17 @@ namespace MoBankUI
                 {
                     driver.FindElement(By.Id("DefaultCatalogueId")).Click();
                     driver.FindElement(By.CssSelector("input.button")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                 }
 
                 // Adding 30 mins Cache for the Site
                 driver.FindElement(By.Id("CacheLength")).SendKeys("0");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  waitforpagetoload(driver,30000);
+                  
 
 
                 driver.FindElement(By.LinkText("Look & Feel")).Click();
-                  waitforpagetoload(driver,30000);
+                  
             }
             catch (Exception ex)
             {

@@ -15,7 +15,7 @@ namespace MoBankUI
             try
             {
             driver.FindElement(By.LinkText("Checkout")).Click();
-              waitforpagetoload(driver,30000);
+              
             datarow.newrow("", "", "CHECKOUT", "", driver);
             string actual = driver.Title;
             if (actual == "Checkout : mobank.co.uk/MoShop")
@@ -30,19 +30,19 @@ namespace MoBankUI
             driver.FindElement(By.Id("CheckoutProcesses_0__Name")).Clear();
             driver.FindElement(By.Id("CheckoutProcesses_0__Name")).SendKeys("Tickle (copy of QA by SB)");
             driver.FindElement(By.Id("CheckoutProcesses_0__Name")).SendKeys(Keys.Enter);
-              waitforpagetoload(driver,30000);
+              
             driver.FindElement(By.Id("GenerateUniqueReference")).Click();
             driver.FindElement(By.Id("PaymentAccountIdentifier")).Clear();
             driver.FindElement(By.Id("PaymentAccountIdentifier")).SendKeys("45af07ff-a7dc-4453-89b0-285b85deef2a");
             driver.FindElement(By.CssSelector("input.button")).Click();
-              waitforpagetoload(driver,30000);
+              
             Thread.Sleep(3000);
             string attribute = driver.FindElement(By.Id("CheckoutProcesses_0__Name")).GetAttribute("Value");
             if (attribute == "")
             {
                 driver.FindElement(By.Id("CheckoutProcesses_0__Name")).SendKeys("Tickle (copy of QA by SB)");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 Thread.Sleep(3000);
             }
             string str3 = driver.FindElement(By.Id("PaymentAccountIdentifier")).GetAttribute("Value");
@@ -65,9 +65,9 @@ namespace MoBankUI
             Thread.Sleep(3000);
             driver.FindElement(By.Id("DefaultCheckoutProcessId")).Click();
             driver.FindElement(By.CssSelector("input.button")).Click();
-              waitforpagetoload(driver,30000);
+              
             driver.FindElement(By.LinkText("…")).Click();
-              waitforpagetoload(driver,30000);
+              
             string str4 = driver.Title;
             if (str4 == "Checkout Process : mobank.co.uk/MoShop")
             {

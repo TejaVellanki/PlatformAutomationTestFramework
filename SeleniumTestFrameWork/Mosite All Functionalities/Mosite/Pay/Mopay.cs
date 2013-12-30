@@ -243,7 +243,7 @@ namespace MoBankUI
                     if (j < 1)
                     {
                         driver.FindElement(By.Id("change-address")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                         j++;
                     }
                     driver.FindElement(By.Id("BillingContact_FirstName")).Clear();
@@ -293,7 +293,7 @@ namespace MoBankUI
                         //}
                     }
                     driver.FindElement(By.Name("PostAction[Complete]")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                     Thread.Sleep(3000);
 
                     #region Validation

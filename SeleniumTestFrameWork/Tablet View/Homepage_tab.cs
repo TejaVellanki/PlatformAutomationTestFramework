@@ -24,7 +24,7 @@ namespace Tablet_View
                   {
                      element = driver.FindElement(By.Id(basket));
                      driver.FindElement(By.Id(basket)).Click();
-                     Driver.  waitforpagetoload(driver,30000);
+                     Driver.  
                     
                   }
                       // Identifying the Basket Element. 

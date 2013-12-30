@@ -126,7 +126,7 @@ namespace MoBankUI
                     driver.FindElement(By.Name("CookieData[1].Value")).SendKeys(str9);
                     driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
                     datarow.newrow("Account", "Type", locator, "PASS",driver);
-                       waitforpagetoload(driver,30000);
+                       
                     int num3 = table.Columns.Count;
                     for (int j = 0; j < num3; j++)
                     {
@@ -193,7 +193,7 @@ namespace MoBankUI
                                 break;
                         }
                         driver.FindElement(By.Name("PostAction[Complete]")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                         Thread.Sleep(3000);
                         if (Regex.IsMatch(str15, "^[0-9'']"))
                         {

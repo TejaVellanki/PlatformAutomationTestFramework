@@ -5,7 +5,6 @@ using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
 using WebDriver_Refining;
-
 using OpenQA.Selenium;
  
 
@@ -20,7 +19,7 @@ namespace MoBankUI
             {
                 datarow.newrow("", "", "LOOK AND FEEL TAB", "", driver);
                 driver.FindElement(By.LinkText("Look & Feel")).Click();
-                waitforpagetoload(driver,30000);
+                
                 string actual = driver.Title;
                 if (driver.Title == "Look & Feel : mobank.co.uk/MoShop")
                 {
@@ -39,9 +38,9 @@ namespace MoBankUI
                         Thread.Sleep(2000);
                         //Focus("id=Customisations_0__Title");
                         driver.FindElement(By.Id("Customisations_0__Title")).SendKeys(Keys.Enter);
-                        waitforpagetoload(driver,30000);
+                        
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                        waitforpagetoload(driver,30000);
+                        
 
                         string attribute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
                         if (attribute == "QA-TestShop")
@@ -57,11 +56,11 @@ namespace MoBankUI
                         {
                         datarow.newrow("Customiastion Title", "QA-TestShop", attriute, "PASS", driver);
                         driver.FindElement(By.Id("Customisations_0__Title")).Click();
-                          waitforpagetoload(driver,30000);
+                          
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                         waitforpagetoload(driver,30000);
+                         
                          driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
-                          waitforpagetoload(driver,30000);
+                          
                         string str4 = driver.Title;
                         if (str4 == "Customisation : mobank.co.uk/MoShop")
                         {
@@ -71,14 +70,13 @@ namespace MoBankUI
                         {
                             datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "FAIL",driver);
                         }
-                        for (int j = 3; j <= 8; j++)
-                        {
-                            if(driver.FindElement(By.CssSelector("h3.collapsible.collapsed")).Displayed)
-                            {
-                                driver.FindElement(By.CssSelector("h3.collapsible.collapsed")).Click();
-                            }
-                            //*[@id="customisation-page-update-form"]/div[3]/h3
-                        }
+                       
+                            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[5]/h3")).Click();
+                            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[6]/h3")).Click();
+                            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[9]/h3")).Click();
+                            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[10]/h3")).Click();
+                            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[11]/h3")).Click();
+                       
 
                         }
                          catch (Exception ex)
@@ -103,7 +101,7 @@ namespace MoBankUI
                         driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).Clear();
                         driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).SendKeys("Your order couldnot be processed.");
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                         Thread.Sleep(0x1388);
                         }
                         catch (Exception ex)
@@ -166,7 +164,7 @@ namespace MoBankUI
                         driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).Clear();
                         driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).SendKeys("TheTickleCompany");
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                          waitforpagetoload(driver,30000);
+                          
                         string str10 =
                             driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).GetAttribute("Value");
                         if (str10 == "TheTickleCompany")
@@ -178,7 +176,7 @@ namespace MoBankUI
                             datarow.newrow("Link Replacement1", "TheTickleCompany", str10, "FAIL", driver);
                         }
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                        
                     }
                 
@@ -189,7 +187,7 @@ namespace MoBankUI
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
             }
             LookandFeelImages images = new LookandFeelImages();
-            images.images(driver,datarow);
+            //images.images(driver,datarow);
             new ProductSocialShare().productsocialshare(driver,datarow);
             new Scheduler().schedule(driver,datarow);
         }

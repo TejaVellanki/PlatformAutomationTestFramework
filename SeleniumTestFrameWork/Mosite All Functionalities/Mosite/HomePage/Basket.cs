@@ -29,7 +29,7 @@ namespace MoBankUI
                 try
                 {
                     driver.FindElement(By.Id("BasketInfo")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                     datarow.newrow("Basket Info Button", "Basket Info Button Is Expected",
                                    "Basket Info Button is Present", "PASS",driver);
                 }

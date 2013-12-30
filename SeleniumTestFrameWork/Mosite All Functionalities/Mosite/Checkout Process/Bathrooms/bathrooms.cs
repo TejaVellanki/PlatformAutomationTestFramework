@@ -16,24 +16,24 @@ namespace MoBankUI
     {
 
         driver.Navigate().GoToUrl("http://m.bathrooms.com/");
-          waitforpagetoload(driver,30000);
+          
         driver.Manage().Cookies.DeleteAllCookies();
         driver.FindElement(By.LinkText("Bathroom suites")).Click();
-          waitforpagetoload(driver,30000);
+          
         driver.FindElement(By.LinkText("Bathroom Ranges")).Click();
-          waitforpagetoload(driver,30000);
+          
         driver.FindElement(By.CssSelector("h2.wrappable.ui-li-heading")).Click();
-          waitforpagetoload(driver,30000);
+          
         driver.FindElement(By.CssSelector("div.price > p.ui-li-desc")).Click();
-          waitforpagetoload(driver,30000);
+          
         driver.FindElement(By.XPath("(//input[@value='Add To Basket'])[2]")).Click();
-          waitforpagetoload(driver,30000);
+          
         Thread.Sleep(5000);
         driver.FindElement(By.XPath("//div[@id='AddedDetail']/ul/li/p/a/span/span")).Click();
-          waitforpagetoload(driver,30000);
+          
         Thread.Sleep(5000);
         driver.FindElement(By.CssSelector("#GoToCheckout > span.ui-btn-inner > span.ui-btn-text")).Click();
-          waitforpagetoload(driver,30000);
+          
         Assert.AreEqual("Checkout - Bathrooms", driver.Title);
         new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlTitle"))).SelectByText("Mr");
         driver.FindElement(By.CssSelector("option.ui-state-valid")).Click();
@@ -56,7 +56,7 @@ namespace MoBankUI
         new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlHearAbout"))).SelectByText("Online Search");
         driver.FindElement(By.XPath("//form[@id='checkout']/section/div[16]/div/label/span")).Click();
         driver.FindElement(By.Id("Pagecontent_ButtonContinue")).Click();
-          waitforpagetoload(driver,30000);
+          
 
         Assert.AreEqual("Checkout - Bathrooms", driver.Title);
 
@@ -74,14 +74,14 @@ namespace MoBankUI
         driver.FindElement(By.Id("Pagecontent_TextBoxPostCode")).SendKeys("se1 7tl");
 
         driver.FindElement(By.Id("Pagecontent_ButtonContinue")).Click();
-          waitforpagetoload(driver,30000);
+          
 
         driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep2")).Click();
-          waitforpagetoload(driver,30000);
+          
 
 
         driver.FindElement(By.Id("Pagecontent_ButtonConfirmCheckout")).Click();
-          waitforpagetoload(driver,30000);
+          
 
         Assert.AreEqual("Secure Payment Page", driver.Title);
         string title = driver.Title;

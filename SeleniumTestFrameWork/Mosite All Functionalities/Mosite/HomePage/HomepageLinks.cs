@@ -57,7 +57,7 @@ namespace MoBankUI
                         IWebElement myDynamicElement1 =
                             driver.FindElement(By.XPath("" + categorylink + "[" + i + "]" + cat + ""));
                         driver.FindElement(By.XPath("" + categorylink + "[" + i + "]" + cat + "")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                         string title = driver.Title;
                     }
                     catch (Exception ex)
@@ -85,7 +85,7 @@ namespace MoBankUI
                                 // Category Image validation
                                 Image.categoryimage(driver, datarow);
                                 driver.FindElement(By.XPath("" + categorylink + "[" + k + "]" + cat + "")).Click();
-                                  waitforpagetoload(driver,30000);
+                                  
                                 string titlecategory = driver.Title;
                                 string url1 = driver.Url;
 
@@ -102,7 +102,7 @@ namespace MoBankUI
                                         for (int p = 1; p <= productcount; p++)
                                         {
                                             driver.FindElement(By.XPath("" + products + "[" + p + "]" + productlink + "")).Click();
-                                           waitforpagetoload(driver,30000);
+                                           
                                             try
                                             {
                                                 var page = new Productpage();
@@ -114,7 +114,7 @@ namespace MoBankUI
                                             }
 
                                             driver.Navigate().Back();
-                                         waitforpagetoload(driver,30000);
+                                         
                                         }
                                     }
                                     else
@@ -134,7 +134,7 @@ namespace MoBankUI
 
                             k = s;
                             driver.Navigate().Back();
-                              waitforpagetoload(driver,30000);
+                              
                             s++;
                             string url2 = driver.Url;
                             if (url2.Contains("category"))
@@ -159,7 +159,7 @@ namespace MoBankUI
                     j++;
 
                     //driver.Navigate().Back();
-                    //  waitforpagetoload(driver,30000);
+                    //  
                 }
             }
             catch (Exception ex)

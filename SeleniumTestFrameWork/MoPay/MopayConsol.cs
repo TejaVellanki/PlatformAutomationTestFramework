@@ -31,10 +31,10 @@ namespace MoBankUI
                             "html body div#Top.page div#Content div.mainContent div#Main div#LogOnSection.section div.box form#LogOnForm.form div div#PasswordControl.control div.input input#Password"))
                           .SendKeys("Apple12345");
                     driver.FindElement(By.Id("LogOn_Action_LogOn")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                 }
                 Mopowered(driver);
-                waitforpagetoload(driver,30000);
+                
                 string actual = driver.Title;
                 if (actual == "Manage : mopowered.co.uk")
                 {
@@ -76,7 +76,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str3 = driver.Title;
                 if (str3 == "Accounts : mopowered.co.uk")
                 {
@@ -89,7 +89,7 @@ namespace MoBankUI
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
-                waitforpagetoload(driver,30000);
+                
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Transactions')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Transactions')])[2]")).Click();
@@ -103,7 +103,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str4 = driver.Title;
                 if (str4 == "Transactions : mopowered.co.uk")
                 {
@@ -120,7 +120,7 @@ namespace MoBankUI
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver );
-                waitforpagetoload(driver,30000);
+                
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15.0));
                 IWebElement element2 = driver.FindElement(By.XPath("(//a[contains(text(),'Providers')])[2]"));
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Providers')])[2]")).Count != 0)
@@ -136,7 +136,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str5 = driver.Title;
                 if (str5 == "Providers : mopowered.co.uk")
                 {
@@ -149,7 +149,7 @@ namespace MoBankUI
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver );
-                waitforpagetoload(driver,30000);
+                
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Card Types')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Card Types')])[2]")).Click();
@@ -163,7 +163,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str6 = driver.Title;
                 if (str6 == "Card Types : mopowered.co.uk")
                 {
@@ -176,7 +176,7 @@ namespace MoBankUI
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver );
-                waitforpagetoload(driver,30000);
+                
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Documentation')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Documentation')])[2]")).Click();
@@ -190,7 +190,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str7 = driver.Title;
                 if (str7 == "Documentation : mopowered.co.uk")
                 {
@@ -205,7 +205,7 @@ namespace MoBankUI
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver );
-                waitforpagetoload(driver,30000);
+                
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Service Methods')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Service Methods')])[2]")).Click();
@@ -219,7 +219,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str8 = driver.Title;
                 if (str8 == "Service Methods : mopowered.co.uk")
                 {
@@ -234,7 +234,7 @@ namespace MoBankUI
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
-                waitforpagetoload(driver,30000);
+                
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Payment Pages')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Payment Pages')])[2]")).Click();
@@ -248,7 +248,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str9 = driver.Title;
                 if (str9 == "Payment Pages : mopowered.co.uk")
                 {
@@ -263,7 +263,7 @@ namespace MoBankUI
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
-                waitforpagetoload(driver,30000);
+                
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Objects')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Objects')])[2]")).Click();
@@ -277,7 +277,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str10 = driver.Title;
                 if (str10 == "Objects - : mopowered.co.uk")
                 {
@@ -290,7 +290,7 @@ namespace MoBankUI
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
-                waitforpagetoload(driver,30000);
+                
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Security')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Security')])[2]")).Click();
@@ -304,7 +304,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str11 = driver.Title;
                 if (str11 == "Title : mopowered.co.uk")
                 {
@@ -317,7 +317,7 @@ namespace MoBankUI
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver );
-                waitforpagetoload(driver,30000);
+                
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Users')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Users')])[2]")).Click();
@@ -331,7 +331,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str12 = driver.Title;
                 if (str12 == "Users : mopowered.co.uk")
                 {
@@ -344,7 +344,7 @@ namespace MoBankUI
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
-                waitforpagetoload(driver,30000);
+                
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Groups')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Groups')])[2]")).Click();
@@ -358,7 +358,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str13 = driver.Title;
                 if (str13 == "Groups : mopowered.co.uk")
                 {

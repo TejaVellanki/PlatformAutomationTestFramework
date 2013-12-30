@@ -171,7 +171,7 @@ namespace MoBankUI
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
                 IWebElement myDynamicElement9 = driver.FindElement(By.XPath(submitbutton));
                 driver.FindElement(By.XPath(submitbutton)).Click();
-                waitforpagetoload(driver,30000);
+                
 
 
                 string pagetitle = driver.Title;
@@ -188,7 +188,7 @@ namespace MoBankUI
                 {
                     //html/body/div/div[7]/div/div[2]/div/button
                     driver.FindElement(By.XPath(submitterms)).Click();
-                    waitforpagetoload(driver,30000);
+                    
                     Thread.Sleep(2000);
                 }
                 //string details =  driver.FindElement(By.Id("")).Text;("css=div.ui-content.ui-body-c > p");
@@ -198,7 +198,7 @@ namespace MoBankUI
                 {
                     //html/body/div/div[7]/div/div[2]/a/span/span
                     driver.FindElement(By.XPath(paybutton)).Click();
-                    waitforpagetoload(driver,30000);
+                    
                 }
             }
             catch (Exception ex)

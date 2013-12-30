@@ -49,7 +49,7 @@ namespace MoBankUI
 
 
                 driver.Navigate().GoToUrl("http://m.testshop.com"); 
-                  waitforpagetoload(driver,30000);
+                  
                 string url = driver.Url;
                 if (url == "http://m.testshop.com")
                 {

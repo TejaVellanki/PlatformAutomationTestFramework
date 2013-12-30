@@ -171,7 +171,7 @@ namespace MoBankUI
 
             }
             driver.FindElement(By.CssSelector("input.button")).Click();
-               waitforpagetoload(driver,30000);
+               
         }
     }
 }

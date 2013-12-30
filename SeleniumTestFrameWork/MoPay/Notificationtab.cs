@@ -36,7 +36,7 @@ namespace MoBankUI
             {
                 driver.FindElement(By.Id("SendSuccessfulTransactionReports")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
-              waitforpagetoload(driver,30000);
+              
                 if (driver.FindElement(By.Id("SendSuccessfulTransactionReports")).GetAttribute("value") == "true")
                 {
                     datarow.newrow("Successful Transaction Option", "on", attribute, "PASS",driver);
@@ -61,7 +61,7 @@ namespace MoBankUI
                 datarow.newrow("Daily Email", "off", actual, "PASS",driver);
                 driver.FindElement(By.Id("SendDailyReports")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
-              waitforpagetoload(driver,30000);
+              
                 str10 = driver.FindElement(By.Id("SendDailyReports")).GetAttribute("value");
                 if (str10 == "true")
                 {
@@ -83,7 +83,7 @@ namespace MoBankUI
                 datarow.newrow("Weekly Email", "off", actual, "PASS",driver);
                 driver.FindElement(By.Id("SendWeeklyReports")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
-              waitforpagetoload(driver,30000);
+              
                 str10 = driver.FindElement(By.Id("SendWeeklyReports")).GetAttribute("value");
                 if (str10 == "true")
                 {
@@ -105,7 +105,7 @@ namespace MoBankUI
                 datarow.newrow("Monthly Email", "off", actual, "PASS",driver);
                 driver.FindElement(By.Id("SendMonthlyReports")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
-              waitforpagetoload(driver,30000);
+              
                 str10 = driver.FindElement(By.Id("SendMonthlyReports")).GetAttribute("value");
                 if (str10 == "true")
                 {
@@ -121,11 +121,11 @@ namespace MoBankUI
             driver.FindElement(By.Id("Notifications_0__Url")).SendKeys(expected);
             new SelectElement(driver.FindElement(By.Id("Notifications_0__Event"))).SelectByText("Token");
             driver.FindElement(By.CssSelector("input.button")).Click();
-             waitforpagetoload(driver,30000);
+             
             driver.FindElement(By.Id("Notifications_1__Url")).Clear();
             driver.FindElement(By.Id("Notifications_1__Url")).SendKeys(str2);
             driver.FindElement(By.CssSelector("input.button")).Click();
-            waitforpagetoload(driver,30000);
+            
             string str13 = driver.FindElement(By.Id("Notifications_1__Url")).GetAttribute("Value");
             string str14 = driver.FindElement(By.Id("Notifications_2__Url")).GetAttribute("Value");
             if (str13 == expected)

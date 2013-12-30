@@ -14,27 +14,27 @@ namespace MoBankUI
             try
             {
                 driver.Navigate().GoToUrl(url);
-                waitforpagetoload(driver,30000);
+                
                 Thread.Sleep(0xbb8);
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 IWebElement element =
                     driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a/h2"));
                 driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a/h2")).Click();
-                waitforpagetoload(driver,30000);
+                
                 string str = driver.Title;
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 IWebElement element2 =
                     driver.FindElement(
                         By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/h2"));
                 driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/h2")).Click();
-                waitforpagetoload(driver,30000);
+                
                 string str2 = driver.Title;
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 IWebElement element3 =
                     driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/p"));
                 driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/p")).Click();
                      
-                waitforpagetoload(driver,30000);
+                
                 string str3 = driver.Title;
             }
             catch (Exception exception)

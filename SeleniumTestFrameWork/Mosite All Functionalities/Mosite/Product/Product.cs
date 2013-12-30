@@ -158,7 +158,7 @@ namespace MoBankUI
                     if (IsElementPresent(driver,By.XPath("//a[@id='showOptions']/span")))
                     {
                         driver.FindElement(By.XPath("//a[@id='showOptions']/span")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                    
                         IWebElement con = driver.FindElement(By.Id("Variants_1__OptionValue"));
                          IList<IWebElement> vainats = con.FindElements(By.TagName("option"));
@@ -203,7 +203,7 @@ namespace MoBankUI
                 try
                 {
                     driver.FindElement(By.XPath(AddToBasket)).Click();
-                    waitforpagetoload(driver,30000);
+                    
                     datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected",AddToBasket + "Add To Basket Element Is Present", "PASS",driver);
                     new SuccessMessage().message(driver, datarow);
                 }
@@ -231,15 +231,15 @@ namespace MoBankUI
                 //footer.Footer(driver, datarow);
 
                 driver.FindElement(By.Id("BasketInfo")).Click();
-                waitforpagetoload(driver,30000);
+                
                 new SelectElement(driver.FindElement(By.Id("Items_0__Quantity"))) ;
                 
-                  waitforpagetoload(driver,30000);
+                  
                 // driver.FindElement(By.Id()).Click();("css=option");
                 string pric =  driver.FindElement(By.CssSelector("strong")).Text;
                 new SelectElement(driver.FindElement(By.Id("Items_0__Quantity"))).SelectByText("4");
               
-                waitforpagetoload(driver,30000);
+                
                 Thread.Sleep(3000);
                 string prirc =  driver.FindElement(By.CssSelector("strong")).Text;
 
@@ -270,7 +270,7 @@ namespace MoBankUI
                 }
                 new SelectElement(driver.FindElement(By.Id("Items_0__Quantity")))  ;
                 
-              waitforpagetoload(driver,30000);
+              
             }
             catch (Exception ex)
             {

@@ -101,7 +101,7 @@ namespace MoBankUI
                     driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
                     try
                     {
-                          waitforpagetoload(driver,30000);
+                          
                     }
                     catch (Exception exception)
                     {
@@ -156,7 +156,7 @@ namespace MoBankUI
                                 break;
                         }
                         driver.FindElement(By.Name("PostAction[Complete]")).Click();
-                         waitforpagetoload(driver,30000);
+                         
                         Thread.Sleep(0x1388);
                         if (Regex.IsMatch(str13, "^[0-9'']"))
                         {

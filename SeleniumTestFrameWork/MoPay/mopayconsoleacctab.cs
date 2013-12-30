@@ -18,7 +18,7 @@ namespace MoBankUI
             {
                 string str;
                 driver.FindElement(By.CssSelector("#IndexMenu > ul > li.selected > ul > li > a")).Click();
-                waitforpagetoload(driver,30000);
+                
                 if ( driver.PageSource.Contains("Test Client Account"))
                 {
                     driver.FindElement(By.LinkText("Test Client Account")).Click();
@@ -60,7 +60,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str3 = driver.Title;
                 if (str3 == "Payment Provider : mopowered.co.uk")
                 {
@@ -88,7 +88,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str4 = driver.Title;
                 if (str4 == "Notifications : mopowered.co.uk")
                 {
@@ -115,7 +115,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str5 = driver.Title;
                 if (str5 == "Transactions : mopowered.co.uk")
                 {
@@ -139,7 +139,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str6 = driver.Title;
                 if (str6 == "History : mopowered.co.uk")
                 {
@@ -154,7 +154,7 @@ namespace MoBankUI
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 IWebElement element = driver.FindElement(By.LinkText("Payment Provider"));
                 driver.FindElement(By.LinkText("Payment Provider")).Click();
-                waitforpagetoload(driver,30000);
+                
                 string str7 = driver.Title;
                 if (str7 == "Payment Provider : mopowered.co.uk")
                 {
@@ -170,7 +170,7 @@ namespace MoBankUI
                 if ( driver.PageSource.Contains("…"))
                 {
                     driver.FindElement(By.LinkText("…")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                     datarow.newrow("Update Tab", "Update Tab", "Update", "PASS",driver);
                 }
                 else
@@ -190,7 +190,7 @@ namespace MoBankUI
                     datarow.newrow("Update Tab", "Update : mopowered.co.uk", str8, "FAIL",driver);
                     screenshot.screenshotfailed(driver);
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str9 = driver.Title;
                 if (str9 == "Update : mopowered.co.uk")
                 {
@@ -202,7 +202,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                 }
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                waitforpagetoload(driver,30000);
+                
                 if ( driver.PageSource.Contains("Users"))
                 {
                     driver.FindElement(By.LinkText("Users")).Click();
@@ -215,7 +215,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
-                waitforpagetoload(driver,30000);
+                
                 string str10 = driver.Title;
                 if (str10 == "Users : mopowered.co.uk")
                 {

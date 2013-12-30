@@ -19,7 +19,7 @@ namespace MoBankUI
             try
             {
                 driver.Navigate().GoToUrl(url);
-                waitforpagetoload(driver,30000);
+                
                 string categorylink = null;
                 string cat = null;
                 string products = null;
@@ -45,13 +45,13 @@ namespace MoBankUI
               
                 Image.homepageimage(driver, datarow);
                 driver.Navigate().GoToUrl(url);
-                waitforpagetoload(driver, 30000);
+               
                 Thread.Sleep(5000);
                 new CookieDisclosure().cookie(driver, datarow);
 
                 IWebElement myDynamicElement1 = driver.FindElement(By.XPath(""+ categorylink + "" + cat +""));
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
-                 waitforpagetoload(driver,30000);
+                 
                 string title = driver.Title;
                
                 // Activate After Debug
@@ -68,14 +68,14 @@ namespace MoBankUI
                     // Category Image validation
                     Image.categoryimage(driver, datarow);
                     driver.FindElement(By.XPath("" + categorylink + "[" + 1 + "]" + cat + "")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                     string titlecategory = driver.Title;
                     string url1 = driver.Url;
                     if (IsElementPresent(driver,By.XPath("" + products + "[" + 1 + "]" + productlink + "")))
                     {
                         string url2 = driver.Title;
                         driver.FindElement(By.XPath("" + products + "" + productlink + "")).Click();
-                          waitforpagetoload(driver,30000);
+                          
                     }
                 }
 

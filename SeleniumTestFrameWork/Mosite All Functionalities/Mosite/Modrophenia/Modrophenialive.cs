@@ -32,7 +32,7 @@ namespace MoBankUI
                 if (num > 1)
                 {
                     driver.FindElement(By.LinkText("\x00bb")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                     Thread.Sleep(0x1388);
                 }
                 decimal xpathCount = GetXpathCount(driver,"//div[@id='content']/div/div");
@@ -52,7 +52,7 @@ namespace MoBankUI
                     }
                     //div[@id='content']/div/div[3]/div/a/img 
                     driver.FindElement(By.XPath("//div[@id='content']/div/div[" + i + "]/div/a/img")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                    
                     string text =  driver.FindElement(By.CssSelector("span.isPrice")).Text;
                     string str2 =  driver.FindElement(By.CssSelector("h2.productTitle")).Text;
@@ -113,7 +113,7 @@ namespace MoBankUI
                         break;
                 }
                 driver.FindElement(By.XPath("//div[@id='content']/div/div[" + i + "]/div/a/img")).Click();
-                waitforpagetoload(driver,30000);
+                
                 string text =  driver.FindElement(By.CssSelector("span.isPrice")).Text;
                 string str2 =  driver.FindElement(By.CssSelector("h2.productTitle")).Text;
                 DataRow row = dt.NewRow();
@@ -173,10 +173,10 @@ namespace MoBankUI
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 IWebElement element = driver.FindElement(By.XPath("//div[@id='sidebarBox']/ul[2]/li[2]/a"));
                 driver.FindElement(By.LinkText("New Arrivals")).Click();
-                waitforpagetoload(driver,30000);
+                
                 loop(driver, dt);
                 driver.FindElement(By.LinkText("Sale Items")).Click();
-                waitforpagetoload(driver,30000);
+                
                 loop(driver, dt);
                 generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
                 generalLibrary.SaveAndCloseExcel(workbook);

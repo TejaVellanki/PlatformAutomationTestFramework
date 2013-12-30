@@ -37,7 +37,7 @@ namespace MoBankUI
             }
             new Paymentprovidertypes().paymenttypes(driver, datarow);
             driver.FindElement(By.LinkText("…")).Click();
-          waitforpagetoload(driver,30000);
+          
             new SelectElement(driver.FindElement(By.Id("Implementation"))).SelectByText(str5);
             string actual = driver.FindElement(By.Id("Allow3DSecure")).GetAttribute("value");
             if (actual == "false")
@@ -47,7 +47,7 @@ namespace MoBankUI
                 {
                     driver.FindElement(By.Id("Allow3DSecure")).Click();
                     driver.FindElement(By.CssSelector("input.button")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 }
             }
             if (driver.FindElement(By.Id("Allow3DSecure")).GetAttribute("value") == "true")
@@ -60,7 +60,7 @@ namespace MoBankUI
                 screenshot.screenshotfailed(driver);
             }
             driver.FindElement(By.CssSelector("input.button")).Click();
-          waitforpagetoload(driver,30000);
+          
             string expected = driver.FindElement(By.Id("Implementation")).GetAttribute("Value");
             if (expected == str5)
             {
@@ -71,7 +71,7 @@ namespace MoBankUI
                 datarow.newrow("Implementation", expected, str5, "FAIL",driver);
             }
             driver.FindElement(By.XPath(("//html/body/div/div[2]/div/div/div/form/div[5]/div/div/table/tbody/tr/th[2]/a"))).Click();;
-          waitforpagetoload(driver,30000);
+          
             string str11 = driver.FindElement(By.Id("Name")).GetAttribute("value");
             if (str11 == "Visa Debit")
             {
@@ -79,9 +79,9 @@ namespace MoBankUI
                 new VisaDebit().Visadebit(driver, datarow);
             }
              driver.Navigate().Back();
-          waitforpagetoload(driver,30000);
+          
             driver.FindElement(By.XPath("//div[@id='CardTypesControl']/div/table/tbody/tr[2]/th[2]/a")).Click();
-          waitforpagetoload(driver,30000);
+          
             if (driver.FindElement(By.Id("Name")).GetAttribute("value") == "Mastercard")
             {
                 datarow.newrow("Card Type -Mastercard", "Mastercard", str11, "PASS",driver);
@@ -132,7 +132,7 @@ namespace MoBankUI
                 }
             }
             driver.FindElement(By.CssSelector("input.button")).Click();
-          waitforpagetoload(driver,30000);
+          
             if (IsElementPresent(driver,By.Id("CardTypes_0____selector")))
             {
                 string str17 = driver.FindElement(By.Id("CardTypes_0____selector")).GetAttribute("value");

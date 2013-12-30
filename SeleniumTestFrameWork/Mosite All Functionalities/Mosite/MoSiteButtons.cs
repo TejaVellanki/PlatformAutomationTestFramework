@@ -21,7 +21,7 @@ namespace MoSite
                 AddToBasket = CollectionMapV1.addtobasket;
             }
             driver.FindElement(By.XPath(AddToBasket)).Click();
-            waitforpagetoload(driver, 30000);
+           
             datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected", AddToBasket + "Add To Basket Element Is Present", "PASS", driver);
         }
     }

@@ -15,7 +15,7 @@ namespace MoBankUI
                 string page1 = driver.Url;
                 datarow.newrow("Reached the custom Checkout Page", "", page1, "");
                 driver.FindElement(By.Id("Pagecontent_ButtonGuest")).Click();
-                waitforpagetoload(driver,30000);
+                
                 driver.FindElement(By.Id("Pagecontent_TextBoxFirstName")).Clear();
                 driver.FindElement(By.Id("Pagecontent_TextBoxFirstName")).SendKeys("Test");
                 driver.FindElement(By.Id("Pagecontent_TextBoxLastname")).Clear();
@@ -32,19 +32,19 @@ namespace MoBankUI
                 driver.FindElement(By.Id("Pagecontent_TextBoxDOB")).Clear();
                 driver.FindElement(By.Id("Pagecontent_TextBoxDOB")).SendKeys("13.08.1984");
                 driver.FindElement(By.Id("Pagecontent_ButtonContinue")).Click();
-                waitforpagetoload(driver,30000);
+                
                 string page2 = driver.Url;
                 datarow.newrow("Reached the Delivery Checkout Page", "", page2, "");
                 //Free Delivery
                 //driver.FindElement(By.XPath("//fieldset[@id='__sizzle__']/div[2]/label/span/span")).Click();
                 driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep2")).Click();
-                waitforpagetoload(driver,30000);
+                
                 string page3 = driver.Url;
                 datarow.newrow("Reached the Confirm Page to Accept Terms and Conditions", "", page3, "");
                 //terms and conditions
                 driver.FindElement(By.XPath("//label[@id='lblTnc']/span")).Click();
                 driver.FindElement(By.Id("Pagecontent_ButtonConfirmCheckout")).Click();
-                waitforpagetoload(driver,30000);
+                
                 Assert.AreEqual("Checkout - Wolford UK", driver.Title);
                 string page4 = driver.Url;
                 datarow.newrow("Reached the Payment Page", "", page4, "");

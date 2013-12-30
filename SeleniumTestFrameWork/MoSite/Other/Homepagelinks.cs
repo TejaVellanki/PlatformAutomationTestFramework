@@ -14,7 +14,7 @@ namespace MoBankUI
             DataSet excelData = new GeneralLibrary().GetExcelData(@"C:\\Input Data\Object Repository.xls",
                                                                   "Modrophenia");
             driver.FindElement(By.CssSelector("img")).Click();
-            waitforpagetoload(driver,30000);
+            
             decimal count = driver.FindElements(By.XPath("//html/body/div/div[2]/div/ul/li")).Count;
             int num2 = 0;
             for (int i = 1; i <= count; i++)
@@ -25,7 +25,7 @@ namespace MoBankUI
                 IWebElement element =
                     driver.FindElement(By.XPath("//html/body/div/div[2]/div/ul/li[" + i + "]/div/div/a/h2"));
                 driver.FindElement(By.XPath("//html/body/div/div[2]/div/ul/li[" + i + "]/div/div/a/h2")).Click();
-                waitforpagetoload(driver,30000);
+                
                 string expected = driver.Title;
                 if (expected == actual)
                 {
@@ -37,7 +37,7 @@ namespace MoBankUI
                 }
                 num2++;
                 driver.Navigate().Back();
-                waitforpagetoload(driver,30000);
+                
             }
         }
     }

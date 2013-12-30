@@ -41,15 +41,15 @@ namespace MoBankUI
                                 "html body div#Top.page div#Content div.mainContent div#Main div#LogOnSection.section div.box form#LogOnForm.form div div#PasswordControl.control div.input input#Password"))
                               .SendKeys("Apple12345");
                         driver.FindElement(By.Id("LogOn_Action_LogOn")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                     }
                     driver.FindElement(By.XPath("//div[@id='IndexMenu']/ul/li/ul/li/a")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                     driver.FindElement(By.LinkText("Create")).Click();
                     driver.FindElement(By.Id("Name")).Clear();
                     driver.FindElement(By.Id("Name")).SendKeys(expected);
                     driver.FindElement(By.CssSelector("#IndexMenu > ul > li.selected > ul > li > a")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                     if ( driver.PageSource.Contains("Test Client Account"))
                     {
                         driver.FindElement(By.LinkText("Test Client Account")).Click();
@@ -91,7 +91,7 @@ namespace MoBankUI
                     driver.FindElement(By.CssSelector("input.button")).Click();
                     Thread.Sleep(0x1388);
                     driver.FindElement(By.LinkText("Payment Provider")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                     new Paymentprovider().provider(driver, datarow);
                     new Notificationtab().Notifications(driver, datarow);
                 }

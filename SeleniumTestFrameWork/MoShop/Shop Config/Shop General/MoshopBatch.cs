@@ -18,9 +18,9 @@ namespace MoBankUI
             try
             {
                 var moshop = new MoShopConsole();
-                 moshop.Homepagetabs(driver, datarow);
+                 moshop.Homepagetabs(driver, datarow);             
                  driver.Manage().Window.Maximize();
-               
+                               
                         string[] strArray = items.Split(new[] {','});
                         int num = 0;
 
@@ -74,7 +74,7 @@ namespace MoBankUI
                                         driver.Manage().Window.Size = new Size(400,550);
                                         datarow.newrow("", "", "Run the Test Site", "",driver);
                                         driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
-                                        waitforpagetoload(driver,30000);
+                                        
                                         BlobStorage blob = new BlobStorage();
                                         //blob.Blob(driver,datarow, "http://testshop.mobankdev.com/");
                                         commtest(driver,datarow);
@@ -95,7 +95,7 @@ namespace MoBankUI
                                     datafeed.datafeed(driver,datarow);
                                     datarow.newrow("", "", "Run the Test Site-DataFeed", "",driver);
                                     driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
-                                    waitforpagetoload(driver,30000);
+                                    
                                     datarow.newrow("", "", "Footer Links", "",driver);
                                     var footer = new Footer_TPS();
                                     footer.Footerhome(driver, "http://testshop.mobankdev.com/", datarow);

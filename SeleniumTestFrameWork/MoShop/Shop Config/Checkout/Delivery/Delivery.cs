@@ -16,10 +16,10 @@ namespace MoBankUI
             {
                 datarow.newrow("", "", "DELIVERY CONFIGURATION", "", driver);
                 driver.FindElement(By.LinkText("Checkout Process")).Click(); 
-                waitforpagetoload(driver,30000);
+                
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
                 
-                waitforpagetoload(driver,30000);
+                
                 Selectanoption(driver, By.Id("Method"), "POST");
            
                 driver.FindElement(By.Id("Url")).Clear();
@@ -38,7 +38,7 @@ namespace MoBankUI
                 driver.FindElement(By.Id("LiveScrapeForm_ErrorSelector")).Clear();
                 driver.FindElement(By.Id("LiveScrapeForm_ErrorSelector")).SendKeys("#errormessage blockquote");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                waitforpagetoload(driver,30000);
+                
 
 
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Name")).Click();
@@ -47,7 +47,7 @@ namespace MoBankUI
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__KeysValuesSelector")).SendKeys("select[name=\"ShippingClass\"] option");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Name")).Click();
                 Selectanoption(driver, By.Id("LiveScrapeForm_Elements_0__Type"), "DropList");
-                waitforpagetoload(driver, 30000);
+               
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Type")).SendKeys(Keys.Enter);
 
 
@@ -89,10 +89,10 @@ namespace MoBankUI
                 Selectanoption(driver, By.Id("LiveScrapeForm_Elements_4__Type"), "Check");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Name")).Click();
                 driver.FindElement(By.XPath("//div[@id='LiveScrapeForm.Elements[4].NameControl']/div")).Click();
-                waitforpagetoload(driver, 30000);
+               
           
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                waitforpagetoload(driver,30000);
+                
 
                 driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).Clear();
                 driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).SendKeys(".checkout-cart strong:eq(3)");
@@ -100,7 +100,7 @@ namespace MoBankUI
                 driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__PropertyPath")).SendKeys(Keys.Enter);
               
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  waitforpagetoload(driver,30000);
+                  
 
                 #region Validation
 
@@ -259,7 +259,7 @@ namespace MoBankUI
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
             driver.FindElement(By.LinkText("Checkout Process")).Click();
-              waitforpagetoload(driver,30000);
+              
             Thread.Sleep(0x1388);
             new Confirm().confirm(driver, datarow);
         }

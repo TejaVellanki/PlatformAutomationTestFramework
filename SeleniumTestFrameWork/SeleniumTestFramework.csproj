@@ -233,16 +233,36 @@
   <ItemGroup>
     <Content Include="MoShop\Shop Config\Catalogue XML%27s\test-catalogue-small.xml" />
     <Content Include="MoShop\Shop Config\Catalogue XML%27s\TickleTest_WithProductGroups.xml" />
-    <Content Include="ObjectRepository\Homepage and CategoryImages\dw_new_in_15_10_13.jpg" />
-    <Content Include="ObjectRepository\Homepage and CategoryImages\Teja Home Image.jpg" />
-    <Content Include="ObjectRepository\Homepage and CategoryImages\wolford_home.jpeg" />
-    <Content Include="ObjectRepository\Images\Failure.png" />
-    <Content Include="ObjectRepository\Images\Contact Us.jpg" />
-    <Content Include="ObjectRepository\Images\fb.png" />
-    <Content Include="ObjectRepository\Images\ion.ico" />
-    <Content Include="ObjectRepository\Images\success.png" />
-    <Content Include="ObjectRepository\Images\Teja Custom Basket Image.png" />
-    <Content Include="ObjectRepository\Images\ticklelogo.png" />
+    <Content Include="ObjectRepository\Homepage and CategoryImages\dw_new_in_15_10_13.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ObjectRepository\Homepage and CategoryImages\Teja Home Image.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ObjectRepository\Homepage and CategoryImages\wolford_home.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ObjectRepository\Images\Failure.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ObjectRepository\Images\Contact Us.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ObjectRepository\Images\fb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ObjectRepository\Images\ion.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ObjectRepository\Images\success.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ObjectRepository\Images\Teja Custom Basket Image.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ObjectRepository\Images\ticklelogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

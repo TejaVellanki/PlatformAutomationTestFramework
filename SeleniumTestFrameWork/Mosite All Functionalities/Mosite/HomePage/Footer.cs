@@ -73,11 +73,11 @@ namespace MoBankUI
                     for (int i = 1; i <= count; i++)
                     {
                         driver.FindElement(By.XPath("" + footer + "[" + i + "]" + footerlink + "")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                         string Title = driver.Title;
                         datarow.newrow("Footer Title", "", Title, "PASS",driver);
                         driver.Navigate().Back();
-                        waitforpagetoload(driver,30000);
+                        
                     }
                 }
                 catch (Exception ex)
@@ -93,18 +93,18 @@ namespace MoBankUI
                     for (int i = 1; i <= count1; i++)
                     {
                         driver.FindElement(By.XPath("" + sociallin + "[" + i + "]" + sociallink + "")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                         string tile = driver.Title;
                         datarow.newrow("Footer Social Image Title", "", tile, "PASS",driver);
                         if (title == "testshop")
                         {
                             driver.Navigate().GoToUrl(url);
-                            waitforpagetoload(driver,30000);
+                            
                         }
                         else
                         {
                             driver.Navigate().Back();
-                            waitforpagetoload(driver,30000);
+                            
                         }
                     }
                 }
@@ -121,7 +121,7 @@ namespace MoBankUI
                     for (int i = 1; i <= count3; i++)
                     {
                         driver.FindElement(By.XPath("" + lowerfooter + "[" + i + "]" + lowerfooterlink + "")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                         string tile = driver.Title;
                         datarow.newrow("Lower Footer Title", "", tile, "PASS",driver);
                         if (title == "testshop")
@@ -130,7 +130,7 @@ namespace MoBankUI
                         else
                         {
                             driver.Navigate().Back();
-                            waitforpagetoload(driver,30000);
+                            
                         }
                     }
                 }
@@ -145,18 +145,18 @@ namespace MoBankUI
                     if (IsElementPresent(driver,By.Name(mopowered)))
                     {
                         driver.FindElement(By.XPath(mopowered)).Click();
-                        waitforpagetoload(driver,30000);
+                        
                         string tile = driver.Title;
                         datarow.newrow("Footer Title", "", tile, "PASS",driver);
                         if (title == "testshop")
                         {
                             driver.Navigate().GoToUrl(url);
-                            waitforpagetoload(driver,30000);
+                            
                         }
                         else
                         {
                             driver.Navigate().Back();
-                            waitforpagetoload(driver,30000);
+                            
                         }
                     }
                     else

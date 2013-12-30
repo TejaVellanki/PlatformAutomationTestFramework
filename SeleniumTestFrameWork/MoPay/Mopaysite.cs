@@ -71,7 +71,7 @@ namespace MoBankUI
                     if (num < 1)
                     {
                         driver.FindElement(By.Id("change-address")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                         num++;
                     }
                     driver.FindElement(By.Id("BillingContact_FirstName")).Clear();
@@ -122,7 +122,7 @@ namespace MoBankUI
                         }
                     }
                     driver.FindElement(By.Name("PostAction[Complete]")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                     Thread.Sleep(0xbb8);
                     if (Regex.IsMatch(str5, "^[0-9'']"))
                     {

@@ -14,7 +14,7 @@ namespace MoBankUI
             {
             Selectanoption(driver, By.Id("CheckoutType"),"Configure Checkout");
             //new SelectElement(driver.FindElement(By.Id("CheckoutType"))).SelectByText("Configure Checkout");
-            waitforpagetoload(driver,30000);
+            
             for (int i = 0; i <= 2; i++)
             {
                 driver.FindElement(By.CssSelector("h3.collapsible.collapsed")).Click();
@@ -61,29 +61,29 @@ namespace MoBankUI
             driver.FindElement(By.Id("CountryMappings_0__Source")).Clear();
             driver.FindElement(By.Id("CountryMappings_0__Source")).SendKeys("UK");
             driver.FindElement(By.Id("CountryMappings_0__Source")).SendKeys(Keys.Enter);
-            waitforpagetoload(driver,30000);
+            
             Selectanoption(driver, By.Id("CountryMappings_0__Target"), "GB - United Kingdom");  
             // new SelectElement(driver.FindElement(By.Id("CountryMappings_0__Target"))).SelectByText("GB - United Kingdom");
             driver.FindElement(By.CssSelector("input.button")).Click();
-            waitforpagetoload(driver,30000);
+            
             driver.FindElement(By.Id("Pages_0__Name")).Clear();
             driver.FindElement(By.Id("Pages_0__Name")).SendKeys("Address");
             driver.FindElement(By.Id("Pages_0__Name")).SendKeys(Keys.Enter);
-            waitforpagetoload(driver,30000);
+            
             driver.FindElement(By.CssSelector("input.button")).Click();
-            waitforpagetoload(driver,30000);
+            
             driver.FindElement(By.Id("Pages_1__Name")).Clear();
             driver.FindElement(By.Id("Pages_1__Name")).SendKeys("Delivery");
             driver.FindElement(By.Id("Pages_1__Name")).SendKeys(Keys.Enter);
-            waitforpagetoload(driver,30000);
+            
             driver.FindElement(By.CssSelector("input.button")).Click();
-            waitforpagetoload(driver,30000);
+            
             driver.FindElement(By.Id("Pages_2__Name")).Clear();
             driver.FindElement(By.Id("Pages_2__Name")).SendKeys("Confirm");
             driver.FindElement(By.Id("Pages_2__Name")).SendKeys(Keys.Enter);
-            waitforpagetoload(driver,30000);
+            
             driver.FindElement(By.CssSelector("input.button")).Click();
-            waitforpagetoload(driver,30000);
+            
 
             string str7 = driver.FindElement(By.Id("Encoding_Value")).GetAttribute("Value");
             string str8 = driver.FindElement(By.Id("BasketPage_Url")).GetAttribute("Value");
@@ -186,7 +186,7 @@ namespace MoBankUI
                 
 
             driver.FindElement(By.LinkText("…")).Click();
-            waitforpagetoload(driver,30000);
+            
             string str18 = driver.Title;
             if (str18 == "Page Update : mobank.co.uk/MoShop")
             {

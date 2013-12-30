@@ -90,13 +90,13 @@ namespace MoBankUI
 
 
                 driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com/");
-                waitforpagetoload(driver,30000);
+                
                 driver.FindElement(By.XPath("//*[@id='page-home-index']/div[1]/div[2]/div[1]/ul/li[1]/div/div/a/h2")).Click();
                     
-                   waitforpagetoload(driver,30000);
+                   
                 loop(datarow,driver, dt);
                 driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com/");
-                waitforpagetoload(driver,30000);
+                
                 driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li[12]/div/div/a/h2"));
                       //iver.FindElement(By.Id()).Click()
                 
@@ -133,7 +133,7 @@ namespace MoBankUI
                     }
                     else
                     {
-                        driver.FindElement(By.XPath("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/div/div/a[3]")).Click();  waitforpagetoload(driver,30000);
+                        driver.FindElement(By.XPath("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/div/div/a[3]")).Click();  
                     }
                 }
                 decimal xpathCount =GetXpathCount(driver,"//*[@id='page-categories-details']/div[1]/div[2]/div[1]/ul/li");
@@ -145,7 +145,7 @@ namespace MoBankUI
                     string str5;
                     string str7;
                     driver.FindElement(By.XPath("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/ul/li[" + i +"]/div/div/a/div[2]/p")).Click();
-                      waitforpagetoload(driver,30000);
+                      
                     DataRow row = dt.NewRow();
                     j = 1;
                     string str =

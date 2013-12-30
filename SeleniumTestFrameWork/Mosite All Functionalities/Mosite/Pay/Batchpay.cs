@@ -21,14 +21,14 @@ namespace MoBankUI
                 driver.FindElement(By.XPath("//*[@id='ctl00']/section/fieldset/div[1]/label/span")).Click();
                 Thread.Sleep(2000);
                 driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep3")).Click();
-                waitforpagetoload(driver,30000);
+                
                 string titl = driver.Title;
                  driver.Navigate().Back();
-                waitforpagetoload(driver,30000);
+                
                 driver.FindElement(By.XPath("//*[@id='ctl00']/section/fieldset/div[2]/label/span")).Click();
                 Thread.Sleep(2000);
                 driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep3")).Click();
-                   waitforpagetoload(driver,30000);
+                   
                 datarow.newrow("", "", "Mopay", "",driver);
                 var Mopay = new Mopay_TPS();
                 Mopay.Mopay(driver, datarow);

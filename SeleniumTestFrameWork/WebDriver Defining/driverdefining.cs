@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using MoBankUI;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -69,9 +70,8 @@ namespace WebDriver_Refining
                  IWebElement data = driver.FindElement(by);
                  //IList<IWebElement> dataoptions = data.FindElements(By.TagName("option"));
                  SelectElement select = new SelectElement(data);
-                 select.SelectByText(optiontoselect);
-              
-                
+                 select.SelectByText(optiontoselect);                            
+                             
             }
             catch (Exception ex)
             {

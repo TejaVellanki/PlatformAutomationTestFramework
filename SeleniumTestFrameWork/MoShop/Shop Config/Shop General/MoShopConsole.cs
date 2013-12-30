@@ -55,11 +55,11 @@ namespace MoBankUI
                 }
                 //Expanding Manage and Security
                 driver.FindElement(By.XPath("//li[@id='IndexMenuLeaf1']/span")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 driver.FindElement(By.XPath("//li[@id='IndexMenuLeaf8']/span")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 driver.FindElement(By.LinkText("Scrapes")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 string str3 = driver.Title;
 
 
@@ -73,9 +73,9 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 driver.FindElement(By.XPath("(//a[contains(text(),'Shops')])[2]")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 string str4 = driver.Title;
                 if (str4 == "Shops : mobank.co.uk/MoShop")
                 {
@@ -87,9 +87,9 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                 }
                  driver.FindElement(By.LinkText("MoShop")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 driver.FindElement(By.XPath("(//a[contains(text(),'Global Customisations')])[2]")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 string str5 = driver.Title;
                 if (str5 == "Global Customisations : mobank.co.uk/MoShop")
                 {
@@ -101,9 +101,9 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
-                waitforpagetoload(driver,30000);
+                
                 driver.FindElement(By.XPath("(//a[contains(text(),'Transformations')])[2]")).Click();
-                waitforpagetoload(driver,30000);
+                
                 string str6 = driver.Title;
                 if (str6 == "Transformations : mobank.co.uk/MoShop")
                 {
@@ -115,11 +115,11 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
-                  waitforpagetoload(driver,30000);
+                  
 
 
                 driver.FindElement(By.XPath("(//a[contains(text(),'Global Settings')])[2]")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 string str7 = driver.Title;
                 if (str7 == "mobank.co.uk/MoShop")
                 {
@@ -131,9 +131,9 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 driver.FindElement(By.XPath("(//a[contains(text(),'Security')])[2]")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 string str8 = driver.Title;
                 if (str8 == "mobank.co.uk/MoShop")
                 {
@@ -145,15 +145,15 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                 }
                 driver.FindElement(By.CssSelector("#IndexMenu > ul > li > a")).Click();
-                   waitforpagetoload(driver,30000);
+                   
                  driver.FindElement(By.XPath("(//a[contains(text(),'Security')])[2]")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 driver.FindElement(By.XPath("(//a[contains(text(),'Groups')])[2]")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 driver.FindElement(By.LinkText("MoShop")).Click();
-                   waitforpagetoload(driver,30000);
+                   
                 driver.FindElement(By.XPath("(//a[contains(text(),'Teja Vellanki')])[2]")).Click();
-                  waitforpagetoload(driver,30000);
+                  
                 string str9 = driver.Title;
                 if (str9 == "Teja Vellanki : mobank.co.uk/MoShop")
                 {
@@ -165,7 +165,7 @@ namespace MoBankUI
                     screenshot.screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
-                waitforpagetoload(driver,30000);
+                
             }
             catch (Exception exception3)
             {

@@ -13,7 +13,7 @@ namespace MoBankUI
                                       datarow datarow, IWebDriver driver)
         {
             driver.FindElement(By.CssSelector("img")).Click();
-            waitforpagetoload(driver,30000);
+            
             decimal xpathCount = GetXpathCount(driver,"//body[@id='page-home-index']/div/div[3]/ul/li");
             for (int i = 1; i <= xpathCount; i++)
             {
@@ -22,13 +22,13 @@ namespace MoBankUI
                     driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[3]/ul/li[" + i + "]/div/div/a"));
                 driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[3]/ul/li[" + i + "]/div/div/a")).Click();
                      
-                waitforpagetoload(driver,30000);
+                
                 Thread.Sleep(3000);
                 string actual = driver.Title;
                 if (i > 1)
                 {
                      driver.Navigate().Back();
-                    waitforpagetoload(driver,30000);
+                    
                 }
                 switch (i)
                 {

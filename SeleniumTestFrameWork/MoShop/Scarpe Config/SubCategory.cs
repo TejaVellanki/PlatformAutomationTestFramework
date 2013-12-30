@@ -19,23 +19,23 @@ namespace MoBankUI
             driver.FindElement(By.Id("Identifier")).Clear();
             driver.FindElement(By.Id("Identifier")).SendKeys("/acatalog/wrapping-paper-everyday.html");
             driver.FindElement(By.LinkText("Target Pages")).Click();
-              waitforpagetoload(driver,30000);
+              
             driver.FindElement(By.Id("Selector")).Clear();
             driver.FindElement(By.Id("Selector")).SendKeys("div[class^='leftNav'] a,.bdr a");
             driver.FindElement(By.CssSelector("input.button")).Click();
-              waitforpagetoload(driver,30000);                                         
+                                                       
             driver.FindElement(By.Id("IdentifierTransformationPattern")).Clear();
             driver.FindElement(By.Id("IdentifierTransformationPattern")).SendKeys(@"\/([a-z0-9\-_]+).html");
             driver.FindElement(By.Id("IdentifierTransformationReplacement")).Clear();
             driver.FindElement(By.Id("IdentifierTransformationReplacement")).SendKeys("$1");
             driver.FindElement(By.CssSelector("input.button")).Click();
-              waitforpagetoload(driver,30000);
+              
             driver.FindElement(By.LinkText("Scrape Mappings")).Click();
-              waitforpagetoload(driver,30000);
+              
               Selectanoption(driver, By.Id("MappingId"), "(new mappings)");
             //  new SelectElement(driver.FindElement(By.Id("MappingId"))).SelectByText("(new mappings)");
             driver.FindElement(By.CssSelector("input.button")).Click();
-              waitforpagetoload(driver,30000);
+              
               Selectanoption(driver, By.Id("MappingItems_0__DataPath"), "Name");
             driver.FindElement(By.Id("MappingItems_0__Selector")).Clear();
             driver.FindElement(By.Id("MappingItems_0__Selector")).SendKeys("h1,h2 :first");
@@ -50,15 +50,15 @@ namespace MoBankUI
            // new SelectElement(driver.FindElement(By.Id("MappingItems_1__TransformationId"))).SelectByText("Content Trim");
             
             driver.FindElement(By.CssSelector("input.button")).Click();
-            waitforpagetoload(driver,30000);
+            
 
             driver.FindElement(By.Id("SubPages_0__Name")).SendKeys("products");
             driver.FindElement(By.Id("SubPages_0__Name")).SendKeys(Keys.Enter);
-            waitforpagetoload(driver, 30000);
+           
             Selectanoption(driver, By.Id("SubPages_0__ObjectTypeName"), "Product");
 
             driver.FindElement(By.CssSelector("input.button")).Click();
-            waitforpagetoload(driver, 30000);
+           
 
 
             #region Validation

@@ -17,7 +17,7 @@ namespace MoBankUI
                 if (IsElementPresent(driver,By.XPath("//input[@value='Continue']")))
                 {
                     driver.FindElement(By.XPath("//input[@value='Continue']")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                 }
 
                 try
@@ -74,7 +74,7 @@ namespace MoBankUI
                             if (valuet == "Continue")
                             {
                                 driver.FindElement(By.XPath("//html/body/div[1]/div[2]/div/form/div[" + i + "]/div/input")).Click();
-                                 waitforpagetoload(driver,30000);
+                                 
                             }
                         }
                     }

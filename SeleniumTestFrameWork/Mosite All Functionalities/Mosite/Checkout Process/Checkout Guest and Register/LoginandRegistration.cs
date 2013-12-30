@@ -55,12 +55,12 @@ namespace MoBankUI
                 if (IsElementPresent(driver,By.XPath("//form[@id='ctl00']/section/div[3]/div/input"),30))
                 {
                     driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[3]/div/input")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                 }
                 else if (IsElementPresent(driver,By.CssSelector("input.ui-btn-hidden"),30))
                 {
                     driver.FindElement(By.CssSelector("input.ui-btn-hidden")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                 }
                 else
                 {
@@ -93,7 +93,7 @@ namespace MoBankUI
                     datarow.newrow("Change Details Element", "Change Details Button is Expected",
                                    "Change Details Button Is Present", "PASS",driver);
                    driver.FindElement(By.XPath("//html/body/div/div[2]/div[2]/form/section/p/a/span/span/span/span")).Click();
-                    waitforpagetoload(driver,30000);
+                    
                     try
                     {
                         decimal count = driver.FindElements(By.XPath("//form[@id='ctl00']/section/div")).Count;
@@ -155,7 +155,7 @@ namespace MoBankUI
 
 
                 driver.Navigate().Back();
-                waitforpagetoload(driver,30000);
+                
 
 
                 //selecting delivery method
@@ -194,7 +194,7 @@ namespace MoBankUI
                         string location = driver.Url;
                         datarow.newrow("Checkout process url", "", location, "PASS",driver);
                         driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep2")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                     }
                     else
                     {
@@ -215,7 +215,7 @@ namespace MoBankUI
                     if (IsElementPresent(driver,By.Id("Pagecontent_ButtonConfirmCheckout"),30))
                     {
                         driver.FindElement(By.Id("Pagecontent_ButtonConfirmCheckout")).Click();
-                        waitforpagetoload(driver,30000);
+                        
                         string title = driver.Title;
                         datarow.newrow("Mopay Title", "", title, "PASS",driver);
                     }
