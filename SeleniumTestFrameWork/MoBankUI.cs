@@ -12,7 +12,7 @@ namespace MoBankUI
     public partial class Form1 : Form
     {
         private CheckedListBox _checkedListBox1;
-        private TextBox textBox1;
+        private TextBox _textBox1;
         private TextBox textBox2;
         private TextBox _textbox3;
         private TextBox _textbox4;
@@ -297,7 +297,7 @@ namespace MoBankUI
             {
                 IWebDriver driver = new FirefoxDriver();
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayAccount().create(driver);
+                new MopayAccount().Create(driver);
             }
             catch (Exception)
             {
@@ -384,7 +384,7 @@ namespace MoBankUI
                 IWebDriver driver = new ChromeDriver(@"C:\\net40\");
 
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayAccount().create(driver);
+                new MopayAccount().Create(driver);
             }
             catch (Exception)
             {
@@ -454,7 +454,7 @@ namespace MoBankUI
             {
                 IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayAccount().create(driver);
+                new MopayAccount().Create(driver);
             }
             catch (Exception)
             {

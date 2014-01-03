@@ -4,7 +4,7 @@ namespace MoBankUI
 {
     internal class Mastercard
     {
-        public void mastercard(IWebDriver driver, datarow datarow)
+        public void Mastercardm(IWebDriver driver, datarow datarow)
         {
             string attribute = driver.FindElement(By.Id("NumberPattern")).GetAttribute("value");
             if (attribute == "^5[1-5]")

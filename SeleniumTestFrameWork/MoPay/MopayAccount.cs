@@ -11,14 +11,14 @@ namespace MoBankUI
 {
     public class MopayAccount : driverdefining
     {
-        private GeneralLibrary genaralLibrary;
-        private Screenshot screenshot = new Screenshot();
+        private GeneralLibrary _genaralLibrary;
+        private Screenshot _screenshot = new Screenshot();
 
-        public void create(IWebDriver driver)
+        public void Create(IWebDriver driver)
         {
             var datarow = new datarow();
-            genaralLibrary = new GeneralLibrary();
-            DataSet excelData = genaralLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "AccountCreation");
+            _genaralLibrary = new GeneralLibrary();
+            DataSet excelData = _genaralLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "AccountCreation");
             datarow.col();
             DataTable table = excelData.Tables[0];
             try

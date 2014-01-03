@@ -85,7 +85,7 @@ namespace MoBankUI
             if (driver.FindElement(By.Id("Name")).GetAttribute("value") == "Mastercard")
             {
                 datarow.newrow("Card Type -Mastercard", "Mastercard", str11, "PASS",driver);
-                new Mastercard().mastercard(driver, datarow);
+                new Mastercard().Mastercardm(driver, datarow);
             }
             //MouseOver("//html/body/div/div/div/div[2]/ul/li/a");
              driver.Navigate().Back();
