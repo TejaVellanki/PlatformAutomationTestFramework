@@ -8,9 +8,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Confirm : driverdefining
+    internal class Confirmtab : driverdefining
     {
-        public void confirm(IWebDriver driver, datarow datarow)
+        public void Confirm(IWebDriver driver, datarow datarow)
         {
             try
             {

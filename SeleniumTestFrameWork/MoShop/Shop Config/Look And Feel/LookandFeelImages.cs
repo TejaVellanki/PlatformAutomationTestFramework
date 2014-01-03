@@ -9,7 +9,7 @@ namespace MoBankUI
 {
     class LookandFeelImages : driverdefining
     {
-        public void images(IWebDriver driver ,datarow datarow)
+        public void Images(IWebDriver driver ,datarow datarow)
         {
             try
             {
@@ -137,7 +137,7 @@ namespace MoBankUI
 
         }
 
-        public void pagerefresh(IWebDriver driver)
+        public void Pagerefresh(IWebDriver driver)
         {
 
                driver.FindElement(By.LinkText("Look & Feel")).Click();

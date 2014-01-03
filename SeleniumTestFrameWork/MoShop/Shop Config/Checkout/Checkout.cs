@@ -84,7 +84,7 @@ namespace MoBankUI
                 string e = ex.ToString();
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
-            new ConfigureCheckout().configure(driver, datarow);
+            new ConfigureCheckout().Configure(driver, datarow);
         }
     }
 }

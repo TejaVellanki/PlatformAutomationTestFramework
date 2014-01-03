@@ -5,7 +5,7 @@ namespace MoBankUI
 {
     class GlobalSetting
     {
-        public void globalsetting(IWebDriver driver)
+        public void Globalsetting(IWebDriver driver)
         {
             // Bug neeeds to be fixed before Configuring the same in the Look and Feel Tab
 

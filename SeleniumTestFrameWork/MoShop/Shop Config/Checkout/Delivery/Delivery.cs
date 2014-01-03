@@ -8,9 +8,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class Delivery : driverdefining
+    public class DeliveryTab : driverdefining
     {
-        public void delivery(IWebDriver driver, datarow datarow) 
+        public void Delivery(IWebDriver driver, datarow datarow) 
         {
             try
             {
@@ -261,7 +261,7 @@ namespace MoBankUI
             driver.FindElement(By.LinkText("Checkout Process")).Click();
               
             Thread.Sleep(0x1388);
-            new Confirm().confirm(driver, datarow);
+            new Confirmtab().Confirm(driver, datarow);
         }
     }
 }

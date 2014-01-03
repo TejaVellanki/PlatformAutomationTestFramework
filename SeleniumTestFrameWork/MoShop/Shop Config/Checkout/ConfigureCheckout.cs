@@ -8,7 +8,7 @@ namespace MoBankUI
 { 
     internal class ConfigureCheckout : driverdefining 
     {
-        public void configure(IWebDriver driver , datarow datarow)
+        public void Configure(IWebDriver driver , datarow datarow)
         {
             try
             {

@@ -37,7 +37,7 @@ namespace MoBankUI
                                     var testshop = new createShop();
                                     testshop.Testshop(driver,datarow);
                                    
-                                    new LookandFeel().lookandfeel(driver,datarow);
+                                    new LookandFeel().Lookandfeel(driver,datarow);
                                     #region Global Settings
                                     GlobalSetting global = new GlobalSetting();
                                    // global.globalsetting(driver);

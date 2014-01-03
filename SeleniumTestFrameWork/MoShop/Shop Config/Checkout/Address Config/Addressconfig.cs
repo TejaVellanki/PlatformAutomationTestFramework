@@ -375,7 +375,7 @@ namespace MoBankUI
                 datarow.newrow("Exception", "Exception not expectd", e, "FAIL");
             }
 
-            new Delivery().delivery(driver, datarow);
+            new DeliveryTab().Delivery(driver, datarow);
         }
     }
 }

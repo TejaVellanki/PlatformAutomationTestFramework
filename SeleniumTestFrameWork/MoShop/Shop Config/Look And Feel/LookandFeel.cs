@@ -13,7 +13,7 @@ namespace MoBankUI
     public class LookandFeel : driverdefining
     {
         [Test]
-        public void lookandfeel(IWebDriver driver, datarow datarow)
+        public void Lookandfeel(IWebDriver driver, datarow datarow)
         {
             try
             {

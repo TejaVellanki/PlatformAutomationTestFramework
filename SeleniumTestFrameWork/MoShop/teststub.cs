@@ -7,7 +7,7 @@ namespace MoBankUI
     {
         public void stub(IWebDriver driver, datarow datarow)
         {
-            new Delivery().delivery(driver,datarow);
+            new DeliveryTab().Delivery(driver,datarow);
         }
     }
 }
