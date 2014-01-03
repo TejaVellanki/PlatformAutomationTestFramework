@@ -1,9 +1,9 @@
 ﻿using System;
 using OpenQA.Selenium;
-    
+
 namespace MoBankUI
 {
-    class DeleteTestShop
+    internal class DeleteTestShop
     {
         public void Deleteshop(IWebDriver driver)
         {
@@ -17,8 +17,8 @@ namespace MoBankUI
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));
             driver.FindElement(By.CssSelector("p.submit.submitInline > input.button")).Click();
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));
-
         }
+
         public void Deletedscrape(IWebDriver driver)
         {
             driver.FindElement(By.LinkText("MoShop")).Click();

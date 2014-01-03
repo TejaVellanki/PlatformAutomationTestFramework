@@ -1,11 +1,9 @@
-﻿
-using System;
+﻿using System;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-    using WebDriver_Refining ;
+using WebDriver_Refining;
 
 namespace MoBankUI
-{ 
+{
     internal class AddressElements : driverdefining
     {
         public void elements(IWebDriver driver, datarow datarow)
@@ -17,7 +15,7 @@ namespace MoBankUI
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Name")).Click();
                 Selectanoption(driver, By.Id("LiveScrapeForm_Elements_0__PropertyPath"), "FirstName");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Name")).Click();
-                if (GetValue(driver,By.Id("LiveScrapeForm_Elements_0__Required"),30) == "false")
+                if (GetValue(driver, By.Id("LiveScrapeForm_Elements_0__Required"), 30) == "false")
                 {
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Name")).Click();
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Required")).Click();
@@ -35,16 +33,12 @@ namespace MoBankUI
                         driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Name")).Click();
                         driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Required")).Click();
                     }
-
-
                 }
                 catch (Exception ex)
                 {
-
                     string e = ex.ToString();
-
                 }
-               
+
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_2__LabelSelector")).SendKeys(".actrequired:eq(1)");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Name")).Click();
@@ -72,8 +66,6 @@ namespace MoBankUI
                 }
 
 
-
-
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_4__LabelSelector"))
                       .SendKeys("#idBothAddressesTable tr:eq(5) td:eq(0)");
@@ -81,7 +73,7 @@ namespace MoBankUI
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Label")).SendKeys("Address Line 2:");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Name")).Click();
                 Selectanoption(driver, By.Id("LiveScrapeForm_Elements_4__PropertyPath"), "Address2");
-             
+
 
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_5__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_5__LabelSelector")).SendKeys(".actrequired:eq(3)");
@@ -121,8 +113,7 @@ namespace MoBankUI
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_7__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_7__Label")).SendKeys("County:");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_7__Name")).Click();
-                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_7__PropertyPath"),"County");
-              
+                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_7__PropertyPath"), "County");
 
 
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_8__Name")).Click();
@@ -131,8 +122,8 @@ namespace MoBankUI
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_8__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_8__Label")).SendKeys("Phone Number:");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_8__Name")).Click();
-                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_8__PropertyPath"),"Phone");
-             
+                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_8__PropertyPath"), "Phone");
+
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_9__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_9__LabelSelector")).SendKeys("#idINVOICEEMAILlabel");
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_9__Name")).Click();
@@ -144,8 +135,9 @@ namespace MoBankUI
 
 
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_10__Name")).Click();
-               driver.FindElement(By.Id("LiveScrapeForm_Elements_10__LabelSelector")).SendKeys("label[for=INVOICEUSERDEFINED]");
-               driver.FindElement(By.Id("LiveScrapeForm_Elements_10__Name")).Click();
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_10__LabelSelector"))
+                      .SendKeys("label[for=INVOICEUSERDEFINED]");
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_10__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_10__Type")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_10__Name")).Click();
                 Selectanoption(driver, By.Id("LiveScrapeForm_Elements_10__Type"), "Check");
@@ -156,22 +148,19 @@ namespace MoBankUI
                 // new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_9__Type"))).SelectByText("Email");
 
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_8__Name")).Click();
-                 Selectanoption(driver, By.Id("LiveScrapeForm_Elements_8__Type"), "Phone");
+                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_8__Type"), "Phone");
 
 
-                 driver.FindElement(By.Id("LiveScrapeForm_Elements_6__Name")).Click();
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_6__Name")).Click();
                 Selectanoption(driver, By.Id("LiveScrapeForm_Elements_6__Type"), "DropList");
                 //new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_6__Type"))).SelectByText("DropList");
-                
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 string e = ex.ToString();
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
-
             }
             driver.FindElement(By.CssSelector("input.button")).Click();
-               
         }
     }
 }

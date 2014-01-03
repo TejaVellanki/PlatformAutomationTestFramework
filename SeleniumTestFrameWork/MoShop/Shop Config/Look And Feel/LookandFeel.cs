@@ -3,10 +3,8 @@
 using System;
 using System.Threading;
 using NUnit.Framework;
-using OpenQA.Selenium.Support.UI;
-using WebDriver_Refining;
 using OpenQA.Selenium;
- 
+using WebDriver_Refining;
 
 namespace MoBankUI
 {
@@ -19,7 +17,7 @@ namespace MoBankUI
             {
                 datarow.newrow("", "", "LOOK AND FEEL TAB", "", driver);
                 driver.FindElement(By.LinkText("Look & Feel")).Click();
-                
+
                 string actual = driver.Title;
                 if (driver.Title == "Look & Feel : mobank.co.uk/MoShop")
                 {
@@ -30,166 +28,166 @@ namespace MoBankUI
                     datarow.newrow("LookAndFeel", "Look & Feel : mobank.co.uk/MoShop", actual, "FAIL", driver);
                 }
                 int num = 0;
-               
-                    for (int i = 0;; i++)
-                    {
-                        driver.FindElement(By.Id("Customisations_0__Title")).Clear();
-                        driver.FindElement(By.Id("Customisations_0__Title")).SendKeys("QA-TestShop");
-                        Thread.Sleep(2000);
-                        //Focus("id=Customisations_0__Title");
-                        driver.FindElement(By.Id("Customisations_0__Title")).SendKeys(Keys.Enter);
-                        
-                        driver.FindElement(By.CssSelector("input.button")).Click();
-                        
 
-                        string attribute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
-                        if (attribute == "QA-TestShop")
-                        {
-                            break;
-                        }
+                for (int i = 0;; i++)
+                {
+                    driver.FindElement(By.Id("Customisations_0__Title")).Clear();
+                    driver.FindElement(By.Id("Customisations_0__Title")).SendKeys("QA-TestShop");
+                    Thread.Sleep(2000);
+                    //Focus("id=Customisations_0__Title");
+                    driver.FindElement(By.Id("Customisations_0__Title")).SendKeys(Keys.Enter);
+
+                    driver.FindElement(By.CssSelector("input.button")).Click();
+
+
+                    string attribute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
+                    if (attribute == "QA-TestShop")
+                    {
+                        break;
                     }
+                }
 
-                    string attriute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
-                    if (attriute == "QA-TestShop")
+                string attriute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
+                if (attriute == "QA-TestShop")
+                {
+                    try
                     {
-                        try
-                        {
                         datarow.newrow("Customiastion Title", "QA-TestShop", attriute, "PASS", driver);
                         driver.FindElement(By.Id("Customisations_0__Title")).Click();
-                          
+
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                         
-                         driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
-                          
+
+                        driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
+
                         string str4 = driver.Title;
                         if (str4 == "Customisation : mobank.co.uk/MoShop")
                         {
-                            datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "PASS",driver);
+                            datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "PASS",
+                                           driver);
                         }
                         else
                         {
-                            datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "FAIL",driver);
+                            datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "FAIL",
+                                           driver);
                         }
-                       
-                            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[5]/h3")).Click();
-                            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[6]/h3")).Click();
-                            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[9]/h3")).Click();
-                            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[10]/h3")).Click();
-                            driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[11]/h3")).Click();
-                       
 
-                        }
-                         catch (Exception ex)
-                         {
+                        driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[5]/h3")).Click();
+                        driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[6]/h3")).Click();
+                        driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[9]/h3")).Click();
+                        driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[10]/h3")).Click();
+                        driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[11]/h3")).Click();
+                    }
+                    catch (Exception ex)
+                    {
+                        string e = ex.ToString();
+                    }
+                    try
+                    {
+                        Selectanoption(driver, By.Id("ExternalLinks_0__ExternalLinkConfigId"), "Feefo");
 
-                             string e = ex.ToString();
-                         }
-                        try
-                        {
-
-                            Selectanoption(driver, By.Id("ExternalLinks_0__ExternalLinkConfigId"), "Feefo");
-                       
-                       // new SelectElement(driver.FindElement(By.Id("ExternalLinks_0__ExternalLinkConfigId"))).SelectByText("Feefo");
+                        // new SelectElement(driver.FindElement(By.Id("ExternalLinks_0__ExternalLinkConfigId"))).SelectByText("Feefo");
                         driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement")).Clear();
                         driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement")).SendKeys("ticklecompany");
                         driver.FindElement(By.Id("OrderConfirmationOrderNumberText")).Clear();
-                        driver.FindElement(By.Id("OrderConfirmationOrderNumberText")).SendKeys("Your order number is {0}.");
+                        driver.FindElement(By.Id("OrderConfirmationOrderNumberText"))
+                              .SendKeys("Your order number is {0}.");
                         driver.FindElement(By.Id("OrderConfirmationSuccessMessage")).Clear();
-                        driver.FindElement(By.Id("OrderConfirmationSuccessMessage")).SendKeys("Your order has been succesfull");
+                        driver.FindElement(By.Id("OrderConfirmationSuccessMessage"))
+                              .SendKeys("Your order has been succesfull");
                         driver.FindElement(By.Id("OrderConfirmationFailureMessage")).Clear();
-                        driver.FindElement(By.Id("OrderConfirmationFailureMessage")).SendKeys("Your order couldnot be processed.");
+                        driver.FindElement(By.Id("OrderConfirmationFailureMessage"))
+                              .SendKeys("Your order couldnot be processed.");
                         driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).Clear();
-                        driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).SendKeys("Your order couldnot be processed.");
+                        driver.FindElement(By.Id("OrderConfirmationDeclinedMessage"))
+                              .SendKeys("Your order couldnot be processed.");
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                        
+
                         Thread.Sleep(0x1388);
-                        }
-                        catch (Exception ex)
-                        {
-
-                            string e = ex.ToString();
-                        }
-                        #region Validations
-
-                        string str5 = driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement")).GetAttribute("Value");
-                        string str6 = driver.FindElement(By.Id("OrderConfirmationOrderNumberText")).GetAttribute("Value");
-                        string str7 = driver.FindElement(By.Id("OrderConfirmationSuccessMessage")).GetAttribute("Value");
-                        string str8 = driver.FindElement(By.Id("OrderConfirmationFailureMessage")).GetAttribute("Value");
-                        string str9 = driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).GetAttribute("Value");
-                        if (str5 == "ticklecompany")
-                        {
-                            datarow.newrow("Link Replacement", "ticklecompany", str5, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Link Replacement", "ticklecompany", str5, "FAIL", driver);
-                        }
-                        if (str6 == "Your order number is {0}.")
-                        {
-                            datarow.newrow("Order Confirmation", "Your order number is {0}.", str6, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Order Confirmation", "Your order number is {0}.", str6, "FAIL", driver);
-                        }
-                        if (str7 == "Your order has been succesfull")
-                        {
-                            datarow.newrow("ConfirmSuccess", "Your order has been succesfull", str7, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("ConfirmSuccess", "Your order has been succesfull", str7, "FAIL", driver);
-                        }
-                        if (str8 == "Your order couldnot be processed.")
-                        {
-                            datarow.newrow("Confirm Failure", "Your order couldnot be processed.", str8, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Confirm Failure", "Your order couldnot be processed.", str8, "FAIL", driver);
-                        }
-                        if (str9 == "Your order couldnot be processed.")
-                        {
-                            datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9, "FAIL", driver);
-                        }
-
-                        #endregion
-                        Selectanoption(driver, By.Id("ExternalLinks_1__ExternalLinkConfigId"), "Facebook");
-
-                        //new SelectElement(driver.FindElement(By.Id("ExternalLinks_1__ExternalLinkConfigId"))).SelectByText("Facebook");
-                        driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).Clear();
-                        driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).SendKeys("TheTickleCompany");
-                        driver.FindElement(By.CssSelector("input.button")).Click();
-                          
-                        string str10 =
-                            driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).GetAttribute("Value");
-                        if (str10 == "TheTickleCompany")
-                        {
-                            datarow.newrow("Link Replacement1", "TheTickleCompany", str10, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Link Replacement1", "TheTickleCompany", str10, "FAIL", driver);
-                        }
-                        driver.FindElement(By.CssSelector("input.button")).Click();
-                        
-                       
                     }
-                
+                    catch (Exception ex)
+                    {
+                        string e = ex.ToString();
+                    }
+
+                    #region Validations
+
+                    string str5 = driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement")).GetAttribute("Value");
+                    string str6 = driver.FindElement(By.Id("OrderConfirmationOrderNumberText")).GetAttribute("Value");
+                    string str7 = driver.FindElement(By.Id("OrderConfirmationSuccessMessage")).GetAttribute("Value");
+                    string str8 = driver.FindElement(By.Id("OrderConfirmationFailureMessage")).GetAttribute("Value");
+                    string str9 = driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).GetAttribute("Value");
+                    if (str5 == "ticklecompany")
+                    {
+                        datarow.newrow("Link Replacement", "ticklecompany", str5, "PASS", driver);
+                    }
+                    else
+                    {
+                        datarow.newrow("Link Replacement", "ticklecompany", str5, "FAIL", driver);
+                    }
+                    if (str6 == "Your order number is {0}.")
+                    {
+                        datarow.newrow("Order Confirmation", "Your order number is {0}.", str6, "PASS", driver);
+                    }
+                    else
+                    {
+                        datarow.newrow("Order Confirmation", "Your order number is {0}.", str6, "FAIL", driver);
+                    }
+                    if (str7 == "Your order has been succesfull")
+                    {
+                        datarow.newrow("ConfirmSuccess", "Your order has been succesfull", str7, "PASS", driver);
+                    }
+                    else
+                    {
+                        datarow.newrow("ConfirmSuccess", "Your order has been succesfull", str7, "FAIL", driver);
+                    }
+                    if (str8 == "Your order couldnot be processed.")
+                    {
+                        datarow.newrow("Confirm Failure", "Your order couldnot be processed.", str8, "PASS", driver);
+                    }
+                    else
+                    {
+                        datarow.newrow("Confirm Failure", "Your order couldnot be processed.", str8, "FAIL", driver);
+                    }
+                    if (str9 == "Your order couldnot be processed.")
+                    {
+                        datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9, "PASS", driver);
+                    }
+                    else
+                    {
+                        datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9, "FAIL", driver);
+                    }
+
+                    #endregion
+
+                    Selectanoption(driver, By.Id("ExternalLinks_1__ExternalLinkConfigId"), "Facebook");
+
+                    //new SelectElement(driver.FindElement(By.Id("ExternalLinks_1__ExternalLinkConfigId"))).SelectByText("Facebook");
+                    driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).Clear();
+                    driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).SendKeys("TheTickleCompany");
+                    driver.FindElement(By.CssSelector("input.button")).Click();
+
+                    string str10 =
+                        driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).GetAttribute("Value");
+                    if (str10 == "TheTickleCompany")
+                    {
+                        datarow.newrow("Link Replacement1", "TheTickleCompany", str10, "PASS", driver);
+                    }
+                    else
+                    {
+                        datarow.newrow("Link Replacement1", "TheTickleCompany", str10, "FAIL", driver);
+                    }
+                    driver.FindElement(By.CssSelector("input.button")).Click();
+                }
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
             }
-            LookandFeelImages images = new LookandFeelImages();
+            var images = new LookandFeelImages();
             //images.images(driver,datarow);
-            new ProductSocialShare().Productsocialshare(driver,datarow);
-            new Scheduler().Schedule(driver,datarow);
+            new ProductSocialShare().Productsocialshare(driver, datarow);
+            new Scheduler().Schedule(driver, datarow);
         }
     }
 }

@@ -6,7 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using WebDriver_Refining;
 
-namespace MoBankUI 
+namespace MoBankUI
 {
     internal class Paymentprovidertypes : driverdefining
     {
@@ -53,18 +53,18 @@ namespace MoBankUI
                             driver.FindElement(By.Id("Credentials_TypeModel_Password")).Clear();
                             driver.FindElement(By.Id("Credentials_TypeModel_Password")).SendKeys("wj3JWWFX");
                             driver.FindElement(By.CssSelector("input.button")).Click();
-                            
+
                             attribute =
                                 driver.FindElement(By.Id("Credentials_TypeModel_SiteReference")).GetAttribute("value");
                             str6 = driver.FindElement(By.Id("Credentials_TypeModel_UserName")).GetAttribute("value");
                             string expected =
                                 driver.FindElement(By.Id("Credentials_TypeModel_Password")).GetAttribute("value");
-                            if ( driver.PageSource.Contains("An unexpected error has occured, please try again"))
+                            if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                             {
                                 datarow.newrow("Capturing Error Message",
                                                "An unexpected error has occured, please try again",
                                                "An unexpected error has occured, please try again", "PASS", driver
-                                               );
+                                    );
                             }
                             str8 = GetValue(driver, By.Id("CardTypes_0____selector"));
                             str9 = GetValue(driver, By.Id("CardTypes_1____selector"));
@@ -76,68 +76,68 @@ namespace MoBankUI
                             {
                                 driver.FindElement(By.Id("CardTypes_1____selector")).Click();
                             }
-                           
-                            str10 =  GetValue(driver,By.Id("CardTypes_0____selector"));
-                            str11 =  GetValue(driver,By.Id("CardTypes_1____selector"));
+
+                            str10 = GetValue(driver, By.Id("CardTypes_0____selector"));
+                            str11 = GetValue(driver, By.Id("CardTypes_1____selector"));
                             if ((str10 == "false") && (str11 == "false"))
                             {
                                 driver.FindElement(By.CssSelector("input.button")).Click();
-                                
-                                if ( driver.PageSource.Contains("An unexpected error has occured, please try again"))
+
+                                if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                                 {
                                     datarow.newrow("Capturing Error Message",
                                                    "An unexpected error has occured, please try again",
                                                    "An unexpected error has occured, please try again", "FAIL", driver
-                                                   );
+                                        );
                                 }
                             }
                             driver.FindElement(By.Id("CardTypes_0____selector")).Click();
                             driver.FindElement(By.CssSelector("input.button")).Click();
-                              
+
                             if (attribute == "test_mobankgroup45556")
                             {
-                                datarow.newrow("PayProviderUserName", "mobank", "mobank", "PASS",driver);
+                                datarow.newrow("PayProviderUserName", "mobank", "mobank", "PASS", driver);
                             }
                             else
                             {
-                                datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL",driver);
+                                datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL", driver);
                                 _screenshot.screenshotfailed(driver);
                             }
                             if (str6 == "webservices@mobankgroup.com")
                             {
-                                datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "PASS",driver);
+                                datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "PASS", driver);
                             }
                             else
                             {
-                                datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "FAIL",driver);
+                                datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "FAIL", driver);
                                 _screenshot.screenshotfailed(driver);
                             }
                             if (expected == "wj3JWWFX")
                             {
-                                datarow.newrow("Password", expected, "wj3JWWFX", "PASS",driver);
+                                datarow.newrow("Password", expected, "wj3JWWFX", "PASS", driver);
                             }
                             else
                             {
-                                datarow.newrow("Password", expected, "wj3JWWFX", "FAIL",driver);
+                                datarow.newrow("Password", expected, "wj3JWWFX", "FAIL", driver);
                                 _screenshot.screenshotfailed(driver);
                             }
                             break;
                         }
-                       case "Sage Pay (non-live)":
+                    case "Sage Pay (non-live)":
                         new SelectElement(driver.FindElement(By.Id("PayProvider_Id"))).SelectByText(
                             "Sage Pay (non-live)");
                         Thread.Sleep(0xbb8);
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                        
-                            
-                        if ( driver.PageSource.Contains("An unexpected error has occured, please try again"))
+
+
+                        if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                         {
                             datarow.newrow("Capturing Error Message",
                                            "An unexpected error has occured, please try again",
-                                           "An unexpected error has occured, please try again", "PASS",driver);
+                                           "An unexpected error has occured, please try again", "PASS", driver);
                         }
-                        str8 = GetValue(driver,By.Id("CardTypes_0____selector"));
-                        str9 = GetValue(driver,By.Id("CardTypes_1____selector"));
+                        str8 = GetValue(driver, By.Id("CardTypes_0____selector"));
+                        str9 = GetValue(driver, By.Id("CardTypes_1____selector"));
                         if (str8 == "true")
                         {
                             driver.FindElement(By.Id("CardTypes_0____selector")).Click();
@@ -146,23 +146,23 @@ namespace MoBankUI
                         {
                             driver.FindElement(By.Id("CardTypes_1____selector")).Click();
                         }
-                        str10 = GetValue(driver,By.Id("CardTypes_0____selector"));
-                        str11 = GetValue(driver,By.Id("CardTypes_1____selector"));
+                        str10 = GetValue(driver, By.Id("CardTypes_0____selector"));
+                        str11 = GetValue(driver, By.Id("CardTypes_1____selector"));
                         if ((str10 == "false") && (str11 == "false"))
                         {
                             driver.FindElement(By.CssSelector("input.button")).Click();
-                            
-                            if ( driver.PageSource.Contains("An unexpected error has occured, please try again"))
+
+                            if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                             {
                                 datarow.newrow("Capturing Error Message",
                                                "An unexpected error has occured, please try again",
                                                "An unexpected error has occured, please try again", "FAIL", driver
-                                               );
+                                    );
                             }
                         }
                         driver.FindElement(By.Id("CardTypes_0____selecto")).Click();
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                        
+
                         break;
 
                     case "RealEx Test (MTC)":
@@ -173,28 +173,28 @@ namespace MoBankUI
                         driver.FindElement(By.Id("Credentials_TypeModel_Password")).Clear();
                         driver.FindElement(By.Id("Credentials_TypeModel_Password")).SendKeys("secret");
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                        
-                        if ( driver.PageSource.Contains("An unexpected error has occured, please try again"))
+
+                        if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                         {
                             datarow.newrow("Capturing Error Message",
                                            "An unexpected error has occured, please try again",
-                                           "An unexpected error has occured, please try again", "PASS",driver);
+                                           "An unexpected error has occured, please try again", "PASS", driver);
                         }
-                        xpathCount = GetXpathCount(driver,"//div[@id='CardTypesControl']/div/div/ul/li");
+                        xpathCount = GetXpathCount(driver, "//div[@id='CardTypesControl']/div/div/ul/li");
                         num4 = 0;
                         while (num4 < xpathCount)
                         {
-                            if ( GetValue(driver,By.Id("CardTypes_" + num4 + "____selector")) == "true")
+                            if (GetValue(driver, By.Id("CardTypes_" + num4 + "____selector")) == "true")
                             {
                                 driver.FindElement(By.Id("CardTypes_" + num4 + "____selector")).Click();
                             }
                             num4++;
                         }
-                        if ( GetValue(driver,By.Id("CardTypes_0____selector")) == "false")
+                        if (GetValue(driver, By.Id("CardTypes_0____selector")) == "false")
                         {
                             driver.FindElement(By.CssSelector("input.button")).Click();
-                            
-                            if ( driver.PageSource.Contains("An unexpected error has occured, please try again"))
+
+                            if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                             {
                                 datarow.newrow("Capturing Error Message",
                                                "An unexpected error has occured, please try again",
@@ -206,27 +206,27 @@ namespace MoBankUI
                         str6 = driver.FindElement(By.Id("Credentials_TypeModel_Password")).GetAttribute("value");
                         if (attribute == "mobank")
                         {
-                            datarow.newrow("PayProviderUserName", "mobank", "mobank", "PASS",driver);
+                            datarow.newrow("PayProviderUserName", "mobank", "mobank", "PASS", driver);
                         }
                         else
                         {
-                            datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL",driver);
+                            datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL", driver);
                             _screenshot.screenshotfailed(driver);
                         }
                         if (str6 == "secret")
                         {
-                            datarow.newrow("PayProviderPassword", str6, "secret", "PASS",driver);
+                            datarow.newrow("PayProviderPassword", str6, "secret", "PASS", driver);
                         }
                         else
                         {
-                            datarow.newrow("PayProviderPassword", str6, "secret", "FAIL",driver);
+                            datarow.newrow("PayProviderPassword", str6, "secret", "FAIL", driver);
                             _screenshot.screenshotfailed(driver);
                         }
                         break;
                 }
                 driver.FindElement(By.Id("CardTypes_0____selector")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                
+
                 if (str == "Mobank Test Provider")
                 {
                     new SelectElement(driver.FindElement(By.Id("PayProvider_Id"))).SelectByText("PayPal Provider");
@@ -236,7 +236,7 @@ namespace MoBankUI
                     new SelectElement(driver.FindElement(By.Id("PayProvider_Id"))).SelectByText(
                         "WorldPay Business/Corporate (offline)");
                     Thread.Sleep(0xbb8);
-                    if (IsElementPresent(driver,By.Name("Credentials_TypeModel_MerchantCode")))
+                    if (IsElementPresent(driver, By.Name("Credentials_TypeModel_MerchantCode")))
                     {
                         driver.FindElement(By.Id("Credentials_TypeModel_MerchantCode")).Clear();
                         driver.FindElement(By.Id("Credentials_TypeModel_MerchantCode")).SendKeys(str2);
@@ -245,31 +245,31 @@ namespace MoBankUI
                         driver.FindElement(By.Id("Credentials_TypeModel_XmlPassword")).Clear();
                         driver.FindElement(By.Id("Credentials_TypeModel_XmlPassword")).SendKeys(str3);
                         driver.FindElement(By.CssSelector("input.button")).Click();
-                        
-                        if ( driver.PageSource.Contains("An unexpected error has occured, please try again"))
+
+                        if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                         {
                             datarow.newrow("Capturing Error Message",
                                            "An unexpected error has occured, please try again",
-                                           "An unexpected error has occured, please try again", "PASS",driver);
+                                           "An unexpected error has occured, please try again", "PASS", driver);
                         }
-                        xpathCount = GetXpathCount(driver,"//div[@id='CardTypesControl']/div/div/ul/li");
+                        xpathCount = GetXpathCount(driver, "//div[@id='CardTypesControl']/div/div/ul/li");
                         for (num4 = 0; num4 < xpathCount; num4++)
                         {
-                            if ( GetValue(driver,By.Id("CardTypes_" + num4 + "____selector")) == "true")
+                            if (GetValue(driver, By.Id("CardTypes_" + num4 + "____selector")) == "true")
                             {
                                 driver.FindElement(By.Id("CardTypes_" + num4 + "____selector")).Click();
                             }
                         }
-                        if (GetValue(driver,By.Id("CardTypes_0____selector"))== "false" +"")
+                        if (GetValue(driver, By.Id("CardTypes_0____selector")) == "false" + "")
                         {
                             driver.FindElement(By.CssSelector("input.button")).Click();
-                            
-                            if ( driver.PageSource.Contains("An unexpected error has occured, please try again"))
+
+                            if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                             {
                                 datarow.newrow("Capturing Error Message",
                                                "An unexpected error has occured, please try again",
                                                "An unexpected error has occured, please try again", "FAIL", driver
-                                               );
+                                    );
                             }
                         }
                         attribute = driver.FindElement(By.Id("Credentials_TypeModel_MerchantCode"))
@@ -277,26 +277,25 @@ namespace MoBankUI
                         str6 = driver.FindElement(By.Id("Credentials_TypeModel_XmlUserName")).GetAttribute("value");
                         if (attribute == str3)
                         {
-                            datarow.newrow("PayProviderUserName", "mobank", "mobank", "PASS",driver);
+                            datarow.newrow("PayProviderUserName", "mobank", "mobank", "PASS", driver);
                         }
                         else
                         {
-                            datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL",driver);
+                            datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL", driver);
                             _screenshot.screenshotfailed(driver);
                         }
                         if (str6 == str2)
                         {
-                            datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "PASS",driver);
+                            datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "PASS", driver);
                         }
                         else
                         {
-                            datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "FAIL",driver);
+                            datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "FAIL", driver);
                             _screenshot.screenshotfailed(driver);
                         }
                     }
                     driver.FindElement(By.Id("CardTypes_0____selector")).Click();
                     driver.FindElement(By.CssSelector("input.button")).Click();
-                    
                 }
             }
         }

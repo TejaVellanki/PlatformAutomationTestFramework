@@ -7,25 +7,24 @@ using WebDriver_Refining;
 namespace MoBankUI
 {
     //This class Test the user as a guest. 
-    internal class Guest :driverdefining
+    internal class Guest : driverdefining
     {
         public void guest(IWebDriver driver, datarow datarow)
         {
-            if (IsElementPresent(driver,By.Id("at-GuestUser")))
+            if (IsElementPresent(driver, By.Id("at-GuestUser")))
             {
                 driver.FindElement(By.Id("at-GuestUser")).Click();
-                if (IsElementPresent(driver,By.XPath("//input[@value='Continue']")))
+                if (IsElementPresent(driver, By.XPath("//input[@value='Continue']")))
                 {
                     driver.FindElement(By.XPath("//input[@value='Continue']")).Click();
-                    
                 }
 
                 try
                 {
-                    decimal count = GetXpathCount(driver,"//html/body/div[1]/div[2]/div/form/div");
+                    decimal count = GetXpathCount(driver, "//html/body/div[1]/div[2]/div/form/div");
                     for (int i = 1; i <= count; i++)
                     {
-                        if (IsElementPresent(driver,By.XPath("//html/body/div[1]/div[2]/div/form/div[" + i + "]/label")))
+                        if (IsElementPresent(driver, By.XPath("//html/body/div[1]/div[2]/div/form/div[" + i + "]/label")))
                         {
                             string valuet =
                                 driver.FindElement(By.XPath("html/body/div[1]/div[2]/div/form/div[" + i + "]/label"))
@@ -43,7 +42,7 @@ namespace MoBankUI
                                     driver.FindElement(
                                         By.XPath("//html/body/div[1]/div[2]/div/form/div[" + i + "]/input"))
                                           .SendKeys("TEST");
-                                    datarow.newrow("Registration Field Name", "", valuet, "PASS",driver);
+                                    datarow.newrow("Registration Field Name", "", valuet, "PASS", driver);
                                 }
                                 catch (Exception ex)
                                 {
@@ -58,9 +57,9 @@ namespace MoBankUI
 
                             if (valuet == "Country: *" || valuet == "Country")
                             {
-                                 IWebElement con = driver.FindElement(By.Id("Country"));
-                                 IList<IWebElement> countries = con.FindElements(By.TagName("option"));
-                             
+                                IWebElement con = driver.FindElement(By.Id("Country"));
+                                IList<IWebElement> countries = con.FindElements(By.TagName("option"));
+
 
                                 string values = null;
                                 foreach (IWebElement value in countries)
@@ -68,13 +67,13 @@ namespace MoBankUI
                                     values = values + "\r\n" + value;
                                     new SelectElement(driver.FindElement(By.Id("Country"))).SelectByText(value.Text);
                                 }
-                                datarow.newrow("Registration Field Countries", "", values, "PASS",driver);
+                                datarow.newrow("Registration Field Countries", "", values, "PASS", driver);
                             }
 
                             if (valuet == "Continue")
                             {
-                                driver.FindElement(By.XPath("//html/body/div[1]/div[2]/div/form/div[" + i + "]/div/input")).Click();
-                                 
+                                driver.FindElement(
+                                    By.XPath("//html/body/div[1]/div[2]/div/form/div[" + i + "]/div/input")).Click();
                             }
                         }
                     }
@@ -82,7 +81,7 @@ namespace MoBankUI
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 }
             }
         }

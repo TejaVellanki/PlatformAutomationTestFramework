@@ -7,7 +7,7 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Footer_TPS :driverdefining
+    internal class Footer_TPS : driverdefining
     {
         private readonly Screenshot screenshot = new Screenshot();
 
@@ -22,7 +22,7 @@ namespace MoBankUI
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }
         }
@@ -69,114 +69,108 @@ namespace MoBankUI
                 }
                 try
                 {
-                    decimal count = GetXpathCount(driver,footer);
+                    decimal count = GetXpathCount(driver, footer);
                     for (int i = 1; i <= count; i++)
                     {
                         driver.FindElement(By.XPath("" + footer + "[" + i + "]" + footerlink + "")).Click();
-                        
+
                         string Title = driver.Title;
-                        datarow.newrow("Footer Title", "", Title, "PASS",driver);
+                        datarow.newrow("Footer Title", "", Title, "PASS", driver);
                         driver.Navigate().Back();
-                        
                     }
                 }
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
 
                 try
                 {
-                    decimal count1 = GetXpathCount(driver,sociallin);
+                    decimal count1 = GetXpathCount(driver, sociallin);
                     for (int i = 1; i <= count1; i++)
                     {
                         driver.FindElement(By.XPath("" + sociallin + "[" + i + "]" + sociallink + "")).Click();
-                        
+
                         string tile = driver.Title;
-                        datarow.newrow("Footer Social Image Title", "", tile, "PASS",driver);
+                        datarow.newrow("Footer Social Image Title", "", tile, "PASS", driver);
                         if (title == "testshop")
                         {
                             driver.Navigate().GoToUrl(url);
-                            
                         }
                         else
                         {
                             driver.Navigate().Back();
-                            
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
 
                 try
                 {
-                    decimal count3 = GetXpathCount(driver,lowerfooter);
+                    decimal count3 = GetXpathCount(driver, lowerfooter);
                     for (int i = 1; i <= count3; i++)
                     {
                         driver.FindElement(By.XPath("" + lowerfooter + "[" + i + "]" + lowerfooterlink + "")).Click();
-                        
+
                         string tile = driver.Title;
-                        datarow.newrow("Lower Footer Title", "", tile, "PASS",driver);
+                        datarow.newrow("Lower Footer Title", "", tile, "PASS", driver);
                         if (title == "testshop")
                         {
                         }
                         else
                         {
                             driver.Navigate().Back();
-                            
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
                 try
                 {
-                    if (IsElementPresent(driver,By.Name(mopowered)))
+                    if (IsElementPresent(driver, By.Name(mopowered)))
                     {
                         driver.FindElement(By.XPath(mopowered)).Click();
-                        
+
                         string tile = driver.Title;
-                        datarow.newrow("Footer Title", "", tile, "PASS",driver);
+                        datarow.newrow("Footer Title", "", tile, "PASS", driver);
                         if (title == "testshop")
                         {
                             driver.Navigate().GoToUrl(url);
-                            
                         }
                         else
                         {
                             driver.Navigate().Back();
-                            
                         }
                     }
                     else
                     {
                         datarow.newrow("Footer Element", "", "Footer Element Not Present" + mopowered, "FAIL", driver
-                                       );
+                            );
                         screenshot.screenshotfailed(driver);
                     }
                 }
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL",driver);
+                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }
 

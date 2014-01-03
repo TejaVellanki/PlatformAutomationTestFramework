@@ -56,7 +56,7 @@ namespace MoBankUI
         #region CreateAndOpenExcelFile
 
         /// <summary>
-        ///  CreateAndOpenExcelFile
+        ///     CreateAndOpenExcelFile
         /// </summary>
         /// <param name="filePath"></param>
         /// <param name="fileName"></param>
@@ -103,16 +103,16 @@ namespace MoBankUI
 
                     int currentSheetCount = workbook.Sheets.Count;
 
-                    var reqSheetConsolidated = (Worksheet)sheets.Item[currentSheetCount];
+                    var reqSheetConsolidated = (Worksheet) sheets.Item[currentSheetCount];
 
                     var newSheetConsolidated =
-                        (Worksheet)sheets.Add(Type.Missing, reqSheetConsolidated, 1, Type.Missing);
+                        (Worksheet) sheets.Add(Type.Missing, reqSheetConsolidated, 1, Type.Missing);
 
                     newSheetConsolidated.Name = sheetName;
 
                     for (int sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
                     {
-                        var verSheet = (Worksheet)workbook.Worksheets.get_Item(sheetCount);
+                        var verSheet = (Worksheet) workbook.Worksheets.get_Item(sheetCount);
 
                         if ("Sheet1" == verSheet.Name)
                         {
@@ -163,7 +163,7 @@ namespace MoBankUI
         {
             for (int sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
             {
-                var verSheet = (Worksheet)workbook.Worksheets.get_Item(sheetCount);
+                var verSheet = (Worksheet) workbook.Worksheets.get_Item(sheetCount);
 
                 if ("Sheet1" == verSheet.Name)
                 {
@@ -209,7 +209,7 @@ namespace MoBankUI
         {
             // Copy the DataTable to an object array
 
-            var rawData = new object[dt.Rows.Count + 1, dt.Columns.Count];
+            var rawData = new object[dt.Rows.Count + 1,dt.Columns.Count];
 
             int intRowNum = 0;
 
@@ -307,7 +307,7 @@ namespace MoBankUI
 
                 if (dt.Rows.Count > 0)
                 {
-                    ((Range)ws.Rows[intRowNum + dt.Rows.Count, Type.Missing]).Interior.Color =
+                    ((Range) ws.Rows[intRowNum + dt.Rows.Count, Type.Missing]).Interior.Color =
                         ColorTranslator.ToOle(Color.Yellow);
                 }
             }
@@ -323,11 +323,11 @@ namespace MoBankUI
             if (dt.Columns.Count > colCharsetLen)
             {
                 finalColLetter = colCharset.Substring(
-                    (dt.Columns.Count - 1) / colCharsetLen - 1, 1);
+                    (dt.Columns.Count - 1)/colCharsetLen - 1, 1);
             }
 
             finalColLetter += colCharset.Substring(
-                (dt.Columns.Count - 1) % colCharsetLen, 1);
+                (dt.Columns.Count - 1)%colCharsetLen, 1);
 
             string excelRange = string.Empty;
 
@@ -375,34 +375,34 @@ namespace MoBankUI
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ((Range)ws.Rows[1, Type.Missing]).Font.Bold = true;
-                    ((Range)ws.Rows[1, Type.Missing]).Font.Color = ColorTranslator.ToOle(Color.LightGray);
-                    ((Range)ws.Rows[1, Type.Missing]).Interior.Color = Color.Blue;
+                    ((Range) ws.Rows[1, Type.Missing]).Font.Bold = true;
+                    ((Range) ws.Rows[1, Type.Missing]).Font.Color = ColorTranslator.ToOle(Color.LightGray);
+                    ((Range) ws.Rows[1, Type.Missing]).Interior.Color = Color.Blue;
 
-                    ((Range)ws.Rows[j, Type.Missing]).Borders.Color = ColorTranslator.ToOle(Color.Black);
-                    ((Range)ws.Rows[j, Type.Missing]).Interior.Color = ColorTranslator.ToOle(Color.LightGray);
+                    ((Range) ws.Rows[j, Type.Missing]).Borders.Color = ColorTranslator.ToOle(Color.Black);
+                    ((Range) ws.Rows[j, Type.Missing]).Interior.Color = ColorTranslator.ToOle(Color.LightGray);
                     string text = dt.Rows[i]["Total Number Of Test Cases Passed/Failed"].ToString();
                     string value = dt.Rows[i]["PASS or FAIL"].ToString();
                     if (value == "PASS")
                     {
-                        ((Range)ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ((Range) ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
                             ColorTranslator.ToOle(Color.LightGreen);
-                        ((Range)ws.Columns[2, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ((Range) ws.Columns[2, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
                             ColorTranslator.ToOle(Color.LightGreen);
-                        ((Range)ws.Columns[3, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ((Range) ws.Columns[3, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
                             ColorTranslator.ToOle(Color.LightGreen);
-                        ((Range)ws.Columns[4, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ((Range) ws.Columns[4, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
                             ColorTranslator.ToOle(Color.LightGreen);
                     }
                     if (value == "FAIL")
                     {
-                        ((Range)ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ((Range) ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
                             ColorTranslator.ToOle(Color.Red);
-                        ((Range)ws.Columns[2, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ((Range) ws.Columns[2, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
                             ColorTranslator.ToOle(Color.Red);
-                        ((Range)ws.Columns[3, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ((Range) ws.Columns[3, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
                             ColorTranslator.ToOle(Color.Red);
-                        ((Range)ws.Columns[4, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ((Range) ws.Columns[4, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
                             ColorTranslator.ToOle(Color.Red);
                     }
                     j++;

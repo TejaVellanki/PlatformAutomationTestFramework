@@ -1,22 +1,19 @@
 ﻿using System;
 using ObjectRepository;
-using WebDriver_Refining;
-using System.Windows.Forms.VisualStyles;
-using MoBankUI;
 using OpenQA.Selenium;
+using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    class ProductDetail : driverdefining
+    internal class ProductDetail : driverdefining
     {
-        public void productdetail(IWebDriver driver, datarow datarow) 
+        public void productdetail(IWebDriver driver, datarow datarow)
         {
-
             string productdescription = null;
             string productdescriptiontab = null;
             string Detail = null;
-              string pg = driver.PageSource;
-         
+            string pg = driver.PageSource;
+
             if (pg.Contains("user-scalable=yes"))
             {
                 productdescription = CollectionMapV2.productDescription;
@@ -28,10 +25,7 @@ namespace MoBankUI
                 Detail = CollectionMapV1.detail;
                 productdescription = CollectionMapV1.productDescription;
                 productdescriptiontab = CollectionMapV1.ProductDescriptiontab;
-                
             }
-
-         
 
             #region Product Detail
 

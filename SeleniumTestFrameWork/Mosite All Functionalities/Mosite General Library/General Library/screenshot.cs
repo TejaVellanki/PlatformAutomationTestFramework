@@ -4,14 +4,12 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using OpenQA.Selenium;
 
-
 //using System.Drawing;
 
 namespace MoBankUI
 {
     public class Screenshot
     {
-
         public void screenshotnotifications(IWebDriver driver)
         {
             using (var b = new Bitmap(50, 50))
@@ -32,7 +30,7 @@ namespace MoBankUI
                 string image = @"C:\\Input Data\Callback" + randomNumber + ".png";
                 b.Save(image, ImageFormat.Png);
 
-                ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(image, ImageFormat.Png);
+                ((ITakesScreenshot) driver).GetScreenshot().SaveAsFile(image, ImageFormat.Png);
             }
         }
 
@@ -56,7 +54,7 @@ namespace MoBankUI
                 string image = @"C:\Selenium\Input Data\FailedScreenshots\" + randomNumber + ".png";
                 b.Save(image, ImageFormat.Png);
 
-                ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(image, ImageFormat.Png);
+                ((ITakesScreenshot) driver).GetScreenshot().SaveAsFile(image, ImageFormat.Png);
             }
         }
     }

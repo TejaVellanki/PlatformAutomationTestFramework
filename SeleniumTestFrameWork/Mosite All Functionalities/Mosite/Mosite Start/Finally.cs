@@ -1,6 +1,5 @@
 ﻿using System;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
 //using System.Drawing;
 
@@ -35,7 +34,7 @@ namespace MoBankUI
                 Console.Write(e);
                 string ex = e.ToString();
                 var scree = new Screenshot();
-                datarow.newrow("Exception", "Not Expected", ex, "FAIL",driver);
+                datarow.newrow("Exception", "Not Expected", ex, "FAIL", driver);
                 scree.screenshotfailed(driver);
             }
             finally
@@ -49,7 +48,7 @@ namespace MoBankUI
                         if (sr == split[3])
                         {
                             datarow.consolidatedreport(emails);
-                            datarow.excelsave("Mosite-" + sr + "",driver, emails);
+                            datarow.excelsave("Mosite-" + sr + "", driver, emails);
 
                             driver.Quit();
                             break;
@@ -60,7 +59,7 @@ namespace MoBankUI
                         if (sr == split[2])
                         {
                             datarow.consolidatedreport(emails);
-                            datarow.excelsave("Mosite-" + sr + "",driver, emails);
+                            datarow.excelsave("Mosite-" + sr + "", driver, emails);
 
                             driver.Quit();
                             break;

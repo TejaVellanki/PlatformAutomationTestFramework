@@ -3,18 +3,17 @@ using System.Data;
 using System.Diagnostics;
 using Microsoft.Office.Interop.Excel;
 using OpenQA.Selenium;
-using Selenium;
 using DataTable = System.Data.DataTable;
 
 namespace MoBankUI
 {
     public class datarow
     {
-        public DataTable dt = new DataTable();
         public readonly DataTable mergeTable = new DataTable();
         public string TotalFail;
         public string TotalPass;
         public DataTable clonetable = new DataTable();
+        public DataTable dt = new DataTable();
         public GeneralLibrary generalLibrary;
 
         private Screenshot screenshot = new Screenshot();
@@ -38,14 +37,14 @@ namespace MoBankUI
         public void newrow(string validation, string expected, string actual, string passorfail)
         {
             DataRow newrow = dt.NewRow();
-          
+
             newrow[0] = validation;
             newrow[1] = expected;
             newrow[2] = actual;
             newrow[3] = passorfail;
             dt.Rows.Add(newrow);
         }
-       
+
 
         public void excelsave(string ReportName, IWebDriver driver, string email)
         {

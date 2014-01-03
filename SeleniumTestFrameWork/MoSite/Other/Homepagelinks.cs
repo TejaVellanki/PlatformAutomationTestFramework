@@ -7,14 +7,14 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Homepagelinks :driverdefining
+    internal class Homepagelinks : driverdefining
     {
         public void HompageLinks(datarow datarow, IWebDriver driver)
         {
             DataSet excelData = new GeneralLibrary().GetExcelData(@"C:\\Input Data\Object Repository.xls",
                                                                   "Modrophenia");
             driver.FindElement(By.CssSelector("img")).Click();
-            
+
             decimal count = driver.FindElements(By.XPath("//html/body/div/div[2]/div/ul/li")).Count;
             int num2 = 0;
             for (int i = 1; i <= count; i++)
@@ -25,19 +25,18 @@ namespace MoBankUI
                 IWebElement element =
                     driver.FindElement(By.XPath("//html/body/div/div[2]/div/ul/li[" + i + "]/div/div/a/h2"));
                 driver.FindElement(By.XPath("//html/body/div/div[2]/div/ul/li[" + i + "]/div/div/a/h2")).Click();
-                
+
                 string expected = driver.Title;
                 if (expected == actual)
                 {
-                    datarow.newrow("Title", expected, actual, "PASS",driver);
+                    datarow.newrow("Title", expected, actual, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Title", expected, actual, "FAIL",driver);
+                    datarow.newrow("Title", expected, actual, "FAIL", driver);
                 }
                 num2++;
                 driver.Navigate().Back();
-                
             }
         }
     }

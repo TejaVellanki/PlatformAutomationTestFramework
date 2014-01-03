@@ -100,7 +100,7 @@ namespace MoBankUI
                             By.XPath(
                                 "//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"))
                               .Click();
-                        
+
                         if (!(driver.Title == "Checkout - Address - QA - The Tickle Company"))
                         {
                             break;
@@ -143,74 +143,74 @@ namespace MoBankUI
                         string str21 = driver.FindElement(By.Id("FormData_9__Value")).GetAttribute("Value");
                         if (Regex.IsMatch(attribute, "^[a-zA-Z'']"))
                         {
-                            datarow.newrow("FirstName", expected, attribute, "PASS",driver);
+                            datarow.newrow("FirstName", expected, attribute, "PASS", driver);
                         }
                         else
                         {
                             datarow.newrow("FirstName", "FirstName-Not in Expected Format", attribute, "PASS", driver
-                                           );
+                                );
                         }
                         if (Regex.IsMatch(input, "^[a-zA-Z'']"))
                         {
-                            datarow.newrow("Last Name", str3, input, "PASS",driver);
+                            datarow.newrow("Last Name", str3, input, "PASS", driver);
                         }
                         else
                         {
                             datarow.newrow("Last Name", "LastName-Not in Expected Format", input, "PASS", driver
-                                           );
+                                );
                         }
                         if (Regex.IsMatch(str15, "^[a-zA-Z0-9'']"))
                         {
-                            datarow.newrow("Address", str5, str15, "PASS",driver);
+                            datarow.newrow("Address", str5, str15, "PASS", driver);
                         }
                         else
                         {
-                            datarow.newrow("Address", "Address-Not in Expected Format", str15, "PASS",driver);
+                            datarow.newrow("Address", "Address-Not in Expected Format", str15, "PASS", driver);
                         }
                         if (Regex.IsMatch(str16, "^[a-zA-Z0-9'']"))
                         {
-                            datarow.newrow("Post Code", str8, str16, "PASS",driver);
+                            datarow.newrow("Post Code", str8, str16, "PASS", driver);
                         }
                         else
                         {
                             datarow.newrow("Post Code", "PostCode-Not in Expected Format", str16, "PASS", driver
-                                           );
+                                );
                         }
                         if (Regex.IsMatch(str17, "^[a-zA-Z'']"))
                         {
-                            datarow.newrow("City/Town", str6, str17, "PASS",driver);
+                            datarow.newrow("City/Town", str6, str17, "PASS", driver);
                         }
                         else
                         {
-                            datarow.newrow("City/Town", "City-Not in Expected Format", str17, "PASS",driver);
+                            datarow.newrow("City/Town", "City-Not in Expected Format", str17, "PASS", driver);
                         }
                         if (Regex.IsMatch(selectedValue, "^[a-zA-Z'']"))
                         {
-                            datarow.newrow("Country", str4, selectedValue, "PASS",driver);
+                            datarow.newrow("Country", str4, selectedValue, "PASS", driver);
                         }
                         else
                         {
                             datarow.newrow("Country", "Country-Not in Expected Format", selectedValue, "PASS", driver
-                                           );
+                                );
                         }
                         if (Regex.IsMatch(str21,
                                           "^(?(\")(\"[^\"]+?\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1,3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9]{2,17}))$"))
                         {
-                            datarow.newrow("EMAIL", str9, str21, "PASS",driver);
+                            datarow.newrow("EMAIL", str9, str21, "PASS", driver);
                         }
                         else
                         {
-                            datarow.newrow("EMAIL", "Email-Not in Expected Format", str21, "PASS",driver);
+                            datarow.newrow("EMAIL", "Email-Not in Expected Format", str21, "PASS", driver);
                         }
                     }
                 }
                 if (driver.FindElement(By.Id("BasketInfo")).Text == "(1)")
                 {
-                    datarow.newrow("Basket Value", "(1)", "(1)", "PASS",driver);
+                    datarow.newrow("Basket Value", "(1)", "(1)", "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Basket Value", "(1)", "(1)", "FAIL",driver);
+                    datarow.newrow("Basket Value", "(1)", "(1)", "FAIL", driver);
                 }
                 string str23 = driver.PageSource;
                 var executor2 = (IJavaScriptExecutor) driver;
@@ -221,30 +221,29 @@ namespace MoBankUI
                 executor2.ExecuteScript("window.scrollBy(0,200)", new object[0]);
                 Thread.Sleep(3000);
                 driver.FindElement(By.XPath("//html/body/div/div[2]/div/form/fieldset/div[2]/div/button")).Click();
-                   
+
                 Thread.Sleep(3000);
-                string text =  driver.FindElement(By.CssSelector("div.ui-content.ui-body-c > p")).Text;
+                string text = driver.FindElement(By.CssSelector("div.ui-content.ui-body-c > p")).Text;
                 if (text == "TestFirstname,TestLastName, 0123456789, Test Address1, TestCity, TestCounty, TestPostcode")
                 {
                     datarow.newrow("Details in Process summary page",
                                    "TestFirstname TestLastName, 0123456789, Test Address1, TestCity, TestCounty, TestPostcode",
-                                   text, "PASS",driver);
+                                   text, "PASS", driver);
                 }
                 else
                 {
                     datarow.newrow("Details in Process summary page",
                                    "TestFirstname,TestLastName, 0123456789, Test Address1, TestCity, TestCounty, TestPostcode",
-                                   text, "FAIL",driver);
+                                   text, "FAIL", driver);
                 }
                 executor2.ExecuteScript("window.scrollBy(0,200)", new object[0]);
                 Thread.Sleep(3000);
                 driver.FindElement(By.XPath("//html/body/div/div[2]/div[2]/div[2]/a/span/span")).Click();
-                
             }
             catch (Exception exception)
             {
                 string actual = exception.ToString();
-                datarow.newrow("Exception", "Not Expected", actual, "FAIL",driver);
+                datarow.newrow("Exception", "Not Expected", actual, "FAIL", driver);
             }
         }
     }

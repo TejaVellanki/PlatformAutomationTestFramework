@@ -2,143 +2,143 @@
 
 
 using System;
-using System.Collections.Generic;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using WebDriver_Refining;
- 
+
 namespace MoBankUI
 {
-    internal class CategoryScrape :driverdefining
+    internal class CategoryScrape : driverdefining
     {
         public void ScarpeCategory(IWebDriver driver, datarow datarow)
         {
             try
             {
-            driver.FindElement(By.Id("SubPages_0__Name")).Clear();
-            driver.FindElement(By.Id("SubPages_0__Name")).SendKeys("Sub-Categories");
-            Selectanoption(driver, By.Id("SubPages_0__ObjectTypeName"), "Category");
-            //string[] Subcat = SelectElement.GetSelectOptions("SubPages_0__ObjectTypeName");
-            
-            driver.FindElement(By.Id("SubPages_0__ObjectTypeName")).SendKeys(Keys.Enter);
-            driver.FindElement(By.Id("Selector")).Clear();
-            driver.FindElement(By.Id("Selector")).SendKeys("/acatalog/gift-wrap.html");
-            driver.FindElement(By.Id("Identifier")).Clear();
-            driver.FindElement(By.Id("Identifier")).SendKeys("/acatalog/gift-wrap.html");
-            driver.FindElement(By.Id("Selector")).Clear();
-            driver.FindElement(By.Id("Selector")).SendKeys("#menu .lrga:gt(1)>a");
-            driver.FindElement(By.Id("IdentifierTransformationPattern")).Clear();
-            driver.FindElement(By.Id("IdentifierTransformationPattern")).SendKeys("\\/acatalog\\/([a-z0-9\\-_]*).html");
-            driver.FindElement(By.Id("IdentifierTransformationReplacement")).Clear();
-            driver.FindElement(By.Id("IdentifierTransformationReplacement")).SendKeys("$1");
-            driver.FindElement(By.CssSelector("input.button")).Click();
-              
+                driver.FindElement(By.Id("SubPages_0__Name")).Clear();
+                driver.FindElement(By.Id("SubPages_0__Name")).SendKeys("Sub-Categories");
+                Selectanoption(driver, By.Id("SubPages_0__ObjectTypeName"), "Category");
+                //string[] Subcat = SelectElement.GetSelectOptions("SubPages_0__ObjectTypeName");
 
-            driver.FindElement(By.LinkText("Scrape Mappings")).Click();
-              
-              Selectanoption(driver, By.Id("MappingId"), "(new mappings)");
-            //new SelectElement(driver.FindElement(By.Id("MappingId"))).SelectByText("(new mappings)");
-            driver.FindElement(By.CssSelector("input.button")).Click();
-            Selectanoption(driver, By.Id("MappingItems_0__DataPath"), "Name");
-            driver.FindElement(By.Id("MappingItems_0__Selector")).Clear();
-            driver.FindElement(By.Id("MappingItems_0__Selector")).SendKeys("a[class^='select']");
-
-            Selectanoption(driver, By.Id("MappingItems_0__TransformationId"), "Content Trim");
-            driver.FindElement(By.CssSelector("input.button")).Click();
-
-            #region Validations
-
-            string attribute = driver.FindElement(By.Id("Selector")).GetAttribute("Value");
-            string actual = driver.FindElement(By.Id("Identifier")).GetAttribute("Value");
-            string str3 = driver.FindElement(By.CssSelector("#IdentifierTransformationPattern")).GetAttribute("Value");
-            string str4 = driver.FindElement(By.CssSelector("#IdentifierTransformationReplacement")).GetAttribute("Value");
+                driver.FindElement(By.Id("SubPages_0__ObjectTypeName")).SendKeys(Keys.Enter);
+                driver.FindElement(By.Id("Selector")).Clear();
+                driver.FindElement(By.Id("Selector")).SendKeys("/acatalog/gift-wrap.html");
+                driver.FindElement(By.Id("Identifier")).Clear();
+                driver.FindElement(By.Id("Identifier")).SendKeys("/acatalog/gift-wrap.html");
+                driver.FindElement(By.Id("Selector")).Clear();
+                driver.FindElement(By.Id("Selector")).SendKeys("#menu .lrga:gt(1)>a");
+                driver.FindElement(By.Id("IdentifierTransformationPattern")).Clear();
+                driver.FindElement(By.Id("IdentifierTransformationPattern"))
+                      .SendKeys("\\/acatalog\\/([a-z0-9\\-_]*).html");
+                driver.FindElement(By.Id("IdentifierTransformationReplacement")).Clear();
+                driver.FindElement(By.Id("IdentifierTransformationReplacement")).SendKeys("$1");
+                driver.FindElement(By.CssSelector("input.button")).Click();
 
 
+                driver.FindElement(By.LinkText("Scrape Mappings")).Click();
 
-            string selectedLabel = driver.FindElement(By.Id("MappingItems_0__DataPath")).Selected.ToString();
-            string str6 = driver.FindElement(By.Id("MappingItems_0__TransformationId")).GetAttribute("Value");
-            string str7 = driver.FindElement(By.Id("MappingItems_0__Selector")).GetAttribute("Value");
-            string str8 = driver.FindElement(By.Id("SubPages_0__Name")).GetAttribute("Value");
-            string str9 =  driver.FindElement(By.Id("SubPages_0__ObjectTypeName")).GetAttribute("Value");
+                Selectanoption(driver, By.Id("MappingId"), "(new mappings)");
+                //new SelectElement(driver.FindElement(By.Id("MappingId"))).SelectByText("(new mappings)");
+                driver.FindElement(By.CssSelector("input.button")).Click();
+                Selectanoption(driver, By.Id("MappingItems_0__DataPath"), "Name");
+                driver.FindElement(By.Id("MappingItems_0__Selector")).Clear();
+                driver.FindElement(By.Id("MappingItems_0__Selector")).SendKeys("a[class^='select']");
 
-            if (attribute == "#menu .lrga:gt(1)>a")
-            {
-                datarow.newrow("Selector", "#menu .lrga:gt(1)>a", attribute, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Selector", "#menu .lrga:gt(1)>a", attribute, "FAIL", driver);
-            }
-            if (actual == "/acatalog/gift-wrap.html")
-            {
-                datarow.newrow("Identifier", "/acatalog/gift-wrap.html", actual, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Identifier", "/acatalog/gift-wrap.html", actual, "FAIL", driver);
-            }
-            if (str3 == @"\/acatalog\/([a-z0-9\-_]*).html")
-            {
-                datarow.newrow("Identifier Tarnsformation pattern", @"\/acatalog\/([a-z0-9\-_]*).html", str3, "PASS",
-                               driver);
-            }
-            else
-            {
-                datarow.newrow("Identifier Tarnsformation pattern", @"\/acatalog\/([a-z0-9\-_]*).html", str3, "FAIL",driver);
-            }
-            if (str4 == "$1")
-            {
-                datarow.newrow("Identifier Replacement", "$1", str4, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Identifier Replacement", "$1", str4, "FAIL", driver);
-            }
-            if (selectedLabel == "Name")
-            {
-                datarow.newrow("DataPath", "Name", selectedLabel, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("DataPath", "Name", selectedLabel, "FAIL", driver);
-            }
-            if (str6 == "Content Trim")
-            {
-                datarow.newrow("Transformation ID", "Content Trim", str6, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Transformation ID", "Content Trim", str6, "FAIL", driver);
-            }
-            if (str7 == "a[class^='select']")
-            {
-                datarow.newrow("Mapping Selector", "a[class^='select']", str7, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Mapping Selector", "a[class^='select']", str7, "FAIL", driver);
-            }
-            if (str8 == "Sub-Categories")
-            {
-                datarow.newrow("Sub Pages", "Sub-Categories", str8, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Sub Pages", "Sub-Categories", str8, "FAIL", driver);
-            }
-            if (str9 == "Category")
-            {
-                datarow.newrow("Sub Category Type", "Category", str9, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Sub Category Type", "Category", str9, "FAIL", driver);
-            }
+                Selectanoption(driver, By.Id("MappingItems_0__TransformationId"), "Content Trim");
+                driver.FindElement(By.CssSelector("input.button")).Click();
 
-            #endregion
+                #region Validations
 
-            driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
-            
+                string attribute = driver.FindElement(By.Id("Selector")).GetAttribute("Value");
+                string actual = driver.FindElement(By.Id("Identifier")).GetAttribute("Value");
+                string str3 =
+                    driver.FindElement(By.CssSelector("#IdentifierTransformationPattern")).GetAttribute("Value");
+                string str4 =
+                    driver.FindElement(By.CssSelector("#IdentifierTransformationReplacement")).GetAttribute("Value");
+
+
+                string selectedLabel = driver.FindElement(By.Id("MappingItems_0__DataPath")).Selected.ToString();
+                string str6 = driver.FindElement(By.Id("MappingItems_0__TransformationId")).GetAttribute("Value");
+                string str7 = driver.FindElement(By.Id("MappingItems_0__Selector")).GetAttribute("Value");
+                string str8 = driver.FindElement(By.Id("SubPages_0__Name")).GetAttribute("Value");
+                string str9 = driver.FindElement(By.Id("SubPages_0__ObjectTypeName")).GetAttribute("Value");
+
+                if (attribute == "#menu .lrga:gt(1)>a")
+                {
+                    datarow.newrow("Selector", "#menu .lrga:gt(1)>a", attribute, "PASS", driver);
+                }
+                else
+                {
+                    datarow.newrow("Selector", "#menu .lrga:gt(1)>a", attribute, "FAIL", driver);
+                }
+                if (actual == "/acatalog/gift-wrap.html")
+                {
+                    datarow.newrow("Identifier", "/acatalog/gift-wrap.html", actual, "PASS", driver);
+                }
+                else
+                {
+                    datarow.newrow("Identifier", "/acatalog/gift-wrap.html", actual, "FAIL", driver);
+                }
+                if (str3 == @"\/acatalog\/([a-z0-9\-_]*).html")
+                {
+                    datarow.newrow("Identifier Tarnsformation pattern", @"\/acatalog\/([a-z0-9\-_]*).html", str3, "PASS",
+                                   driver);
+                }
+                else
+                {
+                    datarow.newrow("Identifier Tarnsformation pattern", @"\/acatalog\/([a-z0-9\-_]*).html", str3, "FAIL",
+                                   driver);
+                }
+                if (str4 == "$1")
+                {
+                    datarow.newrow("Identifier Replacement", "$1", str4, "PASS", driver);
+                }
+                else
+                {
+                    datarow.newrow("Identifier Replacement", "$1", str4, "FAIL", driver);
+                }
+                if (selectedLabel == "Name")
+                {
+                    datarow.newrow("DataPath", "Name", selectedLabel, "PASS", driver);
+                }
+                else
+                {
+                    datarow.newrow("DataPath", "Name", selectedLabel, "FAIL", driver);
+                }
+                if (str6 == "Content Trim")
+                {
+                    datarow.newrow("Transformation ID", "Content Trim", str6, "PASS", driver);
+                }
+                else
+                {
+                    datarow.newrow("Transformation ID", "Content Trim", str6, "FAIL", driver);
+                }
+                if (str7 == "a[class^='select']")
+                {
+                    datarow.newrow("Mapping Selector", "a[class^='select']", str7, "PASS", driver);
+                }
+                else
+                {
+                    datarow.newrow("Mapping Selector", "a[class^='select']", str7, "FAIL", driver);
+                }
+                if (str8 == "Sub-Categories")
+                {
+                    datarow.newrow("Sub Pages", "Sub-Categories", str8, "PASS", driver);
+                }
+                else
+                {
+                    datarow.newrow("Sub Pages", "Sub-Categories", str8, "FAIL", driver);
+                }
+                if (str9 == "Category")
+                {
+                    datarow.newrow("Sub Category Type", "Category", str9, "PASS", driver);
+                }
+                else
+                {
+                    datarow.newrow("Sub Category Type", "Category", str9, "FAIL", driver);
+                }
+
+                #endregion
+
+                driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
             }
             catch (Exception ex)
             {

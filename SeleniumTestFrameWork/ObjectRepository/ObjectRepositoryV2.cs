@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
-
-
-
-namespace ObjectRepository
+﻿namespace ObjectRepository
 {
     public class CollectionMapV2
     {
-
         //*[@id="categoryList"]/div/ul/li[1]/div/div/a/h3
         //*[@id="productList"]/li[1]/div/div/a
         public const string categorylink = " //*[@id='categoryList']/div/ul/li";
@@ -20,8 +9,13 @@ namespace ObjectRepository
         public const string products = "//*[@id='productList']/li";
         public const string productlink = "/div/div/a";
         public const string ProductPrice = "price";
-        public const string ProductDescriptiontab = "//*[@id='main-page']/div[5]/div[2]/div[2]/div/div/h4/a/span/span[1]/span";
-        public const string productDescription = "//*[@id='main-page']/div[5]/div[2]/div[2]/div/div/div/span/div[1]/div/p";
+
+        public const string ProductDescriptiontab =
+            "//*[@id='main-page']/div[5]/div[2]/div[2]/div/div/h4/a/span/span[1]/span";
+
+        public const string productDescription =
+            "//*[@id='main-page']/div[5]/div[2]/div[2]/div/div/div/span/div[1]/div/p";
+
         public const string detail = "//*[@id='main-page']/div[5]/div[2]/div[2]/div/div/div/span/div[2]/div";
 
         public const string producttitle = "productName";
@@ -36,8 +30,8 @@ namespace ObjectRepository
         //*[@id="AddToBasketButton"]/div/div[2]/button
         public const string addtobasket = "//*[@id='AddToBasketButton']/div/div[2]/button";
         public const string deletebasket = "//form[@id='UpdateBasketForm']/ul/li/a/span";
-        
     }
+
     public static class FooterV2
     {
         public const string footer = "//*[@id='main-page']/div[6]/article";
@@ -49,22 +43,24 @@ namespace ObjectRepository
         public const string lowerfooterlink = "/a";
         //div[@id='main-page']/div[7]/div/div[2]/a/span/span
     }
+
     public static class BasketV2
     {
         public const string basketempty = "//form[@id='UpdateBasketForm']/ul/li";
         public const string basketvalue = "//a[@id='BasketInfo']/span";
     }
+
     public static class ImagesV2
-    { 
+    {
         public const string Homepageimage = "//*[@id='mainContent']/div/img";
         public const string Categoryimage = "//div[@id='mainContent']/div/img";
         public const string Categoryimagecss = "img.categoryImage";
-       
+
         public const string productimage = "//div[@id='mainContent']/div/div[2]/div/div/ul/li";
         public const string productimagelink = "/img";
         public const string multiproductimage = "css=li.flex-active-slide";
     }
-   
+
     public static class AddressMapV2
     {
         public const string submitbutton = "//*[@id='main-page']/div[9]/div/div[2]/div/button";
@@ -75,21 +71,14 @@ namespace ObjectRepository
         public const string fieldcountry = "FormData_";
         public const string coutryvalue = "__Value";
     }
+
     public static class CheckoutMapV2
     {
         public const string submitterms = "//*[@id='main-page']/div[9]/div/div[2]/div/button";
-        public const string termsncond = "//*[@id='checkoutForm']/section/div/div[5]/fieldset/div[2]/div/label/span/span";
+
+        public const string termsncond =
+            "//*[@id='checkoutForm']/section/div/div[5]/fieldset/div[2]/div/label/span/span";
+
         public const string paybutton = "//a[@id='PayButton']/span/span";
     }
-
 }
-
-
-
-
-
-
-  
-
-
-

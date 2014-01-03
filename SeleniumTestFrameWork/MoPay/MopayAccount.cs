@@ -41,20 +41,19 @@ namespace MoBankUI
                                 "html body div#Top.page div#Content div.mainContent div#Main div#LogOnSection.section div.box form#LogOnForm.form div div#PasswordControl.control div.input input#Password"))
                               .SendKeys("Apple12345");
                         driver.FindElement(By.Id("LogOn_Action_LogOn")).Click();
-                        
                     }
                     driver.FindElement(By.XPath("//div[@id='IndexMenu']/ul/li/ul/li/a")).Click();
-                    
+
                     driver.FindElement(By.LinkText("Create")).Click();
                     driver.FindElement(By.Id("Name")).Clear();
                     driver.FindElement(By.Id("Name")).SendKeys(expected);
                     driver.FindElement(By.CssSelector("#IndexMenu > ul > li.selected > ul > li > a")).Click();
-                    
-                    if ( driver.PageSource.Contains("Test Client Account"))
+
+                    if (driver.PageSource.Contains("Test Client Account"))
                     {
                         driver.FindElement(By.LinkText("Test Client Account")).Click();
                         datarow.newrow("Test Client Tab", "Test Client Tab", "Test Client Account", "PASS", driver
-                                       );
+                            );
                     }
                     new SelectElement(driver.FindElement(By.Id("Provider_Id"))).SelectByText(text);
                     driver.FindElement(By.CssSelector("input.button")).Click();
@@ -63,35 +62,35 @@ namespace MoBankUI
                     string actual = driver.FindElement(By.Id("Provider_Id")).GetAttribute("Value");
                     if (expected == attribute)
                     {
-                        datarow.newrow("Account Name", expected, attribute, "PASS",driver);
+                        datarow.newrow("Account Name", expected, attribute, "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Account Name", expected, attribute, "FAIL",driver);
+                        datarow.newrow("Account Name", expected, attribute, "FAIL", driver);
                     }
                     if (text == actual)
                     {
-                        datarow.newrow("Provider", text, actual, "PASS",driver);
+                        datarow.newrow("Provider", text, actual, "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Provider", text, actual, "FAIL",driver);
+                        datarow.newrow("Provider", text, actual, "FAIL", driver);
                     }
                     string str8 = driver.Title;
                     if (str8 == "Details : mopowered.co.uk")
                     {
-                        datarow.newrow("Details Tab", "Details : mopowered.co.uk", str8, "PASS",driver);
+                        datarow.newrow("Details Tab", "Details : mopowered.co.uk", str8, "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Details Tab", "Details : mopowered.co.uk", str8, "FAIL",driver);
+                        datarow.newrow("Details Tab", "Details : mopowered.co.uk", str8, "FAIL", driver);
                     }
                     driver.FindElement(By.Id("PayProviderCheckOutReturnUri")).Clear();
                     driver.FindElement(By.Id("PayProviderCheckOutReturnUri")).SendKeys(str3);
                     driver.FindElement(By.CssSelector("input.button")).Click();
                     Thread.Sleep(0x1388);
                     driver.FindElement(By.LinkText("Payment Provider")).Click();
-                    
+
                     new Paymentprovider().Provider(driver, datarow);
                     new Notificationtab().Notifications(driver, datarow);
                 }
@@ -99,12 +98,12 @@ namespace MoBankUI
             catch (Exception exception)
             {
                 string str9 = exception.ToString();
-                datarow.newrow("Exception", "Not Expected", str9, "FAIL",driver);
-                datarow.excelsave("MoPay Account Creation",driver, "teja.vellanki@mobankgroup.com");
+                datarow.newrow("Exception", "Not Expected", str9, "FAIL", driver);
+                datarow.excelsave("MoPay Account Creation", driver, "teja.vellanki@mobankgroup.com");
             }
             finally
             {
-                datarow.excelsave("MoPay Account Creation",driver, "teja.vellanki@mobankgroup.com");
+                datarow.excelsave("MoPay Account Creation", driver, "teja.vellanki@mobankgroup.com");
             }
         }
     }

@@ -31,24 +31,23 @@ namespace MoBankUI
                             "html body div#Top.page div#Content div.mainContent div#Main div#LogOnSection.section div.box form#LogOnForm.form div div#PasswordControl.control div.input input#Password"))
                           .SendKeys("Apple12345");
                     driver.FindElement(By.Id("LogOn_Action_LogOn")).Click();
-                    
                 }
                 Mopowered(driver);
-                
+
                 string actual = driver.Title;
                 if (actual == "Manage : mopowered.co.uk")
                 {
-                    _datarow.newrow("HomeTitle", "Manage : mopowered.co.uk", actual, "PASS",driver);
+                    _datarow.newrow("HomeTitle", "Manage : mopowered.co.uk", actual, "PASS", driver);
                 }
-                else if ( driver.PageSource.Contains("Server Error in '/' Application."))
+                else if (driver.PageSource.Contains("Server Error in '/' Application."))
                 {
-                    _datarow.newrow("HomeTitle", "Manage : mopowered.co.uk", "Server Error", "FAIL",driver);
+                    _datarow.newrow("HomeTitle", "Manage : mopowered.co.uk", "Server Error", "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 else
                 {
-                    _datarow.newrow("HomeTitle", "Manage : mopowered.co.uk", actual, "FAIL",driver);
+                    _datarow.newrow("HomeTitle", "Manage : mopowered.co.uk", actual, "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
@@ -57,327 +56,330 @@ namespace MoBankUI
                 if (driver.FindElements(By.CssSelector("#IndexMenu > ul > li.selected > ul > li > a")).Count != 0)
                 {
                     driver.FindElement(By.CssSelector("#IndexMenu > ul > li.selected > ul > li > a")).Click();
-                    _datarow.newrow("Accounts Tab", "Accounts Tab- Link Not Present", "Accounts Tab Link Present", "PASS",
-                                  driver);
+                    _datarow.newrow("Accounts Tab", "Accounts Tab- Link Not Present", "Accounts Tab Link Present",
+                                    "PASS",
+                                    driver);
                 }
                 else
                 {
-                    if ( driver.PageSource.Contains("Server Error in '/' Application."))
+                    if (driver.PageSource.Contains("Server Error in '/' Application."))
                     {
-                        _datarow.newrow("HomeTitle", "Manage : mopowered.co.uk", "Server Error", "FAIL",driver);
+                        _datarow.newrow("HomeTitle", "Manage : mopowered.co.uk", "Server Error", "FAIL", driver);
                         _screenshot.screenshotfailed(driver);
                         driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                     }
                     else
                     {
                         _datarow.newrow("Accounts Tab", "Accounts Tab- Link Not Present", "Accounts Tab Link Present",
-                                       "FAIL",driver);
+                                        "FAIL", driver);
                     }
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                
+
                 string str3 = driver.Title;
                 if (str3 == "Accounts : mopowered.co.uk")
                 {
-                    _datarow.newrow("Accounts Title", "Accounts : mopowered.co.uk", str3, "PASS",driver);
+                    _datarow.newrow("Accounts Title", "Accounts : mopowered.co.uk", str3, "PASS", driver);
                 }
                 else
                 {
-                    _datarow.newrow("Accounts Title", "Accounts : mopowered.co.uk", str3, "FAIL",driver);
+                    _datarow.newrow("Accounts Title", "Accounts : mopowered.co.uk", str3, "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
-                
+
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Transactions')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Transactions')])[2]")).Click();
                     _datarow.newrow("Transaction Tab", "Transaction- Link Not Present", "Transaction Link Present",
-                                   "PASS",driver);
+                                    "PASS", driver);
                 }
                 else
                 {
                     _datarow.newrow("Transaction Tab", "Transaction- Link Not Present", "Transaction Link Present",
-                                   "FAIL",driver);
+                                    "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                
+
                 string str4 = driver.Title;
                 if (str4 == "Transactions : mopowered.co.uk")
                 {
                     _datarow.newrow("Transactions Title", "Transactions : mopowered.co.uk", str4, "PASS", driver
-                                   );
+                        );
                     _datarow.newrow("Transaction Tab", "Transaction- Link Not Present", "Transaction Link Present",
-                                   "PASS",driver);
+                                    "PASS", driver);
                 }
                 else
                 {
                     _datarow.newrow("Transactions Title", "Transactions : mopowered.co.uk", str4, "FAIL", driver
-                                   );
+                        );
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                Mopowered(driver );
-                
+                Mopowered(driver);
+
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15.0));
                 IWebElement element2 = driver.FindElement(By.XPath("(//a[contains(text(),'Providers')])[2]"));
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Providers')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Providers')])[2]")).Click();
                     _datarow.newrow("Providers Tab", "Providers Tab- Link Present", "Providers Tab Link Present", "PASS",
-                                  driver);
+                                    driver);
                 }
                 else
                 {
                     _datarow.newrow("Providers Tab", "Providers Tab- Link Not Present", "Providers Tab Link Present",
-                                   "FAIL",driver);
+                                    "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                
+
                 string str5 = driver.Title;
                 if (str5 == "Providers : mopowered.co.uk")
                 {
-                    _datarow.newrow("Providers Title", "Providers : mopowered.co.uk", str5, "PASS",driver);
+                    _datarow.newrow("Providers Title", "Providers : mopowered.co.uk", str5, "PASS", driver);
                 }
                 else
                 {
-                    _datarow.newrow("Providers Title", "Providers : mopowered.co.uk", str5, "FAIL",driver);
+                    _datarow.newrow("Providers Title", "Providers : mopowered.co.uk", str5, "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                Mopowered(driver );
-                
+                Mopowered(driver);
+
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Card Types')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Card Types')])[2]")).Click();
                     _datarow.newrow("Card Type Tab", "Card Type Tab- Link Not Present", "Card Type Tab Link Present",
-                                   "PASS",driver);
+                                    "PASS", driver);
                 }
                 else
                 {
                     _datarow.newrow("Card Type Tab", "Card Type Tab- Link Not Present", "Card Type Tab Link Present",
-                                   "FAIL",driver);
+                                    "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                
+
                 string str6 = driver.Title;
                 if (str6 == "Card Types : mopowered.co.uk")
                 {
-                    _datarow.newrow("Card Type Title", "Card Types : mopowered.co.uk", str6, "PASS",driver);
+                    _datarow.newrow("Card Type Title", "Card Types : mopowered.co.uk", str6, "PASS", driver);
                 }
                 else
                 {
-                    _datarow.newrow("Card Type Title", "Card Types : mopowered.co.uk", str6, "FAIL",driver);
+                    _datarow.newrow("Card Type Title", "Card Types : mopowered.co.uk", str6, "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                Mopowered(driver );
-                
+                Mopowered(driver);
+
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Documentation')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Documentation')])[2]")).Click();
                     _datarow.newrow("Documentation Tab", "Documentation Tab- Link Present",
-                                   "Documentation Tab Link Present", "PASS",driver);
+                                    "Documentation Tab Link Present", "PASS", driver);
                 }
                 else
                 {
                     _datarow.newrow("Documentation Tab", "Documentation Tab- Link Not Present",
-                                   "Documentation Tab Link Present", "FAIL",driver);
+                                    "Documentation Tab Link Present", "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                
+
                 string str7 = driver.Title;
                 if (str7 == "Documentation : mopowered.co.uk")
                 {
                     _datarow.newrow("Documentation Title", "Documentation : mopowered.co.uk", str7, "PASS", driver
-                                   );
+                        );
                 }
                 else
                 {
                     _datarow.newrow("Documentation Title", "Documentation : mopowered.co.uk", str7, "FAIL", driver
-                                   );
+                        );
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                Mopowered(driver );
-                
+                Mopowered(driver);
+
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Service Methods')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Service Methods')])[2]")).Click();
                     _datarow.newrow("Service Methods Tab", "Service Methods Tab- Link Present",
-                                   "Service Methods Tab Link Present", "PASS",driver);
+                                    "Service Methods Tab Link Present", "PASS", driver);
                 }
                 else
                 {
                     _datarow.newrow("Service Methods Tab", "Service Methods Tab- Link Not Presnt",
-                                   "Service Methods Tab Link Present", "FAIL",driver);
+                                    "Service Methods Tab Link Present", "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                
+
                 string str8 = driver.Title;
                 if (str8 == "Service Methods : mopowered.co.uk")
                 {
                     _datarow.newrow("Service Methods Title", "Service Methods : mopowered.co.uk", str8, "PASS", driver
-                                   );
+                        );
                 }
                 else
                 {
                     _datarow.newrow("Service Methods Title", "Service Methods : mopowered.co.uk", str8, "FAIL", driver
-                                   );
+                        );
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
-                
+
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Payment Pages')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Payment Pages')])[2]")).Click();
                     _datarow.newrow("Payment Tab", "Payment Tab- Link Not Presnt", "Payment Tab Link Present", "PASS",
-                                  driver);
+                                    driver);
                 }
                 else
                 {
                     _datarow.newrow("Payment Tab", "Payment Tab- Link Not Presnt", "Payment Tab Link Present", "FAIL",
-                                  driver);
+                                    driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                
+
                 string str9 = driver.Title;
                 if (str9 == "Payment Pages : mopowered.co.uk")
                 {
                     _datarow.newrow("Payment Pages Title", "Payment Pages : mopowered.co.uk", str9, "PASS", driver
-                                   );
+                        );
                 }
                 else
                 {
                     _datarow.newrow("Payment Pages Title", "Payment Pages : mopowered.co.uk", str9, "FAIL", driver
-                                   );
+                        );
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
-                
+
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Objects')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Objects')])[2]")).Click();
                     _datarow.newrow("Objects Tab", "Objects Tab - Link Not Presnt", "Objects Tab Link Present", "PASS",
-                                  driver);
+                                    driver);
                 }
                 else
                 {
                     _datarow.newrow("Objects Tab", "Objects Tab - Link Not Presnt", "Objects Tab Link Present", "FAIL",
-                                  driver);
+                                    driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                
+
                 string str10 = driver.Title;
                 if (str10 == "Objects - : mopowered.co.uk")
                 {
-                    _datarow.newrow("Objects Page Title", "Objects - : mopowered.co.uk", str10, "PASS",driver);
+                    _datarow.newrow("Objects Page Title", "Objects - : mopowered.co.uk", str10, "PASS", driver);
                 }
                 else
                 {
-                    _datarow.newrow("Objects Page Title", "Objects - : mopowered.co.uk", str10, "FAIL",driver);
+                    _datarow.newrow("Objects Page Title", "Objects - : mopowered.co.uk", str10, "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
-                
+
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Security')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Security')])[2]")).Click();
-                    _datarow.newrow("Security Tab", "Security Tab - Link Not Presnt", "Security Tab Link Present", "PASS",
-                                  driver);
+                    _datarow.newrow("Security Tab", "Security Tab - Link Not Presnt", "Security Tab Link Present",
+                                    "PASS",
+                                    driver);
                 }
                 else
                 {
-                    _datarow.newrow("Security Tab", "Security Tab - Link Not Presnt", "Security Tab Link Present", "FAIL",
-                                  driver);
+                    _datarow.newrow("Security Tab", "Security Tab - Link Not Presnt", "Security Tab Link Present",
+                                    "FAIL",
+                                    driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                
+
                 string str11 = driver.Title;
                 if (str11 == "Title : mopowered.co.uk")
                 {
-                    _datarow.newrow("Security Page Title", "Title : mopowered.co.uk", str11, "PASS",driver);
+                    _datarow.newrow("Security Page Title", "Title : mopowered.co.uk", str11, "PASS", driver);
                 }
                 else
                 {
-                    _datarow.newrow("Security Page Title", "Title : mopowered.co.uk", str11, "FAIL",driver);
+                    _datarow.newrow("Security Page Title", "Title : mopowered.co.uk", str11, "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                Mopowered(driver );
-                
+                Mopowered(driver);
+
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Users')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Users')])[2]")).Click();
                     _datarow.newrow("User  Tab", "User Tab - Link Presnt", " User Tab Link Present", "PASS", driver
-                                   );
+                        );
                 }
                 else
                 {
                     _datarow.newrow("User  Tab", "User Tab - Link Not Presnt", " User Tab Link Present", "FAIL", driver
-                                   );
+                        );
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                
+
                 string str12 = driver.Title;
                 if (str12 == "Users : mopowered.co.uk")
                 {
-                    _datarow.newrow("User Page Title", "Users : mopowered.co.uk", str12, "PASS",driver);
+                    _datarow.newrow("User Page Title", "Users : mopowered.co.uk", str12, "PASS", driver);
                 }
                 else
                 {
-                    _datarow.newrow("User Page Title", "Users : mopowered.co.uk", str12, "FAIL",driver);
+                    _datarow.newrow("User Page Title", "Users : mopowered.co.uk", str12, "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
-                
+
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Groups')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Groups')])[2]")).Click();
                     _datarow.newrow("Groups Tab", "Groups Tab - Link Not Presnt", "Groups Tab Link Present", "PASS",
-                                  driver);
+                                    driver);
                 }
                 else
                 {
                     _datarow.newrow("Groups Tab", "Groups Tab - Link Not Presnt", "Groups Tab Link Present", "FAIL",
-                                  driver);
+                                    driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                
+
                 string str13 = driver.Title;
                 if (str13 == "Groups : mopowered.co.uk")
                 {
-                    _datarow.newrow("Groups Page Title", "Groups : mopowered.co.uk", str13, "PASS",driver);
+                    _datarow.newrow("Groups Page Title", "Groups : mopowered.co.uk", str13, "PASS", driver);
                 }
                 else
                 {
-                    _datarow.newrow("Groups Page Title", "Groups : mopowered.co.uk", str13, "FAIL",driver);
+                    _datarow.newrow("Groups Page Title", "Groups : mopowered.co.uk", str13, "FAIL", driver);
                     _screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
-                Mopowered(driver );
+                Mopowered(driver);
                 new mopayconsoleacctab().acctabs(driver, _datarow);
             }
             catch (Exception exception)
             {
                 Console.Write(exception);
                 _screenshot.screenshotfailed(driver);
-                _datarow.excelsave("MoPayConsole",driver, "teja.vellanki@mobankgroup.com");
+                _datarow.excelsave("MoPayConsole", driver, "teja.vellanki@mobankgroup.com");
             }
         }
 
@@ -391,8 +393,9 @@ namespace MoBankUI
             }
             else
             {
-                _datarow.newrow("Link Present -Mopowered", "Mopowered- Link Not Presnt", "Mopowered Link Present", "FAIL",
-                              driver);
+                _datarow.newrow("Link Present -Mopowered", "Mopowered- Link Not Presnt", "Mopowered Link Present",
+                                "FAIL",
+                                driver);
                 _screenshot.screenshotfailed(driver);
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
             }

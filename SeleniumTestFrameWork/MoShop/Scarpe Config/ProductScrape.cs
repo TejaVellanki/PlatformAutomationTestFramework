@@ -2,10 +2,8 @@
 
 using System;
 using System.Threading;
-using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using WebDriver_Refining;
-   
 
 namespace MoBankUI
 {
@@ -16,118 +14,111 @@ namespace MoBankUI
             try
             {
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
-                
+
                 driver.FindElement(By.LinkText("Target Pages")).Click();
-                
+
                 driver.FindElement(By.Id("Selector")).Clear();
                 driver.FindElement(By.Id("Selector")).SendKeys("div[class^='singleproduct']>a");
                 driver.FindElement(By.Id("Identifier")).Clear();
                 driver.FindElement(By.Id("Identifier")).SendKeys("/acatalog/glitter-tree-wrapping-paper.html");
                 driver.FindElement(By.Id("IdentifierTransformationPattern")).Clear();
-                driver.FindElement(By.Id("IdentifierTransformationPattern")).SendKeys(@"\/acatalog\/([a-z0-9\-_]+).html");
+                driver.FindElement(By.Id("IdentifierTransformationPattern"))
+                      .SendKeys(@"\/acatalog\/([a-z0-9\-_]+).html");
                 driver.FindElement(By.Id("IdentifierTransformationReplacement")).Clear();
                 driver.FindElement(By.Id("IdentifierTransformationReplacement")).SendKeys("$1");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                
-               
+
+
                 driver.FindElement(By.LinkText("Scrape Mappings")).Click();
-                
-                Selectanoption(driver,By.Id("MappingId"),"(new mappings)");
+
+                Selectanoption(driver, By.Id("MappingId"), "(new mappings)");
                 //new SelectElement(driver.FindElement(By.Id("MappingId"))).SelectByText("(new mappings)");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                
 
-              
+
                 driver.FindElement(By.Id("MappingItems_0__Selector")).Clear();
                 driver.FindElement(By.Id("MappingItems_0__Selector")).SendKeys("h1");
-                Selectanoption(driver, By.Id("MappingItems_0__DataPath"), "Name");               
+                Selectanoption(driver, By.Id("MappingItems_0__DataPath"), "Name");
                 Selectanoption(driver, By.Id("MappingItems_0__TransformationId"), "Content Trim");
                 driver.FindElement(By.Id("MappingItems_0__Selector")).SendKeys(Keys.Enter);
-                Thread.Sleep(2000);               
+                Thread.Sleep(2000);
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                
 
-              
+
                 driver.FindElement(By.Id("MappingItems_1__Selector")).Clear();
                 driver.FindElement(By.Id("MappingItems_1__Selector")).SendKeys("#contentTab1,#contentTab2");
-                Selectanoption(driver, By.Id("MappingItems_1__DataPath"),"Description");
+                Selectanoption(driver, By.Id("MappingItems_1__DataPath"), "Description");
                 driver.FindElement(By.Id("MappingItems_1__Selector")).SendKeys(Keys.Enter);
-                Thread.Sleep(2000);    
+                Thread.Sleep(2000);
                 driver.FindElement(By.CssSelector("input.button")).Click();
-               
+
                 Selectanoption(driver, By.Id("MappingItems_1__TransformationId"), "Content Trim");
-                 //new SelectElement(driver.FindElement(By.Id("MappingItems_1__DataPath"))).SelectByText("Description");
-                 //new SelectElement(driver.FindElement(By.Id("MappingItems_1__TransformationId"))).SelectByText("Content Trim");
+                //new SelectElement(driver.FindElement(By.Id("MappingItems_1__DataPath"))).SelectByText("Description");
+                //new SelectElement(driver.FindElement(By.Id("MappingItems_1__TransformationId"))).SelectByText("Content Trim");
                 driver.FindElement(By.CssSelector("input.button")).Click();
-               
-              
-                
+
+
                 driver.FindElement(By.Id("MappingItems_2__Selector")).Clear();
                 driver.FindElement(By.Id("MappingItems_2__Selector")).SendKeys(".MagicZoomPlus");
                 Selectanoption(driver, By.Id("MappingItems_2__DataPath"), "MainImage");
-               
+
                 driver.FindElement(By.CssSelector("input.button")).Click();
-               
+
                 Selectanoption(driver, By.Id("MappingItems_2__TransformationId"), "Content Trim");
                 //new SelectElement(driver.FindElement(By.Id("MappingItems_2__DataPath"))).SelectByText("MainImage");
-               // new SelectElement(driver.FindElement(By.Id("MappingItems_2__TransformationId"))).SelectByText("Content Trim");   
+                // new SelectElement(driver.FindElement(By.Id("MappingItems_2__TransformationId"))).SelectByText("Content Trim");   
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  
-                  driver.FindElement(By.Id("MappingItems_2__Selector")).SendKeys(Keys.Enter);
-                  Thread.Sleep(2000);    
-                
-                
+
+                driver.FindElement(By.Id("MappingItems_2__Selector")).SendKeys(Keys.Enter);
+                Thread.Sleep(2000);
+
+
                 driver.FindElement(By.Id("MappingItems_3__Selector")).Clear();
                 driver.FindElement(By.Id("MappingItems_3__Selector")).SendKeys("[retail_price_prompt]:first");
                 Selectanoption(driver, By.Id("MappingItems_3__DataPath"), "Price");
                 driver.FindElement(By.Id("MappingItems_3__DataPath")).SendKeys(Keys.Enter);
-                Thread.Sleep(2000);    
+                Thread.Sleep(2000);
                 driver.FindElement(By.CssSelector("input.button")).Click();
-               
+
                 Selectanoption(driver, By.Id("MappingItems_3__TransformationId"), "Tickle Price");
-                 //new SelectElement(driver.FindElement(By.Id("MappingItems_3__DataPath"))).SelectByText("Price");
-                 //new SelectElement(driver.FindElement(By.Id("MappingItems_3__TransformationId"))).SelectByText("Tickle Price");
+                //new SelectElement(driver.FindElement(By.Id("MappingItems_3__DataPath"))).SelectByText("Price");
+                //new SelectElement(driver.FindElement(By.Id("MappingItems_3__TransformationId"))).SelectByText("Tickle Price");
                 driver.FindElement(By.Id("MappingItems_3__Selector")).SendKeys(Keys.Enter);
-                Thread.Sleep(2000);    
+                Thread.Sleep(2000);
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  
-               
-                
-                
+
+
                 driver.FindElement(By.Id("MappingItems_4__Selector")).Clear();
                 driver.FindElement(By.Id("MappingItems_4__Selector")).SendKeys("[PROD_REF]:first");
                 driver.FindElement(By.Id("MappingItems_4__Attribute")).Clear();
                 driver.FindElement(By.Id("MappingItems_4__Attribute")).SendKeys("PROD_REF");
                 Selectanoption(driver, By.Id("MappingItems_4__DataPath"), "Code");
                 driver.FindElement(By.Id("MappingItems_4__DataPath")).SendKeys(Keys.Enter);
-                Thread.Sleep(2000);    
+                Thread.Sleep(2000);
                 driver.FindElement(By.CssSelector("input.button")).Click();
-               
+
                 Selectanoption(driver, By.Id("MappingItems_4__TransformationId"), "Trim");
-               // new SelectElement(driver.FindElement(By.Id("MappingItems_4__DataPath"))).SelectByText("Code");
-               // new SelectElement(driver.FindElement(By.Id("MappingItems_4__TransformationId"))).SelectByText( "Trim");
+                // new SelectElement(driver.FindElement(By.Id("MappingItems_4__DataPath"))).SelectByText("Code");
+                // new SelectElement(driver.FindElement(By.Id("MappingItems_4__TransformationId"))).SelectByText( "Trim");
                 driver.FindElement(By.Id("MappingItems_4__Selector")).SendKeys(Keys.Enter);
-                Thread.Sleep(2000);    
+                Thread.Sleep(2000);
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  
-               
-               
-                
+
+
                 driver.FindElement(By.Id("MappingItems_5__Selector")).Clear();
-                driver.FindElement(By.Id("MappingItems_5__Selector")).SendKeys(".itemAddtional strong:has([retail_price_prompt]):prev()");
+                driver.FindElement(By.Id("MappingItems_5__Selector"))
+                      .SendKeys(".itemAddtional strong:has([retail_price_prompt]):prev()");
                 Selectanoption(driver, By.Id("MappingItems_5__DataPath"), "PriceOriginal");
                 driver.FindElement(By.Id("MappingItems_5__DataPath")).SendKeys(Keys.Enter);
-                Thread.Sleep(2000);    
+                Thread.Sleep(2000);
                 driver.FindElement(By.CssSelector("input.button")).Click();
-               
+
                 Selectanoption(driver, By.Id("MappingItems_5__TransformationId"), "Price");
                 // new SelectElement(driver.FindElement(By.Id("MappingItems_5__DataPath"))).SelectByText("PriceOriginal");
                 // new SelectElement(driver.FindElement(By.Id("MappingItems_5__TransformationId"))).SelectByText("Price");
                 driver.FindElement(By.Id("MappingItems_5__Selector")).SendKeys(Keys.Enter);
-                Thread.Sleep(2000);    
+                Thread.Sleep(2000);
                 driver.FindElement(By.CssSelector("input.button")).Click();
-                  
-              
 
                 #region Validations
 
@@ -152,19 +143,23 @@ namespace MoBankUI
                 }
                 if (actual == "/acatalog/glitter-tree-wrapping-paper.html")
                 {
-                    datarow.newrow("Products Identifier", "/acatalog/glitter-tree-wrapping-paper.html", actual, "PASS",driver);
+                    datarow.newrow("Products Identifier", "/acatalog/glitter-tree-wrapping-paper.html", actual, "PASS",
+                                   driver);
                 }
                 else
                 {
-                    datarow.newrow("Products Identifier", "/acatalog/glitter-tree-wrapping-paper.html", actual, "FAIL",driver);
+                    datarow.newrow("Products Identifier", "/acatalog/glitter-tree-wrapping-paper.html", actual, "FAIL",
+                                   driver);
                 }
                 if (str3 == @"\/acatalog\/([a-z0-9\-_]+).html")
                 {
-                    datarow.newrow("Products Idntifier Transformation", @"\/acatalog\/([a-z0-9\-_]+).html", str3, "PASS",driver);
+                    datarow.newrow("Products Idntifier Transformation", @"\/acatalog\/([a-z0-9\-_]+).html", str3, "PASS",
+                                   driver);
                 }
                 else
                 {
-                    datarow.newrow("Products Idntifier Transformation", @"\/acatalog\/([a-z0-9\-_]+).html", str3, "FAIL",driver);
+                    datarow.newrow("Products Idntifier Transformation", @"\/acatalog\/([a-z0-9\-_]+).html", str3, "FAIL",
+                                   driver);
                 }
                 if (str4 == "$1")
                 {
@@ -216,11 +211,13 @@ namespace MoBankUI
                 }
                 if (str10 == ".itemAddtional strong:has([retail_price_prompt]):prev()")
                 {
-                    datarow.newrow("Products Mapping selector5",".itemAddtional strong:has([retail_price_prompt]):prev()", str10, "PASS", driver);
+                    datarow.newrow("Products Mapping selector5",
+                                   ".itemAddtional strong:has([retail_price_prompt]):prev()", str10, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Products Mapping selector5",".itemAddtional strong:has([retail_price_prompt]):prev()", str10, "FAIL", driver);
+                    datarow.newrow("Products Mapping selector5",
+                                   ".itemAddtional strong:has([retail_price_prompt]):prev()", str10, "FAIL", driver);
                 }
 
                 #endregion
@@ -228,10 +225,9 @@ namespace MoBankUI
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception Not Expected", "", e,"FAIL");
+                datarow.newrow("Exception Not Expected", "", e, "FAIL");
             }
-              driver.FindElement(By.LinkText("Scrape")).Click();
-              
+            driver.FindElement(By.LinkText("Scrape")).Click();
         }
     }
 }

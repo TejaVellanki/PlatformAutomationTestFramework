@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using MoBankUI;
+﻿using MoBankUI;
 using OpenQA.Selenium;
-using ObjectRepository;
-
 using WebDriver_Refining;
-using MoBankUI;
-
 
 namespace Tablet_View
 {
     internal class Homepage_tab
     {
-        driverdefining Driver;
-      
-        public void homepage(IWebDriver driver,datarow datarow)
+        private driverdefining Driver;
+
+        public void homepage(IWebDriver driver, datarow datarow)
         {
             /*
               IWebElement element;

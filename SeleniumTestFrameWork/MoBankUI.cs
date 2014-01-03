@@ -13,9 +13,9 @@ namespace MoBankUI
     {
         private CheckedListBox _checkedListBox1;
         private TextBox _textBox1;
-        private TextBox textBox2;
         private TextBox _textbox3;
         private TextBox _textbox4;
+        private TextBox textBox2;
 
 
         public Form1()
@@ -35,11 +35,11 @@ namespace MoBankUI
                 bool firefox = checkBox14.Checked;
                 bool mositetps = checkBox13.Checked;
                 bool appium = checkBox1.Checked;
-                
+
 
                 if (mopaytestharness)
                 {
-                    this.Mopaytestharness();
+                    Mopaytestharness();
                 }
                 if (Mopayconsole)
                 {

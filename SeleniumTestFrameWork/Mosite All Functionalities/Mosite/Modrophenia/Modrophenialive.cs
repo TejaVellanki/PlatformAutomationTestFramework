@@ -15,27 +15,28 @@ namespace MoBankUI
     internal class Modrophenialive : driverdefining
     {
         private GeneralLibrary generalLibrary;
+        public object xml { get; set; }
 
         public void loop(IWebDriver driver, DataTable dt)
         {
             int num = 1;
             while (true)
             {
-                if (!((num != 1) || IsElementPresent(driver,By.LinkText("\x00bb"))))
+                if (!((num != 1) || IsElementPresent(driver, By.LinkText("\x00bb"))))
                 {
                     loop1(driver, dt);
                 }
-                if (!IsElementPresent(driver,By.LinkText("\x00bb")))
+                if (!IsElementPresent(driver, By.LinkText("\x00bb")))
                 {
                     return;
                 }
                 if (num > 1)
                 {
                     driver.FindElement(By.LinkText("\x00bb")).Click();
-                    
+
                     Thread.Sleep(0x1388);
                 }
-                decimal xpathCount = GetXpathCount(driver,"//div[@id='content']/div/div");
+                decimal xpathCount = GetXpathCount(driver, "//div[@id='content']/div/div");
                 for (int i = 1; i <= xpathCount - 2; i++)
                 {
                     string str3;
@@ -52,16 +53,16 @@ namespace MoBankUI
                     }
                     //div[@id='content']/div/div[3]/div/a/img 
                     driver.FindElement(By.XPath("//div[@id='content']/div/div[" + i + "]/div/a/img")).Click();
-                    
-                   
-                    string text =  driver.FindElement(By.CssSelector("span.isPrice")).Text;
-                    string str2 =  driver.FindElement(By.CssSelector("h2.productTitle")).Text;
+
+
+                    string text = driver.FindElement(By.CssSelector("span.isPrice")).Text;
+                    string str2 = driver.FindElement(By.CssSelector("h2.productTitle")).Text;
                     DataRow row = dt.NewRow();
                     row[0] = text;
                     row[1] = str2;
-                    if (IsElementPresent(driver,By.XPath("//div[@id='productInfo']/div/p[2]")))
+                    if (IsElementPresent(driver, By.XPath("//div[@id='productInfo']/div/p[2]")))
                     {
-                        str3 =  driver.FindElement(By.XPath("//div[@id='productInfo']/div/p[2]")).Text;
+                        str3 = driver.FindElement(By.XPath("//div[@id='productInfo']/div/p[2]")).Text;
                         str4 = driver.FindElement(By.XPath("//div[@id='productInfo']/div/p/strong")).Text;
                         row[2] = str3;
                         row[3] = str4;
@@ -75,7 +76,7 @@ namespace MoBankUI
                     }
                     IWebElement con = driver.FindElement(By.Id("attr_1"));
                     IList<IWebElement> selectOptions = con.FindElements(By.TagName("option"));
-                 
+
                     string str5 = null;
                     foreach (IWebElement str6 in selectOptions)
                     {
@@ -86,7 +87,7 @@ namespace MoBankUI
                     }
                     row[4] = str5;
                     dt.Rows.Add(row);
-                     driver.Navigate().Back();
+                    driver.Navigate().Back();
                     driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                     IWebElement element =
                         driver.FindElement(By.XPath("//div[@id='content']/div/div[" + i + "]/div/a/img"));
@@ -113,16 +114,16 @@ namespace MoBankUI
                         break;
                 }
                 driver.FindElement(By.XPath("//div[@id='content']/div/div[" + i + "]/div/a/img")).Click();
-                
-                string text =  driver.FindElement(By.CssSelector("span.isPrice")).Text;
-                string str2 =  driver.FindElement(By.CssSelector("h2.productTitle")).Text;
+
+                string text = driver.FindElement(By.CssSelector("span.isPrice")).Text;
+                string str2 = driver.FindElement(By.CssSelector("h2.productTitle")).Text;
                 DataRow row = dt.NewRow();
                 row[0] = text;
                 row[1] = str2;
 
-                if (IsElementPresent(driver,By.XPath("//div[@id='productInfo']/div/p[2]")))
+                if (IsElementPresent(driver, By.XPath("//div[@id='productInfo']/div/p[2]")))
                 {
-                    str3 =  driver.FindElement(By.XPath("//div[@id='productInfo']/div/p[2]")).Text;
+                    str3 = driver.FindElement(By.XPath("//div[@id='productInfo']/div/p[2]")).Text;
                     str4 = driver.FindElement(By.XPath("//div[@id='productInfo']/div/p/strong")).Text;
                     row[2] = str3;
                     row[3] = str4;
@@ -136,7 +137,7 @@ namespace MoBankUI
                 }
                 IWebElement con = driver.FindElement(By.Id("attr_1"));
                 IList<IWebElement> selectOptions = con.FindElements(By.TagName("option"));
-            
+
                 string str5 = null;
                 foreach (IWebElement str6 in selectOptions)
                 {
@@ -148,20 +149,21 @@ namespace MoBankUI
                 row[4] = str5;
                 dt.Rows.Add(row);
                 driver.Navigate().Back();
-                
+
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 IWebElement element = driver.FindElement(By.XPath("//div[@id='content']/div/div[" + i + "]/div/a/img"));
             }
         }
 
-        public void modrophenialiveproducts(IWebDriver driver) 
+        public void modrophenialiveproducts(IWebDriver driver)
         {
             try
             {
                 generalLibrary = new GeneralLibrary();
                 var dt = new DataTable();
                 string fileName = "ModrophenialiveProducts";
-                Workbook workbook = generalLibrary.CreateAndOpenExcelFile(@"C:\\Input Data", ref fileName,"Products", ".xlsx", false, false);
+                Workbook workbook = generalLibrary.CreateAndOpenExcelFile(@"C:\\Input Data", ref fileName, "Products",
+                                                                          ".xlsx", false, false);
                 var ws = (Worksheet) workbook.Sheets[1];
                 var datarow = new datarow();
                 dt.Columns.Add("Product Price");
@@ -173,10 +175,10 @@ namespace MoBankUI
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 IWebElement element = driver.FindElement(By.XPath("//div[@id='sidebarBox']/ul[2]/li[2]/a"));
                 driver.FindElement(By.LinkText("New Arrivals")).Click();
-                
+
                 loop(driver, dt);
                 driver.FindElement(By.LinkText("Sale Items")).Click();
-                
+
                 loop(driver, dt);
                 generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
                 generalLibrary.SaveAndCloseExcel(workbook);
@@ -197,7 +199,5 @@ namespace MoBankUI
                 }
             }
         }
-
-        public object xml { get; set; }
     }
 }

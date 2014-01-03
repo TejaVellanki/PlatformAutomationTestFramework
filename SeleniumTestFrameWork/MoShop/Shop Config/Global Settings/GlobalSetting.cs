@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 
 namespace MoBankUI
 {
-    class GlobalSetting
+    internal class GlobalSetting
     {
         public void Globalsetting(IWebDriver driver)
         {
@@ -25,7 +25,9 @@ namespace MoBankUI
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));
             driver.FindElement(By.CssSelector("input.button")).Click();
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));
-            driver.FindElement(By.Id("Image")).SendKeys("C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\TestFrameWork\\ObjectRepository\\Images\\fb.png");
+            driver.FindElement(By.Id("Image"))
+                  .SendKeys(
+                      "C:\\Users\\teja\\Documents\\GitHub\\PlatformAutomationTestFramework\\TestFrameWork\\ObjectRepository\\Images\\fb.png");
             driver.FindElement(By.CssSelector("input.button")).Click();
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));
         }

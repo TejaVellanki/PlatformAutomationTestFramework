@@ -17,10 +17,11 @@ namespace MoBankUI
             driver.FindElement(By.Id("Pagecontent_TextBoxPassword")).Clear();
             driver.FindElement(By.Id("Pagecontent_TextBoxPassword")).SendKeys("M0Test08");
             driver.FindElement(By.Id("Pagecontent_ButtonLogin")).Click();
-            
-            driver.FindElement(By.XPath("//span[@id='Pagecontent_RadioButtonListDeliveryMethods']/div/label/span")).Click();
-                 
-            
+
+            driver.FindElement(By.XPath("//span[@id='Pagecontent_RadioButtonListDeliveryMethods']/div/label/span"))
+                  .Click();
+
+
             driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[2]/input")).Clear();
             driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[2]/input")).SendKeys("test");
             driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[3]/input")).Clear();
@@ -68,7 +69,7 @@ namespace MoBankUI
             new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlHearAbout"))).SelectByText("Online Search");
             driver.FindElement(By.XPath("//form[@id='checkout']/section/div[16]/div/label/span")).Click();
             driver.FindElement(By.Id("Pagecontent_ButtonContinue")).Click();
-            
+
 
             Assert.AreEqual("Checkout - Bathrooms", driver.Title);
 
@@ -86,14 +87,13 @@ namespace MoBankUI
             driver.FindElement(By.Id("Pagecontent_TextBoxPostCode")).SendKeys("se1 7tl");
 
             driver.FindElement(By.Id("Pagecontent_ButtonContinue")).Click();
-            
+
 
             driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep2")).Click();
-            
 
 
             driver.FindElement(By.Id("Pagecontent_ButtonConfirmCheckout")).Click();
-            
+
 
             Assert.AreEqual("Secure Payment Page", driver.Title);
             string title = driver.Title;

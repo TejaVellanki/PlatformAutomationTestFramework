@@ -3,7 +3,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-    
+
 namespace MoBankUI
 {
     public class CreateAccount
@@ -32,7 +32,8 @@ namespace MoBankUI
             driver.FindElement(By.Id("Icon_ImageUpload"))
                   .SendKeys(@"C:\Users\Teja\Desktop\Upload Themes and Logos\Modrophenia Icon.ico");
             new SelectElement(driver.FindElement(By.Id("HomeImage_Justification"))).SelectByText("Centre");
-            new SelectElement(driver.FindElement(By.Id("ExternalLinks_0__ExternalLinkConfigId"))).SelectByText("Facebook");
+            new SelectElement(driver.FindElement(By.Id("ExternalLinks_0__ExternalLinkConfigId"))).SelectByText(
+                "Facebook");
             driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement")).Clear();
             driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement"))
                   .SendKeys("/pages/modropheniacom-in-mod-we-trust/288054451149");

@@ -4,11 +4,11 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using System;
+using OpenQA.Selenium;
+
 namespace MoBankUI
 {
-    using System;
-    using OpenQA.Selenium;
-   
     internal class Mositebatch
     {
         public void mosite(IWebDriver driver, datarow datarow, string urls, string items)
@@ -27,20 +27,19 @@ namespace MoBankUI
                         {
                             if (str == "Test All Links in Mosite")
                             {
-                                datarow.newrow("", "", "Test All Links in Mosite", "",driver);
+                                datarow.newrow("", "", "Test All Links in Mosite", "", driver);
                                 var tick = new Tickle();
-                                tick.HomepageTabsTickle(datarow,driver, url);
+                                tick.HomepageTabsTickle(datarow, driver, url);
                             }
 
-                          
 
                             if (str == "Test Footer Links")
                             {
-                                datarow.newrow("", "", "Test Footer Links", "",driver);
+                                datarow.newrow("", "", "Test Footer Links", "", driver);
                             }
                             if (str == "Test Basket Functionality")
                             {
-                                datarow.newrow("", "", "Test Basket Functionality", "",driver);
+                                datarow.newrow("", "", "Test Basket Functionality", "", driver);
                             }
                             if (str == "Test Produict Page - Test Add Product to Basket")
                             {
@@ -52,11 +51,11 @@ namespace MoBankUI
                             }
                             if (str == "Test Registration/Login - CheckOut Pages")
                             {
-                                datarow.newrow("", "", "Test Registration/Login - CheckOut Pages", "",driver);
+                                datarow.newrow("", "", "Test Registration/Login - CheckOut Pages", "", driver);
                             }
                             if (str == "Test Mopay")
                             {
-                                datarow.newrow("", "", "Test Mopay", "",driver);
+                                datarow.newrow("", "", "Test Mopay", "", driver);
                             }
                         }
                     }
@@ -65,12 +64,12 @@ namespace MoBankUI
             catch (Exception exception)
             {
                 string str2 = exception.ToString();
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL",driver);
+                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }
             finally
             {
-                datarow.excelsave("MoshopConsole",driver, "teja.vellanki@mobankgroup.com");
+                datarow.excelsave("MoshopConsole", driver, "teja.vellanki@mobankgroup.com");
                 screenshot.screenshotfailed(driver);
                 driver.Quit();
             }

@@ -3,24 +3,23 @@ using ObjectRepository;
 using OpenQA.Selenium;
 using WebDriver_Refining;
 
-
 //using System.Drawing;
 
 namespace MoBankUI
 {
-    internal class Imagevalidation :driverdefining
+    internal class Imagevalidation : driverdefining
     {
+        private string CategoryImage;
+        private string Homepageimage;
+        private string categoryimagecss;
         private int l = 1;
-        string Homepageimage = null;
-        string CategoryImage = null;
-        string categoryimagecss = null;
 
         public void homepageimage(IWebDriver driver, datarow datarow)
         {
             try
             {
                 string url = driver.Url;
-              
+
                 string title = driver.PageSource;
                 if (title.Contains("user-scalable=yes"))
                 {
@@ -32,34 +31,34 @@ namespace MoBankUI
                 }
 
                 // Home Page Image Validation
-                if (IsElementPresent(driver,By.XPath("Homepageimage"),30))
+                if (IsElementPresent(driver, By.XPath("Homepageimage"), 30))
                 {
                     if (title.Contains("user-scalable=yes"))
                     {
                         IWebElement contactus = driver.FindElement(By.XPath("//*[@id='main-page']/div[4]/h1/a/img"));
                         string path1 = contactus.GetAttribute("src");
-                        datarow.newrow("Contact US Image Validation", "", path1, "PASS",driver);
+                        datarow.newrow("Contact US Image Validation", "", path1, "PASS", driver);
                     }
                     IWebElement element = driver.FindElement(By.XPath(Homepageimage));
                     string path = element.GetAttribute("src");
-                    datarow.newrow("Image Validation", "", path, "PASS",driver);
+                    datarow.newrow("Image Validation", "", path, "PASS", driver);
                     if (path.Contains("http") || path.Contains("https") || path.Contains("blob"))
                     {
                         datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path, "FAIL",
-                                      driver);
+                                       driver);
                     }
                     else
                     {
                         datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path, "PASS",
-                                      driver);
+                                       driver);
                     }
                     clickimage(driver, datarow, By.XPath(Homepageimage));
                 }
-                else if (IsElementPresent(driver,By.CssSelector("img.categoryImage"),30))
+                else if (IsElementPresent(driver, By.CssSelector("img.categoryImage"), 30))
                 {
                     IWebElement element = driver.FindElement(By.CssSelector("img.categoryImage"));
                     string path = element.GetAttribute("src");
-                    datarow.newrow("Image Validation", "", path, "PASS",driver);
+                    datarow.newrow("Image Validation", "", path, "PASS", driver);
                     clickimage(driver, datarow, By.CssSelector("img.categoryImage"));
                 }
                 else
@@ -71,13 +70,12 @@ namespace MoBankUI
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL",driver);
+                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
             }
         }
 
-        public void categoryimage(IWebDriver driver , datarow datarow)
+        public void categoryimage(IWebDriver driver, datarow datarow)
         {
-           
             try
             {
                 if (l < 3)
@@ -94,24 +92,27 @@ namespace MoBankUI
                         categoryimagecss = ImagesV1.Categoryimagecss;
                     }
                     string location = driver.Url;
-                    if (IsElementPresent(driver,By.CssSelector(categoryimagecss),30))
+                    if (IsElementPresent(driver, By.CssSelector(categoryimagecss), 30))
                     {
                         IWebElement element = driver.FindElement(By.CssSelector(categoryimagecss));
                         string path = element.GetAttribute("src");
-                        datarow.newrow("Image Validation", "", path, "PASS",driver);
+                        datarow.newrow("Image Validation", "", path, "PASS", driver);
                         if (path.Contains("http") || path.Contains("https") || path.Contains("blob"))
                         {
-                            datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path,"FAIL",driver);
+                            datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path,
+                                           "FAIL", driver);
                         }
                         else
                         {
-                            datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path,"PASS",driver);
+                            datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path,
+                                           "PASS", driver);
                         }
                         clickimage(driver, datarow, By.CssSelector(categoryimagecss));
                     }
                     else
                     {
-                        datarow.newrow("Image Validation", "", "No Image for Category page" + "-" + location, "FAIL",driver);
+                        datarow.newrow("Image Validation", "", "No Image for Category page" + "-" + location, "FAIL",
+                                       driver);
                     }
                     l++;
                 }
@@ -119,11 +120,11 @@ namespace MoBankUI
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL",driver);
+                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
             }
         }
 
-        public void subcategoryimage(IWebDriver driver , datarow datarow)
+        public void subcategoryimage(IWebDriver driver, datarow datarow)
         {
             try
             {
@@ -144,11 +145,11 @@ namespace MoBankUI
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL",driver);
+                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
             }
         }
 
-        public void productImage(IWebDriver driver , datarow datarow)
+        public void productImage(IWebDriver driver, datarow datarow)
         {
             try
             {
@@ -170,16 +171,16 @@ namespace MoBankUI
                     Productimagelink = ImagesV1.productimagelink;
                     multiproductimage = ImagesV1.multiproductimage;
                 }
-               
-                if (IsElementPresent(driver,By.XPath("" + Productimage + "" + Productimagelink + "")))
+
+                if (IsElementPresent(driver, By.XPath("" + Productimage + "" + Productimagelink + "")))
                 {
                     IWebElement element = driver.FindElement(By.XPath("" + Productimage + "" + Productimagelink + ""));
                     string path = element.GetAttribute("src");
-                    datarow.newrow("Image Validation", "", path, "PASS",driver);
+                    datarow.newrow("Image Validation", "", path, "PASS", driver);
                 }
                     //multi- Product Image
                     //body[@id='page-products-details']/div/div[2]/div/div[2]/div/ul/li[2]/img
-                else if (IsElementPresent(driver,By.XPath(multiproductimage)))
+                else if (IsElementPresent(driver, By.XPath(multiproductimage)))
                 {
                     decimal count = driver.FindElements(By.XPath("" + Productimage + "")).Count;
                     for (int o = 2; o < count; o++)
@@ -187,7 +188,7 @@ namespace MoBankUI
                         IWebElement element =
                             driver.FindElement(By.XPath("" + Productimage + "[" + o + "]" + Productimagelink + ""));
                         string path = element.GetAttribute("src");
-                        datarow.newrow("Image Validation", "", path, "PASS",driver);
+                        datarow.newrow("Image Validation", "", path, "PASS", driver);
                     }
                 }
                 else
@@ -198,11 +199,11 @@ namespace MoBankUI
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL",driver);
+                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
             }
         }
 
-        public void clickimage(IWebDriver driver,datarow datarow,By by)
+        public void clickimage(IWebDriver driver, datarow datarow, By by)
         {
             driver.FindElement(by).Click();
             string url = driver.Url;
@@ -214,7 +215,5 @@ namespace MoBankUI
             }
             driver.Navigate().Back();
         }
-
-    
     }
 }

@@ -4,83 +4,83 @@ using System;
 using System.Threading;
 using OpenQA.Selenium;
 using WebDriver_Refining;
-   
 
 namespace MoBankUI
 {
-    public class Checkout :driverdefining
+    public class Checkout : driverdefining
     {
         public void checkout(IWebDriver driver, datarow datarow)
         {
             try
             {
-            driver.FindElement(By.LinkText("Checkout")).Click();
-              
-            datarow.newrow("", "", "CHECKOUT", "", driver);
-            string actual = driver.Title;
-            if (actual == "Checkout : mobank.co.uk/MoShop")
-            {
-                datarow.newrow("Checkout Title", "Checkout : mobank.co.uk/MoShop", actual, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Checkout Title", "Checkout : mobank.co.uk/MoShop", actual, "PASS", driver);
-            }
-            Thread.Sleep(3000);
-            driver.FindElement(By.Id("CheckoutProcesses_0__Name")).Clear();
-            driver.FindElement(By.Id("CheckoutProcesses_0__Name")).SendKeys("Tickle (copy of QA by SB)");
-            driver.FindElement(By.Id("CheckoutProcesses_0__Name")).SendKeys(Keys.Enter);
-              
-            driver.FindElement(By.Id("GenerateUniqueReference")).Click();
-            driver.FindElement(By.Id("PaymentAccountIdentifier")).Clear();
-            driver.FindElement(By.Id("PaymentAccountIdentifier")).SendKeys("45af07ff-a7dc-4453-89b0-285b85deef2a");
-            driver.FindElement(By.CssSelector("input.button")).Click();
-              
-            Thread.Sleep(3000);
-            string attribute = driver.FindElement(By.Id("CheckoutProcesses_0__Name")).GetAttribute("Value");
-            if (attribute == "")
-            {
-                driver.FindElement(By.Id("CheckoutProcesses_0__Name")).SendKeys("Tickle (copy of QA by SB)");
-                driver.FindElement(By.CssSelector("input.button")).Click();
-                  
+                driver.FindElement(By.LinkText("Checkout")).Click();
+
+                datarow.newrow("", "", "CHECKOUT", "", driver);
+                string actual = driver.Title;
+                if (actual == "Checkout : mobank.co.uk/MoShop")
+                {
+                    datarow.newrow("Checkout Title", "Checkout : mobank.co.uk/MoShop", actual, "PASS", driver);
+                }
+                else
+                {
+                    datarow.newrow("Checkout Title", "Checkout : mobank.co.uk/MoShop", actual, "PASS", driver);
+                }
                 Thread.Sleep(3000);
-            }
-            string str3 = driver.FindElement(By.Id("PaymentAccountIdentifier")).GetAttribute("Value");
-            if (attribute == "Tickle (copy of QA by SB)")
-            {
-                datarow.newrow("Checkout Name", "Tickle (copy of QA by SB)", attribute, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Checkout Name", "Tickle (copy of QA by SB)", attribute, "FAIL", driver);
-            }
-            if (str3 == "45af07ff-a7dc-4453-89b0-285b85deef2a")
-            {
-                datarow.newrow("Payment Identifier", "45af07ff-a7dc-4453-89b0-285b85deef2a", str3, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Payment Identifier", "45af07ff-a7dc-4453-89b0-285b85deef2a", str3, "FAIL", driver);
-            }
-            Thread.Sleep(3000);
-            driver.FindElement(By.Id("DefaultCheckoutProcessId")).Click();
-            driver.FindElement(By.CssSelector("input.button")).Click();
-              
-            driver.FindElement(By.LinkText("…")).Click();
-              
-            string str4 = driver.Title;
-            if (str4 == "Checkout Process : mobank.co.uk/MoShop")
-            {
-                datarow.newrow("Checkout Process Page Title", "Checkout Process : mobank.co.uk/MoShop", str4, "PASS",driver);
-            }
-            else
-            {
-                datarow.newrow("Checkout Process Page Title", "Checkout Process : mobank.co.uk/MoShop", str4, "FAIL",driver);
-            }
+                driver.FindElement(By.Id("CheckoutProcesses_0__Name")).Clear();
+                driver.FindElement(By.Id("CheckoutProcesses_0__Name")).SendKeys("Tickle (copy of QA by SB)");
+                driver.FindElement(By.Id("CheckoutProcesses_0__Name")).SendKeys(Keys.Enter);
+
+                driver.FindElement(By.Id("GenerateUniqueReference")).Click();
+                driver.FindElement(By.Id("PaymentAccountIdentifier")).Clear();
+                driver.FindElement(By.Id("PaymentAccountIdentifier")).SendKeys("45af07ff-a7dc-4453-89b0-285b85deef2a");
+                driver.FindElement(By.CssSelector("input.button")).Click();
+
+                Thread.Sleep(3000);
+                string attribute = driver.FindElement(By.Id("CheckoutProcesses_0__Name")).GetAttribute("Value");
+                if (attribute == "")
+                {
+                    driver.FindElement(By.Id("CheckoutProcesses_0__Name")).SendKeys("Tickle (copy of QA by SB)");
+                    driver.FindElement(By.CssSelector("input.button")).Click();
+
+                    Thread.Sleep(3000);
+                }
+                string str3 = driver.FindElement(By.Id("PaymentAccountIdentifier")).GetAttribute("Value");
+                if (attribute == "Tickle (copy of QA by SB)")
+                {
+                    datarow.newrow("Checkout Name", "Tickle (copy of QA by SB)", attribute, "PASS", driver);
+                }
+                else
+                {
+                    datarow.newrow("Checkout Name", "Tickle (copy of QA by SB)", attribute, "FAIL", driver);
+                }
+                if (str3 == "45af07ff-a7dc-4453-89b0-285b85deef2a")
+                {
+                    datarow.newrow("Payment Identifier", "45af07ff-a7dc-4453-89b0-285b85deef2a", str3, "PASS", driver);
+                }
+                else
+                {
+                    datarow.newrow("Payment Identifier", "45af07ff-a7dc-4453-89b0-285b85deef2a", str3, "FAIL", driver);
+                }
+                Thread.Sleep(3000);
+                driver.FindElement(By.Id("DefaultCheckoutProcessId")).Click();
+                driver.FindElement(By.CssSelector("input.button")).Click();
+
+                driver.FindElement(By.LinkText("…")).Click();
+
+                string str4 = driver.Title;
+                if (str4 == "Checkout Process : mobank.co.uk/MoShop")
+                {
+                    datarow.newrow("Checkout Process Page Title", "Checkout Process : mobank.co.uk/MoShop", str4, "PASS",
+                                   driver);
+                }
+                else
+                {
+                    datarow.newrow("Checkout Process Page Title", "Checkout Process : mobank.co.uk/MoShop", str4, "FAIL",
+                                   driver);
+                }
             }
             catch (Exception ex)
             {
-
                 string e = ex.ToString();
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }

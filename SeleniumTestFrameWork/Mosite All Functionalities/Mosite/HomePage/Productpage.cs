@@ -47,7 +47,7 @@ namespace MoBankUI
             try
             {
                 string price = driver.FindElement(By.XPath(productprice)).Text;
-                datarow.newrow("Product Price", "", price, "PASS",driver);
+                datarow.newrow("Product Price", "", price, "PASS", driver);
             }
             catch (Exception)
             {
@@ -59,7 +59,7 @@ namespace MoBankUI
             try
             {
                 string detail = driver.FindElement(By.XPath(Detail)).Text;
-                datarow.newrow("Product Detail", "", detail, "PASS",driver);
+                datarow.newrow("Product Detail", "", detail, "PASS", driver);
             }
             catch (Exception)
             {
@@ -70,7 +70,7 @@ namespace MoBankUI
             try
             {
                 string titles = driver.FindElement(By.XPath(producttitle)).Text;
-                datarow.newrow("Product Title", "", titles, "PASS",driver);
+                datarow.newrow("Product Title", "", titles, "PASS", driver);
             }
             catch (Exception)
             {
@@ -79,18 +79,22 @@ namespace MoBankUI
 
             try
             {
-                if (IsElementPresent(driver,By.Id(""+ productVarinat + ""),30))
+                if (IsElementPresent(driver, By.Id("" + productVarinat + ""), 30))
                 {
                     try
                     {
-                        decimal couent = driver.FindElements(By.XPath("//html/body/div/div[2]/div/div[4]/form/ul/li[2]/fieldset/div[2]/div/label/span")).Count;
+                        decimal couent =
+                            driver.FindElements(
+                                By.XPath(
+                                    "//html/body/div/div[2]/div/div[4]/form/ul/li[2]/fieldset/div[2]/div/label/span"))
+                                  .Count;
 
                         if (couent != 1)
                         {
-                            IWebElement element = driver.FindElement(By.Id(""+ productVarinat +""));
-                            IList<IWebElement> AllDropDownList =    element.FindElements(By.XPath("option"));
+                            IWebElement element = driver.FindElement(By.Id("" + productVarinat + ""));
+                            IList<IWebElement> AllDropDownList = element.FindElements(By.XPath("option"));
 
-                           
+
                             string values = null;
                             foreach (IWebElement value in AllDropDownList)
                             {
@@ -100,13 +104,13 @@ namespace MoBankUI
                                     new SelectElement(driver.FindElement(By.Id(productVarinat))).SelectByText(value.Text);
                                 }
                             }
-                            datarow.newrow("Variants", "", values, "PASS",driver);
+                            datarow.newrow("Variants", "", values, "PASS", driver);
                         }
 
                         else
                         {
-                            string varinats = driver.FindElement(By.Id(""+ productVarinat +"")).GetAttribute("Value");
-                            datarow.newrow("Variants", "", varinats, "PASS",driver);
+                            string varinats = driver.FindElement(By.Id("" + productVarinat + "")).GetAttribute("Value");
+                            datarow.newrow("Variants", "", varinats, "PASS", driver);
                         }
                     }
                     catch (Exception ex)
@@ -117,12 +121,12 @@ namespace MoBankUI
                     }
                 }
 
-                else if (IsElementPresent(driver,By.Id(""+ productVarinat + "_0"),30))
+                else if (IsElementPresent(driver, By.Id("" + productVarinat + "_0"), 30))
                 {
                     string values = null;
                     for (int q = 1;; q++)
                     {
-                        if (IsElementPresent(driver,By.Id(""+ productVarinat + "" + q + ""),30))
+                        if (IsElementPresent(driver, By.Id("" + productVarinat + "" + q + ""), 30))
                         {
                             string varinats = driver.FindElement(By.Id("" + productVarinat + "" + q + "")).Text;
                             if (varinats != "Please Select" || varinats != null)
@@ -137,7 +141,7 @@ namespace MoBankUI
                             break;
                         }
                     }
-                    datarow.newrow("Variants", "", values, "PASS",driver);
+                    datarow.newrow("Variants", "", values, "PASS", driver);
                 }
             }
             catch (Exception)

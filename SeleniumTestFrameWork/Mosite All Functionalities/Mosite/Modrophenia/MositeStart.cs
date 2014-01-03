@@ -2,7 +2,6 @@
 
 using System;
 using OpenQA.Selenium;
-   
 
 namespace MoBankUI
 {
@@ -33,7 +32,7 @@ namespace MoBankUI
             }
             finally
             {
-                datarow.excelsave("MoSiteReport", driver,"teja.vellanki@mobankgroup.com");
+                datarow.excelsave("MoSiteReport", driver, "teja.vellanki@mobankgroup.com");
                 datarow.dataflush();
                 driver.Quit();
             }

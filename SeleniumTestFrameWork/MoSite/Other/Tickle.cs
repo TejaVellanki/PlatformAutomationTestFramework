@@ -7,40 +7,42 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Tickle :driverdefining
+    internal class Tickle : driverdefining
     {
         public void HomepageTabsTickle(datarow datarow, IWebDriver driver, string url)
         {
             try
             {
                 driver.Navigate().GoToUrl(url);
-                
+
                 Thread.Sleep(0xbb8);
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 IWebElement element =
                     driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a/h2"));
                 driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a/h2")).Click();
-                
+
                 string str = driver.Title;
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 IWebElement element2 =
                     driver.FindElement(
                         By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/h2"));
-                driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/h2")).Click();
-                
+                driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/h2"))
+                      .Click();
+
                 string str2 = driver.Title;
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 IWebElement element3 =
                     driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/p"));
-                driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/p")).Click();
-                     
-                
+                driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/p"))
+                      .Click();
+
+
                 string str3 = driver.Title;
             }
             catch (Exception exception)
             {
                 string actual = exception.ToString();
-                datarow.newrow("Exception", "Not Expected", actual, "FAIL",driver);
+                datarow.newrow("Exception", "Not Expected", actual, "FAIL", driver);
             }
         }
     }

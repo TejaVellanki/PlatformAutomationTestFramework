@@ -1,28 +1,28 @@
-﻿using WebDriver_Refining;
-using MoBankUI;
+﻿using MoBankUI;
 using ObjectRepository;
 using OpenQA.Selenium;
+using WebDriver_Refining;
 
 namespace MoSite
 {
     public class MoSiteButtons : driverdefining
     {
-        private void AddToBasket(IWebDriver driver,datarow datarow)
+        private void AddToBasket(IWebDriver driver, datarow datarow)
         {
             string url = driver.PageSource;
             string AddToBasket = null;
             if (url.Contains("user-scalable=yes"))
             {
                 AddToBasket = CollectionMapV2.addtobasket;
-              
             }
             else
             {
                 AddToBasket = CollectionMapV1.addtobasket;
             }
             driver.FindElement(By.XPath(AddToBasket)).Click();
-           
-            datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected", AddToBasket + "Add To Basket Element Is Present", "PASS", driver);
+
+            datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected",
+                           AddToBasket + "Add To Basket Element Is Present", "PASS", driver);
         }
     }
 }

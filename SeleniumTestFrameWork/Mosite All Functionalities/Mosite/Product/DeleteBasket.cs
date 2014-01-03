@@ -1,14 +1,13 @@
 ﻿using System;
 using ObjectRepository;
-using WebDriver_Refining;
 using OpenQA.Selenium;
-    
+using WebDriver_Refining;
 
 //using System.Drawing;
 
 namespace MoBankUI
 {
-    internal class DeleteBasket :driverdefining
+    internal class DeleteBasket : driverdefining
     {
         private readonly Screenshot screenshot = new Screenshot();
 
@@ -34,22 +33,23 @@ namespace MoBankUI
                     basketvalidation(driver, datarow);
                 }#
                  */
-                if(IsElementPresent(driver,By.XPath(deletebasket),05))
+                if (IsElementPresent(driver, By.XPath(deletebasket), 05))
                 {
                     driver.FindElement(By.XPath(deletebasket)).Click();
-                    
+
                     basketvalidation(driver, datarow);
                 }
                 else
                 {
-                    datarow.newrow("Delete From Basket", "Delete Basket Element Expected","//ul[@id='Basket']/li/a/span" + "Element Not Present", "FAIL",driver);
+                    datarow.newrow("Delete From Basket", "Delete Basket Element Expected",
+                                   "//ul[@id='Basket']/li/a/span" + "Element Not Present", "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }
         }
@@ -88,11 +88,11 @@ namespace MoBankUI
 
                     if (value == "(0)")
                     {
-                        datarow.newrow("Delete Basket Value", "(0)", value, "PASS",driver);
+                        datarow.newrow("Delete Basket Value", "(0)", value, "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Delete Basket Value", "(0)", value, "FAIL",driver);
+                        datarow.newrow("Delete Basket Value", "(0)", value, "FAIL", driver);
                         screenshot.screenshotfailed(driver);
                     }
                 }
@@ -100,28 +100,27 @@ namespace MoBankUI
                 // waitforpagetoload("30000");
 
 
-                driver.FindElement(By.ClassName(homeimage)).Click(); 
-                  
+                driver.FindElement(By.ClassName(homeimage)).Click();
+
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
                 IWebElement myDynamicElement1 = driver.FindElement(By.XPath("" + categorylink + "" + cat + ""));
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
-                  
+
                 string title = driver.Title;
 
                 decimal categorycount = driver.FindElements(By.XPath(categorylink)).Count;
                 for (int i = 1;; i++)
                 {
-                    if (IsElementPresent(driver,By.XPath("" + categorylink + "" + cat + ""),30))
+                    if (IsElementPresent(driver, By.XPath("" + categorylink + "" + cat + ""), 30))
                     {
                         driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
-                        
+
                         string titlecategory = driver.Title;
                         string url1 = driver.Url;
 
-                        if (IsElementPresent(driver,By.XPath(products),30))
+                        if (IsElementPresent(driver, By.XPath(products), 30))
                         {
                             driver.FindElement(By.XPath("" + products + "" + productlink + "")).Click();
-                              
                         }
                         else
                         {
@@ -140,7 +139,7 @@ namespace MoBankUI
             catch (Exception ex)
             {
                 string e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL",driver);
+                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }
         }

@@ -26,7 +26,6 @@
 
         public const string deletebasket = "button.ui-btn-hidden";
         public const string homeimage = "//div[@id='main-page']/div[3]/a/img";
-
     }
 
     public static class FooterV1
