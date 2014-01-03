@@ -7,11 +7,11 @@
 *.sln.docstates
 
 # Build results
+
 [Dd]ebug/
-[Dd]ebugPublic/
 [Rr]elease/
 x64/
-bld/
+build/
 [Bb]in/
 [Oo]bj/
 
@@ -19,13 +19,8 @@ bld/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
-#NUNIT
-*.VisualState.xml
-TestResult.xml
-
 *_i.c
 *_p.c
-*_i.h
 *.ilk
 *.meta
 *.obj
@@ -46,12 +41,7 @@ TestResult.xml
 .builds
 *.pidb
 *.log
-*.svclog
 *.scc
-[Ll]ogs/
-
-# Chutzpah Test files
-_Chutzpah*
 
 # Visual C++ cache files
 ipch/
@@ -66,19 +56,12 @@ ipch/
 *.vsp
 *.vspx
 
-# TFS 2012 Local Workspace
-$tf/
-
 # Guidance Automation Toolkit
 *.gpState
 
 # ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
-*.DotSettings.user
-
-# JustCode is a .NET coding addin-in
-.JustCode
 
 # TeamCity is a build add-in
 _TeamCity*
@@ -88,12 +71,10 @@ _TeamCity*
 
 # NCrunch
 *.ncrunch*
-_NCrunch_*
 .*crunch*.local.xml
 
-# MightyMoose
-*.mm.*
-AutoTest.Net/
+# Installshield output folder
+[Ee]xpress/
 
 # DocProject is a documentation generator add-in
 DocProject/buildhelp/
@@ -110,13 +91,13 @@ publish/
 
 # Publish Web Output
 *.Publish.xml
-*.azurePubxml
+*.pubxml
 
 # NuGet Packages Directory
 packages/
 
 # Windows Azure Build Output
-csx/
+csx
 *.build.csdef
 
 # Windows Store app package directory
@@ -130,7 +111,6 @@ ClientBin/
 ~$*
 *~
 *.dbmdl
-*.dbproj.schemaview
 *.[Pp]ublish.xml
 *.pfx
 *.publishsettings
@@ -149,14 +129,6 @@ UpgradeLog*.htm
 App_Data/*.mdf
 App_Data/*.ldf
 
-# Business Intelligence projects
-*.rdl.data
-*.bim.layout
-*.bim_*.settings
-
-# Microsoft Fakes
-FakesAssemblies/
-
 # =========================
 # Windows detritus
 # =========================
@@ -170,10 +142,11 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
-# MoPowered Version Files
+
+# Mac crap
+.DS_Store
+
+#MoPowered version files
 AssemblyVersionCommon.cs
 AssemblyVersionCommon.txt
 AssemblyVersionCommon.xml
-
-# 7-Zip files
-*.7z

@@ -6,7 +6,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebDriver_Refining
 {
-    public class Driverdefining
+    public class driverdefining
     {
       
        public void Waitforpagetoload(IWebDriver driver, int time)
