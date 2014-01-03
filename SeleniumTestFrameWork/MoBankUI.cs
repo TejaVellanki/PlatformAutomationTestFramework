@@ -352,7 +352,7 @@ namespace MoBankUI
                 IWebDriver driver = new FirefoxDriver();
                 driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
                 var batch = new MoshopBatch();
-                batch.batchmoshop(driver, datarow, items, versions);
+                batch.Batchmoshop(driver, datarow, items, versions);
             }
             catch (Exception ex)
             {

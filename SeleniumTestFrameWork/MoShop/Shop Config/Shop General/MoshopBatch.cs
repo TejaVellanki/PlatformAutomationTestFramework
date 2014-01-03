@@ -12,7 +12,7 @@ namespace MoBankUI
 {
     public class MoshopBatch :driverdefining
     {
-        public void batchmoshop(IWebDriver driver, datarow datarow, string items, string vers) 
+        public void Batchmoshop(IWebDriver driver, datarow datarow, string items, string vers) 
         {
             var screenshot = new Screenshot();
             try
@@ -34,7 +34,7 @@ namespace MoBankUI
                                 if (str == "Create a Test Shop")
                                 {
                                     datarow.newrow("", "", "Create a Test Shop", "", driver);
-                                    var testshop = new createShop();
+                                    var testshop = new CreateShop();
                                     testshop.Testshop(driver,datarow);
                                    
                                     new LookandFeel().Lookandfeel(driver,datarow);

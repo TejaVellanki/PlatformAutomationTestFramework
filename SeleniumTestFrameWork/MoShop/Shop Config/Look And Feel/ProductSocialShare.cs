@@ -6,7 +6,7 @@ namespace MoBankUI
 {
     class ProductSocialShare : driverdefining
     {
-        public void productsocialshare(IWebDriver driver, datarow datarow)
+        public void Productsocialshare(IWebDriver driver, datarow datarow)
         {
             try
             {

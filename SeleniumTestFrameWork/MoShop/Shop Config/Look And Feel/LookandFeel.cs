@@ -188,8 +188,8 @@ namespace MoBankUI
             }
             LookandFeelImages images = new LookandFeelImages();
             //images.images(driver,datarow);
-            new ProductSocialShare().productsocialshare(driver,datarow);
-            new Scheduler().schedule(driver,datarow);
+            new ProductSocialShare().Productsocialshare(driver,datarow);
+            new Scheduler().Schedule(driver,datarow);
         }
     }
 }

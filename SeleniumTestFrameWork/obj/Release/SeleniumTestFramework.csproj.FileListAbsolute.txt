@@ -28,3 +28,4 @@ C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrame
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Release\SeleniumTestFramework.csproj.GenerateResource.Cache
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Release\WindowsFormsApplication3.exe
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Release\WindowsFormsApplication3.pdb
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Release\SeleniumTestFramework.csprojResolveAssemblyReference.cache

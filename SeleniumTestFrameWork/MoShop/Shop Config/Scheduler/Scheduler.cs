@@ -11,7 +11,7 @@ namespace MoBankUI
 {
     internal class Scheduler :driverdefining
     {
-        public void schedule(IWebDriver driver, datarow datarow)
+        public void Schedule(IWebDriver driver, datarow datarow)
         {
             try
             {
