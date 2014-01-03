@@ -9,7 +9,7 @@ namespace WebDriver_Refining
     public class driverdefining
     {
       
-       public void Waitforpagetoload(IWebDriver driver, int time)
+       public void waitforpagetoload(IWebDriver driver, int time)
         {
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(time));
         }
