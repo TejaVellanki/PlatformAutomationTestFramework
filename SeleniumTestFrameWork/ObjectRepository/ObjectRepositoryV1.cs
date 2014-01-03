@@ -14,7 +14,8 @@
         public const string productDescription = "//div[@id='mainContent']/div/div[2]/div[2]/div/div/div";
 
         public const string detail =
-            "css=html.ui-mobile body#page-products-details.ui-mobile-viewport div#main-page.ui-page div#mainContent.ui-content div.productDetailsContent div.ui-grid-a div.ui-block-b div.ui-collapsible-set div.ui-collapsible div.ui-collapsible-content";
+            "css=html.ui-mobile body#page-products-details.ui-mobile-viewport div#main-" +
+            "page.ui-page div#mainContent.ui-content div.productDetailsContent div.ui-grid-a div.ui-block-b div.ui-collapsible-set div.ui-collapsible div.ui-collapsible-content";
 
         public const string producttitle = "//*[@id='mainContent']/div/div[1]/div[1]/h2";
 
@@ -25,6 +26,7 @@
 
         public const string deletebasket = "button.ui-btn-hidden";
         public const string homeimage = "//div[@id='main-page']/div[3]/a/img";
+
     }
 
     public static class FooterV1
