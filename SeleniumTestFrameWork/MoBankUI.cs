@@ -11,11 +11,11 @@ namespace MoBankUI
 {
     public partial class Form1 : Form
     {
-        private CheckedListBox checkedListBox1;
+        private CheckedListBox _checkedListBox1;
         private TextBox textBox1;
         private TextBox textBox2;
-        private TextBox textbox3;
-        private TextBox textbox4;
+        private TextBox _textbox3;
+        private TextBox _textbox4;
 
 
         public Form1()
@@ -30,32 +30,32 @@ namespace MoBankUI
                 bool mopaytestharness = checkBox15.Checked;
                 bool Mopayconsole = checkBox16.Checked;
                 bool Moshop = checkBox11.Checked;
-                bool MoPayAccount = checkBox17.Checked;
-                bool MoSite = checkBox12.Checked;
-                bool Firefox = checkBox14.Checked;
+                bool moPayAccount = checkBox17.Checked;
+                bool moSite = checkBox12.Checked;
+                bool firefox = checkBox14.Checked;
                 bool mositetps = checkBox13.Checked;
                 bool appium = checkBox1.Checked;
                 
 
                 if (mopaytestharness)
                 {
-                    this.mopaytestharness();
+                    this.Mopaytestharness();
                 }
                 if (Mopayconsole)
                 {
-                    mopayconsole();
+                    this.Mopayconsole();
                 }
-                if (MoPayAccount)
+                if (moPayAccount)
                 {
                     mopayaccountcreation();
                 }
                 if (Moshop)
                 {
-                    moshopconsole();
+                    Moshopconsole();
                 }
-                if (MoSite)
+                if (moSite)
                 {
-                    mositemodro();
+                    Mositemodro();
                 }
 
                 #region MositeTPS
@@ -74,7 +74,7 @@ namespace MoBankUI
                             foreach (string oneurl in url)
                             {
                                 datarow.dataflush();
-                                mositetp(oneurl, datarow);
+                                Mositetp(oneurl, datarow);
                             }
                         }
                         else
@@ -101,7 +101,7 @@ namespace MoBankUI
         //tablet View Method which Initializes the process. 
 
 
-        public void mositemodroandroid()
+        public void Mositemodroandroid()
         {
             try
             {
@@ -229,7 +229,7 @@ namespace MoBankUI
 
         #region Firefox
 
-        public void mositetp(string url, datarow datarow)
+        public void Mositetp(string url, datarow datarow)
         {
             try
             {
@@ -304,7 +304,7 @@ namespace MoBankUI
             }
         }
 
-        public void mopayconsole()
+        public void Mopayconsole()
         {
             try
             {
@@ -317,7 +317,7 @@ namespace MoBankUI
             }
         }
 
-        public void mopaytestharness()
+        public void Mopaytestharness()
         {
             try
             {
@@ -330,7 +330,7 @@ namespace MoBankUI
             }
         }
 
-        public void moshopconsole()
+        public void Moshopconsole()
         {
             try
             {
@@ -360,7 +360,7 @@ namespace MoBankUI
             }
         }
 
-        public void mositemodro()
+        public void Mositemodro()
         {
             try
             {
@@ -377,7 +377,7 @@ namespace MoBankUI
 
         #region Chrome
 
-        public void mopayaccountcreationchrome()
+        public void Mopayaccountcreationchrome()
         {
             try
             {
@@ -391,7 +391,7 @@ namespace MoBankUI
             }
         }
 
-        public void mopayconsolechrome()
+        public void Mopayconsolechrome()
         {
             try
             {
@@ -405,7 +405,7 @@ namespace MoBankUI
             }
         }
 
-        public void mopaytestharnesschrome()
+        public void Mopaytestharnesschrome()
         {
             try
             {
@@ -419,7 +419,7 @@ namespace MoBankUI
             }
         }
 
-        public void moshopconsolechrome()
+        public void Moshopconsolechrome()
         {
             try
             {
@@ -431,7 +431,7 @@ namespace MoBankUI
             }
         }
 
-        public void mositemodrochrome()
+        public void Mositemodrochrome()
         {
             try
             {
@@ -448,7 +448,7 @@ namespace MoBankUI
 
         #region Internet Explorer
 
-        public void mopayaccountcreationexplorer()
+        public void Mopayaccountcreationexplorer()
         {
             try
             {
@@ -461,7 +461,7 @@ namespace MoBankUI
             }
         }
 
-        public void mopayconsoleexplorer()
+        public void Mopayconsoleexplorer()
         {
             try
             {
@@ -474,7 +474,7 @@ namespace MoBankUI
             }
         }
 
-        public void mopaytestharnessexplorer()
+        public void Mopaytestharnessexplorer()
         {
             try
             {
@@ -487,7 +487,7 @@ namespace MoBankUI
             }
         }
 
-        public void moshopconsoleexplorer()
+        public void Moshopconsoleexplorer()
         {
             try
             {
@@ -499,7 +499,7 @@ namespace MoBankUI
             }
         }
 
-        public void mositemodroexplorer()
+        public void Mositemodroexplorer()
         {
             try
             {

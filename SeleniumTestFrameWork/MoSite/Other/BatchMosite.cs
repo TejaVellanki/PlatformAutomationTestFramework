@@ -17,7 +17,6 @@ namespace MoBankUI
 
             string[] strArray = items.Split(new[] {','});
             string[] urlarray = urls.Split(new[] {','});
-            int num = 0;
             try
             {
                 foreach (string url in urlarray)

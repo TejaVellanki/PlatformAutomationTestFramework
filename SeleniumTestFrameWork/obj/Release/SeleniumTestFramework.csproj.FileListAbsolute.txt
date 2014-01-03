@@ -1,4 +1,3 @@
-C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\WindowsFormsApplication3.exe.config
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\ObjectRepository\Homepage and CategoryImages\dw_new_in_15_10_13.jpg
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\ObjectRepository\Homepage and CategoryImages\Teja Home Image.jpg
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\ObjectRepository\Homepage and CategoryImages\wolford_home.jpeg
@@ -9,6 +8,7 @@ C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrame
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\ObjectRepository\Images\success.png
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\ObjectRepository\Images\Teja Custom Basket Image.png
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\ObjectRepository\Images\ticklelogo.png
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\WindowsFormsApplication3.exe.config
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\WindowsFormsApplication3.exe
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\WindowsFormsApplication3.pdb
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\nunit.framework.dll
@@ -23,6 +23,7 @@ C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrame
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\WatiN.Core.xml
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\WebDriver.xml
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\bin\Release\WebDriver.Support.xml
+C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Release\SeleniumTestFramework.csprojResolveAssemblyReference.cache
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Release\MoBankUI.Form1.resources
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Release\WindowsFormsApplication3.Properties.Resources.resources
 C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\obj\Release\SeleniumTestFramework.csproj.GenerateResource.Cache

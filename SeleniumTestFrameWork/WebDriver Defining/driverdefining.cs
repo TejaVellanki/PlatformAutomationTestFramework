@@ -15,20 +15,20 @@ namespace WebDriver_Refining
         }
 
 
-       public bool IsElementPresent(IWebDriver driver, By by,int timeoutSeconds=05)
+       public bool IsElementPresent(IWebDriver driver, By by,int timeoutSeconds= 05)
         {
-        for (int second = 0; second< timeoutSeconds ; second++)
-        {
-            try
+            for (int second = 0; second < timeoutSeconds; )
             {
-                 driver.FindElement(by);
+                try
+                {
+                    driver.FindElement(by);
+                }
+                catch (NoSuchElementException e)
+                {
+                    break;
+                }
+                return true;
             }
-            catch (NoSuchElementException e)
-            {
-                break;
-            }
-            return true;
-        }
 
         return false;
 

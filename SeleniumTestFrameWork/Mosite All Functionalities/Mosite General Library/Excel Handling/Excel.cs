@@ -62,7 +62,9 @@ namespace MoBankUI
         /// <param name="fileName"></param>
         /// <param name="sheetName"></param>
         /// <param name="extension"></param>
-        /// <returns></returns>
+        /// <param name="displayAlerts"></param>
+        /// <param name="appendDateField"></param>
+        /// <returns>Workbook</returns>
         public Workbook CreateAndOpenExcelFile(string filePath, ref string fileName, string sheetName, string extension,
                                                bool displayAlerts, bool appendDateField)
         {
@@ -199,7 +201,9 @@ namespace MoBankUI
         /// </summary>
         /// <param name="dt"></param>
         /// <param name="ws"></param>
-        /// <param name="statusFlag"></param>
+        /// <param name="nextRow"></param>
+        /// <param name="isCompare"></param>
+        /// <param name="isPolicyWiseSummary"></param>
         public string ConsolidatedXmlExportToExcel(DataTable dt, _Worksheet ws, bool nextRow, bool isCompare,
                                                    bool isPolicyWiseSummary)
         {
