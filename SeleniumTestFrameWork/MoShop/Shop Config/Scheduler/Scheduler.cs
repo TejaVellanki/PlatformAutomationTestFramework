@@ -268,7 +268,7 @@ namespace MoBankUI
                     datarow.newrow("Repeat interval Hours", "1", str8, "FAIL",driver);
                 }
 
-                int num3 = 1;
+                const int num3 = 1;
                 str9 = driver.FindElement(By.Id("Jobs_" + num3 + "__Active")).GetAttribute("Value");
                 str10 = driver.FindElement(By.Id("Jobs_" + num3 + "__StartOn")).GetAttribute("Value");
                 str11 = driver.FindElement(By.Id("Jobs_" + num3 + "__EndOn")).GetAttribute("Value");

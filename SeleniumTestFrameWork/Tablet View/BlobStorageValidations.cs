@@ -26,8 +26,7 @@ namespace Tablet_View
             {
                 using (var reader = new StreamReader(response.GetResponseStream()))
                 {
-                    string responseString;
-                    responseString = reader.ReadToEnd();
+                    reader.ReadToEnd();
                     string rawHeaders = request.GetResponse().Headers.ToString();
                     if (rawHeaders.Contains("public"))
                     {

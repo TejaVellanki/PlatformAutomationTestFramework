@@ -5,7 +5,6 @@ using OpenQA.Selenium;
 using ObjectRepository;
 
 using WebDriver_Refining;
-using MoBankUI;
 
 
 namespace Tablet_View

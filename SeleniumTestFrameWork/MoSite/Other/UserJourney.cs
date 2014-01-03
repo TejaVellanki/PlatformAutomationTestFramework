@@ -54,7 +54,6 @@ namespace MoBankUI
         {
             try
             {
-                bool flag;
                 driver.Navigate().GoToUrl("http://qatheticklecompany.mobankdev.com/");
                 driver.FindElement(By.CssSelector("img")).Click(); 
                 
@@ -116,7 +115,7 @@ namespace MoBankUI
                 
                 Thread.Sleep(3000);
                 if (!IsElementPresent(driver,By.XPath("//body[@id='page-basket-index']/div/div[2]/div/div[3]/a/span/span")) ||
-                    !(driver.FindElement(By.XPath("//ul[@id='Basket']/li[2]/div/div/p")).Text == "Product unavailable"))
+                    driver.FindElement(By.XPath("//ul[@id='Basket']/li[2]/div/div/p")).Text != "Product unavailable")
                 {
                     goto Label_03D4;
                 }
@@ -135,7 +134,6 @@ namespace MoBankUI
                 }
                 l++;
                 Label_03CD:
-                flag = true;
                 goto Label_0365;
                 Label_03D4:
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));

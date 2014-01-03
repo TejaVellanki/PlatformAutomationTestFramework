@@ -1,7 +1,5 @@
 ﻿using MoBankUI;
 using OpenQA.Selenium;
-using MoBankUI;
-using OpenQA.Selenium;
 using WebDriver_Refining;
 
 namespace Tablet_View
@@ -15,7 +13,7 @@ namespace Tablet_View
              driver.Navigate().GoToUrl("http://tablet.mobankdev.com");
              driverdefining Driver = new driverdefining();
             
-            string title = driver.Title.ToString();
+            string title = driver.Title;
             //Validating the Home page title. 
             
             if(title == "Tablet: Tickle Shop")

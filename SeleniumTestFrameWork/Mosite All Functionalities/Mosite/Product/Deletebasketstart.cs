@@ -66,11 +66,7 @@ namespace MoBankUI
         public void productunavailabl(IWebDriver driver , int l, datarow datarow)
         {
             string deletebasket = null;
-            string products = null;
-            string productlink = null;
-            string categorylink = null;
-            string cat = null;
-            string homeimage = null;
+             string homeimage = null;
             string url = driver.PageSource;
 
             if (url.Contains("user-scalable=yes"))
@@ -100,6 +96,10 @@ namespace MoBankUI
                 
 
                 string url1 = driver.PageSource;
+                string products = null;
+                string productlink = null;
+                string categorylink = null;
+                string cat = null;
                 if (url1.Contains("user-scalable=yes"))
                 {
                     categorylink = CollectionMapV2.categorylink;

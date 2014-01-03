@@ -13,7 +13,7 @@ namespace MoBankUI
             try
             {
                
-                string shop = "testshop";
+                const string shop = "testshop";
                 driver.FindElement(By.LinkText("Shops")).Click();
                 
                 driver.FindElement(By.LinkText("Create")).Click();

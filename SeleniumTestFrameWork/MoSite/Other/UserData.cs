@@ -101,7 +101,7 @@ namespace MoBankUI
                                 "//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"))
                               .Click();
                         
-                        if (!(driver.Title == "Checkout - Address - QA - The Tickle Company"))
+                        if (driver.Title != "Checkout - Address - QA - The Tickle Company")
                         {
                             break;
                         }

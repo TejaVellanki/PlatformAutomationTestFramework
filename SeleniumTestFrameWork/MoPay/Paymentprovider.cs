@@ -70,7 +70,7 @@ namespace MoBankUI
             {
                 datarow.newrow("Implementation", expected, str5, "FAIL",driver);
             }
-            driver.FindElement(By.XPath(("//html/body/div/div[2]/div/div/div/form/div[5]/div/div/table/tbody/tr/th[2]/a"))).Click();;
+            driver.FindElement(By.XPath(("//html/body/div/div[2]/div/div/div/form/div[5]/div/div/table/tbody/tr/th[2]/a"))).Click();
           
             string str11 = driver.FindElement(By.Id("Name")).GetAttribute("value");
             if (str11 == "Visa Debit")

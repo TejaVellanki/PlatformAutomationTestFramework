@@ -2,7 +2,6 @@
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using WebDriver_Refining;
 

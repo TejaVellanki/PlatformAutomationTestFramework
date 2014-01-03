@@ -5,7 +5,6 @@ using OpenQA.Selenium;
 using WebDriver_Refining;
 using NUnit.Framework;
 using OpenQA.Selenium.Interactions;
-using WebDriver_Refining;
 
 namespace MoBankUI
 {

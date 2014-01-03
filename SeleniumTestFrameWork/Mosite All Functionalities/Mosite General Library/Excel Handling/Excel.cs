@@ -110,7 +110,7 @@ namespace MoBankUI
 
                     for (int sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
                     {
-                        var verSheet = (Worksheet)workbook.Worksheets.get_Item(sheetCount);
+                        var verSheet = (Worksheet)workbook.Worksheets.Item[sheetCount];
 
                         if ("Sheet1" == verSheet.Name)
                         {
@@ -161,7 +161,7 @@ namespace MoBankUI
         {
             for (int sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
             {
-                var verSheet = (Worksheet)workbook.Worksheets.get_Item(sheetCount);
+                var verSheet = (Worksheet)workbook.Worksheets.Item[sheetCount];
 
                 if ("Sheet1" == verSheet.Name)
                 {
@@ -312,7 +312,7 @@ namespace MoBankUI
 
             string finalColLetter = string.Empty;
 
-            string colCharset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string colCharset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
             int colCharsetLen = colCharset.Length;
 
@@ -353,13 +353,11 @@ namespace MoBankUI
 
             intRowNum = intRowNum + dt.Rows.Count + dt.Rows.Count;
 
-            ws.get_Range(excelRange, Type.Missing).NumberFormat = "@";
+            ws.Range[excelRange, Type.Missing].NumberFormat = "@";
 
-            ws.get_Range(excelRange,
-                         Type.Missing).Value2 = rawData;
+            ws.Range[excelRange, Type.Missing].Value2 = rawData;
 
-            ws.get_Range(excelRange,
-                         Type.Missing).EntireColumn.AutoFit();
+            ws.Range[excelRange, Type.Missing].EntireColumn.AutoFit();
 
             //ws.get_Range(excelRange, Type.Missing).AutoFit();
 
