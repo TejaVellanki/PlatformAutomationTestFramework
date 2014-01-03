@@ -76,7 +76,7 @@ namespace MoBankUI
                     if (function == "Custom Checkout")
                     {
                         var ckout = new BatchCheckout();
-                        ckout.checkout(driver,url, datarow);
+                        ckout.Checkout(driver,url, datarow);
                     }
 
                     if (function == "Test Registration/Login - CheckOut Pages")

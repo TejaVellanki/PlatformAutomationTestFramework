@@ -1,4 +1,5 @@
 ﻿
+using System;
 using OpenQA.Selenium;
 
 
@@ -8,8 +9,10 @@ namespace MoBankUI
 {
     internal class BatchCheckout
     {
-        public void checkout(IWebDriver driver, string url, datarow datarow)
+        public void Checkout(IWebDriver driver, string url, datarow datarow)
         {
+            try
+            {
             if (url.Contains("countryhouseoutdoor"))
             {
                 //country house checkout process 
@@ -26,6 +29,12 @@ namespace MoBankUI
             {
                 var contry = new Countryhouse();
                 contry.bathroomcheckout(driver);
+            }
+            }
+            catch (Exception ex)
+            {
+                string e = ex.ToString();
+                throw;
             }
         }
     }
