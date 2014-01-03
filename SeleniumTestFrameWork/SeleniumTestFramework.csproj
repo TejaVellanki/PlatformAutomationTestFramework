@@ -237,7 +237,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ObjectRepository\Homepage and CategoryImages\Teja Home Image.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ObjectRepository\Homepage and CategoryImages\wolford_home.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

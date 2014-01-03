@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-
-namespace ObjectRepository
+﻿namespace ObjectRepository
 {
     public static class CollectionMapV1
     {
@@ -21,7 +13,9 @@ namespace ObjectRepository
         public const string ProductDescriptiontab = "//html/body/div/div[4]/div/div[2]/div[2]/div/div/h4/a/span";
         public const string productDescription = "//div[@id='mainContent']/div/div[2]/div[2]/div/div/div";
 
-        public const string detail = "css=html.ui-mobile body#page-products-details.ui-mobile-viewport div#main-page.ui-page div#mainContent.ui-content div.productDetailsContent div.ui-grid-a div.ui-block-b div.ui-collapsible-set div.ui-collapsible div.ui-collapsible-content";
+        public const string detail =
+            "css=html.ui-mobile body#page-products-details.ui-mobile-viewport div#main-page.ui-page div#mainContent.ui-content div.productDetailsContent div.ui-grid-a div.ui-block-b div.ui-collapsible-set div.ui-collapsible div.ui-collapsible-content";
+
         public const string producttitle = "//*[@id='mainContent']/div/div[1]/div[1]/h2";
 
         public const string productVariant = "Variants_0__OptionValue";
@@ -42,9 +36,6 @@ namespace ObjectRepository
         public const string mopowered = "//html/body/div/div[3]/p/a";
         public const string lowerfooter = "//html/body/div/div[3]/p[2]/a";
         public const string lowerfooterlink = "";
-     
-
-     
     }
 
     public static class BasketV1
@@ -58,30 +49,33 @@ namespace ObjectRepository
         public const string Homepageimage = "//body[@id='page-home-index']/div/div[2]/div/img";
         public const string Categoryimage = "//body[@id='page-categories-details']/div/div[2]/div/img";
         public const string Categoryimagecss = "img.categoryImage";
-       public const string productimage = "  //*[@id='main-page']/div[5]/div[2]/div[1]/div[1]/ul/li";
+        public const string productimage = "  //*[@id='main-page']/div[5]/div[2]/div[1]/div[1]/ul/li";
         public const string productimagelink = "/img";
-        public const string multiproductimage = "css = li.flex - active - slide > img"; 
-
-
+        public const string multiproductimage = "css = li.flex - active - slide > img";
     }
 
     public static class AddressMapV1
     {
-        public const string submitbutton ="//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button";
+        public const string submitbutton =
+            "//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button";
+
         public const string field = "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div";
         public const string sendletters = "/fieldset/div[2]/div/label/span/span[2]";
         public const string fieldlabel = "/label";
         public const string fieldinput = "/div/input";
         public const string fieldcountry = "FormData_";
-        public const string coutryvalue  =  "__Value";
+        public const string coutryvalue = "__Value";
     }
 
     public static class CheckoutMapV1
-    {//*[@id="main-page"]/div[9]/div/div[2]/div/button
+    {
+//*[@id="main-page"]/div[9]/div/div[2]/div/button
         //*[@id="checkoutForm"]/section/div/div[5]/fieldset/div[2]/div/label/span
         public const string submitterms = "//div[@id='main-page']/div[9]/div/div[2]/div/button";
-        public const string termsncond = "//*[@id='checkoutForm']/section/div/div[5]/fieldset/div[2]/div/label/span/span";
+
+        public const string termsncond =
+            "//*[@id='checkoutForm']/section/div/div[5]/fieldset/div[2]/div/label/span/span";
+
         public const string paybutton = "//a[@id='PayButton']/span/span";
-     
     }
 }
