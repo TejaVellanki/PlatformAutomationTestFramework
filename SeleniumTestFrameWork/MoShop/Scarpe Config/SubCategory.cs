@@ -12,7 +12,7 @@ namespace MoBankUI
 {
     internal class SubCategory : driverdefining
     {
-        public void subcategoryscrape(IWebDriver driver, datarow datarow)
+        public void Subcategoryscrape(IWebDriver driver, datarow datarow)
         {
             try
             {
@@ -127,7 +127,7 @@ namespace MoBankUI
                 string e = ex.ToString();
                 datarow.newrow("Exception Not Expected", "", e, "FAIL");
             }
-            new ProductScrape().productscrape(driver,datarow);
+            new productScrape().Productscrape(driver,datarow);
         }
     }
 }

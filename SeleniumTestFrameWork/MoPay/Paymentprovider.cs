@@ -10,14 +10,14 @@ namespace MoBankUI
 {
     public class Paymentprovider : driverdefining
     {
-        private readonly Screenshot screenshot = new Screenshot();
-        private GeneralLibrary genaralLibrary;
+        private readonly Screenshot _screenshot = new Screenshot();
+        private GeneralLibrary _genaralLibrary;
 
-        public void provider(IWebDriver driver, datarow datarow)
+        public void Provider(IWebDriver driver, datarow datarow)
         {
-            genaralLibrary = new GeneralLibrary();
+            _genaralLibrary = new GeneralLibrary();
             DataTable table =
-                genaralLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "AccountCreation").Tables[0];
+                _genaralLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "AccountCreation").Tables[0];
             int count = table.Rows.Count;
             string str = table.Rows[0]["AccountName"].ToString();
             string text = table.Rows[0]["Provider"].ToString();
@@ -35,7 +35,7 @@ namespace MoBankUI
             {
                 datarow.newrow("Provider", text, attribute, "FAIL",driver);
             }
-            new Paymentprovidertypes().paymenttypes(driver, datarow);
+            new Paymentprovidertypes().Paymenttypes(driver, datarow);
             driver.FindElement(By.LinkText("…")).Click();
           
             new SelectElement(driver.FindElement(By.Id("Implementation"))).SelectByText(str5);
@@ -57,7 +57,7 @@ namespace MoBankUI
             else
             {
                 datarow.newrow("3Dsecure", "OFF", actual, "FAIL",driver);
-                screenshot.screenshotfailed(driver);
+                _screenshot.screenshotfailed(driver);
             }
             driver.FindElement(By.CssSelector("input.button")).Click();
           
@@ -139,7 +139,7 @@ namespace MoBankUI
                 if (str17 == "false")
                 {
                     datarow.newrow("Card1", "off", str17, "FAIL",driver);
-                    screenshot.screenshotfailed(driver);
+                    _screenshot.screenshotfailed(driver);
                 }
                 else
                 {
@@ -152,7 +152,7 @@ namespace MoBankUI
                 if (str18 == "false")
                 {
                     datarow.newrow("Card2", "off", str18, "FAIL",driver);
-                    screenshot.screenshotfailed(driver);
+                    _screenshot.screenshotfailed(driver);
                 }
                 else
                 {
@@ -165,7 +165,7 @@ namespace MoBankUI
                 if (str19 == "true")
                 {
                     datarow.newrow("Card3", "on", str19, "FAIL",driver);
-                    screenshot.screenshotfailed(driver);
+                    _screenshot.screenshotfailed(driver);
                 }
                 else
                 {

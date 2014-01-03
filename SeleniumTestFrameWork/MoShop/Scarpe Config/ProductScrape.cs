@@ -9,9 +9,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class ProductScrape : driverdefining
+    internal class productScrape : driverdefining
     {
-        public void productscrape(IWebDriver driver, datarow datarow)
+        public void Productscrape(IWebDriver driver, datarow datarow)
         {
             try
             {

@@ -92,7 +92,7 @@ namespace MoBankUI
                     Thread.Sleep(0x1388);
                     driver.FindElement(By.LinkText("Payment Provider")).Click();
                     
-                    new Paymentprovider().provider(driver, datarow);
+                    new Paymentprovider().Provider(driver, datarow);
                     new Notificationtab().Notifications(driver, datarow);
                 }
             }

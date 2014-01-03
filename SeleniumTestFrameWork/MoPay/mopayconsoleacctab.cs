@@ -66,7 +66,7 @@ namespace MoBankUI
                 {
                     datarow.newrow("Payment Provider Tab", "Payment Provider : mopowered.co.uk", str3, "PASS", driver
                                    );
-                    new Paymentprovider().provider(driver, datarow);
+                    new Paymentprovider().Provider(driver, datarow);
                 }
                 else
                 {

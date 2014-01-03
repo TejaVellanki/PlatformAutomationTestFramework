@@ -12,14 +12,14 @@ namespace MoBankUI
 {
     public class Mopaysite :driverdefining
     {
-        private datarow datarow = new datarow();
-        private GeneralLibrary generalLibrary;
+        private datarow _datarow = new datarow();
+        private GeneralLibrary _generalLibrary;
         
         public void MoPay(IWebDriver driver, datarow datarow)
         {
-            generalLibrary = new GeneralLibrary();
+            _generalLibrary = new GeneralLibrary();
             DataTable table =
-                generalLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "CardDetails").Tables[0];
+                _generalLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "CardDetails").Tables[0];
             var screenshot = new Screenshot();
             try
             {

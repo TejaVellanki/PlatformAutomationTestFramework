@@ -75,7 +75,7 @@ namespace MoBankUI
             
             string title = driver.Title;
             var run = new RunScrape();
-            run.scarperead(driver, datarow, title);
+            run.Scarperead(driver, datarow, title);
             }
             catch (Exception ex)
             {

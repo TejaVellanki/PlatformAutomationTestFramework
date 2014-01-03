@@ -56,7 +56,7 @@ namespace MoBankUI
                                 {
                                     datarow.newrow("", "", "Run Manual Scrape", "",driver);
                                     var run = new RunScrape();
-                                    run.runscrape(driver, datarow);
+                                    run.Runscrape(driver, datarow);
                                 }
                                 #endregion
                                 #region Custom Domain Name Feature and Localisation
@@ -118,8 +118,8 @@ namespace MoBankUI
                                 if (str == "Delete TestShop And TestScrape")
                                 {
                                      DeleteTestShop delete = new DeleteTestShop();
-                                     delete.deleteshop(driver);
-                                     delete.deletedscrape(driver);
+                                     delete.Deleteshop(driver);
+                                     delete.Deletedscrape(driver);
                                 }
                                 #endregion
 

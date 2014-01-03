@@ -145,7 +145,7 @@ namespace MoBankUI
                 string e = ex.ToString();
                 datarow.newrow("Exception", "", e, "FAIL");
             }
-            new SubCategory().subcategoryscrape(driver, datarow);
+            new SubCategory().Subcategoryscrape(driver, datarow);
         }
     }
 }

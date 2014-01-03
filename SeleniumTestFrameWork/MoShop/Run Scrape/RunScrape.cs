@@ -11,7 +11,7 @@ namespace MoBankUI
     public class RunScrape : driverdefining
     {
      [Test]
-        public void runscrape(IWebDriver driver, datarow datarow)
+        public void Runscrape(IWebDriver driver, datarow datarow)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace MoBankUI
                 driver.FindElement(By.Name("PostAction[]")).Click();
                   
                 string title = driver.Title;
-                scarperead(driver,datarow, title);
+                Scarperead(driver,datarow, title);
                
             }
             catch (Exception ex)
@@ -41,7 +41,7 @@ namespace MoBankUI
             }
         }
 
-        public void scarperead(IWebDriver driver, datarow datarow, string job)
+        public void Scarperead(IWebDriver driver, datarow datarow, string job)
         {
             int j = 1;
             for (int i = 0;; i++)
@@ -53,7 +53,7 @@ namespace MoBankUI
                         string title = driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[2]")).Text;
                         string type = driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[3]")).Text;
                         string startson = driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[4]")).Text;
-                        string Action =driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[5]")).Text;
+                        string action =driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[5]")).Text;
 
                         datarow.newrow("Scarpe Tilte", "", title, "PASS", driver);
                         datarow.newrow("Scarpe Type", "", type, "PASS", driver);
@@ -84,10 +84,10 @@ namespace MoBankUI
             driver.FindElement(By.LinkText("Running")).Click();
               
             string tilte1 = driver.Title;
-            scrapeandfeedrunning(driver,datarow);
+            Scrapeandfeedrunning(driver,datarow);
         }
 
-        public void scrapeandfeedrunning(IWebDriver driver, datarow datarow)
+        public void Scrapeandfeedrunning(IWebDriver driver, datarow datarow)
         {
             #region  Running
 

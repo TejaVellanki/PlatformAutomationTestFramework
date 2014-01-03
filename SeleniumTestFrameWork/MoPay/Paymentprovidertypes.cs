@@ -10,14 +10,14 @@ namespace MoBankUI
 {
     internal class Paymentprovidertypes : driverdefining
     {
-        private readonly Screenshot screenshot = new Screenshot();
-        private GeneralLibrary genaralLibrary;
+        private readonly Screenshot _screenshot = new Screenshot();
+        private GeneralLibrary _genaralLibrary;
 
-        public void paymenttypes(IWebDriver driver, datarow datarow)
+        public void Paymenttypes(IWebDriver driver, datarow datarow)
         {
-            genaralLibrary = new GeneralLibrary();
+            _genaralLibrary = new GeneralLibrary();
             DataTable table =
-                genaralLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "AccountCreation").Tables[0];
+                _genaralLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "AccountCreation").Tables[0];
             int count = table.Rows.Count;
             for (int i = 0; i < count; i++)
             {
@@ -101,7 +101,7 @@ namespace MoBankUI
                             else
                             {
                                 datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL",driver);
-                                screenshot.screenshotfailed(driver);
+                                _screenshot.screenshotfailed(driver);
                             }
                             if (str6 == "webservices@mobankgroup.com")
                             {
@@ -110,7 +110,7 @@ namespace MoBankUI
                             else
                             {
                                 datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "FAIL",driver);
-                                screenshot.screenshotfailed(driver);
+                                _screenshot.screenshotfailed(driver);
                             }
                             if (expected == "wj3JWWFX")
                             {
@@ -119,7 +119,7 @@ namespace MoBankUI
                             else
                             {
                                 datarow.newrow("Password", expected, "wj3JWWFX", "FAIL",driver);
-                                screenshot.screenshotfailed(driver);
+                                _screenshot.screenshotfailed(driver);
                             }
                             break;
                         }
@@ -211,7 +211,7 @@ namespace MoBankUI
                         else
                         {
                             datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL",driver);
-                            screenshot.screenshotfailed(driver);
+                            _screenshot.screenshotfailed(driver);
                         }
                         if (str6 == "secret")
                         {
@@ -220,7 +220,7 @@ namespace MoBankUI
                         else
                         {
                             datarow.newrow("PayProviderPassword", str6, "secret", "FAIL",driver);
-                            screenshot.screenshotfailed(driver);
+                            _screenshot.screenshotfailed(driver);
                         }
                         break;
                 }
@@ -282,7 +282,7 @@ namespace MoBankUI
                         else
                         {
                             datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL",driver);
-                            screenshot.screenshotfailed(driver);
+                            _screenshot.screenshotfailed(driver);
                         }
                         if (str6 == str2)
                         {
@@ -291,7 +291,7 @@ namespace MoBankUI
                         else
                         {
                             datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "FAIL",driver);
-                            screenshot.screenshotfailed(driver);
+                            _screenshot.screenshotfailed(driver);
                         }
                     }
                     driver.FindElement(By.Id("CardTypes_0____selector")).Click();

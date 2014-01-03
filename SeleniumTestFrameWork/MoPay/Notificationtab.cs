@@ -9,15 +9,15 @@ namespace MoBankUI
 {
     internal class Notificationtab :driverdefining
     {
-        private readonly Screenshot screenshot = new Screenshot();
-        private GeneralLibrary genaralLibrary;
+        private readonly Screenshot _screenshot = new Screenshot();
+        private GeneralLibrary _genaralLibrary;
 
         public void Notifications(IWebDriver driver, datarow datarow)
         {
             string str10;
-            genaralLibrary = new GeneralLibrary();
+            _genaralLibrary = new GeneralLibrary();
             DataTable table =
-                genaralLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "AccountCreation").Tables[0];
+                _genaralLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "AccountCreation").Tables[0];
             int count = table.Rows.Count;
             string expected = table.Rows[0]["PayNotificationsCallBack"].ToString();
             string str2 = table.Rows[0]["TokenNotificationscallback"].ToString();
@@ -46,7 +46,7 @@ namespace MoBankUI
                 else
                 {
                     datarow.newrow("Successful Transaction Option", "on", attribute, "FAIL",driver);
-                    screenshot.screenshotfailed(driver);
+                    _screenshot.screenshotfailed(driver);
                 }
             }
             string actual = driver.FindElement(By.Id("SendDailyReports")).GetAttribute("value");

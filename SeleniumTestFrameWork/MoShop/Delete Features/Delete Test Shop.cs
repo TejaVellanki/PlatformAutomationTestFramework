@@ -5,7 +5,7 @@ namespace MoBankUI
 {
     class DeleteTestShop
     {
-        public void deleteshop(IWebDriver driver)
+        public void Deleteshop(IWebDriver driver)
         {
             driver.FindElement(By.LinkText("MoShop")).Click();
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));
@@ -19,7 +19,7 @@ namespace MoBankUI
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));
 
         }
-        public void deletedscrape(IWebDriver driver)
+        public void Deletedscrape(IWebDriver driver)
         {
             driver.FindElement(By.LinkText("MoShop")).Click();
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30000));
