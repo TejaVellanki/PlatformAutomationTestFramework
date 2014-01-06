@@ -8,11 +8,10 @@ namespace MoBankUI
     internal class MositeStart
     {
         private readonly datarow datarow = new datarow();
-        private GeneralLibrary generalLibrary;
 
         public void Mositestart(IWebDriver driver)
         {
-            generalLibrary = new GeneralLibrary();
+            new GeneralLibrary();
             try
             {
                 datarow.col();

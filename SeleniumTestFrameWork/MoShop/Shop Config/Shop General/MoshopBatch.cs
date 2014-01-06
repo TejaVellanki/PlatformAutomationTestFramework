@@ -19,7 +19,6 @@ namespace MoBankUI
                 driver.Manage().Window.Maximize();
 
                 string[] strArray = items.Split(new[] {','});
-                int num = 0;
 
                 foreach (string str in strArray)
                 {

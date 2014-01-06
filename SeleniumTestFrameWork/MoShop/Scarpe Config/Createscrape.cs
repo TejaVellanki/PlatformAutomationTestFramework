@@ -17,25 +17,13 @@ namespace MoBankUI
                 driver.FindElement(By.LinkText("MoShop")).Click();
 
                 string actual = driver.Title;
-                if (actual == "mobank.co.uk/MoShop")
-                {
-                    datarow.newrow("HomePage Title", "mobank.co.uk/MoShop", actual, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("HomePage Title", "mobank.co.uk/MoShop", actual, "FAIL", driver);
-                }
+                datarow.newrow("HomePage Title", "mobank.co.uk/MoShop", actual,
+                    actual == "mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.LinkText("Scrapes")).Click();
 
                 string str2 = driver.Title;
-                if (str2 == "Scrapes : mobank.co.uk/MoShop")
-                {
-                    datarow.newrow("Scrape Page Title", "Scrapes :  mobank.co.uk/MoShop", str2, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Scrape Page Title", "Scrapes :  mobank.co.uk/MoShop", str2, "FAIL", driver);
-                }
+                datarow.newrow("Scrape Page Title", "Scrapes :  mobank.co.uk/MoShop", str2,
+                    str2 == "Scrapes : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
 
 
                 driver.FindElement(By.LinkText("Create")).Click();
@@ -49,14 +37,8 @@ namespace MoBankUI
 
 
                 string str3 = driver.Title;
-                if (str3 == "Scrape : mobank.co.uk/MoShop")
-                {
-                    datarow.newrow("Scrape Title", "Scrape :  mobank.co.uk/MoShop", str3, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Scrape Title", "Scrape :  mobank.co.uk/MoShop", str3, "FAIL", driver);
-                }
+                datarow.newrow("Scrape Title", "Scrape :  mobank.co.uk/MoShop", str3,
+                    str3 == "Scrape : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.Id("Profiles_0__RootUrl")).Clear();
                 driver.FindElement(By.Id("Profiles_0__RootUrl")).SendKeys("http://www.the-tickle-company.co.uk/");
                 Selectanoption(driver, By.Id("Profiles_0__Encoding"), "iso-8859-1 - Western European (ISO)");
@@ -65,14 +47,8 @@ namespace MoBankUI
 
                 string attribute = driver.FindElement(By.Id("Profiles_0__RootUrl")).GetAttribute("Value");
                 string str5 = driver.FindElement(By.Id("Profiles_0__Encoding")).GetAttribute("Value");
-                if (attribute == "http://www.the-tickle-company.co.uk/")
-                {
-                    datarow.newrow("Root URL", "http://www.the-tickle-company.co.uk/", attribute, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Root URL", "http://www.the-tickle-company.co.uk/", attribute, "FAIL", driver);
-                }
+                datarow.newrow("Root URL", "http://www.the-tickle-company.co.uk/", attribute,
+                    attribute == "http://www.the-tickle-company.co.uk/" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.Id("Pages_0__Name")).Clear();
                 driver.FindElement(By.Id("Pages_0__Name")).SendKeys("Categories");
                 Selectanoption(driver, By.Id("Pages_0__ObjectTypeName"), "Category");
@@ -81,14 +57,7 @@ namespace MoBankUI
 
                 string str6 = driver.FindElement(By.Id("Pages_0__Name")).GetAttribute("Value");
                 string str7 = driver.FindElement(By.Id("Pages_0__ObjectTypeName")).GetAttribute("option value");
-                if (str6 == "Categories")
-                {
-                    datarow.newrow("Page Name", "Categories", str6, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Page Name", "Categories", str6, "FAIL", driver);
-                }
+                datarow.newrow("Page Name", "Categories", str6, str6 == "Categories" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
 
                 if (driver.PageSource.Contains("Server Error in '/' Application."))

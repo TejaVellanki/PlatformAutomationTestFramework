@@ -27,7 +27,6 @@ namespace MoBankUI
                 {
                     datarow.newrow("LookAndFeel", "Look & Feel : mobank.co.uk/MoShop", actual, "FAIL", driver);
                 }
-                int num = 0;
 
                 for (int i = 0;; i++)
                 {

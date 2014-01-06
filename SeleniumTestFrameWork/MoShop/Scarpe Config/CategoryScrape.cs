@@ -61,80 +61,21 @@ namespace MoBankUI
                 string str8 = driver.FindElement(By.Id("SubPages_0__Name")).GetAttribute("Value");
                 string str9 = driver.FindElement(By.Id("SubPages_0__ObjectTypeName")).GetAttribute("Value");
 
-                if (attribute == "#menu .lrga:gt(1)>a")
-                {
-                    datarow.newrow("Selector", "#menu .lrga:gt(1)>a", attribute, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Selector", "#menu .lrga:gt(1)>a", attribute, "FAIL", driver);
-                }
-                if (actual == "/acatalog/gift-wrap.html")
-                {
-                    datarow.newrow("Identifier", "/acatalog/gift-wrap.html", actual, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Identifier", "/acatalog/gift-wrap.html", actual, "FAIL", driver);
-                }
-                if (str3 == @"\/acatalog\/([a-z0-9\-_]*).html")
-                {
-                    datarow.newrow("Identifier Tarnsformation pattern", @"\/acatalog\/([a-z0-9\-_]*).html", str3, "PASS",
-                                   driver);
-                }
-                else
-                {
-                    datarow.newrow("Identifier Tarnsformation pattern", @"\/acatalog\/([a-z0-9\-_]*).html", str3, "FAIL",
-                                   driver);
-                }
-                if (str4 == "$1")
-                {
-                    datarow.newrow("Identifier Replacement", "$1", str4, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Identifier Replacement", "$1", str4, "FAIL", driver);
-                }
-                if (selectedLabel == "Name")
-                {
-                    datarow.newrow("DataPath", "Name", selectedLabel, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("DataPath", "Name", selectedLabel, "FAIL", driver);
-                }
-                if (str6 == "Content Trim")
-                {
-                    datarow.newrow("Transformation ID", "Content Trim", str6, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Transformation ID", "Content Trim", str6, "FAIL", driver);
-                }
-                if (str7 == "a[class^='select']")
-                {
-                    datarow.newrow("Mapping Selector", "a[class^='select']", str7, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Mapping Selector", "a[class^='select']", str7, "FAIL", driver);
-                }
-                if (str8 == "Sub-Categories")
-                {
-                    datarow.newrow("Sub Pages", "Sub-Categories", str8, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Sub Pages", "Sub-Categories", str8, "FAIL", driver);
-                }
-                if (str9 == "Category")
-                {
-                    datarow.newrow("Sub Category Type", "Category", str9, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Sub Category Type", "Category", str9, "FAIL", driver);
-                }
+                datarow.newrow("Selector", "#menu .lrga:gt(1)>a", attribute,
+                    attribute == "#menu .lrga:gt(1)>a" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Identifier", "/acatalog/gift-wrap.html", actual,
+                    actual == "/acatalog/gift-wrap.html" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Identifier Tarnsformation pattern", @"\/acatalog\/([a-z0-9\-_]*).html", str3,
+                    str3 == @"\/acatalog\/([a-z0-9\-_]*).html" ? "PASS" : "FAIL",
+                    driver);
+                datarow.newrow("Identifier Replacement", "$1", str4, str4 == "$1" ? "PASS" : "FAIL", driver);
+                datarow.newrow("DataPath", "Name", selectedLabel, selectedLabel == "Name" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Transformation ID", "Content Trim", str6, str6 == "Content Trim" ? "PASS" : "FAIL",
+                    driver);
+                datarow.newrow("Mapping Selector", "a[class^='select']", str7,
+                    str7 == "a[class^='select']" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Sub Pages", "Sub-Categories", str8, str8 == "Sub-Categories" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Sub Category Type", "Category", str9, str9 == "Category" ? "PASS" : "FAIL", driver);
 
                 #endregion
 

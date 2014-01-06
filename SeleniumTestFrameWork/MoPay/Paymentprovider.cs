@@ -27,14 +27,7 @@ namespace MoBankUI
             string str6 = table.Rows[0]["Allow3DSecure"].ToString();
             new SelectElement(driver.FindElement(By.Id("PayProvider_Id"))).SelectByText(text);
             string attribute = driver.FindElement(By.Id("PayProvider_Id")).GetAttribute("Value");
-            if (text == attribute)
-            {
-                datarow.newrow("Provider", text, attribute, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Provider", text, attribute, "FAIL", driver);
-            }
+            datarow.newrow("Provider", text, attribute, text == attribute ? "PASS" : "FAIL", driver);
             new Paymentprovidertypes().Paymenttypes(driver, datarow);
             driver.FindElement(By.LinkText("…")).Click();
 
@@ -61,17 +54,9 @@ namespace MoBankUI
             driver.FindElement(By.CssSelector("input.button")).Click();
 
             string expected = driver.FindElement(By.Id("Implementation")).GetAttribute("Value");
-            if (expected == str5)
-            {
-                datarow.newrow("Implementation", expected, str5, "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Implementation", expected, str5, "FAIL", driver);
-            }
+            datarow.newrow("Implementation", expected, str5, expected == str5 ? "PASS" : "FAIL", driver);
             driver.FindElement(
                 By.XPath(("//html/body/div/div[2]/div/div/div/form/div[5]/div/div/table/tbody/tr/th[2]/a"))).Click();
-            ;
 
             string str11 = driver.FindElement(By.Id("Name")).GetAttribute("value");
             if (str11 == "Visa Debit")

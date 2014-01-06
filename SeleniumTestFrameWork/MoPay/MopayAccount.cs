@@ -60,31 +60,11 @@ namespace MoBankUI
                     Thread.Sleep(0x1388);
                     string attribute = driver.FindElement(By.Id("Name")).GetAttribute("Value");
                     string actual = driver.FindElement(By.Id("Provider_Id")).GetAttribute("Value");
-                    if (expected == attribute)
-                    {
-                        datarow.newrow("Account Name", expected, attribute, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Account Name", expected, attribute, "FAIL", driver);
-                    }
-                    if (text == actual)
-                    {
-                        datarow.newrow("Provider", text, actual, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Provider", text, actual, "FAIL", driver);
-                    }
+                    datarow.newrow("Account Name", expected, attribute, expected == attribute ? "PASS" : "FAIL", driver);
+                    datarow.newrow("Provider", text, actual, text == actual ? "PASS" : "FAIL", driver);
                     string str8 = driver.Title;
-                    if (str8 == "Details : mopowered.co.uk")
-                    {
-                        datarow.newrow("Details Tab", "Details : mopowered.co.uk", str8, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Details Tab", "Details : mopowered.co.uk", str8, "FAIL", driver);
-                    }
+                    datarow.newrow("Details Tab", "Details : mopowered.co.uk", str8,
+                        str8 == "Details : mopowered.co.uk" ? "PASS" : "FAIL", driver);
                     driver.FindElement(By.Id("PayProviderCheckOutReturnUri")).Clear();
                     driver.FindElement(By.Id("PayProviderCheckOutReturnUri")).SendKeys(str3);
                     driver.FindElement(By.CssSelector("input.button")).Click();

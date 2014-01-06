@@ -1,4 +1,5 @@
-﻿using MoBankUI;
+﻿using System;
+using MoBankUI;
 using OpenQA.Selenium;
 using WebDriver_Refining;
 
@@ -6,7 +7,14 @@ namespace Tablet_View
 {
     internal class Homepage_tab
     {
-        private driverdefining Driver;
+        public Homepage_tab(driverdefining driver)
+        {
+        }
+
+        public Homepage_tab()
+        {
+            throw new NotImplementedException();
+        }
 
         public void homepage(IWebDriver driver, datarow datarow)
         {

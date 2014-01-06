@@ -66,42 +66,15 @@ namespace MoBankUI
                 string str6 = driver.FindElement(By.Id("MappingItems_1__Selector")).GetAttribute("Value");
 
 
-                if (attribute == "div[class^='leftNav'] a,.bdr a")
-                {
-                    datarow.newrow("Subcategory Selector", "div[class^='leftNav'] a,.bdr a", attribute, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Subcategory Selector", "div[class^='leftNav'] a,.bdr a", attribute, "FAIL", driver);
-                }
-                if (actual == "/acatalog/wrapping-paper-everyday.html")
-                {
-                    datarow.newrow("Sub-Category Identifier", "/acatalog/wrapping-paper-everyday.html", actual, "PASS",
-                                   driver);
-                }
-                else
-                {
-                    datarow.newrow("Sub-Category Identifier", "/acatalog/wrapping-paper-everyday.html", actual, "FAIL",
-                                   driver);
-                }
-                if (str3 == @"\/([a-z0-9\-_]+).html")
-                {
-                    datarow.newrow("Sub-Category Identifier Transformation", @"\/([a-z0-9\-_]+).html", str3, "PASS",
-                                   driver);
-                }
-                else
-                {
-                    datarow.newrow("Sub-Category Identifier Transformation", @"\/([a-z0-9\-_]+).html", str3, "FAIL",
-                                   driver);
-                }
-                if (str4 == "$1")
-                {
-                    datarow.newrow("Sub-Category Identifier Replacement", "$1", str4, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Sub-Category Identifier Replacement", "$1", str4, "FAIL", driver);
-                }
+                datarow.newrow("Subcategory Selector", "div[class^='leftNav'] a,.bdr a", attribute,
+                    attribute == "div[class^='leftNav'] a,.bdr a" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Sub-Category Identifier", "/acatalog/wrapping-paper-everyday.html", actual,
+                    actual == "/acatalog/wrapping-paper-everyday.html" ? "PASS" : "FAIL",
+                    driver);
+                datarow.newrow("Sub-Category Identifier Transformation", @"\/([a-z0-9\-_]+).html", str3,
+                    str3 == @"\/([a-z0-9\-_]+).html" ? "PASS" : "FAIL",
+                    driver);
+                datarow.newrow("Sub-Category Identifier Replacement", "$1", str4, str4 == "$1" ? "PASS" : "FAIL", driver);
                 if (str5 == "h1,h2 :first")
                 {
                     datarow.newrow("Sub Category mapping Selector", "h1,h2 :first", str5, "PASS", driver);
@@ -110,14 +83,8 @@ namespace MoBankUI
                 {
                     datarow.newrow("Sub-Category mapping Selector", "h1,h2 :first", str5, "FAIL", driver);
                 }
-                if (str6 == "#banner")
-                {
-                    datarow.newrow("Sub-category mapping selector2", "#banner", str6, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Sub-category mapping selector2", "#banner", str6, "FAIL", driver);
-                }
+                datarow.newrow("Sub-category mapping selector2", "#banner", str6, str6 == "#banner" ? "PASS" : "FAIL",
+                    driver);
 
                 #endregion
             }

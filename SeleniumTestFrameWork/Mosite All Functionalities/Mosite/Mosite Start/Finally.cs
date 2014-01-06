@@ -7,11 +7,9 @@ namespace MoBankUI
 {
     internal class MositeGeneral
     {
-        private GeneralLibrary generalLibrary;
-
         public void Finally(IWebDriver driver, string url, datarow datarow, string emails)
         {
-            generalLibrary = new GeneralLibrary();
+            new GeneralLibrary();
             try
             {
                 //Footer_TPS footer = new Footer_TPS();

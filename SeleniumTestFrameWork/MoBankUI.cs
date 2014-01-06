@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using OpenQA.Selenium;
@@ -11,16 +12,30 @@ namespace MoBankUI
 {
     public partial class Form1 : Form
     {
+/*
         private CheckedListBox _checkedListBox1;
+*/
+/*
         private TextBox _textBox1;
+*/
+/*
         private TextBox _textbox3;
+*/
+/*
         private TextBox _textbox4;
-        private TextBox textBox2;
+*/
+        private readonly TextBox textBox2;
 
+
+        public Form1(TextBox textBox2)
+        {
+            this.textBox2 = textBox2;
+            InitializeComponent();
+        }
 
         public Form1()
         {
-            InitializeComponent();
+            throw new NotImplementedException();
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -62,7 +77,7 @@ namespace MoBankUI
 
                 if (mositetps)
                 {
-                    if (textBox3.Text != "Please Enter Mosite URL's Seperated By Comma(,)")
+                    if (textBox3.Text != @"Please Enter Mosite URL's Seperated By Comma(,)")
                     {
                         var datarow = new datarow();
                         datarow.col();
@@ -79,14 +94,14 @@ namespace MoBankUI
                         }
                         else
                         {
-                            MessageBox.Show("Please Enter Atleast One Merchant URL To Test in Text Field");
+                            MessageBox.Show(@"Please Enter Atleast One Merchant URL To Test in Text Field");
                         }
                         string emails = textBox4.Text;
                     }
 
                     else
                     {
-                        MessageBox.Show("Please Enter Atleast One Merchant URL To Test in Text Field");
+                        MessageBox.Show(@"Please Enter Atleast One Merchant URL To Test in Text Field");
                     }
                 }
 
@@ -233,16 +248,11 @@ namespace MoBankUI
         {
             try
             {
-                string item = null;
-
-                foreach (object items in checkedListBox3.CheckedItems)
-                {
-                    item = item + "," + items;
-                }
+                string item = checkedListBox3.CheckedItems.Cast<object>().Aggregate<object, string>(null, (current, items) => current + "," + items);
 
                 if (item == null)
                 {
-                    MessageBox.Show("Please Select Atleast One Functionality To Test From Options Available");
+                    MessageBox.Show(@"Please Select Atleast One Functionality To Test From Options Available");
                 }
                 else
                 {
@@ -263,14 +273,8 @@ namespace MoBankUI
                         Thread.Sleep(2000);
 
                         string mobileurl = driver.Url;
-                        if (mobileurl == url)
-                        {
-                            datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl, "FAIL", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl, "PASS", driver);
-                        }
+                        datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl,
+                            mobileurl == url ? "FAIL" : "PASS", driver);
 
                         var testing = new BatchTesting();
                         testing.batchtesting(item, url, driver, datarow);
@@ -334,21 +338,13 @@ namespace MoBankUI
         {
             try
             {
-                string items = null;
-                string versions = null;
                 var datarow = new datarow();
                 datarow.col();
                 int count = checkedListBox2.CheckedItems.Count;
 
-                foreach (object item in checkedListBox2.CheckedItems)
-                {
-                    items += item + ",";
-                }
+                var items = checkedListBox2.CheckedItems.Cast<object>().Aggregate<object, string>(null, (current, item) => current + (item + ","));
                 int vers = checkedListBox5.CheckedItems.Count;
-                foreach (object version in checkedListBox5.CheckedItems)
-                {
-                    versions += version + ",";
-                }
+                string versions = checkedListBox5.CheckedItems.Cast<object>().Aggregate<object, string>(null, (current, version) => current + (version + ","));
                 IWebDriver driver = new FirefoxDriver();
                 driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
                 var batch = new MoshopBatch();

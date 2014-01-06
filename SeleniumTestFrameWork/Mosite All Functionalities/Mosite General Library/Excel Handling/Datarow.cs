@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Diagnostics;
+using System.Globalization;
 using Microsoft.Office.Interop.Excel;
 using OpenQA.Selenium;
 using DataTable = System.Data.DataTable;
@@ -64,8 +65,8 @@ namespace MoBankUI
                         f = f + 1;
                     }
                 }
-                string P = p.ToString();
-                string F = f.ToString();
+                string P = p.ToString(CultureInfo.InvariantCulture);
+                string F = f.ToString(CultureInfo.InvariantCulture);
 
                 TotalPass = P + TotalPass;
                 TotalFail = F + TotalFail;
@@ -165,8 +166,8 @@ namespace MoBankUI
                         f = f + 1;
                     }
                 }
-                string P = p.ToString();
-                string F = f.ToString();
+                string P = p.ToString(CultureInfo.InvariantCulture);
+                string F = f.ToString(CultureInfo.InvariantCulture);
 
 
                 int d = 0;

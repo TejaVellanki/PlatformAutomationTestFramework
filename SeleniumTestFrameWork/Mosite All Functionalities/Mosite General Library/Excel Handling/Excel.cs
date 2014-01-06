@@ -68,71 +68,63 @@ namespace MoBankUI
         public Workbook CreateAndOpenExcelFile(string filePath, ref string fileName, string sheetName, string extension,
                                                bool displayAlerts, bool appendDateField)
         {
-            try
+            xlApp = new Application();
+
+            xlApp.DisplayAlerts = displayAlerts;
+
+            xlApp.ScreenUpdating = displayAlerts;
+
+            xlApp.Visible = displayAlerts;
+
+            xlApp.UserControl = displayAlerts;
+
+            xlApp.Interactive = displayAlerts;
+
+            if (appendDateField)
             {
-                xlApp = new Application();
+                string randomNumber = GenerateRandomNumber();
 
-                xlApp.DisplayAlerts = displayAlerts;
+                fileName = fileName + "-" + randomNumber;
+            }
 
-                xlApp.ScreenUpdating = displayAlerts;
 
-                xlApp.Visible = displayAlerts;
+            Workbook workbook = xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
 
-                xlApp.UserControl = displayAlerts;
+            workbook.SaveAs(filePath + "\\" + fileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing,
+                Type.Missing);
 
-                xlApp.Interactive = displayAlerts;
+            if (!String.IsNullOrEmpty(sheetName))
+            {
+                Sheets sheets = workbook.Worksheets;
 
-                if (appendDateField)
+                int currentSheetCount = workbook.Sheets.Count;
+
+                var reqSheetConsolidated = (Worksheet) sheets.Item[currentSheetCount];
+
+                var newSheetConsolidated =
+                    (Worksheet) sheets.Add(Type.Missing, reqSheetConsolidated, 1, Type.Missing);
+
+                newSheetConsolidated.Name = sheetName;
+
+                for (int sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
                 {
-                    string randomNumber = GenerateRandomNumber();
+                    var verSheet = (Worksheet) workbook.Worksheets.Item[sheetCount];
 
-                    fileName = fileName + "-" + randomNumber;
-                }
-
-
-                Workbook workbook = xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
-
-                workbook.SaveAs(filePath + "\\" + fileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-                                Type.Missing, XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing,
-                                Type.Missing,
-                                Type.Missing);
-
-                if (!String.IsNullOrEmpty(sheetName))
-                {
-                    Sheets sheets = workbook.Worksheets;
-
-                    int currentSheetCount = workbook.Sheets.Count;
-
-                    var reqSheetConsolidated = (Worksheet) sheets.Item[currentSheetCount];
-
-                    var newSheetConsolidated =
-                        (Worksheet) sheets.Add(Type.Missing, reqSheetConsolidated, 1, Type.Missing);
-
-                    newSheetConsolidated.Name = sheetName;
-
-                    for (int sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
+                    if ("Sheet1" == verSheet.Name)
                     {
-                        var verSheet = (Worksheet) workbook.Worksheets.get_Item(sheetCount);
+                        verSheet.Delete();
 
-                        if ("Sheet1" == verSheet.Name)
-                        {
-                            verSheet.Delete();
+                        workbook.Save();
 
-                            workbook.Save();
-
-                            break;
-                        }
+                        break;
                     }
                 }
-
-
-                return workbook;
             }
 
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+
+            return workbook;
         }
 
         #endregion
@@ -163,7 +155,7 @@ namespace MoBankUI
         {
             for (int sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
             {
-                var verSheet = (Worksheet) workbook.Worksheets.get_Item(sheetCount);
+                var verSheet = (Worksheet) workbook.Worksheets.Item[sheetCount];
 
                 if ("Sheet1" == verSheet.Name)
                 {
@@ -316,7 +308,7 @@ namespace MoBankUI
 
             string finalColLetter = string.Empty;
 
-            string colCharset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string colCharset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
             int colCharsetLen = colCharset.Length;
 
@@ -357,13 +349,11 @@ namespace MoBankUI
 
             intRowNum = intRowNum + dt.Rows.Count + dt.Rows.Count;
 
-            ws.get_Range(excelRange, Type.Missing).NumberFormat = "@";
+            ws.Range[excelRange, Type.Missing].NumberFormat = "@";
 
-            ws.get_Range(excelRange,
-                         Type.Missing).Value2 = rawData;
+            ws.Range[excelRange, Type.Missing].Value2 = rawData;
 
-            ws.get_Range(excelRange,
-                         Type.Missing).EntireColumn.AutoFit();
+            ws.Range[excelRange, Type.Missing].EntireColumn.AutoFit();
 
             //ws.get_Range(excelRange, Type.Missing).AutoFit();
 

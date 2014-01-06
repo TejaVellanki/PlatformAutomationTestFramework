@@ -24,8 +24,11 @@ namespace MoBankUI
                 _names = _name + "\n" + _names;
             }
 
-            char[] charArray = _names.ToCharArray();
-            Array.Reverse(charArray);
+            if (_names != null)
+            {
+                char[] charArray = _names.ToCharArray();
+                Array.Reverse(charArray);
+            }
         }
     }
 }

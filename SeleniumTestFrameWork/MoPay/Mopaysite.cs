@@ -25,14 +25,8 @@ namespace MoBankUI
             try
             {
                 string actual = driver.FindElement(By.XPath("//div[@id='total-amount']/dl/dd")).Text;
-                if (actual.Contains("\x00a3"))
-                {
-                    datarow.newrow("Currency Validation", "\x00a3", actual, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Currency Validation", "\x00a3", actual, "FAIL", driver);
-                }
+                datarow.newrow("Currency Validation", "\x00a3", actual, actual.Contains("\x00a3") ? "PASS" : "FAIL",
+                    driver);
             }
             catch (Exception exception)
             {

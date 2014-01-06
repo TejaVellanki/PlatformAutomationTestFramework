@@ -133,92 +133,27 @@ namespace MoBankUI
                 string str9 = driver.FindElement(By.Id("MappingItems_4__Selector")).GetAttribute("Value");
                 string str10 = driver.FindElement(By.Id("MappingItems_5__Selector")).GetAttribute("Value");
 
-                if (attribute == "div[class^='singleproduct']>a")
-                {
-                    datarow.newrow("Product selector", "div[class^='singleproduct']>a", attribute, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Product selector", "div[class^='singleproduct']>a", attribute, "FAIL", driver);
-                }
-                if (actual == "/acatalog/glitter-tree-wrapping-paper.html")
-                {
-                    datarow.newrow("Products Identifier", "/acatalog/glitter-tree-wrapping-paper.html", actual, "PASS",
-                                   driver);
-                }
-                else
-                {
-                    datarow.newrow("Products Identifier", "/acatalog/glitter-tree-wrapping-paper.html", actual, "FAIL",
-                                   driver);
-                }
-                if (str3 == @"\/acatalog\/([a-z0-9\-_]+).html")
-                {
-                    datarow.newrow("Products Idntifier Transformation", @"\/acatalog\/([a-z0-9\-_]+).html", str3, "PASS",
-                                   driver);
-                }
-                else
-                {
-                    datarow.newrow("Products Idntifier Transformation", @"\/acatalog\/([a-z0-9\-_]+).html", str3, "FAIL",
-                                   driver);
-                }
-                if (str4 == "$1")
-                {
-                    datarow.newrow("Products Identifier Replacement", "$1", str4, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Products Identifier Replacement", "$1", str4, "FAIL", driver);
-                }
-                if (str5 == "h1")
-                {
-                    datarow.newrow("Product Mapping selector", "h1", str5, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Product Mapping selector", "h1", str5, "FAIL", driver);
-                }
-                if (str6 == "#contentTab1,#contentTab2")
-                {
-                    datarow.newrow("Products Mapping Selector1", "#contentTab1,#contentTab2", str6, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Products Mapping Selector1", "#contentTab1,#contentTab2", str6, "FAIL", driver);
-                }
-                if (str7 == ".MagicZoomPlus")
-                {
-                    datarow.newrow("Products Mapping selector2", ".MagicZoomPlus", str7, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Products Mapping selector2", ".MagicZoomPlus", str7, "FAIL", driver);
-                }
-                if (str8 == "[retail_price_prompt]:first")
-                {
-                    datarow.newrow("Products Mapping Selector3", "[retail_price_prompt]:first", str8, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Products Mapping Selector3", "[retail_price_prompt]:first", str8, "FAIL", driver);
-                }
-                if (str9 == "[PROD_REF]:first")
-                {
-                    datarow.newrow("Products Mapping selector4", "[PROD_REF]:first", str9, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Products Mapping selector4", "[PROD_REF]:first", str9, "FAIL", driver);
-                }
-                if (str10 == ".itemAddtional strong:has([retail_price_prompt]):prev()")
-                {
-                    datarow.newrow("Products Mapping selector5",
-                                   ".itemAddtional strong:has([retail_price_prompt]):prev()", str10, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Products Mapping selector5",
-                                   ".itemAddtional strong:has([retail_price_prompt]):prev()", str10, "FAIL", driver);
-                }
+                datarow.newrow("Product selector", "div[class^='singleproduct']>a", attribute,
+                    attribute == "div[class^='singleproduct']>a" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Products Identifier", "/acatalog/glitter-tree-wrapping-paper.html", actual,
+                    actual == "/acatalog/glitter-tree-wrapping-paper.html" ? "PASS" : "FAIL",
+                    driver);
+                datarow.newrow("Products Idntifier Transformation", @"\/acatalog\/([a-z0-9\-_]+).html", str3,
+                    str3 == @"\/acatalog\/([a-z0-9\-_]+).html" ? "PASS" : "FAIL",
+                    driver);
+                datarow.newrow("Products Identifier Replacement", "$1", str4, str4 == "$1" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Product Mapping selector", "h1", str5, str5 == "h1" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Products Mapping Selector1", "#contentTab1,#contentTab2", str6,
+                    str6 == "#contentTab1,#contentTab2" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Products Mapping selector2", ".MagicZoomPlus", str7,
+                    str7 == ".MagicZoomPlus" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Products Mapping Selector3", "[retail_price_prompt]:first", str8,
+                    str8 == "[retail_price_prompt]:first" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Products Mapping selector4", "[PROD_REF]:first", str9,
+                    str9 == "[PROD_REF]:first" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Products Mapping selector5",
+                    ".itemAddtional strong:has([retail_price_prompt]):prev()", str10,
+                    str10 == ".itemAddtional strong:has([retail_price_prompt]):prev()" ? "PASS" : "FAIL", driver);
 
                 #endregion
             }

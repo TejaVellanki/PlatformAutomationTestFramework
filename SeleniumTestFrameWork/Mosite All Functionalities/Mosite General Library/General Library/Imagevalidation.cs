@@ -9,7 +9,6 @@ namespace MoBankUI
 {
     internal class Imagevalidation : driverdefining
     {
-        private string CategoryImage;
         private string Homepageimage;
         private string categoryimagecss;
         private int l = 1;
@@ -83,12 +82,10 @@ namespace MoBankUI
                     string title = driver.PageSource;
                     if (title.Contains("user-scalable=yes"))
                     {
-                        CategoryImage = ImagesV2.Categoryimage;
                         categoryimagecss = ImagesV2.Categoryimagecss;
                     }
                     else
                     {
-                        CategoryImage = ImagesV1.Categoryimage;
                         categoryimagecss = ImagesV1.Categoryimagecss;
                     }
                     string location = driver.Url;

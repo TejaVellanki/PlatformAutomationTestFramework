@@ -27,14 +27,7 @@ namespace MoBankUI
                 datarow.newrow("Minimum Length", "16", actual, "FAIl", driver);
             }
             string str3 = driver.FindElement(By.Id("NumberMaxLength")).GetAttribute("value");
-            if (str3 == "16")
-            {
-                datarow.newrow("Minimum Length", "16", "16", "PASS", driver);
-            }
-            else
-            {
-                datarow.newrow("Minimum Length", "16", str3, "PASS", driver);
-            }
+            datarow.newrow("Minimum Length", "16", str3 == "16" ? "16" : str3, "PASS", driver);
             string str4 = driver.FindElement(By.Id("NumberChecksumResult")).GetAttribute("value");
             if (str4 == "0")
             {

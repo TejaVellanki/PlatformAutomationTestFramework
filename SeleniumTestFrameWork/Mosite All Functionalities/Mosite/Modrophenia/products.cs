@@ -77,7 +77,6 @@ namespace MoBankUI
 
         public void product(datarow datarow, IWebDriver driver)
         {
-            string str8;
             try
             {
                 var dt = new DataTable();
@@ -105,7 +104,7 @@ namespace MoBankUI
             }
             catch (Exception exception3)
             {
-                str8 = exception3.ToString();
+                string str8 = exception3.ToString();
                 datarow.newrow("Exception", "Not Expected", str8, "FAIL", driver);
             }
         }
@@ -115,7 +114,6 @@ namespace MoBankUI
             string str8;
             try
             {
-                int j;
                 int num = 1;
                 int num2 = 0;
                 goto Label_0449;
@@ -154,7 +152,7 @@ namespace MoBankUI
                                  "]/div/div/a/div[2]/p")).Click();
 
                     DataRow row = dt.NewRow();
-                    j = 1;
+                    int j = 1;
                     string str =
                         driver.FindElement(
                             By.XPath("//*[@id='page-products-details']/div[1]/div[2]/div/div[1]/div[1]/div/p/strong"))
@@ -231,7 +229,6 @@ namespace MoBankUI
                     {
                         if (j == 1)
                         {
-                            bool flag;
                             str5 = null;
 
                             decimal count =
