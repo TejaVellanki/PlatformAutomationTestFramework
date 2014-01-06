@@ -89,27 +89,12 @@ namespace MoBankUI
 
                 #region validations
 
-                if (IsElementPresent(driver, By.CssSelector("img[alt=\"Home Image\"]"), 30))
-                {
-                    datarow.newrow("Home Page Logo Uploaded into Console", "css=img[alt=\"Home Image\"]",
-                                   "css=img[alt=\"Home Image\"]", "PASS");
-                }
-                else
-                {
-                    datarow.newrow("Home Page Logo Uploaded into Console", "css=img[alt=\"Home Image\"]",
-                                   "css=img[alt=\"Home Image\"]", "FAIL");
-                }
+                datarow.newrow("Home Page Logo Uploaded into Console", "css=img[alt=\"Home Image\"]",
+                    "css=img[alt=\"Home Image\"]",
+                    IsElementPresent(driver, By.CssSelector("img[alt=\"Home Image\"]"), 30) ? "PASS" : "FAIL");
 
-                if (IsElementPresent(driver, By.CssSelector("img[alt='Icon']"), 30))
-                {
-                    datarow.newrow("Home Page Icon Uploaded into Console", "css=img[alt='Icon']", "css=img[alt='Icon']",
-                                   "PASS");
-                }
-                else
-                {
-                    datarow.newrow("Home Page Icon Uploaded into Console", "css=img[alt='Icon']", "css=img[alt='Icon']",
-                                   "FAIL");
-                }
+                datarow.newrow("Home Page Icon Uploaded into Console", "css=img[alt='Icon']", "css=img[alt='Icon']",
+                    IsElementPresent(driver, By.CssSelector("img[alt='Icon']"), 30) ? "PASS" : "FAIL");
 
                 if (IsElementPresent(driver, By.CssSelector("img[alt='Custom Basket Image']"), 30))
                 {

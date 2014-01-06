@@ -56,6 +56,8 @@ namespace MoBankUI
                 }
                 catch (Exception ex)
                 {
+                    string e = ex.ToString();
+                    datarow.newrow("Exception", "Exception Not Exopected", e, "FAIL");
                 }
 
                 driver.FindElement(By.Id("CountryMappings_0__Source")).Clear();

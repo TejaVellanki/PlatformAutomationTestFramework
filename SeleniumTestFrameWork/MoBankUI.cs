@@ -12,18 +12,18 @@ namespace MoBankUI
 {
     public partial class Form1 : Form
     {
-/*
-        private CheckedListBox _checkedListBox1;
-*/
-/*
-        private TextBox _textBox1;
-*/
-/*
-        private TextBox _textbox3;
-*/
-/*
-        private TextBox _textbox4;
-*/
+        /*
+                private CheckedListBox _checkedListBox1;
+        */
+        /*
+                private TextBox _textBox1;
+        */
+        /*
+                private TextBox _textbox3;
+        */
+        /*
+                private TextBox _textbox4;
+        */
         private readonly TextBox textBox2;
 
 
@@ -118,17 +118,13 @@ namespace MoBankUI
 
         public void Mositemodroandroid()
         {
-            try
-            {
-                IWebDriver driver = new AndroidDriver();
-                driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
-                driver.Manage().Window.Maximize();
-                driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
-                new MositeStart().Mositestart(driver);
-            }
-            catch (Exception)
-            {
-            }
+
+            IWebDriver driver = new AndroidDriver();
+            driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
+            driver.Manage().Window.Maximize();
+            driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
+            new MositeStart().Mositestart(driver);
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -143,7 +139,7 @@ namespace MoBankUI
         {
         }
 
-        #region UI 
+        #region UI
 
         private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
