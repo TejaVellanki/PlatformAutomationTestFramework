@@ -47,8 +47,7 @@ namespace MoBankUI
                 var moSite = checkBox12.Checked;
                 var firefox = checkBox14.Checked;
                 var mositetps = checkBox13.Checked;
-                var appium = checkBox1.Checked;
-
+               
 
                 if (mopaytestharness)
                 {
