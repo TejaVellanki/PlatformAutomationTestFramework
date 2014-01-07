@@ -126,137 +126,40 @@ namespace MoBankUI.MoShop.Checkout.Delivery
                     driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).GetAttribute("Value");
 
 
-                if (text == "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?")
-                {
-                    datarow.newrow("Delivery URL", "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?", text,
-                                   "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Delivery URL", "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?", text,
-                                   "FAIL", driver);
-                }
-                if (attribute ==
-                    "RANDOM=0.708711438653157&SEQUENCE=1&ActCheckoutPhase=SHIPPING&ShippingClass={{ShippingClass}}&SHIPUSERDEFINED={{SHIPUSERDEFINED}}&ActCheckoutPhase=TANDC&ActCheckoutPhase=GENERAL&GENERALHOWFOUND={{GENERALHOWFOUND}}&GENERALWHYBUY={{GENERALWHYBUY}}&ACTION_NEXT.x=82&ACTION_NEXT.y=7{{AGREETERMSCONDITIONS}}")
-                {
-                    datarow.newrow("Parameters",
-                                   "RANDOM=0.708711438653157&SEQUENCE=1&ActCheckoutPhase=SHIPPING&ShippingClass={{ShippingClass}}&SHIPUSERDEFINED={{SHIPUSERDEFINED}}&ActCheckoutPhase=TANDC&ActCheckoutPhase=GENERAL&GENERALHOWFOUND={{GENERALHOWFOUND}}&GENERALWHYBUY={{GENERALWHYBUY}}&ACTION_NEXT.x=82&ACTION_NEXT.y=7{{AGREETERMSCONDITIONS}}",
-                                   attribute, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Parameters",
-                                   "RANDOM=0.708711438653157&SEQUENCE=1&ActCheckoutPhase=SHIPPING&ShippingClass={{ShippingClass}}&SHIPUSERDEFINED={{SHIPUSERDEFINED}}&ActCheckoutPhase=TANDC&ActCheckoutPhase=GENERAL&GENERALHOWFOUND={{GENERALHOWFOUND}}&GENERALWHYBUY={{GENERALWHYBUY}}&ACTION_NEXT.x=82&ACTION_NEXT.y=7{{AGREETERMSCONDITIONS}}",
-                                   attribute, "FAIL", driver);
-                }
-                if (actual == "20")
-                {
-                    datarow.newrow("Sequence", "20", actual, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Sequence", "20", actual, "FAIL", driver);
-                }
-                if (str4 == "#idCheckoutForm > .checkout th.instruction:eq(1)")
-                {
-                    datarow.newrow("Header Selector", "#idCheckoutForm > .checkout th.instruction:eq(1)", str4, "PASS",
-                                   driver);
-                }
-                else
-                {
-                    datarow.newrow("Header Selector", "#idCheckoutForm > .checkout th.instruction:eq(1)", str4, "FAIL",
-                                   driver);
-                }
-                if (str5 == "#idPAYMENTMETHOD")
-                {
-                    datarow.newrow("Success Selector", "#idPAYMENTMETHOD", str5, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Success Selector", "#idPAYMENTMETHOD", str5, "FAIL", driver);
-                }
-                if (str6 == "#errormessage blockquote")
-                {
-                    datarow.newrow("Error Selector", "#errormessage blockquote", str6, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Error Selector", "#errormessage blockquote", str6, "FAIL", driver);
-                }
-                if (str7 == ".actrequired")
-                {
-                    datarow.newrow("Label Selector", ".actrequired", str7, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Label Selector", ".actrequired", str7, "FAIL", driver);
-                }
-                if (str8 == "select[name=\"ShippingClass\"] option")
-                {
-                    datarow.newrow("Selector Value", "select[name=\"ShippingClass\"] option", str8, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Selector Value", "select[name=\"ShippingClass\"] option", str8, "FAIL", driver);
-                }
-                if (str9 == "label[for=\"SHIPUSERDEFINED\"]")
-                {
-                    datarow.newrow("Label Selector1", "label[for=\"SHIPUSERDEFINED\"]", str9, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Label Selector1", "label[for=\"SHIPUSERDEFINED\"]", str9, "FAIL", driver);
-                }
-                if (str10 == "label[for=\"idGENERALHOWFOUND\"]")
-                {
-                    datarow.newrow("Label Selector2", "label[for=\"idGENERALHOWFOUND\"]", str10, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Label Selector2", "label[for=\"idGENERALHOWFOUND\"]", str10, "FAIL", driver);
-                }
-                if (str11 == "label[for=\"GENERALWHYBUY\"]")
-                {
-                    datarow.newrow("LabelSelector3", "label[for=\"GENERALWHYBUY\"]", str11, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("LabelSelector3", "label[for=\"GENERALWHYBUY\"]", str11, "FAIL", driver);
-                }
-                if (str12 == "select[name=\"GENERALHOWFOUND\"] option")
-                {
-                    datarow.newrow("Keys Values Selector", "select[name=\"GENERALHOWFOUND\"] option", str12, "PASS",
-                                   driver);
-                }
-                else
-                {
-                    datarow.newrow("Keys Values Selector", "select[name=\"GENERALHOWFOUND\"] option", str12, "FAIL",
-                                   driver);
-                }
-                if (str13 == "label[for=\"AGREETERMSCONDITIONS\"]")
-                {
-                    datarow.newrow("Label selector4", "label[for=\"AGREETERMSCONDITIONS\"]", str13, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Label selector4", "label[for=\"AGREETERMSCONDITIONS\"]", str13, "FAIL", driver);
-                }
-                if (str14 == "&AGREETERMSCONDITIONS=NO")
-                {
-                    datarow.newrow("CheckBox Replacement", "&AGREETERMSCONDITIONS=NO", str14, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("CheckBox Replacement", "&AGREETERMSCONDITIONS=NO", str14, "FAIL", driver);
-                }
-                if (str15 == ".checkout-cart strong:eq(3)")
-                {
-                    datarow.newrow("Scrape Data Value", ".checkout-cart strong:eq(3)", str15, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Scrape Data Value", ".checkout-cart strong:eq(3)", str15, "FAIL", driver);
-                }
+                datarow.newrow("Delivery URL", "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?", text,
+                    text == "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Parameters",
+                    "RANDOM=0.708711438653157&SEQUENCE=1&ActCheckoutPhase=SHIPPING&ShippingClass={{ShippingClass}}&SHIPUSERDEFINED={{SHIPUSERDEFINED}}&ActCheckoutPhase=TANDC&ActCheckoutPhase=GENERAL&GENERALHOWFOUND={{GENERALHOWFOUND}}&GENERALWHYBUY={{GENERALWHYBUY}}&ACTION_NEXT.x=82&ACTION_NEXT.y=7{{AGREETERMSCONDITIONS}}",
+                    attribute, attribute ==
+                               "RANDOM=0.708711438653157&SEQUENCE=1&ActCheckoutPhase=SHIPPING&ShippingClass={{ShippingClass}}&SHIPUSERDEFINED={{SHIPUSERDEFINED}}&ActCheckoutPhase=TANDC&ActCheckoutPhase=GENERAL&GENERALHOWFOUND={{GENERALHOWFOUND}}&GENERALWHYBUY={{GENERALWHYBUY}}&ACTION_NEXT.x=82&ACTION_NEXT.y=7{{AGREETERMSCONDITIONS}}"
+                        ? "PASS"
+                        : "FAIL", driver);
+                datarow.newrow("Sequence", "20", actual, actual == "20" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Header Selector", "#idCheckoutForm > .checkout th.instruction:eq(1)", str4,
+                    str4 == "#idCheckoutForm > .checkout th.instruction:eq(1)" ? "PASS" : "FAIL",
+                    driver);
+                datarow.newrow("Success Selector", "#idPAYMENTMETHOD", str5,
+                    str5 == "#idPAYMENTMETHOD" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Error Selector", "#errormessage blockquote", str6,
+                    str6 == "#errormessage blockquote" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Label Selector", ".actrequired", str7, str7 == ".actrequired" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Selector Value", "select[name=\"ShippingClass\"] option", str8,
+                    str8 == "select[name=\"ShippingClass\"] option" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Label Selector1", "label[for=\"SHIPUSERDEFINED\"]", str9,
+                    str9 == "label[for=\"SHIPUSERDEFINED\"]" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Label Selector2", "label[for=\"idGENERALHOWFOUND\"]", str10,
+                    str10 == "label[for=\"idGENERALHOWFOUND\"]" ? "PASS" : "FAIL", driver);
+                datarow.newrow("LabelSelector3", "label[for=\"GENERALWHYBUY\"]", str11,
+                    str11 == "label[for=\"GENERALWHYBUY\"]" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Keys Values Selector", "select[name=\"GENERALHOWFOUND\"] option", str12,
+                    str12 == "select[name=\"GENERALHOWFOUND\"] option" ? "PASS" : "FAIL",
+                    driver);
+                datarow.newrow("Label selector4", "label[for=\"AGREETERMSCONDITIONS\"]", str13,
+                    str13 == "label[for=\"AGREETERMSCONDITIONS\"]" ? "PASS" : "FAIL", driver);
+                datarow.newrow("CheckBox Replacement", "&AGREETERMSCONDITIONS=NO", str14,
+                    str14 == "&AGREETERMSCONDITIONS=NO" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Scrape Data Value", ".checkout-cart strong:eq(3)", str15,
+                    str15 == ".checkout-cart strong:eq(3)" ? "PASS" : "FAIL", driver);
 
                 #endregion
             }

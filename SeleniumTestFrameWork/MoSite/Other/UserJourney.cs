@@ -96,26 +96,14 @@ namespace MoBankUI.MoSite.Other
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 driver.FindElement(By.XPath("//p[@id='AddToBasketButton']/div[2]/input")).Click();
                 Thread.Sleep(0x1388);
-                if (driver.FindElement(By.Id("BasketInfo")).Text == "(1)")
-                {
-                    datarow.newrow("Basket Value", "(1)", "(1)", "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Basket Value", "(1)", "(1)", "FAIL", driver);
-                }
+                datarow.newrow("Basket Value", "(1)", "(1)",
+                    driver.FindElement(By.Id("BasketInfo")).Text == "(1)" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.XPath("//div[@id='AddedDetail']/ul/li/p/a/span/span")).Click();
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 var element2 = driver.FindElement(By.XPath("//a[@id='GoToCheckout']/span/span"));
-                if (driver.FindElement(By.Id("BasketInfo")).Text == "(1)")
-                {
-                    datarow.newrow("Basket Value", "(1)", "(1)", "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Basket Value", "(1)", "(1)", "FAIL", driver);
-                }
+                datarow.newrow("Basket Value", "(1)", "(1)",
+                    driver.FindElement(By.Id("BasketInfo")).Text == "(1)" ? "PASS" : "FAIL", driver);
                 var str6 = driver.PageSource;
                 Thread.Sleep(0x1388);
                 executor.ExecuteScript("window.scrollBy(0,80)", new object[0]);

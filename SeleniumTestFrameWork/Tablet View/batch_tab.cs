@@ -17,14 +17,8 @@ namespace MoBankUI
             var title = driver.Title;
             //Validating the Home page title. 
 
-            if (title == "Tablet: Tickle Shop")
-            {
-                datarow.newrow("Home Page Title", "Tablet: Tickle Shop", title, "PASS");
-            }
-            else
-            {
-                datarow.newrow("Home Page Title", "Tablet: Tickle Shop", title, "FAIL");
-            }
+            datarow.newrow("Home Page Title", "Tablet: Tickle Shop", title,
+                title == "Tablet: Tickle Shop" ? "PASS" : "FAIL");
             var blob = new BlobStorage();
             blob.Blob(driver, datarow, "http://tablet.mobankdev.com");
             var home = new HomepageTab();

@@ -19,14 +19,7 @@ namespace MoBankUI
                 var url = driver.Url;
 
                 var title = driver.PageSource;
-                if (title.Contains("user-scalable=yes"))
-                {
-                    _homepageimage = ImagesV2.Homepageimage;
-                }
-                else
-                {
-                    _homepageimage = ImagesV1.Homepageimage;
-                }
+                _homepageimage = title.Contains("user-scalable=yes") ? ImagesV2.Homepageimage : ImagesV1.Homepageimage;
 
                 // Home Page Image Validation
                 if (IsElementPresent(driver, By.XPath("Homepageimage"), 30))
@@ -79,14 +72,7 @@ namespace MoBankUI
                 if (l < 3)
                 {
                     var title = driver.PageSource;
-                    if (title.Contains("user-scalable=yes"))
-                    {
-                        _categoryimagecss = ImagesV2.Categoryimagecss;
-                    }
-                    else
-                    {
-                        _categoryimagecss = ImagesV1.Categoryimagecss;
-                    }
+                    _categoryimagecss = title.Contains("user-scalable=yes") ? ImagesV2.Categoryimagecss : ImagesV1.Categoryimagecss;
                     var location = driver.Url;
                     if (IsElementPresent(driver, By.CssSelector(_categoryimagecss), 30))
                     {
@@ -203,12 +189,8 @@ namespace MoBankUI
         {
             driver.FindElement(by).Click();
             var url = driver.Url;
-            if (url == "http://qamodrophenia.mobankdev.com/")
-                datarow.newrow("Image Click Validation", "http://qamodrophenia.mobankdev.com/", url, "PASS");
-            else
-            {
-                datarow.newrow("Image Click Validation", "http://qamodrophenia.mobankdev.com/", url, "FAIL");
-            }
+            datarow.newrow("Image Click Validation", "http://qamodrophenia.mobankdev.com/", url,
+                url == "http://qamodrophenia.mobankdev.com/" ? "PASS" : "FAIL");
             driver.Navigate().Back();
         }
     }

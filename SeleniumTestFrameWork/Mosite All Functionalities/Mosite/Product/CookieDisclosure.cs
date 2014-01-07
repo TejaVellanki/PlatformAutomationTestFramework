@@ -12,17 +12,12 @@ namespace MoBankUI.Mosite.Product
                 //cookie Disclosure
                 IsElementPresent(driver, By.CssSelector("div.cookieDisclosure"));
                 var disclosuretext = driver.FindElement(By.CssSelector("div.cookieDisclosure")).Text;
-                if (disclosuretext ==
-                    "This site uses cookies. Some of the cookies we use are essential for parts of the site to operate and have already been set.")
-                    datrow.newrow("Diclosure Text is Presnt",
-                                  "This site uses cookies. Some of the cookies we use are essential for parts of the site to operate and have already been set.",
-                                  disclosuretext, "PASS");
-                else
-                {
-                    datrow.newrow("Diclosure Text is Presnt",
-                                  "This site uses cookies. Some of the cookies we use are essential for parts of the site to operate and have already been set.",
-                                  disclosuretext, "FAIL");
-                }
+                datrow.newrow("Diclosure Text is Presnt",
+                    "This site uses cookies. Some of the cookies we use are essential for parts of the site to operate and have already been set.",
+                    disclosuretext, disclosuretext ==
+                                    "This site uses cookies. Some of the cookies we use are essential for parts of the site to operate and have already been set."
+                        ? "PASS"
+                        : "FAIL");
 
                 if (IsElementPresent(driver, By.Id("epdsubmit")))
                 {

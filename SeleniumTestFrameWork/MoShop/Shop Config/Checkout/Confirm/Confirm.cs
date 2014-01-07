@@ -54,16 +54,9 @@ namespace MoBankUI.MoShop.Checkout.Confirm
                 //string str6 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Selector")).GetAttribute("Value");
                 // string str7 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Attribute")).GetAttribute("Value");
 
-                if (attribute == "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl")
-                {
-                    datarow.newrow("URL", "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl", attribute, "PASS",
-                                   driver);
-                }
-                else
-                {
-                    datarow.newrow("URL", "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl", attribute, "FAIL",
-                                   driver);
-                }
+                datarow.newrow("URL", "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl", attribute,
+                    attribute == "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl" ? "PASS" : "FAIL",
+                    driver);
                 if (actual == "RANDOM=0.825800705309124&ACTION=GETPSPFORM&PAYMENTMETHOD=4")
                 {
                     datarow.newrow("Parameters", "RANDOM=0.825800705309124&ACTION=GETPSPFORM&PAYMENTMETHOD=4", actual,
@@ -74,30 +67,10 @@ namespace MoBankUI.MoShop.Checkout.Confirm
                     datarow.newrow("Parameters", "RANDOM=0.825800705309124&ACTION=GETPSPFORM&PAYMENTMETHOD=4", actual,
                                    "PASS", driver);
                 }
-                if (str3 == "30")
-                {
-                    datarow.newrow("Sequence", "30", str3, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Sequence", "30", str3, "FAIL", driver);
-                }
-                if (str4 == "input[name='CALLBACKURLUSER']")
-                {
-                    datarow.newrow("Scraped Data", "input[name='CALLBACKURLUSER']", str4, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Scraped Data", "input[name='CALLBACKURLUSER']", str4, "FAIL", driver);
-                }
-                if (str5 == "value")
-                {
-                    datarow.newrow("Scrapped Data Configuration", "value", str5, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Scrapped Data Configuration", "value", str5, "FAIL", driver);
-                }
+                datarow.newrow("Sequence", "30", str3, str3 == "30" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Scraped Data", "input[name='CALLBACKURLUSER']", str4,
+                    str4 == "input[name='CALLBACKURLUSER']" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Scrapped Data Configuration", "value", str5, str5 == "value" ? "PASS" : "FAIL", driver);
                 /*
                 if (str6 == "input[name=\"CALLBACKURLUSER\"]")
                 {

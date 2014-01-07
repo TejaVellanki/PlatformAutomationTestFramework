@@ -28,8 +28,6 @@ namespace MoBankUI
 
             #endregion
 
-            string htmlString;
-
             if (targetTable == null)
             {
                 throw new ArgumentNullException("targetTable");
@@ -110,48 +108,47 @@ namespace MoBankUI
                             var value = myRow[3].ToString();
                             var valu = myRow[4].ToString();
 
-                            if (value == "PASS")
+                            switch (value)
                             {
-                                if (columnname != "Total Number Of Test Cases Passed/Failed")
-                                {
-                                    htmlBuilder.Append(
-                                        "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:LightGreen;\">");
-                                    htmlBuilder.Append(myRow[targetColumn.ColumnName]);
-                                    htmlBuilder.Append("</td>");
-                                }
+                                case "PASS":
+                                    if (columnname != "Total Number Of Test Cases Passed/Failed")
+                                    {
+                                        htmlBuilder.Append(
+                                            "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:LightGreen;\">");
+                                        htmlBuilder.Append(myRow[targetColumn.ColumnName]);
+                                        htmlBuilder.Append("</td>");
+                                    }
 
-                                else if (columnname == "Total Number Of Test Cases Passed/Failed")
-                                {
+                                    else if (columnname == "Total Number Of Test Cases Passed/Failed")
+                                    {
+                                        htmlBuilder.Append(
+                                            "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:Grey;\">");
+                                        htmlBuilder.Append(myRow[targetColumn.ColumnName]);
+                                        htmlBuilder.Append("</td>");
+                                    }
+                                    break;
+                                case "FAIL":
+                                    if (columnname != "Total Number Of Test Cases Passed/Failed")
+                                    {
+                                        htmlBuilder.Append(
+                                            "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:Red;\">");
+                                        htmlBuilder.Append(myRow[targetColumn.ColumnName]);
+                                        htmlBuilder.Append("</td>");
+                                    }
+                                    else if (columnname == "Total Number Of Test Cases Passed/Failed")
+                                    {
+                                        htmlBuilder.Append(
+                                            "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:Grey;\">");
+                                        htmlBuilder.Append(myRow[targetColumn.ColumnName]);
+                                        htmlBuilder.Append("</td>");
+                                    }
+                                    break;
+                                default:
                                     htmlBuilder.Append(
-                                        "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:Grey;\">");
+                                        "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:LightGrey;\">");
                                     htmlBuilder.Append(myRow[targetColumn.ColumnName]);
                                     htmlBuilder.Append("</td>");
-                                }
-                            }
-
-                            else if (value == "FAIL")
-                            {
-                                if (columnname != "Total Number Of Test Cases Passed/Failed")
-                                {
-                                    htmlBuilder.Append(
-                                        "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:Red;\">");
-                                    htmlBuilder.Append(myRow[targetColumn.ColumnName]);
-                                    htmlBuilder.Append("</td>");
-                                }
-                                else if (columnname == "Total Number Of Test Cases Passed/Failed")
-                                {
-                                    htmlBuilder.Append(
-                                        "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:Grey;\">");
-                                    htmlBuilder.Append(myRow[targetColumn.ColumnName]);
-                                    htmlBuilder.Append("</td>");
-                                }
-                            }
-                            else
-                            {
-                                htmlBuilder.Append(
-                                    "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:LightGrey;\">");
-                                htmlBuilder.Append(myRow[targetColumn.ColumnName]);
-                                htmlBuilder.Append("</td>");
+                                    break;
                             }
                         }
                         else
@@ -194,7 +191,7 @@ namespace MoBankUI
             htmlBuilder.Append("</html>");
 
             //Create String to be Returned
-            htmlString = htmlBuilder.ToString();
+            string htmlString = htmlBuilder.ToString();
 
             var SW = File.CreateText(@"C:\Selenium\Input Data\HTML Reports\" + reportname + ".html");
             SW.Close();

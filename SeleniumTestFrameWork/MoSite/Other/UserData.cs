@@ -139,77 +139,32 @@ namespace MoBankUI.MoSite.Other
                                   .GetAttribute("value");
                         var selectedValue = driver.FindElement(By.Id("FormData_6__Value")).GetAttribute("Value");
                         var str21 = driver.FindElement(By.Id("FormData_9__Value")).GetAttribute("Value");
-                        if (Regex.IsMatch(attribute, "^[a-zA-Z'']"))
-                        {
-                            datarow.newrow("FirstName", expected, attribute, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("FirstName", "FirstName-Not in Expected Format", attribute, "PASS", driver
-                                );
-                        }
-                        if (Regex.IsMatch(input, "^[a-zA-Z'']"))
-                        {
-                            datarow.newrow("Last Name", str3, input, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Last Name", "LastName-Not in Expected Format", input, "PASS", driver
-                                );
-                        }
-                        if (Regex.IsMatch(str15, "^[a-zA-Z0-9'']"))
-                        {
-                            datarow.newrow("Address", str5, str15, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Address", "Address-Not in Expected Format", str15, "PASS", driver);
-                        }
-                        if (Regex.IsMatch(str16, "^[a-zA-Z0-9'']"))
-                        {
-                            datarow.newrow("Post Code", str8, str16, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Post Code", "PostCode-Not in Expected Format", str16, "PASS", driver
-                                );
-                        }
-                        if (Regex.IsMatch(str17, "^[a-zA-Z'']"))
-                        {
-                            datarow.newrow("City/Town", str6, str17, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("City/Town", "City-Not in Expected Format", str17, "PASS", driver);
-                        }
-                        if (Regex.IsMatch(selectedValue, "^[a-zA-Z'']"))
-                        {
-                            datarow.newrow("Country", str4, selectedValue, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Country", "Country-Not in Expected Format", selectedValue, "PASS", driver
-                                );
-                        }
-                        if (Regex.IsMatch(str21,
-                                          "^(?(\")(\"[^\"]+?\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1,3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9]{2,17}))$"))
-                        {
-                            datarow.newrow("EMAIL", str9, str21, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("EMAIL", "Email-Not in Expected Format", str21, "PASS", driver);
-                        }
+                        datarow.newrow("FirstName",
+                            Regex.IsMatch(attribute, "^[a-zA-Z'']") ? expected : "FirstName-Not in Expected Format",
+                            attribute, "PASS", driver);
+                        datarow.newrow("Last Name",
+                            Regex.IsMatch(input, "^[a-zA-Z'']") ? str3 : "LastName-Not in Expected Format", input,
+                            "PASS", driver);
+                        datarow.newrow("Address",
+                            Regex.IsMatch(str15, "^[a-zA-Z0-9'']") ? str5 : "Address-Not in Expected Format", str15,
+                            "PASS", driver);
+                        datarow.newrow("Post Code",
+                            Regex.IsMatch(str16, "^[a-zA-Z0-9'']") ? str8 : "PostCode-Not in Expected Format", str16,
+                            "PASS", driver);
+                        datarow.newrow("City/Town",
+                            Regex.IsMatch(str17, "^[a-zA-Z'']") ? str6 : "City-Not in Expected Format", str17, "PASS",
+                            driver);
+                        datarow.newrow("Country",
+                            Regex.IsMatch(selectedValue, "^[a-zA-Z'']") ? str4 : "Country-Not in Expected Format",
+                            selectedValue, "PASS", driver);
+                        datarow.newrow("EMAIL", Regex.IsMatch(str21,
+                            "^(?(\")(\"[^\"]+?\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1,3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9]{2,17}))$")
+                            ? str9
+                            : "Email-Not in Expected Format", str21, "PASS", driver);
                     }
                 }
-                if (driver.FindElement(By.Id("BasketInfo")).Text == "(1)")
-                {
-                    datarow.newrow("Basket Value", "(1)", "(1)", "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Basket Value", "(1)", "(1)", "FAIL", driver);
-                }
+                datarow.newrow("Basket Value", "(1)", "(1)",
+                    driver.FindElement(By.Id("BasketInfo")).Text == "(1)" ? "PASS" : "FAIL", driver);
                 var str23 = driver.PageSource;
                 var executor2 = (IJavaScriptExecutor) driver;
                 executor2.ExecuteScript("window.scrollBy(0,100)", new object[0]);

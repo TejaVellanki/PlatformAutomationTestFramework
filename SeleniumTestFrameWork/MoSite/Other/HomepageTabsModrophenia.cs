@@ -32,47 +32,20 @@ namespace MoBankUI.MoSite.Other
                 switch (i)
                 {
                     case 1:
-                        if (HomepageTitle == actual)
-                        {
-                            datarow.newrow("HomepageTitle", HomepageTitle, actual, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("HomepageTitle", HomepageTitle, actual, "FAIL", driver);
-                        }
+                        datarow.newrow("HomepageTitle", HomepageTitle, actual, HomepageTitle == actual ? "PASS" : "FAIL",
+                            driver);
                         break;
 
                     case 2:
-                        if (aboutus == actual)
-                        {
-                            datarow.newrow("AboutUS", aboutus, actual, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("AboutUS", aboutus, actual, "FAIL", driver);
-                        }
+                        datarow.newrow("AboutUS", aboutus, actual, aboutus == actual ? "PASS" : "FAIL", driver);
                         break;
 
                     case 3:
-                        if (shipping == actual)
-                        {
-                            datarow.newrow("Shipping", shipping, actual, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Shipping", shipping, actual, "FAIL", driver);
-                        }
+                        datarow.newrow("Shipping", shipping, actual, shipping == actual ? "PASS" : "FAIL", driver);
                         break;
 
                     case 4:
-                        if (terms == actual)
-                        {
-                            datarow.newrow("Terms And Conditions", terms, actual, "PASS", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Terms And Conditions", terms, actual, "FAIL", driver);
-                        }
+                        datarow.newrow("Terms And Conditions", terms, actual, terms == actual ? "PASS" : "FAIL", driver);
                         break;
                 }
             }

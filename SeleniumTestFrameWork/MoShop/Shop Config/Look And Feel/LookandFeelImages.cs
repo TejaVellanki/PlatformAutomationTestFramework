@@ -95,42 +95,22 @@ namespace MoBankUI.MoShop
                 datarow.newrow("Home Page Icon Uploaded into Console", "css=img[alt='Icon']", "css=img[alt='Icon']",
                     IsElementPresent(driver, By.CssSelector("img[alt='Icon']"), 30) ? "PASS" : "FAIL");
 
-                if (IsElementPresent(driver, By.CssSelector("img[alt='Custom Basket Image']"), 30))
-                {
-                    datarow.newrow("Custom Basket Image Uploaded into Console", "css=img[alt='Custom Basket Image']",
-                                   "css=img[alt='Custom Basket Image']", "PASS");
-                }
+                datarow.newrow("Custom Basket Image Uploaded into Console", "css=img[alt='Custom Basket Image']",
+                    "css=img[alt='Custom Basket Image']",
+                    IsElementPresent(driver, By.CssSelector("img[alt='Custom Basket Image']"), 30) ? "PASS" : "FAIL");
 
-                else
-                {
-                    datarow.newrow("Custom Basket Image Uploaded into Console", "css=img[alt='Custom Basket Image']",
-                                   "css=img[alt='Custom Basket Image']", "FAIL");
-                }
+                datarow.newrow("Success Image Uploaded into Console", "css=img[alt='Custom Basket Image']",
+                    "css=img[alt='Custom Basket Image']",
+                    IsElementPresent(driver, By.CssSelector("img[alt=\"Order confirmation success Image\"]"), 30)
+                        ? "PASS"
+                        : "FAIL");
 
-                if (IsElementPresent(driver, By.CssSelector("img[alt=\"Order confirmation success Image\"]"), 30))
-                {
-                    datarow.newrow("Success Image Uploaded into Console", "css=img[alt='Custom Basket Image']",
-                                   "css=img[alt='Custom Basket Image']", "PASS");
-                }
-                else
-                {
-                    datarow.newrow("Success Image Uploaded into Console", "css=img[alt='Custom Basket Image']",
-                                   "css=img[alt='Custom Basket Image']", "FAIL");
-                }
-
-                if (IsElementPresent(driver, By.CssSelector("img[alt=\"Order confirmation failure Image\"]"), 30))
-                {
-                    datarow.newrow("Failure Image Uploaded into Console",
-                                   "css= img[alt=\"Order confirmation failure Image\"]",
-                                   "css= img[alt=\"Order confirmation failure Image\"]", "PASS");
-                }
-
-                else
-                {
-                    datarow.newrow("Failure Image Uploaded into Console",
-                                   "css= img[alt=\"Order confirmation failure Image\"]",
-                                   "css= img[alt=\"Order confirmation failure Image\"]", "FAIL");
-                }
+                datarow.newrow("Failure Image Uploaded into Console",
+                    "css= img[alt=\"Order confirmation failure Image\"]",
+                    "css= img[alt=\"Order confirmation failure Image\"]",
+                    IsElementPresent(driver, By.CssSelector("img[alt=\"Order confirmation failure Image\"]"), 30)
+                        ? "PASS"
+                        : "FAIL");
 
                 #endregion
             }

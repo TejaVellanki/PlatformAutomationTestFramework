@@ -189,14 +189,8 @@ namespace MoBankUI.Mosite.Pay
             try
             {
                 var totalamount = driver.FindElement(By.XPath("//div[@id='total-amount']/dl/dd")).Text;
-                if (totalamount.Contains("₹"))
-                {
-                    datarow.newrow("Currency Validation", "₹", totalamount, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Currency Validation", "₹", totalamount, "FAIL", driver);
-                }
+                datarow.newrow("Currency Validation", "₹", totalamount, totalamount.Contains("₹") ? "PASS" : "FAIL",
+                    driver);
             }
             catch (Exception ex)
             {

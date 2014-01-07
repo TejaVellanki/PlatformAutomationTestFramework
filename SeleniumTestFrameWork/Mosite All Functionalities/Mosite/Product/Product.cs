@@ -20,12 +20,10 @@ namespace MoBankUI.Mosite.Product
                 var url = driver.PageSource;
 
 
-                string productVarinat = null;
                 string producttitle;
                 string AddToBasket;
                 string checkout;
                 string basketvalue;
-                string productvariant2 = null;
                 var screenshot = new Screenshot();
 
                 #region object reading
@@ -243,14 +241,8 @@ namespace MoBankUI.Mosite.Product
                 Thread.Sleep(3000);
                 var prirc = driver.FindElement(By.CssSelector("strong")).Text;
 
-                if (pric == prirc)
-                {
-                    datarow.newrow("Price Change with Quantity in Basket Page", pric, prirc, "FAIL", driver);
-                }
-                else
-                {
-                    datarow.newrow("Price Change with Quantity in Basket Page", pric, prirc, "PASS", driver);
-                }
+                datarow.newrow("Price Change with Quantity in Basket Page", pric, prirc, pric == prirc ? "FAIL" : "PASS",
+                    driver);
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
                 var myDynamicElement4 = driver.FindElement(By.XPath(checkout));

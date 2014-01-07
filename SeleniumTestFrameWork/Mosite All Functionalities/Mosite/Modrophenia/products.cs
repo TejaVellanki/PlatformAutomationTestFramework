@@ -31,46 +31,12 @@ namespace MoBankUI.Mosite.Modrophenia
                 var str8 = dt.Rows[i]["Detail"].ToString();
                 var str9 = dt.Rows[i]["Item Number"].ToString();
                 var str10 = dt.Rows[i]["Variants"].ToString();
-                if (str6 == actual)
-                {
-                    datarow.newrow(str7 + " Price", str6, actual, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow(str7 + " Price", str6, actual, "FAIL", driver);
-                }
-                if (str7.ToUpper() == str2)
-                {
-                    datarow.newrow(str7 + " Title", str7, str2, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow(str7 + " Title", str7, str2, "FAIL", driver);
-                }
-                if (str8 == str3)
-                {
-                    datarow.newrow(str7 + " Detail", str8, str3, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow(str7 + " Detail", str8, str3, "FAIL", driver);
-                }
-                if (expected == str9)
-                {
-                    datarow.newrow(str7 + " ItemNumber", expected, str9, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow(str7 + " ItemNumber", expected, str9, "FAIL", driver);
-                }
-                if (str5.TrimStart(new char[0]) == str10.TrimStart(new char[0]))
-                {
-                    datarow.newrow(str7 + " Variants", str5, str10, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow(str7 + " Variants", str5, str10, "FAIL", driver);
-                }
+                datarow.newrow(str7 + " Price", str6, actual, str6 == actual ? "PASS" : "FAIL", driver);
+                datarow.newrow(str7 + " Title", str7, str2, str7.ToUpper() == str2 ? "PASS" : "FAIL", driver);
+                datarow.newrow(str7 + " Detail", str8, str3, str8 == str3 ? "PASS" : "FAIL", driver);
+                datarow.newrow(str7 + " ItemNumber", expected, str9, expected == str9 ? "PASS" : "FAIL", driver);
+                datarow.newrow(str7 + " Variants", str5, str10,
+                    str5.TrimStart(new char[0]) == str10.TrimStart(new char[0]) ? "PASS" : "FAIL", driver);
             }
         }
 
@@ -110,7 +76,6 @@ namespace MoBankUI.Mosite.Modrophenia
 
         public void loop(Datarow datarow, IWebDriver driver, DataTable dt)
         {
-            string str8;
             try
             {
                 var num = 1;
@@ -277,7 +242,7 @@ namespace MoBankUI.Mosite.Modrophenia
             }
             catch (Exception ex)
             {
-                str8 = ex.ToString();
+                string str8 = ex.ToString();
                 datarow.newrow("Exception", "Not Expected", str8, "FAIL", driver);
             }
         }

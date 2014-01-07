@@ -52,16 +52,9 @@ namespace MoBankUI.MoShop
                         driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
 
                         var str4 = driver.Title;
-                        if (str4 == "Customisation : mobank.co.uk/MoShop")
-                        {
-                            datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "PASS",
-                                           driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "FAIL",
-                                           driver);
-                        }
+                        datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4,
+                            str4 == "Customisation : mobank.co.uk/MoShop" ? "PASS" : "FAIL",
+                            driver);
 
                         driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[5]/h3")).Click();
                         driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[6]/h3")).Click();
@@ -108,46 +101,16 @@ namespace MoBankUI.MoShop
                     var str7 = driver.FindElement(By.Id("OrderConfirmationSuccessMessage")).GetAttribute("Value");
                     var str8 = driver.FindElement(By.Id("OrderConfirmationFailureMessage")).GetAttribute("Value");
                     var str9 = driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).GetAttribute("Value");
-                    if (str5 == "ticklecompany")
-                    {
-                        datarow.newrow("Link Replacement", "ticklecompany", str5, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Link Replacement", "ticklecompany", str5, "FAIL", driver);
-                    }
-                    if (str6 == "Your order number is {0}.")
-                    {
-                        datarow.newrow("Order Confirmation", "Your order number is {0}.", str6, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Order Confirmation", "Your order number is {0}.", str6, "FAIL", driver);
-                    }
-                    if (str7 == "Your order has been succesfull")
-                    {
-                        datarow.newrow("ConfirmSuccess", "Your order has been succesfull", str7, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("ConfirmSuccess", "Your order has been succesfull", str7, "FAIL", driver);
-                    }
-                    if (str8 == "Your order couldnot be processed.")
-                    {
-                        datarow.newrow("Confirm Failure", "Your order couldnot be processed.", str8, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Confirm Failure", "Your order couldnot be processed.", str8, "FAIL", driver);
-                    }
-                    if (str9 == "Your order couldnot be processed.")
-                    {
-                        datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9, "FAIL", driver);
-                    }
+                    datarow.newrow("Link Replacement", "ticklecompany", str5, str5 == "ticklecompany" ? "PASS" : "FAIL",
+                        driver);
+                    datarow.newrow("Order Confirmation", "Your order number is {0}.", str6,
+                        str6 == "Your order number is {0}." ? "PASS" : "FAIL", driver);
+                    datarow.newrow("ConfirmSuccess", "Your order has been succesfull", str7,
+                        str7 == "Your order has been succesfull" ? "PASS" : "FAIL", driver);
+                    datarow.newrow("Confirm Failure", "Your order couldnot be processed.", str8,
+                        str8 == "Your order couldnot be processed." ? "PASS" : "FAIL", driver);
+                    datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9,
+                        str9 == "Your order couldnot be processed." ? "PASS" : "FAIL", driver);
 
                     #endregion
 
@@ -160,14 +123,8 @@ namespace MoBankUI.MoShop
 
                     var str10 =
                         driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).GetAttribute("Value");
-                    if (str10 == "TheTickleCompany")
-                    {
-                        datarow.newrow("Link Replacement1", "TheTickleCompany", str10, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Link Replacement1", "TheTickleCompany", str10, "FAIL", driver);
-                    }
+                    datarow.newrow("Link Replacement1", "TheTickleCompany", str10,
+                        str10 == "TheTickleCompany" ? "PASS" : "FAIL", driver);
                     driver.FindElement(By.CssSelector("input.button")).Click();
                 }
             }

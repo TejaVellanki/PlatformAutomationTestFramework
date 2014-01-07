@@ -14,8 +14,6 @@ namespace MoBankUI.Mosite.HomePage
 
             string productprice;
             string productVarinat;
-            string productdescription = null;
-            string productdescriptiontab = null;
             string producttitle;
             string Detail;
 

@@ -26,16 +26,9 @@ namespace MoBankUI.Mosite
                 click(driver, datarow);
 
                 //Validating Basket 
-                if (IsElementPresent(driver, By.CssSelector("input.ui-btn-hidden")))
-                {
-                    datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present",
-                                   "Add a Basket Element should not be present", "FAIL");
-                }
-                else
-                {
-                    datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present",
-                                   "Add a Basket Element should not be present", "PASS");
-                }
+                datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present",
+                    "Add a Basket Element should not be present",
+                    IsElementPresent(driver, By.CssSelector("input.ui-btn-hidden")) ? "FAIL" : "PASS");
 
                 #endregion
 
@@ -63,16 +56,9 @@ namespace MoBankUI.Mosite
 
 
                 //Validating Basket 
-                if (IsElementPresent(driver, By.CssSelector("input.ui-btn-hidden")))
-                {
-                    datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present",
-                                   "Add a Basket Element should not be present", "FAIL");
-                }
-                else
-                {
-                    datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present",
-                                   "Add a Basket Element should not be present", "PASS");
-                }
+                datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present",
+                    "Add a Basket Element should not be present",
+                    IsElementPresent(driver, By.CssSelector("input.ui-btn-hidden")) ? "FAIL" : "PASS");
 
                 #endregion
 
@@ -86,16 +72,9 @@ namespace MoBankUI.Mosite
                 Validateproduct(datarow, driver);
                 click(driver, datarow);
 
-                if (IsElementPresent(driver, By.CssSelector("input.ui-btn-hidden")))
-                {
-                    datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present",
-                                   "Add a Basket Element should be present", "PASS");
-                }
-                else
-                {
-                    datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present",
-                                   "Add a Basket Element should be present", "FAIL");
-                }
+                datarow.newrow("Validating Add a Basket Element", "Add a Basket Element is present",
+                    "Add a Basket Element should be present",
+                    IsElementPresent(driver, By.CssSelector("input.ui-btn-hidden")) ? "PASS" : "FAIL");
 
                 #endregion
 
@@ -115,16 +94,9 @@ namespace MoBankUI.Mosite
 
                     Thread.Sleep(3000);
                     var basketcount = driver.FindElement(By.Id("BasketInfo")).Text;
-                    if (basketcount == "(1)")
-                    {
-                        datarow.newrow("Validating Add to Basket for Related Product",
-                                       "Add to Basket Should be working for Related Products ", basketcount, "PASS");
-                    }
-                    else
-                    {
-                        datarow.newrow("Validating Add to Basket for Related Product",
-                                       "Add to Basket Should be working for Related Products ", basketcount, "FAIL");
-                    }
+                    datarow.newrow("Validating Add to Basket for Related Product",
+                        "Add to Basket Should be working for Related Products ", basketcount,
+                        basketcount == "(1)" ? "PASS" : "FAIL");
                 }
                 else
                 {
@@ -147,14 +119,8 @@ namespace MoBankUI.Mosite
             try
             {
                 var you = driver.FindElement(By.XPath("//div[@id='mainContent']/div/ul/li")).Text;
-                if (you == "You also need...")
-                {
-                    datarow.newrow("Validating 'You also Need' Text", "You also need...", you, "PASS");
-                }
-                else
-                {
-                    datarow.newrow("Validating 'You also Need' Text", "You also need...", you, "FAIL");
-                }
+                datarow.newrow("Validating 'You also Need' Text", "You also need...", you,
+                    you == "You also need..." ? "PASS" : "FAIL");
 
                 var count = GetXpathCount(driver, "//ul[@id='productList']/li");
                 if (count == 0)

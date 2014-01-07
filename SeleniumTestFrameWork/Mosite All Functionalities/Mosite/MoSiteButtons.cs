@@ -8,15 +8,7 @@ namespace MoBankUI.Mosite
         private void AddToBasket(IWebDriver driver, Datarow datarow)
         {
             var url = driver.PageSource;
-            string addToBasket;
-            if (url.Contains("user-scalable=yes"))
-            {
-                addToBasket = CollectionMapV2.addtobasket;
-            }
-            else
-            {
-                addToBasket = CollectionMapV1.addtobasket;
-            }
+            string addToBasket = url.Contains("user-scalable=yes") ? CollectionMapV2.addtobasket : CollectionMapV1.addtobasket;
             driver.FindElement(By.XPath(addToBasket)).Click();
 
             datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected",

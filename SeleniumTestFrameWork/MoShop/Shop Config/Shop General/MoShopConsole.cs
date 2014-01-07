@@ -12,7 +12,7 @@ namespace MoBankUI.MoShop
         private readonly Screenshot screenshot = new Screenshot();
 
 
-        private bool IsElementPresent(By by, IWebDriver driver)
+        private bool IsElementPresent(By by, ISearchContext driver)
         {
             try
             {

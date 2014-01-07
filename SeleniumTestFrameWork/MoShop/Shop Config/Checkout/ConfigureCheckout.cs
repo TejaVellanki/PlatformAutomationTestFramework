@@ -94,52 +94,16 @@ namespace MoBankUI.MoShop.Checkout
 
                 #region Validations
 
-                if (str8 == "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl")
-                {
-                    datarow.newrow("Basket Page URL", "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl", str8,
-                                   "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Basket Page URL", "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl", str8,
-                                   "FAIL", driver);
-                }
-                if (str9 == "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}")
-                {
-                    datarow.newrow("Basket Page Parameters", "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}", str9,
-                                   "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Basket Page Parameters", "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}", str9,
-                                   "FAIL", driver);
-                }
-                if (str10 == "#productsresults form h2")
-                {
-                    datarow.newrow("Basket Success Selector", "#productsresults form h2", str10, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Basket Success Selector", "#productsresults form h2", str10, "FAIL", driver);
-                }
-                if (str11 == "body")
-                {
-                    datarow.newrow("Basket Error Message", "body", str11, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Basket Error Message", "body", str11, "FAIL", driver);
-                }
-                if (str12 == @"(?<=\<hr \/\>).*(?=\<hr \/\>)")
-                {
-                    datarow.newrow("Basket Error Transformation", @"(?<=\<hr \/\>).*(?=\<hr \/\>)", str12, "PASS",
-                                   driver);
-                }
-                else
-                {
-                    datarow.newrow("Basket Error Transformation", @"(?<=\<hr \/\>).*(?=\<hr \/\>)", str12, "FAIL",
-                                   driver);
-                }
+                datarow.newrow("Basket Page URL", "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl", str8,
+                    str8 == "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Basket Page Parameters", "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}", str9,
+                    str9 == "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Basket Success Selector", "#productsresults form h2", str10,
+                    str10 == "#productsresults form h2" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Basket Error Message", "body", str11, str11 == "body" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Basket Error Transformation", @"(?<=\<hr \/\>).*(?=\<hr \/\>)", str12,
+                    str12 == @"(?<=\<hr \/\>).*(?=\<hr \/\>)" ? "PASS" : "FAIL",
+                    driver);
                 if (str13 == "div#productsresults table:eq(0) tr:last-child td strong:eq(1)")
                 {
                     datarow.newrow("Basket Total Selector",
@@ -152,57 +116,22 @@ namespace MoBankUI.MoShop.Checkout
                                    "div#productsresults table:eq(0) tr:last-child td strong:eq(1)",
                                    str13, "PASS", driver);
                 }
-                if (str14 == "UK")
-                {
-                    datarow.newrow("Country Mappings", "UK", str14, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Country Mappings", "UK", str14, "FAIL", driver);
-                }
+                datarow.newrow("Country Mappings", "UK", str14, str14 == "UK" ? "PASS" : "FAIL", driver);
                 var str15 = driver.FindElement(By.Id("Pages_0__Name")).GetAttribute("Value");
                 var str16 = driver.FindElement(By.Id("Pages_1__Name")).GetAttribute("Value");
                 var str17 = driver.FindElement(By.Id("Pages_2__Name")).GetAttribute("Value");
-                if (str15 == "Address")
-                {
-                    datarow.newrow("Chekout Address", "Address", str15, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Chekout Address", "Address", str15, "FAIL", driver);
-                }
-                if (str16 == "Delivery")
-                {
-                    datarow.newrow("Checkout Delivery", "Delivery", str16, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Checkout Delivery", "Delivery", str16, "FAIL", driver);
-                }
-                if (str17 == "Confirm")
-                {
-                    datarow.newrow("Checkout Confirmation", "Confirm", str17, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Checkout Confirmation", "Confirm", str17, "FAIL", driver);
-                }
+                datarow.newrow("Chekout Address", "Address", str15, str15 == "Address" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Checkout Delivery", "Delivery", str16, str16 == "Delivery" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Checkout Confirmation", "Confirm", str17, str17 == "Confirm" ? "PASS" : "FAIL", driver);
 
                 #endregion
 
                 driver.FindElement(By.LinkText("…")).Click();
 
                 var str18 = driver.Title;
-                if (str18 == "Page Update : mobank.co.uk/MoShop")
-                {
-                    datarow.newrow("Address Page Title", "Page Update : mobank.co.uk/MoShop", str18, "PASS", driver
-                        );
-                }
-                else
-                {
-                    datarow.newrow("Address Page Title", "Page Update : mobank.co.uk/MoShop", str18, "FAIL", driver
-                        );
-                }
+                datarow.newrow("Address Page Title", "Page Update : mobank.co.uk/MoShop", str18,
+                    str18 == "Page Update : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver
+                    );
             }
             catch (Exception ex)
             {

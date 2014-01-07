@@ -70,7 +70,6 @@ namespace MoBankUI
                 datarow.newrow("", "", "Validating GET for Search Results", "");
                 foreach (var get in selectedvalue)
                 {
-                    var i = 1;
                     var GET = get;
                     if (GET.Contains("GET"))
                     {

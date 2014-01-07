@@ -41,14 +41,7 @@ namespace MoBankUI.MoShop.Scheduler
                     driver.FindElement(By.CssSelector("input.button")).Click();
 
                     var attribute = driver.FindElement(By.Id("Jobs_0__JobType")).GetAttribute("Value");
-                    if (attribute == "Scrape")
-                    {
-                        datarow.newrow("Job Type", "Scrape", attribute, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Job Type", "Scrape", attribute, "FAIL", driver);
-                    }
+                    datarow.newrow("Job Type", "Scrape", attribute, attribute == "Scrape" ? "PASS" : "FAIL", driver);
                     driver.FindElement(By.Id("Jobs_0__Active")).Click();
                     driver.FindElement(By.Id("Jobs_0__StartOn")).Clear();
                     driver.FindElement(By.Id("Jobs_0__StartOn")).SendKeys("7/31/2012 11:19:00 AM");
@@ -87,14 +80,8 @@ namespace MoBankUI.MoShop.Scheduler
                     {
                         datarow.newrow("Scheduler Scrape Activation", "Scrape Not Activated", str4, "FAIL", driver);
                     }
-                    if (str5 == "31 Jul 2012 11:19")
-                    {
-                        datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5, "FAIL", driver);
-                    }
+                    datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5,
+                        str5 == "31 Jul 2012 11:19" ? "PASS" : "FAIL", driver);
                     if (str6 == "31 Jul 2013 11:19")
                     {
                         datarow.newrow("Schduler End Time", "31 Jul 2013 11:19", str6, "PASS", driver);
@@ -103,22 +90,8 @@ namespace MoBankUI.MoShop.Scheduler
                     {
                         datarow.newrow("Schduler End Time", "31 Jul 2013 11:19", str6, "PASS", driver);
                     }
-                    if (str7 == "1")
-                    {
-                        datarow.newrow("Repeat interval Days", "1", str7, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Repeat interval Days", "1", str7, "FAIL", driver);
-                    }
-                    if (str8 == "0")
-                    {
-                        datarow.newrow("Repeat interval Hours", "0", str8, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Repeat interval Hours", "0", str8, "FAIL", driver);
-                    }
+                    datarow.newrow("Repeat interval Days", "1", str7, str7 == "1" ? "PASS" : "FAIL", driver);
+                    datarow.newrow("Repeat interval Hours", "0", str8, str8 == "0" ? "PASS" : "FAIL", driver);
 
                     #endregion
 
@@ -175,14 +148,8 @@ namespace MoBankUI.MoShop.Scheduler
                     {
                         datarow.newrow("Scheduler DataFeed Activation", "DataFeed Not Activated", str9, "FAIL", driver);
                     }
-                    if (str10 == "31 Jul 2012 11:20")
-                    {
-                        datarow.newrow("Scheduler Start Time", "31 Jul 2012 11:20", str10, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Scheduler Start Time", "31 Jul 2012 11:20", str10, "FAIL", driver);
-                    }
+                    datarow.newrow("Scheduler Start Time", "31 Jul 2012 11:20", str10,
+                        str10 == "31 Jul 2012 11:20" ? "PASS" : "FAIL", driver);
                     if (str11 == "31 Jul 2012 11:19")
                     {
                         datarow.newrow("Scheduler End Time", "31 Jul 2012 11:20", str11, "PASS", driver);
@@ -191,22 +158,8 @@ namespace MoBankUI.MoShop.Scheduler
                     {
                         datarow.newrow("Scheduler End Time", "31 Jul 2012 11:20", str11, "PASS", driver);
                     }
-                    if (str12 == "1")
-                    {
-                        datarow.newrow("Repeat interval Days", "1", str12, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Repeat interval Days", "1", str12, "FAIL", driver);
-                    }
-                    if (str13 == "1")
-                    {
-                        datarow.newrow("Repeat interval Hours", "1", str13, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Repeat interval Hours", "1", str13, "FAIL", driver);
-                    }
+                    datarow.newrow("Repeat interval Days", "1", str12, str12 == "1" ? "PASS" : "FAIL", driver);
+                    datarow.newrow("Repeat interval Hours", "1", str13, str13 == "1" ? "PASS" : "FAIL", driver);
 
                     #endregion
                 }
@@ -229,14 +182,8 @@ namespace MoBankUI.MoShop.Scheduler
                     {
                         datarow.newrow("Scheduler Scrape Activation", "Scrape Not Activated", str4, "FAIL", driver);
                     }
-                    if (str5 == "31 Jul 2012 11:19")
-                    {
-                        datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5, "FAIL", driver);
-                    }
+                    datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5,
+                        str5 == "31 Jul 2012 11:19" ? "PASS" : "FAIL", driver);
                     if (str6 == "31 Jul 2012 11:19")
                     {
                         datarow.newrow("Schduler End Time", "31 Jul 2012 11:19", str6, "PASS", driver);
@@ -245,22 +192,8 @@ namespace MoBankUI.MoShop.Scheduler
                     {
                         datarow.newrow("Schduler End Time", "31 Jul 2012 11:19", str6, "PASS", driver);
                     }
-                    if (str7 == "1")
-                    {
-                        datarow.newrow("Repeat interval Days", "1", str7, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Repeat interval Days", "1", str7, "FAIL", driver);
-                    }
-                    if (str8 == "1")
-                    {
-                        datarow.newrow("Repeat interval Hours", "1", str8, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Repeat interval Hours", "1", str8, "FAIL", driver);
-                    }
+                    datarow.newrow("Repeat interval Days", "1", str7, str7 == "1" ? "PASS" : "FAIL", driver);
+                    datarow.newrow("Repeat interval Hours", "1", str8, str8 == "1" ? "PASS" : "FAIL", driver);
 
                     const int num3 = 1;
                     str9 = driver.FindElement(By.Id("Jobs_" + num3 + "__Active")).GetAttribute("Value");
@@ -276,14 +209,8 @@ namespace MoBankUI.MoShop.Scheduler
                     {
                         datarow.newrow("Scheduler Scrape Activation", "Scrape Not Activated", str4, "FAIL", driver);
                     }
-                    if (str10 == "31 Jul 2012 11:19")
-                    {
-                        datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5, "FAIL", driver);
-                    }
+                    datarow.newrow("Schduler Start Time", "31 Jul 2012 11:19", str5,
+                        str10 == "31 Jul 2012 11:19" ? "PASS" : "FAIL", driver);
                     if (str11 == "31 Jul 2012 11:19")
                     {
                         datarow.newrow("Schduler End Time", "31 Jul 2012 11:19", str6, "PASS", driver);
@@ -292,22 +219,8 @@ namespace MoBankUI.MoShop.Scheduler
                     {
                         datarow.newrow("Schduler End Time", "31 Jul 2012 11:19", str6, "PASS", driver);
                     }
-                    if (str12 == "1")
-                    {
-                        datarow.newrow("Repeat interval Days", "1", str7, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Repeat interval Days", "1", str7, "FAIL", driver);
-                    }
-                    if (str13 == "24")
-                    {
-                        datarow.newrow("Repeat interval Hours", "1", str8, "PASS", driver);
-                    }
-                    else
-                    {
-                        datarow.newrow("Repeat interval Hours", "1", str8, "FAIL", driver);
-                    }
+                    datarow.newrow("Repeat interval Days", "1", str7, str12 == "1" ? "PASS" : "FAIL", driver);
+                    datarow.newrow("Repeat interval Hours", "1", str8, str13 == "24" ? "PASS" : "FAIL", driver);
 
                     #endregion
                 }

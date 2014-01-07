@@ -16,16 +16,8 @@ namespace MoBankUI.Mosite.Product
         {
             try
             {
-                string checkout;
                 var url = driver.PageSource;
-                if (url.Contains("user-scalable=yes"))
-                {
-                    checkout = CollectionMapV2.checkout;
-                }
-                else
-                {
-                    checkout = CollectionMapV1.checkout;
-                }
+                string checkout = url.Contains("user-scalable=yes") ? CollectionMapV2.checkout : CollectionMapV1.checkout;
 
                 var basket = new DeleteBasket();
                 basket.basket(driver, datarow);

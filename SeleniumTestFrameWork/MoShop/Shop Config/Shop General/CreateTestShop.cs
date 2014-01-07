@@ -21,14 +21,8 @@ namespace MoBankUI.MoShop
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
                 var title = driver.Title;
-                if (title == "Shop : mobank.co.uk/MoShop")
-                {
-                    datarow.newrow("Test Shop Title", "Shop : mobank.co.uk/MoShop", title, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Test Shop Title", "Shop : mobank.co.uk/MoShop", title, "FAIL", driver);
-                }
+                datarow.newrow("Test Shop Title", "Shop : mobank.co.uk/MoShop", title,
+                    title == "Shop : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
 
                 if (driver.FindElement(By.Id("IsOffLine")).Enabled)
                 {

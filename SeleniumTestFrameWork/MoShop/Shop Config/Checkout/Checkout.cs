@@ -44,22 +44,10 @@ namespace MoBankUI.MoShop.Checkout
                     Thread.Sleep(3000);
                 }
                 var str3 = driver.FindElement(By.Id("PaymentAccountIdentifier")).GetAttribute("Value");
-                if (attribute == "Tickle (copy of QA by SB)")
-                {
-                    datarow.newrow("Checkout Name", "Tickle (copy of QA by SB)", attribute, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Checkout Name", "Tickle (copy of QA by SB)", attribute, "FAIL", driver);
-                }
-                if (str3 == "45af07ff-a7dc-4453-89b0-285b85deef2a")
-                {
-                    datarow.newrow("Payment Identifier", "45af07ff-a7dc-4453-89b0-285b85deef2a", str3, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("Payment Identifier", "45af07ff-a7dc-4453-89b0-285b85deef2a", str3, "FAIL", driver);
-                }
+                datarow.newrow("Checkout Name", "Tickle (copy of QA by SB)", attribute,
+                    attribute == "Tickle (copy of QA by SB)" ? "PASS" : "FAIL", driver);
+                datarow.newrow("Payment Identifier", "45af07ff-a7dc-4453-89b0-285b85deef2a", str3,
+                    str3 == "45af07ff-a7dc-4453-89b0-285b85deef2a" ? "PASS" : "FAIL", driver);
                 Thread.Sleep(3000);
                 driver.FindElement(By.Id("DefaultCheckoutProcessId")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
@@ -67,16 +55,9 @@ namespace MoBankUI.MoShop.Checkout
                 driver.FindElement(By.LinkText("…")).Click();
 
                 var str4 = driver.Title;
-                if (str4 == "Checkout Process : mobank.co.uk/MoShop")
-                {
-                    datarow.newrow("Checkout Process Page Title", "Checkout Process : mobank.co.uk/MoShop", str4, "PASS",
-                                   driver);
-                }
-                else
-                {
-                    datarow.newrow("Checkout Process Page Title", "Checkout Process : mobank.co.uk/MoShop", str4, "FAIL",
-                                   driver);
-                }
+                datarow.newrow("Checkout Process Page Title", "Checkout Process : mobank.co.uk/MoShop", str4,
+                    str4 == "Checkout Process : mobank.co.uk/MoShop" ? "PASS" : "FAIL",
+                    driver);
             }
             catch (Exception ex)
             {
