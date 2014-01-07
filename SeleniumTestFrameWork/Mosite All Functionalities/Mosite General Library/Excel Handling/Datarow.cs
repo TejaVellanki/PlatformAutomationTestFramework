@@ -119,8 +119,6 @@ namespace MoBankUI
                     }
                 }
 
-                s = 0;
-
                 dt.TableName = "MyTable";
 
                 try

@@ -41,11 +41,8 @@ namespace MoBankUI.MoShop.Checkout
                 driver.FindElement(By.XPath("//div[@id='configureCheckoutForm']/div[2]/h3")).Click();
                 const int num = 0;
 
-                if (num == 0)
-                {
-                    driver.FindElement(By.XPath("//div[@id='configureCheckoutForm']/div[4]/h3")).Click();
-                    Thread.Sleep(3000);
-                }
+                driver.FindElement(By.XPath("//div[@id='configureCheckoutForm']/div[4]/h3")).Click();
+                Thread.Sleep(3000);
                 try
                 {
                     for (var i = 0; i <= 2; i++)

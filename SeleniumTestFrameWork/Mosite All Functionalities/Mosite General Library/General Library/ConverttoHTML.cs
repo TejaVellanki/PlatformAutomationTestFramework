@@ -28,7 +28,7 @@ namespace MoBankUI
 
             #endregion
 
-            var htmlString = "";
+            string htmlString;
 
             if (targetTable == null)
             {
@@ -44,7 +44,7 @@ namespace MoBankUI
                 "<script type=\"text/javascript\" src=\"attachment/file/filterTable/filterTable.js\"> </script>");
             htmlBuilder.Append("<title>");
             htmlBuilder.Append("Page-");
-            htmlBuilder.Append(Guid.NewGuid().ToString());
+            htmlBuilder.Append(Guid.NewGuid());
             htmlBuilder.Append("</title>");
             htmlBuilder.Append("</head>");
             htmlBuilder.Append("<body>");

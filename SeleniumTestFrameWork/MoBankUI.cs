@@ -163,7 +163,7 @@ namespace MoBankUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            base.Close();
+            Close();
         }
 
         private void checkBox10_CheckedChanged(object sender, EventArgs e)
@@ -260,14 +260,13 @@ namespace MoBankUI
                     {
                         // Initialising the firefox driver                  
 
-                        IWebDriver driver = new FirefoxDriver();
                         // An Static url should be given for the browser to launch. 
 
                         var prof = new FirefoxProfile();
                         //changing the User agent to Iphone 4.
                         prof.SetPreference("general.useragent.override",
                                            "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7");
-                        driver = new FirefoxDriver(prof);
+                        IWebDriver driver = new FirefoxDriver(prof);
                         driver.Navigate().GoToUrl(url);
 
                         Thread.Sleep(2000);

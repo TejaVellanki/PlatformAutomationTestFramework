@@ -203,7 +203,7 @@ namespace MoBankUI
 
             var rawData = new object[dt.Rows.Count + 1,dt.Columns.Count];
 
-            var intRowNum = 0;
+            int intRowNum;
 
             if (nextRow)
             {
@@ -321,7 +321,7 @@ namespace MoBankUI
             finalColLetter += colCharset.Substring(
                 (dt.Columns.Count - 1)%colCharsetLen, 1);
 
-            var excelRange = string.Empty;
+            string excelRange;
 
             if (intRowNum > 1)
             {

@@ -14,7 +14,7 @@ namespace MoBankUI.Mosite.Product
         {
             try
             {
-                string deletebasket = null;
+                string deletebasket;
                 var url = driver.PageSource;
                 if (url.Contains("user-scalable=yes"))
                 {
@@ -32,7 +32,7 @@ namespace MoBankUI.Mosite.Product
                     basketvalidation(driver, datarow);
                 }#
                  */
-                if (IsElementPresent(driver, By.XPath(deletebasket), 05))
+                if (IsElementPresent(driver, By.XPath(deletebasket)))
                 {
                     driver.FindElement(By.XPath(deletebasket)).Click();
 
@@ -56,11 +56,11 @@ namespace MoBankUI.Mosite.Product
 
         private void basketvalidation(IWebDriver driver, Datarow datarow)
         {
-            string products = null;
-            string productlink = null;
-            string categorylink = null;
-            string cat = null;
-            string homeimage = null;
+            string products;
+            string productlink;
+            string categorylink;
+            string cat;
+            string homeimage;
             var url = driver.PageSource;
 
             if (url.Contains("user-scalable=yes"))

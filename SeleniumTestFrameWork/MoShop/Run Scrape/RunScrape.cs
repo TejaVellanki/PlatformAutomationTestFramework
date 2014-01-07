@@ -106,12 +106,9 @@ namespace MoBankUI.MoShop
                                 datarow.newrow("Scarpe status", "", comp, "PASS", driver);
                                 break;
                             }
-                            else
-                            {
-                                datarow.newrow("Scarpe/Datafeed status", "", comp, "PASS", driver);
-                                Thread.Sleep(5000);
-                                driver.Navigate().Refresh();
-                            }
+                            datarow.newrow("Scarpe/Datafeed status", "", comp, "PASS", driver);
+                            Thread.Sleep(5000);
+                            driver.Navigate().Refresh();
                         }
                         catch (Exception ex)
                         {
@@ -121,13 +118,10 @@ namespace MoBankUI.MoShop
                     }
                     break;
                 }
-                else
-                {
-                    Thread.Sleep(5000);
-                    driver.Navigate().Refresh();
+                Thread.Sleep(5000);
+                driver.Navigate().Refresh();
 
-                    j++;
-                }
+                j++;
                 if (j == 10)
                 {
                     datarow.newrow("Scarpe/Datafeed Start", "Scrape/Datafeed should start",

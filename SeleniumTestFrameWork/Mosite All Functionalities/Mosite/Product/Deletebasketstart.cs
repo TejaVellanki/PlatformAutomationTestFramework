@@ -16,7 +16,7 @@ namespace MoBankUI.Mosite.Product
         {
             try
             {
-                string checkout = null;
+                string checkout;
                 var url = driver.PageSource;
                 if (url.Contains("user-scalable=yes"))
                 {
@@ -62,8 +62,8 @@ namespace MoBankUI.Mosite.Product
         [Test]
         public void productunavailabl(IWebDriver driver, int l, Datarow datarow)
         {
-            string deletebasket = null;
-            string homeimage = null;
+            string deletebasket;
+            string homeimage;
             var url = driver.PageSource;
 
             if (url.Contains("user-scalable=yes"))
@@ -91,10 +91,10 @@ namespace MoBankUI.Mosite.Product
 
 
                 var url1 = driver.PageSource;
-                string products = null;
-                string productlink = null;
-                string categorylink = null;
-                string cat = null;
+                string products;
+                string productlink;
+                string categorylink;
+                string cat;
                 if (url1.Contains("user-scalable=yes"))
                 {
                     categorylink = CollectionMapV2.Categorylink;

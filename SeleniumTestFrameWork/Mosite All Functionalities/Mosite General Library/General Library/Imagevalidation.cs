@@ -149,28 +149,28 @@ namespace MoBankUI
         {
             try
             {
-                string Productimage = null;
-                string Productimagelink = null;
-                string multiproductimage = null;
+                string productimage;
+                string productimagelink;
+                string multiproductimage;
 
                 var url = driver.PageSource;
                 var location = driver.Url;
                 if (url.Contains("user-scalable=yes"))
                 {
-                    Productimage = ImagesV2.productimage;
-                    Productimagelink = ImagesV2.productimagelink;
+                    productimage = ImagesV2.productimage;
+                    productimagelink = ImagesV2.productimagelink;
                     multiproductimage = ImagesV2.multiproductimage;
                 }
                 else
                 {
-                    Productimage = ImagesV1.productimage;
-                    Productimagelink = ImagesV1.productimagelink;
+                    productimage = ImagesV1.productimage;
+                    productimagelink = ImagesV1.productimagelink;
                     multiproductimage = ImagesV1.multiproductimage;
                 }
 
-                if (IsElementPresent(driver, By.XPath("" + Productimage + "" + Productimagelink + "")))
+                if (IsElementPresent(driver, By.XPath("" + productimage + "" + productimagelink + "")))
                 {
-                    var element = driver.FindElement(By.XPath("" + Productimage + "" + Productimagelink + ""));
+                    var element = driver.FindElement(By.XPath("" + productimage + "" + productimagelink + ""));
                     var path = element.GetAttribute("src");
                     datarow.newrow("Image Validation", "", path, "PASS", driver);
                 }
@@ -178,11 +178,11 @@ namespace MoBankUI
                     //body[@id='page-products-details']/div/div[2]/div/div[2]/div/ul/li[2]/img
                 else if (IsElementPresent(driver, By.XPath(multiproductimage)))
                 {
-                    decimal count = driver.FindElements(By.XPath("" + Productimage + "")).Count;
+                    decimal count = driver.FindElements(By.XPath("" + productimage + "")).Count;
                     for (var o = 2; o < count; o++)
                     {
                         var element =
-                            driver.FindElement(By.XPath("" + Productimage + "[" + o + "]" + Productimagelink + ""));
+                            driver.FindElement(By.XPath("" + productimage + "[" + o + "]" + productimagelink + ""));
                         var path = element.GetAttribute("src");
                         datarow.newrow("Image Validation", "", path, "PASS", driver);
                     }

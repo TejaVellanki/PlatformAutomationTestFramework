@@ -9,10 +9,10 @@ namespace MoBankUI.Mosite.HomePage
         public void AllLink(IWebDriver driver, Datarow datarow)
         {
             var url = driver.PageSource;
-            string categorylink = null;
-            string cat = null;
-            string products = null;
-            string productlink = null;
+            string categorylink;
+            string cat;
+            string products;
+            string productlink;
             if (url.Contains("user-scalable=yes"))
             {
                 categorylink = CollectionMapV2.Categorylink;

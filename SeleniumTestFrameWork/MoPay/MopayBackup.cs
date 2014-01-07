@@ -177,22 +177,7 @@ namespace MoBankUI.MoPay
                             _datarow.newrow("Card Number", str13, "No Error Message Displayed", "FAIL", driver);
                             screenshot.screenshotfailed(driver);
                         }
-                        if (expected == null)
-                        {
-                            if (driver.PageSource.Contains("Type required"))
-                            {
-                                _datarow.newrow("Card Type", expected, "Type Required", "PASS", driver);
-                            }
-                            else
-                            {
-                                _datarow.newrow("Card Type", expected, expected, "FAIL", driver);
-                                screenshot.screenshotfailed(driver);
-                            }
-                        }
-                        else
-                        {
-                            _datarow.newrow("Card Type", expected, expected, "PASS", driver);
-                        }
+                        _datarow.newrow("Card Type", expected, expected, "PASS", driver);
                         var regex = new Regex("^[0-9]{3}$");
                         if (regex.IsMatch(str14))
                         {

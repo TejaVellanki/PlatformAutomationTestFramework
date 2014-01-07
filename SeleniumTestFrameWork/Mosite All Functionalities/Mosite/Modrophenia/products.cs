@@ -216,7 +216,7 @@ namespace MoBankUI.Mosite.Modrophenia
                     catch (Exception exception1)
                     {
                         var exception = exception1;
-                        str8 = exception.ToString();
+                        exception.ToString();
                         // datarow.newrow("Exception at Product variants", "Exception Not Expected", str8, "FAIL",driver, );
                     }
 
@@ -249,7 +249,7 @@ namespace MoBankUI.Mosite.Modrophenia
                     }
                     catch (Exception exception2)
                     {
-                        str8 = exception2.ToString();
+                        exception2.ToString();
                         //  datarow.newrow("Exception at Product Variants", "Exception Not Expected", str8, "FAIL",driver, );
                     }
 

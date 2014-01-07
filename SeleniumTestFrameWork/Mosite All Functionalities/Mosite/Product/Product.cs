@@ -21,10 +21,10 @@ namespace MoBankUI.Mosite.Product
 
 
                 string productVarinat = null;
-                string producttitle = null;
-                string AddToBasket = null;
-                string checkout = null;
-                string basketvalue = null;
+                string producttitle;
+                string AddToBasket;
+                string checkout;
+                string basketvalue;
                 string productvariant2 = null;
                 var screenshot = new Screenshot();
 
@@ -33,8 +33,6 @@ namespace MoBankUI.Mosite.Product
                 if (url.Contains("user-scalable=yes"))
                 {
                     producttitle = CollectionMapV2.producttitle;
-                    productVarinat = CollectionMapV2.productVariant;
-                    productvariant2 = CollectionMapV2.productvariant2;
                     AddToBasket = CollectionMapV2.addtobasket;
                     checkout = CollectionMapV2.checkout;
                     basketvalue = BasketV2.basketvalue;
@@ -42,7 +40,6 @@ namespace MoBankUI.Mosite.Product
                 else
                 {
                     producttitle = CollectionMapV1.producttitle;
-                    productVarinat = CollectionMapV1.productVariant;
                     AddToBasket = CollectionMapV1.addtobasket;
                     checkout = CollectionMapV1.checkout;
                     basketvalue = BasketV1.basketvalue;

@@ -76,7 +76,6 @@ namespace MoBankUI
                     {
                         datarow.newrow("Validate Search Results Using GET", "Search Results Using GET method", GET,
                                        "PASS");
-                        i++;
                     }
                 }
 

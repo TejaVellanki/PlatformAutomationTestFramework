@@ -15,16 +15,16 @@ namespace MoBankUI.Mosite
         {
             var url = driver.PageSource;
 
-            string field = null;
-            string fieldlabel = null;
-            string fieldinput = null;
-            string fieldcountry = null;
-            string countryvalue = null;
-            string submitbutton = null;
-            string letters = null;
-            string termsncond = null;
+            string field;
+            string fieldlabel;
+            string fieldinput;
+            string fieldcountry;
+            string countryvalue;
+            string submitbutton;
+            string letters;
+            string termsncond;
             string submitterms = null;
-            string paybutton = null;
+            string paybutton;
 
 
             var screenshot = new Screenshot();
@@ -106,17 +106,14 @@ namespace MoBankUI.Mosite
                                                 .SelectByText(value.Text);
                                             break;
                                         }
-                                        else
+                                        try
                                         {
-                                            try
-                                            {
-                                                values = values + "\r\n" + value;
-                                                // new SelectElement(driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + "")))  new SelectElement(driver.FindElement(By.Id(""))).SelectByText("");ByText(value);
-                                            }
-                                            catch (Exception EX)
-                                            {
-                                                var E = EX.ToString();
-                                            }
+                                            values = values + "\r\n" + value;
+                                            // new SelectElement(driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + "")))  new SelectElement(driver.FindElement(By.Id(""))).SelectByText("");ByText(value);
+                                        }
+                                        catch (Exception EX)
+                                        {
+                                            var E = EX.ToString();
                                         }
                                     }
                                 }

@@ -14,7 +14,7 @@ namespace MoBankUI.Mosite.HomePage
         {
             try
             {
-                string basketempty = null;
+                string basketempty;
                 var title = driver.PageSource;
 
                 if (title.Contains("user-scalable=yes"))

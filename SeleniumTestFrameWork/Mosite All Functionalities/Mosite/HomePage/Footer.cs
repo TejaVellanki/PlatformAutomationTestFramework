@@ -33,13 +33,13 @@ namespace MoBankUI.Mosite.HomePage
             {
                 var pagesource = driver.PageSource;
 
-                string footer = null;
-                string footerlink = null;
-                string sociallin = null;
-                string sociallink = null;
-                string mopowered = null;
-                string lowerfooter = null;
-                string lowerfooterlink = null;
+                string footer;
+                string footerlink;
+                string sociallin;
+                string sociallink;
+                string mopowered;
+                string lowerfooter;
+                string lowerfooterlink;
 
                 #region
 

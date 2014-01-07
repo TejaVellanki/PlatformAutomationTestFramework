@@ -20,10 +20,10 @@ namespace MoBankUI.Mosite.Product
             {
                 driver.Navigate().GoToUrl(url);
 
-                string categorylink = null;
-                string cat = null;
-                string products = null;
-                string productlink = null;
+                string categorylink;
+                string cat;
+                string products;
+                string productlink;
                 var URL = driver.PageSource;
                 if (URL.Contains("user-scalable=yes"))
                 {

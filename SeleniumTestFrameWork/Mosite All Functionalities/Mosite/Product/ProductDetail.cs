@@ -8,9 +8,9 @@ namespace MoBankUI.Mosite.Product
     {
         public void Productdetail(IWebDriver driver, Datarow datarow)
         {
-            string productdescription = null;
-            string productdescriptiontab = null;
-            string Detail = null;
+            string productdescription;
+            string productdescriptiontab;
+            string Detail;
             var pg = driver.PageSource;
 
             if (pg.Contains("user-scalable=yes"))
