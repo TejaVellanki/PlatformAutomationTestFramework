@@ -39,7 +39,7 @@ namespace MoBankUI
 
         public Form1()
         {
-            throw new NotImplementedException();
+            InitializeComponent();
         }
 
         private void button3_Click_1(object sender, EventArgs e)
