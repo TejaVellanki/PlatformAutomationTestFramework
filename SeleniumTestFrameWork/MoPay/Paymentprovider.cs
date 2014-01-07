@@ -143,18 +143,16 @@ namespace MoBankUI.MoPay
                     datarow.newrow("Card2", "on", str18, "PASS", driver);
                 }
             }
-            if (IsElementPresent(driver, By.Id("CardTypes_2____selector")))
+            if (!IsElementPresent(driver, By.Id("CardTypes_2____selector"))) return;
+            var str19 = driver.FindElement(By.Id("CardTypes_2____selector")).GetAttribute("value");
+            if (str19 == "true")
             {
-                var str19 = driver.FindElement(By.Id("CardTypes_2____selector")).GetAttribute("value");
-                if (str19 == "true")
-                {
-                    datarow.newrow("Card3", "on", str19, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
-                }
-                else
-                {
-                    datarow.newrow("Card3", "off", str19, "PASS", driver);
-                }
+                datarow.newrow("Card3", "on", str19, "FAIL", driver);
+                _screenshot.screenshotfailed(driver);
+            }
+            else
+            {
+                datarow.newrow("Card3", "off", str19, "PASS", driver);
             }
         }
     }

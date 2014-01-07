@@ -15,7 +15,7 @@ namespace MoBankUI.Mosite.Product
             try
             {
                 var url = driver.PageSource;
-                string deletebasket = url.Contains("user-scalable=yes") ? CollectionMapV2.deletebasket : CollectionMapV1.deletebasket;
+                var deletebasket = url.Contains("user-scalable=yes") ? CollectionMapV2.deletebasket : CollectionMapV1.deletebasket;
                 /*
                 if (IsElementPresent(driver,By.XPath("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span"),05))
                 {

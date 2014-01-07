@@ -25,143 +25,141 @@ namespace MoBankUI.MoSite.Other
                 var count = table.Rows.Count;
                 for (var i = 0; i < count; i++)
                 {
-                    if (table.Rows.Count > 0)
-                    {
-                        var expected = table.Rows[i]["FirstName"].ToString();
-                        var str3 = table.Rows[i]["Last Name"].ToString();
-                        var str4 = table.Rows[i]["Country"].ToString();
-                        var str5 = table.Rows[i]["Address"].ToString();
-                        var str6 = table.Rows[i]["City"].ToString();
-                        var str7 = table.Rows[i]["County"].ToString();
-                        var str8 = table.Rows[i]["PostCode"].ToString();
-                        var str9 = table.Rows[i]["Email"].ToString();
-                        var str10 = table.Rows[i]["Telephone Number"].ToString();
-                        var str11 = table.Rows[i]["Custome Note"].ToString();
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div/input[2]"))
-                              .Clear();
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div/input[2]"))
-                              .SendKeys(expected.TrimStart(new char[0]));
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[2]/input[2]"))
-                              .Clear();
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[2]/input[2]"))
-                              .SendKeys(str3);
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[3]/input[2]"))
-                              .Clear();
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[3]/input[2]"))
-                              .SendKeys(str8);
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[4]/input[2]"))
-                              .Clear();
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[4]/input[2]"))
-                              .SendKeys(str5);
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[5]/input[2]"))
-                              .Clear();
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[5]/input[2]"))
-                              .SendKeys(str6);
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[6]/input[2]"))
-                              .Clear();
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[6]/input[2]"))
-                              .SendKeys(str7);
-                        new SelectElement(driver.FindElement(By.Id("FormData_6__Value"))).SelectByText(str4);
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[9]/input[2]"))
-                              .Clear();
-                        driver.FindElement(
-                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[9]/input[2]"))
-                              .SendKeys(str10);
-                        driver.FindElement(By.Id("FormData_9__Value")).Clear();
-                        driver.FindElement(By.Id("FormData_9__Value")).SendKeys(str9);
-                        var executor = (IJavaScriptExecutor) driver;
-                        executor.ExecuteScript("window.scrollBy(0,100)", new object[0]);
-                        executor.ExecuteScript("window.scrollBy(0,100)", new object[0]);
-                        driver.FindElement(
-                            By.XPath(
-                                "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[11]/fieldset/div[2]/div/label/span/span[2]"))
-                              .Click();
-                        driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                        var element2 =
-                            driver.FindElement(
-                                By.XPath(
-                                    "//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"));
+                    if (table.Rows.Count <= 0) continue;
+                    var expected = table.Rows[i]["FirstName"].ToString();
+                    var str3 = table.Rows[i]["Last Name"].ToString();
+                    var str4 = table.Rows[i]["Country"].ToString();
+                    var str5 = table.Rows[i]["Address"].ToString();
+                    var str6 = table.Rows[i]["City"].ToString();
+                    var str7 = table.Rows[i]["County"].ToString();
+                    var str8 = table.Rows[i]["PostCode"].ToString();
+                    var str9 = table.Rows[i]["Email"].ToString();
+                    var str10 = table.Rows[i]["Telephone Number"].ToString();
+                    var str11 = table.Rows[i]["Custome Note"].ToString();
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div/input[2]"))
+                        .Clear();
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div/input[2]"))
+                        .SendKeys(expected.TrimStart(new char[0]));
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[2]/input[2]"))
+                        .Clear();
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[2]/input[2]"))
+                        .SendKeys(str3);
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[3]/input[2]"))
+                        .Clear();
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[3]/input[2]"))
+                        .SendKeys(str8);
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[4]/input[2]"))
+                        .Clear();
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[4]/input[2]"))
+                        .SendKeys(str5);
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[5]/input[2]"))
+                        .Clear();
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[5]/input[2]"))
+                        .SendKeys(str6);
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[6]/input[2]"))
+                        .Clear();
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[6]/input[2]"))
+                        .SendKeys(str7);
+                    new SelectElement(driver.FindElement(By.Id("FormData_6__Value"))).SelectByText(str4);
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[9]/input[2]"))
+                        .Clear();
+                    driver.FindElement(
+                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[9]/input[2]"))
+                        .SendKeys(str10);
+                    driver.FindElement(By.Id("FormData_9__Value")).Clear();
+                    driver.FindElement(By.Id("FormData_9__Value")).SendKeys(str9);
+                    var executor = (IJavaScriptExecutor) driver;
+                    executor.ExecuteScript("window.scrollBy(0,100)", new object[0]);
+                    executor.ExecuteScript("window.scrollBy(0,100)", new object[0]);
+                    driver.FindElement(
+                        By.XPath(
+                            "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[11]/fieldset/div[2]/div/label/span/span[2]"))
+                        .Click();
+                    driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
+                    var element2 =
                         driver.FindElement(
                             By.XPath(
-                                "//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"))
-                              .Click();
+                                "//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"));
+                    driver.FindElement(
+                        By.XPath(
+                            "//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"))
+                        .Click();
 
-                        if (driver.Title != "Checkout - Address - QA - The Tickle Company")
-                        {
-                            break;
-                        }
-                        var attribute =
-                            driver.FindElement(
-                                By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div/input[2]"))
-                                  .GetAttribute("value");
-                        var input =
-                            driver.FindElement(
-                                By.XPath(
-                                    "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[2]/input[2]"))
-                                  .GetAttribute("value");
-                        var str15 =
-                            driver.FindElement(
-                                By.XPath(
-                                    "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[4]/input[2]"))
-                                  .GetAttribute("value");
-                        var str16 =
-                            driver.FindElement(
-                                By.XPath(
-                                    "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[3]/input[2]"))
-                                  .GetAttribute("value");
-                        var str17 =
-                            driver.FindElement(
-                                By.XPath(
-                                    "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[5]/input[2]"))
-                                  .GetAttribute("value");
-                        var str18 =
-                            driver.FindElement(
-                                By.XPath(
-                                    "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[6]/input[2]"))
-                                  .GetAttribute("value");
-                        var str19 =
-                            driver.FindElement(
-                                By.XPath(
-                                    "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[9]/input[2]"))
-                                  .GetAttribute("value");
-                        var selectedValue = driver.FindElement(By.Id("FormData_6__Value")).GetAttribute("Value");
-                        var str21 = driver.FindElement(By.Id("FormData_9__Value")).GetAttribute("Value");
-                        datarow.newrow("FirstName",
-                            Regex.IsMatch(attribute, "^[a-zA-Z'']") ? expected : "FirstName-Not in Expected Format",
-                            attribute, "PASS", driver);
-                        datarow.newrow("Last Name",
-                            Regex.IsMatch(input, "^[a-zA-Z'']") ? str3 : "LastName-Not in Expected Format", input,
-                            "PASS", driver);
-                        datarow.newrow("Address",
-                            Regex.IsMatch(str15, "^[a-zA-Z0-9'']") ? str5 : "Address-Not in Expected Format", str15,
-                            "PASS", driver);
-                        datarow.newrow("Post Code",
-                            Regex.IsMatch(str16, "^[a-zA-Z0-9'']") ? str8 : "PostCode-Not in Expected Format", str16,
-                            "PASS", driver);
-                        datarow.newrow("City/Town",
-                            Regex.IsMatch(str17, "^[a-zA-Z'']") ? str6 : "City-Not in Expected Format", str17, "PASS",
-                            driver);
-                        datarow.newrow("Country",
-                            Regex.IsMatch(selectedValue, "^[a-zA-Z'']") ? str4 : "Country-Not in Expected Format",
-                            selectedValue, "PASS", driver);
-                        datarow.newrow("EMAIL", Regex.IsMatch(str21,
-                            "^(?(\")(\"[^\"]+?\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1,3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9]{2,17}))$")
-                            ? str9
-                            : "Email-Not in Expected Format", str21, "PASS", driver);
+                    if (driver.Title != "Checkout - Address - QA - The Tickle Company")
+                    {
+                        break;
                     }
+                    var attribute =
+                        driver.FindElement(
+                            By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div/input[2]"))
+                            .GetAttribute("value");
+                    var input =
+                        driver.FindElement(
+                            By.XPath(
+                                "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[2]/input[2]"))
+                            .GetAttribute("value");
+                    var str15 =
+                        driver.FindElement(
+                            By.XPath(
+                                "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[4]/input[2]"))
+                            .GetAttribute("value");
+                    var str16 =
+                        driver.FindElement(
+                            By.XPath(
+                                "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[3]/input[2]"))
+                            .GetAttribute("value");
+                    var str17 =
+                        driver.FindElement(
+                            By.XPath(
+                                "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[5]/input[2]"))
+                            .GetAttribute("value");
+                    var str18 =
+                        driver.FindElement(
+                            By.XPath(
+                                "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[6]/input[2]"))
+                            .GetAttribute("value");
+                    var str19 =
+                        driver.FindElement(
+                            By.XPath(
+                                "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[9]/input[2]"))
+                            .GetAttribute("value");
+                    var selectedValue = driver.FindElement(By.Id("FormData_6__Value")).GetAttribute("Value");
+                    var str21 = driver.FindElement(By.Id("FormData_9__Value")).GetAttribute("Value");
+                    datarow.newrow("FirstName",
+                        Regex.IsMatch(attribute, "^[a-zA-Z'']") ? expected : "FirstName-Not in Expected Format",
+                        attribute, "PASS", driver);
+                    datarow.newrow("Last Name",
+                        Regex.IsMatch(input, "^[a-zA-Z'']") ? str3 : "LastName-Not in Expected Format", input,
+                        "PASS", driver);
+                    datarow.newrow("Address",
+                        Regex.IsMatch(str15, "^[a-zA-Z0-9'']") ? str5 : "Address-Not in Expected Format", str15,
+                        "PASS", driver);
+                    datarow.newrow("Post Code",
+                        Regex.IsMatch(str16, "^[a-zA-Z0-9'']") ? str8 : "PostCode-Not in Expected Format", str16,
+                        "PASS", driver);
+                    datarow.newrow("City/Town",
+                        Regex.IsMatch(str17, "^[a-zA-Z'']") ? str6 : "City-Not in Expected Format", str17, "PASS",
+                        driver);
+                    datarow.newrow("Country",
+                        Regex.IsMatch(selectedValue, "^[a-zA-Z'']") ? str4 : "Country-Not in Expected Format",
+                        selectedValue, "PASS", driver);
+                    datarow.newrow("EMAIL", Regex.IsMatch(str21,
+                        "^(?(\")(\"[^\"]+?\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1,3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9]{2,17}))$")
+                        ? str9
+                        : "Email-Not in Expected Format", str21, "PASS", driver);
                 }
                 datarow.newrow("Basket Value", "(1)", "(1)",
                     driver.FindElement(By.Id("BasketInfo")).Text == "(1)" ? "PASS" : "FAIL", driver);

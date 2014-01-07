@@ -23,11 +23,9 @@ namespace MoBankUI.Mosite.Search
                 _names = _name + "\n" + _names;
             }
 
-            if (_names != null)
-            {
-                var charArray = _names.ToCharArray();
-                Array.Reverse(charArray);
-            }
+            if (_names == null) return;
+            var charArray = _names.ToCharArray();
+            Array.Reverse(charArray);
         }
     }
 }

@@ -43,25 +43,21 @@ namespace MoBankUI.Mosite
                 {
                     if (split[2] == "m" || split[2] == "www")
                     {
-                        if (sr == split[3])
-                        {
-                            datarow.consolidatedreport(emails);
-                            datarow.excelsave("Mosite-" + sr + "", driver, emails);
+                        if (sr != split[3]) continue;
+                        datarow.consolidatedreport(emails);
+                        datarow.excelsave("Mosite-" + sr + "", driver, emails);
 
-                            driver.Quit();
-                            break;
-                        }
+                        driver.Quit();
+                        break;
                     }
                     else
                     {
-                        if (sr == split[2])
-                        {
-                            datarow.consolidatedreport(emails);
-                            datarow.excelsave("Mosite-" + sr + "", driver, emails);
+                        if (sr != split[2]) continue;
+                        datarow.consolidatedreport(emails);
+                        datarow.excelsave("Mosite-" + sr + "", driver, emails);
 
-                            driver.Quit();
-                            break;
-                        }
+                        driver.Quit();
+                        break;
                     }
                 }
             }

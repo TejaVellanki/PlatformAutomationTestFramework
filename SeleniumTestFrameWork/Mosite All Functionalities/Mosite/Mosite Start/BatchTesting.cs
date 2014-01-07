@@ -87,23 +87,21 @@ namespace MoBankUI.Mosite
                         i++;
                     }
 
-                    if (function == "Test Mopay")
+                    if (function != "Test Mopay") continue;
+                    try
                     {
-                        try
-                        {
-                            datarow.newrow("", "", "Mopay", "", driver);
-                            var pay = new BatchPay();
-                            pay.batchpay(driver, url, datarow);
-                        }
-                        catch (Exception ex)
-                        {
-                            var e = ex.ToString();
-                            datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
-                            _screenshot.screenshotfailed(driver);
-                        }
-
-                        i++;
+                        datarow.newrow("", "", "Mopay", "", driver);
+                        var pay = new BatchPay();
+                        pay.batchpay(driver, url, datarow);
                     }
+                    catch (Exception ex)
+                    {
+                        var e = ex.ToString();
+                        datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
+                        _screenshot.screenshotfailed(driver);
+                    }
+
+                    i++;
                 }
             }
             catch (Exception ex)

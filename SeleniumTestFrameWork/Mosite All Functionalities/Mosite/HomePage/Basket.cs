@@ -16,7 +16,7 @@ namespace MoBankUI.Mosite.HomePage
             {
                 var title = driver.PageSource;
 
-                string basketempty = title.Contains("user-scalable=yes") ? BasketV2.basketempty : BasketV1.basketempty;
+                var basketempty = title.Contains("user-scalable=yes") ? BasketV2.basketempty : BasketV1.basketempty;
                 try
                 {
                     driver.FindElement(By.Id("BasketInfo")).Click();

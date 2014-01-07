@@ -11,10 +11,11 @@ namespace MoBankUI.Mosite
         {
             try
             {
+                Countryhouse contry;
                 if (url.Contains("countryhouseoutdoor"))
                 {
                     //country house checkout process 
-                    var contry = new Countryhouse();
+                    contry = new Countryhouse();
                     contry.Checkoutprocess(driver);
                 }
 
@@ -23,11 +24,9 @@ namespace MoBankUI.Mosite
                     var wolford = new Wolford();
                     wolford.Wolfordcheckout(driver, datarow);
                 }
-                if (url.Contains("bathrooms"))
-                {
-                    var contry = new Countryhouse();
-                    contry.bathroomcheckout(driver);
-                }
+                if (!url.Contains("bathrooms")) return;
+                contry = new Countryhouse();
+                contry.bathroomcheckout(driver);
             }
             catch (Exception ex)
             {

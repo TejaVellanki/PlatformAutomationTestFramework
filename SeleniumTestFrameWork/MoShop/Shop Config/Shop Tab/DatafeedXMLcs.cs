@@ -37,36 +37,34 @@ namespace MoBankUI.MoShop
                     var name = GetValue(driver,
                                            By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr[" + i +
                                                     "]/td/input"), 30);
-                    if (name == "Datafeed")
-                    {
+                    if (name != "Datafeed") continue;
+                    driver.FindElement(
+                        By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr[" + i + "]/th/input[4]"))
+                        .Click();
+                    driver.FindElement(By.CssSelector("input.button")).Click();
+
+
+                    if (
                         driver.FindElement(
                             By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr[" + i + "]/th/input[4]"))
-                              .Click();
-                        driver.FindElement(By.CssSelector("input.button")).Click();
-
-
-                        if (
-                            driver.FindElement(
-                                By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr[" + i + "]/th/input[4]"))
-                                  .Enabled)
-                        {
-                            datarow.newrow("Datafeed Catalogue Selection",
-                                           "Datafeed Catalogue is expected to be selected",
-                                           "Datafeed Catalogue is selected", "PASS", driver);
-                        }
-                        else
-                        {
-                            driver.FindElement(By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr/th/input[4]"))
-                                  .Click();
-                            driver.FindElement(By.CssSelector("input.button")).Click();
-                        }
-
-
-                        driver.FindElement(
-                            By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr[" + i + "]/th[2]/a")).Click();
-
-                        break;
+                            .Enabled)
+                    {
+                        datarow.newrow("Datafeed Catalogue Selection",
+                            "Datafeed Catalogue is expected to be selected",
+                            "Datafeed Catalogue is selected", "PASS", driver);
                     }
+                    else
+                    {
+                        driver.FindElement(By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr/th/input[4]"))
+                            .Click();
+                        driver.FindElement(By.CssSelector("input.button")).Click();
+                    }
+
+
+                    driver.FindElement(
+                        By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr[" + i + "]/th[2]/a")).Click();
+
+                    break;
                 }
                 driver.FindElement(By.Id("File"))
                       .SendKeys(

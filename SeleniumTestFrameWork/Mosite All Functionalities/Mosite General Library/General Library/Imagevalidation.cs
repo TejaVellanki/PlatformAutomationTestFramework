@@ -69,35 +69,33 @@ namespace MoBankUI
         {
             try
             {
-                if (l < 3)
+                if (l >= 3) return;
+                var title = driver.PageSource;
+                _categoryimagecss = title.Contains("user-scalable=yes") ? ImagesV2.Categoryimagecss : ImagesV1.Categoryimagecss;
+                var location = driver.Url;
+                if (IsElementPresent(driver, By.CssSelector(_categoryimagecss), 30))
                 {
-                    var title = driver.PageSource;
-                    _categoryimagecss = title.Contains("user-scalable=yes") ? ImagesV2.Categoryimagecss : ImagesV1.Categoryimagecss;
-                    var location = driver.Url;
-                    if (IsElementPresent(driver, By.CssSelector(_categoryimagecss), 30))
+                    var element = driver.FindElement(By.CssSelector(_categoryimagecss));
+                    var path = element.GetAttribute("src");
+                    datarow.newrow("Image Validation", "", path, "PASS", driver);
+                    if (path.Contains("http") || path.Contains("https") || path.Contains("blob"))
                     {
-                        var element = driver.FindElement(By.CssSelector(_categoryimagecss));
-                        var path = element.GetAttribute("src");
-                        datarow.newrow("Image Validation", "", path, "PASS", driver);
-                        if (path.Contains("http") || path.Contains("https") || path.Contains("blob"))
-                        {
-                            datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path,
-                                           "FAIL", driver);
-                        }
-                        else
-                        {
-                            datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path,
-                                           "PASS", driver);
-                        }
-                        clickimage(driver, datarow, By.CssSelector(_categoryimagecss));
+                        datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path,
+                            "FAIL", driver);
                     }
                     else
                     {
-                        datarow.newrow("Image Validation", "", "No Image for Category page" + "-" + location, "FAIL",
-                                       driver);
+                        datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path,
+                            "PASS", driver);
                     }
-                    l++;
+                    clickimage(driver, datarow, By.CssSelector(_categoryimagecss));
                 }
+                else
+                {
+                    datarow.newrow("Image Validation", "", "No Image for Category page" + "-" + location, "FAIL",
+                        driver);
+                }
+                l++;
             }
             catch (Exception ex)
             {

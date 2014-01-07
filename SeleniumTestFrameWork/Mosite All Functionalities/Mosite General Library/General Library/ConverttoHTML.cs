@@ -191,7 +191,7 @@ namespace MoBankUI
             htmlBuilder.Append("</html>");
 
             //Create String to be Returned
-            string htmlString = htmlBuilder.ToString();
+            var htmlString = htmlBuilder.ToString();
 
             var SW = File.CreateText(@"C:\Selenium\Input Data\HTML Reports\" + reportname + ".html");
             SW.Close();

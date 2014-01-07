@@ -76,7 +76,7 @@ namespace MoBankUI.Mosite.Modrophenia
                     var con = driver.FindElement(By.Id("attr_1"));
                     IList<IWebElement> selectOptions = con.FindElements(By.TagName("option"));
 
-                    string str5 = selectOptions.Where(str6 => str6.Text != "Please Select").Aggregate<IWebElement, string>(null, (current, str6) => current + "\r\n" + str6);
+                    var str5 = selectOptions.Where(str6 => str6.Text != "Please Select").Aggregate<IWebElement, string>(null, (current, str6) => current + "\r\n" + str6);
                     row[4] = str5;
                     dt.Rows.Add(row);
                     driver.Navigate().Back();
@@ -130,7 +130,7 @@ namespace MoBankUI.Mosite.Modrophenia
                 var con = driver.FindElement(By.Id("attr_1"));
                 IList<IWebElement> selectOptions = con.FindElements(By.TagName("option"));
 
-                string str5 = selectOptions.Where(str6 => str6.Text != "Please Select").Aggregate<IWebElement, string>(null, (current, str6) => current + "\r\n" + str6);
+                var str5 = selectOptions.Where(str6 => str6.Text != "Please Select").Aggregate<IWebElement, string>(null, (current, str6) => current + "\r\n" + str6);
                 row[4] = str5;
                 dt.Rows.Add(row);
                 driver.Navigate().Back();
@@ -176,11 +176,9 @@ namespace MoBankUI.Mosite.Modrophenia
             {
                 foreach (var process in Process.GetProcessesByName("EXCEL"))
                 {
-                    if (process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE"))
-                    {
-                        process.Kill();
-                        break;
-                    }
+                    if (!process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE")) continue;
+                    process.Kill();
+                    break;
                 }
             }
         }

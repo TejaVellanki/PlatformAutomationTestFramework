@@ -277,27 +277,23 @@ namespace MoBankUI.MoPay
                             screenshot.screenshotfailed(driver);
                         }
                         var title = driver.Title;
-                        if (title != "Secure Payment Page")
+                        if (title == "Secure Payment Page") continue;
+                        if (title == "Redirect to External")
                         {
-                            if (title == "Redirect to External")
-                            {
-                                Dsecure(driver);
-                                break;
-                            }
-                            if (driver.PageSource.Contains("Checkout Accepted"))
-                            {
-                                Normaltransaction(driver);
-                                break;
-                            }
-                            if (driver.PageSource.Contains("Checkout Declined") ||
-                                driver.PageSource.Contains("Checkout Error"))
-                            {
-                                _datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver
-                                    );
-                                driver.FindElement(By.LinkText("start again")).Click();
-                                break;
-                            }
+                            Dsecure(driver);
+                            break;
                         }
+                        if (driver.PageSource.Contains("Checkout Accepted"))
+                        {
+                            Normaltransaction(driver);
+                            break;
+                        }
+                        if (!driver.PageSource.Contains("Checkout Declined") &&
+                            !driver.PageSource.Contains("Checkout Error")) continue;
+                        _datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver
+                            );
+                        driver.FindElement(By.LinkText("start again")).Click();
+                        break;
                     }
                 }
             }

@@ -157,12 +157,10 @@ namespace MoBankUI.Mosite.Modrophenia
                                 str5 = null;
                                 foreach (var str6 in selectOptions)
                                 {
-                                    if (str6.Text != "Please Select")
-                                    {
-                                        str5 = str5 + "\r\n" + str6;
-                                        new SelectElement(driver.FindElement(By.Id("Variants_0__OptionValue")))
-                                            .SelectByText(str6.Text);
-                                    }
+                                    if (str6.Text == "Please Select") continue;
+                                    str5 = str5 + "\r\n" + str6;
+                                    new SelectElement(driver.FindElement(By.Id("Variants_0__OptionValue")))
+                                        .SelectByText(str6.Text);
                                 }
                                 row[4] = str5;
                                 j++;
@@ -201,11 +199,9 @@ namespace MoBankUI.Mosite.Modrophenia
                             for (var num6 = 0; num6 < count; num6++)
                             {
                                 str7 = driver.FindElement(By.Id("OptionValue_" + num6)).GetAttribute("Value");
-                                if ((str7 != "Please Select") || (str7 != null))
-                                {
-                                    str5 = str5 + "\r\n" + str7;
-                                    driver.FindElement(By.Id("OptionValue_" + num6)).Click();
-                                }
+                                if ((str7 == "Please Select") && (str7 == null)) continue;
+                                str5 = str5 + "\r\n" + str7;
+                                driver.FindElement(By.Id("OptionValue_" + num6)).Click();
                             }
 
 
@@ -242,7 +238,7 @@ namespace MoBankUI.Mosite.Modrophenia
             }
             catch (Exception ex)
             {
-                string str8 = ex.ToString();
+                var str8 = ex.ToString();
                 datarow.newrow("Exception", "Not Expected", str8, "FAIL", driver);
             }
         }

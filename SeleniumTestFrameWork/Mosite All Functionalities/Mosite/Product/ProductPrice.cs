@@ -12,7 +12,7 @@ namespace MoBankUI.Mosite.Product
             try
             {
                 var pg = driver.PageSource;
-                string productprice = pg.Contains("user-scalable=yes") ? CollectionMapV2.ProductPrice : CollectionMapV1.ProductPrice;
+                var productprice = pg.Contains("user-scalable=yes") ? CollectionMapV2.ProductPrice : CollectionMapV1.ProductPrice;
 
                 #region Product price
 

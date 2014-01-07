@@ -50,22 +50,20 @@ namespace MoBankUI
                 foreach (var s in selectedvalue)
                 {
                     var ss = s;
-                    if (ss.Contains("themes"))
+                    if (!ss.Contains("themes")) continue;
+                    if (ss.Contains("http") || ss.Contains("https") || ss.Contains("blob"))
                     {
-                        if (ss.Contains("http") || ss.Contains("https") || ss.Contains("blob"))
-                        {
-                            datarow.newrow("CSS Validation", "Http/Https and Blob shouldnot contain inside the CSS Url",
-                                           ss, "FAIL");
-                        }
-                        else
-                        {
-                            datarow.newrow("CSS Validation", "Http/Https and Blob shouldnot contain inside the CSS Url",
-                                           ss, "PASS");
-                        }
-
-
-                        break;
+                        datarow.newrow("CSS Validation", "Http/Https and Blob shouldnot contain inside the CSS Url",
+                            ss, "FAIL");
                     }
+                    else
+                    {
+                        datarow.newrow("CSS Validation", "Http/Https and Blob shouldnot contain inside the CSS Url",
+                            ss, "PASS");
+                    }
+
+
+                    break;
                 }
                 datarow.newrow("", "", "Validating GET for Search Results", "");
                 foreach (var get in selectedvalue)

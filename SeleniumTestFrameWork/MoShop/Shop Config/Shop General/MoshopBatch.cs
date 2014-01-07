@@ -25,124 +25,121 @@ namespace MoBankUI.MoShop
 
                 foreach (var str in strArray)
                 {
-                    if (str.Length != 0)
+                    if (str.Length == 0) continue;
+
+                    #region Test Shop
+
+                    if (str == "Create a Test Shop")
                     {
-                        #region Test Shop
+                        datarow.newrow("", "", "Create a Test Shop", "", driver);
+                        var testshop = new CreateShop();
+                        testshop.Testshop(driver, datarow);
 
-                        if (str == "Create a Test Shop")
-                        {
-                            datarow.newrow("", "", "Create a Test Shop", "", driver);
-                            var testshop = new CreateShop();
-                            testshop.Testshop(driver, datarow);
+                        new LookandFeel().Lookandfeel(driver, datarow);
 
-                            new LookandFeel().Lookandfeel(driver, datarow);
+                        #region Global Settings
 
-                            #region Global Settings
-
-                            var global = new GlobalSetting();
-                            // global.globalsetting(driver);
-
-                            #endregion
-                        }
-
-                        #endregion
-
-                        #region Test Scrape
-
-                        if (str == "Create a Test Scrape")
-                        {
-                            datarow.newrow("", "", "Create a Test Scarpe", "", driver);
-                            new Createscrape().createscrape(driver, datarow);
-                        }
-
-                        #endregion
-
-                        #region Run Manual Scrape
-
-                        if (str == "Run Manual Scrape")
-                        {
-                            datarow.newrow("", "", "Run Manual Scrape", "", driver);
-                            var run = new RunScrape();
-                            run.Runscrape(driver, datarow);
-                        }
-
-                        #endregion
-
-                        #region Custom Domain Name Feature and Localisation
-
-                        if (str == "Validate Custom Domain Name Feature and Localisation")
-                        {
-                            datarow.newrow("", "", "Validate Custom domain Name", "", driver);
-                            new Shop().Culture(driver, datarow);
-                        }
-
-                        #endregion
-
-                        #region "Run the Test Site - Scrape
-
-                        if (str == "Run the Test Site - Scrape")
-                        {
-                            try
-                            {
-                                driver.Manage().Window.Size = new Size(400, 550);
-                                datarow.newrow("", "", "Run the Test Site", "", driver);
-                                driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
-
-                                var blob = new BlobStorage();
-                                //blob.Blob(driver,datarow, "http://testshop.mobankdev.com/");
-                                commtest(driver, datarow);
-                            }
-                            catch (Exception ex)
-                            {
-                                var e = ex.ToString();
-                                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
-                            }
-                        }
-
-                        #endregion
-
-                        #region Run the Test Site - DataFeed XML
-
-                        if (str == "Run the Test Site - DataFeed XML")
-                        {
-                            var datafeed = new DatafeedXml();
-                            datafeed.Datafeed(driver, datarow);
-                            datarow.newrow("", "", "Run the Test Site-DataFeed", "", driver);
-                            driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
-
-                            datarow.newrow("", "", "Footer Links", "", driver);
-                            var footer = new FooterTps();
-                            footer.Footerhome(driver, "http://testshop.mobankdev.com/", datarow);
-                            var relatedproduct = new RelatedProducts();
-                            relatedproduct.Relatedproducts(driver, datarow);
-                            //commtest(driver, datarow);
-                        }
-
-                        #endregion
-
-                        #region Validate Products Against Live Site - Modropenia
-
-                        if (str == "Validate Products Against Live Site - Modropenia")
-                        {
-                            var modrophenia = new Modrophenialive();
-                            modrophenia.modrophenialiveproducts(driver);
-                            var products = new modropheniaproducts();
-                            products.product(datarow, driver);
-                        }
-
-                        #endregion
-
-                        # region Delete Shop And Scrape
-
-                        if (str == "Delete TestShop And TestScrape")
-                        {
-                            var delete = new DeleteTestShop();
-                            delete.Deleteshop(driver);
-                            delete.Deletedscrape(driver);
-                        }
+                        var global = new GlobalSetting();
+                        // global.globalsetting(driver);
 
                         #endregion
                     }
+
+                    #endregion
+
+                    #region Test Scrape
+
+                    if (str == "Create a Test Scrape")
+                    {
+                        datarow.newrow("", "", "Create a Test Scarpe", "", driver);
+                        new Createscrape().createscrape(driver, datarow);
+                    }
+
+                    #endregion
+
+                    #region Run Manual Scrape
+
+                    if (str == "Run Manual Scrape")
+                    {
+                        datarow.newrow("", "", "Run Manual Scrape", "", driver);
+                        var run = new RunScrape();
+                        run.Runscrape(driver, datarow);
+                    }
+
+                    #endregion
+
+                    #region Custom Domain Name Feature and Localisation
+
+                    if (str == "Validate Custom Domain Name Feature and Localisation")
+                    {
+                        datarow.newrow("", "", "Validate Custom domain Name", "", driver);
+                        new Shop().Culture(driver, datarow);
+                    }
+
+                    #endregion
+
+                    #region "Run the Test Site - Scrape
+
+                    if (str == "Run the Test Site - Scrape")
+                    {
+                        try
+                        {
+                            driver.Manage().Window.Size = new Size(400, 550);
+                            datarow.newrow("", "", "Run the Test Site", "", driver);
+                            driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
+
+                            var blob = new BlobStorage();
+                            //blob.Blob(driver,datarow, "http://testshop.mobankdev.com/");
+                            commtest(driver, datarow);
+                        }
+                        catch (Exception ex)
+                        {
+                            var e = ex.ToString();
+                            datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                        }
+                    }
+
+                    #endregion
+
+                    #region Run the Test Site - DataFeed XML
+
+                    if (str == "Run the Test Site - DataFeed XML")
+                    {
+                        var datafeed = new DatafeedXml();
+                        datafeed.Datafeed(driver, datarow);
+                        datarow.newrow("", "", "Run the Test Site-DataFeed", "", driver);
+                        driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
+
+                        datarow.newrow("", "", "Footer Links", "", driver);
+                        var footer = new FooterTps();
+                        footer.Footerhome(driver, "http://testshop.mobankdev.com/", datarow);
+                        var relatedproduct = new RelatedProducts();
+                        relatedproduct.Relatedproducts(driver, datarow);
+                        //commtest(driver, datarow);
+                    }
+
+                    #endregion
+
+                    #region Validate Products Against Live Site - Modropenia
+
+                    if (str == "Validate Products Against Live Site - Modropenia")
+                    {
+                        var modrophenia = new Modrophenialive();
+                        modrophenia.modrophenialiveproducts(driver);
+                        var products = new modropheniaproducts();
+                        products.product(datarow, driver);
+                    }
+
+                    #endregion
+
+                    # region Delete Shop And Scrape
+
+                    if (str != "Delete TestShop And TestScrape") continue;
+                    var delete = new DeleteTestShop();
+                    delete.Deleteshop(driver);
+                    delete.Deletedscrape(driver);
+
+                    #endregion
                 }
             }
 

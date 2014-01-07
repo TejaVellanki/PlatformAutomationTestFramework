@@ -136,20 +136,18 @@ namespace MoBankUI.Mosite.Pay
                         datarow.newrow("Test Postcode", "", "Test Postcode", "PASS", driver);
                     }
                     //Test Country id="Pagecontent_ddlCountry"
-                    if (IsElementPresent(driver, By.Id("Pagecontent_ddlCountry")))
-                    {
-                        var con = driver.FindElement(By.Id("Pagecontent_ddlCountry"));
-                        IList<IWebElement> contry = con.FindElements(By.TagName("option"));
+                    if (!IsElementPresent(driver, By.Id("Pagecontent_ddlCountry"))) return;
+                    var con = driver.FindElement(By.Id("Pagecontent_ddlCountry"));
+                    IList<IWebElement> contry = con.FindElements(By.TagName("option"));
 
-                        string vaus = null;
-                        foreach (var country in contry)
-                        {
-                            vaus = vaus + "\r\n" + country;
-                            new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlCountry"))).SelectByText(
-                                country.Text);
-                        }
-                        datarow.newrow("Countries", "", vaus, "PASS", driver);
+                    string vaus = null;
+                    foreach (var country in contry)
+                    {
+                        vaus = vaus + "\r\n" + country;
+                        new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlCountry"))).SelectByText(
+                            country.Text);
                     }
+                    datarow.newrow("Countries", "", vaus, "PASS", driver);
                 }
 
                 else if (IsElementPresent(driver, By.Id("Card_Number")) || title1 == "Index")
@@ -465,12 +463,10 @@ namespace MoBankUI.Mosite.Pay
                         break;
                     }
 
-                    if (driver.PageSource.Contains("Checkout Declined") || driver.PageSource.Contains("Error") ||
-                        driver.PageSource.Contains("Not Found"))
-                    {
-                        datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver);
-                        break;
-                    }
+                    if (!driver.PageSource.Contains("Checkout Declined") && !driver.PageSource.Contains("Error") &&
+                        !driver.PageSource.Contains("Not Found")) continue;
+                    datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver);
+                    break;
                 }
 
                 catch (Exception e)

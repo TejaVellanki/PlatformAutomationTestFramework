@@ -133,11 +133,9 @@ namespace MoBankUI
                 dt.WriteXml(@"C:\Selenium\Input Data\XML Reports\" + ReportName + ".xml");
                 foreach (var process in Process.GetProcessesByName("EXCEL"))
                 {
-                    if (process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE"))
-                    {
-                        process.Kill();
-                        break;
-                    }
+                    if (!process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE")) continue;
+                    process.Kill();
+                    break;
                 }
             }
             catch (Exception ex)
@@ -207,11 +205,9 @@ namespace MoBankUI
                 }
                 foreach (var process in Process.GetProcessesByName("EXCEL"))
                 {
-                    if (process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE"))
-                    {
-                        process.Kill();
-                        break;
-                    }
+                    if (!process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE")) continue;
+                    process.Kill();
+                    break;
                 }
             }
             catch (Exception ex)

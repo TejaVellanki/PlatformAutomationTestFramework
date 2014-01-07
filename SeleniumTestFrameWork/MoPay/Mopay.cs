@@ -312,34 +312,30 @@ namespace MoBankUI.MoPay
                         }
 
                         var Title = driver.Title;
-                        if (Title != "Secure Payment Page")
+                        if (Title == "Secure Payment Page") continue;
+                        if (Title == "Redirect to External")
                         {
-                            if (Title == "Redirect to External")
-                            {
-                                Dsecure(driver);
-                                break;
-                            }
-                            if (driver.PageSource.Contains("Checkout Accepted"))
-                            {
-                                Normaltransaction(driver);
-                                break;
-                            }
-                            if (driver.PageSource.Contains("Checkout Declined") ||
-                                driver.PageSource.Contains("Checkout Error"))
-                            {
-                                _datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver
-                                    );
-                                if (IsElementPresent(driver, By.LinkText("start again")))
-                                {
-                                    driver.FindElement(By.LinkText("start again")).Click();
-                                }
-                                else
-                                {
-                                    driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
-                                }
-                                break;
-                            }
+                            Dsecure(driver);
+                            break;
                         }
+                        if (driver.PageSource.Contains("Checkout Accepted"))
+                        {
+                            Normaltransaction(driver);
+                            break;
+                        }
+                        if (!driver.PageSource.Contains("Checkout Declined") &&
+                            !driver.PageSource.Contains("Checkout Error")) continue;
+                        _datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver
+                            );
+                        if (IsElementPresent(driver, By.LinkText("start again")))
+                        {
+                            driver.FindElement(By.LinkText("start again")).Click();
+                        }
+                        else
+                        {
+                            driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
+                        }
+                        break;
                     }
                 }
             }

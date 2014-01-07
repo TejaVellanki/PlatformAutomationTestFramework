@@ -95,32 +95,28 @@ namespace MoBankUI
                 Type.Missing,
                 Type.Missing);
 
-            if (!String.IsNullOrEmpty(sheetName))
+            if (String.IsNullOrEmpty(sheetName)) return workbook;
+            var sheets = workbook.Worksheets;
+
+            var currentSheetCount = workbook.Sheets.Count;
+
+            var reqSheetConsolidated = (Worksheet) sheets.Item[currentSheetCount];
+
+            var newSheetConsolidated =
+                (Worksheet) sheets.Add(Type.Missing, reqSheetConsolidated, 1, Type.Missing);
+
+            newSheetConsolidated.Name = sheetName;
+
+            for (var sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
             {
-                var sheets = workbook.Worksheets;
+                var verSheet = (Worksheet) workbook.Worksheets.Item[sheetCount];
 
-                var currentSheetCount = workbook.Sheets.Count;
+                if ("Sheet1" != verSheet.Name) continue;
+                verSheet.Delete();
 
-                var reqSheetConsolidated = (Worksheet) sheets.Item[currentSheetCount];
+                workbook.Save();
 
-                var newSheetConsolidated =
-                    (Worksheet) sheets.Add(Type.Missing, reqSheetConsolidated, 1, Type.Missing);
-
-                newSheetConsolidated.Name = sheetName;
-
-                for (var sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
-                {
-                    var verSheet = (Worksheet) workbook.Worksheets.Item[sheetCount];
-
-                    if ("Sheet1" == verSheet.Name)
-                    {
-                        verSheet.Delete();
-
-                        workbook.Save();
-
-                        break;
-                    }
-                }
+                break;
             }
 
 
@@ -157,16 +153,14 @@ namespace MoBankUI
             {
                 var verSheet = (Worksheet) workbook.Worksheets.Item[sheetCount];
 
-                if ("Sheet1" == verSheet.Name)
-                {
-                    workbook.Save();
+                if ("Sheet1" != verSheet.Name) continue;
+                workbook.Save();
 
-                    verSheet.Delete();
+                verSheet.Delete();
 
-                    workbook.Save();
+                workbook.Save();
 
-                    break;
-                }
+                break;
             }
 
             workbook.Save();

@@ -241,12 +241,11 @@ namespace MoBankUI.MoPay
                         datarow.newrow("Transaction", location, "Transaction Declined", "FAIL", driver);
                         break;
                     }
-                    if ((driver.PageSource.Contains("Checkout Declined") || driver.PageSource.Contains("Checkout Error")) ||
-                        driver.PageSource.Contains("Not Found"))
-                    {
-                        datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver);
-                        break;
-                    }
+                    if ((!driver.PageSource.Contains("Checkout Declined") &&
+                         !driver.PageSource.Contains("Checkout Error")) && !driver.PageSource.Contains("Not Found"))
+                        continue;
+                    datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver);
+                    break;
                 }
                 catch (Exception exception2)
                 {

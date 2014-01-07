@@ -79,34 +79,32 @@ namespace MoBankUI
 
                 #region MositeTPS
 
-                if (mositetps)
+                if (!mositetps) return;
+                if (textBox3.Text != @"Please Enter Mosite URL's Seperated By Comma(,)")
                 {
-                    if (textBox3.Text != @"Please Enter Mosite URL's Seperated By Comma(,)")
+                    var datarow = new Datarow();
+                    datarow.col();
+                    var urls = textBox3.Text;
+                    if (urls != "")
                     {
-                        var datarow = new Datarow();
-                        datarow.col();
-                        var urls = textBox3.Text;
-                        if (urls != "")
+                        //Seperating the URL's. 
+                        var url = urls.Split(',');
+                        foreach (var oneurl in url)
                         {
-                            //Seperating the URL's. 
-                            var url = urls.Split(',');
-                            foreach (var oneurl in url)
-                            {
-                                datarow.dataflush();
-                                Mositetp(oneurl, datarow);
-                            }
+                            datarow.dataflush();
+                            Mositetp(oneurl, datarow);
                         }
-                        else
-                        {
-                            MessageBox.Show(@"Please Enter Atleast One Merchant URL To Test in Text Field");
-                        }
-                        var emails = textBox4.Text;
                     }
-
                     else
                     {
                         MessageBox.Show(@"Please Enter Atleast One Merchant URL To Test in Text Field");
                     }
+                    var emails = textBox4.Text;
+                }
+
+                else
+                {
+                    MessageBox.Show(@"Please Enter Atleast One Merchant URL To Test in Text Field");
                 }
 
                 #endregion

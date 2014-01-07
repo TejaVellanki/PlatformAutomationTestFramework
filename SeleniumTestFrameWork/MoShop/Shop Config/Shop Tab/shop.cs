@@ -37,16 +37,14 @@ namespace MoBankUI.MoShop
                     var name = GetValue(driver,
                                            By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr[" + i +
                                                     "]/td/input"), 30);
-                    if (name == "Default")
-                    {
-                        driver.FindElement(By.XPath("//*[@id='CataloguesControl']/div/table/tbody/tr[" + i + "]/th[2]/a"))
-                              .Click();
-                        driver.FindElement(By.CssSelector("input.button")).Click();
-                        new SelectElement(driver.FindElement(By.Id("Culture_Value"))).SelectByText(
-                            "Telugu (India) - ₹ [te-IN]");
-                        driver.FindElement(By.CssSelector("input.button")).Click();
-                        break;
-                    }
+                    if (name != "Default") continue;
+                    driver.FindElement(By.XPath("//*[@id='CataloguesControl']/div/table/tbody/tr[" + i + "]/th[2]/a"))
+                        .Click();
+                    driver.FindElement(By.CssSelector("input.button")).Click();
+                    new SelectElement(driver.FindElement(By.Id("Culture_Value"))).SelectByText(
+                        "Telugu (India) - ₹ [te-IN]");
+                    driver.FindElement(By.CssSelector("input.button")).Click();
+                    break;
                 }
                 //Inserting Category Images. 
                 new CategoryImages().Images(driver, datarow);

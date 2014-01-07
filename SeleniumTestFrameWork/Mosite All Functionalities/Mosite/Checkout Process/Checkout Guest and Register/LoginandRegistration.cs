@@ -96,46 +96,42 @@ namespace MoBankUI.Mosite
                         decimal count = driver.FindElements(By.XPath("//form[@id='ctl00']/section/div")).Count;
                         for (var i = 1; i <= count; i++)
                         {
-                            if (IsElementPresent(driver, By.XPath("//form[@id='ctl00']/section/div[" + i + "]/label"),
-                                                 30))
+                            if (!IsElementPresent(driver, By.XPath("//form[@id='ctl00']/section/div[" + i + "]/label"),
+                                30)) continue;
+                            var valuet =
+                                driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/label"))
+                                    .Text;
+                            //if (valuet == "Telephone:")
+                            //{
+                            //    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/input")).SendKeys("123456789");
+                            //}
+
+                            if (valuet.Contains("*") || valuet != "Country: *")
                             {
-                                var valuet =
-                                    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/label"))
-                                          .Text;
-                                //if (valuet == "Telephone:")
-                                //{
-                                //    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/input")).SendKeys("123456789");
-                                //}
-
-                                if (valuet.Contains("*") || valuet != "Country: *")
+                                try
                                 {
-                                    try
-                                    {
-                                        driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/input"))
-                                              .SendKeys("TEST");
-                                        datarow.newrow("Registration Field Name", "", valuet, "PASS", driver);
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        Console.Write(ex);
-                                    }
+                                    driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/input"))
+                                        .SendKeys("TEST");
+                                    datarow.newrow("Registration Field Name", "", valuet, "PASS", driver);
                                 }
-
-                                if (valuet == "Country: *")
+                                catch (Exception ex)
                                 {
-                                    var element = driver.FindElement(By.Id("Pagecontent_ddlCountry"));
-                                    IList<IWebElement> alllist = element.FindElements(By.TagName("option"));
-
-                                    string values = null;
-                                    foreach (var value in alllist)
-                                    {
-                                        values = values + "\r\n" + value;
-                                        new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlCountry")))
-                                            .SelectByText(value.Text);
-                                    }
-                                    datarow.newrow("Registration Field Countries", "", values, "PASS", driver);
+                                    Console.Write(ex);
                                 }
                             }
+
+                            if (valuet != "Country: *") continue;
+                            var element = driver.FindElement(By.Id("Pagecontent_ddlCountry"));
+                            IList<IWebElement> alllist = element.FindElements(By.TagName("option"));
+
+                            string values = null;
+                            foreach (var value in alllist)
+                            {
+                                values = values + "\r\n" + value;
+                                new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlCountry")))
+                                    .SelectByText(value.Text);
+                            }
+                            datarow.newrow("Registration Field Countries", "", values, "PASS", driver);
                         }
                     }
                     catch (Exception ex)

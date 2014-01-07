@@ -17,27 +17,25 @@ namespace MoBankUI.Mosite.Product
             try
             {
                 var url = driver.PageSource;
-                string checkout = url.Contains("user-scalable=yes") ? CollectionMapV2.checkout : CollectionMapV1.checkout;
+                var checkout = url.Contains("user-scalable=yes") ? CollectionMapV2.checkout : CollectionMapV1.checkout;
 
                 var basket = new DeleteBasket();
                 basket.basket(driver, datarow);
 
                 // Product unavailable
-                if (driver.PageSource.Contains("Product unavailable"))
+                if (!driver.PageSource.Contains("Product unavailable")) return;
+                for (var l = 2;; l++)
                 {
-                    for (var l = 2;; l++)
+                    if (driver.PageSource.Contains("Product unavailable"))
                     {
-                        if (driver.PageSource.Contains("Product unavailable"))
-                        {
-                            datarow.newrow("Product Unavailable", "", "Product Unavilable", "FAIL", driver);
-                            _screenshot.screenshotfailed(driver);
-                            productunavailabl(driver, l, datarow);
-                            driver.FindElement(By.XPath(checkout)).Click();
-                        }
-                        else
-                        {
-                            break;
-                        }
+                        datarow.newrow("Product Unavailable", "", "Product Unavilable", "FAIL", driver);
+                        _screenshot.screenshotfailed(driver);
+                        productunavailabl(driver, l, datarow);
+                        driver.FindElement(By.XPath(checkout)).Click();
+                    }
+                    else
+                    {
+                        break;
                     }
                 }
             }
@@ -115,12 +113,10 @@ namespace MoBankUI.Mosite.Product
 
                         var titlecategory = driver.Title;
 
-                        if (IsElementPresent(driver, By.XPath(products)))
-                        {
-                            driver.FindElement(By.Id("" + products + "" + productlink + "")).Click();
+                        if (!IsElementPresent(driver, By.XPath(products))) continue;
+                        driver.FindElement(By.Id("" + products + "" + productlink + "")).Click();
 
-                            break;
-                        }
+                        break;
                     }
                     else
                     {

@@ -68,88 +68,82 @@ namespace MoBankUI.Mosite
                 //Populating Customer Details from Excel Sheet
                 for (var i = 1; i <= count; i++)
                 {
-                    if (IsElementPresent(driver, By.XPath("" + field + "[" + i + "]" + fieldlabel + "")))
+                    if (!IsElementPresent(driver, By.XPath("" + field + "[" + i + "]" + fieldlabel + ""))) continue;
+                    var valuet = driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldlabel + "")).Text;
+
+                    if (!valuet.Contains("Country"))
                     {
-                        var valuet = driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldlabel + "")).Text;
-
-                        if (!valuet.Contains("Country"))
-                        {
-                            driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).Clear();
-                            driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).SendKeys("TEST");
-                            datarow.newrow("Form Field", "", valuet, "PASS", driver);
-                        }
-
-                        #region Country
-
-                        // selecting the country
-                        if (valuet.Contains("Country"))
-                        {
-                            try
-                            {
-                                var j = i - 1;
-                                var id = "id=" + fieldcountry + "" + j + "" + countryvalue + "";
-                                var con =
-                                    driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + ""));
-                                IList<IWebElement> countries = con.FindElements(By.TagName("option"));
-
-                                string values = null;
-                                foreach (var value in countries)
-                                {
-                                    if (!value.Text.Contains("Please") || value.Text != "Select country")
-                                    {
-                                        if (value.Text == "United Kingdom")
-                                        {
-                                            values = values + "\r\n" + value;
-                                            new SelectElement(
-                                                driver.FindElement(
-                                                    By.Id("" + fieldcountry + "" + j + "" + countryvalue + "")))
-                                                .SelectByText(value.Text);
-                                            break;
-                                        }
-                                        try
-                                        {
-                                            values = values + "\r\n" + value;
-                                            // new SelectElement(driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + "")))  new SelectElement(driver.FindElement(By.Id(""))).SelectByText("");ByText(value);
-                                        }
-                                        catch (Exception EX)
-                                        {
-                                            var E = EX.ToString();
-                                        }
-                                    }
-                                }
-                                datarow.newrow("Country Field", "", values, "PASS", driver);
-                            }
-                            catch (Exception ex)
-                            {
-                                var e = ex.ToString();
-                                datarow.newrow("Country Field Exception", "Exception Not Expected", e, "PASS", driver
-                                    );
-                            }
-                        }
-
-                        #endregion
-
-                        #region Email
-
-                        if (valuet.Contains("Email"))
-                        {
-                            try
-                            {
-                                driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).Clear();
-                                driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + ""))
-                                      .SendKeys("test@test.com");
-                            }
-                            catch (Exception ex)
-                            {
-                                var e = ex.ToString();
-                                datarow.newrow("Email Field Exception", "Exception Not Expected", e, "FAIL", driver
-                                    );
-                                screenshot.screenshotfailed(driver);
-                            }
-                        }
-
-                        #endregion
+                        driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).Clear();
+                        driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).SendKeys("TEST");
+                        datarow.newrow("Form Field", "", valuet, "PASS", driver);
                     }
+
+                    #region Country
+
+                    // selecting the country
+                    if (valuet.Contains("Country"))
+                    {
+                        try
+                        {
+                            var j = i - 1;
+                            var id = "id=" + fieldcountry + "" + j + "" + countryvalue + "";
+                            var con =
+                                driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + ""));
+                            IList<IWebElement> countries = con.FindElements(By.TagName("option"));
+
+                            string values = null;
+                            foreach (var value in countries)
+                            {
+                                if (value.Text.Contains("Please") && value.Text == "Select country") continue;
+                                if (value.Text == "United Kingdom")
+                                {
+                                    values = values + "\r\n" + value;
+                                    new SelectElement(
+                                        driver.FindElement(
+                                            By.Id("" + fieldcountry + "" + j + "" + countryvalue + "")))
+                                        .SelectByText(value.Text);
+                                    break;
+                                }
+                                try
+                                {
+                                    values = values + "\r\n" + value;
+                                    // new SelectElement(driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + "")))  new SelectElement(driver.FindElement(By.Id(""))).SelectByText("");ByText(value);
+                                }
+                                catch (Exception EX)
+                                {
+                                    var E = EX.ToString();
+                                }
+                            }
+                            datarow.newrow("Country Field", "", values, "PASS", driver);
+                        }
+                        catch (Exception ex)
+                        {
+                            var e = ex.ToString();
+                            datarow.newrow("Country Field Exception", "Exception Not Expected", e, "PASS", driver
+                                );
+                        }
+                    }
+
+                    #endregion
+
+                    #region Email
+
+                    if (!valuet.Contains("Email")) continue;
+                    try
+                    {
+                        driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).Clear();
+                        driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + ""))
+                            .SendKeys("test@test.com");
+                    }
+                    catch (Exception ex)
+                    {
+                        var e = ex.ToString();
+                        datarow.newrow("Email Field Exception", "Exception Not Expected", e, "FAIL", driver
+                            );
+                        screenshot.screenshotfailed(driver);
+                    }
+
+                    #endregion
                 }
             }
             catch (Exception ex)

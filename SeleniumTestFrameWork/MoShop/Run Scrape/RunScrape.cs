@@ -74,12 +74,10 @@ namespace MoBankUI.MoShop
 
                     j++;
                 }
-                if (j == 10)
-                {
-                    datarow.newrow("Scarpe/Datafeed Start", "Scarpe/Datafeed should start",
-                                   "Scarpe/Datafeed didnt start after 60 sec", "FAIL", driver);
-                    break;
-                }
+                if (j != 10) continue;
+                datarow.newrow("Scarpe/Datafeed Start", "Scarpe/Datafeed should start",
+                    "Scarpe/Datafeed didnt start after 60 sec", "FAIL", driver);
+                break;
             }
             driver.FindElement(By.LinkText("Running")).Click();
 
@@ -122,12 +120,10 @@ namespace MoBankUI.MoShop
                 driver.Navigate().Refresh();
 
                 j++;
-                if (j == 10)
-                {
-                    datarow.newrow("Scarpe/Datafeed Start", "Scrape/Datafeed should start",
-                                   "Scrape/Datafeed didnt start after 60 sec", "FAIL", driver);
-                    break;
-                }
+                if (j != 10) continue;
+                datarow.newrow("Scarpe/Datafeed Start", "Scrape/Datafeed should start",
+                    "Scrape/Datafeed didnt start after 60 sec", "FAIL", driver);
+                break;
             }
 
             #endregion

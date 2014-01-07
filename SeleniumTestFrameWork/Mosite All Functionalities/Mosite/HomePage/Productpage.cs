@@ -68,11 +68,9 @@ namespace MoBankUI.Mosite.HomePage
                         string values = null;
                         foreach (var value in AllDropDownList)
                         {
-                            if (value.Text != "Please Select")
-                            {
-                                values = values + "\r\n" + value;
-                                new SelectElement(driver.FindElement(By.Id(productVarinat))).SelectByText(value.Text);
-                            }
+                            if (value.Text == "Please Select") continue;
+                            values = values + "\r\n" + value;
+                            new SelectElement(driver.FindElement(By.Id(productVarinat))).SelectByText(value.Text);
                         }
                         datarow.newrow("Variants", "", values, "PASS", driver);
                     }
@@ -99,11 +97,9 @@ namespace MoBankUI.Mosite.HomePage
                     if (IsElementPresent(driver, By.Id("" + productVarinat + "" + q + ""), 30))
                     {
                         var varinats = driver.FindElement(By.Id("" + productVarinat + "" + q + "")).Text;
-                        if (true)
-                        {
-                            values = values + "\r\n" + varinats;
-                            driver.FindElement(By.Id("" + productVarinat + "" + q + "")).Click();
-                        }
+                        if (false) continue;
+                        values = values + "\r\n" + varinats;
+                        driver.FindElement(By.Id("" + productVarinat + "" + q + "")).Click();
                     }
 
                     else
