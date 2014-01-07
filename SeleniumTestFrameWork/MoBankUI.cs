@@ -31,12 +31,6 @@ namespace MoBankUI
         private readonly TextBox textBox2;
 
 
-        public Form1(TextBox textBox2)
-        {
-            this.textBox2 = textBox2;
-            InitializeComponent();
-        }
-
         public Form1()
         {
             InitializeComponent();
