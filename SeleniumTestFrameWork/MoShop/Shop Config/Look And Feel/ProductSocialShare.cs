@@ -4,9 +4,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class ProductSocialShare : driverdefining
+    internal class ProductSocialShare : Driverdefining
     {
-        public void Productsocialshare(IWebDriver driver, datarow datarow)
+        public void Productsocialshare(IWebDriver driver, Datarow datarow)
         {
             try
             {

@@ -6,9 +6,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class LoginandRegistration_TPS : driverdefining
+    internal class LoginandRegistrationTps : Driverdefining
     {
-        public void Login_TPS(IWebDriver driver, datarow datarow)
+        public void Login_TPS(IWebDriver driver, Datarow datarow)
         {
             var screenshot = new Screenshot();
             try

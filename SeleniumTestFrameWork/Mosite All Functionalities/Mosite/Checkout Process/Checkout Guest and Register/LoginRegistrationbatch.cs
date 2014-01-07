@@ -9,7 +9,7 @@ namespace MoBankUI
     public class LoginRegistration
     {
         [Test]
-        public void registration(IWebDriver driver, datarow datarow)
+        public void Registration(IWebDriver driver, Datarow datarow)
         {
             var screenshot = new Screenshot();
 
@@ -26,14 +26,14 @@ namespace MoBankUI
 
 
                     //Calling the Login Class 
-                    var login = new LoginandRegistration_TPS();
+                    var login = new LoginandRegistrationTps();
                     login.Login_TPS(driver, datarow);
                 }
 
                 else if (logintitle.Contains("Checkout"))
                 {
                     // calling the checkout class
-                    var data = new UserData_TPS();
+                    var data = new UserDataTps();
                     data.userdata_TPS(driver, datarow);
                 }
                 else

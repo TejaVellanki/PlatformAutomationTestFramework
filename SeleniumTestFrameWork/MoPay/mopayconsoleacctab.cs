@@ -5,13 +5,13 @@ using System.Threading;
 using OpenQA.Selenium;
 using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoPay
 {
-    public class mopayconsoleacctab : driverdefining
+    public class Mopayconsoleacctab : Driverdefining
     {
         private readonly Screenshot screenshot = new Screenshot();
 
-        public void acctabs(IWebDriver driver, datarow datarow)
+        public void acctabs(IWebDriver driver, Datarow datarow)
         {
             driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
             try

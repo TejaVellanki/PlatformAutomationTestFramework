@@ -7,12 +7,12 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Notificationtab : driverdefining
+    internal class Notificationtab : Driverdefining
     {
         private readonly Screenshot _screenshot = new Screenshot();
         private GeneralLibrary _genaralLibrary;
 
-        public void Notifications(IWebDriver driver, datarow datarow)
+        public void Notifications(IWebDriver driver, Datarow datarow)
         {
             string str10;
             _genaralLibrary = new GeneralLibrary();

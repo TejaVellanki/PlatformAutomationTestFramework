@@ -7,9 +7,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class MoshopBatch : driverdefining
+    public class MoshopBatch : Driverdefining
     {
-        public void Batchmoshop(IWebDriver driver, datarow datarow, string items, string vers)
+        public void Batchmoshop(IWebDriver driver, Datarow datarow, string items, string vers)
         {
             var screenshot = new Screenshot();
             try
@@ -70,7 +70,7 @@ namespace MoBankUI
                         if (str == "Validate Custom Domain Name Feature and Localisation")
                         {
                             datarow.newrow("", "", "Validate Custom domain Name", "", driver);
-                            new shop().culture(driver, datarow);
+                            new Shop().Culture(driver, datarow);
                         }
 
                         #endregion
@@ -102,16 +102,16 @@ namespace MoBankUI
 
                         if (str == "Run the Test Site - DataFeed XML")
                         {
-                            var datafeed = new DatafeedXML();
-                            datafeed.datafeed(driver, datarow);
+                            var datafeed = new DatafeedXml();
+                            datafeed.Datafeed(driver, datarow);
                             datarow.newrow("", "", "Run the Test Site-DataFeed", "", driver);
                             driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
 
                             datarow.newrow("", "", "Footer Links", "", driver);
-                            var footer = new Footer_TPS();
+                            var footer = new FooterTps();
                             footer.Footerhome(driver, "http://testshop.mobankdev.com/", datarow);
                             var relatedproduct = new RelatedProducts();
-                            relatedproduct.relatedproducts(driver, datarow);
+                            relatedproduct.Relatedproducts(driver, datarow);
                             //commtest(driver, datarow);
                         }
 
@@ -159,16 +159,16 @@ namespace MoBankUI
         }
 
         [Test]
-        public void commtest(IWebDriver driver, datarow datarow)
+        public void commtest(IWebDriver driver, Datarow datarow)
         {
-            var userjour = new UserJourney_TPS();
+            var userjour = new UserJourneyTps();
             userjour.UserJourn(datarow, driver, "http://testshop.mobankdev.com/");
             datarow.newrow("", "", "Delete From Basket", "", driver);
             var delete = new Deletebasketstart();
             delete.deletebasstart(driver, datarow);
             datarow.newrow("", "", "Registration/Login", "", driver);
             var login = new LoginRegistration();
-            login.registration(driver, datarow);
+            login.Registration(driver, datarow);
             datarow.newrow("", "", "Mopay", "", driver);
             var pay = new BatchPay();
             pay.batchpay(driver, "http://testshop.mobankdev.com/", datarow);

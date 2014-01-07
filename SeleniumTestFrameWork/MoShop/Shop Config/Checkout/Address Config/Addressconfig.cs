@@ -4,11 +4,11 @@ using System;
 using OpenQA.Selenium;
 using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop.Checkout
 {
-    internal class Addressconfig : driverdefining
+    internal class Addressconfig : Driverdefining
     {
-        public void addressconfig(IWebDriver driver, datarow datarow)
+        public void addressconfig(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace MoBankUI
 
                 #endregion
 
-                new AddressElements().elements(driver, datarow);
+                new AddressElements().Elements(driver, datarow);
 
                 #region Validations
 

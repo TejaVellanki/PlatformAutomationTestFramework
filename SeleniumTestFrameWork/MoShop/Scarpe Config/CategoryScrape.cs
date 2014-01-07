@@ -7,9 +7,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class CategoryScrape : driverdefining
+    internal class CategoryScrape : Driverdefining
     {
-        public void ScarpeCategory(IWebDriver driver, datarow datarow)
+        public void ScarpeCategory(IWebDriver driver, Datarow datarow)
         {
             try
             {

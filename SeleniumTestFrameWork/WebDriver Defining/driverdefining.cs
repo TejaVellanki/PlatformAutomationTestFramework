@@ -4,9 +4,9 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebDriver_Refining
 {
-    public class driverdefining
+    public class Driverdefining
     {
-        public void waitforpagetoload(IWebDriver driver, int time)
+        public void Waitforpagetoload(IWebDriver driver, int time)
         {
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(time));
         }

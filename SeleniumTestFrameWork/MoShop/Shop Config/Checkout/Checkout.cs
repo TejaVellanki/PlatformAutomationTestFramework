@@ -7,9 +7,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class Checkout : driverdefining
+    public class Checkout : Driverdefining
     {
-        public void checkout(IWebDriver driver, datarow datarow)
+        public void checkout(IWebDriver driver, Datarow datarow)
         {
             try
             {

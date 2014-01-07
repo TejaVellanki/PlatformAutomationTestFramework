@@ -6,10 +6,10 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class Bathroom : driverdefining
+    public class Bathroom : Driverdefining
 
     {
-        public void bathroom(IWebDriver driver, datarow datarow)
+        public void Bbathroom(IWebDriver driver, Datarow datarow)
         {
             driver.Navigate().GoToUrl("http://m.bathrooms.com/");
 

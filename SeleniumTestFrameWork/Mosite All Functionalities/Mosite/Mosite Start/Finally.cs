@@ -7,7 +7,7 @@ namespace MoBankUI
 {
     internal class MositeGeneral
     {
-        public void Finally(IWebDriver driver, string url, datarow datarow, string emails)
+        public void Finally(IWebDriver driver, string url, Datarow datarow, string emails)
         {
             new GeneralLibrary();
             try

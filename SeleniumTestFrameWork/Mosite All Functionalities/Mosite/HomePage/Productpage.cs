@@ -7,9 +7,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Productpage : driverdefining
+    internal class Productpage : Driverdefining
     {
-        public void productPage(IWebDriver driver, datarow datarow)
+        public void ProductPage(IWebDriver driver, Datarow datarow)
         {
             string url = driver.PageSource;
 

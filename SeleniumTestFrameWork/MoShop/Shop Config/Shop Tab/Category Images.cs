@@ -4,7 +4,7 @@ namespace MoBankUI
 {
     internal class CategoryImages
     {
-        public void images(IWebDriver driver, datarow datarow)
+        public void Images(IWebDriver driver, Datarow datarow)
         {
             driver.FindElement(By.LinkText("Shop")).Click();
             driver.FindElement(By.LinkText("…")).Click();

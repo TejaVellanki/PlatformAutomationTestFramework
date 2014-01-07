@@ -10,9 +10,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class UserData : driverdefining
+    internal class UserData : Driverdefining
     {
-        public void Userdata(datarow datarow, IWebDriver driver)
+        public void Userdata(Datarow datarow, IWebDriver driver)
         {
             try
             {

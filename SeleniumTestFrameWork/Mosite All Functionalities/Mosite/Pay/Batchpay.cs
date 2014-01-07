@@ -7,11 +7,11 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class BatchPay : driverdefining
+    public class BatchPay : Driverdefining
     {
 // This needs to be extended for all the merchants
         [Test]
-        public void batchpay(IWebDriver driver, string url, datarow datarow)
+        public void batchpay(IWebDriver driver, string url, Datarow datarow)
         {
             // Payment for Physioroom 
 

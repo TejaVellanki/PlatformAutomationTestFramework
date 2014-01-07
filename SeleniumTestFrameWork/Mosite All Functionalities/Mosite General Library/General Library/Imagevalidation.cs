@@ -7,13 +7,13 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Imagevalidation : driverdefining
+    internal class Imagevalidation : Driverdefining
     {
-        private string Homepageimage;
-        private string categoryimagecss;
+        private string _homepageimage;
+        private string _categoryimagecss;
         private int l = 1;
 
-        public void homepageimage(IWebDriver driver, datarow datarow)
+        public void homepageimage(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -22,11 +22,11 @@ namespace MoBankUI
                 string title = driver.PageSource;
                 if (title.Contains("user-scalable=yes"))
                 {
-                    Homepageimage = ImagesV2.Homepageimage;
+                    _homepageimage = ImagesV2.Homepageimage;
                 }
                 else
                 {
-                    Homepageimage = ImagesV1.Homepageimage;
+                    _homepageimage = ImagesV1.Homepageimage;
                 }
 
                 // Home Page Image Validation
@@ -38,7 +38,7 @@ namespace MoBankUI
                         string path1 = contactus.GetAttribute("src");
                         datarow.newrow("Contact US Image Validation", "", path1, "PASS", driver);
                     }
-                    IWebElement element = driver.FindElement(By.XPath(Homepageimage));
+                    IWebElement element = driver.FindElement(By.XPath(_homepageimage));
                     string path = element.GetAttribute("src");
                     datarow.newrow("Image Validation", "", path, "PASS", driver);
                     if (path.Contains("http") || path.Contains("https") || path.Contains("blob"))
@@ -51,7 +51,7 @@ namespace MoBankUI
                         datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path, "PASS",
                                        driver);
                     }
-                    clickimage(driver, datarow, By.XPath(Homepageimage));
+                    clickimage(driver, datarow, By.XPath(_homepageimage));
                 }
                 else if (IsElementPresent(driver, By.CssSelector("img.categoryImage"), 30))
                 {
@@ -73,7 +73,7 @@ namespace MoBankUI
             }
         }
 
-        public void categoryimage(IWebDriver driver, datarow datarow)
+        public void categoryimage(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -82,16 +82,16 @@ namespace MoBankUI
                     string title = driver.PageSource;
                     if (title.Contains("user-scalable=yes"))
                     {
-                        categoryimagecss = ImagesV2.Categoryimagecss;
+                        _categoryimagecss = ImagesV2.Categoryimagecss;
                     }
                     else
                     {
-                        categoryimagecss = ImagesV1.Categoryimagecss;
+                        _categoryimagecss = ImagesV1.Categoryimagecss;
                     }
                     string location = driver.Url;
-                    if (IsElementPresent(driver, By.CssSelector(categoryimagecss), 30))
+                    if (IsElementPresent(driver, By.CssSelector(_categoryimagecss), 30))
                     {
-                        IWebElement element = driver.FindElement(By.CssSelector(categoryimagecss));
+                        IWebElement element = driver.FindElement(By.CssSelector(_categoryimagecss));
                         string path = element.GetAttribute("src");
                         datarow.newrow("Image Validation", "", path, "PASS", driver);
                         if (path.Contains("http") || path.Contains("https") || path.Contains("blob"))
@@ -104,7 +104,7 @@ namespace MoBankUI
                             datarow.newrow("Image URL Validation", "Image url shouldnot contain http/https", path,
                                            "PASS", driver);
                         }
-                        clickimage(driver, datarow, By.CssSelector(categoryimagecss));
+                        clickimage(driver, datarow, By.CssSelector(_categoryimagecss));
                     }
                     else
                     {
@@ -121,7 +121,7 @@ namespace MoBankUI
             }
         }
 
-        public void subcategoryimage(IWebDriver driver, datarow datarow)
+        public void subcategoryimage(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -146,7 +146,7 @@ namespace MoBankUI
             }
         }
 
-        public void productImage(IWebDriver driver, datarow datarow)
+        public void productImage(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -200,7 +200,7 @@ namespace MoBankUI
             }
         }
 
-        public void clickimage(IWebDriver driver, datarow datarow, By by)
+        public void clickimage(IWebDriver driver, Datarow datarow, By by)
         {
             driver.FindElement(by).Click();
             string url = driver.Url;

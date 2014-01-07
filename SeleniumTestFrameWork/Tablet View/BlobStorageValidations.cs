@@ -10,7 +10,7 @@ namespace Tablet_View
     public class BlobStorage
     {
         [Test]
-        public void Blob(IWebDriver driver, datarow datarow, string url)
+        public void Blob(IWebDriver driver, Datarow datarow, string url)
         {
             try
             {

@@ -2,9 +2,9 @@
 
 namespace MoBankUI
 {
-    internal class teststub
+    internal class Teststub
     {
-        public void stub(IWebDriver driver, datarow datarow)
+        public void Stub(IWebDriver driver, Datarow datarow)
         {
             new DeliveryTab().Delivery(driver, datarow);
         }

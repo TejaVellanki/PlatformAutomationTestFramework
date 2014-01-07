@@ -7,9 +7,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class SubCategory : driverdefining
+    internal class SubCategory : Driverdefining
     {
-        public void Subcategoryscrape(IWebDriver driver, datarow datarow)
+        public void Subcategoryscrape(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -93,7 +93,7 @@ namespace MoBankUI
                 string e = ex.ToString();
                 datarow.newrow("Exception Not Expected", "", e, "FAIL");
             }
-            new productScrape().Productscrape(driver, datarow);
+            new ProductScrape().Productscrape(driver, datarow);
         }
     }
 }

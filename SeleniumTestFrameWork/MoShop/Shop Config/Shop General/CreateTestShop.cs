@@ -5,10 +5,10 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class CreateShop : driverdefining
+    public class CreateShop : Driverdefining
     {
         [Test]
-        public void Testshop(IWebDriver driver, datarow datarow)
+        public void Testshop(IWebDriver driver, Datarow datarow)
         {
             try
             {

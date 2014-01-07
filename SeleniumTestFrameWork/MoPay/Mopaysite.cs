@@ -11,12 +11,12 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class Mopaysite : driverdefining
+    public class Mopaysite : Driverdefining
     {
-        private datarow _datarow = new datarow();
+        private Datarow _datarow = new Datarow();
         private GeneralLibrary _generalLibrary;
 
-        public void MoPay(IWebDriver driver, datarow datarow)
+        public void MoPay(IWebDriver driver, Datarow datarow)
         {
             _generalLibrary = new GeneralLibrary();
             DataTable table =

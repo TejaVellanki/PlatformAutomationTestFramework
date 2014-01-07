@@ -8,12 +8,12 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class Paymentprovider : driverdefining
+    public class Paymentprovider : Driverdefining
     {
         private readonly Screenshot _screenshot = new Screenshot();
         private GeneralLibrary _genaralLibrary;
 
-        public void Provider(IWebDriver driver, datarow datarow)
+        public void Provider(IWebDriver driver, Datarow datarow)
         {
             _genaralLibrary = new GeneralLibrary();
             DataTable table =

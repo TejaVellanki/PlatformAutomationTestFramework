@@ -4,16 +4,16 @@ using WebDriver_Refining;
 
 namespace Tablet_View
 {
-    internal class batch_tab
+    internal class BatchTab
     {
-        public void tabbatch(datarow datarow, IWebDriver driver)
+        public void Tabbatch(Datarow datarow, IWebDriver driver)
         {
             //Method Homapge validations
 
             #region HomePage Validations
 
             driver.Navigate().GoToUrl("http://tablet.mobankdev.com");
-            var Driver = new driverdefining();
+            var Driver = new Driverdefining();
 
             string title = driver.Title;
             //Validating the Home page title. 
@@ -28,7 +28,7 @@ namespace Tablet_View
             }
             var blob = new BlobStorage();
             blob.Blob(driver, datarow, "http://tablet.mobankdev.com");
-            var home = new Homepage_tab();
+            var home = new HomepageTab();
             home.homepage(driver, datarow);
             var allproducts = new LinksExpand();
             allproducts.AllLink(driver, datarow);

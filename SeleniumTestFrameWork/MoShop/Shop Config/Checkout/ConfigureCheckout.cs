@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Threading;
+using MoBankUI.MoShop.Checkout;
 using OpenQA.Selenium;
 using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class ConfigureCheckout : driverdefining
+    internal class ConfigureCheckout : Driverdefining
     {
-        public void Configure(IWebDriver driver, datarow datarow)
+        public void Configure(IWebDriver driver, Datarow datarow)
         {
             try
             {

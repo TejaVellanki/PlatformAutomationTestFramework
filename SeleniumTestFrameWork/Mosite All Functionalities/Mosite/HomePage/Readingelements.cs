@@ -4,9 +4,9 @@
 
 namespace MoBankUI
 {
-    public class links_TPS
+    public class LinksTps
     {
-        public void Links(datarow datarow, IWebDriver driver, string url)
+        public void Links(Datarow datarow, IWebDriver driver, string url)
         {
             try
             {

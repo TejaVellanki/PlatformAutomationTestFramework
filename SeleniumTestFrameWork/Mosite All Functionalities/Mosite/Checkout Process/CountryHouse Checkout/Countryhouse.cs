@@ -7,9 +7,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Countryhouse : driverdefining
+    internal class Countryhouse : Driverdefining
     {
-        public void checkoutprocess(IWebDriver driver)
+        public void Checkoutprocess(IWebDriver driver)
         {
             //country house checkout process
             driver.FindElement(By.Id("Pagecontent_TextBoxUserName")).Clear();

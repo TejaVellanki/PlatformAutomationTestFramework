@@ -7,10 +7,10 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class Createscrape : driverdefining
+    public class Createscrape : Driverdefining
     {
         [Test]
-        public void createscrape(IWebDriver driver, datarow datarow)
+        public void createscrape(IWebDriver driver, Datarow datarow)
         {
             try
             {

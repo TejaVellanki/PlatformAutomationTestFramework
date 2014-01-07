@@ -7,9 +7,9 @@ using WebDriver_Refining;
 namespace MoBankUI
 {
     //This class Test the user as a guest. 
-    internal class Guest : driverdefining
+    internal class Guest : Driverdefining
     {
-        public void guest(IWebDriver driver, datarow datarow)
+        public void guest(IWebDriver driver, Datarow datarow)
         {
             if (IsElementPresent(driver, By.Id("at-GuestUser")))
             {

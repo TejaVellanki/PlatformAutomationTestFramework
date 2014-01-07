@@ -2,14 +2,15 @@
 
 using System;
 using System.Threading;
+using MoBankUI.MoPay;
 using OpenQA.Selenium;
 using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class MopayConsol : driverdefining
+    public class MopayConsol : Driverdefining
     {
-        private readonly datarow _datarow = new datarow();
+        private readonly Datarow _datarow = new Datarow();
         private readonly Screenshot _screenshot = new Screenshot();
 
         public void HomepageTabs(IWebDriver driver)
@@ -373,7 +374,7 @@ namespace MoBankUI
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
-                new mopayconsoleacctab().acctabs(driver, _datarow);
+                new Mopayconsoleacctab().acctabs(driver, _datarow);
             }
             catch (Exception exception)
             {

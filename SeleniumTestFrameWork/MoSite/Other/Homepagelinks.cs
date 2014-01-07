@@ -7,9 +7,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Homepagelinks : driverdefining
+    internal class Homepagelinks : Driverdefining
     {
-        public void HompageLinks(datarow datarow, IWebDriver driver)
+        public void HompageLinks(Datarow datarow, IWebDriver driver)
         {
             DataSet excelData = new GeneralLibrary().GetExcelData(@"C:\\Input Data\Object Repository.xls",
                                                                   "Modrophenia");

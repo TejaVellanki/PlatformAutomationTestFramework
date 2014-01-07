@@ -9,11 +9,11 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class products_TPS : driverdefining
+    internal class ProductsTps : Driverdefining
     {
         private readonly Screenshot screenshot = new Screenshot();
         //Product page validations
-        public void product(IWebDriver driver, datarow datarow)
+        public void product(IWebDriver driver, Datarow datarow)
         {
             var Image = new Imagevalidation();
             try
@@ -52,8 +52,8 @@ namespace MoBankUI
                 #endregion
 
                 Image.productImage(driver, datarow);
-                new ProductDetail().productdetail(driver, datarow);
-                new ProductPrice().price(driver, datarow);
+                new ProductDetail().Productdetail(driver, datarow);
+                new ProductPrice().Price(driver, datarow);
 
                 #region Product Title
 
@@ -209,7 +209,7 @@ namespace MoBankUI
 
                     datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected",
                                    AddToBasket + "Add To Basket Element Is Present", "PASS", driver);
-                    new SuccessMessage().message(driver, datarow);
+                    new SuccessMessage().Message(driver, datarow);
                 }
                 catch (Exception ex)
                 {

@@ -8,10 +8,10 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class LookandFeel : driverdefining
+    public class LookandFeel : Driverdefining
     {
         [Test]
-        public void Lookandfeel(IWebDriver driver, datarow datarow)
+        public void Lookandfeel(IWebDriver driver, Datarow datarow)
         {
             try
             {

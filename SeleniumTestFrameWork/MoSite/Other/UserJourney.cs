@@ -8,7 +8,7 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class UserJourney : driverdefining
+    internal class UserJourney : Driverdefining
     {
         public void productunavailabl(IWebDriver driver, int l)
         {
@@ -53,7 +53,7 @@ namespace MoBankUI
             IWebElement element2 = driver.FindElement(By.XPath("//a[@id='GoToCheckout']/span/span"));
         }
 
-        public void UserJourn(datarow datarow, IWebDriver driver)
+        public void UserJourn(Datarow datarow, IWebDriver driver)
         {
             try
             {

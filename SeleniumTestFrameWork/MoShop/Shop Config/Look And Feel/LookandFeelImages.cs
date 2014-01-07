@@ -6,9 +6,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class LookandFeelImages : driverdefining
+    internal class LookandFeelImages : Driverdefining
     {
-        public void Images(IWebDriver driver, datarow datarow)
+        public void Images(IWebDriver driver, Datarow datarow)
         {
             try
             {

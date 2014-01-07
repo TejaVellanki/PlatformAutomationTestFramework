@@ -11,9 +11,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class Mopay : driverdefining
+    public class Mopay : Driverdefining
     {
-        private readonly datarow _datarow = new datarow();
+        private readonly Datarow _datarow = new Datarow();
         private GeneralLibrary _generalLibrary;
 
 
@@ -371,7 +371,7 @@ namespace MoBankUI
             finally
             {
                 string emails = null;
-                new Screenshot().screenshotnotifications(driver);
+                new Screenshot().Screenshotnotifications(driver);
                 _datarow.excelsave("MoPayReport", driver, "teja.vellanki@mobankgroup.com");
                 new GenerateEmail().SendEMail("MoPayReport", emails);
                 driver.Quit();

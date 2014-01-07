@@ -4,9 +4,9 @@
 
 namespace TPS
 {
-    internal class countryhouseregister
+    internal class Countryhouseregister
     {
-        public void register(IWebDriver driver)
+        public void Register(IWebDriver driver)
         {
             //country house registration process
 

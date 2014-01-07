@@ -4,9 +4,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class DatafeedXML : driverdefining
+    internal class DatafeedXml : Driverdefining
     {
-        public void datafeed(IWebDriver driver, datarow datarow)
+        public void Datafeed(IWebDriver driver, Datarow datarow)
         {
             try
             {

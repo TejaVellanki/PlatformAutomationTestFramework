@@ -8,9 +8,9 @@ namespace MoBankUI
 {
     internal class BatchTesting
     {
-        private readonly Screenshot screenshot = new Screenshot();
+        private readonly Screenshot _screenshot = new Screenshot();
 
-        public void batchtesting(string items, string url, IWebDriver driver, datarow datarow)
+        public void Batchtesting(string items, string url, IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -37,28 +37,28 @@ namespace MoBankUI
                     if (function == "Test All Links in Mosite")
                     {
                         datarow.newrow("", "", "All Links in Mosite - Validations", "", driver);
-                        var hom = new links_TPS();
+                        var hom = new LinksTps();
                         hom.Links(datarow, driver, url);
                         i++;
                     }
                     if (function == "Test Footer Links")
                     {
                         datarow.newrow("", "", "Footer Links", "", driver);
-                        var footer = new Footer_TPS();
+                        var footer = new FooterTps();
                         footer.Footerhome(driver, url, datarow);
                         i++;
                     }
                     if (function == "Test Basket Functionality")
                     {
                         datarow.newrow("", "", "Basket Functionality", "", driver);
-                        var basket = new Baskets_TPS();
+                        var basket = new BasketsTps();
                         basket.Basket(driver, datarow, url);
                         i++;
                     }
                     if (function == "Test Product page - Test Add Product to Basket")
                     {
                         datarow.newrow("", "", "User Journey", "", driver);
-                        var userjour = new UserJourney_TPS();
+                        var userjour = new UserJourneyTps();
                         userjour.UserJourn(datarow, driver, url);
                         i++;
                     }
@@ -80,7 +80,7 @@ namespace MoBankUI
                     {
                         datarow.newrow("", "", "Registration/Login", "", driver);
                         var login = new LoginRegistration();
-                        login.registration(driver, datarow);
+                        login.Registration(driver, datarow);
                         i++;
                     }
 
@@ -96,7 +96,7 @@ namespace MoBankUI
                         {
                             string e = ex.ToString();
                             datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            _screenshot.screenshotfailed(driver);
                         }
 
                         i++;
@@ -107,13 +107,13 @@ namespace MoBankUI
             {
                 string e = ex.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                _screenshot.screenshotfailed(driver);
             }
 
             finally
             {
                 datarow.excelsave("Mosite", driver, "teja.vellanki@mobankgroup.com");
-                screenshot.screenshotfailed(driver);
+                _screenshot.screenshotfailed(driver);
                 driver.Quit();
             }
         }

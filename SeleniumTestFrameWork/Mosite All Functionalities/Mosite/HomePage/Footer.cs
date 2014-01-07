@@ -7,11 +7,11 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Footer_TPS : driverdefining
+    internal class FooterTps : Driverdefining
     {
-        private readonly Screenshot screenshot = new Screenshot();
+        private readonly Screenshot _screenshot = new Screenshot();
 
-        public void Footerhome(IWebDriver driver, string url, datarow datarow)
+        public void Footerhome(IWebDriver driver, string url, Datarow datarow)
         {
             try
             {
@@ -23,11 +23,11 @@ namespace MoBankUI
             {
                 string e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                _screenshot.screenshotfailed(driver);
             }
         }
 
-        public void Footer(IWebDriver driver, datarow datarow, string url)
+        public void Footer(IWebDriver driver, Datarow datarow, string url)
         {
             // Generic Method to test footer links on all the sites. 
             try
@@ -171,7 +171,7 @@ namespace MoBankUI
             {
                 string e = ex.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                _screenshot.screenshotfailed(driver);
             }
 
             #endregion

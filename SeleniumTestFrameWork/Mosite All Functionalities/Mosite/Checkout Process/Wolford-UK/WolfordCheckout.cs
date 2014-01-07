@@ -5,9 +5,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Wolford : driverdefining
+    internal class Wolford : Driverdefining
     {
-        public void wolfordcheckout(IWebDriver driver, datarow datarow)
+        public void Wolfordcheckout(IWebDriver driver, Datarow datarow)
         {
             try
             {

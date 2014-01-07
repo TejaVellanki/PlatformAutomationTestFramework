@@ -7,9 +7,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Scheduler : driverdefining
+    internal class Scheduler : Driverdefining
     {
-        public void Schedule(IWebDriver driver, datarow datarow)
+        public void Schedule(IWebDriver driver, Datarow datarow)
         {
             try
             {

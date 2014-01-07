@@ -8,7 +8,7 @@ using DataTable = System.Data.DataTable;
 
 namespace MoBankUI
 {
-    public class datarow
+    public class Datarow
     {
         public readonly DataTable mergeTable = new DataTable();
         public string TotalFail;
@@ -125,7 +125,7 @@ namespace MoBankUI
 
                 try
                 {
-                    var Html = new ConverttoHTML();
+                    var Html = new ConverttoHtml();
                     Html.ConvertDataTableToHtml(dt, ReportName, P, F);
                 }
                 catch (Exception ex)
@@ -201,7 +201,7 @@ namespace MoBankUI
 
                 try
                 {
-                    var Html = new ConverttoHTML();
+                    var Html = new ConverttoHtml();
                     Html.ConvertDataTableToHtml(mergeTable, ReportName, P, F);
                 }
                 catch (Exception ex)

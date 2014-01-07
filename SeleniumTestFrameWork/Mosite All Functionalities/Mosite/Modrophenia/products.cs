@@ -10,11 +10,11 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class modropheniaproducts : driverdefining
+    internal class modropheniaproducts : Driverdefining
     {
         private GeneralLibrary gereneralLibrary;
 
-        public void comparedatarow(IWebDriver driver, datarow datarow, DataTable dt)
+        public void comparedatarow(IWebDriver driver, Datarow datarow, DataTable dt)
         {
             gereneralLibrary = new GeneralLibrary();
             DataTable table =
@@ -75,7 +75,7 @@ namespace MoBankUI
             }
         }
 
-        public void product(datarow datarow, IWebDriver driver)
+        public void product(Datarow datarow, IWebDriver driver)
         {
             try
             {
@@ -109,7 +109,7 @@ namespace MoBankUI
             }
         }
 
-        public void loop(datarow datarow, IWebDriver driver, DataTable dt)
+        public void loop(Datarow datarow, IWebDriver driver, DataTable dt)
         {
             string str8;
             try

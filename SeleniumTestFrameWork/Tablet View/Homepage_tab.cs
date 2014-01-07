@@ -5,18 +5,18 @@ using WebDriver_Refining;
 
 namespace Tablet_View
 {
-    internal class Homepage_tab
+    internal class HomepageTab
     {
-        public Homepage_tab(driverdefining driver)
+        public HomepageTab(Driverdefining driver)
         {
         }
 
-        public Homepage_tab()
+        public HomepageTab()
         {
             throw new NotImplementedException();
         }
 
-        public void homepage(IWebDriver driver, datarow datarow)
+        public void homepage(IWebDriver driver, Datarow datarow)
         {
             /*
               IWebElement element;

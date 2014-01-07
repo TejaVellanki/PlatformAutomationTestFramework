@@ -7,11 +7,11 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Baskets_TPS : driverdefining
+    internal class BasketsTps : Driverdefining
     {
-        private readonly Screenshot screenshot = new Screenshot();
+        private readonly Screenshot _screenshot = new Screenshot();
 
-        public void Basket(IWebDriver driver, datarow datarow, string url)
+        public void Basket(IWebDriver driver, Datarow datarow, string url)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace MoBankUI
                 {
                     string e = ex.ToString();
                     datarow.newrow("Basket Info Button", "Basket Info Button Is Expected", e, "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    _screenshot.screenshotfailed(driver);
                 }
 
                 try
@@ -52,7 +52,7 @@ namespace MoBankUI
                         else
                         {
                             datarow.newrow("Basket Value", "(0)", value, "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            _screenshot.screenshotfailed(driver);
                         }
                     }
 
@@ -65,24 +65,24 @@ namespace MoBankUI
                     else
                     {
                         datarow.newrow("Basket Page Text", "Your basket is empty", basket, "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        _screenshot.screenshotfailed(driver);
                     }
                 }
                 catch (Exception ex)
                 {
                     string e = ex.ToString();
                     datarow.newrow("Basket Info Text", "Basket Info Text Is Expected", e, "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    _screenshot.screenshotfailed(driver);
                 }
                 string basketurl = driver.Url;
-                var footer = new Footer_TPS();
+                var footer = new FooterTps();
                 footer.Footer(driver, datarow, basketurl);
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
                 datarow.newrow("Exception", "Excepetion Not Expected", e, "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                _screenshot.screenshotfailed(driver);
             }
         }
     }

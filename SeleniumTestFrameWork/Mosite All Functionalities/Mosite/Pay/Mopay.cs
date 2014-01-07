@@ -12,7 +12,7 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Mopay_TPS : driverdefining
+    internal class Mopay_TPS : Driverdefining
     {
         //Testing the Payment page. 
         // Two Payment methods do the same 
@@ -20,7 +20,7 @@ namespace MoBankUI
         private Screenshot screenshot = new Screenshot();
 
         [Test]
-        public void Mopay(IWebDriver driver, datarow datarow)
+        public void Mopay(IWebDriver driver, Datarow datarow)
         {
             string title1 = driver.Title;
             try
@@ -181,7 +181,7 @@ namespace MoBankUI
         }
 
         [Test]
-        public void MoPayTPS(IWebDriver driver, datarow datarow)
+        public void MoPayTPS(IWebDriver driver, Datarow datarow)
         {
             generalLibrary = new GeneralLibrary();
             DataSet dss = generalLibrary.GetExcelData(@"C:\Selenium\Input Data\CardDetails.xls", "CardDetails");

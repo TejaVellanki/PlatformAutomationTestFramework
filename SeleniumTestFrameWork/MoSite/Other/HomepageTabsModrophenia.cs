@@ -7,10 +7,10 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class HomepageTabsModrophenia : driverdefining
+    internal class HomepageTabsModrophenia : Driverdefining
     {
         public void HomepageTabsModro(string HomepageTitle, string aboutus, string shipping, string terms,
-                                      datarow datarow, IWebDriver driver)
+                                      Datarow datarow, IWebDriver driver)
         {
             driver.FindElement(By.CssSelector("img")).Click();
 

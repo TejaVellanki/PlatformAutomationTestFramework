@@ -6,9 +6,9 @@ using WebDriver_Refining;
 namespace MoBankUI
 
 {
-    internal class ProductPrice : driverdefining
+    internal class ProductPrice : Driverdefining
     {
-        public void price(IWebDriver driver, datarow datarow)
+        public void Price(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace MoBankUI
             {
                 ex.ToString();
             }
-            new SocialMediaSharing().socialmediashare(driver, datarow);
+            new SocialMediaSharing().Socialmediashare(driver, datarow);
         }
     }
 }

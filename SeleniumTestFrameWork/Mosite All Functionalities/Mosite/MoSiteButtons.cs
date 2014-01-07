@@ -5,9 +5,9 @@ using WebDriver_Refining;
 
 namespace MoSite
 {
-    public class MoSiteButtons : driverdefining
+    public class MoSiteButtons : Driverdefining
     {
-        private void AddToBasket(IWebDriver driver, datarow datarow)
+        private void AddToBasket(IWebDriver driver, Datarow datarow)
         {
             string url = driver.PageSource;
             string AddToBasket = null;

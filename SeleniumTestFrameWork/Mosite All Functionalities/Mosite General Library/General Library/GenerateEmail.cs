@@ -7,7 +7,7 @@ namespace MoBankUI
 {
     internal class GenerateEmail
     {
-        public void SendEMail(string ReportName, string emails)
+        public void SendEMail(string reportName, string emails)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace MoBankUI
                 //subject of the email
                 mM.Subject = "Test Report";
                 //deciding for the attachment
-                mM.Attachments.Add(new Attachment(@"C:\\Input Data\" + ReportName + ".xlsx"));
+                mM.Attachments.Add(new Attachment(@"C:\\Input Data\" + reportName + ".xlsx"));
                 //add the body of the email
 
                 var mailBody = new StringBuilder();

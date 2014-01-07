@@ -10,7 +10,7 @@ namespace MoBankUI
 {
     public class Screenshot
     {
-        public void screenshotnotifications(IWebDriver driver)
+        public void Screenshotnotifications(IWebDriver driver)
         {
             using (var b = new Bitmap(50, 50))
             {

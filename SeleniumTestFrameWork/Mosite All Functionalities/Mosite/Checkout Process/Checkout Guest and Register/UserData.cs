@@ -8,11 +8,11 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class UserData_TPS : driverdefining
+    internal class UserDataTps : Driverdefining
     {
         private readonly Screenshot screenshot = new Screenshot();
 
-        public void userdata_TPS(IWebDriver driver, datarow datarow)
+        public void userdata_TPS(IWebDriver driver, Datarow datarow)
         {
             string url = driver.PageSource;
 

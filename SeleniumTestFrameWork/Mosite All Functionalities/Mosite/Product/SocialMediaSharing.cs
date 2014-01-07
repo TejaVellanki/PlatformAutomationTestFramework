@@ -6,7 +6,7 @@ namespace MoBankUI
 {
     public class SocialMediaSharing
     {
-        public void socialmediashare(IWebDriver driver, datarow datarow)
+        public void Socialmediashare(IWebDriver driver, Datarow datarow)
         {
             driver.FindElement(By.XPath("//div[@id='social-media-sharing']/a[1]/img")).Click();
             driver.FindElement(By.XPath("//div[@id='social-media-sharing']/a[2]/img")).Click();

@@ -5,8 +5,8 @@
         //*[@id="categoryList"]/div/ul/li[1]/div/div/a/h3
 
 
-        public const string categorylink = "//*[@id='categoryList']/div/article";
-        public const string cat = "/a/span/span[1]/h3";
+        public const string Categorylink = "//*[@id='categoryList']/div/article";
+        public const string Cat = "/a/span/span[1]/h3";
         public const string products = "//*[@id='productList']/li";
         public const string productlink = "/div/div[1]/a/img";
         public const string ProductPrice = "price";

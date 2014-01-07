@@ -4,9 +4,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class AddressElements : driverdefining
+    internal class AddressElements : Driverdefining
     {
-        public void elements(IWebDriver driver, datarow datarow)
+        public void Elements(IWebDriver driver, Datarow datarow)
         {
             try
             {

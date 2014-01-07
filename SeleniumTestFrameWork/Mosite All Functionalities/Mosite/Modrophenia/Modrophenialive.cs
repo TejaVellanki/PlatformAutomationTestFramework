@@ -12,7 +12,7 @@ using DataTable = System.Data.DataTable;
 
 namespace MoBankUI
 {
-    internal class Modrophenialive : driverdefining
+    internal class Modrophenialive : Driverdefining
     {
         private GeneralLibrary generalLibrary;
         public object xml { get; set; }
@@ -165,7 +165,7 @@ namespace MoBankUI
                 Workbook workbook = generalLibrary.CreateAndOpenExcelFile(@"C:\\Input Data", ref fileName, "Products",
                                                                           ".xlsx", false, false);
                 var ws = (Worksheet) workbook.Sheets[1];
-                var datarow = new datarow();
+                var datarow = new Datarow();
                 dt.Columns.Add("Product Price");
                 dt.Columns.Add("Product Title");
                 dt.Columns.Add("Product Detail");

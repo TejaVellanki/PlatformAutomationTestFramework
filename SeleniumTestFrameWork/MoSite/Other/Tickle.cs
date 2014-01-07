@@ -7,9 +7,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class Tickle : driverdefining
+    internal class Tickle : Driverdefining
     {
-        public void HomepageTabsTickle(datarow datarow, IWebDriver driver, string url)
+        public void HomepageTabsTickle(Datarow datarow, IWebDriver driver, string url)
         {
             try
             {

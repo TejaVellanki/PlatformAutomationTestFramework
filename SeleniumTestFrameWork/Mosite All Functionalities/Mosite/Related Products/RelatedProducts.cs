@@ -5,9 +5,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class RelatedProducts : driverdefining
+    internal class RelatedProducts : Driverdefining
     {
-        public void relatedproducts(IWebDriver driver, datarow datarow)
+        public void Relatedproducts(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -143,7 +143,7 @@ namespace MoBankUI
             }
         }
 
-        public void Validateproduct(datarow datarow, IWebDriver driver)
+        public void Validateproduct(Datarow datarow, IWebDriver driver)
         {
             try
             {
@@ -186,7 +186,7 @@ namespace MoBankUI
             }
         }
 
-        public void click(IWebDriver driver, datarow datarow)
+        public void click(IWebDriver driver, Datarow datarow)
         {
             try
             {

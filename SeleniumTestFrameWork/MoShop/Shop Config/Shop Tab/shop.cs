@@ -5,9 +5,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class shop : driverdefining
+    internal class Shop : Driverdefining
     {
-        public void culture(IWebDriver driver, datarow datarow)
+        public void Culture(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace MoBankUI
                     }
                 }
                 //Inserting Category Images. 
-                new CategoryImages().images(driver, datarow);
+                new CategoryImages().Images(driver, datarow);
 
 
                 driver.Navigate().GoToUrl("http://m.testshop.com");

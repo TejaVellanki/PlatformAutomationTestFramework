@@ -6,10 +6,10 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class RunScrape : driverdefining
+    public class RunScrape : Driverdefining
     {
         [Test]
-        public void Runscrape(IWebDriver driver, datarow datarow)
+        public void Runscrape(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace MoBankUI
             }
         }
 
-        public void Scarperead(IWebDriver driver, datarow datarow, string job)
+        public void Scarperead(IWebDriver driver, Datarow datarow, string job)
         {
             int j = 1;
             for (int i = 0;; i++)
@@ -88,7 +88,7 @@ namespace MoBankUI
             Scrapeandfeedrunning(driver, datarow);
         }
 
-        public void Scrapeandfeedrunning(IWebDriver driver, datarow datarow)
+        public void Scrapeandfeedrunning(IWebDriver driver, Datarow datarow)
         {
             #region  Running
 

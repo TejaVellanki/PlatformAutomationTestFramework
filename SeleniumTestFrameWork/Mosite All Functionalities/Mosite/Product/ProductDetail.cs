@@ -5,9 +5,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class ProductDetail : driverdefining
+    internal class ProductDetail : Driverdefining
     {
-        public void productdetail(IWebDriver driver, datarow datarow)
+        public void Productdetail(IWebDriver driver, Datarow datarow)
         {
             string productdescription = null;
             string productdescriptiontab = null;

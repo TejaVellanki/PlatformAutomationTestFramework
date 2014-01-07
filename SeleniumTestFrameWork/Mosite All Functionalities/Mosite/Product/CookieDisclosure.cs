@@ -4,9 +4,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class CookieDisclosure : driverdefining
+    internal class CookieDisclosure : Driverdefining
     {
-        public void cookie(IWebDriver driver, datarow datrow)
+        public void Cookie(IWebDriver driver, Datarow datrow)
         {
             try
             {

@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace MoBankUI
 {
-    public class ConverttoHTML
+    public class ConverttoHtml
     {
-        private Control c = new Control();
+        private Control _c = new Control();
 
         public string ConvertDataTableToHtml(DataTable targetTable, string reportname, string P, string F)
         {

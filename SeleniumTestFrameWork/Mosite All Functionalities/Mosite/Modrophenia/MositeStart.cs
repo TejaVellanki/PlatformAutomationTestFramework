@@ -7,16 +7,16 @@ namespace MoBankUI
 {
     internal class MositeStart
     {
-        private readonly datarow datarow = new datarow();
+        private readonly Datarow _datarow = new Datarow();
 
         public void Mositestart(IWebDriver driver)
         {
             new GeneralLibrary();
             try
             {
-                datarow.col();
+                _datarow.col();
                 //  new Modrophenialive().modrophenialiveproducts(, driver);
-                new modropheniaproducts().product(datarow, driver);
+                new modropheniaproducts().product(_datarow, driver);
                 // new UserJourney().UserJourn(this.datarow,driver);
                 // new UserData().Userdata(this.datarow,driver);
                 // new Mopaysite().MoPay(driver, , this.datarow);
@@ -26,13 +26,13 @@ namespace MoBankUI
                 Console.Write(exception);
                 string actual = exception.ToString();
                 var screenshot = new Screenshot();
-                datarow.newrow("Exception", "Not Expected", actual, "FAIL", driver);
+                _datarow.newrow("Exception", "Not Expected", actual, "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }
             finally
             {
-                datarow.excelsave("MoSiteReport", driver, "teja.vellanki@mobankgroup.com");
-                datarow.dataflush();
+                _datarow.excelsave("MoSiteReport", driver, "teja.vellanki@mobankgroup.com");
+                _datarow.dataflush();
                 driver.Quit();
             }
         }

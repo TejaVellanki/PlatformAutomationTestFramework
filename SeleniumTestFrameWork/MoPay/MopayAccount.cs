@@ -9,14 +9,14 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class MopayAccount : driverdefining
+    public class MopayAccount : Driverdefining
     {
         private GeneralLibrary _genaralLibrary;
         private Screenshot _screenshot = new Screenshot();
 
         public void Create(IWebDriver driver)
         {
-            var datarow = new datarow();
+            var datarow = new Datarow();
             _genaralLibrary = new GeneralLibrary();
             DataSet excelData = _genaralLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "AccountCreation");
             datarow.col();

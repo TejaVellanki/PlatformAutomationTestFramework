@@ -8,12 +8,12 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class Deletebasketstart : driverdefining
+    public class Deletebasketstart : Driverdefining
     {
-        private readonly Screenshot screenshot = new Screenshot();
+        private readonly Screenshot _screenshot = new Screenshot();
 
         [Test]
-        public void deletebasstart(IWebDriver driver, datarow datarow)
+        public void deletebasstart(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace MoBankUI
                         if (driver.PageSource.Contains("Product unavailable"))
                         {
                             datarow.newrow("Product Unavailable", "", "Product Unavilable", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            _screenshot.screenshotfailed(driver);
                             productunavailabl(driver, l, datarow);
                             driver.FindElement(By.XPath(checkout)).Click();
                         }
@@ -55,13 +55,13 @@ namespace MoBankUI
             {
                 string e = ex.ToString();
                 datarow.newrow("Exception", "Not Expected", e, "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                _screenshot.screenshotfailed(driver);
             }
         }
 
         //Tests if the product is Unavailable
         [Test]
-        public void productunavailabl(IWebDriver driver, int l, datarow datarow)
+        public void productunavailabl(IWebDriver driver, int l, Datarow datarow)
         {
             string deletebasket = null;
             string homeimage = null;
@@ -98,15 +98,15 @@ namespace MoBankUI
                 string cat = null;
                 if (url1.Contains("user-scalable=yes"))
                 {
-                    categorylink = CollectionMapV2.categorylink;
+                    categorylink = CollectionMapV2.Categorylink;
                     cat = CollectionMapV2.cat;
                     products = CollectionMapV2.products;
                     productlink = CollectionMapV2.productlink;
                 }
                 else
                 {
-                    categorylink = CollectionMapV1.categorylink;
-                    cat = CollectionMapV1.cat;
+                    categorylink = CollectionMapV1.Categorylink;
+                    cat = CollectionMapV1.Cat;
                     products = CollectionMapV1.products;
                     productlink = CollectionMapV1.productlink;
                 }
@@ -136,14 +136,14 @@ namespace MoBankUI
                         break;
                     }
                 }
-                var product = new products_TPS();
+                var product = new ProductsTps();
                 product.product(driver, datarow);
             }
             catch (Exception ex)
             {
                 string e = ex.ToString();
                 datarow.newrow("Exception", "Not Expected", e, "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                _screenshot.screenshotfailed(driver);
             }
         }
     }

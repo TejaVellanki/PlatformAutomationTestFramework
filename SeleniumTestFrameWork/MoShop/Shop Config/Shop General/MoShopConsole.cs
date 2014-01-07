@@ -8,7 +8,7 @@ using WebDriver_Refining;
 namespace MoBankUI
 {
     [TestFixture]
-    public class MoShopConsole : driverdefining
+    public class MoShopConsole : Driverdefining
     {
         private readonly Screenshot screenshot = new Screenshot();
 
@@ -28,7 +28,7 @@ namespace MoBankUI
 
         [Test]
         [Category("Fixture")]
-        public void Homepagetabs(IWebDriver driver, datarow datarow)
+        public void Homepagetabs(IWebDriver driver, Datarow datarow)
         {
             try
             {

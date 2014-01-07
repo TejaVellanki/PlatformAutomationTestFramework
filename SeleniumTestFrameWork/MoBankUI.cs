@@ -79,7 +79,7 @@ namespace MoBankUI
                 {
                     if (textBox3.Text != @"Please Enter Mosite URL's Seperated By Comma(,)")
                     {
-                        var datarow = new datarow();
+                        var datarow = new Datarow();
                         datarow.col();
                         string urls = textBox3.Text;
                         if (urls != "")
@@ -240,7 +240,7 @@ namespace MoBankUI
 
         #region Firefox
 
-        public void Mositetp(string url, datarow datarow)
+        public void Mositetp(string url, Datarow datarow)
         {
             try
             {
@@ -273,7 +273,7 @@ namespace MoBankUI
                             mobileurl == url ? "FAIL" : "PASS", driver);
 
                         var testing = new BatchTesting();
-                        testing.batchtesting(item, url, driver, datarow);
+                        testing.Batchtesting(item, url, driver, datarow);
                         string emails = textBox2.Text;
                         var site = new MositeGeneral();
                         site.Finally(driver, url, datarow, emails);
@@ -334,7 +334,7 @@ namespace MoBankUI
         {
             try
             {
-                var datarow = new datarow();
+                var datarow = new Datarow();
                 datarow.col();
                 int count = checkedListBox2.CheckedItems.Count;
 

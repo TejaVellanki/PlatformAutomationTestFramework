@@ -7,7 +7,7 @@ namespace MoBankUI
 {
     internal class BatchCheckout
     {
-        public void Checkout(IWebDriver driver, string url, datarow datarow)
+        public void Checkout(IWebDriver driver, string url, Datarow datarow)
         {
             try
             {
@@ -15,13 +15,13 @@ namespace MoBankUI
                 {
                     //country house checkout process 
                     var contry = new Countryhouse();
-                    contry.checkoutprocess(driver);
+                    contry.Checkoutprocess(driver);
                 }
 
                 if (url.Contains("wolford"))
                 {
                     var wolford = new Wolford();
-                    wolford.wolfordcheckout(driver, datarow);
+                    wolford.Wolfordcheckout(driver, datarow);
                 }
                 if (url.Contains("bathrooms"))
                 {

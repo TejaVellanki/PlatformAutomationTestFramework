@@ -11,9 +11,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class MopayBackup : driverdefining
+    public class MopayBackup : Driverdefining
     {
-        private readonly datarow _datarow = new datarow();
+        private readonly Datarow _datarow = new Datarow();
         private GeneralLibrary _generalLibrary;
 
         public void Dsecure(IWebDriver driver)
@@ -328,7 +328,7 @@ namespace MoBankUI
             }
             finally
             {
-                new Screenshot().screenshotnotifications(driver);
+                new Screenshot().Screenshotnotifications(driver);
                 _datarow.excelsave("MoPayReport", driver, "teja.vellanki@mobankgroup.com");
                 driver.Quit();
             }

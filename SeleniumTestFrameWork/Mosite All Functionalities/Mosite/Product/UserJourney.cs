@@ -9,12 +9,12 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    public class UserJourney_TPS : driverdefining
+    public class UserJourneyTps : Driverdefining
     {
         private readonly Screenshot screenshot = new Screenshot();
         //General user journey to the checkout page
         [Test]
-        public void UserJourn(datarow datarow, IWebDriver driver, string url)
+        public void UserJourn(Datarow datarow, IWebDriver driver, string url)
         {
             try
             {
@@ -27,27 +27,27 @@ namespace MoBankUI
                 string URL = driver.PageSource;
                 if (URL.Contains("user-scalable=yes"))
                 {
-                    categorylink = CollectionMapV2.categorylink;
+                    categorylink = CollectionMapV2.Categorylink;
                     cat = CollectionMapV2.cat;
                     products = CollectionMapV2.products;
                     productlink = CollectionMapV2.productlink;
                 }
                 else
                 {
-                    categorylink = CollectionMapV1.categorylink;
-                    cat = CollectionMapV1.cat;
+                    categorylink = CollectionMapV1.Categorylink;
+                    cat = CollectionMapV1.Cat;
                     products = CollectionMapV1.products;
                     productlink = CollectionMapV1.productlink;
                 }
 
                 var Image = new Imagevalidation();
-                var footer = new Footer_TPS();
+                var footer = new FooterTps();
 
                 Image.homepageimage(driver, datarow);
                 driver.Navigate().GoToUrl(url);
 
                 Thread.Sleep(5000);
-                new CookieDisclosure().cookie(driver, datarow);
+                new CookieDisclosure().Cookie(driver, datarow);
 
                 IWebElement myDynamicElement1 = driver.FindElement(By.XPath("" + categorylink + "" + cat + ""));
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
@@ -79,7 +79,7 @@ namespace MoBankUI
                 }
 
 
-                var prod = new products_TPS();
+                var prod = new ProductsTps();
                 prod.product(driver, datarow);
 
                 string BasketPage = driver.PageSource;

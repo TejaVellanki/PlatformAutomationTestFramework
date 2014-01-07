@@ -5,9 +5,9 @@ using WebDriver_Refining;
 
 namespace MoBankUI
 {
-    internal class LinksExpand : driverdefining
+    internal class LinksExpand : Driverdefining
     {
-        public void AllLink(IWebDriver driver, datarow datarow)
+        public void AllLink(IWebDriver driver, Datarow datarow)
         {
             string url = driver.PageSource;
             string categorylink = null;
@@ -16,15 +16,15 @@ namespace MoBankUI
             string productlink = null;
             if (url.Contains("user-scalable=yes"))
             {
-                categorylink = CollectionMapV2.categorylink;
+                categorylink = CollectionMapV2.Categorylink;
                 cat = CollectionMapV2.cat;
                 products = CollectionMapV2.products;
                 productlink = CollectionMapV2.productlink;
             }
             else
             {
-                categorylink = CollectionMapV1.categorylink;
-                cat = CollectionMapV1.cat;
+                categorylink = CollectionMapV1.Categorylink;
+                cat = CollectionMapV1.Cat;
                 products = CollectionMapV1.products;
                 productlink = CollectionMapV1.productlink;
             }
@@ -107,7 +107,7 @@ namespace MoBankUI
                                             try
                                             {
                                                 var page = new Productpage();
-                                                page.productPage(driver, datarow);
+                                                page.ProductPage(driver, datarow);
                                             }
                                             catch (Exception ex)
                                             {
