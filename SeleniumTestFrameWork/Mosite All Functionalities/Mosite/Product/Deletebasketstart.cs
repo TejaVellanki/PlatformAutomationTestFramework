@@ -115,13 +115,8 @@ namespace MoBankUI.Mosite.Product
 
                         if (!IsElementPresent(driver, By.XPath(products))) continue;
                         driver.FindElement(By.Id("" + products + "" + productlink + "")).Click();
-
-                        break;
                     }
-                    else
-                    {
-                        break;
-                    }
+                    break;
                 }
                 var product = new ProductsTps();
                 product.product(driver, datarow);

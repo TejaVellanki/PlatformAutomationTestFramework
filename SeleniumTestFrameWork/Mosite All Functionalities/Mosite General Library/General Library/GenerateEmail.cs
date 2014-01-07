@@ -12,22 +12,17 @@ namespace MoBankUI
             try
             {
                 //Mail Message
-                var mM = new MailMessage();
+                var mM = new MailMessage {From = new MailAddress("admin@mobankgroup.com")};
                 //Mail Address
-                mM.From = new MailAddress("admin@mobankgroup.com");
                 //receiver email id
                 //  mM.To.Add("tvellanki@gmail.com");
-                try
-                {
+               
                     var email = emails.Split(',');
                     foreach (var emal in email)
                     {
                         mM.To.Add(emal);
                     }
-                }
-                catch (Exception ex)
-                {
-                }
+                
                 // mM.To.Add("ben.west@mobankgroup.com");  
                 mM.To.Add("teja.vellanki@mobankgroup.com");
                 //subject of the email
@@ -52,13 +47,15 @@ namespace MoBankUI
                 //mM.Body = mailBody.ToString();
                 mM.IsBodyHtml = true;
                 //SMTP client
-                var sC = new SmtpClient("smtp.gmail.com");
+                var sC = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential("teja.vellanki@mobankgroup.com", "Apple12345"),
+                    EnableSsl = true
+                };
                 //port number for Gmail mail
-                sC.Port = 587;
                 //credentials to login in to Gmail account
-                sC.Credentials = new NetworkCredential("teja.vellanki@mobankgroup.com", "Apple12345");
                 //enabled SSL
-                sC.EnableSsl = true;
                 //Send an email
                 sC.Send(mM);
 

@@ -81,7 +81,7 @@ namespace MoBankUI
             htmlBuilder.Append("<tr align='left' valign='top'>");
             htmlBuilder.Append("<tr style=\"background-color:LightBlue;\">");
 
-            #region Table 
+            #region Table
 
             foreach (DataColumn targetColumn in targetTable.Columns)
             {
@@ -94,78 +94,73 @@ namespace MoBankUI
             //Create Data Rows
             foreach (DataRow myRow in targetTable.Rows)
             {
-                try
+                htmlBuilder.Append("<tr align='left' valign='top'>");
+
+                foreach (DataColumn targetColumn in targetTable.Columns)
                 {
-                    htmlBuilder.Append("<tr align='left' valign='top'>");
-
-                    foreach (DataColumn targetColumn in targetTable.Columns)
+                    var columnname = targetColumn.ToString();
+                    if (columnname == "Field Validated" || columnname == "Expected Result" ||
+                        columnname == "Actual Result" || columnname == "PASS or FAIL" ||
+                        columnname == "Total Number Of Test Cases Passed/Failed")
                     {
-                        var columnname = targetColumn.ToString();
-                        if (columnname == "Field Validated" || columnname == "Expected Result" ||
-                            columnname == "Actual Result" || columnname == "PASS or FAIL" ||
-                            columnname == "Total Number Of Test Cases Passed/Failed")
+                        var value = myRow[3].ToString();
+                        var valu = myRow[4].ToString();
+
+                        switch (value)
                         {
-                            var value = myRow[3].ToString();
-                            var valu = myRow[4].ToString();
-
-                            switch (value)
-                            {
-                                case "PASS":
-                                    if (columnname != "Total Number Of Test Cases Passed/Failed")
-                                    {
-                                        htmlBuilder.Append(
-                                            "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:LightGreen;\">");
-                                        htmlBuilder.Append(myRow[targetColumn.ColumnName]);
-                                        htmlBuilder.Append("</td>");
-                                    }
-
-                                    else if (columnname == "Total Number Of Test Cases Passed/Failed")
-                                    {
-                                        htmlBuilder.Append(
-                                            "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:Grey;\">");
-                                        htmlBuilder.Append(myRow[targetColumn.ColumnName]);
-                                        htmlBuilder.Append("</td>");
-                                    }
-                                    break;
-                                case "FAIL":
-                                    if (columnname != "Total Number Of Test Cases Passed/Failed")
-                                    {
-                                        htmlBuilder.Append(
-                                            "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:Red;\">");
-                                        htmlBuilder.Append(myRow[targetColumn.ColumnName]);
-                                        htmlBuilder.Append("</td>");
-                                    }
-                                    else if (columnname == "Total Number Of Test Cases Passed/Failed")
-                                    {
-                                        htmlBuilder.Append(
-                                            "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:Grey;\">");
-                                        htmlBuilder.Append(myRow[targetColumn.ColumnName]);
-                                        htmlBuilder.Append("</td>");
-                                    }
-                                    break;
-                                default:
+                            case "PASS":
+                                if (columnname != "Total Number Of Test Cases Passed/Failed")
+                                {
                                     htmlBuilder.Append(
-                                        "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:LightGrey;\">");
+                                        "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:LightGreen;\">");
                                     htmlBuilder.Append(myRow[targetColumn.ColumnName]);
                                     htmlBuilder.Append("</td>");
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            htmlBuilder.Append(
-                                "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:LightGrey;\">");
-                            htmlBuilder.Append(myRow[targetColumn.ColumnName]);
-                            htmlBuilder.Append("</td>");
+                                }
+
+                                else if (columnname == "Total Number Of Test Cases Passed/Failed")
+                                {
+                                    htmlBuilder.Append(
+                                        "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:Grey;\">");
+                                    htmlBuilder.Append(myRow[targetColumn.ColumnName]);
+                                    htmlBuilder.Append("</td>");
+                                }
+                                break;
+                            case "FAIL":
+                                if (columnname != "Total Number Of Test Cases Passed/Failed")
+                                {
+                                    htmlBuilder.Append(
+                                        "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:Red;\">");
+                                    htmlBuilder.Append(myRow[targetColumn.ColumnName]);
+                                    htmlBuilder.Append("</td>");
+                                }
+                                else if (columnname == "Total Number Of Test Cases Passed/Failed")
+                                {
+                                    htmlBuilder.Append(
+                                        "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:Grey;\">");
+                                    htmlBuilder.Append(myRow[targetColumn.ColumnName]);
+                                    htmlBuilder.Append("</td>");
+                                }
+                                break;
+                            default:
+                                htmlBuilder.Append(
+                                    "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:LightGrey;\">");
+                                htmlBuilder.Append(myRow[targetColumn.ColumnName]);
+                                htmlBuilder.Append("</td>");
+                                break;
                         }
                     }
+                    else
+                    {
+                        htmlBuilder.Append(
+                            "<td align='left' valign='top' face =\"Times New Roman\" size = '2' style=\"background-color:LightGrey;\">");
+                        htmlBuilder.Append(myRow[targetColumn.ColumnName]);
+                        htmlBuilder.Append("</td>");
+                    }
+                }
 
 
-                    htmlBuilder.Append("</tr>");
-                }
-                catch (Exception ex)
-                {
-                }
+                htmlBuilder.Append("</tr>");
+
             }
 
             #endregion

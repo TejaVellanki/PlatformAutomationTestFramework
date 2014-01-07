@@ -28,12 +28,12 @@ namespace MoBankUI
         /*
                 private TextBox _textbox4;
         */
-        private readonly TextBox textBox2;
+        private readonly TextBox _textBox2;
 
 
         public Form1(TextBox textBox2)
         {
-            this.textBox2 = textBox2;
+            _textBox2 = textBox2;
             InitializeComponent();
         }
 
@@ -274,7 +274,7 @@ namespace MoBankUI
 
                         var testing = new BatchTesting();
                         testing.Batchtesting(item, url, driver, datarow);
-                        var emails = textBox2.Text;
+                        var emails = _textBox2.Text;
                         var site = new MositeGeneral();
                         site.Finally(driver, url, datarow, emails);
                     }
@@ -293,41 +293,24 @@ namespace MoBankUI
 
         public void mopayaccountcreation()
         {
-            try
-            {
-                IWebDriver driver = new FirefoxDriver();
-                driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayAccount().Create(driver);
-            }
-            catch (Exception)
-            {
-            }
+            IWebDriver driver = new FirefoxDriver();
+            driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
+            new MopayAccount().Create(driver);
         }
 
         public void Mopayconsole()
         {
-            try
-            {
-                IWebDriver driver = new FirefoxDriver();
-                driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayConsol().HomepageTabs(driver);
-            }
-            catch (Exception)
-            {
-            }
+
+            IWebDriver driver = new FirefoxDriver();
+            driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
+            new MopayConsol().HomepageTabs(driver);
         }
 
         public void Mopaytestharness()
         {
-            try
-            {
-                IWebDriver driver = new FirefoxDriver();
-                driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
-                new Mopay().MoPay(driver);
-            }
-            catch (Exception)
-            {
-            }
+            IWebDriver driver = new FirefoxDriver();
+            driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
+            new Mopay().MoPay(driver);
         }
 
         public void Moshopconsole()
@@ -354,15 +337,9 @@ namespace MoBankUI
 
         public void Mositemodro()
         {
-            try
-            {
-                IWebDriver driver = new FirefoxDriver();
-                driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
-                new MositeStart().Mositestart(driver);
-            }
-            catch (Exception)
-            {
-            }
+            IWebDriver driver = new FirefoxDriver();
+            driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
+            new MositeStart().Mositestart(driver);
         }
 
         #endregion
@@ -371,69 +348,39 @@ namespace MoBankUI
 
         public void Mopayaccountcreationchrome()
         {
-            try
-            {
-                IWebDriver driver = new ChromeDriver(@"C:\\net40\");
+            IWebDriver driver = new ChromeDriver(@"C:\\net40\");
 
-                driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayAccount().Create(driver);
-            }
-            catch (Exception)
-            {
-            }
+            driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
+            new MopayAccount().Create(driver);
         }
 
         public void Mopayconsolechrome()
         {
-            try
-            {
-                IWebDriver driver = new ChromeDriver(@"C:\\net40\");
+            IWebDriver driver = new ChromeDriver(@"C:\\net40\");
 
-                driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayConsol().HomepageTabs(driver);
-            }
-            catch (Exception)
-            {
-            }
+            driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
+            new MopayConsol().HomepageTabs(driver);
         }
 
         public void Mopaytestharnesschrome()
         {
-            try
-            {
-                IWebDriver driver = new ChromeDriver(@"C:\\net40\");
+            IWebDriver driver = new ChromeDriver(@"C:\\net40\");
 
-                driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
-                new Mopay().MoPay(driver);
-            }
-            catch (Exception)
-            {
-            }
+            driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
+            new Mopay().MoPay(driver);
         }
 
         public void Moshopconsolechrome()
         {
-            try
-            {
-                IWebDriver driver = new ChromeDriver(@"C:\\net40\");
-                driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
-            }
-            catch (Exception)
-            {
-            }
+            IWebDriver driver = new ChromeDriver(@"C:\\net40\");
+            driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
         }
 
         public void Mositemodrochrome()
         {
-            try
-            {
-                IWebDriver driver = new ChromeDriver(@"C:\\net40\");
-                driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
-                new MositeStart().Mositestart(driver);
-            }
-            catch (Exception)
-            {
-            }
+            IWebDriver driver = new ChromeDriver(@"C:\\net40\");
+            driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
+            new MositeStart().Mositestart(driver);
         }
 
         #endregion
@@ -442,66 +389,36 @@ namespace MoBankUI
 
         public void Mopayaccountcreationexplorer()
         {
-            try
-            {
-                IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
-                driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayAccount().Create(driver);
-            }
-            catch (Exception)
-            {
-            }
+            IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
+            driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
+            new MopayAccount().Create(driver);
         }
 
         public void Mopayconsoleexplorer()
         {
-            try
-            {
-                IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
-                driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
-                new MopayConsol().HomepageTabs(driver);
-            }
-            catch (Exception)
-            {
-            }
+            IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
+            driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
+            new MopayConsol().HomepageTabs(driver);
         }
 
         public void Mopaytestharnessexplorer()
         {
-            try
-            {
-                IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
-                driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
-                new Mopay().MoPay(driver);
-            }
-            catch (Exception)
-            {
-            }
+            IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
+            driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
+            new Mopay().MoPay(driver);
         }
 
         public void Moshopconsoleexplorer()
         {
-            try
-            {
-                IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
-                driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
-            }
-            catch (Exception)
-            {
-            }
+            IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
+            driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
         }
 
         public void Mositemodroexplorer()
         {
-            try
-            {
                 IWebDriver driver = new InternetExplorerDriver(@"C:\\net40\");
                 driver.Navigate().GoToUrl("https://qamodrophenia.mobankdev.com");
                 new MositeStart().Mositestart(driver);
-            }
-            catch (Exception)
-            {
-            }
         }
 
         #endregion

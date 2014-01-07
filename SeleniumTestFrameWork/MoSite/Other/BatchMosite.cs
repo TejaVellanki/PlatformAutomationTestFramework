@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 
 using System;
+using System.Linq;
 using OpenQA.Selenium;
 
 namespace MoBankUI.MoSite.Other
@@ -21,9 +22,8 @@ namespace MoBankUI.MoSite.Other
             {
                 foreach (var url in urlarray)
                 {
-                    foreach (var str in strArray)
+                    foreach (var str in strArray.Where(str => str != null))
                     {
-                        if (str == null) continue;
                         if (str == "Test All Links in Mosite")
                         {
                             datarow.newrow("", "", "Test All Links in Mosite", "", driver);

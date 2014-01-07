@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Net;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -29,12 +30,9 @@ namespace MoBankUI
                         {
                             datarow.newrow("Cache Control", "Cache Control is Public", rawHeaders, "PASS");
                             var cache = rawHeaders.Split('f');
-                            foreach (var s in cache)
+                            foreach (var s in cache.Where(s => s.Contains("Date")))
                             {
-                                if (s.Contains("Date"))
-                                {
-                                    datarow.newrow("Cache Control", "Cache Limit is Set to 30 Mins", s, "PASS");
-                                }
+                                datarow.newrow("Cache Control", "Cache Limit is Set to 30 Mins", s, "PASS");
                             }
                         }
                         else
@@ -47,10 +45,8 @@ namespace MoBankUI
                 // Validating CSS URL from the page source
                 var css = driver.PageSource;
                 var selectedvalue = css.Split('<');
-                foreach (var s in selectedvalue)
+                foreach (var ss in selectedvalue.Where(ss => ss.Contains("themes")))
                 {
-                    var ss = s;
-                    if (!ss.Contains("themes")) continue;
                     if (ss.Contains("http") || ss.Contains("https") || ss.Contains("blob"))
                     {
                         datarow.newrow("CSS Validation", "Http/Https and Blob shouldnot contain inside the CSS Url",
@@ -66,14 +62,10 @@ namespace MoBankUI
                     break;
                 }
                 datarow.newrow("", "", "Validating GET for Search Results", "");
-                foreach (var get in selectedvalue)
+                foreach (var GET in selectedvalue.Where(GET => GET.Contains("GET")))
                 {
-                    var GET = get;
-                    if (GET.Contains("GET"))
-                    {
-                        datarow.newrow("Validate Search Results Using GET", "Search Results Using GET method", GET,
-                                       "PASS");
-                    }
+                    datarow.newrow("Validate Search Results Using GET", "Search Results Using GET method", GET,
+                        "PASS");
                 }
 
                 var image = new Imagevalidation();

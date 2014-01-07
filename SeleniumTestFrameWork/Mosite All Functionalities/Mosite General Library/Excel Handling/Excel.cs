@@ -36,13 +36,9 @@ namespace MoBankUI
 
             var objCmdSelect = new OleDbCommand(sqlquery, objConn);
 
-            var objAdapter1 = new OleDbDataAdapter();
+            var objAdapter1 = new OleDbDataAdapter {SelectCommand = objCmdSelect};
 
-            objAdapter1.SelectCommand = objCmdSelect;
-
-            var objDataset = new DataSet();
-
-            objDataset.Locale = CultureInfo.InvariantCulture;
+            var objDataset = new DataSet {Locale = CultureInfo.InvariantCulture};
 
             objAdapter1.Fill(objDataset);
 
@@ -68,17 +64,14 @@ namespace MoBankUI
         public Workbook CreateAndOpenExcelFile(string filePath, ref string fileName, string sheetName, string extension,
                                                bool displayAlerts, bool appendDateField)
         {
-            xlApp = new Application();
-
-            xlApp.DisplayAlerts = displayAlerts;
-
-            xlApp.ScreenUpdating = displayAlerts;
-
-            xlApp.Visible = displayAlerts;
-
-            xlApp.UserControl = displayAlerts;
-
-            xlApp.Interactive = displayAlerts;
+            xlApp = new Application
+            {
+                DisplayAlerts = displayAlerts,
+                ScreenUpdating = displayAlerts,
+                Visible = displayAlerts,
+                UserControl = displayAlerts,
+                Interactive = displayAlerts
+            };
 
             if (appendDateField)
             {
@@ -100,16 +93,16 @@ namespace MoBankUI
 
             var currentSheetCount = workbook.Sheets.Count;
 
-            var reqSheetConsolidated = (Worksheet) sheets.Item[currentSheetCount];
+            var reqSheetConsolidated = (Worksheet)sheets.Item[currentSheetCount];
 
             var newSheetConsolidated =
-                (Worksheet) sheets.Add(Type.Missing, reqSheetConsolidated, 1, Type.Missing);
+                (Worksheet)sheets.Add(Type.Missing, reqSheetConsolidated, 1, Type.Missing);
 
             newSheetConsolidated.Name = sheetName;
 
             for (var sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
             {
-                var verSheet = (Worksheet) workbook.Worksheets.Item[sheetCount];
+                var verSheet = (Worksheet)workbook.Worksheets.Item[sheetCount];
 
                 if ("Sheet1" != verSheet.Name) continue;
                 verSheet.Delete();
@@ -151,7 +144,7 @@ namespace MoBankUI
         {
             for (var sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
             {
-                var verSheet = (Worksheet) workbook.Worksheets.Item[sheetCount];
+                var verSheet = (Worksheet)workbook.Worksheets.Item[sheetCount];
 
                 if ("Sheet1" != verSheet.Name) continue;
                 workbook.Save();
@@ -195,7 +188,7 @@ namespace MoBankUI
         {
             // Copy the DataTable to an object array
 
-            var rawData = new object[dt.Rows.Count + 1,dt.Columns.Count];
+            var rawData = new object[dt.Rows.Count + 1, dt.Columns.Count];
 
             int intRowNum;
 
@@ -293,7 +286,7 @@ namespace MoBankUI
 
                 if (dt.Rows.Count > 0)
                 {
-                    ((Range) ws.Rows[intRowNum + dt.Rows.Count, Type.Missing]).Interior.Color =
+                    ((Range)ws.Rows[intRowNum + dt.Rows.Count, Type.Missing]).Interior.Color =
                         ColorTranslator.ToOle(Color.Yellow);
                 }
             }
@@ -309,11 +302,11 @@ namespace MoBankUI
             if (dt.Columns.Count > colCharsetLen)
             {
                 finalColLetter = colCharset.Substring(
-                    (dt.Columns.Count - 1)/colCharsetLen - 1, 1);
+                    (dt.Columns.Count - 1) / colCharsetLen - 1, 1);
             }
 
             finalColLetter += colCharset.Substring(
-                (dt.Columns.Count - 1)%colCharsetLen, 1);
+                (dt.Columns.Count - 1) % colCharsetLen, 1);
 
             string excelRange;
 
@@ -355,54 +348,49 @@ namespace MoBankUI
 
             var j = 2;
 
-            try
+            for (var i = 0; i < dt.Rows.Count; i++)
             {
-                for (var i = 0; i < dt.Rows.Count; i++)
-                {
-                    ((Range) ws.Rows[1, Type.Missing]).Font.Bold = true;
-                    ((Range) ws.Rows[1, Type.Missing]).Font.Color = ColorTranslator.ToOle(Color.LightGray);
-                    ((Range) ws.Rows[1, Type.Missing]).Interior.Color = Color.Blue;
+                ((Range)ws.Rows[1, Type.Missing]).Font.Bold = true;
+                ((Range)ws.Rows[1, Type.Missing]).Font.Color = ColorTranslator.ToOle(Color.LightGray);
+                ((Range)ws.Rows[1, Type.Missing]).Interior.Color = Color.Blue;
 
-                    ((Range) ws.Rows[j, Type.Missing]).Borders.Color = ColorTranslator.ToOle(Color.Black);
-                    ((Range) ws.Rows[j, Type.Missing]).Interior.Color = ColorTranslator.ToOle(Color.LightGray);
-                    var text = dt.Rows[i]["Total Number Of Test Cases Passed/Failed"].ToString();
-                    var value = dt.Rows[i]["PASS or FAIL"].ToString();
-                    if (value == "PASS")
-                    {
-                        ((Range) ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
-                            ColorTranslator.ToOle(Color.LightGreen);
-                        ((Range) ws.Columns[2, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
-                            ColorTranslator.ToOle(Color.LightGreen);
-                        ((Range) ws.Columns[3, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
-                            ColorTranslator.ToOle(Color.LightGreen);
-                        ((Range) ws.Columns[4, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
-                            ColorTranslator.ToOle(Color.LightGreen);
-                    }
-                    if (value == "FAIL")
-                    {
-                        ((Range) ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
-                            ColorTranslator.ToOle(Color.Red);
-                        ((Range) ws.Columns[2, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
-                            ColorTranslator.ToOle(Color.Red);
-                        ((Range) ws.Columns[3, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
-                            ColorTranslator.ToOle(Color.Red);
-                        ((Range) ws.Columns[4, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
-                            ColorTranslator.ToOle(Color.Red);
-                    }
-                    j++;
-                    //   if (text.Contains("Passed"))
-                    // {
-                    //     ((Range)ws.Columns[5, Type.Missing]).Rows[2, Type.Missing].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Green);
-                    //  }
-                    //   if (text.Contains("Failed"))
-                    //   {
-                    //       ((Range)ws.Columns[5, Type.Missing]).Rows[3, Type.Missing].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
-                    //   }
+                ((Range)ws.Rows[j, Type.Missing]).Borders.Color = ColorTranslator.ToOle(Color.Black);
+                ((Range)ws.Rows[j, Type.Missing]).Interior.Color = ColorTranslator.ToOle(Color.LightGray);
+                var text = dt.Rows[i]["Total Number Of Test Cases Passed/Failed"].ToString();
+                var value = dt.Rows[i]["PASS or FAIL"].ToString();
+                if (value == "PASS")
+                {
+                    ((Range)ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ColorTranslator.ToOle(Color.LightGreen);
+                    ((Range)ws.Columns[2, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ColorTranslator.ToOle(Color.LightGreen);
+                    ((Range)ws.Columns[3, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ColorTranslator.ToOle(Color.LightGreen);
+                    ((Range)ws.Columns[4, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ColorTranslator.ToOle(Color.LightGreen);
                 }
+                if (value == "FAIL")
+                {
+                    ((Range)ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ColorTranslator.ToOle(Color.Red);
+                    ((Range)ws.Columns[2, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ColorTranslator.ToOle(Color.Red);
+                    ((Range)ws.Columns[3, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ColorTranslator.ToOle(Color.Red);
+                    ((Range)ws.Columns[4, Type.Missing].Rows[j, Type.Missing]).Interior.Color =
+                        ColorTranslator.ToOle(Color.Red);
+                }
+                j++;
+                //   if (text.Contains("Passed"))
+                // {
+                //     ((Range)ws.Columns[5, Type.Missing]).Rows[2, Type.Missing].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Green);
+                //  }
+                //   if (text.Contains("Failed"))
+                //   {
+                //       ((Range)ws.Columns[5, Type.Missing]).Rows[3, Type.Missing].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                //   }
             }
-            catch (Exception ex)
-            {
-            }
+
             return finalColLetter + "," + intRowNum;
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using MoBankUI.Mosite;
 using MoBankUI.Mosite.HomePage;
 using MoBankUI.Mosite.Modrophenia;
@@ -23,10 +24,8 @@ namespace MoBankUI.MoShop
 
                 var strArray = items.Split(new[] {','});
 
-                foreach (var str in strArray)
+                foreach (var str in strArray.Where(str => str.Length != 0))
                 {
-                    if (str.Length == 0) continue;
-
                     #region Test Shop
 
                     if (str == "Create a Test Shop")
@@ -138,8 +137,6 @@ namespace MoBankUI.MoShop
                     var delete = new DeleteTestShop();
                     delete.Deleteshop(driver);
                     delete.Deletedscrape(driver);
-
-                    #endregion
                 }
             }
 
@@ -174,4 +171,5 @@ namespace MoBankUI.MoShop
             pay.batchpay(driver, "http://testshop.mobankdev.com/", datarow);
         }
     }
+#endregion
 }

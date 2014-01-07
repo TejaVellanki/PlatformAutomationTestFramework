@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 
 //using System.Drawing;
 
@@ -25,8 +26,10 @@ namespace MoBankUI.Mosite.HomePage
                     // page.productPage(driver, datarow);
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                var e = ex.ToString();
+                datarow.newrow("Exception", "Exception Not Exopected", e, "FAIL");
             }
         }
     }

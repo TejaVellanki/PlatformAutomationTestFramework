@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MoBankUI.ObjectRepository;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -66,9 +67,8 @@ namespace MoBankUI.Mosite.HomePage
 
 
                         string values = null;
-                        foreach (var value in AllDropDownList)
+                        foreach (var value in AllDropDownList.Where(value => value.Text != "Please Select"))
                         {
-                            if (value.Text == "Please Select") continue;
                             values = values + "\r\n" + value;
                             new SelectElement(driver.FindElement(By.Id(productVarinat))).SelectByText(value.Text);
                         }

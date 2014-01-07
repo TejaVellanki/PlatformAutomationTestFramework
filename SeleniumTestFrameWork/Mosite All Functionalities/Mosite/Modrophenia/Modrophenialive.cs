@@ -174,9 +174,8 @@ namespace MoBankUI.Mosite.Modrophenia
             }
             finally
             {
-                foreach (var process in Process.GetProcessesByName("EXCEL"))
+                foreach (var process in Process.GetProcessesByName("EXCEL").Where(process => process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE")))
                 {
-                    if (!process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE")) continue;
                     process.Kill();
                     break;
                 }

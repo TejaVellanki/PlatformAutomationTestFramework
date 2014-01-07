@@ -49,6 +49,8 @@ namespace MoBankUI.Mosite
             }
             catch (Exception ex)
             {
+                var e = ex.ToString();
+                datarow.newrow("Exception", "Exception Not Exopected", e, "FAIL");
             }
         }
     }

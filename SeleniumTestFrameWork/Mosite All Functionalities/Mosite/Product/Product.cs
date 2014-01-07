@@ -24,7 +24,7 @@ namespace MoBankUI.Mosite.Product
                 string AddToBasket;
                 string checkout;
                 string basketvalue;
-                var screenshot = new Screenshot();
+                var screenshot1 = new Screenshot();
 
                 #region object reading
 
@@ -209,7 +209,7 @@ namespace MoBankUI.Mosite.Product
                 {
                     var e = ex.ToString();
                     datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected", e, "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot1.screenshotfailed(driver);
                 }
 
 
@@ -222,7 +222,7 @@ namespace MoBankUI.Mosite.Product
                 else
                 {
                     datarow.newrow("Basket Value", "(1)", basval, "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot1.screenshotfailed(driver);
                 }
 
                 //Footer_TPS footer = new Footer_TPS();
@@ -257,7 +257,7 @@ namespace MoBankUI.Mosite.Product
                     else
                     {
                         datarow.newrow("Basket Value", "(4)", value1, "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot1.screenshotfailed(driver);
                     }
                 }
                 new SelectElement(driver.FindElement(By.Id("Items_0__Quantity")));

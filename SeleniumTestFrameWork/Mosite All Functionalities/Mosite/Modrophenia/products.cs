@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -155,9 +156,8 @@ namespace MoBankUI.Mosite.Modrophenia
 
 
                                 str5 = null;
-                                foreach (var str6 in selectOptions)
+                                foreach (var str6 in selectOptions.Where(str6 => str6.Text != "Please Select"))
                                 {
-                                    if (str6.Text == "Please Select") continue;
                                     str5 = str5 + "\r\n" + str6;
                                     new SelectElement(driver.FindElement(By.Id("Variants_0__OptionValue")))
                                         .SelectByText(str6.Text);
@@ -167,6 +167,8 @@ namespace MoBankUI.Mosite.Modrophenia
                             }
                             catch (Exception ex)
                             {
+                                var e = ex.ToString();
+                                datarow.newrow("Exception", "Exception Not Exopected", e, "FAIL");
                             }
                         } //*[@id="AddToBasketForm"]/ul/li[2]/fieldset/div[2]/div[2]/label
                         else

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using MoBankUI.ObjectRepository;
 using OpenQA.Selenium;
@@ -27,7 +28,7 @@ namespace MoBankUI.Mosite
             string paybutton;
 
 
-            var screenshot = new Screenshot();
+            var screenshot1 = new Screenshot();
 
             if (url.Contains("user-scalable=yes"))
             {
@@ -92,9 +93,8 @@ namespace MoBankUI.Mosite
                             IList<IWebElement> countries = con.FindElements(By.TagName("option"));
 
                             string values = null;
-                            foreach (var value in countries)
+                            foreach (var value in countries.Where(value => !value.Text.Contains("Please") || value.Text != "Select country"))
                             {
-                                if (value.Text.Contains("Please") && value.Text == "Select country") continue;
                                 if (value.Text == "United Kingdom")
                                 {
                                     values = values + "\r\n" + value;
@@ -140,7 +140,7 @@ namespace MoBankUI.Mosite
                         var e = ex.ToString();
                         datarow.newrow("Email Field Exception", "Exception Not Expected", e, "FAIL", driver
                             );
-                        screenshot.screenshotfailed(driver);
+                        screenshot1.screenshotfailed(driver);
                     }
 
                     #endregion
@@ -150,7 +150,7 @@ namespace MoBankUI.Mosite
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                screenshot1.screenshotfailed(driver);
             }
             try
             {
@@ -195,7 +195,7 @@ namespace MoBankUI.Mosite
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                screenshot1.screenshotfailed(driver);
             }
         }
     }

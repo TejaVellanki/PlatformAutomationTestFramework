@@ -163,7 +163,7 @@ namespace MoBankUI.MoShop.Scheduler
 
                     #endregion
                 }
-                else if (str != null)
+                else
                 {
                     #region Validations
 

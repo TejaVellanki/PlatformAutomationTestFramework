@@ -2,6 +2,7 @@
 using System.Data;
 using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
 using Microsoft.Office.Interop.Excel;
 using OpenQA.Selenium;
 using DataTable = System.Data.DataTable;
@@ -121,19 +122,12 @@ namespace MoBankUI
 
                 dt.TableName = "MyTable";
 
-                try
-                {
-                    var Html = new ConverttoHtml();
-                    Html.ConvertDataTableToHtml(dt, ReportName, P, F);
-                }
-                catch (Exception ex)
-                {
-                }
+                var Html = new ConverttoHtml();
+                Html.ConvertDataTableToHtml(dt, ReportName, P, F);
 
                 dt.WriteXml(@"C:\Selenium\Input Data\XML Reports\" + ReportName + ".xml");
-                foreach (var process in Process.GetProcessesByName("EXCEL"))
+                foreach (var process in Process.GetProcessesByName("EXCEL").Where(process => process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE")))
                 {
-                    if (!process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE")) continue;
                     process.Kill();
                     break;
                 }
@@ -195,17 +189,11 @@ namespace MoBankUI
                 var ghdg = new GenerateEmail();
                 ghdg.SendEMail(ReportName, emails);
 
-                try
+                var Html = new ConverttoHtml();
+                Html.ConvertDataTableToHtml(mergeTable, ReportName, P, F);
+
+                foreach (var process in Process.GetProcessesByName("EXCEL").Where(process => process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE")))
                 {
-                    var Html = new ConverttoHtml();
-                    Html.ConvertDataTableToHtml(mergeTable, ReportName, P, F);
-                }
-                catch (Exception ex)
-                {
-                }
-                foreach (var process in Process.GetProcessesByName("EXCEL"))
-                {
-                    if (!process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE")) continue;
                     process.Kill();
                     break;
                 }
