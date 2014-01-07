@@ -2,10 +2,10 @@
 
 using System;
 using System.Threading;
+using MoBankUI.MoShop.Checkout.Confirm;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop.Checkout.Delivery
 {
     public class DeliveryTab : Driverdefining
     {
@@ -100,29 +100,29 @@ namespace MoBankUI
 
                 #region Validation
 
-                string text = driver.FindElement(By.Id("DynamicSourceUrl")).Selected.ToString();
-                string attribute = driver.FindElement(By.Id("Parameters")).GetAttribute("Value");
-                string actual = driver.FindElement(By.Id("Sequence")).GetAttribute("Value");
-                string str4 = driver.FindElement(By.Id("LiveScrapeForm_HeaderSelector")).GetAttribute("Value");
-                string str5 = driver.FindElement(By.Id("LiveScrapeForm_SuccessSelector")).GetAttribute("Value");
-                string str6 = driver.FindElement(By.Id("LiveScrapeForm_ErrorSelector")).GetAttribute("Value");
-                string str7 = driver.FindElement(By.Id("LiveScrapeForm_Elements_0__LabelSelector"))
+                var text = driver.FindElement(By.Id("DynamicSourceUrl")).Selected.ToString();
+                var attribute = driver.FindElement(By.Id("Parameters")).GetAttribute("Value");
+                var actual = driver.FindElement(By.Id("Sequence")).GetAttribute("Value");
+                var str4 = driver.FindElement(By.Id("LiveScrapeForm_HeaderSelector")).GetAttribute("Value");
+                var str5 = driver.FindElement(By.Id("LiveScrapeForm_SuccessSelector")).GetAttribute("Value");
+                var str6 = driver.FindElement(By.Id("LiveScrapeForm_ErrorSelector")).GetAttribute("Value");
+                var str7 = driver.FindElement(By.Id("LiveScrapeForm_Elements_0__LabelSelector"))
                                     .GetAttribute("Value");
-                string str8 =
+                var str8 =
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_0__KeysValuesSelector")).GetAttribute("Value");
-                string str9 = driver.FindElement(By.Id("LiveScrapeForm_Elements_1__LabelSelector"))
+                var str9 = driver.FindElement(By.Id("LiveScrapeForm_Elements_1__LabelSelector"))
                                     .GetAttribute("Value");
-                string str10 =
+                var str10 =
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_2__LabelSelector")).GetAttribute("Value");
-                string str11 =
+                var str11 =
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_3__LabelSelector")).GetAttribute("Value");
-                string str12 =
+                var str12 =
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_2__KeysValuesSelector")).GetAttribute("Value");
-                string str13 =
+                var str13 =
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_4__LabelSelector")).GetAttribute("Value");
-                string str14 =
+                var str14 =
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_4__CheckBoxReplacement")).GetAttribute("Value");
-                string str15 =
+                var str15 =
                     driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).GetAttribute("Value");
 
 
@@ -262,7 +262,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
             driver.FindElement(By.LinkText("Checkout Process")).Click();

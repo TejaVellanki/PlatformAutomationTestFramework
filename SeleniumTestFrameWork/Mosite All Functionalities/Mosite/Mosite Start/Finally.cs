@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 
 //using System.Drawing;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite
 {
     internal class MositeGeneral
     {
@@ -30,16 +30,16 @@ namespace MoBankUI
             catch (Exception e)
             {
                 Console.Write(e);
-                string ex = e.ToString();
+                var ex = e.ToString();
                 var scree = new Screenshot();
                 datarow.newrow("Exception", "Not Expected", ex, "FAIL", driver);
                 scree.screenshotfailed(driver);
             }
             finally
             {
-                string[] split = url.Split(new[] {' ', ',', '.', '/', '\t'});
+                var split = url.Split(new[] {' ', ',', '.', '/', '\t'});
 
-                foreach (string sr in split)
+                foreach (var sr in split)
                 {
                     if (split[2] == "m" || split[2] == "www")
                     {

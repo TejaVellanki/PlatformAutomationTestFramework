@@ -16,7 +16,7 @@ namespace MoBankUI
             {
                 //.CaptureScreenshot(@"C:\\Input Data\Callback.png");
 
-                string randomNumber = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture) +
+                var randomNumber = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture) +
                                       DateTime.Now.Month.ToString(CultureInfo.InvariantCulture)
                                       +
                                       DateTime.Now.Day.ToString(CultureInfo.InvariantCulture)
@@ -27,7 +27,7 @@ namespace MoBankUI
                                       +
                                       DateTime.Now.Second.ToString(CultureInfo.InvariantCulture);
 
-                string image = @"C:\\Input Data\Callback" + randomNumber + ".png";
+                var image = @"C:\\Input Data\Callback" + randomNumber + ".png";
                 b.Save(image, ImageFormat.Png);
 
                 ((ITakesScreenshot) driver).GetScreenshot().SaveAsFile(image, ImageFormat.Png);
@@ -40,7 +40,7 @@ namespace MoBankUI
             {
                 //.CaptureScreenshot(@"C:\\Input Data\Callback.png");
 
-                string randomNumber = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture) +
+                var randomNumber = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture) +
                                       DateTime.Now.Month.ToString(CultureInfo.InvariantCulture)
                                       +
                                       DateTime.Now.Day.ToString(CultureInfo.InvariantCulture)
@@ -51,7 +51,7 @@ namespace MoBankUI
                                       +
                                       DateTime.Now.Second.ToString(CultureInfo.InvariantCulture);
 
-                string image = @"C:\Selenium\Input Data\FailedScreenshots\" + randomNumber + ".png";
+                var image = @"C:\Selenium\Input Data\FailedScreenshots\" + randomNumber + ".png";
                 b.Save(image, ImageFormat.Png);
 
                 ((ITakesScreenshot) driver).GetScreenshot().SaveAsFile(image, ImageFormat.Png);

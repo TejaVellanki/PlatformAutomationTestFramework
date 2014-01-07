@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 
 //using System.Drawing;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite
 {
     public class LoginRegistration
     {
@@ -13,7 +13,7 @@ namespace MoBankUI
         {
             var screenshot = new Screenshot();
 
-            string logintitle = driver.Url;
+            var logintitle = driver.Url;
             try
             {
                 if (logintitle.Contains("Login") || logintitle.Contains("StepSelectAccountType") ||
@@ -45,7 +45,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Not Expected", e, "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }

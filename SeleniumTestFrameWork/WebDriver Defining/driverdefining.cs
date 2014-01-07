@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace WebDriver_Refining
+namespace MoBankUI
 {
     public class Driverdefining
     {
@@ -14,7 +14,7 @@ namespace WebDriver_Refining
 
         public bool IsElementPresent(IWebDriver driver, By by, int timeoutSeconds = 05)
         {
-            for (int second = 0; second < timeoutSeconds;)
+            for (var second = 0; second < timeoutSeconds;)
             {
                 try
                 {
@@ -34,23 +34,23 @@ namespace WebDriver_Refining
         {
             try
             {
-                string value = driver.FindElement(by).GetAttribute("Value");
+                var value = driver.FindElement(by).GetAttribute("Value");
                 return value;
             }
             catch (NoSuchElementException e)
             {
-                string ex = e.ToString();
+                var ex = e.ToString();
                 return ex;
             }
         }
 
         public string Option(IWebDriver driver, By by, int timeoutseconds = 10)
         {
-            IWebElement data = driver.FindElement(by);
+            var data = driver.FindElement(by);
             //IList<IWebElement> dataoptions = data.FindElements(By.TagName("option"));
             var select = new SelectElement(data);
-            string option = driver.FindElement(By.TagName("option")).GetAttribute("Value");
-            string optio = driver.FindElement(By.TagName("option")).Text;
+            var option = driver.FindElement(By.TagName("option")).GetAttribute("Value");
+            var optio = driver.FindElement(By.TagName("option")).Text;
             return option;
         }
 
@@ -63,14 +63,14 @@ namespace WebDriver_Refining
         {
             try
             {
-                IWebElement data = driver.FindElement(by);
+                var data = driver.FindElement(by);
                 //IList<IWebElement> dataoptions = data.FindElements(By.TagName("option"));
                 var select = new SelectElement(data);
                 select.SelectByText(optiontoselect);
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 throw;
             }
         }

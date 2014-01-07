@@ -2,13 +2,13 @@
 
 using OpenQA.Selenium;
 
-namespace MoBankUI
+namespace MoBankUI.MoPay
 {
     internal class VisaDebit
     {
         public void Visadebit(IWebDriver driver, Datarow datarow)
         {
-            string attribute = driver.FindElement(By.Id("NumberPattern")).GetAttribute("value");
+            var attribute = driver.FindElement(By.Id("NumberPattern")).GetAttribute("value");
             if (attribute == "^4")
             {
                 datarow.newrow("Number Pattern", "^4", "^4", "PASS", driver);
@@ -17,7 +17,7 @@ namespace MoBankUI
             {
                 datarow.newrow("Number Pattern", "^4", attribute, "FAIL", driver);
             }
-            string actual = driver.FindElement(By.Id("NumberMinLength")).GetAttribute("value");
+            var actual = driver.FindElement(By.Id("NumberMinLength")).GetAttribute("value");
             if (actual == "16")
             {
                 datarow.newrow("Minimum Length", "16", "16", "PASS", driver);
@@ -26,9 +26,9 @@ namespace MoBankUI
             {
                 datarow.newrow("Minimum Length", "16", actual, "FAIl", driver);
             }
-            string str3 = driver.FindElement(By.Id("NumberMaxLength")).GetAttribute("value");
+            var str3 = driver.FindElement(By.Id("NumberMaxLength")).GetAttribute("value");
             datarow.newrow("Minimum Length", "16", str3 == "16" ? "16" : str3, "PASS", driver);
-            string str4 = driver.FindElement(By.Id("NumberChecksumResult")).GetAttribute("value");
+            var str4 = driver.FindElement(By.Id("NumberChecksumResult")).GetAttribute("value");
             if (str4 == "0")
             {
                 datarow.newrow("NumberChecksumResult", "0", "0", "PASS", driver);
@@ -37,7 +37,7 @@ namespace MoBankUI
             {
                 datarow.newrow("NumberChecksumResult", "0", str4, "FAIL", driver);
             }
-            string str5 = driver.FindElement(By.Id("SecurityCodeMinLength")).GetAttribute("value");
+            var str5 = driver.FindElement(By.Id("SecurityCodeMinLength")).GetAttribute("value");
             if (str5 == "3")
             {
                 datarow.newrow("Security code Min Length", "3", "3", "PASS", driver);
@@ -46,7 +46,7 @@ namespace MoBankUI
             {
                 datarow.newrow("Security code Min Length", "3", str5, "FAIL", driver);
             }
-            string str6 = driver.FindElement(By.Id("SecurityCodeMaxLength")).GetAttribute("value");
+            var str6 = driver.FindElement(By.Id("SecurityCodeMaxLength")).GetAttribute("value");
             if (str6 == "3")
             {
                 datarow.newrow("Security code Min Length", "3", "3", "PASS", driver);

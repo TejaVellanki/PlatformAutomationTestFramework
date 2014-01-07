@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 
 //using System.Drawing;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite
 {
     internal class BatchCheckout
     {
@@ -31,7 +31,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 throw;
             }
         }

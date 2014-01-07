@@ -3,9 +3,8 @@
 using System;
 using System.Threading;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoSite.Other
 {
     internal class Tickle : Driverdefining
     {
@@ -17,31 +16,31 @@ namespace MoBankUI
 
                 Thread.Sleep(0xbb8);
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                IWebElement element =
+                var element =
                     driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a/h2"));
                 driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a/h2")).Click();
 
-                string str = driver.Title;
+                var str = driver.Title;
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                IWebElement element2 =
+                var element2 =
                     driver.FindElement(
                         By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/h2"));
                 driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/h2"))
                       .Click();
 
-                string str2 = driver.Title;
+                var str2 = driver.Title;
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                IWebElement element3 =
+                var element3 =
                     driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/p"));
                 driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/p"))
                       .Click();
 
 
-                string str3 = driver.Title;
+                var str3 = driver.Title;
             }
             catch (Exception exception)
             {
-                string actual = exception.ToString();
+                var actual = exception.ToString();
                 datarow.newrow("Exception", "Not Expected", actual, "FAIL", driver);
             }
         }

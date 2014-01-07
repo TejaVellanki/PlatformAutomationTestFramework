@@ -2,7 +2,7 @@
 
 //using System.Drawing;
 
-namespace TPS
+namespace MoBankUI.Mosite
 {
     internal class Countryhouseregister
     {

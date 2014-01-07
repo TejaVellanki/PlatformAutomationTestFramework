@@ -1,9 +1,8 @@
 ﻿using System;
-using ObjectRepository;
+using MoBankUI.ObjectRepository;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.Product
 {
     internal class ProductDetail : Driverdefining
     {
@@ -12,7 +11,7 @@ namespace MoBankUI
             string productdescription = null;
             string productdescriptiontab = null;
             string Detail = null;
-            string pg = driver.PageSource;
+            var pg = driver.PageSource;
 
             if (pg.Contains("user-scalable=yes"))
             {
@@ -35,7 +34,7 @@ namespace MoBankUI
 
                 if (IsElementPresent(driver, By.XPath(productdescription)))
                 {
-                    string detail = driver.FindElement(By.XPath(Detail)).Text;
+                    var detail = driver.FindElement(By.XPath(Detail)).Text;
                     datarow.newrow("Product Detail", "", detail, "PASS", driver);
                 }
                 else if (!IsElementPresent(driver, By.XPath(productdescriptiontab)))
@@ -48,7 +47,7 @@ namespace MoBankUI
                     driver.FindElement(By.XPath(productdescriptiontab)).Click();
                     if (IsElementPresent(driver, By.XPath(productdescription)))
                     {
-                        string detail = driver.FindElement(By.XPath(Detail)).Text;
+                        var detail = driver.FindElement(By.XPath(Detail)).Text;
                         datarow.newrow("Product Detail", "", detail, "PASS", driver);
                     }
                     else
@@ -60,7 +59,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
             }
 
             #endregion

@@ -1,9 +1,8 @@
 ﻿using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     internal class Shop : Driverdefining
     {
@@ -33,9 +32,9 @@ namespace MoBankUI
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
                 decimal count = driver.FindElements(By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr")).Count;
-                for (int i = 1; i <= count; i++)
+                for (var i = 1; i <= count; i++)
                 {
-                    string name = GetValue(driver,
+                    var name = GetValue(driver,
                                            By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr[" + i +
                                                     "]/td/input"), 30);
                     if (name == "Default")
@@ -55,7 +54,7 @@ namespace MoBankUI
 
                 driver.Navigate().GoToUrl("http://m.testshop.com");
 
-                string url = driver.Url;
+                var url = driver.Url;
                 if (url == "http://m.testshop.com")
                 {
                     datarow.newrow("Customa Domain Name", "http://m.testshop.com/", url, "PASS", driver);
@@ -68,7 +67,7 @@ namespace MoBankUI
 
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Exopected", e, "PASS", driver);
             }
         }

@@ -15,7 +15,7 @@ namespace MoBankUI
         {
             #region TimeStamp
 
-            string randomNumber = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture) + "-" +
+            var randomNumber = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture) + "-" +
                                   DateTime.Now.Month.ToString(CultureInfo.InvariantCulture) + "-"
                                   +
                                   DateTime.Now.Day.ToString(CultureInfo.InvariantCulture) + "_"
@@ -28,7 +28,7 @@ namespace MoBankUI
 
             #endregion
 
-            string htmlString = "";
+            var htmlString = "";
 
             if (targetTable == null)
             {
@@ -102,13 +102,13 @@ namespace MoBankUI
 
                     foreach (DataColumn targetColumn in targetTable.Columns)
                     {
-                        string columnname = targetColumn.ToString();
+                        var columnname = targetColumn.ToString();
                         if (columnname == "Field Validated" || columnname == "Expected Result" ||
                             columnname == "Actual Result" || columnname == "PASS or FAIL" ||
                             columnname == "Total Number Of Test Cases Passed/Failed")
                         {
-                            string value = myRow[3].ToString();
-                            string valu = myRow[4].ToString();
+                            var value = myRow[3].ToString();
+                            var valu = myRow[4].ToString();
 
                             if (value == "PASS")
                             {
@@ -196,7 +196,7 @@ namespace MoBankUI
             //Create String to be Returned
             htmlString = htmlBuilder.ToString();
 
-            StreamWriter SW = File.CreateText(@"C:\Selenium\Input Data\HTML Reports\" + reportname + ".html");
+            var SW = File.CreateText(@"C:\Selenium\Input Data\HTML Reports\" + reportname + ".html");
             SW.Close();
 
             // Write text to the Text file:

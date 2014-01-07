@@ -1,11 +1,10 @@
 ﻿using System;
-using ObjectRepository;
+using MoBankUI.ObjectRepository;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
 //using System.Drawing;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.HomePage
 {
     internal class FooterTps : Driverdefining
     {
@@ -21,7 +20,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 _screenshot.screenshotfailed(driver);
             }
@@ -32,7 +31,7 @@ namespace MoBankUI
             // Generic Method to test footer links on all the sites. 
             try
             {
-                string pagesource = driver.PageSource;
+                var pagesource = driver.PageSource;
 
                 string footer = null;
                 string footerlink = null;
@@ -44,7 +43,7 @@ namespace MoBankUI
 
                 #region
 
-                string title = driver.Title;
+                var title = driver.Title;
                 var screenshot = new Screenshot();
 
                 if (pagesource.Contains("user-scalable=yes"))
@@ -69,31 +68,31 @@ namespace MoBankUI
                 }
                 try
                 {
-                    decimal count = GetXpathCount(driver, footer);
-                    for (int i = 1; i <= count; i++)
+                    var count = GetXpathCount(driver, footer);
+                    for (var i = 1; i <= count; i++)
                     {
                         driver.FindElement(By.XPath("" + footer + "[" + i + "]" + footerlink + "")).Click();
 
-                        string Title = driver.Title;
+                        var Title = driver.Title;
                         datarow.newrow("Footer Title", "", Title, "PASS", driver);
                         driver.Navigate().Back();
                     }
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                     datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
 
                 try
                 {
-                    decimal count1 = GetXpathCount(driver, sociallin);
-                    for (int i = 1; i <= count1; i++)
+                    var count1 = GetXpathCount(driver, sociallin);
+                    for (var i = 1; i <= count1; i++)
                     {
                         driver.FindElement(By.XPath("" + sociallin + "[" + i + "]" + sociallink + "")).Click();
 
-                        string tile = driver.Title;
+                        var tile = driver.Title;
                         datarow.newrow("Footer Social Image Title", "", tile, "PASS", driver);
                         if (title == "testshop")
                         {
@@ -107,19 +106,19 @@ namespace MoBankUI
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                     datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
 
                 try
                 {
-                    decimal count3 = GetXpathCount(driver, lowerfooter);
-                    for (int i = 1; i <= count3; i++)
+                    var count3 = GetXpathCount(driver, lowerfooter);
+                    for (var i = 1; i <= count3; i++)
                     {
                         driver.FindElement(By.XPath("" + lowerfooter + "[" + i + "]" + lowerfooterlink + "")).Click();
 
-                        string tile = driver.Title;
+                        var tile = driver.Title;
                         datarow.newrow("Lower Footer Title", "", tile, "PASS", driver);
                         if (title == "testshop")
                         {
@@ -132,7 +131,7 @@ namespace MoBankUI
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                     datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
@@ -142,7 +141,7 @@ namespace MoBankUI
                     {
                         driver.FindElement(By.XPath(mopowered)).Click();
 
-                        string tile = driver.Title;
+                        var tile = driver.Title;
                         datarow.newrow("Footer Title", "", tile, "PASS", driver);
                         if (title == "testshop")
                         {
@@ -162,14 +161,14 @@ namespace MoBankUI
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                     datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                 _screenshot.screenshotfailed(driver);
             }

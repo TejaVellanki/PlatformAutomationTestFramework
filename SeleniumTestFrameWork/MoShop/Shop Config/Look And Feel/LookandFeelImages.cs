@@ -2,9 +2,8 @@
 using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     internal class LookandFeelImages : Driverdefining
     {
@@ -137,7 +136,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Exceprtion Not Expected", e, "FAIL");
             }
         }

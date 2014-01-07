@@ -6,9 +6,8 @@ using System.Data;
 using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.Modrophenia
 {
     internal class modropheniaproducts : Driverdefining
     {
@@ -17,21 +16,21 @@ namespace MoBankUI
         public void comparedatarow(IWebDriver driver, Datarow datarow, DataTable dt)
         {
             gereneralLibrary = new GeneralLibrary();
-            DataTable table =
+            var table =
                 gereneralLibrary.GetExcelData(@"C:\\Input Data\ModrophenialiveProducts.xlsx", "Products").Tables
                     [0];
-            for (int i = 1; i < (table.Rows.Count - 1); i++)
+            for (var i = 1; i < (table.Rows.Count - 1); i++)
             {
-                string actual = table.Rows[i]["Product Price"].ToString();
-                string str2 = table.Rows[i]["Product Title"].ToString();
-                string str3 = table.Rows[i]["Product Detail"].ToString();
-                string expected = table.Rows[i]["Item Number"].ToString();
-                string str5 = table.Rows[i]["Variants"].ToString();
-                string str6 = dt.Rows[i]["Price"].ToString();
-                string str7 = dt.Rows[i]["Title"].ToString();
-                string str8 = dt.Rows[i]["Detail"].ToString();
-                string str9 = dt.Rows[i]["Item Number"].ToString();
-                string str10 = dt.Rows[i]["Variants"].ToString();
+                var actual = table.Rows[i]["Product Price"].ToString();
+                var str2 = table.Rows[i]["Product Title"].ToString();
+                var str3 = table.Rows[i]["Product Detail"].ToString();
+                var expected = table.Rows[i]["Item Number"].ToString();
+                var str5 = table.Rows[i]["Variants"].ToString();
+                var str6 = dt.Rows[i]["Price"].ToString();
+                var str7 = dt.Rows[i]["Title"].ToString();
+                var str8 = dt.Rows[i]["Detail"].ToString();
+                var str9 = dt.Rows[i]["Item Number"].ToString();
+                var str10 = dt.Rows[i]["Variants"].ToString();
                 if (str6 == actual)
                 {
                     datarow.newrow(str7 + " Price", str6, actual, "PASS", driver);
@@ -104,7 +103,7 @@ namespace MoBankUI
             }
             catch (Exception exception3)
             {
-                string str8 = exception3.ToString();
+                var str8 = exception3.ToString();
                 datarow.newrow("Exception", "Not Expected", str8, "FAIL", driver);
             }
         }
@@ -114,8 +113,8 @@ namespace MoBankUI
             string str8;
             try
             {
-                int num = 1;
-                int num2 = 0;
+                var num = 1;
+                var num2 = 0;
                 goto Label_0449;
                 Label_0099:
 
@@ -125,10 +124,10 @@ namespace MoBankUI
                     IsElementPresent(driver,
                                      By.XPath("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/div/div/a[3]")))
                 {
-                    IWebElement ele =
+                    var ele =
                         driver.FindElement(
                             By.XPath("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/div/div/a[3]"));
-                    string cource = ele.GetAttribute("outerHTML");
+                    var cource = ele.GetAttribute("outerHTML");
                     if (cource.Contains("ui-disabled"))
                     {
                     }
@@ -138,9 +137,9 @@ namespace MoBankUI
                             By.XPath("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/div/div/a[3]")).Click();
                     }
                 }
-                decimal xpathCount = GetXpathCount(driver,
+                var xpathCount = GetXpathCount(driver,
                                                    "//*[@id='page-categories-details']/div[1]/div[2]/div[1]/ul/li");
-                for (int i = 1; i <= xpathCount; i++)
+                for (var i = 1; i <= xpathCount; i++)
                 {
                     //*[@id="page-categories-details"]/div[1]/div[2]/div[1]/ul/li[32]/div/div/a/div[2]/p
                     string text;
@@ -151,13 +150,13 @@ namespace MoBankUI
                         By.XPath("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/ul/li[" + i +
                                  "]/div/div/a/div[2]/p")).Click();
 
-                    DataRow row = dt.NewRow();
-                    int j = 1;
-                    string str =
+                    var row = dt.NewRow();
+                    var j = 1;
+                    var str =
                         driver.FindElement(
                             By.XPath("//*[@id='page-products-details']/div[1]/div[2]/div/div[1]/div[1]/div/p/strong"))
                               .Text;
-                    string str2 = driver.FindElement(By.XPath("//html/body/div/div/div[2]/h2")).Text;
+                    var str2 = driver.FindElement(By.XPath("//html/body/div/div/div[2]/h2")).Text;
                     row[0] = str;
                     row[1] = str2;
                     if (IsElementPresent(driver, By.XPath("//div[@id='Description']/div/div/div/div/p[2]")))
@@ -186,12 +185,12 @@ namespace MoBankUI
                         {
                             try
                             {
-                                IWebElement con = driver.FindElement(By.Id("Variants_0__OptionValue"));
+                                var con = driver.FindElement(By.Id("Variants_0__OptionValue"));
                                 IList<IWebElement> selectOptions = con.FindElements(By.TagName("option"));
 
 
                                 str5 = null;
-                                foreach (IWebElement str6 in selectOptions)
+                                foreach (var str6 in selectOptions)
                                 {
                                     if (str6.Text != "Please Select")
                                     {
@@ -216,7 +215,7 @@ namespace MoBankUI
                     }
                     catch (Exception exception1)
                     {
-                        Exception exception = exception1;
+                        var exception = exception1;
                         str8 = exception.ToString();
                         // datarow.newrow("Exception at Product variants", "Exception Not Expected", str8, "FAIL",driver, );
                     }
@@ -231,10 +230,10 @@ namespace MoBankUI
                         {
                             str5 = null;
 
-                            decimal count =
+                            var count =
                                 GetXpathCount(driver, "//*[@id='AddToBasketForm']/ul/li[2]/fieldset/div[2]/div");
 
-                            for (int num6 = 0; num6 < count; num6++)
+                            for (var num6 = 0; num6 < count; num6++)
                             {
                                 str7 = driver.FindElement(By.Id("OptionValue_" + num6)).GetAttribute("Value");
                                 if ((str7 != "Please Select") || (str7 != null))
@@ -261,9 +260,9 @@ namespace MoBankUI
                     Thread.Sleep(3000);
                 }
                 num++;
-                IWebElement elem =
+                var elem =
                     driver.FindElement(By.XPath("//*[@id='page-categories-details']/div[1]/div[2]/div[1]/div/div/a[3]"));
-                string courc = elem.GetAttribute("outerHTML");
+                var courc = elem.GetAttribute("outerHTML");
                 if (courc.Contains("ui-disabled"))
                 {
                     goto Label_0451;

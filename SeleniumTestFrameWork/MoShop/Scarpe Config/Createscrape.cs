@@ -3,9 +3,8 @@
 using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     public class Createscrape : Driverdefining
     {
@@ -16,12 +15,12 @@ namespace MoBankUI
             {
                 driver.FindElement(By.LinkText("MoShop")).Click();
 
-                string actual = driver.Title;
+                var actual = driver.Title;
                 datarow.newrow("HomePage Title", "mobank.co.uk/MoShop", actual,
                     actual == "mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.LinkText("Scrapes")).Click();
 
-                string str2 = driver.Title;
+                var str2 = driver.Title;
                 datarow.newrow("Scrape Page Title", "Scrapes :  mobank.co.uk/MoShop", str2,
                     str2 == "Scrapes : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
 
@@ -36,7 +35,7 @@ namespace MoBankUI
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
 
-                string str3 = driver.Title;
+                var str3 = driver.Title;
                 datarow.newrow("Scrape Title", "Scrape :  mobank.co.uk/MoShop", str3,
                     str3 == "Scrape : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.Id("Profiles_0__RootUrl")).Clear();
@@ -45,8 +44,8 @@ namespace MoBankUI
                 //new SelectElement(driver.FindElement(By.Id("Profiles_0__Encoding"))).SelectByText("iso-8859-1 - Western European (ISO)");
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
-                string attribute = driver.FindElement(By.Id("Profiles_0__RootUrl")).GetAttribute("Value");
-                string str5 = driver.FindElement(By.Id("Profiles_0__Encoding")).GetAttribute("Value");
+                var attribute = driver.FindElement(By.Id("Profiles_0__RootUrl")).GetAttribute("Value");
+                var str5 = driver.FindElement(By.Id("Profiles_0__Encoding")).GetAttribute("Value");
                 datarow.newrow("Root URL", "http://www.the-tickle-company.co.uk/", attribute,
                     attribute == "http://www.the-tickle-company.co.uk/" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.Id("Pages_0__Name")).Clear();
@@ -55,8 +54,8 @@ namespace MoBankUI
                 //new SelectElement(driver.FindElement(By.Id("Pages_0__ObjectTypeName"))).SelectByText("Category");
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
-                string str6 = driver.FindElement(By.Id("Pages_0__Name")).GetAttribute("Value");
-                string str7 = driver.FindElement(By.Id("Pages_0__ObjectTypeName")).GetAttribute("option value");
+                var str6 = driver.FindElement(By.Id("Pages_0__Name")).GetAttribute("Value");
+                var str7 = driver.FindElement(By.Id("Pages_0__ObjectTypeName")).GetAttribute("option value");
                 datarow.newrow("Page Name", "Categories", str6, str6 == "Categories" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
 
@@ -71,7 +70,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "", e, "FAIL");
             }
             new CategoryScrape().ScarpeCategory(driver, datarow);

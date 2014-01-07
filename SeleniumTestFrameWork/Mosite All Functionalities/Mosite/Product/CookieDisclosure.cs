@@ -1,8 +1,7 @@
 ﻿using System;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.Product
 {
     internal class CookieDisclosure : Driverdefining
     {
@@ -12,7 +11,7 @@ namespace MoBankUI
             {
                 //cookie Disclosure
                 IsElementPresent(driver, By.CssSelector("div.cookieDisclosure"));
-                string disclosuretext = driver.FindElement(By.CssSelector("div.cookieDisclosure")).Text;
+                var disclosuretext = driver.FindElement(By.CssSelector("div.cookieDisclosure")).Text;
                 if (disclosuretext ==
                     "This site uses cookies. Some of the cookies we use are essential for parts of the site to operate and have already been set.")
                     datrow.newrow("Diclosure Text is Presnt",
@@ -39,7 +38,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datrow.newrow("Exception Not Expceted", "Not Expected", e, "FAIL");
             }
         }

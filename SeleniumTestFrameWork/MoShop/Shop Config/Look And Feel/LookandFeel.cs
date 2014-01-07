@@ -4,9 +4,8 @@ using System;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     public class LookandFeel : Driverdefining
     {
@@ -18,17 +17,11 @@ namespace MoBankUI
                 datarow.newrow("", "", "LOOK AND FEEL TAB", "", driver);
                 driver.FindElement(By.LinkText("Look & Feel")).Click();
 
-                string actual = driver.Title;
-                if (driver.Title == "Look & Feel : mobank.co.uk/MoShop")
-                {
-                    datarow.newrow("LookAndFeel", "Look & Feel : mobank.co.uk/MoShop", actual, "PASS", driver);
-                }
-                else
-                {
-                    datarow.newrow("LookAndFeel", "Look & Feel : mobank.co.uk/MoShop", actual, "FAIL", driver);
-                }
+                var actual = driver.Title;
+                datarow.newrow("LookAndFeel", "Look & Feel : mobank.co.uk/MoShop", actual,
+                    driver.Title == "Look & Feel : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
 
-                for (int i = 0;; i++)
+                for (var i = 0;; i++)
                 {
                     driver.FindElement(By.Id("Customisations_0__Title")).Clear();
                     driver.FindElement(By.Id("Customisations_0__Title")).SendKeys("QA-TestShop");
@@ -39,14 +32,14 @@ namespace MoBankUI
                     driver.FindElement(By.CssSelector("input.button")).Click();
 
 
-                    string attribute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
+                    var attribute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
                     if (attribute == "QA-TestShop")
                     {
                         break;
                     }
                 }
 
-                string attriute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
+                var attriute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
                 if (attriute == "QA-TestShop")
                 {
                     try
@@ -58,7 +51,7 @@ namespace MoBankUI
 
                         driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
 
-                        string str4 = driver.Title;
+                        var str4 = driver.Title;
                         if (str4 == "Customisation : mobank.co.uk/MoShop")
                         {
                             datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4, "PASS",
@@ -78,7 +71,7 @@ namespace MoBankUI
                     }
                     catch (Exception ex)
                     {
-                        string e = ex.ToString();
+                        var e = ex.ToString();
                     }
                     try
                     {
@@ -105,16 +98,16 @@ namespace MoBankUI
                     }
                     catch (Exception ex)
                     {
-                        string e = ex.ToString();
+                        var e = ex.ToString();
                     }
 
                     #region Validations
 
-                    string str5 = driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement")).GetAttribute("Value");
-                    string str6 = driver.FindElement(By.Id("OrderConfirmationOrderNumberText")).GetAttribute("Value");
-                    string str7 = driver.FindElement(By.Id("OrderConfirmationSuccessMessage")).GetAttribute("Value");
-                    string str8 = driver.FindElement(By.Id("OrderConfirmationFailureMessage")).GetAttribute("Value");
-                    string str9 = driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).GetAttribute("Value");
+                    var str5 = driver.FindElement(By.Id("ExternalLinks_0__LinkReplacement")).GetAttribute("Value");
+                    var str6 = driver.FindElement(By.Id("OrderConfirmationOrderNumberText")).GetAttribute("Value");
+                    var str7 = driver.FindElement(By.Id("OrderConfirmationSuccessMessage")).GetAttribute("Value");
+                    var str8 = driver.FindElement(By.Id("OrderConfirmationFailureMessage")).GetAttribute("Value");
+                    var str9 = driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).GetAttribute("Value");
                     if (str5 == "ticklecompany")
                     {
                         datarow.newrow("Link Replacement", "ticklecompany", str5, "PASS", driver);
@@ -165,7 +158,7 @@ namespace MoBankUI
                     driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).SendKeys("TheTickleCompany");
                     driver.FindElement(By.CssSelector("input.button")).Click();
 
-                    string str10 =
+                    var str10 =
                         driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).GetAttribute("Value");
                     if (str10 == "TheTickleCompany")
                     {
@@ -180,13 +173,13 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
             }
             var images = new LookandFeelImages();
             //images.images(driver,datarow);
             new ProductSocialShare().Productsocialshare(driver, datarow);
-            new Scheduler().Schedule(driver, datarow);
+            new Scheduler.Scheduler().Schedule(driver, datarow);
         }
     }
 }

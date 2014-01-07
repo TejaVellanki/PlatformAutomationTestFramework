@@ -37,7 +37,7 @@ namespace MoBankUI
 
         public void newrow(string validation, string expected, string actual, string passorfail)
         {
-            DataRow newrow = dt.NewRow();
+            var newrow = dt.NewRow();
 
             newrow[0] = validation;
             newrow[1] = expected;
@@ -51,11 +51,11 @@ namespace MoBankUI
         {
             try
             {
-                int p = 0;
-                int f = 0;
-                for (int i = 0; i < dt.Rows.Count; i++)
+                var p = 0;
+                var f = 0;
+                for (var i = 0; i < dt.Rows.Count; i++)
                 {
-                    string value = dt.Rows[i]["PASS or FAIL"].ToString();
+                    var value = dt.Rows[i]["PASS or FAIL"].ToString();
                     if (value == "PASS")
                     {
                         p = p + 1;
@@ -65,13 +65,13 @@ namespace MoBankUI
                         f = f + 1;
                     }
                 }
-                string P = p.ToString(CultureInfo.InvariantCulture);
-                string F = f.ToString(CultureInfo.InvariantCulture);
+                var P = p.ToString(CultureInfo.InvariantCulture);
+                var F = f.ToString(CultureInfo.InvariantCulture);
 
                 TotalPass = P + TotalPass;
                 TotalFail = F + TotalFail;
 
-                int d = 0;
+                var d = 0;
                 foreach (DataRow dr in dt.Rows)
                 {
                     if (d == 0)
@@ -89,7 +89,7 @@ namespace MoBankUI
                 }
 
                 generalLibrary = new GeneralLibrary();
-                Workbook wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report",
+                var wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report",
                                                                     ".xlsx", false, true);
                 Worksheet ws = wb.Sheets[1];
                 generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
@@ -98,12 +98,12 @@ namespace MoBankUI
                 ghdg.SendEMail(ReportName, email);
                 clonetable = dt.Copy();
                 //mergeTable.Merge(clonetable);
-                int s = 0;
+                var s = 0;
                 foreach (DataRow sourcerow in clonetable.Rows)
                 {
                     if (s <= 2)
                     {
-                        DataRow destRow = mergeTable.NewRow();
+                        var destRow = mergeTable.NewRow();
                         destRow["Total Number of Test Cases Passed/Failed"] =
                             sourcerow["Total Number of Test Cases Passed/Failed"];
                         if (s == 0)
@@ -133,7 +133,7 @@ namespace MoBankUI
                 }
 
                 dt.WriteXml(@"C:\Selenium\Input Data\XML Reports\" + ReportName + ".xml");
-                foreach (Process process in Process.GetProcessesByName("EXCEL"))
+                foreach (var process in Process.GetProcessesByName("EXCEL"))
                 {
                     if (process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE"))
                     {
@@ -144,7 +144,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
             }
         }
 
@@ -152,11 +152,11 @@ namespace MoBankUI
         {
             try
             {
-                int p = 0;
-                int f = 0;
-                for (int i = 0; i < dt.Rows.Count; i++)
+                var p = 0;
+                var f = 0;
+                for (var i = 0; i < dt.Rows.Count; i++)
                 {
-                    string value = dt.Rows[i]["PASS or FAIL"].ToString();
+                    var value = dt.Rows[i]["PASS or FAIL"].ToString();
                     if (value == "PASS")
                     {
                         p = p + 1;
@@ -166,11 +166,11 @@ namespace MoBankUI
                         f = f + 1;
                     }
                 }
-                string P = p.ToString(CultureInfo.InvariantCulture);
-                string F = f.ToString(CultureInfo.InvariantCulture);
+                var P = p.ToString(CultureInfo.InvariantCulture);
+                var F = f.ToString(CultureInfo.InvariantCulture);
 
 
-                int d = 0;
+                var d = 0;
                 foreach (DataRow dr in dt.Rows)
                 {
                     if (d == 0)
@@ -187,11 +187,11 @@ namespace MoBankUI
                     d++;
                 }
 
-                string ReportName = "Consolidated Report";
+                var ReportName = "Consolidated Report";
 
                 generalLibrary = new GeneralLibrary();
 
-                Workbook wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report",
+                var wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report",
                                                                     ".xlsx", false, true);
                 Worksheet ws = wb.Sheets[1];
                 generalLibrary.ConsolidatedXmlExportToExcel(mergeTable, ws, true, false, false);
@@ -207,7 +207,7 @@ namespace MoBankUI
                 catch (Exception ex)
                 {
                 }
-                foreach (Process process in Process.GetProcessesByName("EXCEL"))
+                foreach (var process in Process.GetProcessesByName("EXCEL"))
                 {
                     if (process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE"))
                     {
@@ -218,13 +218,13 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
             }
         }
 
         public void newrow(string validation, string expected, string actual, string passorfail, IWebDriver driver)
         {
-            DataRow newrow = dt.NewRow();
+            var newrow = dt.NewRow();
             newrow[0] = validation;
             newrow[1] = expected;
             newrow[2] = actual;

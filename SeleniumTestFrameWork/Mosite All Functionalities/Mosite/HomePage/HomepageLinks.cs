@@ -1,15 +1,14 @@
 ﻿using System;
-using ObjectRepository;
+using MoBankUI.ObjectRepository;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.HomePage
 {
     internal class LinksExpand : Driverdefining
     {
         public void AllLink(IWebDriver driver, Datarow datarow)
         {
-            string url = driver.PageSource;
+            var url = driver.PageSource;
             string categorylink = null;
             string cat = null;
             string products = null;
@@ -44,28 +43,28 @@ namespace MoBankUI
                     datarow.newrow("Category Validation in Home Page", "Atleast One Category/product is Expected",
                                    "No Categories/Products are Identified", "FAIL", driver);
                 }
-                int j = 0;
-                int s = 1;
+                var j = 0;
+                var s = 1;
 
                 //Running the loop through the category links
-                for (int i = 1; i <= linkcount; i++)
+                for (var i = 1; i <= linkcount; i++)
                 {
                     try
                     {
                         driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                        IWebElement myDynamicElement1 =
+                        var myDynamicElement1 =
                             driver.FindElement(By.XPath("" + categorylink + "[" + i + "]" + cat + ""));
                         driver.FindElement(By.XPath("" + categorylink + "[" + i + "]" + cat + "")).Click();
 
-                        string title = driver.Title;
+                        var title = driver.Title;
                     }
                     catch (Exception ex)
                     {
-                        string e = ex.ToString();
+                        var e = ex.ToString();
                         datarow.newrow("Category Element Exception", "Exception Not Expected", e, "FAIL", driver);
                         screenshot.screenshotfailed(driver);
                     }
-                    decimal categorycount = GetXpathCount(driver, categorylink);
+                    var categorycount = GetXpathCount(driver, categorylink);
                     if (categorycount == 0)
                     {
                         datarow.newrow("Category Validation in  Page", "Atleast One Category/product",
@@ -73,20 +72,20 @@ namespace MoBankUI
                         screenshot.screenshotfailed(driver);
                     }
                     //Running the loop through sub category pages. 
-                    for (int k = 1;; k++)
+                    for (var k = 1;; k++)
                     {
                         try
                         {
                             if (IsElementPresent(driver, By.XPath("" + categorylink + "[" + k + "]" + cat + "")))
                             {
                                 //*[@id="productList"]/article[1]/a/div[1]/img
-                                string location = driver.Url;
+                                var location = driver.Url;
                                 // Category Image validation
                                 Image.categoryimage(driver, datarow);
                                 driver.FindElement(By.XPath("" + categorylink + "[" + k + "]" + cat + "")).Click();
 
-                                string titlecategory = driver.Title;
-                                string url1 = driver.Url;
+                                var titlecategory = driver.Title;
+                                var url1 = driver.Url;
 
                                 // Sub-Category Image validation
                                 Image.subcategoryimage(driver, datarow);
@@ -98,8 +97,8 @@ namespace MoBankUI
                                     {
                                         datarow.newrow("Product Title", "", titlecategory, "PASS", driver);
                                         //This is to test the product page
-                                        decimal productcount = GetXpathCount(driver, products);
-                                        for (int p = 1; p <= productcount; p++)
+                                        var productcount = GetXpathCount(driver, products);
+                                        for (var p = 1; p <= productcount; p++)
                                         {
                                             driver.FindElement(By.XPath("" + products + "[" + p + "]" + productlink + ""))
                                                   .Click();
@@ -111,7 +110,7 @@ namespace MoBankUI
                                             }
                                             catch (Exception ex)
                                             {
-                                                string e = ex.ToString();
+                                                var e = ex.ToString();
                                             }
 
                                             driver.Navigate().Back();
@@ -125,7 +124,7 @@ namespace MoBankUI
                                 }
                                 catch (Exception exc)
                                 {
-                                    string e = exc.ToString();
+                                    var e = exc.ToString();
                                     datarow.newrow("Exception For Product Details", "Exception Not Expected", e, "FAIL",
                                                    driver);
                                     screenshot.screenshotfailed(driver);
@@ -136,7 +135,7 @@ namespace MoBankUI
                             driver.Navigate().Back();
 
                             s++;
-                            string url2 = driver.Url;
+                            var url2 = driver.Url;
                             if (url2.Contains("category"))
                             {
                                 datarow.newrow("Category URL", "", url2, "PASS", driver);
@@ -149,7 +148,7 @@ namespace MoBankUI
                         }
                         catch (Exception ex)
                         {
-                            string e = ex.ToString();
+                            var e = ex.ToString();
                             datarow.newrow("Category/Product Link Exception", "Exception Not Expected", e, "FAIL",
                                            driver);
                             screenshot.screenshotfailed(driver);
@@ -164,7 +163,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }

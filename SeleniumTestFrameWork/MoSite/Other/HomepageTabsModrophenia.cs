@@ -3,9 +3,8 @@
 using System;
 using System.Threading;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoSite.Other
 {
     internal class HomepageTabsModrophenia : Driverdefining
     {
@@ -14,18 +13,18 @@ namespace MoBankUI
         {
             driver.FindElement(By.CssSelector("img")).Click();
 
-            decimal xpathCount = GetXpathCount(driver, "//body[@id='page-home-index']/div/div[3]/ul/li");
-            for (int i = 1; i <= xpathCount; i++)
+            var xpathCount = GetXpathCount(driver, "//body[@id='page-home-index']/div/div[3]/ul/li");
+            for (var i = 1; i <= xpathCount; i++)
             {
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                IWebElement element =
+                var element =
                     driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[3]/ul/li[" + i + "]/div/div/a"));
                 driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[3]/ul/li[" + i + "]/div/div/a"))
                       .Click();
 
 
                 Thread.Sleep(3000);
-                string actual = driver.Title;
+                var actual = driver.Title;
                 if (i > 1)
                 {
                     driver.Navigate().Back();

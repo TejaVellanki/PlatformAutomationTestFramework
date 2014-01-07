@@ -1,11 +1,10 @@
 ﻿using System;
-using ObjectRepository;
+using MoBankUI.ObjectRepository;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
 //using System.Drawing;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.Product
 {
     internal class DeleteBasket : Driverdefining
     {
@@ -16,7 +15,7 @@ namespace MoBankUI
             try
             {
                 string deletebasket = null;
-                string url = driver.PageSource;
+                var url = driver.PageSource;
                 if (url.Contains("user-scalable=yes"))
                 {
                     deletebasket = CollectionMapV2.deletebasket;
@@ -48,7 +47,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 _screenshot.screenshotfailed(driver);
             }
@@ -62,7 +61,7 @@ namespace MoBankUI
             string categorylink = null;
             string cat = null;
             string homeimage = null;
-            string url = driver.PageSource;
+            var url = driver.PageSource;
 
             if (url.Contains("user-scalable=yes"))
             {
@@ -84,7 +83,7 @@ namespace MoBankUI
             {
                 if (!url.Contains("user-scalable=yes"))
                 {
-                    string value = driver.FindElement(By.Id("BasketInfo")).Text;
+                    var value = driver.FindElement(By.Id("BasketInfo")).Text;
 
                     if (value == "(0)")
                     {
@@ -103,20 +102,20 @@ namespace MoBankUI
                 driver.FindElement(By.ClassName(homeimage)).Click();
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                IWebElement myDynamicElement1 = driver.FindElement(By.XPath("" + categorylink + "" + cat + ""));
+                var myDynamicElement1 = driver.FindElement(By.XPath("" + categorylink + "" + cat + ""));
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
 
-                string title = driver.Title;
+                var title = driver.Title;
 
                 decimal categorycount = driver.FindElements(By.XPath(categorylink)).Count;
-                for (int i = 1;; i++)
+                for (var i = 1;; i++)
                 {
                     if (IsElementPresent(driver, By.XPath("" + categorylink + "" + cat + ""), 30))
                     {
                         driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
 
-                        string titlecategory = driver.Title;
-                        string url1 = driver.Url;
+                        var titlecategory = driver.Title;
+                        var url1 = driver.Url;
 
                         if (IsElementPresent(driver, By.XPath(products), 30))
                         {
@@ -138,7 +137,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 _screenshot.screenshotfailed(driver);
             }

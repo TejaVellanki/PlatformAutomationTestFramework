@@ -3,9 +3,8 @@
 
 using System;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     internal class SubCategory : Driverdefining
     {
@@ -58,12 +57,12 @@ namespace MoBankUI
 
                 #region Validation
 
-                string attribute = driver.FindElement(By.Id("Selector")).GetAttribute("Value");
-                string actual = driver.FindElement(By.Id("Identifier")).GetAttribute("Value");
-                string str3 = driver.FindElement(By.Id("IdentifierTransformationPattern")).GetAttribute("Value");
-                string str4 = driver.FindElement(By.Id("IdentifierTransformationReplacement")).GetAttribute("Value");
-                string str5 = driver.FindElement(By.Id("MappingItems_0__Selector")).GetAttribute("Value");
-                string str6 = driver.FindElement(By.Id("MappingItems_1__Selector")).GetAttribute("Value");
+                var attribute = driver.FindElement(By.Id("Selector")).GetAttribute("Value");
+                var actual = driver.FindElement(By.Id("Identifier")).GetAttribute("Value");
+                var str3 = driver.FindElement(By.Id("IdentifierTransformationPattern")).GetAttribute("Value");
+                var str4 = driver.FindElement(By.Id("IdentifierTransformationReplacement")).GetAttribute("Value");
+                var str5 = driver.FindElement(By.Id("MappingItems_0__Selector")).GetAttribute("Value");
+                var str6 = driver.FindElement(By.Id("MappingItems_1__Selector")).GetAttribute("Value");
 
 
                 datarow.newrow("Subcategory Selector", "div[class^='leftNav'] a,.bdr a", attribute,
@@ -90,7 +89,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception Not Expected", "", e, "FAIL");
             }
             new ProductScrape().Productscrape(driver, datarow);

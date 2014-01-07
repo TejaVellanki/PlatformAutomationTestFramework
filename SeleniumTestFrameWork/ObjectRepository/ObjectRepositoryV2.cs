@@ -1,4 +1,4 @@
-﻿namespace ObjectRepository
+﻿namespace MoBankUI.ObjectRepository
 {
     public class CollectionMapV2
     {

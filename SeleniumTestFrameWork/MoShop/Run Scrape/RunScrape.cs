@@ -2,9 +2,8 @@
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     public class RunScrape : Driverdefining
     {
@@ -21,38 +20,38 @@ namespace MoBankUI
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                     Selectanoption(driver, By.Id("TestCatalogueId"), "testshop (0.1)");
                 }
 
                 //new SelectElement(driver.FindElement(By.Id("TestCatalogueId"))).SelectByText("Default");
                 driver.FindElement(By.Name("PostAction[]")).Click();
 
-                string title = driver.Title;
+                var title = driver.Title;
                 Scarperead(driver, datarow, title);
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
         }
 
         public void Scarperead(IWebDriver driver, Datarow datarow, string job)
         {
-            int j = 1;
-            for (int i = 0;; i++)
+            var j = 1;
+            for (var i = 0;; i++)
             {
                 if (IsElementPresent(driver, By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[2]"), 30))
                 {
                     try
                     {
-                        string title =
+                        var title =
                             driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[2]")).Text;
-                        string type = driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[3]")).Text;
-                        string startson =
+                        var type = driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[3]")).Text;
+                        var startson =
                             driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[4]")).Text;
-                        string action =
+                        var action =
                             driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[5]")).Text;
 
                         datarow.newrow("Scarpe Tilte", "", title, "PASS", driver);
@@ -64,7 +63,7 @@ namespace MoBankUI
                     }
                     catch (Exception ex)
                     {
-                        string e = ex.ToString();
+                        var e = ex.ToString();
                         datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
                     }
                 }
@@ -84,7 +83,7 @@ namespace MoBankUI
             }
             driver.FindElement(By.LinkText("Running")).Click();
 
-            string tilte1 = driver.Title;
+            var tilte1 = driver.Title;
             Scrapeandfeedrunning(driver, datarow);
         }
 
@@ -92,15 +91,15 @@ namespace MoBankUI
         {
             #region  Running
 
-            for (int j = 1;;)
+            for (var j = 1;;)
             {
                 if (IsElementPresent(driver, By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]"), 30))
                 {
-                    for (int i = 0;; i++)
+                    for (var i = 0;; i++)
                     {
                         try
                         {
-                            string comp =
+                            var comp =
                                 driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]")).Text;
                             if (comp.Contains("100%"))
                             {
@@ -141,7 +140,7 @@ namespace MoBankUI
 
             driver.FindElement(By.LinkText("Completed")).Click();
 
-            string completed = driver.FindElement(By.CssSelector("td.markedCell")).Text;
+            var completed = driver.FindElement(By.CssSelector("td.markedCell")).Text;
             if (completed.Contains("100%"))
             {
                 datarow.newrow("Scrape/DataFeed Job Completed", "", completed, "PASS", driver);

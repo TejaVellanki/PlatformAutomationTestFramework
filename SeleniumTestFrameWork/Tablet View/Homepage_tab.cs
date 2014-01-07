@@ -1,9 +1,7 @@
 ﻿using System;
-using MoBankUI;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace Tablet_View
+namespace MoBankUI
 {
     internal class HomepageTab
     {

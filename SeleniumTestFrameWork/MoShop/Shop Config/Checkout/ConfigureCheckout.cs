@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Threading;
-using MoBankUI.MoShop.Checkout;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop.Checkout
 {
     internal class ConfigureCheckout : Driverdefining
     {
@@ -15,7 +13,7 @@ namespace MoBankUI
                 Selectanoption(driver, By.Id("CheckoutType"), "Configure Checkout");
                 //new SelectElement(driver.FindElement(By.Id("CheckoutType"))).SelectByText("Configure Checkout");
 
-                for (int i = 0; i <= 2; i++)
+                for (var i = 0; i <= 2; i++)
                 {
                     driver.FindElement(By.CssSelector("h3.collapsible.collapsed")).Click();
                 }
@@ -50,14 +48,14 @@ namespace MoBankUI
                 }
                 try
                 {
-                    for (int i = 0; i <= 2; i++)
+                    for (var i = 0; i <= 2; i++)
                     {
                         driver.FindElement(By.CssSelector("h3.collapsible.collapsed")).Click();
                     }
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                     datarow.newrow("Exception", "Exception Not Exopected", e, "FAIL");
                 }
 
@@ -88,14 +86,14 @@ namespace MoBankUI
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
 
-                string str7 = driver.FindElement(By.Id("Encoding_Value")).GetAttribute("Value");
-                string str8 = driver.FindElement(By.Id("BasketPage_Url")).GetAttribute("Value");
-                string str9 = driver.FindElement(By.Id("BasketPage_Parameters")).GetAttribute("Value");
-                string str10 = driver.FindElement(By.Id("BasketPage_SuccessSelector")).GetAttribute("Value");
-                string str11 = driver.FindElement(By.Id("BasketPage_ErrorMessageSelector")).GetAttribute("Value");
-                string str12 = driver.FindElement(By.Id("BasketPage_ErrorMessageTransformer")).GetAttribute("Value");
-                string str13 = driver.FindElement(By.Id("BasketPage_BasketTotalSelector")).GetAttribute("Value");
-                string str14 = driver.FindElement(By.Id("CountryMappings_0__Source")).GetAttribute("Value");
+                var str7 = driver.FindElement(By.Id("Encoding_Value")).GetAttribute("Value");
+                var str8 = driver.FindElement(By.Id("BasketPage_Url")).GetAttribute("Value");
+                var str9 = driver.FindElement(By.Id("BasketPage_Parameters")).GetAttribute("Value");
+                var str10 = driver.FindElement(By.Id("BasketPage_SuccessSelector")).GetAttribute("Value");
+                var str11 = driver.FindElement(By.Id("BasketPage_ErrorMessageSelector")).GetAttribute("Value");
+                var str12 = driver.FindElement(By.Id("BasketPage_ErrorMessageTransformer")).GetAttribute("Value");
+                var str13 = driver.FindElement(By.Id("BasketPage_BasketTotalSelector")).GetAttribute("Value");
+                var str14 = driver.FindElement(By.Id("CountryMappings_0__Source")).GetAttribute("Value");
 
                 #region Validations
 
@@ -165,9 +163,9 @@ namespace MoBankUI
                 {
                     datarow.newrow("Country Mappings", "UK", str14, "FAIL", driver);
                 }
-                string str15 = driver.FindElement(By.Id("Pages_0__Name")).GetAttribute("Value");
-                string str16 = driver.FindElement(By.Id("Pages_1__Name")).GetAttribute("Value");
-                string str17 = driver.FindElement(By.Id("Pages_2__Name")).GetAttribute("Value");
+                var str15 = driver.FindElement(By.Id("Pages_0__Name")).GetAttribute("Value");
+                var str16 = driver.FindElement(By.Id("Pages_1__Name")).GetAttribute("Value");
+                var str17 = driver.FindElement(By.Id("Pages_2__Name")).GetAttribute("Value");
                 if (str15 == "Address")
                 {
                     datarow.newrow("Chekout Address", "Address", str15, "PASS", driver);
@@ -197,7 +195,7 @@ namespace MoBankUI
 
                 driver.FindElement(By.LinkText("…")).Click();
 
-                string str18 = driver.Title;
+                var str18 = driver.Title;
                 if (str18 == "Page Update : mobank.co.uk/MoShop")
                 {
                     datarow.newrow("Address Page Title", "Page Update : mobank.co.uk/MoShop", str18, "PASS", driver
@@ -211,7 +209,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
             new Addressconfig().addressconfig(driver, datarow);

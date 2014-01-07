@@ -3,9 +3,8 @@
 using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     [TestFixture]
     public class MoShopConsole : Driverdefining
@@ -32,7 +31,7 @@ namespace MoBankUI
         {
             try
             {
-                string actual = driver.Title;
+                var actual = driver.Title;
 
                 if (actual == "Log On : mobank.co.uk/MoShop")
                 {
@@ -49,8 +48,8 @@ namespace MoBankUI
                 driver.FindElement(By.Id("Password")).SendKeys("Apple12345");
                 driver.FindElement(By.Id("LogOn_Action_LogOn")).Click();
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                IWebElement element = driver.FindElement(By.XPath("//div[@id='IndexMenu']/ul/li/ul/li/a"));
-                string str2 = driver.Title;
+                var element = driver.FindElement(By.XPath("//div[@id='IndexMenu']/ul/li/ul/li/a"));
+                var str2 = driver.Title;
 
                 if (str2 == "mobank.co.uk/MoShop")
                 {
@@ -68,7 +67,7 @@ namespace MoBankUI
 
                 driver.FindElement(By.LinkText("Scrapes")).Click();
 
-                string str3 = driver.Title;
+                var str3 = driver.Title;
 
 
                 if (str3 == "Scrapes : mobank.co.uk/MoShop")
@@ -84,7 +83,7 @@ namespace MoBankUI
 
                 driver.FindElement(By.XPath("(//a[contains(text(),'Shops')])[2]")).Click();
 
-                string str4 = driver.Title;
+                var str4 = driver.Title;
                 if (str4 == "Shops : mobank.co.uk/MoShop")
                 {
                     datarow.newrow("Shops Page", "Scrapes : mobank.co.uk/MoShop", str4, "PASS", driver);
@@ -98,7 +97,7 @@ namespace MoBankUI
 
                 driver.FindElement(By.XPath("(//a[contains(text(),'Global Customisations')])[2]")).Click();
 
-                string str5 = driver.Title;
+                var str5 = driver.Title;
                 if (str5 == "Global Customisations : mobank.co.uk/MoShop")
                 {
                     datarow.newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5,
@@ -114,7 +113,7 @@ namespace MoBankUI
 
                 driver.FindElement(By.XPath("(//a[contains(text(),'Transformations')])[2]")).Click();
 
-                string str6 = driver.Title;
+                var str6 = driver.Title;
                 if (str6 == "Transformations : mobank.co.uk/MoShop")
                 {
                     datarow.newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "PASS", driver);
@@ -129,7 +128,7 @@ namespace MoBankUI
 
                 driver.FindElement(By.XPath("(//a[contains(text(),'Global Settings')])[2]")).Click();
 
-                string str7 = driver.Title;
+                var str7 = driver.Title;
                 if (str7 == "mobank.co.uk/MoShop")
                 {
                     datarow.newrow("Global settings Page", "mobank.co.uk/MoShop", str7, "PASS", driver);
@@ -143,7 +142,7 @@ namespace MoBankUI
 
                 driver.FindElement(By.XPath("(//a[contains(text(),'Security')])[2]")).Click();
 
-                string str8 = driver.Title;
+                var str8 = driver.Title;
                 if (str8 == "mobank.co.uk/MoShop")
                 {
                     datarow.newrow("Security Page", "mobank.co.uk/MoShop", str8, "PASS", driver);
@@ -163,7 +162,7 @@ namespace MoBankUI
 
                 driver.FindElement(By.XPath("(//a[contains(text(),'Teja Vellanki')])[2]")).Click();
 
-                string str9 = driver.Title;
+                var str9 = driver.Title;
                 if (str9 == "Teja Vellanki : mobank.co.uk/MoShop")
                 {
                     datarow.newrow("Account Page", "Teja Vellanki : mobank.co.uk/MoShop", str9, "PASS", driver);
@@ -177,7 +176,7 @@ namespace MoBankUI
             }
             catch (Exception exception3)
             {
-                string str10 = exception3.ToString();
+                var str10 = exception3.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", str10, "FAIL", driver);
             }
         }

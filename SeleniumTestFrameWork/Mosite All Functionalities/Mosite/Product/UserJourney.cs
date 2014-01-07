@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading;
+using MoBankUI.Mosite.HomePage;
+using MoBankUI.ObjectRepository;
 using NUnit.Framework;
-using ObjectRepository;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
 //using System.Drawing;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.Product
 {
     public class UserJourneyTps : Driverdefining
     {
@@ -24,7 +24,7 @@ namespace MoBankUI
                 string cat = null;
                 string products = null;
                 string productlink = null;
-                string URL = driver.PageSource;
+                var URL = driver.PageSource;
                 if (URL.Contains("user-scalable=yes"))
                 {
                     categorylink = CollectionMapV2.Categorylink;
@@ -49,31 +49,31 @@ namespace MoBankUI
                 Thread.Sleep(5000);
                 new CookieDisclosure().Cookie(driver, datarow);
 
-                IWebElement myDynamicElement1 = driver.FindElement(By.XPath("" + categorylink + "" + cat + ""));
+                var myDynamicElement1 = driver.FindElement(By.XPath("" + categorylink + "" + cat + ""));
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
 
-                string title = driver.Title;
+                var title = driver.Title;
 
                 // Activate After Debug
                 Image.categoryimage(driver, datarow);
 
                 // footer.Footer(driver, datarow);
-                decimal categorycount = GetXpathCount(driver, categorylink);
+                var categorycount = GetXpathCount(driver, categorylink);
 
 
                 if (IsElementPresent(driver, By.XPath("" + categorylink + "[" + 1 + "]" + cat + "")))
                 {
                     //*[@id="productList"]/article[1]/a/div[1]/img
-                    string location = driver.Url;
+                    var location = driver.Url;
                     // Category Image validation
                     Image.categoryimage(driver, datarow);
                     driver.FindElement(By.XPath("" + categorylink + "[" + 1 + "]" + cat + "")).Click();
 
-                    string titlecategory = driver.Title;
-                    string url1 = driver.Url;
+                    var titlecategory = driver.Title;
+                    var url1 = driver.Url;
                     if (IsElementPresent(driver, By.XPath("" + products + "[" + 1 + "]" + productlink + "")))
                     {
-                        string url2 = driver.Title;
+                        var url2 = driver.Title;
                         driver.FindElement(By.XPath("" + products + "" + productlink + "")).Click();
                     }
                 }
@@ -82,12 +82,12 @@ namespace MoBankUI
                 var prod = new ProductsTps();
                 prod.product(driver, datarow);
 
-                string BasketPage = driver.PageSource;
+                var BasketPage = driver.PageSource;
                 Thread.Sleep(5000);
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Is Not Expected", e, "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }

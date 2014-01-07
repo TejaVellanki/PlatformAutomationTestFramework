@@ -1,11 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using MoBankUI;
 using NUnit.Framework;
 using OpenQA.Selenium;
 
-namespace Tablet_View
+namespace MoBankUI
 {
     public class BlobStorage
     {
@@ -20,17 +19,17 @@ namespace Tablet_View
                 request.ServicePoint.Expect100Continue = false;
                 request.ContentType = "application/x-www-form-urlencoded";
                 datarow.newrow("", "", "Validating Blob URL", "");
-                using (WebResponse response = request.GetResponse())
+                using (var response = request.GetResponse())
                 {
                     using (var reader = new StreamReader(response.GetResponseStream()))
                     {
                         reader.ReadToEnd();
-                        string rawHeaders = request.GetResponse().Headers.ToString();
+                        var rawHeaders = request.GetResponse().Headers.ToString();
                         if (rawHeaders.Contains("public"))
                         {
                             datarow.newrow("Cache Control", "Cache Control is Public", rawHeaders, "PASS");
-                            string[] cache = rawHeaders.Split('f');
-                            foreach (string s in cache)
+                            var cache = rawHeaders.Split('f');
+                            foreach (var s in cache)
                             {
                                 if (s.Contains("Date"))
                                 {
@@ -46,11 +45,11 @@ namespace Tablet_View
                 }
 
                 // Validating CSS URL from the page source
-                string css = driver.PageSource;
-                string[] selectedvalue = css.Split('<');
-                foreach (string s in selectedvalue)
+                var css = driver.PageSource;
+                var selectedvalue = css.Split('<');
+                foreach (var s in selectedvalue)
                 {
-                    string ss = s;
+                    var ss = s;
                     if (ss.Contains("themes"))
                     {
                         if (ss.Contains("http") || ss.Contains("https") || ss.Contains("blob"))
@@ -69,10 +68,10 @@ namespace Tablet_View
                     }
                 }
                 datarow.newrow("", "", "Validating GET for Search Results", "");
-                foreach (string get in selectedvalue)
+                foreach (var get in selectedvalue)
                 {
-                    int i = 1;
-                    string GET = get;
+                    var i = 1;
+                    var GET = get;
                     if (GET.Contains("GET"))
                     {
                         datarow.newrow("Validate Search Results Using GET", "Search Results Using GET method", GET,
@@ -86,7 +85,7 @@ namespace Tablet_View
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL");
             }
         }

@@ -2,6 +2,10 @@
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
+using MoBankUI.MoPay;
+using MoBankUI.MoShop;
+using MoBankUI.Mosite;
+using MoBankUI.Mosite.Modrophenia;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Android;
 using OpenQA.Selenium.Chrome;
@@ -42,14 +46,14 @@ namespace MoBankUI
         {
             try
             {
-                bool mopaytestharness = checkBox15.Checked;
-                bool Mopayconsole = checkBox16.Checked;
-                bool Moshop = checkBox11.Checked;
-                bool moPayAccount = checkBox17.Checked;
-                bool moSite = checkBox12.Checked;
-                bool firefox = checkBox14.Checked;
-                bool mositetps = checkBox13.Checked;
-                bool appium = checkBox1.Checked;
+                var mopaytestharness = checkBox15.Checked;
+                var Mopayconsole = checkBox16.Checked;
+                var Moshop = checkBox11.Checked;
+                var moPayAccount = checkBox17.Checked;
+                var moSite = checkBox12.Checked;
+                var firefox = checkBox14.Checked;
+                var mositetps = checkBox13.Checked;
+                var appium = checkBox1.Checked;
 
 
                 if (mopaytestharness)
@@ -81,12 +85,12 @@ namespace MoBankUI
                     {
                         var datarow = new Datarow();
                         datarow.col();
-                        string urls = textBox3.Text;
+                        var urls = textBox3.Text;
                         if (urls != "")
                         {
                             //Seperating the URL's. 
-                            string[] url = urls.Split(',');
-                            foreach (string oneurl in url)
+                            var url = urls.Split(',');
+                            foreach (var oneurl in url)
                             {
                                 datarow.dataflush();
                                 Mositetp(oneurl, datarow);
@@ -96,7 +100,7 @@ namespace MoBankUI
                         {
                             MessageBox.Show(@"Please Enter Atleast One Merchant URL To Test in Text Field");
                         }
-                        string emails = textBox4.Text;
+                        var emails = textBox4.Text;
                     }
 
                     else
@@ -244,7 +248,7 @@ namespace MoBankUI
         {
             try
             {
-                string item = checkedListBox3.CheckedItems.Cast<object>().Aggregate<object, string>(null, (current, items) => current + "," + items);
+                var item = checkedListBox3.CheckedItems.Cast<object>().Aggregate<object, string>(null, (current, items) => current + "," + items);
 
                 if (item == null)
                 {
@@ -268,25 +272,25 @@ namespace MoBankUI
 
                         Thread.Sleep(2000);
 
-                        string mobileurl = driver.Url;
+                        var mobileurl = driver.Url;
                         datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl,
                             mobileurl == url ? "FAIL" : "PASS", driver);
 
                         var testing = new BatchTesting();
                         testing.Batchtesting(item, url, driver, datarow);
-                        string emails = textBox2.Text;
+                        var emails = textBox2.Text;
                         var site = new MositeGeneral();
                         site.Finally(driver, url, datarow, emails);
                     }
                     catch (Exception ex)
                     {
-                        string e = ex.ToString();
+                        var e = ex.ToString();
                     }
                 }
             }
             catch (Exception ex)
             {
-                string u = ex.ToString();
+                var u = ex.ToString();
                 MessageBox.Show(u);
             }
         }
@@ -336,11 +340,11 @@ namespace MoBankUI
             {
                 var datarow = new Datarow();
                 datarow.col();
-                int count = checkedListBox2.CheckedItems.Count;
+                var count = checkedListBox2.CheckedItems.Count;
 
                 var items = checkedListBox2.CheckedItems.Cast<object>().Aggregate<object, string>(null, (current, item) => current + (item + ","));
-                int vers = checkedListBox5.CheckedItems.Count;
-                string versions = checkedListBox5.CheckedItems.Cast<object>().Aggregate<object, string>(null, (current, version) => current + (version + ","));
+                var vers = checkedListBox5.CheckedItems.Count;
+                var versions = checkedListBox5.CheckedItems.Cast<object>().Aggregate<object, string>(null, (current, version) => current + (version + ","));
                 IWebDriver driver = new FirefoxDriver();
                 driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
                 var batch = new MoshopBatch();
@@ -348,7 +352,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
             }
         }
 

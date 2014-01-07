@@ -1,11 +1,10 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using WebDriver_Refining;
 
 //using System.Drawing;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite
 {
     internal class Countryhouse : Driverdefining
     {
@@ -96,7 +95,7 @@ namespace MoBankUI
 
 
             Assert.AreEqual("Secure Payment Page", driver.Title);
-            string title = driver.Title;
+            var title = driver.Title;
         }
     }
 }

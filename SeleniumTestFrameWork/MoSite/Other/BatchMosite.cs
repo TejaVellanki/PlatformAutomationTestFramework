@@ -7,7 +7,7 @@
 using System;
 using OpenQA.Selenium;
 
-namespace MoBankUI
+namespace MoBankUI.MoSite.Other
 {
     internal class Mositebatch
     {
@@ -15,13 +15,13 @@ namespace MoBankUI
         {
             var screenshot = new Screenshot();
 
-            string[] strArray = items.Split(new[] {','});
-            string[] urlarray = urls.Split(new[] {','});
+            var strArray = items.Split(new[] {','});
+            var urlarray = urls.Split(new[] {','});
             try
             {
-                foreach (string url in urlarray)
+                foreach (var url in urlarray)
                 {
-                    foreach (string str in strArray)
+                    foreach (var str in strArray)
                     {
                         if (str != null)
                         {
@@ -63,7 +63,7 @@ namespace MoBankUI
             }
             catch (Exception exception)
             {
-                string str2 = exception.ToString();
+                var str2 = exception.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }

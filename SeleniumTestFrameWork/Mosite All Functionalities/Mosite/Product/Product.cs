@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Threading;
-using ObjectRepository;
+using MoBankUI.ObjectRepository;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using WebDriver_Refining;
 
 //using System.Drawing;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.Product
 {
     internal class ProductsTps : Driverdefining
     {
@@ -18,7 +17,7 @@ namespace MoBankUI
             var Image = new Imagevalidation();
             try
             {
-                string url = driver.PageSource;
+                var url = driver.PageSource;
 
 
                 string productVarinat = null;
@@ -60,12 +59,12 @@ namespace MoBankUI
                 // Product Title
                 try
                 {
-                    string title = driver.FindElement(By.ClassName(producttitle)).Text;
+                    var title = driver.FindElement(By.ClassName(producttitle)).Text;
                     datarow.newrow("Product Title", "", title, "PASS", driver);
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                 }
                 if (IsElementPresent(driver, By.ClassName(producttitle)) == false)
                 {
@@ -202,7 +201,7 @@ namespace MoBankUI
 
                 #endregion
 
-                string product = driver.PageSource;
+                var product = driver.PageSource;
                 try
                 {
                     driver.FindElement(By.XPath(AddToBasket)).Click();
@@ -213,13 +212,13 @@ namespace MoBankUI
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                     datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected", e, "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
 
 
-                string basval = driver.FindElement(By.XPath(basketvalue)).Text;
+                var basval = driver.FindElement(By.XPath(basketvalue)).Text;
 
                 if (basval == "(1)")
                 {
@@ -240,12 +239,12 @@ namespace MoBankUI
 
 
                 // driver.FindElement(By.Id()).Click();("css=option");
-                string pric = driver.FindElement(By.CssSelector("strong")).Text;
+                var pric = driver.FindElement(By.CssSelector("strong")).Text;
                 new SelectElement(driver.FindElement(By.Id("Items_0__Quantity"))).SelectByText("4");
 
 
                 Thread.Sleep(3000);
-                string prirc = driver.FindElement(By.CssSelector("strong")).Text;
+                var prirc = driver.FindElement(By.CssSelector("strong")).Text;
 
                 if (pric == prirc)
                 {
@@ -257,10 +256,10 @@ namespace MoBankUI
                 }
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                IWebElement myDynamicElement4 = driver.FindElement(By.XPath(checkout));
+                var myDynamicElement4 = driver.FindElement(By.XPath(checkout));
                 if (url.Contains("user-scalable=yes") == false)
                 {
-                    string value1 = driver.FindElement(By.Id("BasketInfo")).Text;
+                    var value1 = driver.FindElement(By.Id("BasketInfo")).Text;
 
                     if (value1 == "(4)")
                     {
@@ -276,7 +275,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }

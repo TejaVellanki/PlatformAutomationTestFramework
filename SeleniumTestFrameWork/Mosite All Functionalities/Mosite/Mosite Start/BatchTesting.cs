@@ -1,10 +1,13 @@
 ﻿using System;
+using MoBankUI.Mosite.HomePage;
+using MoBankUI.Mosite.Pay;
+using MoBankUI.Mosite.Product;
+using MoBankUI.Mosite.Search;
 using OpenQA.Selenium;
-using Tablet_View;
 
 //using System.Drawing;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite
 {
     internal class BatchTesting
     {
@@ -25,9 +28,9 @@ namespace MoBankUI
                 //    public const string version = vsion;
                 //}
 
-                string[] selectedvalue = items.Split(',');
-                int i = 0;
-                foreach (string function in selectedvalue)
+                var selectedvalue = items.Split(',');
+                var i = 0;
+                foreach (var function in selectedvalue)
                 {
                     if (function == "Search")
                     {
@@ -94,7 +97,7 @@ namespace MoBankUI
                         }
                         catch (Exception ex)
                         {
-                            string e = ex.ToString();
+                            var e = ex.ToString();
                             datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                             _screenshot.screenshotfailed(driver);
                         }
@@ -105,7 +108,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                 _screenshot.screenshotfailed(driver);
             }

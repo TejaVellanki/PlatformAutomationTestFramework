@@ -3,7 +3,6 @@
 using System;
 using System.Threading;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
 namespace MoBankUI.MoPay
 {
@@ -36,7 +35,7 @@ namespace MoBankUI.MoPay
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
-                string actual = driver.Title;
+                var actual = driver.Title;
                 if (actual == "Details : mopowered.co.uk")
                 {
                     datarow.newrow("Details Tab", "Details : mopowered.co.uk", actual, "PASS", driver);
@@ -61,7 +60,7 @@ namespace MoBankUI.MoPay
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
 
-                string str3 = driver.Title;
+                var str3 = driver.Title;
                 if (str3 == "Payment Provider : mopowered.co.uk")
                 {
                     datarow.newrow("Payment Provider Tab", "Payment Provider : mopowered.co.uk", str3, "PASS", driver
@@ -89,7 +88,7 @@ namespace MoBankUI.MoPay
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
 
-                string str4 = driver.Title;
+                var str4 = driver.Title;
                 if (str4 == "Notifications : mopowered.co.uk")
                 {
                     datarow.newrow("Notifications Tab", "Notifications : mopowered.co.uk", str4, "PASS", driver
@@ -116,7 +115,7 @@ namespace MoBankUI.MoPay
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
 
-                string str5 = driver.Title;
+                var str5 = driver.Title;
                 if (str5 == "Transactions : mopowered.co.uk")
                 {
                     datarow.newrow("Transactions Tab", "Transactions : mopowered.co.uk", str5, "PASS", driver);
@@ -140,7 +139,7 @@ namespace MoBankUI.MoPay
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
 
-                string str6 = driver.Title;
+                var str6 = driver.Title;
                 if (str6 == "History : mopowered.co.uk")
                 {
                     datarow.newrow("History Tab", "History : mopowered.co.uk", str6, "PASS", driver);
@@ -152,10 +151,10 @@ namespace MoBankUI.MoPay
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                IWebElement element = driver.FindElement(By.LinkText("Payment Provider"));
+                var element = driver.FindElement(By.LinkText("Payment Provider"));
                 driver.FindElement(By.LinkText("Payment Provider")).Click();
 
-                string str7 = driver.Title;
+                var str7 = driver.Title;
                 if (str7 == "Payment Provider : mopowered.co.uk")
                 {
                     datarow.newrow("Payment Provider Tab", "Payment Provider : mopowered.co.uk", str7, "PASS", driver
@@ -180,7 +179,7 @@ namespace MoBankUI.MoPay
                     screenshot.screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
-                string str8 = driver.Title;
+                var str8 = driver.Title;
                 if (str8 == "Update : mopowered.co.uk")
                 {
                     datarow.newrow("Update Tab", "Update : mopowered.co.uk", str8, "PASS", driver);
@@ -191,7 +190,7 @@ namespace MoBankUI.MoPay
                     screenshot.screenshotfailed(driver);
                 }
 
-                string str9 = driver.Title;
+                var str9 = driver.Title;
                 if (str9 == "Update : mopowered.co.uk")
                 {
                     datarow.newrow("Update Tab", "Update : mopowered.co.uk", str9, "PASS", driver);
@@ -216,7 +215,7 @@ namespace MoBankUI.MoPay
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management/Accounts/Update/1");
                 }
 
-                string str10 = driver.Title;
+                var str10 = driver.Title;
                 if (str10 == "Users : mopowered.co.uk")
                 {
                     datarow.newrow("Users Tab", "Users : mopowered.co.uk", str10, "PASS", driver);
@@ -230,7 +229,7 @@ namespace MoBankUI.MoPay
             }
             catch (Exception exception)
             {
-                string str11 = exception.ToString();
+                var str11 = exception.ToString();
                 Console.Write(exception);
                 datarow.newrow("Exception", "Exception Not Expected", str11, "FAIL", driver);
             }

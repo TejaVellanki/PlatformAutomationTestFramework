@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite
 {
     //This class Test the user as a guest. 
     internal class Guest : Driverdefining
@@ -21,12 +20,12 @@ namespace MoBankUI
 
                 try
                 {
-                    decimal count = GetXpathCount(driver, "//html/body/div[1]/div[2]/div/form/div");
-                    for (int i = 1; i <= count; i++)
+                    var count = GetXpathCount(driver, "//html/body/div[1]/div[2]/div/form/div");
+                    for (var i = 1; i <= count; i++)
                     {
                         if (IsElementPresent(driver, By.XPath("//html/body/div[1]/div[2]/div/form/div[" + i + "]/label")))
                         {
-                            string valuet =
+                            var valuet =
                                 driver.FindElement(By.XPath("html/body/div[1]/div[2]/div/form/div[" + i + "]/label"))
                                       .Text;
                             //if (valuet == "Telephone:")
@@ -57,12 +56,12 @@ namespace MoBankUI
 
                             if (valuet == "Country: *" || valuet == "Country")
                             {
-                                IWebElement con = driver.FindElement(By.Id("Country"));
+                                var con = driver.FindElement(By.Id("Country"));
                                 IList<IWebElement> countries = con.FindElements(By.TagName("option"));
 
 
                                 string values = null;
-                                foreach (IWebElement value in countries)
+                                foreach (var value in countries)
                                 {
                                     values = values + "\r\n" + value;
                                     new SelectElement(driver.FindElement(By.Id("Country"))).SelectByText(value.Text);
@@ -80,7 +79,7 @@ namespace MoBankUI
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                     datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 }
             }

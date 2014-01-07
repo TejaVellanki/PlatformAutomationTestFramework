@@ -19,8 +19,8 @@ namespace MoBankUI
                 //  mM.To.Add("tvellanki@gmail.com");
                 try
                 {
-                    string[] email = emails.Split(',');
-                    foreach (string emal in email)
+                    var email = emails.Split(',');
+                    foreach (var emal in email)
                     {
                         mM.To.Add(emal);
                     }

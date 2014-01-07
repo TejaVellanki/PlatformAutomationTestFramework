@@ -3,9 +3,8 @@
 using System;
 using System.Threading;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     internal class ProductScrape : Driverdefining
     {
@@ -122,16 +121,16 @@ namespace MoBankUI
 
                 #region Validations
 
-                string attribute = driver.FindElement(By.Id("Selector")).GetAttribute("Value");
-                string actual = driver.FindElement(By.Id("Identifier")).GetAttribute("Value");
-                string str3 = driver.FindElement(By.Id("IdentifierTransformationPattern")).GetAttribute("Value");
-                string str4 = driver.FindElement(By.Id("IdentifierTransformationReplacement")).GetAttribute("Value");
-                string str5 = driver.FindElement(By.Id("MappingItems_0__Selector")).GetAttribute("Value");
-                string str6 = driver.FindElement(By.Id("MappingItems_1__Selector")).GetAttribute("Value");
-                string str7 = driver.FindElement(By.Id("MappingItems_2__Selector")).GetAttribute("Value");
-                string str8 = driver.FindElement(By.Id("MappingItems_3__Selector")).GetAttribute("Value");
-                string str9 = driver.FindElement(By.Id("MappingItems_4__Selector")).GetAttribute("Value");
-                string str10 = driver.FindElement(By.Id("MappingItems_5__Selector")).GetAttribute("Value");
+                var attribute = driver.FindElement(By.Id("Selector")).GetAttribute("Value");
+                var actual = driver.FindElement(By.Id("Identifier")).GetAttribute("Value");
+                var str3 = driver.FindElement(By.Id("IdentifierTransformationPattern")).GetAttribute("Value");
+                var str4 = driver.FindElement(By.Id("IdentifierTransformationReplacement")).GetAttribute("Value");
+                var str5 = driver.FindElement(By.Id("MappingItems_0__Selector")).GetAttribute("Value");
+                var str6 = driver.FindElement(By.Id("MappingItems_1__Selector")).GetAttribute("Value");
+                var str7 = driver.FindElement(By.Id("MappingItems_2__Selector")).GetAttribute("Value");
+                var str8 = driver.FindElement(By.Id("MappingItems_3__Selector")).GetAttribute("Value");
+                var str9 = driver.FindElement(By.Id("MappingItems_4__Selector")).GetAttribute("Value");
+                var str10 = driver.FindElement(By.Id("MappingItems_5__Selector")).GetAttribute("Value");
 
                 datarow.newrow("Product selector", "div[class^='singleproduct']>a", attribute,
                     attribute == "div[class^='singleproduct']>a" ? "PASS" : "FAIL", driver);
@@ -159,7 +158,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception Not Expected", "", e, "FAIL");
             }
             driver.FindElement(By.LinkText("Scrape")).Click();

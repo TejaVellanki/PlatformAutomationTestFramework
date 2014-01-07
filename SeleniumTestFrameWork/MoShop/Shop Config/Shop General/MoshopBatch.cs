@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Drawing;
+using MoBankUI.Mosite;
+using MoBankUI.Mosite.HomePage;
+using MoBankUI.Mosite.Modrophenia;
+using MoBankUI.Mosite.Pay;
+using MoBankUI.Mosite.Product;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using Tablet_View;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     public class MoshopBatch : Driverdefining
     {
@@ -18,9 +21,9 @@ namespace MoBankUI
                 moshop.Homepagetabs(driver, datarow);
                 driver.Manage().Window.Maximize();
 
-                string[] strArray = items.Split(new[] {','});
+                var strArray = items.Split(new[] {','});
 
-                foreach (string str in strArray)
+                foreach (var str in strArray)
                 {
                     if (str.Length != 0)
                     {
@@ -91,7 +94,7 @@ namespace MoBankUI
                             }
                             catch (Exception ex)
                             {
-                                string e = ex.ToString();
+                                var e = ex.ToString();
                                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                             }
                         }
@@ -145,7 +148,7 @@ namespace MoBankUI
 
             catch (Exception exception)
             {
-                string str2 = exception.ToString();
+                var str2 = exception.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", str2, "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }

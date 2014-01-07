@@ -2,9 +2,8 @@
 
 using System;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop.Checkout.Confirm
 {
     internal class Confirmtab : Driverdefining
     {
@@ -13,7 +12,7 @@ namespace MoBankUI
             try
             {
                 datarow.newrow("", "", "CONFIRM CONFIGURATION", "", driver);
-                string confirm = driver.FindElement(By.XPath("//*[@id='Pages_1__Name']")).Text;
+                var confirm = driver.FindElement(By.XPath("//*[@id='Pages_1__Name']")).Text;
 
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
 
@@ -45,12 +44,12 @@ namespace MoBankUI
 
                 #region validations
 
-                string attribute = driver.FindElement(By.Id("Url")).GetAttribute("Value");
-                string actual = driver.FindElement(By.Id("Parameters")).GetAttribute("Value");
-                string str3 = driver.FindElement(By.Id("Sequence")).GetAttribute("Value");
-                string str4 =
+                var attribute = driver.FindElement(By.Id("Url")).GetAttribute("Value");
+                var actual = driver.FindElement(By.Id("Parameters")).GetAttribute("Value");
+                var str3 = driver.FindElement(By.Id("Sequence")).GetAttribute("Value");
+                var str4 =
                     driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).GetAttribute("Value");
-                string str5 =
+                var str5 =
                     driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Attribute")).GetAttribute("Value");
                 //string str6 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Selector")).GetAttribute("Value");
                 // string str7 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Attribute")).GetAttribute("Value");
@@ -125,7 +124,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
         }

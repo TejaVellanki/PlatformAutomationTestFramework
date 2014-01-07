@@ -3,9 +3,8 @@
 using System;
 using System.Threading;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop.Scheduler
 {
     internal class Scheduler : Driverdefining
     {
@@ -34,14 +33,14 @@ namespace MoBankUI
                 {
                     driver.FindElement(By.CssSelector("h3.collapsible.collapsed")).Click();
                 }
-                string str = GetValue(driver, By.Id("Jobs_0__JobType"), 30);
+                var str = GetValue(driver, By.Id("Jobs_0__JobType"), 30);
                 if (str == null)
                 {
                     Selectanoption(driver, By.Id("Jobs_0__JobType"), "Scrape");
                     //new SelectElement(driver.FindElement(By.Id("Jobs_0__JobType"))).SelectByText("Scrape");
                     driver.FindElement(By.CssSelector("input.button")).Click();
 
-                    string attribute = driver.FindElement(By.Id("Jobs_0__JobType")).GetAttribute("Value");
+                    var attribute = driver.FindElement(By.Id("Jobs_0__JobType")).GetAttribute("Value");
                     if (attribute == "Scrape")
                     {
                         datarow.newrow("Job Type", "Scrape", attribute, "PASS", driver);
@@ -66,7 +65,7 @@ namespace MoBankUI
                     driver.FindElement(By.CssSelector("input.button")).Click();
 
                     Thread.Sleep(0x1388);
-                    string str3 = GetValue(driver, By.Id("Jobs_1__Active"), 30);
+                    var str3 = GetValue(driver, By.Id("Jobs_1__Active"), 30);
                     num = 0;
                     if (str3 == "true")
                     {
@@ -155,7 +154,7 @@ namespace MoBankUI
                         driver.FindElement(By.Id("Jobs_0__RepeatInterval_Hours")).SendKeys("1");
                         driver.FindElement(By.CssSelector("input.button")).Click();
                     }
-                    int num2 = 0;
+                    var num2 = 0;
                     if (str3 == "false")
                     {
                         num2 = 1;
@@ -315,10 +314,10 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
-            new Checkout().checkout(driver, datarow);
+            new Checkout.Checkout().checkout(driver, datarow);
         }
     }
 }

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Threading;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite
 {
     internal class RelatedProducts : Driverdefining
     {
@@ -115,7 +114,7 @@ namespace MoBankUI
                     driver.FindElement(By.CssSelector("input.ui-btn-hidden")).Click();
 
                     Thread.Sleep(3000);
-                    string basketcount = driver.FindElement(By.Id("BasketInfo")).Text;
+                    var basketcount = driver.FindElement(By.Id("BasketInfo")).Text;
                     if (basketcount == "(1)")
                     {
                         datarow.newrow("Validating Add to Basket for Related Product",
@@ -138,7 +137,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception in Related Products", "Exception not expected", e, "FAIL");
             }
         }
@@ -147,7 +146,7 @@ namespace MoBankUI
         {
             try
             {
-                string you = driver.FindElement(By.XPath("//div[@id='mainContent']/div/ul/li")).Text;
+                var you = driver.FindElement(By.XPath("//div[@id='mainContent']/div/ul/li")).Text;
                 if (you == "You also need...")
                 {
                     datarow.newrow("Validating 'You also Need' Text", "You also need...", you, "PASS");
@@ -157,13 +156,13 @@ namespace MoBankUI
                     datarow.newrow("Validating 'You also Need' Text", "You also need...", you, "FAIL");
                 }
 
-                decimal count = GetXpathCount(driver, "//ul[@id='productList']/li");
+                var count = GetXpathCount(driver, "//ul[@id='productList']/li");
                 if (count == 0)
                 {
                     datarow.newrow("Validating Related Products", "Atleast one Related Product should be Present",
                                    "No Related Products are found " + count + " ", "FAIL");
                 }
-                for (int i = 1; i <= count; i++)
+                for (var i = 1; i <= count; i++)
                 {
                     if (IsElementPresent(driver, By.XPath("//ul[@id='productList']/li[" + i + "]/div/div/img")))
                     {
@@ -181,7 +180,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception in Related Products-validate Product", "Exception not expected", e, "FAIL");
             }
         }

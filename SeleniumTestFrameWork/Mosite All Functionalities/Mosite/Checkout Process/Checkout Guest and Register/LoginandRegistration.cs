@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite
 {
     internal class LoginandRegistrationTps : Driverdefining
     {
@@ -66,7 +65,7 @@ namespace MoBankUI
                 }
                 if (IsElementPresent(driver, By.Id("BasketInfo"), 30))
                 {
-                    string basvalue = driver.FindElement(By.Id("BasketInfo")).Text;
+                    var basvalue = driver.FindElement(By.Id("BasketInfo")).Text;
 
                     if (basvalue == "(1)")
                     {
@@ -95,12 +94,12 @@ namespace MoBankUI
                     try
                     {
                         decimal count = driver.FindElements(By.XPath("//form[@id='ctl00']/section/div")).Count;
-                        for (int i = 1; i <= count; i++)
+                        for (var i = 1; i <= count; i++)
                         {
                             if (IsElementPresent(driver, By.XPath("//form[@id='ctl00']/section/div[" + i + "]/label"),
                                                  30))
                             {
-                                string valuet =
+                                var valuet =
                                     driver.FindElement(By.XPath("//form[@id='ctl00']/section/div[" + i + "]/label"))
                                           .Text;
                                 //if (valuet == "Telephone:")
@@ -124,11 +123,11 @@ namespace MoBankUI
 
                                 if (valuet == "Country: *")
                                 {
-                                    IWebElement element = driver.FindElement(By.Id("Pagecontent_ddlCountry"));
+                                    var element = driver.FindElement(By.Id("Pagecontent_ddlCountry"));
                                     IList<IWebElement> alllist = element.FindElements(By.TagName("option"));
 
                                     string values = null;
-                                    foreach (IWebElement value in alllist)
+                                    foreach (var value in alllist)
                                     {
                                         values = values + "\r\n" + value;
                                         new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlCountry")))
@@ -141,12 +140,12 @@ namespace MoBankUI
                     }
                     catch (Exception ex)
                     {
-                        string e = ex.ToString();
+                        var e = ex.ToString();
                         datarow.newrow("Exception", "exception Not Expected", e, "FAIL", driver);
                         screenshot.screenshotfailed(driver);
                     }
                 }
-                string loc = driver.Url;
+                var loc = driver.Url;
                 if (loc.Contains("Error"))
                 {
                     datarow.newrow("Error Page", "Error Page After Logging Not Expected", loc, "FAIL", driver);
@@ -168,9 +167,9 @@ namespace MoBankUI
                         decimal count =
                             driver.FindElements(By.XPath("/html/body/div/div[2]/div[2]/form/section/div[2]/fieldset/div"))
                                   .Count;
-                        for (int i = 1; i < count; i++)
+                        for (var i = 1; i < count; i++)
                         {
-                            string text =
+                            var text =
                                 driver.FindElement(
                                     By.XPath("//html/body/div/div[2]/div[2]/form/section/div[2]/fieldset/div[" + i +
                                              "]/label/span/span")).Text;
@@ -182,14 +181,14 @@ namespace MoBankUI
                     }
                     else
                     {
-                        string loca = driver.Url;
+                        var loca = driver.Url;
                         datarow.newrow("Delivery Method", "Unexpected Format", loca, "FAIL", driver);
                         screenshot.screenshotfailed(driver);
                     }
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                     datarow.newrow("Delivery Method Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
@@ -198,7 +197,7 @@ namespace MoBankUI
                 {
                     if (IsElementPresent(driver, By.XPath("Pagecontent_ButtonCheckoutStep2"), 30))
                     {
-                        string location = driver.Url;
+                        var location = driver.Url;
                         datarow.newrow("Checkout process url", "", location, "PASS", driver);
                         driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep2")).Click();
                     }
@@ -211,7 +210,7 @@ namespace MoBankUI
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                     datarow.newrow("Continue Button Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
@@ -222,7 +221,7 @@ namespace MoBankUI
                     {
                         driver.FindElement(By.Id("Pagecontent_ButtonConfirmCheckout")).Click();
 
-                        string title = driver.Title;
+                        var title = driver.Title;
                         datarow.newrow("Mopay Title", "", title, "PASS", driver);
                     }
                     else
@@ -234,14 +233,14 @@ namespace MoBankUI
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                     datarow.newrow("Pay Button Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.screenshotfailed(driver);
                 }
             }
             catch (Exception ex)
             {
-                string exc = ex.ToString();
+                var exc = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", exc, "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }

@@ -1,8 +1,7 @@
 ﻿using System;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     internal class DatafeedXml : Driverdefining
     {
@@ -23,9 +22,9 @@ namespace MoBankUI
 
 
                 decimal count = driver.FindElements(By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr")).Count;
-                for (int i = 1; i <= count; i++)
+                for (var i = 1; i <= count; i++)
                 {
-                    decimal j = count;
+                    var j = count;
                     if (i == 1)
                     {
                         driver.FindElement(By.Id("Catalogues_" + j + "__Name")).Clear();
@@ -35,7 +34,7 @@ namespace MoBankUI
                         driver.FindElement(By.CssSelector("input.button")).Click();
                     }
 
-                    string name = GetValue(driver,
+                    var name = GetValue(driver,
                                            By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr[" + i +
                                                     "]/td/input"), 30);
                     if (name == "Datafeed")
@@ -74,13 +73,13 @@ namespace MoBankUI
                           @"C:\Users\teja\Documents\GitHub\PlatformAutomationTestFramework\SeleniumTestFrameWork\MoShop\Shop Config\Catalogue XML's\TickleTest_WithProductGroups.xml");
                 driver.FindElement(By.CssSelector("div.box > p.right > input.button")).Click();
 
-                string title = driver.Title;
+                var title = driver.Title;
                 var run = new RunScrape();
                 run.Scarperead(driver, datarow, title);
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL");
             }
         }

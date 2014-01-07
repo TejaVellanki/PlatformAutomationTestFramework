@@ -3,9 +3,8 @@
 
 using System;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     internal class CategoryScrape : Driverdefining
     {
@@ -47,19 +46,19 @@ namespace MoBankUI
 
                 #region Validations
 
-                string attribute = driver.FindElement(By.Id("Selector")).GetAttribute("Value");
-                string actual = driver.FindElement(By.Id("Identifier")).GetAttribute("Value");
-                string str3 =
+                var attribute = driver.FindElement(By.Id("Selector")).GetAttribute("Value");
+                var actual = driver.FindElement(By.Id("Identifier")).GetAttribute("Value");
+                var str3 =
                     driver.FindElement(By.CssSelector("#IdentifierTransformationPattern")).GetAttribute("Value");
-                string str4 =
+                var str4 =
                     driver.FindElement(By.CssSelector("#IdentifierTransformationReplacement")).GetAttribute("Value");
 
 
-                string selectedLabel = driver.FindElement(By.Id("MappingItems_0__DataPath")).Selected.ToString();
-                string str6 = driver.FindElement(By.Id("MappingItems_0__TransformationId")).GetAttribute("Value");
-                string str7 = driver.FindElement(By.Id("MappingItems_0__Selector")).GetAttribute("Value");
-                string str8 = driver.FindElement(By.Id("SubPages_0__Name")).GetAttribute("Value");
-                string str9 = driver.FindElement(By.Id("SubPages_0__ObjectTypeName")).GetAttribute("Value");
+                var selectedLabel = driver.FindElement(By.Id("MappingItems_0__DataPath")).Selected.ToString();
+                var str6 = driver.FindElement(By.Id("MappingItems_0__TransformationId")).GetAttribute("Value");
+                var str7 = driver.FindElement(By.Id("MappingItems_0__Selector")).GetAttribute("Value");
+                var str8 = driver.FindElement(By.Id("SubPages_0__Name")).GetAttribute("Value");
+                var str9 = driver.FindElement(By.Id("SubPages_0__ObjectTypeName")).GetAttribute("Value");
 
                 datarow.newrow("Selector", "#menu .lrga:gt(1)>a", attribute,
                     attribute == "#menu .lrga:gt(1)>a" ? "PASS" : "FAIL", driver);
@@ -83,7 +82,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "", e, "FAIL");
             }
             new SubCategory().Subcategoryscrape(driver, datarow);

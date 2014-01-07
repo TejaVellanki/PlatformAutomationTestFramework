@@ -1,8 +1,7 @@
-﻿using MoBankUI;
+﻿using MoBankUI.Mosite.HomePage;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace Tablet_View
+namespace MoBankUI
 {
     internal class BatchTab
     {
@@ -15,7 +14,7 @@ namespace Tablet_View
             driver.Navigate().GoToUrl("http://tablet.mobankdev.com");
             var Driver = new Driverdefining();
 
-            string title = driver.Title;
+            var title = driver.Title;
             //Validating the Home page title. 
 
             if (title == "Tablet: Tickle Shop")

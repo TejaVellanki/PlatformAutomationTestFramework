@@ -3,9 +3,8 @@
 using System;
 using System.Threading;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop.Checkout
 {
     public class Checkout : Driverdefining
     {
@@ -16,7 +15,7 @@ namespace MoBankUI
                 driver.FindElement(By.LinkText("Checkout")).Click();
 
                 datarow.newrow("", "", "CHECKOUT", "", driver);
-                string actual = driver.Title;
+                var actual = driver.Title;
                 if (actual == "Checkout : mobank.co.uk/MoShop")
                 {
                     datarow.newrow("Checkout Title", "Checkout : mobank.co.uk/MoShop", actual, "PASS", driver);
@@ -36,7 +35,7 @@ namespace MoBankUI
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
                 Thread.Sleep(3000);
-                string attribute = driver.FindElement(By.Id("CheckoutProcesses_0__Name")).GetAttribute("Value");
+                var attribute = driver.FindElement(By.Id("CheckoutProcesses_0__Name")).GetAttribute("Value");
                 if (attribute == "")
                 {
                     driver.FindElement(By.Id("CheckoutProcesses_0__Name")).SendKeys("Tickle (copy of QA by SB)");
@@ -44,7 +43,7 @@ namespace MoBankUI
 
                     Thread.Sleep(3000);
                 }
-                string str3 = driver.FindElement(By.Id("PaymentAccountIdentifier")).GetAttribute("Value");
+                var str3 = driver.FindElement(By.Id("PaymentAccountIdentifier")).GetAttribute("Value");
                 if (attribute == "Tickle (copy of QA by SB)")
                 {
                     datarow.newrow("Checkout Name", "Tickle (copy of QA by SB)", attribute, "PASS", driver);
@@ -67,7 +66,7 @@ namespace MoBankUI
 
                 driver.FindElement(By.LinkText("…")).Click();
 
-                string str4 = driver.Title;
+                var str4 = driver.Title;
                 if (str4 == "Checkout Process : mobank.co.uk/MoShop")
                 {
                     datarow.newrow("Checkout Process Page Title", "Checkout Process : mobank.co.uk/MoShop", str4, "PASS",
@@ -81,7 +80,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
             new ConfigureCheckout().Configure(driver, datarow);

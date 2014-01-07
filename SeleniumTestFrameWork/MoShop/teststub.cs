@@ -1,6 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿using MoBankUI.MoShop.Checkout.Delivery;
+using OpenQA.Selenium;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     internal class Teststub
     {

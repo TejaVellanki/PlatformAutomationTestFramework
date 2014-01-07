@@ -25,14 +25,14 @@ namespace MoBankUI
         {
             var recordTypes = new List<string>();
 
-            string sConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + excelFile + ";" +
+            var sConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + excelFile + ";" +
                                        "Extended Properties=Excel 12.0;";
 
             var objConn = new OleDbConnection(sConnectionString);
 
             objConn.Open();
 
-            string sqlquery = "SELECT * FROM [" + sheetname + "$]";
+            var sqlquery = "SELECT * FROM [" + sheetname + "$]";
 
             var objCmdSelect = new OleDbCommand(sqlquery, objConn);
 
@@ -82,13 +82,13 @@ namespace MoBankUI
 
             if (appendDateField)
             {
-                string randomNumber = GenerateRandomNumber();
+                var randomNumber = GenerateRandomNumber();
 
                 fileName = fileName + "-" + randomNumber;
             }
 
 
-            Workbook workbook = xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
+            var workbook = xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
 
             workbook.SaveAs(filePath + "\\" + fileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
                 Type.Missing, XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing,
@@ -97,9 +97,9 @@ namespace MoBankUI
 
             if (!String.IsNullOrEmpty(sheetName))
             {
-                Sheets sheets = workbook.Worksheets;
+                var sheets = workbook.Worksheets;
 
-                int currentSheetCount = workbook.Sheets.Count;
+                var currentSheetCount = workbook.Sheets.Count;
 
                 var reqSheetConsolidated = (Worksheet) sheets.Item[currentSheetCount];
 
@@ -108,7 +108,7 @@ namespace MoBankUI
 
                 newSheetConsolidated.Name = sheetName;
 
-                for (int sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
+                for (var sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
                 {
                     var verSheet = (Worksheet) workbook.Worksheets.Item[sheetCount];
 
@@ -133,7 +133,7 @@ namespace MoBankUI
 
         public string GenerateRandomNumber()
         {
-            string randomNumber = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture) + "-" +
+            var randomNumber = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture) + "-" +
                                   DateTime.Now.Month.ToString(CultureInfo.InvariantCulture) + "-"
                                   +
                                   DateTime.Now.Day.ToString(CultureInfo.InvariantCulture) + "_"
@@ -153,7 +153,7 @@ namespace MoBankUI
 
         public void SaveAndCloseExcel(_Workbook workbook)
         {
-            for (int sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
+            for (var sheetCount = 1; sheetCount <= workbook.Sheets.Count; sheetCount++)
             {
                 var verSheet = (Worksheet) workbook.Worksheets.Item[sheetCount];
 
@@ -203,7 +203,7 @@ namespace MoBankUI
 
             var rawData = new object[dt.Rows.Count + 1,dt.Columns.Count];
 
-            int intRowNum = 0;
+            var intRowNum = 0;
 
             if (nextRow)
             {
@@ -242,16 +242,16 @@ namespace MoBankUI
             {
                 // Copy the column names to the first row of the object array
 
-                for (int col = 0; col < dt.Columns.Count; col++)
+                for (var col = 0; col < dt.Columns.Count; col++)
                 {
                     rawData[0, col] = dt.Columns[col].ColumnName;
                 }
 
                 // Copy the values to the object array
 
-                for (int col = 0; col < dt.Columns.Count; col++)
+                for (var col = 0; col < dt.Columns.Count; col++)
                 {
-                    for (int row = 0; row < dt.Rows.Count; row++)
+                    for (var row = 0; row < dt.Rows.Count; row++)
                     {
                         rawData[row + 1, col] = dt.Rows[row].ItemArray[col];
                     }
@@ -270,14 +270,14 @@ namespace MoBankUI
             {
                 if (isCompare || isPolicyWiseSummary)
                 {
-                    for (int col = 0; col < dt.Columns.Count; col++)
+                    for (var col = 0; col < dt.Columns.Count; col++)
                     {
                         rawData[0, col] = dt.Columns[col].ColumnName;
                     }
 
-                    for (int col = 0; col < dt.Columns.Count; col++)
+                    for (var col = 0; col < dt.Columns.Count; col++)
                     {
-                        for (int row = 0; row < dt.Rows.Count; row++)
+                        for (var row = 0; row < dt.Rows.Count; row++)
                         {
                             rawData[row + 1, col] = dt.Rows[row].ItemArray[col];
                         }
@@ -288,9 +288,9 @@ namespace MoBankUI
                 {
                     // Copy the values to the object array
 
-                    for (int col = 0; col < dt.Columns.Count; col++)
+                    for (var col = 0; col < dt.Columns.Count; col++)
                     {
-                        for (int row = 0; row < dt.Rows.Count; row++)
+                        for (var row = 0; row < dt.Rows.Count; row++)
                         {
                             rawData[row, col] = dt.Rows[row].ItemArray[col];
                         }
@@ -306,11 +306,11 @@ namespace MoBankUI
 
             // Calculate the final column letter
 
-            string finalColLetter = string.Empty;
+            var finalColLetter = string.Empty;
 
             const string colCharset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-            int colCharsetLen = colCharset.Length;
+            var colCharsetLen = colCharset.Length;
 
             if (dt.Columns.Count > colCharsetLen)
             {
@@ -321,7 +321,7 @@ namespace MoBankUI
             finalColLetter += colCharset.Substring(
                 (dt.Columns.Count - 1)%colCharsetLen, 1);
 
-            string excelRange = string.Empty;
+            var excelRange = string.Empty;
 
             if (intRowNum > 1)
             {
@@ -359,11 +359,11 @@ namespace MoBankUI
 
             // Mark the first row as BOLD
 
-            int j = 2;
+            var j = 2;
 
             try
             {
-                for (int i = 0; i < dt.Rows.Count; i++)
+                for (var i = 0; i < dt.Rows.Count; i++)
                 {
                     ((Range) ws.Rows[1, Type.Missing]).Font.Bold = true;
                     ((Range) ws.Rows[1, Type.Missing]).Font.Color = ColorTranslator.ToOle(Color.LightGray);
@@ -371,8 +371,8 @@ namespace MoBankUI
 
                     ((Range) ws.Rows[j, Type.Missing]).Borders.Color = ColorTranslator.ToOle(Color.Black);
                     ((Range) ws.Rows[j, Type.Missing]).Interior.Color = ColorTranslator.ToOle(Color.LightGray);
-                    string text = dt.Rows[i]["Total Number Of Test Cases Passed/Failed"].ToString();
-                    string value = dt.Rows[i]["PASS or FAIL"].ToString();
+                    var text = dt.Rows[i]["Total Number Of Test Cases Passed/Failed"].ToString();
+                    var value = dt.Rows[i]["PASS or FAIL"].ToString();
                     if (value == "PASS")
                     {
                         ((Range) ws.Columns[1, Type.Missing].Rows[j, Type.Missing]).Interior.Color =

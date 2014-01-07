@@ -1,9 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     public class CreateShop : Driverdefining
     {
@@ -21,7 +20,7 @@ namespace MoBankUI
                 driver.FindElement(By.Id("Name")).SendKeys(shop);
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
-                string title = driver.Title;
+                var title = driver.Title;
                 if (title == "Shop : mobank.co.uk/MoShop")
                 {
                     datarow.newrow("Test Shop Title", "Shop : mobank.co.uk/MoShop", title, "PASS", driver);
@@ -74,7 +73,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception in Test Shop Page", "Exception not Expected", e, "FAIL");
             }
         }

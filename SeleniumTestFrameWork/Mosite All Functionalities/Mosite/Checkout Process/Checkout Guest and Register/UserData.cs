@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using ObjectRepository;
+using MoBankUI.ObjectRepository;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite
 {
     internal class UserDataTps : Driverdefining
     {
@@ -14,7 +13,7 @@ namespace MoBankUI
 
         public void userdata_TPS(IWebDriver driver, Datarow datarow)
         {
-            string url = driver.PageSource;
+            var url = driver.PageSource;
 
             string field = null;
             string fieldlabel = null;
@@ -58,20 +57,20 @@ namespace MoBankUI
             try
             {
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                IWebElement myDynamicElement8 = driver.FindElement(By.XPath(submitbutton));
+                var myDynamicElement8 = driver.FindElement(By.XPath(submitbutton));
 
-                decimal count = GetXpathCount(driver, field);
+                var count = GetXpathCount(driver, field);
                 if (count == 0)
                 {
                     datarow.newrow("User Data Form Details", "Expected User Form Fields",
                                    "User Form Fields Doesnot Exist", "FAIL", driver);
                 }
                 //Populating Customer Details from Excel Sheet
-                for (int i = 1; i <= count; i++)
+                for (var i = 1; i <= count; i++)
                 {
                     if (IsElementPresent(driver, By.XPath("" + field + "[" + i + "]" + fieldlabel + "")))
                     {
-                        string valuet = driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldlabel + "")).Text;
+                        var valuet = driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldlabel + "")).Text;
 
                         if (!valuet.Contains("Country"))
                         {
@@ -87,14 +86,14 @@ namespace MoBankUI
                         {
                             try
                             {
-                                int j = i - 1;
-                                string id = "id=" + fieldcountry + "" + j + "" + countryvalue + "";
-                                IWebElement con =
+                                var j = i - 1;
+                                var id = "id=" + fieldcountry + "" + j + "" + countryvalue + "";
+                                var con =
                                     driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + ""));
                                 IList<IWebElement> countries = con.FindElements(By.TagName("option"));
 
                                 string values = null;
-                                foreach (IWebElement value in countries)
+                                foreach (var value in countries)
                                 {
                                     if (!value.Text.Contains("Please") || value.Text != "Select country")
                                     {
@@ -116,7 +115,7 @@ namespace MoBankUI
                                             }
                                             catch (Exception EX)
                                             {
-                                                String E = EX.ToString();
+                                                var E = EX.ToString();
                                             }
                                         }
                                     }
@@ -125,7 +124,7 @@ namespace MoBankUI
                             }
                             catch (Exception ex)
                             {
-                                string e = ex.ToString();
+                                var e = ex.ToString();
                                 datarow.newrow("Country Field Exception", "Exception Not Expected", e, "PASS", driver
                                     );
                             }
@@ -145,7 +144,7 @@ namespace MoBankUI
                             }
                             catch (Exception ex)
                             {
-                                string e = ex.ToString();
+                                var e = ex.ToString();
                                 datarow.newrow("Email Field Exception", "Exception Not Expected", e, "FAIL", driver
                                     );
                                 screenshot.screenshotfailed(driver);
@@ -158,7 +157,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }
@@ -171,12 +170,12 @@ namespace MoBankUI
                 }
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                IWebElement myDynamicElement9 = driver.FindElement(By.XPath(submitbutton));
+                var myDynamicElement9 = driver.FindElement(By.XPath(submitbutton));
                 driver.FindElement(By.XPath(submitbutton)).Click();
 
 
-                string pagetitle = driver.Title;
-                string basval = driver.FindElement(By.Id("BasketInfo")).Text;
+                var pagetitle = driver.Title;
+                var basval = driver.FindElement(By.Id("BasketInfo")).Text;
 
                 // Terms and Conditions
                 if (IsElementPresent(driver, By.XPath(termsncond)))
@@ -203,7 +202,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }

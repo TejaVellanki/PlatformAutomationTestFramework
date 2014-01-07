@@ -2,9 +2,8 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.Bathrooms
 {
     public class Bathroom : Driverdefining
 
@@ -79,7 +78,7 @@ namespace MoBankUI
 
 
             Assert.AreEqual("Secure Payment Page", driver.Title);
-            string title = driver.Title;
+            var title = driver.Title;
         }
     }
 }

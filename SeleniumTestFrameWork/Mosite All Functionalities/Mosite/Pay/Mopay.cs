@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Text.RegularExpressions;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using WebDriver_Refining;
 
 //using System.Drawing;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.Pay
 {
     internal class Mopay_TPS : Driverdefining
     {
@@ -22,7 +20,7 @@ namespace MoBankUI
         [Test]
         public void Mopay(IWebDriver driver, Datarow datarow)
         {
-            string title1 = driver.Title;
+            var title1 = driver.Title;
             try
             {
                 // payment selector id="Pagecontent_ddlPaymentOption"
@@ -30,11 +28,11 @@ namespace MoBankUI
                 {
                     if (IsElementPresent(driver, By.Id("Pagecontent_ddlPaymentOption")))
                     {
-                        IWebElement elem = driver.FindElement(By.Id("Pagecontent_ddlPaymentOption"));
+                        var elem = driver.FindElement(By.Id("Pagecontent_ddlPaymentOption"));
                         IList<IWebElement> paymentoptions = elem.FindElements(By.TagName("option"));
 
                         string values = null;
-                        foreach (IWebElement payment in paymentoptions)
+                        foreach (var payment in paymentoptions)
                         {
                             values = values + "\r\n" + payment;
                             new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlPaymentOption"))).SelectByText(
@@ -45,10 +43,10 @@ namespace MoBankUI
 
                     else if (IsElementPresent(driver, By.Id("Pagecontent_ddlCardType")))
                     {
-                        IWebElement elem = driver.FindElement(By.Id("Pagecontent_ddlCardType"));
+                        var elem = driver.FindElement(By.Id("Pagecontent_ddlCardType"));
                         IList<IWebElement> paymentoptions = elem.FindElements(By.TagName("option"));
                         string values = null;
-                        foreach (IWebElement payment in paymentoptions)
+                        foreach (var payment in paymentoptions)
                         {
                             values = values + "\r\n" + payment;
                             new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlCardType"))).SelectByText(
@@ -64,11 +62,11 @@ namespace MoBankUI
                     }
 
                     // Expiry Month id="Pagecontent_ddlExpiryMonth"
-                    IWebElement elems = driver.FindElement(By.Id("Pagecontent_ddlExpiryMonth"));
+                    var elems = driver.FindElement(By.Id("Pagecontent_ddlExpiryMonth"));
                     IList<IWebElement> Month = elems.FindElements(By.TagName("option"));
 
                     string valus = null;
-                    foreach (IWebElement expirymonth in Month)
+                    foreach (var expirymonth in Month)
                     {
                         valus = valus + "\r\n" + expirymonth;
                         new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlExpiryMonth"))).SelectByText(
@@ -78,11 +76,11 @@ namespace MoBankUI
 
                     // Expiry Date  id="Pagecontent_ddlExpiryYear"
 
-                    IWebElement Date = driver.FindElement(By.Id("Pagecontent_ddlExpiryMonth"));
+                    var Date = driver.FindElement(By.Id("Pagecontent_ddlExpiryMonth"));
                     IList<IWebElement> Dates = Date.FindElements(By.TagName("option"));
 
                     string vlus = null;
-                    foreach (IWebElement expirydate in Dates)
+                    foreach (var expirydate in Dates)
                     {
                         vlus = valus + "\r\n" + expirydate;
                         new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlExpiryYear"))).SelectByText(
@@ -140,11 +138,11 @@ namespace MoBankUI
                     //Test Country id="Pagecontent_ddlCountry"
                     if (IsElementPresent(driver, By.Id("Pagecontent_ddlCountry")))
                     {
-                        IWebElement con = driver.FindElement(By.Id("Pagecontent_ddlCountry"));
+                        var con = driver.FindElement(By.Id("Pagecontent_ddlCountry"));
                         IList<IWebElement> contry = con.FindElements(By.TagName("option"));
 
                         string vaus = null;
-                        foreach (IWebElement country in contry)
+                        foreach (var country in contry)
                         {
                             vaus = vaus + "\r\n" + country;
                             new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlCountry"))).SelectByText(
@@ -160,7 +158,7 @@ namespace MoBankUI
                 }
                 else
                 {
-                    string url = driver.Title;
+                    var url = driver.Title;
                     if (url == "Secure Payment Page")
                     {
                         datarow.newrow("Mopay Method Not covered in Framework", "Expected", url, "FAIL", driver
@@ -175,7 +173,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
             }
         }
@@ -184,13 +182,13 @@ namespace MoBankUI
         public void MoPayTPS(IWebDriver driver, Datarow datarow)
         {
             generalLibrary = new GeneralLibrary();
-            DataSet dss = generalLibrary.GetExcelData(@"C:\Selenium\Input Data\CardDetails.xls", "CardDetails");
+            var dss = generalLibrary.GetExcelData(@"C:\Selenium\Input Data\CardDetails.xls", "CardDetails");
 
-            DataTable personaldata = dss.Tables[0];
+            var personaldata = dss.Tables[0];
             var screenshot = new Screenshot();
             try
             {
-                string totalamount = driver.FindElement(By.XPath("//div[@id='total-amount']/dl/dd")).Text;
+                var totalamount = driver.FindElement(By.XPath("//div[@id='total-amount']/dl/dd")).Text;
                 if (totalamount.Contains("₹"))
                 {
                     datarow.newrow("Currency Validation", "₹", totalamount, "PASS", driver);
@@ -202,33 +200,33 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
             }
-            int j = 0;
-            int n = personaldata.Rows.Count;
+            var j = 0;
+            var n = personaldata.Rows.Count;
 
-            for (int icount = 0; icount < n; icount++)
+            for (var icount = 0; icount < n; icount++)
             {
                 try
                 {
                     #region Read Excel
 
-                    string FirstName = personaldata.Rows[icount]["FirstName"].ToString();
-                    string LastName = personaldata.Rows[icount]["LastName"].ToString();
-                    string CardNumber = personaldata.Rows[icount]["Card Number"].ToString();
-                    string SecurityCode = personaldata.Rows[icount]["Security Code"].ToString();
-                    string CardType = personaldata.Rows[icount]["CardType"].ToString();
-                    string NameonCard = personaldata.Rows[icount]["Name on Card"].ToString();
-                    string Expirymonth = personaldata.Rows[icount]["ExpiryMonth"].ToString();
-                    string Expiryyear = personaldata.Rows[icount]["Expiry Year"].ToString();
-                    string Email = personaldata.Rows[icount]["E-mail"].ToString();
-                    string PhoneNumber = personaldata.Rows[icount]["Phone Number"].ToString();
-                    string Address = personaldata.Rows[icount]["Address"].ToString();
-                    string City = personaldata.Rows[icount]["City"].ToString();
-                    string PostCode = personaldata.Rows[icount]["Post Code"].ToString();
-                    string County = personaldata.Rows[icount]["County"].ToString();
-                    string Country = personaldata.Rows[icount]["Country"].ToString();
+                    var FirstName = personaldata.Rows[icount]["FirstName"].ToString();
+                    var LastName = personaldata.Rows[icount]["LastName"].ToString();
+                    var CardNumber = personaldata.Rows[icount]["Card Number"].ToString();
+                    var SecurityCode = personaldata.Rows[icount]["Security Code"].ToString();
+                    var CardType = personaldata.Rows[icount]["CardType"].ToString();
+                    var NameonCard = personaldata.Rows[icount]["Name on Card"].ToString();
+                    var Expirymonth = personaldata.Rows[icount]["ExpiryMonth"].ToString();
+                    var Expiryyear = personaldata.Rows[icount]["Expiry Year"].ToString();
+                    var Email = personaldata.Rows[icount]["E-mail"].ToString();
+                    var PhoneNumber = personaldata.Rows[icount]["Phone Number"].ToString();
+                    var Address = personaldata.Rows[icount]["Address"].ToString();
+                    var City = personaldata.Rows[icount]["City"].ToString();
+                    var PostCode = personaldata.Rows[icount]["Post Code"].ToString();
+                    var County = personaldata.Rows[icount]["County"].ToString();
+                    var Country = personaldata.Rows[icount]["Country"].ToString();
 
                     #endregion
 
@@ -271,10 +269,10 @@ namespace MoBankUI
                     driver.FindElement(By.Id("BillingContact_Address_County")).SendKeys(County);
                     if (Country.Length == 0)
                     {
-                        IWebElement con = driver.FindElement(By.Id("BillingContact_Address_Country"));
+                        var con = driver.FindElement(By.Id("BillingContact_Address_Country"));
                         IList<IWebElement> contry = con.FindElements(By.TagName("option"));
 
-                        foreach (IWebElement cou in contry)
+                        foreach (var cou in contry)
                         {
                             new SelectElement(driver.FindElement(By.Id("BillingContact_Address_Country"))).SelectByText(
                                 cou.Text);
@@ -454,13 +452,13 @@ namespace MoBankUI
 
                     #endregion
 
-                    string title = driver.Title;
+                    var title = driver.Title;
                     if (title == "Secure Payment Page")
                     {
                     }
 
-                    string url = driver.Url;
-                    string title1 = driver.Title;
+                    var url = driver.Url;
+                    var title1 = driver.Title;
                     if (url.Contains("State=Accepted") || title1.Contains("Payment Accepted"))
                     {
                         datarow.newrow("Transaction", url, "State=Accepted", "PASS", driver);
@@ -484,7 +482,7 @@ namespace MoBankUI
                 catch (Exception e)
                 {
                     Console.Write(e);
-                    string ex = e.ToString();
+                    var ex = e.ToString();
                     var scree = new Screenshot();
                     datarow.newrow("Exception", "Exceptio not Expected", ex, "FAIL", driver);
                     scree.screenshotfailed(driver);

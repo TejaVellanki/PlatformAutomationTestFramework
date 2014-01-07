@@ -1,9 +1,8 @@
 ﻿using System;
-using ObjectRepository;
+using MoBankUI.ObjectRepository;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.Product
 
 {
     internal class ProductPrice : Driverdefining
@@ -12,7 +11,7 @@ namespace MoBankUI
         {
             try
             {
-                string pg = driver.PageSource;
+                var pg = driver.PageSource;
                 string productprice = null;
                 if (pg.Contains("user-scalable=yes"))
                 {
@@ -28,7 +27,7 @@ namespace MoBankUI
                 // Product Price
                 if (IsElementPresent(driver, By.ClassName(productprice)))
                 {
-                    string price = driver.FindElement(By.ClassName(productprice)).Text;
+                    var price = driver.FindElement(By.ClassName(productprice)).Text;
                     datarow.newrow("Product Price", "", price, "PASS", driver);
                 }
                 else if (!IsElementPresent(driver, By.Id(productprice)))

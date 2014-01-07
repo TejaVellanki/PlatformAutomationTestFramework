@@ -3,7 +3,7 @@
 using System;
 using OpenQA.Selenium;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.Modrophenia
 {
     internal class MositeStart
     {
@@ -24,7 +24,7 @@ namespace MoBankUI
             catch (Exception exception)
             {
                 Console.Write(exception);
-                string actual = exception.ToString();
+                var actual = exception.ToString();
                 var screenshot = new Screenshot();
                 _datarow.newrow("Exception", "Not Expected", actual, "FAIL", driver);
                 screenshot.screenshotfailed(driver);

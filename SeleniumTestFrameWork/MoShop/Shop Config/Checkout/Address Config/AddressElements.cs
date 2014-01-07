@@ -1,8 +1,7 @@
 ﻿using System;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop.Checkout
 {
     internal class AddressElements : Driverdefining
     {
@@ -36,7 +35,7 @@ namespace MoBankUI
                 }
                 catch (Exception ex)
                 {
-                    string e = ex.ToString();
+                    var e = ex.ToString();
                 }
 
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Name")).Click();
@@ -157,7 +156,7 @@ namespace MoBankUI
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
             driver.FindElement(By.CssSelector("input.button")).Click();

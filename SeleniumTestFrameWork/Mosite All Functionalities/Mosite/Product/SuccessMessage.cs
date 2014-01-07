@@ -1,8 +1,7 @@
 ﻿using System;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.Product
 {
     public class SuccessMessage : Driverdefining
     {
@@ -11,12 +10,12 @@ namespace MoBankUI
             try
             {
                 IsElementPresent(driver, By.CssSelector("div.toast-title"));
-                string successmessage = driver.FindElement(By.CssSelector("div.toast-title")).Text;
+                var successmessage = driver.FindElement(By.CssSelector("div.toast-title")).Text;
                 datarow.newrow("Add To Basket Success Message", "Success", successmessage, "PASS");
             }
             catch (Exception ex)
             {
-                string e = ex.ToString();
+                var e = ex.ToString();
                 datarow.newrow("Add To Basket Success Message", "Success", e, "FAIL");
             }
         }

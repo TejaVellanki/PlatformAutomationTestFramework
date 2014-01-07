@@ -2,14 +2,12 @@
 
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Text.RegularExpressions;
 using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using WebDriver_Refining;
 
-namespace MoBankUI
+namespace MoBankUI.MoPay
 {
     public class Mopaysite : Driverdefining
     {
@@ -19,41 +17,41 @@ namespace MoBankUI
         public void MoPay(IWebDriver driver, Datarow datarow)
         {
             _generalLibrary = new GeneralLibrary();
-            DataTable table =
+            var table =
                 _generalLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "CardDetails").Tables[0];
             var screenshot = new Screenshot();
             try
             {
-                string actual = driver.FindElement(By.XPath("//div[@id='total-amount']/dl/dd")).Text;
+                var actual = driver.FindElement(By.XPath("//div[@id='total-amount']/dl/dd")).Text;
                 datarow.newrow("Currency Validation", "\x00a3", actual, actual.Contains("\x00a3") ? "PASS" : "FAIL",
                     driver);
             }
             catch (Exception exception)
             {
-                string str2 = exception.ToString();
+                var str2 = exception.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", str2, "FAIL", driver);
             }
-            int num = 0;
-            int count = table.Rows.Count;
-            for (int i = 0; i < count; i++)
+            var num = 0;
+            var count = table.Rows.Count;
+            for (var i = 0; i < count; i++)
             {
                 try
                 {
-                    string input = table.Rows[i]["FirstName"].ToString();
-                    string str4 = table.Rows[i]["LastName"].ToString();
-                    string str5 = table.Rows[i]["Card Number"].ToString();
-                    string str6 = table.Rows[i]["Security Code"].ToString();
-                    string expected = table.Rows[i]["CardType"].ToString();
-                    string str8 = table.Rows[i]["Name on Card"].ToString();
-                    string text = table.Rows[i]["ExpiryMonth"].ToString();
-                    string str10 = table.Rows[i]["Expiry Year"].ToString();
-                    string str11 = table.Rows[i]["E-mail"].ToString();
-                    string str12 = table.Rows[i]["Phone Number"].ToString();
-                    string str13 = table.Rows[i]["Address"].ToString();
-                    string str14 = table.Rows[i]["City"].ToString();
-                    string str15 = table.Rows[i]["Post Code"].ToString();
-                    string str16 = table.Rows[i]["County"].ToString();
-                    string str17 = table.Rows[i]["Country"].ToString();
+                    var input = table.Rows[i]["FirstName"].ToString();
+                    var str4 = table.Rows[i]["LastName"].ToString();
+                    var str5 = table.Rows[i]["Card Number"].ToString();
+                    var str6 = table.Rows[i]["Security Code"].ToString();
+                    var expected = table.Rows[i]["CardType"].ToString();
+                    var str8 = table.Rows[i]["Name on Card"].ToString();
+                    var text = table.Rows[i]["ExpiryMonth"].ToString();
+                    var str10 = table.Rows[i]["Expiry Year"].ToString();
+                    var str11 = table.Rows[i]["E-mail"].ToString();
+                    var str12 = table.Rows[i]["Phone Number"].ToString();
+                    var str13 = table.Rows[i]["Address"].ToString();
+                    var str14 = table.Rows[i]["City"].ToString();
+                    var str15 = table.Rows[i]["Post Code"].ToString();
+                    var str16 = table.Rows[i]["County"].ToString();
+                    var str17 = table.Rows[i]["Country"].ToString();
                     new SelectElement(driver.FindElement(By.Id("Card_Type"))).SelectByText("Visa Debit");
                     driver.FindElement(By.Id("Card_Number")).Clear();
                     driver.FindElement(By.Id("Card_Number")).SendKeys(str5);
@@ -89,9 +87,9 @@ namespace MoBankUI
                     driver.FindElement(By.Id("BillingContact_Address_County")).SendKeys(str16);
                     if (str17.Length == 0)
                     {
-                        IWebElement elem = driver.FindElement(By.Id("BillingContact_Address_Country"));
+                        var elem = driver.FindElement(By.Id("BillingContact_Address_Country"));
                         IList<IWebElement> options = elem.FindElements(By.TagName("option"));
-                        foreach (IWebElement str18 in options)
+                        foreach (var str18 in options)
                         {
                             new SelectElement(driver.FindElement(By.Id("BillingContact_Address_Country"))).SelectByText(
                                 str18.Text);
@@ -103,10 +101,10 @@ namespace MoBankUI
                     }
                     if (str17.Length > 0)
                     {
-                        IWebElement elem = driver.FindElement(By.Id("BillingContact_Address_Country"));
+                        var elem = driver.FindElement(By.Id("BillingContact_Address_Country"));
                         IList<IWebElement> options = elem.FindElements(By.TagName("option"));
 
-                        foreach (IWebElement str19 in options)
+                        foreach (var str19 in options)
                         {
                             new SelectElement(driver.FindElement(By.Id("BillingContact_Address_Country"))).SelectByText(
                                 str19.Text);
@@ -246,8 +244,8 @@ namespace MoBankUI
                     if (driver.Title == "Secure Payment Page")
                     {
                     }
-                    string location = driver.Url;
-                    string str22 = driver.Title;
+                    var location = driver.Url;
+                    var str22 = driver.Title;
                     if (location.Contains("State=Accepted") || str22.Contains("Payment Accepted"))
                     {
                         datarow.newrow("Transaction", location, "State=Accepted", "PASS", driver);
@@ -268,7 +266,7 @@ namespace MoBankUI
                 catch (Exception exception2)
                 {
                     Console.Write(exception2);
-                    string str23 = exception2.ToString();
+                    var str23 = exception2.ToString();
                     var screenshot2 = new Screenshot();
                     datarow.newrow("Exception", "Exceptio not Expected", str23, "FAIL", driver);
                     screenshot2.screenshotfailed(driver);

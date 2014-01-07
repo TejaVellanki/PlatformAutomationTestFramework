@@ -5,10 +5,9 @@
 //-----------------------------------------------------------------------
 
 using System;
-using System.Collections.ObjectModel;
 using OpenQA.Selenium;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.Search
 {
     public class searchsort
     {
@@ -17,16 +16,16 @@ namespace MoBankUI
             string _names = null;
             driver.FindElement(By.CssSelector("input.ui-input-text.ui-body-d")).SendKeys("card");
             driver.FindElement(By.CssSelector("input.ui-input-text.ui-body-d")).SendKeys(Keys.Enter);
-            ReadOnlyCollection<IWebElement> productnames = driver.FindElements(By.CssSelector("[itemprop='name']"));
-            for (int i = 0; i < 32; i++)
+            var productnames = driver.FindElements(By.CssSelector("[itemprop='name']"));
+            for (var i = 0; i < 32; i++)
             {
-                string _name = productnames[i].Text;
+                var _name = productnames[i].Text;
                 _names = _name + "\n" + _names;
             }
 
             if (_names != null)
             {
-                char[] charArray = _names.ToCharArray();
+                var charArray = _names.ToCharArray();
                 Array.Reverse(charArray);
             }
         }

@@ -2,7 +2,7 @@
 
 //using System.Drawing;
 
-namespace MoBankUI
+namespace MoBankUI.Mosite.HomePage
 {
     public class LinksTps
     {

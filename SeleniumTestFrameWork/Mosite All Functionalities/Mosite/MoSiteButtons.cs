@@ -1,15 +1,13 @@
-﻿using MoBankUI;
-using ObjectRepository;
+﻿using MoBankUI.ObjectRepository;
 using OpenQA.Selenium;
-using WebDriver_Refining;
 
-namespace MoSite
+namespace MoBankUI.Mosite
 {
     public class MoSiteButtons : Driverdefining
     {
         private void AddToBasket(IWebDriver driver, Datarow datarow)
         {
-            string url = driver.PageSource;
+            var url = driver.PageSource;
             string AddToBasket = null;
             if (url.Contains("user-scalable=yes"))
             {

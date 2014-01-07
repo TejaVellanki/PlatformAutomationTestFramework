@@ -1,7 +1,7 @@
 ﻿using System;
 using OpenQA.Selenium;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     internal class DeleteTestShop
     {

@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace MoBankUI
+namespace MoBankUI.MoShop
 {
     internal class CategoryImages
     {
@@ -15,7 +15,7 @@ namespace MoBankUI
             driver.FindElement(By.CssSelector("input.button")).Click();
             driver.FindElement(By.Id("ImageAnchorUrl")).SendKeys("http://qamodrophenia.mobankdev.com/");
             driver.FindElement(By.CssSelector("input.button")).Click();
-            string imageanchrolurl1 = driver.FindElement(By.Id("ImageAnchorUrl")).GetAttribute("Value");
+            var imageanchrolurl1 = driver.FindElement(By.Id("ImageAnchorUrl")).GetAttribute("Value");
             driver.Navigate().Back();
             driver.FindElement(By.LinkText("Gift Wrap (0)")).Click();
             driver.FindElement(By.Id("Image"))
@@ -24,7 +24,7 @@ namespace MoBankUI
             driver.FindElement(By.CssSelector("input.button")).Click();
             driver.FindElement(By.Id("ImageAnchorUrl")).SendKeys("http://qamodrophenia.mobankdev.com/");
             driver.FindElement(By.CssSelector("input.button")).Click();
-            string imageanchorurl2 = driver.FindElement(By.Id("ImageAnchorUrl")).GetAttribute("Value");
+            var imageanchorurl2 = driver.FindElement(By.Id("ImageAnchorUrl")).GetAttribute("Value");
             driver.Navigate().Back();
             driver.FindElement(By.LinkText("Greeting Cards (0)")).Click();
             driver.FindElement(By.Id("Image"))
@@ -33,7 +33,7 @@ namespace MoBankUI
             driver.FindElement(By.CssSelector("input.button")).Click();
             driver.FindElement(By.Id("ImageAnchorUrl")).SendKeys("http://qamodrophenia.mobankdev.com/");
             driver.FindElement(By.CssSelector("input.button")).Click();
-            string imageanchorurl3 = driver.FindElement(By.Id("ImageAnchorUrl")).GetAttribute("Value");
+            var imageanchorurl3 = driver.FindElement(By.Id("ImageAnchorUrl")).GetAttribute("Value");
 
             #region Validations
 
