@@ -28,7 +28,7 @@ namespace MoBankUI
                 //subject of the email
                 mM.Subject = "Test Report";
                 //deciding for the attachment
-                mM.Attachments.Add(new Attachment(@"C:\\Input Data\" + reportName + ".xlsx"));
+                mM.Attachments.Add(new Attachment(@"C:\\Selenium\\Input Data\" + reportName + ".xlsx"));
                 //add the body of the email
 
                 var mailBody = new StringBuilder();
