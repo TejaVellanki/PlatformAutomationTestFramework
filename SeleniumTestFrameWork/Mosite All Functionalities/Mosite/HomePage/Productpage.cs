@@ -19,8 +19,8 @@ namespace MoBankUI.Mosite.HomePage
             string Detail;
 
 
-            var Image = new Imagevalidation();
-            var screenshot = new Screenshot();
+            new Imagevalidation();
+            new Screenshot();
 
             if (url.Contains("user-scalable=yes"))
             {
@@ -97,7 +97,6 @@ namespace MoBankUI.Mosite.HomePage
                     if (IsElementPresent(driver, By.Id("" + productVarinat + "" + q + ""), 30))
                     {
                         var varinats = driver.FindElement(By.Id("" + productVarinat + "" + q + "")).Text;
-                        if (false) continue;
                         values = values + "\r\n" + varinats;
                         driver.FindElement(By.Id("" + productVarinat + "" + q + "")).Click();
                     }

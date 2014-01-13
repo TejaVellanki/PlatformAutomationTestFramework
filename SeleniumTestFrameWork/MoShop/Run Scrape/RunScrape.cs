@@ -18,9 +18,8 @@ namespace MoBankUI.MoShop
                 {
                     Selectanoption(driver, By.Id("TestCatalogueId"), "testshop (Default)");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    var e = ex.ToString();
                     Selectanoption(driver, By.Id("TestCatalogueId"), "testshop (0.1)");
                 }
 
@@ -81,7 +80,6 @@ namespace MoBankUI.MoShop
             }
             driver.FindElement(By.LinkText("Running")).Click();
 
-            var tilte1 = driver.Title;
             Scrapeandfeedrunning(driver, datarow);
         }
 
@@ -108,7 +106,7 @@ namespace MoBankUI.MoShop
                             Thread.Sleep(5000);
                             driver.Navigate().Refresh();
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             datarow.newrow("Scarpe/DataFeed Status", "100%", "100%", "PASS", driver);
                             break;

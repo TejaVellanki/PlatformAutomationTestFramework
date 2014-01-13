@@ -16,27 +16,19 @@ namespace MoBankUI.MoSite.Other
 
                 Thread.Sleep(0xbb8);
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                var element =
-                    driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a/h2"));
+                driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a/h2"));
                 driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a/h2")).Click();
 
-                var str = driver.Title;
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                var element2 =
-                    driver.FindElement(
-                        By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/h2"));
+                driver.FindElement(
+                    By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/h2"));
                 driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/h2"))
                       .Click();
 
-                var str2 = driver.Title;
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                var element3 =
-                    driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/p"));
+                driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/p"));
                 driver.FindElement(By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/p"))
                       .Click();
-
-
-                var str3 = driver.Title;
             }
             catch (Exception exception)
             {

@@ -20,7 +20,7 @@ namespace MoBankUI.Mosite.Product
                 var checkout = url.Contains("user-scalable=yes") ? CollectionMapV2.checkout : CollectionMapV1.checkout;
 
                 var basket = new DeleteBasket();
-                basket.basket(driver, datarow);
+                basket.Basket(driver, datarow);
 
                 // Product unavailable
                 if (!driver.PageSource.Contains("Product unavailable")) return;
@@ -88,7 +88,7 @@ namespace MoBankUI.Mosite.Product
                 if (url1.Contains("user-scalable=yes"))
                 {
                     categorylink = CollectionMapV2.Categorylink;
-                    cat = CollectionMapV2.cat;
+                    cat = CollectionMapV2.Cat;
                     products = CollectionMapV2.products;
                     productlink = CollectionMapV2.productlink;
                 }
@@ -104,14 +104,12 @@ namespace MoBankUI.Mosite.Product
 
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
 
-                var categorycount = GetXpathCount(driver, categorylink);
+                GetXpathCount(driver, categorylink);
                 for (var i = 1;; i++)
                 {
                     if (IsElementPresent(driver, By.XPath("" + categorylink + "[" + l + "]" + cat + "")))
                     {
                         driver.FindElement(By.XPath("" + categorylink + "[" + l + "]" + cat + "")).Click();
-
-                        var titlecategory = driver.Title;
 
                         if (!IsElementPresent(driver, By.XPath(products))) continue;
                         driver.FindElement(By.Id("" + products + "" + productlink + "")).Click();

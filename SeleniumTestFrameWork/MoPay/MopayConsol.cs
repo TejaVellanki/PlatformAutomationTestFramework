@@ -51,7 +51,7 @@ namespace MoBankUI.MoPay
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15.0));
-                var element = driver.FindElement(By.CssSelector("#IndexMenu > ul > li.selected > ul > li > a"));
+                driver.FindElement(By.CssSelector("#IndexMenu > ul > li.selected > ul > li > a"));
                 if (driver.FindElements(By.CssSelector("#IndexMenu > ul > li.selected > ul > li > a")).Count != 0)
                 {
                     driver.FindElement(By.CssSelector("#IndexMenu > ul > li.selected > ul > li > a")).Click();
@@ -121,7 +121,7 @@ namespace MoBankUI.MoPay
                 Mopowered(driver);
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15.0));
-                var element2 = driver.FindElement(By.XPath("(//a[contains(text(),'Providers')])[2]"));
+                driver.FindElement(By.XPath("(//a[contains(text(),'Providers')])[2]"));
                 if (driver.FindElements(By.XPath("(//a[contains(text(),'Providers')])[2]")).Count != 0)
                 {
                     driver.FindElement(By.XPath("(//a[contains(text(),'Providers')])[2]")).Click();
@@ -385,7 +385,7 @@ namespace MoBankUI.MoPay
         public void Mopowered(IWebDriver driver)
         {
             driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15.0));
-            var element = driver.FindElement(By.LinkText("MoPowered"));
+            driver.FindElement(By.LinkText("MoPowered"));
             if (driver.FindElements(By.LinkText("MoPowered")).Count != 0)
             {
                 driver.FindElement(By.LinkText("MoPowered")).Click();

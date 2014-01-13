@@ -8,7 +8,7 @@ namespace MoBankUI.MoShop.Checkout
 {
     public class Checkout : Driverdefining
     {
-        public void checkout(IWebDriver driver, Datarow datarow)
+        public void CheckouT(IWebDriver driver, Datarow datarow)
         {
             try
             {

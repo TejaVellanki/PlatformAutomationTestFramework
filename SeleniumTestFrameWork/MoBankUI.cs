@@ -51,7 +51,6 @@ namespace MoBankUI
                 var Moshop = checkBox11.Checked;
                 var moPayAccount = checkBox17.Checked;
                 var moSite = checkBox12.Checked;
-                var firefox = checkBox14.Checked;
                 var mositetps = checkBox13.Checked;
                
 
@@ -98,7 +97,6 @@ namespace MoBankUI
                     {
                         MessageBox.Show(@"Please Enter Atleast One Merchant URL To Test in Text Field");
                     }
-                    var emails = textBox4.Text;
                 }
 
                 else
@@ -128,9 +126,11 @@ namespace MoBankUI
 
         }
 
+/*
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
         }
+*/
 
         private void checkedListBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -158,55 +158,79 @@ namespace MoBankUI
         {
         }
 
+/*
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
         }
+*/
 
+/*
         private void checkBox10_CheckedChanged(object sender, EventArgs e)
         {
         }
+*/
 
+/*
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
         }
+*/
 
+/*
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
         }
+*/
 
+/*
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
         {
         }
+*/
 
+/*
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
+*/
 
+/*
         private void checkedListBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
         }
+*/
 
+/*
         private void Form1_Load(object sender, EventArgs e)
         {
         }
+*/
 
 
+/*
         private void label1_Click(object sender, EventArgs e)
         {
         }
+*/
 
+/*
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
         }
+*/
 
+/*
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
         }
+*/
 
+/*
         private void Form1_Load_1(object sender, EventArgs e)
         {
         }
+*/
 
 
         private void checkBox14_CheckedChanged(object sender, EventArgs e)
@@ -278,9 +302,8 @@ namespace MoBankUI
                         var site = new MositeGeneral();
                         site.Finally(driver, url, datarow, emails);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        var e = ex.ToString();
                     }
                 }
             }
@@ -319,19 +342,16 @@ namespace MoBankUI
             {
                 var datarow = new Datarow();
                 datarow.col();
-                var count = checkedListBox2.CheckedItems.Count;
 
                 var items = checkedListBox2.CheckedItems.Cast<object>().Aggregate<object, string>(null, (current, item) => current + (item + ","));
-                var vers = checkedListBox5.CheckedItems.Count;
                 var versions = checkedListBox5.CheckedItems.Cast<object>().Aggregate<object, string>(null, (current, version) => current + (version + ","));
                 IWebDriver driver = new FirefoxDriver();
                 driver.Navigate().GoToUrl("https://qaadmin.mobankdev.com/");
                 var batch = new MoshopBatch();
                 batch.Batchmoshop(driver, datarow, items, versions);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var e = ex.ToString();
             }
         }
 

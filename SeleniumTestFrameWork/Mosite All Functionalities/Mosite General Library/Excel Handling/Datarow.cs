@@ -11,14 +11,16 @@ namespace MoBankUI
 {
     public class Datarow
     {
-        public readonly DataTable mergeTable = new DataTable();
+        public readonly DataTable MergeTable = new DataTable();
         public string TotalFail;
         public string TotalPass;
         public DataTable clonetable = new DataTable();
         public DataTable dt = new DataTable();
         public GeneralLibrary generalLibrary;
 
+/*
         private Screenshot screenshot = new Screenshot();
+*/
 
         public void dataflush()
         {
@@ -32,8 +34,8 @@ namespace MoBankUI
             dt.Columns.Add("Actual Result");
             dt.Columns.Add("PASS or FAIL");
             dt.Columns.Add("Total Number Of Test Cases Passed/Failed");
-            mergeTable.Columns.Add("Merchant Name");
-            mergeTable.Columns.Add("Total Number of Test Cases Passed/Failed");
+            MergeTable.Columns.Add("Merchant Name");
+            MergeTable.Columns.Add("Total Number of Test Cases Passed/Failed");
         }
 
         public void newrow(string validation, string expected, string actual, string passorfail)
@@ -104,14 +106,14 @@ namespace MoBankUI
                 {
                     if (s <= 2)
                     {
-                        var destRow = mergeTable.NewRow();
+                        var destRow = MergeTable.NewRow();
                         destRow["Total Number of Test Cases Passed/Failed"] =
                             sourcerow["Total Number of Test Cases Passed/Failed"];
                         if (s == 0)
                         {
                             destRow["Merchant Name"] = ReportName;
                         }
-                        mergeTable.Rows.Add(destRow);
+                        MergeTable.Rows.Add(destRow);
                         s++;
                     }
                     else
@@ -132,9 +134,8 @@ namespace MoBankUI
                     break;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var e = ex.ToString();
             }
         }
 
@@ -184,13 +185,13 @@ namespace MoBankUI
                 var wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report",
                                                                     ".xlsx", false, true);
                 Worksheet ws = wb.Sheets[1];
-                generalLibrary.ConsolidatedXmlExportToExcel(mergeTable, ws, true, false, false);
+                generalLibrary.ConsolidatedXmlExportToExcel(MergeTable, ws, true, false, false);
                 generalLibrary.SaveAndCloseExcel(wb);
                 var ghdg = new GenerateEmail();
                 ghdg.SendEMail(ReportName, emails);
 
                 var Html = new ConverttoHtml();
-                Html.ConvertDataTableToHtml(mergeTable, ReportName, P, F);
+                Html.ConvertDataTableToHtml(MergeTable, ReportName, P, F);
 
                 foreach (var process in Process.GetProcessesByName("EXCEL").Where(process => process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE")))
                 {
@@ -198,9 +199,8 @@ namespace MoBankUI
                     break;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var e = ex.ToString();
             }
         }
 

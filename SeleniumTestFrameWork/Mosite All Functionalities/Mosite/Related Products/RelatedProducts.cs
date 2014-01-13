@@ -46,7 +46,7 @@ namespace MoBankUI.Mosite
                     datarow.newrow("Validating Element Clickable or not", "Element should be Clikcable",
                                    "Elemenet is Clickable", "PASS");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     datarow.newrow("Validating Element Clickable or not", "Element should be Clikcable",
                                    "Elemenet is Clickable", "FAIL");
@@ -160,7 +160,7 @@ namespace MoBankUI.Mosite
                 datarow.newrow("Validating Elemnet Clickable or not", "Element should not be Clikcable",
                                "Elemenet is Clickable", "FAIL");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 datarow.newrow("Validating Elemnet Clickable or not", "Element should not be Clikcable",
                                "Elemenet is not Clickable", "PASS");

@@ -21,7 +21,7 @@ namespace MoBankUI.MoShop
                 datarow.newrow("LookAndFeel", "Look & Feel : mobank.co.uk/MoShop", actual,
                     driver.Title == "Look & Feel : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
 
-                for (var i = 0;; i++)
+                for (var i = 0; ; i++)
                 {
                     driver.FindElement(By.Id("Customisations_0__Title")).Clear();
                     driver.FindElement(By.Id("Customisations_0__Title")).SendKeys("QA-TestShop");
@@ -42,30 +42,25 @@ namespace MoBankUI.MoShop
                 var attriute = driver.FindElement(By.Id("Customisations_0__Title")).GetAttribute("Value");
                 if (attriute == "QA-TestShop")
                 {
-                    try
-                    {
-                        datarow.newrow("Customiastion Title", "QA-TestShop", attriute, "PASS", driver);
-                        driver.FindElement(By.Id("Customisations_0__Title")).Click();
 
-                        driver.FindElement(By.CssSelector("input.button")).Click();
+                    datarow.newrow("Customiastion Title", "QA-TestShop", attriute, "PASS", driver);
+                    driver.FindElement(By.Id("Customisations_0__Title")).Click();
 
-                        driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
+                    driver.FindElement(By.CssSelector("input.button")).Click();
 
-                        var str4 = driver.Title;
-                        datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4,
-                            str4 == "Customisation : mobank.co.uk/MoShop" ? "PASS" : "FAIL",
-                            driver);
+                    driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
 
-                        driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[5]/h3")).Click();
-                        driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[6]/h3")).Click();
-                        driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[9]/h3")).Click();
-                        driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[10]/h3")).Click();
-                        driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[11]/h3")).Click();
-                    }
-                    catch (Exception ex)
-                    {
-                        var e = ex.ToString();
-                    }
+                    var str4 = driver.Title;
+                    datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4,
+                        str4 == "Customisation : mobank.co.uk/MoShop" ? "PASS" : "FAIL",
+                        driver);
+
+                    driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[5]/h3")).Click();
+                    driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[6]/h3")).Click();
+                    driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[9]/h3")).Click();
+                    driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[10]/h3")).Click();
+                    driver.FindElement(By.XPath("//form[@id='customisation-page-update-form']/div[11]/h3")).Click();
+
                     try
                     {
                         Selectanoption(driver, By.Id("ExternalLinks_0__ExternalLinkConfigId"), "Feefo");
@@ -89,9 +84,8 @@ namespace MoBankUI.MoShop
 
                         Thread.Sleep(0x1388);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        var e = ex.ToString();
                     }
 
                     #region Validations
@@ -133,7 +127,7 @@ namespace MoBankUI.MoShop
                 var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
             }
-            var images = new LookandFeelImages();
+            new LookandFeelImages();
             //images.images(driver,datarow);
             new ProductSocialShare().Productsocialshare(driver, datarow);
             new Scheduler.Scheduler().Schedule(driver, datarow);

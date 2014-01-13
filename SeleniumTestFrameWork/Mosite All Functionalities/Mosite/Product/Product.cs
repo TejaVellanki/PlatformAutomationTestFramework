@@ -10,7 +10,7 @@ namespace MoBankUI.Mosite.Product
 {
     internal class ProductsTps : Driverdefining
     {
-        private readonly Screenshot screenshot = new Screenshot();
+        private readonly Screenshot _screenshot = new Screenshot();
         //Product page validations
         public void product(IWebDriver driver, Datarow datarow)
         {
@@ -52,15 +52,9 @@ namespace MoBankUI.Mosite.Product
                 #region Product Title
 
                 // Product Title
-                try
-                {
-                    var title = driver.FindElement(By.ClassName(producttitle)).Text;
-                    datarow.newrow("Product Title", "", title, "PASS", driver);
-                }
-                catch (Exception ex)
-                {
-                    var e = ex.ToString();
-                }
+                var title = driver.FindElement(By.ClassName(producttitle)).Text;
+                datarow.newrow("Product Title", "", title, "PASS", driver);
+
                 if (IsElementPresent(driver, By.ClassName(producttitle)) == false)
                 {
                     datarow.newrow("Product Title", "Product Title Element is Expected",
@@ -71,7 +65,7 @@ namespace MoBankUI.Mosite.Product
 
                 #region Product Variant
 
-/*
+                /*
                 // Product Variants
                 if(IsElementPresent(driver,By.Id("" + productVarinat + "")))
                 {
@@ -196,7 +190,6 @@ namespace MoBankUI.Mosite.Product
 
                 #endregion
 
-                var product = driver.PageSource;
                 try
                 {
                     driver.FindElement(By.XPath(AddToBasket)).Click();
@@ -245,7 +238,7 @@ namespace MoBankUI.Mosite.Product
                     driver);
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                var myDynamicElement4 = driver.FindElement(By.XPath(checkout));
+                driver.FindElement(By.XPath(checkout));
                 if (url.Contains("user-scalable=yes") == false)
                 {
                     var value1 = driver.FindElement(By.Id("BasketInfo")).Text;
@@ -266,7 +259,7 @@ namespace MoBankUI.Mosite.Product
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                _screenshot.screenshotfailed(driver);
             }
         }
     }

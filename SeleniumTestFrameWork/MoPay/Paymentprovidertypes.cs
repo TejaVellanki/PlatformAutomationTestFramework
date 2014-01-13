@@ -30,7 +30,6 @@ namespace MoBankUI.MoPay
                 var str = table.Rows[i]["Provider"].ToString();
                 var str2 = table.Rows[0]["ProviderIdentifier"].ToString();
                 var str3 = table.Rows[0]["ProviderUserName"].ToString();
-                var str4 = table.Rows[0]["Implementation"].ToString();
                 switch (str)
                 {
                     case "WorldVision":

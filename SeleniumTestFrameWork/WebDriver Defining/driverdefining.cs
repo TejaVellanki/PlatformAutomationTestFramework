@@ -20,7 +20,7 @@ namespace MoBankUI
                 {
                     driver.FindElement(by);
                 }
-                catch (NoSuchElementException e)
+                catch (NoSuchElementException)
                 {
                     break;
                 }
@@ -48,7 +48,7 @@ namespace MoBankUI
         {
             var data = driver.FindElement(by);
             //IList<IWebElement> dataoptions = data.FindElements(By.TagName("option"));
-            var select = new SelectElement(data);
+            new SelectElement(data);
             var option = driver.FindElement(By.TagName("option")).GetAttribute("Value");
             var optio = driver.FindElement(By.TagName("option")).Text;
             return option;
@@ -61,18 +61,10 @@ namespace MoBankUI
 
         public void Selectanoption(IWebDriver driver, By by, string optiontoselect)
         {
-            try
-            {
-                var data = driver.FindElement(by);
-                //IList<IWebElement> dataoptions = data.FindElements(By.TagName("option"));
-                var select = new SelectElement(data);
-                select.SelectByText(optiontoselect);
-            }
-            catch (Exception ex)
-            {
-                var e = ex.ToString();
-                throw;
-            }
+            var data = driver.FindElement(@by);
+            //IList<IWebElement> dataoptions = data.FindElements(By.TagName("option"));
+            var select = new SelectElement(data);
+            @select.SelectByText(optiontoselect);
         }
     }
 }

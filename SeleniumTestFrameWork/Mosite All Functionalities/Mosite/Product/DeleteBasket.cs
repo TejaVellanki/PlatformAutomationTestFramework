@@ -10,7 +10,7 @@ namespace MoBankUI.Mosite.Product
     {
         private readonly Screenshot _screenshot = new Screenshot();
 
-        public void basket(IWebDriver driver, Datarow datarow)
+        public void Basket(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace MoBankUI.Mosite.Product
             if (url.Contains("user-scalable=yes"))
             {
                 categorylink = CollectionMapV2.Categorylink;
-                cat = CollectionMapV2.cat;
+                cat = CollectionMapV2.Cat;
                 products = CollectionMapV2.products;
                 homeimage = CollectionMapV2.homeimage;
                 productlink = CollectionMapV2.productlink;
@@ -94,10 +94,8 @@ namespace MoBankUI.Mosite.Product
                 driver.FindElement(By.ClassName(homeimage)).Click();
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                var myDynamicElement1 = driver.FindElement(By.XPath("" + categorylink + "" + cat + ""));
+                driver.FindElement(By.XPath("" + categorylink + "" + cat + ""));
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
-
-                var title = driver.Title;
 
                 decimal categorycount = driver.FindElements(By.XPath(categorylink)).Count;
                 for (var i = 1;; i++)
@@ -105,9 +103,6 @@ namespace MoBankUI.Mosite.Product
                     if (IsElementPresent(driver, By.XPath("" + categorylink + "" + cat + ""), 30))
                     {
                         driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
-
-                        var titlecategory = driver.Title;
-                        var url1 = driver.Url;
 
                         if (IsElementPresent(driver, By.XPath(products), 30))
                         {

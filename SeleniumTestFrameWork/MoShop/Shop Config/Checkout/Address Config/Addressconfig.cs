@@ -8,7 +8,7 @@ namespace MoBankUI.MoShop.Checkout
 {
     internal class Addressconfig : Driverdefining
     {
-        public void addressconfig(IWebDriver driver, Datarow datarow)
+        public void AddressConfig(IWebDriver driver, Datarow datarow)
         {
             try
             {

@@ -16,13 +16,8 @@ namespace MoBankUI.MoPay
             _genaralLibrary = new GeneralLibrary();
             var table =
                 _genaralLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "AccountCreation").Tables[0];
-            var count = table.Rows.Count;
-            var str = table.Rows[0]["AccountName"].ToString();
             var text = table.Rows[0]["Provider"].ToString();
-            var str3 = table.Rows[0]["ProviderIdentifier"].ToString();
-            var str4 = table.Rows[0]["ProviderUserName"].ToString();
             var str5 = table.Rows[0]["Implementation"].ToString();
-            var str6 = table.Rows[0]["Allow3DSecure"].ToString();
             new SelectElement(driver.FindElement(By.Id("PayProvider_Id"))).SelectByText(text);
             var attribute = driver.FindElement(By.Id("PayProvider_Id")).GetAttribute("Value");
             datarow.newrow("Provider", text, attribute, text == attribute ? "PASS" : "FAIL", driver);

@@ -19,24 +19,19 @@ namespace MoBankUI.MoShop.Checkout
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Name")).Click();
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Required")).Click();
                 }
-                try
+
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Name")).Click();
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Label")).SendKeys("Last Name: *");
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Name")).Click();
+                Selectanoption(driver, By.Id("LiveScrapeForm_Elements_1__PropertyPath"), "LastName");
+                driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Name")).Click();
+                //new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_1__PropertyPath"))).SelectByText("LastName");
+                if (GetValue(driver, By.Id("LiveScrapeForm_Elements_1__Required"), 30) == "false")
                 {
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Name")).Click();
-                    driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Label")).SendKeys("Last Name: *");
-                    driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Name")).Click();
-                    Selectanoption(driver, By.Id("LiveScrapeForm_Elements_1__PropertyPath"), "LastName");
-                    driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Name")).Click();
-                    //new SelectElement(driver.FindElement(By.Id("LiveScrapeForm_Elements_1__PropertyPath"))).SelectByText("LastName");
-                    if (GetValue(driver, By.Id("LiveScrapeForm_Elements_1__Required"), 30) == "false")
-                    {
-                        driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Name")).Click();
-                        driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Required")).Click();
-                    }
+                    driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Required")).Click();
                 }
-                catch (Exception ex)
-                {
-                    var e = ex.ToString();
-                }
+
 
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Name")).Click();
                 driver.FindElement(By.Id("LiveScrapeForm_Elements_2__LabelSelector")).SendKeys(".actrequired:eq(1)");

@@ -16,7 +16,7 @@ namespace MoBankUI.Mosite.HomePage
             if (url.Contains("user-scalable=yes"))
             {
                 categorylink = CollectionMapV2.Categorylink;
-                cat = CollectionMapV2.cat;
+                cat = CollectionMapV2.Cat;
                 products = CollectionMapV2.products;
                 productlink = CollectionMapV2.productlink;
             }
@@ -52,11 +52,8 @@ namespace MoBankUI.Mosite.HomePage
                     try
                     {
                         driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                        var myDynamicElement1 =
-                            driver.FindElement(By.XPath("" + categorylink + "[" + i + "]" + cat + ""));
+                        driver.FindElement(By.XPath("" + categorylink + "[" + i + "]" + cat + ""));
                         driver.FindElement(By.XPath("" + categorylink + "[" + i + "]" + cat + "")).Click();
-
-                        var title = driver.Title;
                     }
                     catch (Exception ex)
                     {
@@ -72,20 +69,18 @@ namespace MoBankUI.Mosite.HomePage
                         screenshot.screenshotfailed(driver);
                     }
                     //Running the loop through sub category pages. 
-                    for (var k = 1;; k++)
+                    for (var k = 1; ; k++)
                     {
                         try
                         {
                             if (IsElementPresent(driver, By.XPath("" + categorylink + "[" + k + "]" + cat + "")))
                             {
                                 //*[@id="productList"]/article[1]/a/div[1]/img
-                                var location = driver.Url;
                                 // Category Image validation
                                 Image.categoryimage(driver, datarow);
                                 driver.FindElement(By.XPath("" + categorylink + "[" + k + "]" + cat + "")).Click();
 
                                 var titlecategory = driver.Title;
-                                var url1 = driver.Url;
 
                                 // Sub-Category Image validation
                                 Image.subcategoryimage(driver, datarow);
@@ -103,15 +98,10 @@ namespace MoBankUI.Mosite.HomePage
                                             driver.FindElement(By.XPath("" + products + "[" + p + "]" + productlink + ""))
                                                   .Click();
 
-                                            try
-                                            {
-                                                var page = new Productpage();
-                                                page.ProductPage(driver, datarow);
-                                            }
-                                            catch (Exception ex)
-                                            {
-                                                var e = ex.ToString();
-                                            }
+
+                                            var page = new Productpage();
+                                            page.ProductPage(driver, datarow);
+
 
                                             driver.Navigate().Back();
                                         }
@@ -161,9 +151,8 @@ namespace MoBankUI.Mosite.HomePage
                     //  
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var e = ex.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                 screenshot.screenshotfailed(driver);
             }

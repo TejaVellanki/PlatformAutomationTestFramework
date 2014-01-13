@@ -95,7 +95,6 @@ namespace MoBankUI.Mosite
 
 
             Assert.AreEqual("Secure Payment Page", driver.Title);
-            var title = driver.Title;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace MoBankUI.Mosite
     //This class Test the user as a guest. 
     internal class Guest : Driverdefining
     {
-        public void guest(IWebDriver driver, Datarow datarow)
+        public void GuesT(IWebDriver driver, Datarow datarow)
         {
             if (!IsElementPresent(driver, By.Id("at-GuestUser"))) return;
             driver.FindElement(By.Id("at-GuestUser")).Click();

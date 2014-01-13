@@ -15,13 +15,11 @@ namespace MoBankUI.MoSite.Other
             try
             {
                 var library = new GeneralLibrary();
-                var screenshot = new Screenshot();
+                new Screenshot();
                 var table = library.GetExcelData(@"C:\\Input Data\Billing Details.xls", "Login").Tables[0];
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                var element =
-                    driver.FindElement(
-                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"));
-                var str = driver.PageSource;
+                driver.FindElement(
+                    By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"));
                 var count = table.Rows.Count;
                 for (var i = 0; i < count; i++)
                 {
@@ -35,7 +33,6 @@ namespace MoBankUI.MoSite.Other
                     var str8 = table.Rows[i]["PostCode"].ToString();
                     var str9 = table.Rows[i]["Email"].ToString();
                     var str10 = table.Rows[i]["Telephone Number"].ToString();
-                    var str11 = table.Rows[i]["Custome Note"].ToString();
                     driver.FindElement(
                         By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/section/div/input[2]"))
                         .Clear();
@@ -89,10 +86,9 @@ namespace MoBankUI.MoSite.Other
                             "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[11]/fieldset/div[2]/div/label/span/span[2]"))
                         .Click();
                     driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                    var element2 =
-                        driver.FindElement(
-                            By.XPath(
-                                "//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"));
+                    driver.FindElement(
+                        By.XPath(
+                            "//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"));
                     driver.FindElement(
                         By.XPath(
                             "//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"))
@@ -126,16 +122,14 @@ namespace MoBankUI.MoSite.Other
                             By.XPath(
                                 "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[5]/input[2]"))
                             .GetAttribute("value");
-                    var str18 =
-                        driver.FindElement(
-                            By.XPath(
-                                "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[6]/input[2]"))
-                            .GetAttribute("value");
-                    var str19 =
-                        driver.FindElement(
-                            By.XPath(
-                                "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[9]/input[2]"))
-                            .GetAttribute("value");
+                    driver.FindElement(
+                        By.XPath(
+                            "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[6]/input[2]"))
+                        .GetAttribute("value");
+                    driver.FindElement(
+                        By.XPath(
+                            "//body[@id='page-checkout-process']/div/div[2]/div/form/section/div[9]/input[2]"))
+                        .GetAttribute("value");
                     var selectedValue = driver.FindElement(By.Id("FormData_6__Value")).GetAttribute("Value");
                     var str21 = driver.FindElement(By.Id("FormData_9__Value")).GetAttribute("Value");
                     datarow.newrow("FirstName",
@@ -163,7 +157,6 @@ namespace MoBankUI.MoSite.Other
                 }
                 datarow.newrow("Basket Value", "(1)", "(1)",
                     driver.FindElement(By.Id("BasketInfo")).Text == "(1)" ? "PASS" : "FAIL", driver);
-                var str23 = driver.PageSource;
                 var executor2 = (IJavaScriptExecutor) driver;
                 executor2.ExecuteScript("window.scrollBy(0,100)", new object[0]);
                 Thread.Sleep(3000);

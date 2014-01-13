@@ -9,7 +9,7 @@ namespace MoBankUI.MoShop
     public class Createscrape : Driverdefining
     {
         [Test]
-        public void createscrape(IWebDriver driver, Datarow datarow)
+        public void CreateScrape(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace MoBankUI.MoShop
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
                 var attribute = driver.FindElement(By.Id("Profiles_0__RootUrl")).GetAttribute("Value");
-                var str5 = driver.FindElement(By.Id("Profiles_0__Encoding")).GetAttribute("Value");
+                driver.FindElement(By.Id("Profiles_0__Encoding")).GetAttribute("Value");
                 datarow.newrow("Root URL", "http://www.the-tickle-company.co.uk/", attribute,
                     attribute == "http://www.the-tickle-company.co.uk/" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.Id("Pages_0__Name")).Clear();
@@ -55,7 +55,7 @@ namespace MoBankUI.MoShop
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
                 var str6 = driver.FindElement(By.Id("Pages_0__Name")).GetAttribute("Value");
-                var str7 = driver.FindElement(By.Id("Pages_0__ObjectTypeName")).GetAttribute("option value");
+                driver.FindElement(By.Id("Pages_0__ObjectTypeName")).GetAttribute("option value");
                 datarow.newrow("Page Name", "Categories", str6, str6 == "Categories" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
 

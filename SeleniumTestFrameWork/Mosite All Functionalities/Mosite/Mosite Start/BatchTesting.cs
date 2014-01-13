@@ -92,11 +92,10 @@ namespace MoBankUI.Mosite
                     {
                         datarow.newrow("", "", "Mopay", "", driver);
                         var pay = new BatchPay();
-                        pay.batchpay(driver, url, datarow);
+                        pay.Batchpay(driver, url, datarow);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        var e = ex.ToString();
                         datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                         _screenshot.screenshotfailed(driver);
                     }
@@ -104,9 +103,8 @@ namespace MoBankUI.Mosite
                     i++;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var e = ex.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                 _screenshot.screenshotfailed(driver);
             }

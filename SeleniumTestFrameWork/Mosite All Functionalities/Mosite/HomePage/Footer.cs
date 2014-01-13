@@ -166,9 +166,8 @@ namespace MoBankUI.Mosite.HomePage
                     screenshot.screenshotfailed(driver);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var e = ex.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                 _screenshot.screenshotfailed(driver);
             }

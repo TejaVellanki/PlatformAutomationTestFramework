@@ -10,7 +10,7 @@ namespace MoBankUI.Mosite.Pay
     {
 // This needs to be extended for all the merchants
         [Test]
-        public void batchpay(IWebDriver driver, string url, Datarow datarow)
+        public void Batchpay(IWebDriver driver, string url, Datarow datarow)
         {
             // Payment for Physioroom 
 
@@ -20,7 +20,6 @@ namespace MoBankUI.Mosite.Pay
                 Thread.Sleep(2000);
                 driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep3")).Click();
 
-                var titl = driver.Title;
                 driver.Navigate().Back();
 
                 driver.FindElement(By.XPath("//*[@id='ctl00']/section/fieldset/div[2]/label/span")).Click();
@@ -28,14 +27,14 @@ namespace MoBankUI.Mosite.Pay
                 driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep3")).Click();
 
                 datarow.newrow("", "", "Mopay", "", driver);
-                var Mopay = new Mopay_TPS();
+                var Mopay = new MopayTps();
                 Mopay.Mopay(driver, datarow);
             }
             else
             {
                 // This is a general payment testing using Mopay and needs to be extended if the client offering more than one payment process for example Paypal. 
                 datarow.newrow("", "", "Mopay", "", driver);
-                var Mopay = new Mopay_TPS();
+                var Mopay = new MopayTps();
                 Mopay.Mopay(driver, datarow);
             }
         }

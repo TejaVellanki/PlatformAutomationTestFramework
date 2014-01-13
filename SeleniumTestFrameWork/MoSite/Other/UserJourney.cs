@@ -9,7 +9,7 @@ namespace MoBankUI.MoSite.Other
 {
     internal class UserJourney : Driverdefining
     {
-        public void productunavailabl(IWebDriver driver, int l)
+        public void Productunavailabl(IWebDriver driver, int l)
         {
             driver.FindElement(By.XPath("//ul[@id='Basket']/li[2]/a/span")).Click();
 
@@ -45,11 +45,11 @@ namespace MoBankUI.MoSite.Other
             }
             driver.FindElement(By.XPath("//p[@id='AddToBasketButton']/div[2]/input")).Click();
             driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-            var element = driver.FindElement(By.XPath("//div[@id='AddedDetail']/ul/li/p/a/span/span"));
+            driver.FindElement(By.XPath("//div[@id='AddedDetail']/ul/li/p/a/span/span"));
             driver.FindElement(By.XPath("//div[@id='AddedDetail']/ul/li/p/a/span/span")).Click();
 
             driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-            var element2 = driver.FindElement(By.XPath("//a[@id='GoToCheckout']/span/span"));
+            driver.FindElement(By.XPath("//a[@id='GoToCheckout']/span/span"));
         }
 
         public void UserJourn(Datarow datarow, IWebDriver driver)
@@ -59,12 +59,9 @@ namespace MoBankUI.MoSite.Other
                 driver.Navigate().GoToUrl("http://qatheticklecompany.mobankdev.com/");
                 driver.FindElement(By.CssSelector("img")).Click();
 
-                var str = driver.PageSource;
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                var element =
-                    driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a/h2"));
+                driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a/h2"));
                 driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[2]/div/ul/li/div/div/a/h2")).Click();
-                var str2 = driver.PageSource;
                 if (IsElementPresent(driver,
                                      By.XPath("//body[@id='page-categories-details']/div/div[2]/div/ul/li/div/div/a/h2")))
                 {
@@ -82,7 +79,6 @@ namespace MoBankUI.MoSite.Other
                         By.XPath("//html/body/div/div[2]/div/div[3]/form/ul/li[2]/fieldset/div[2]/div/label/span"))
                           .Click();
                 }
-                var str3 = driver.PageSource;
                 if (IsElementPresent(driver,
                                      By.XPath("//form[@id='AddToBasketForm']/ul/li[2]/fieldset/div[2]/div/div/select")))
                 {
@@ -101,10 +97,9 @@ namespace MoBankUI.MoSite.Other
                 driver.FindElement(By.XPath("//div[@id='AddedDetail']/ul/li/p/a/span/span")).Click();
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                var element2 = driver.FindElement(By.XPath("//a[@id='GoToCheckout']/span/span"));
+                driver.FindElement(By.XPath("//a[@id='GoToCheckout']/span/span"));
                 datarow.newrow("Basket Value", "(1)", "(1)",
                     driver.FindElement(By.Id("BasketInfo")).Text == "(1)" ? "PASS" : "FAIL", driver);
-                var str6 = driver.PageSource;
                 Thread.Sleep(0x1388);
                 executor.ExecuteScript("window.scrollBy(0,80)", new object[0]);
                 driver.FindElement(By.Id("GoToCheckout")).Click();
@@ -122,7 +117,7 @@ namespace MoBankUI.MoSite.Other
                 Label_0365:
                 if (driver.FindElement(By.XPath("//ul[@id='Basket']/li[2]/div/div/p")).Text == "Product unavailable")
                 {
-                    productunavailabl(driver, l);
+                    Productunavailabl(driver, l);
                     driver.FindElement(By.XPath("//a[@id='GoToCheckout']/span")).Click();
                 }
                 else
@@ -134,10 +129,8 @@ namespace MoBankUI.MoSite.Other
                 goto Label_0365;
                 Label_03D4:
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                var element3 =
-                    driver.FindElement(
-                        By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"));
-                var str9 = driver.PageSource;
+                driver.FindElement(
+                    By.XPath("//body[@id='page-checkout-process']/div/div[2]/div/form/fieldset/div[2]/div/button"));
             }
             catch (Exception exception)
             {

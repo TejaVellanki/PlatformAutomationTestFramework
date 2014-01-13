@@ -11,7 +11,9 @@ namespace MoBankUI.MoPay
 {
     public class Mopaysite : Driverdefining
     {
+/*
         private Datarow _datarow = new Datarow();
+*/
         private GeneralLibrary _generalLibrary;
 
         public void MoPay(IWebDriver driver, Datarow datarow)
@@ -41,7 +43,6 @@ namespace MoBankUI.MoPay
                     var str4 = table.Rows[i]["LastName"].ToString();
                     var str5 = table.Rows[i]["Card Number"].ToString();
                     var str6 = table.Rows[i]["Security Code"].ToString();
-                    var expected = table.Rows[i]["CardType"].ToString();
                     var str8 = table.Rows[i]["Name on Card"].ToString();
                     var text = table.Rows[i]["ExpiryMonth"].ToString();
                     var str10 = table.Rows[i]["Expiry Year"].ToString();

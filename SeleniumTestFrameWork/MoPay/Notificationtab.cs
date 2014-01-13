@@ -16,13 +16,11 @@ namespace MoBankUI.MoPay
             _genaralLibrary = new GeneralLibrary();
             var table =
                 _genaralLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "AccountCreation").Tables[0];
-            var count = table.Rows.Count;
             var expected = table.Rows[0]["PayNotificationsCallBack"].ToString();
             var str2 = table.Rows[0]["TokenNotificationscallback"].ToString();
             var str3 = table.Rows[0]["SuccesfullTransactions"].ToString();
             var str4 = table.Rows[0]["DailyEmail"].ToString();
             var str5 = table.Rows[0]["WeeklyEmail"].ToString();
-            var str6 = table.Rows[0]["MonthlyEmail"].ToString();
             var attribute = driver.FindElement(By.Id("SendSuccessfulTransactionReports")).GetAttribute("value");
             if (attribute == "true")
             {

@@ -23,7 +23,7 @@ namespace MoBankUI
         /// <returns></returns>
         public DataSet GetExcelData(string excelFile, string sheetname)
         {
-            var recordTypes = new List<string>();
+            new List<string>();
 
             var sConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + excelFile + ";" +
                                        "Extended Properties=Excel 12.0;";
@@ -356,7 +356,6 @@ namespace MoBankUI
 
                 ((Range)ws.Rows[j, Type.Missing]).Borders.Color = ColorTranslator.ToOle(Color.Black);
                 ((Range)ws.Rows[j, Type.Missing]).Interior.Color = ColorTranslator.ToOle(Color.LightGray);
-                var text = dt.Rows[i]["Total Number Of Test Cases Passed/Failed"].ToString();
                 var value = dt.Rows[i]["PASS or FAIL"].ToString();
                 if (value == "PASS")
                 {

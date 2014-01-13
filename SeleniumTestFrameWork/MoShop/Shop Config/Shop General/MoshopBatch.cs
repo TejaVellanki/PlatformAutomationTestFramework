@@ -38,7 +38,7 @@ namespace MoBankUI.MoShop
 
                         #region Global Settings
 
-                        var global = new GlobalSetting();
+                        new GlobalSetting();
                         // global.globalsetting(driver);
 
                         #endregion
@@ -51,7 +51,7 @@ namespace MoBankUI.MoShop
                     if (str == "Create a Test Scrape")
                     {
                         datarow.newrow("", "", "Create a Test Scarpe", "", driver);
-                        new Createscrape().createscrape(driver, datarow);
+                        new Createscrape().CreateScrape(driver, datarow);
                     }
 
                     #endregion
@@ -87,7 +87,7 @@ namespace MoBankUI.MoShop
                             datarow.newrow("", "", "Run the Test Site", "", driver);
                             driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
 
-                            var blob = new BlobStorage();
+                            new BlobStorage();
                             //blob.Blob(driver,datarow, "http://testshop.mobankdev.com/");
                             commtest(driver, datarow);
                         }
@@ -168,7 +168,7 @@ namespace MoBankUI.MoShop
             login.Registration(driver, datarow);
             datarow.newrow("", "", "Mopay", "", driver);
             var pay = new BatchPay();
-            pay.batchpay(driver, "http://testshop.mobankdev.com/", datarow);
+            pay.Batchpay(driver, "http://testshop.mobankdev.com/", datarow);
         }
     }
 #endregion

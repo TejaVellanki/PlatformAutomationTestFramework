@@ -8,7 +8,7 @@ namespace MoBankUI.MoSite.Other
 {
     internal class HomepageTabsModrophenia : Driverdefining
     {
-        public void HomepageTabsModro(string HomepageTitle, string aboutus, string shipping, string terms,
+        public void HomepageTabsModro(string homepageTitle, string aboutus, string shipping, string terms,
                                       Datarow datarow, IWebDriver driver)
         {
             driver.FindElement(By.CssSelector("img")).Click();
@@ -17,8 +17,7 @@ namespace MoBankUI.MoSite.Other
             for (var i = 1; i <= xpathCount; i++)
             {
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                var element =
-                    driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[3]/ul/li[" + i + "]/div/div/a"));
+                driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[3]/ul/li[" + i + "]/div/div/a"));
                 driver.FindElement(By.XPath("//body[@id='page-home-index']/div/div[3]/ul/li[" + i + "]/div/div/a"))
                       .Click();
 
@@ -32,7 +31,7 @@ namespace MoBankUI.MoSite.Other
                 switch (i)
                 {
                     case 1:
-                        datarow.newrow("HomepageTitle", HomepageTitle, actual, HomepageTitle == actual ? "PASS" : "FAIL",
+                        datarow.newrow("HomepageTitle", homepageTitle, actual, homepageTitle == actual ? "PASS" : "FAIL",
                             driver);
                         break;
 

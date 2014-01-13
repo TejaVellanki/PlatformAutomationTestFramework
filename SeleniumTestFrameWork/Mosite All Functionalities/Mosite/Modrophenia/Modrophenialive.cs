@@ -81,8 +81,7 @@ namespace MoBankUI.Mosite.Modrophenia
                     dt.Rows.Add(row);
                     driver.Navigate().Back();
                     driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                    var element =
-                        driver.FindElement(By.XPath("//div[@id='content']/div/div[" + i + "]/div/a/img"));
+                    driver.FindElement(By.XPath("//div[@id='content']/div/div[" + i + "]/div/a/img"));
                 }
                 num++;
             }
@@ -136,7 +135,7 @@ namespace MoBankUI.Mosite.Modrophenia
                 driver.Navigate().Back();
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                var element = driver.FindElement(By.XPath("//div[@id='content']/div/div[" + i + "]/div/a/img"));
+                driver.FindElement(By.XPath("//div[@id='content']/div/div[" + i + "]/div/a/img"));
             }
         }
 
@@ -150,7 +149,7 @@ namespace MoBankUI.Mosite.Modrophenia
                 var workbook = generalLibrary.CreateAndOpenExcelFile(@"C:\\Input Data", ref fileName, "Products",
                                                                           ".xlsx", false, false);
                 var ws = (Worksheet) workbook.Sheets[1];
-                var datarow = new Datarow();
+                new Datarow();
                 dt.Columns.Add("Product Price");
                 dt.Columns.Add("Product Title");
                 dt.Columns.Add("Product Detail");
@@ -158,7 +157,7 @@ namespace MoBankUI.Mosite.Modrophenia
                 dt.Columns.Add("Variants");
                 driver.Navigate().GoToUrl("http://www.modrophenia.com/");
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                var element = driver.FindElement(By.XPath("//div[@id='sidebarBox']/ul[2]/li[2]/a"));
+                driver.FindElement(By.XPath("//div[@id='sidebarBox']/ul[2]/li[2]/a"));
                 driver.FindElement(By.LinkText("New Arrivals")).Click();
 
                 loop(driver, dt);

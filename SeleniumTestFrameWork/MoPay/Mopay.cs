@@ -73,7 +73,6 @@ namespace MoBankUI.MoPay
             {
                 for (var i = 0; i < count; i++)
                 {
-                    var str3 = table2.Rows[i]["Account"].ToString();
                     var locator = table2.Rows[i]["Type"].ToString();
                     var str5 = table2.Rows[i]["E-mail"].ToString();
                     var str6 = table2.Rows[i]["FormData"].ToString();
@@ -82,7 +81,7 @@ namespace MoBankUI.MoPay
                     var str9 = table2.Rows[i]["CookieValue"].ToString();
                     driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
                     driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15.0));
-                    var element = driver.FindElement(By.XPath("//div[@id='ReferenceControl']/div/input"));
+                    driver.FindElement(By.XPath("//div[@id='ReferenceControl']/div/input"));
                     if (i <= 1)
                     {
                         driver.FindElement(By.Id("Account_13")).Click();
@@ -92,13 +91,10 @@ namespace MoBankUI.MoPay
                         driver.FindElement(By.Id("id=Account_14")).Click();
                     }
                     driver.FindElement(By.Id(locator)).Click();
-                    var attribute =
-                        driver.FindElement(By.XPath("//div[@id='ReferenceControl']/div/input"))
-                              .GetAttribute("Reference");
-                    var str11 =
-                        driver.FindElement(By.XPath("//div[@id='TotalAmountControl']/div/input")).GetAttribute("Amt");
-                    var str12 =
-                        driver.FindElement(By.XPath("//div[@id='CurrencyCodeControl']/div/select")).GetAttribute("Cur");
+                    driver.FindElement(By.XPath("//div[@id='ReferenceControl']/div/input"))
+                        .GetAttribute("Reference");
+                    driver.FindElement(By.XPath("//div[@id='TotalAmountControl']/div/input")).GetAttribute("Amt");
+                    driver.FindElement(By.XPath("//div[@id='CurrencyCodeControl']/div/select")).GetAttribute("Cur");
                     var input = table.Rows[0]["FirstName"].ToString();
                     var str14 = table.Rows[0]["LastName"].ToString();
                     Assert.AreEqual("The MoShop Sale",
@@ -135,7 +131,7 @@ namespace MoBankUI.MoPay
                         var str25 = table.Rows[j]["County"].ToString();
                         var str26 = table.Rows[j]["Country"].ToString();
                         driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(60.0));
-                        var element2 = driver.FindElement(By.XPath("//div[@id='Card.NameControl']/input"));
+                        driver.FindElement(By.XPath("//div[@id='Card.NameControl']/input"));
                         Assert.AreEqual("Secure Payment Page", driver.Title);
 
                         driver.FindElement(By.XPath("//*[@id='Card_Number']")).SendKeys(str15);

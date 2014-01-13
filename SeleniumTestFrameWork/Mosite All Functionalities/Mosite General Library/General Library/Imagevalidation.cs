@@ -10,7 +10,7 @@ namespace MoBankUI
     {
         private string _homepageimage;
         private string _categoryimagecss;
-        private int l = 1;
+        private int _l = 1;
 
         public void homepageimage(IWebDriver driver, Datarow datarow)
         {
@@ -58,9 +58,8 @@ namespace MoBankUI
                 }
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
-                var e = ex.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
             }
         }
@@ -69,7 +68,7 @@ namespace MoBankUI
         {
             try
             {
-                if (l >= 3) return;
+                if (_l >= 3) return;
                 var title = driver.PageSource;
                 _categoryimagecss = title.Contains("user-scalable=yes") ? ImagesV2.Categoryimagecss : ImagesV1.Categoryimagecss;
                 var location = driver.Url;
@@ -95,11 +94,10 @@ namespace MoBankUI
                     datarow.newrow("Image Validation", "", "No Image for Category page" + "-" + location, "FAIL",
                         driver);
                 }
-                l++;
+                _l++;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var e = ex.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
             }
         }
@@ -122,9 +120,8 @@ namespace MoBankUI
 
                 //}
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var e = ex.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
             }
         }
@@ -176,9 +173,8 @@ namespace MoBankUI
                     datarow.newrow("Image Validation", "", "No Image in Product Page" + "-" + location, "FAIL", driver);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var e = ex.ToString();
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
             }
         }

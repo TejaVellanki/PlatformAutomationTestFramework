@@ -39,7 +39,6 @@ namespace MoBankUI.MoShop.Checkout
                       .SendKeys("div#productsresults table:eq(0) tr:last-child td strong:eq(1)");
                 Thread.Sleep(3000);
                 driver.FindElement(By.XPath("//div[@id='configureCheckoutForm']/div[2]/h3")).Click();
-                const int num = 0;
 
                 driver.FindElement(By.XPath("//div[@id='configureCheckoutForm']/div[4]/h3")).Click();
                 Thread.Sleep(3000);
@@ -83,7 +82,7 @@ namespace MoBankUI.MoShop.Checkout
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
 
-                var str7 = driver.FindElement(By.Id("Encoding_Value")).GetAttribute("Value");
+                driver.FindElement(By.Id("Encoding_Value")).GetAttribute("Value");
                 var str8 = driver.FindElement(By.Id("BasketPage_Url")).GetAttribute("Value");
                 var str9 = driver.FindElement(By.Id("BasketPage_Parameters")).GetAttribute("Value");
                 var str10 = driver.FindElement(By.Id("BasketPage_SuccessSelector")).GetAttribute("Value");
@@ -138,7 +137,7 @@ namespace MoBankUI.MoShop.Checkout
                 var e = ex.ToString();
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
-            new Addressconfig().addressconfig(driver, datarow);
+            new Addressconfig().AddressConfig(driver, datarow);
         }
     }
 }

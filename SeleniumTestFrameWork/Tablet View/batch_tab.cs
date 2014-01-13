@@ -22,7 +22,7 @@ namespace MoBankUI
             var blob = new BlobStorage();
             blob.Blob(driver, datarow, "http://tablet.mobankdev.com");
             var home = new HomepageTab();
-            home.homepage(driver, datarow);
+            home.Homepage(driver, datarow);
             var allproducts = new LinksExpand();
             allproducts.AllLink(driver, datarow);
 

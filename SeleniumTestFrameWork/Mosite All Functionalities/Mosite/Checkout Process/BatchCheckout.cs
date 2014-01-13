@@ -1,5 +1,4 @@
-﻿using System;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 //using System.Drawing;
 
@@ -9,30 +8,22 @@ namespace MoBankUI.Mosite
     {
         public void Checkout(IWebDriver driver, string url, Datarow datarow)
         {
-            try
+            Countryhouse contry;
+            if (url.Contains("countryhouseoutdoor"))
             {
-                Countryhouse contry;
-                if (url.Contains("countryhouseoutdoor"))
-                {
-                    //country house checkout process 
-                    contry = new Countryhouse();
-                    contry.Checkoutprocess(driver);
-                }
-
-                if (url.Contains("wolford"))
-                {
-                    var wolford = new Wolford();
-                    wolford.Wolfordcheckout(driver, datarow);
-                }
-                if (!url.Contains("bathrooms")) return;
+                //country house checkout process 
                 contry = new Countryhouse();
-                contry.bathroomcheckout(driver);
+                contry.Checkoutprocess(driver);
             }
-            catch (Exception ex)
+
+            if (url.Contains("wolford"))
             {
-                var e = ex.ToString();
-                throw;
+                var wolford = new Wolford();
+                wolford.Wolfordcheckout(driver, datarow);
             }
+            if (!url.Contains("bathrooms")) return;
+            contry = new Countryhouse();
+            contry.bathroomcheckout(driver);
         }
     }
 }

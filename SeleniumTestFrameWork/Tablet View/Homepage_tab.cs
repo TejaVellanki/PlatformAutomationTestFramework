@@ -14,7 +14,7 @@ namespace MoBankUI
             throw new NotImplementedException();
         }
 
-        public void homepage(IWebDriver driver, Datarow datarow)
+        public void Homepage(IWebDriver driver, Datarow datarow)
         {
             /*
               IWebElement element;

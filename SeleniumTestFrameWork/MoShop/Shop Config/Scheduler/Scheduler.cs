@@ -230,7 +230,7 @@ namespace MoBankUI.MoShop.Scheduler
                 var e = ex.ToString();
                 datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
-            new Checkout.Checkout().checkout(driver, datarow);
+            new Checkout.Checkout().CheckouT(driver, datarow);
         }
     }
 }

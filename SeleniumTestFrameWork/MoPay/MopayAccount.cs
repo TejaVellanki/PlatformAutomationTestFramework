@@ -10,7 +10,9 @@ namespace MoBankUI.MoPay
     public class MopayAccount : Driverdefining
     {
         private GeneralLibrary _genaralLibrary;
+/*
         private Screenshot _screenshot = new Screenshot();
+*/
 
         public void Create(IWebDriver driver)
         {
@@ -27,7 +29,6 @@ namespace MoBankUI.MoPay
                     var expected = table.Rows[i]["AccountName"].ToString();
                     var text = table.Rows[i]["Provider"].ToString();
                     var str3 = table.Rows[i]["ReturnURI"].ToString();
-                    var str4 = table.Rows[i]["Allow3DSecure"].ToString();
                     if (driver.Title == "Log On : mopowered.co.uk")
                     {
                         driver.FindElement(

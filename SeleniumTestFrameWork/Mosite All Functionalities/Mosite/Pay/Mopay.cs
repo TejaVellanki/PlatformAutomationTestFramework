@@ -10,12 +10,14 @@ using OpenQA.Selenium.Support.UI;
 
 namespace MoBankUI.Mosite.Pay
 {
-    internal class Mopay_TPS : Driverdefining
+    internal class MopayTps : Driverdefining
     {
         //Testing the Payment page. 
         // Two Payment methods do the same 
         private GeneralLibrary generalLibrary;
+/*
         private Screenshot screenshot = new Screenshot();
+*/
 
         [Test]
         public void Mopay(IWebDriver driver, Datarow datarow)

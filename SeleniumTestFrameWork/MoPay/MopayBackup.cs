@@ -67,17 +67,14 @@ namespace MoBankUI.MoPay
                     var str7 = table2.Rows[i]["CookieValue"].ToString();
                     driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
                     driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15.0));
-                    var element = driver.FindElement(By.XPath("//div[@id='ReferenceControl']/div/input"));
+                    driver.FindElement(By.XPath("//div[@id='ReferenceControl']/div/input"));
                     driver.FindElement(By.XPath(locator)).Click();
                     driver.FindElement(By.Id(locator)).Click();
                     driver.FindElement(By.Id(str2)).Click();
-                    var attribute =
-                        driver.FindElement(By.XPath("//div[@id='ReferenceControl']/div/input"))
-                              .GetAttribute("Reference");
-                    var str9 =
-                        driver.FindElement(By.XPath("//div[@id='TotalAmountControl']/div/input")).GetAttribute("Amt");
-                    var str10 =
-                        driver.FindElement(By.XPath("//div[@id='CurrencyCodeControl']/div/select")).GetAttribute("Cur");
+                    driver.FindElement(By.XPath("//div[@id='ReferenceControl']/div/input"))
+                        .GetAttribute("Reference");
+                    driver.FindElement(By.XPath("//div[@id='TotalAmountControl']/div/input")).GetAttribute("Amt");
+                    driver.FindElement(By.XPath("//div[@id='CurrencyCodeControl']/div/select")).GetAttribute("Cur");
                     var input = table.Rows[0]["FirstName"].ToString();
                     var str12 = table.Rows[0]["LastName"].ToString();
                     Assert.AreEqual("The MoShop Sale",
@@ -119,7 +116,7 @@ namespace MoBankUI.MoPay
                         var str23 = table.Rows[j]["County"].ToString();
                         var str24 = table.Rows[j]["Country"].ToString();
                         driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(60.0));
-                        var element2 = driver.FindElement(By.XPath("//div[@id='Card.NameControl']/input"));
+                        driver.FindElement(By.XPath("//div[@id='Card.NameControl']/input"));
                         Assert.AreEqual("Secure Payment Page", driver.Title);
                         driver.FindElement(By.XPath("//*[@id='Card_Number']")).SendKeys(str13);
                         driver.FindElement(By.Id("//*[@id='Card_SecurityCode']")).SendKeys(str14);

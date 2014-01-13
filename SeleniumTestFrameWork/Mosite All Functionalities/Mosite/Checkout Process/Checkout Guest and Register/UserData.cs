@@ -10,7 +10,9 @@ namespace MoBankUI.Mosite
 {
     internal class UserDataTps : Driverdefining
     {
+/*
         private readonly Screenshot screenshot = new Screenshot();
+*/
 
         public void userdata_TPS(IWebDriver driver, Datarow datarow)
         {
@@ -58,7 +60,7 @@ namespace MoBankUI.Mosite
             try
             {
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                var myDynamicElement8 = driver.FindElement(By.XPath(submitbutton));
+                driver.FindElement(By.XPath(submitbutton));
 
                 var count = GetXpathCount(driver, field);
                 if (count == 0)
@@ -87,7 +89,6 @@ namespace MoBankUI.Mosite
                         try
                         {
                             var j = i - 1;
-                            var id = "id=" + fieldcountry + "" + j + "" + countryvalue + "";
                             var con =
                                 driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + ""));
                             IList<IWebElement> countries = con.FindElements(By.TagName("option"));
@@ -104,15 +105,10 @@ namespace MoBankUI.Mosite
                                         .SelectByText(value.Text);
                                     break;
                                 }
-                                try
-                                {
-                                    values = values + "\r\n" + value;
-                                    // new SelectElement(driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + "")))  new SelectElement(driver.FindElement(By.Id(""))).SelectByText("");ByText(value);
-                                }
-                                catch (Exception EX)
-                                {
-                                    var E = EX.ToString();
-                                }
+
+                                values = values + "\r\n" + value;
+                                // new SelectElement(driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + "")))  new SelectElement(driver.FindElement(By.Id(""))).SelectByText("");ByText(value);
+
                             }
                             datarow.newrow("Country Field", "", values, "PASS", driver);
                         }
@@ -161,11 +157,10 @@ namespace MoBankUI.Mosite
                 }
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-                var myDynamicElement9 = driver.FindElement(By.XPath(submitbutton));
+                driver.FindElement(By.XPath(submitbutton));
                 driver.FindElement(By.XPath(submitbutton)).Click();
 
 
-                var pagetitle = driver.Title;
                 var basval = driver.FindElement(By.Id("BasketInfo")).Text;
 
                 // Terms and Conditions
@@ -175,7 +170,7 @@ namespace MoBankUI.Mosite
                 }
                 //Submit button
                 if (IsElementPresent(driver, By.XPath(submitterms)))
-                    //*[@id="main-page"]/div[9]/div/div[2]/div/button
+                //*[@id="main-page"]/div[9]/div/div[2]/div/button
                 {
                     //html/body/div/div[7]/div/div[2]/div/button
                     driver.FindElement(By.XPath(submitterms)).Click();

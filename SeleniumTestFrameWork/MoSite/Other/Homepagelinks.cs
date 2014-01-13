@@ -20,8 +20,7 @@ namespace MoBankUI.MoSite.Other
                 var table = excelData.Tables[0];
                 var actual = table.Rows[num2]["HomePageLinks"].ToString();
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
-                var element =
-                    driver.FindElement(By.XPath("//html/body/div/div[2]/div/ul/li[" + i + "]/div/div/a/h2"));
+                driver.FindElement(By.XPath("//html/body/div/div[2]/div/ul/li[" + i + "]/div/div/a/h2"));
                 driver.FindElement(By.XPath("//html/body/div/div[2]/div/ul/li[" + i + "]/div/div/a/h2")).Click();
 
                 var expected = driver.Title;

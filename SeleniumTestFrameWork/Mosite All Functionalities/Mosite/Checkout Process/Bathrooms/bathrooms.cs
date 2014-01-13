@@ -78,7 +78,6 @@ namespace MoBankUI.Mosite.Bathrooms
 
 
             Assert.AreEqual("Secure Payment Page", driver.Title);
-            var title = driver.Title;
         }
     }
 }

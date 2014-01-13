@@ -57,9 +57,8 @@ namespace MoBankUI.Mosite.Product
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var e = ex.ToString();
             }
 
             #endregion
