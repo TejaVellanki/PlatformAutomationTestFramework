@@ -12,7 +12,7 @@ namespace MoBankUI
             #region HomePage Validations
 
             driver.Navigate().GoToUrl("http://tablet.mobankdev.com");
-            var Driver = new Driverdefining();
+            new Driverdefining();
 
             var title = driver.Title;
             //Validating the Home page title. 

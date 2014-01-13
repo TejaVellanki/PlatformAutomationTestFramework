@@ -17,7 +17,7 @@ namespace MoBankUI.Mosite
         {
             try
             {
-                var blob = new BlobStorage();
+                new BlobStorage();
                 // blob.Blob(driver,datarow, url);
 
 
