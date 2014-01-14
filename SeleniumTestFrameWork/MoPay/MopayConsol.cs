@@ -41,13 +41,13 @@ namespace MoBankUI.MoPay
                 else if (driver.PageSource.Contains("Server Error in '/' Application."))
                 {
                     _datarow.newrow("HomeTitle", "Manage : mopowered.co.uk", "Server Error", "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 else
                 {
                     _datarow.newrow("HomeTitle", "Manage : mopowered.co.uk", actual, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15.0));
@@ -64,7 +64,7 @@ namespace MoBankUI.MoPay
                     if (driver.PageSource.Contains("Server Error in '/' Application."))
                     {
                         _datarow.newrow("HomeTitle", "Manage : mopowered.co.uk", "Server Error", "FAIL", driver);
-                        _screenshot.screenshotfailed(driver);
+                        _screenshot.Screenshotfailed(driver);
                         driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                     }
                     else
@@ -72,7 +72,7 @@ namespace MoBankUI.MoPay
                         _datarow.newrow("Accounts Tab", "Accounts Tab- Link Not Present", "Accounts Tab Link Present",
                                         "FAIL", driver);
                     }
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
 
@@ -84,7 +84,7 @@ namespace MoBankUI.MoPay
                 else
                 {
                     _datarow.newrow("Accounts Title", "Accounts : mopowered.co.uk", str3, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
@@ -99,7 +99,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("Transaction Tab", "Transaction- Link Not Present", "Transaction Link Present",
                                     "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
 
@@ -115,7 +115,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("Transactions Title", "Transactions : mopowered.co.uk", str4, "FAIL", driver
                         );
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
@@ -132,7 +132,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("Providers Tab", "Providers Tab- Link Not Present", "Providers Tab Link Present",
                                     "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
 
@@ -144,7 +144,7 @@ namespace MoBankUI.MoPay
                 else
                 {
                     _datarow.newrow("Providers Title", "Providers : mopowered.co.uk", str5, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
@@ -159,7 +159,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("Card Type Tab", "Card Type Tab- Link Not Present", "Card Type Tab Link Present",
                                     "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
 
@@ -171,7 +171,7 @@ namespace MoBankUI.MoPay
                 else
                 {
                     _datarow.newrow("Card Type Title", "Card Types : mopowered.co.uk", str6, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
@@ -186,7 +186,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("Documentation Tab", "Documentation Tab- Link Not Present",
                                     "Documentation Tab Link Present", "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
 
@@ -200,7 +200,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("Documentation Title", "Documentation : mopowered.co.uk", str7, "FAIL", driver
                         );
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
@@ -215,7 +215,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("Service Methods Tab", "Service Methods Tab- Link Not Presnt",
                                     "Service Methods Tab Link Present", "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
 
@@ -229,7 +229,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("Service Methods Title", "Service Methods : mopowered.co.uk", str8, "FAIL", driver
                         );
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
@@ -244,7 +244,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("Payment Tab", "Payment Tab- Link Not Presnt", "Payment Tab Link Present", "FAIL",
                                     driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
 
@@ -258,7 +258,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("Payment Pages Title", "Payment Pages : mopowered.co.uk", str9, "FAIL", driver
                         );
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
@@ -273,7 +273,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("Objects Tab", "Objects Tab - Link Not Presnt", "Objects Tab Link Present", "FAIL",
                                     driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
 
@@ -285,7 +285,7 @@ namespace MoBankUI.MoPay
                 else
                 {
                     _datarow.newrow("Objects Page Title", "Objects - : mopowered.co.uk", str10, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
@@ -302,7 +302,7 @@ namespace MoBankUI.MoPay
                     _datarow.newrow("Security Tab", "Security Tab - Link Not Presnt", "Security Tab Link Present",
                                     "FAIL",
                                     driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
 
@@ -314,7 +314,7 @@ namespace MoBankUI.MoPay
                 else
                 {
                     _datarow.newrow("Security Page Title", "Title : mopowered.co.uk", str11, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
@@ -329,7 +329,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("User  Tab", "User Tab - Link Not Presnt", " User Tab Link Present", "FAIL", driver
                         );
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
 
@@ -341,7 +341,7 @@ namespace MoBankUI.MoPay
                 else
                 {
                     _datarow.newrow("User Page Title", "Users : mopowered.co.uk", str12, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
@@ -356,7 +356,7 @@ namespace MoBankUI.MoPay
                 {
                     _datarow.newrow("Groups Tab", "Groups Tab - Link Not Presnt", "Groups Tab Link Present", "FAIL",
                                     driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
 
@@ -368,7 +368,7 @@ namespace MoBankUI.MoPay
                 else
                 {
                     _datarow.newrow("Groups Page Title", "Groups : mopowered.co.uk", str13, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
@@ -377,7 +377,7 @@ namespace MoBankUI.MoPay
             catch (Exception exception)
             {
                 Console.Write(exception);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
                 _datarow.excelsave("MoPayConsole", driver, "teja.vellanki@mobankgroup.com");
             }
         }
@@ -395,7 +395,7 @@ namespace MoBankUI.MoPay
                 _datarow.newrow("Link Present -Mopowered", "Mopowered- Link Not Presnt", "Mopowered Link Present",
                                 "FAIL",
                                 driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
                 driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
             }
         }

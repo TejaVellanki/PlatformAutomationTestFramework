@@ -98,7 +98,7 @@ namespace MoBankUI.MoPay
                             else
                             {
                                 datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL", driver);
-                                _screenshot.screenshotfailed(driver);
+                                _screenshot.Screenshotfailed(driver);
                             }
                             if (str6 == "webservices@mobankgroup.com")
                             {
@@ -107,7 +107,7 @@ namespace MoBankUI.MoPay
                             else
                             {
                                 datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "FAIL", driver);
-                                _screenshot.screenshotfailed(driver);
+                                _screenshot.Screenshotfailed(driver);
                             }
                             if (expected == "wj3JWWFX")
                             {
@@ -116,7 +116,7 @@ namespace MoBankUI.MoPay
                             else
                             {
                                 datarow.newrow("Password", expected, "wj3JWWFX", "FAIL", driver);
-                                _screenshot.screenshotfailed(driver);
+                                _screenshot.Screenshotfailed(driver);
                             }
                             break;
                         }
@@ -208,7 +208,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL", driver);
-                            _screenshot.screenshotfailed(driver);
+                            _screenshot.Screenshotfailed(driver);
                         }
                         if (str6 == "secret")
                         {
@@ -217,7 +217,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             datarow.newrow("PayProviderPassword", str6, "secret", "FAIL", driver);
-                            _screenshot.screenshotfailed(driver);
+                            _screenshot.Screenshotfailed(driver);
                         }
                         break;
                 }
@@ -278,7 +278,7 @@ namespace MoBankUI.MoPay
                     else
                     {
                         datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL", driver);
-                        _screenshot.screenshotfailed(driver);
+                        _screenshot.Screenshotfailed(driver);
                     }
                     if (str6 == str2)
                     {
@@ -287,7 +287,7 @@ namespace MoBankUI.MoPay
                     else
                     {
                         datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "FAIL", driver);
-                        _screenshot.screenshotfailed(driver);
+                        _screenshot.Screenshotfailed(driver);
                     }
                 }
                 driver.FindElement(By.Id("CardTypes_0____selector")).Click();

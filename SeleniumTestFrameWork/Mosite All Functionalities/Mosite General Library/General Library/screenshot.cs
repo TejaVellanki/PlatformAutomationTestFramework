@@ -34,7 +34,7 @@ namespace MoBankUI
             }
         }
 
-        public void screenshotfailed(IWebDriver driver)
+        public void Screenshotfailed(IWebDriver driver)
         {
             using (var b = new Bitmap(100, 100))
             {

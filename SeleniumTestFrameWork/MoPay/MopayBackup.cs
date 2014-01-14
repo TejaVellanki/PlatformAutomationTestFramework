@@ -40,7 +40,7 @@ namespace MoBankUI.MoPay
             {
                 var actual = driver.Url;
                 _datarow.newrow("Checkout", "Server Error", actual, "FAIL", driver);
-                new Screenshot().screenshotfailed(driver);
+                new Screenshot().Screenshotfailed(driver);
                 driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
             }
         }
@@ -172,7 +172,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("Card Number", str13, "No Error Message Displayed", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         _datarow.newrow("Card Type", expected, expected, "PASS", driver);
                         var regex = new Regex("^[0-9]{3}$");
@@ -190,7 +190,7 @@ namespace MoBankUI.MoPay
                         {
                             _datarow.newrow("Security Code", str14, "No Error Message Displayed", "FAIL", driver
                                 );
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         if (Regex.IsMatch(str16, "^[a-zA-Z'']"))
                         {
@@ -203,7 +203,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("Name on Card", str16, "No Error Message Displayed", "PASS", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         if (Regex.IsMatch(input, "^[a-zA-Z'']"))
                         {
@@ -217,7 +217,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("First Name", input, "No Error Message Displayed", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         if (Regex.IsMatch(str12, "^[a-zA-Z'']"))
                         {
@@ -231,7 +231,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("Last Name", str12, "No Error message Displayed", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         if (Regex.IsMatch(str20, "^[a-zA-Z0-9'']"))
                         {
@@ -244,7 +244,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("Address", str20, "No Error message Displayed", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         if (Regex.IsMatch(str22, "^[a-zA-Z0-9'']"))
                         {
@@ -258,7 +258,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("Post Code", str22, "No Error Message Displayed", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         if (Regex.IsMatch(str24, "^[a-zA-Z'']"))
                         {
@@ -271,7 +271,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("Country", str24, "No Error Message", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         var title = driver.Title;
                         if (title == "Secure Payment Page") continue;
@@ -300,7 +300,7 @@ namespace MoBankUI.MoPay
                 var actual = exception2.ToString();
                 var screenshot2 = new Screenshot();
                 _datarow.newrow("Checkout", "Server Error", actual, "FAIL", driver);
-                screenshot2.screenshotfailed(driver);
+                screenshot2.Screenshotfailed(driver);
             }
             finally
             {
@@ -327,7 +327,7 @@ namespace MoBankUI.MoPay
             {
                 var actual = driver.Url;
                 _datarow.newrow("Checkout", "Server Error", actual, "FAIL", driver);
-                new Screenshot().screenshotfailed(driver);
+                new Screenshot().Screenshotfailed(driver);
                 driver.Navigate().GoToUrl("http://devpaytest.mobankdev.com/");
             }
         }

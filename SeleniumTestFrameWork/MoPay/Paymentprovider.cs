@@ -42,7 +42,7 @@ namespace MoBankUI.MoPay
             else
             {
                 datarow.newrow("3Dsecure", "OFF", actual, "FAIL", driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
             }
             driver.FindElement(By.CssSelector("input.button")).Click();
 
@@ -118,7 +118,7 @@ namespace MoBankUI.MoPay
                 if (str17 == "false")
                 {
                     datarow.newrow("Card1", "off", str17, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
                 else
                 {
@@ -131,7 +131,7 @@ namespace MoBankUI.MoPay
                 if (str18 == "false")
                 {
                     datarow.newrow("Card2", "off", str18, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
                 else
                 {
@@ -143,7 +143,7 @@ namespace MoBankUI.MoPay
             if (str19 == "true")
             {
                 datarow.newrow("Card3", "on", str19, "FAIL", driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
             }
             else
             {

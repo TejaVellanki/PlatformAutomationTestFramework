@@ -42,7 +42,7 @@ namespace MoBankUI.MoPay
                 else
                 {
                     datarow.newrow("Successful Transaction Option", "on", attribute, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
             }
             var actual = driver.FindElement(By.Id("SendDailyReports")).GetAttribute("value");

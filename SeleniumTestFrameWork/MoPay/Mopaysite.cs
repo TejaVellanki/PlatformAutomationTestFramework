@@ -130,7 +130,7 @@ namespace MoBankUI.MoPay
                     else
                     {
                         datarow.newrow("Card Number", str5, "No Error Message Displayed", "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                     datarow.newrow("Card Type", "Visa Debit", "Visa Debit", "PASS", driver);
                     var regex = new Regex("^[0-9]{3}$");
@@ -146,7 +146,7 @@ namespace MoBankUI.MoPay
                     else
                     {
                         datarow.newrow("Security Code", str6, "No Error Message Displayed", "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(str8, "^[a-zA-Z'']"))
                     {
@@ -159,7 +159,7 @@ namespace MoBankUI.MoPay
                     else
                     {
                         datarow.newrow("Name on Card", str8, "No Error Message Displayed", "PASS", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(input, "^[a-zA-Z'']"))
                     {
@@ -173,7 +173,7 @@ namespace MoBankUI.MoPay
                     else
                     {
                         datarow.newrow("First Name", input, "No Error Message Displayed", "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(str4, "^[a-zA-Z'']"))
                     {
@@ -186,7 +186,7 @@ namespace MoBankUI.MoPay
                     else
                     {
                         datarow.newrow("Last Name", str4, "No Error message Displayed", "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(str13, "^[a-zA-Z0-9'']"))
                     {
@@ -199,7 +199,7 @@ namespace MoBankUI.MoPay
                     else
                     {
                         datarow.newrow("Address", str13, "No Error message Displayed", "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(str15, "^[a-zA-Z0-9'']"))
                     {
@@ -212,7 +212,7 @@ namespace MoBankUI.MoPay
                     else
                     {
                         datarow.newrow("Post Code", str15, "No Error Message Displayed", "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(str17, "^[a-zA-Z'']"))
                     {
@@ -225,7 +225,7 @@ namespace MoBankUI.MoPay
                     else
                     {
                         datarow.newrow("Country", str17, "No Error Message", "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                     if (driver.Title == "Secure Payment Page")
                     {
@@ -254,7 +254,7 @@ namespace MoBankUI.MoPay
                     var str23 = exception2.ToString();
                     var screenshot2 = new Screenshot();
                     datarow.newrow("Exception", "Exceptio not Expected", str23, "FAIL", driver);
-                    screenshot2.screenshotfailed(driver);
+                    screenshot2.Screenshotfailed(driver);
                 }
             }
         }

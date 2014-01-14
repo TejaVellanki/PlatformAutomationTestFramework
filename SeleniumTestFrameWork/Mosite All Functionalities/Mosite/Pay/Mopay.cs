@@ -308,7 +308,7 @@ namespace MoBankUI.Mosite.Pay
                     else
                     {
                         datarow.newrow("Card Number", CardNumber, "No Error Message Displayed", "FAIL", driver);
-                        screenshot1.screenshotfailed(driver);
+                        screenshot1.Screenshotfailed(driver);
                     }
 
 
@@ -322,7 +322,7 @@ namespace MoBankUI.Mosite.Pay
                         {
                             datarow.newrow("Card Type", CardType, CardType, "FAIL", driver);
 
-                            screenshot1.screenshotfailed(driver);
+                            screenshot1.Screenshotfailed(driver);
                         }
                     }
 
@@ -348,7 +348,7 @@ namespace MoBankUI.Mosite.Pay
                         datarow.newrow("Security Code", SecurityCode, "No Error Message Displayed", "FAIL", driver
                             );
 
-                        screenshot1.screenshotfailed(driver);
+                        screenshot1.Screenshotfailed(driver);
                     }
 
                     if (Regex.IsMatch(NameonCard, "^[a-zA-Z'']"))
@@ -364,7 +364,7 @@ namespace MoBankUI.Mosite.Pay
                         datarow.newrow("Name on Card", NameonCard, "No Error Message Displayed", "PASS", driver
                             );
 
-                        screenshot1.screenshotfailed(driver);
+                        screenshot1.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(FirstName, "^[a-zA-Z'']"))
                     {
@@ -380,7 +380,7 @@ namespace MoBankUI.Mosite.Pay
                     {
                         datarow.newrow("First Name", FirstName, "No Error Message Displayed", "FAIL", driver);
 
-                        screenshot1.screenshotfailed(driver);
+                        screenshot1.Screenshotfailed(driver);
                     }
 
                     if (Regex.IsMatch(LastName, "^[a-zA-Z'']"))
@@ -396,7 +396,7 @@ namespace MoBankUI.Mosite.Pay
                     {
                         datarow.newrow("Last Name", LastName, "No Error message Displayed", "FAIL", driver);
 
-                        screenshot1.screenshotfailed(driver);
+                        screenshot1.Screenshotfailed(driver);
                     }
 
                     if (Regex.IsMatch(Address, "^[a-zA-Z0-9'']"))
@@ -411,7 +411,7 @@ namespace MoBankUI.Mosite.Pay
                     {
                         datarow.newrow("Address", Address, "No Error message Displayed", "FAIL", driver);
 
-                        screenshot1.screenshotfailed(driver);
+                        screenshot1.Screenshotfailed(driver);
                     }
 
                     if (Regex.IsMatch(PostCode, "^[a-zA-Z0-9'']"))
@@ -427,7 +427,7 @@ namespace MoBankUI.Mosite.Pay
                     {
                         datarow.newrow("Post Code", PostCode, "No Error Message Displayed", "FAIL", driver);
 
-                        screenshot1.screenshotfailed(driver);
+                        screenshot1.Screenshotfailed(driver);
                     }
 
                     if (Regex.IsMatch(Country, "^[a-zA-Z'']"))
@@ -441,7 +441,7 @@ namespace MoBankUI.Mosite.Pay
                     else
                     {
                         datarow.newrow("Country", Country, "No Error Message", "FAIL", driver);
-                        screenshot1.screenshotfailed(driver);
+                        screenshot1.Screenshotfailed(driver);
                     }
 
                     #endregion
@@ -477,7 +477,7 @@ namespace MoBankUI.Mosite.Pay
                     var ex = e.ToString();
                     var scree = new Screenshot();
                     datarow.newrow("Exception", "Exceptio not Expected", ex, "FAIL", driver);
-                    scree.screenshotfailed(driver);
+                    scree.Screenshotfailed(driver);
                 }
             }
         }

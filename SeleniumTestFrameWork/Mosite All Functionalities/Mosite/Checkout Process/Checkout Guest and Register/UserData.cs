@@ -136,7 +136,7 @@ namespace MoBankUI.Mosite
                         var e = ex.ToString();
                         datarow.newrow("Email Field Exception", "Exception Not Expected", e, "FAIL", driver
                             );
-                        screenshot1.screenshotfailed(driver);
+                        screenshot1.Screenshotfailed(driver);
                     }
 
                     #endregion
@@ -146,7 +146,7 @@ namespace MoBankUI.Mosite
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL", driver);
-                screenshot1.screenshotfailed(driver);
+                screenshot1.Screenshotfailed(driver);
             }
             try
             {
@@ -190,7 +190,7 @@ namespace MoBankUI.Mosite
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL", driver);
-                screenshot1.screenshotfailed(driver);
+                screenshot1.Screenshotfailed(driver);
             }
         }
     }

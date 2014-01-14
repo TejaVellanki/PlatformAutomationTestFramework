@@ -32,14 +32,14 @@ namespace MoBankUI.Mosite.Product
                 {
                     producttitle = CollectionMapV2.Producttitle;
                     addToBasket = CollectionMapV2.addtobasket;
-                    checkout = CollectionMapV2.checkout;
+                    checkout = CollectionMapV2.Checkout;
                     basketvalue = BasketV2.basketvalue;
                 }
                 else
                 {
                     producttitle = CollectionMapV1.Producttitle;
-                    addToBasket = CollectionMapV1.addtobasket;
-                    checkout = CollectionMapV1.checkout;
+                    addToBasket = CollectionMapV1.Addtobasket;
+                    checkout = CollectionMapV1.Checkout;
                     basketvalue = BasketV1.basketvalue;
                 }
 
@@ -202,7 +202,7 @@ namespace MoBankUI.Mosite.Product
                 {
                     var e = ex.ToString();
                     datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected", e, "FAIL", driver);
-                    screenshot1.screenshotfailed(driver);
+                    screenshot1.Screenshotfailed(driver);
                 }
 
 
@@ -215,7 +215,7 @@ namespace MoBankUI.Mosite.Product
                 else
                 {
                     datarow.newrow("Basket Value", "(1)", basval, "FAIL", driver);
-                    screenshot1.screenshotfailed(driver);
+                    screenshot1.Screenshotfailed(driver);
                 }
 
                 //Footer_TPS footer = new Footer_TPS();
@@ -250,7 +250,7 @@ namespace MoBankUI.Mosite.Product
                     else
                     {
                         datarow.newrow("Basket Value", "(4)", value1, "FAIL", driver);
-                        screenshot1.screenshotfailed(driver);
+                        screenshot1.Screenshotfailed(driver);
                     }
                 }
                 new SelectElement(driver.FindElement(By.Id("Items_0__Quantity")));
@@ -259,7 +259,7 @@ namespace MoBankUI.Mosite.Product
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
             }
         }
     }

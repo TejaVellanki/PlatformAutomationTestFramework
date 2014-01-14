@@ -42,7 +42,7 @@ namespace MoBankUI.MoShop
                 else
                 {
                     datarow.newrow("MoshopTitle", "Log On : mobank.co.uk/MoShop", actual, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.Id("Email")).Clear();
                 driver.FindElement(By.Id("Email")).SendKeys("teja.vellanki@mobankgroup.com");
@@ -60,7 +60,7 @@ namespace MoBankUI.MoShop
                 else
                 {
                     datarow.newrow("MoshopHomepageTitle", "mobank.co.uk/MoShop", str2, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
                 //Expanding Manage and Security
                 driver.FindElement(By.XPath("//li[@id='IndexMenuLeaf1']/span")).Click();
@@ -79,7 +79,7 @@ namespace MoBankUI.MoShop
                 else
                 {
                     datarow.newrow("Scrape Page", "Scrapes : mobank.co.uk/MoShop", str3, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
 
@@ -93,7 +93,7 @@ namespace MoBankUI.MoShop
                 else
                 {
                     datarow.newrow("Shops Page", "Scrapes : mobank.co.uk/MoShop", str4, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
 
@@ -109,7 +109,7 @@ namespace MoBankUI.MoShop
                 {
                     datarow.newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5,
                                    "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
 
@@ -123,7 +123,7 @@ namespace MoBankUI.MoShop
                 else
                 {
                     datarow.newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
 
@@ -138,7 +138,7 @@ namespace MoBankUI.MoShop
                 else
                 {
                     datarow.newrow("Global settings Page", "mobank.co.uk/MoShop", str7, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
 
@@ -152,7 +152,7 @@ namespace MoBankUI.MoShop
                 else
                 {
                     datarow.newrow("Security Page", "mobank.co.uk/MoShop", str8, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.CssSelector("#IndexMenu > ul > li > a")).Click();
 
@@ -172,7 +172,7 @@ namespace MoBankUI.MoShop
                 else
                 {
                     datarow.newrow("Account Page", "Teja Vellanki : mobank.co.uk/MoShop", str9, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
             }

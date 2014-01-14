@@ -205,7 +205,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("Card Number", str15, "No Error Message Displayed", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         _datarow.newrow("Card Type", expected, expected, "PASS", driver);
                         var regex = new Regex("^[0-9]{3}$");
@@ -223,7 +223,7 @@ namespace MoBankUI.MoPay
                         {
                             _datarow.newrow("Security Code", str16, "No Error Message Displayed", "FAIL", driver
                                 );
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         if (Regex.IsMatch(str18, "^[a-zA-Z'']"))
                         {
@@ -236,7 +236,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("Name on Card", str18, "No Error Message Displayed", "PASS", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         if (Regex.IsMatch(input, "^[a-zA-Z'']"))
                         {
@@ -250,7 +250,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("First Name", input, "No Error Message Displayed", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         if (Regex.IsMatch(str14, "^[a-zA-Z'']"))
                         {
@@ -264,7 +264,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("Last Name", str14, "No Error message Displayed", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         if (Regex.IsMatch(str22, "^[a-zA-Z0-9'']"))
                         {
@@ -277,7 +277,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("Address", str22, "No Error message Displayed", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         if (Regex.IsMatch(str24, "^[a-zA-Z0-9'']"))
                         {
@@ -291,7 +291,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("Post Code", str24, "No Error Message Displayed", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                         if (Regex.IsMatch(str26, "^[a-zA-Z'']"))
                         {
@@ -304,7 +304,7 @@ namespace MoBankUI.MoPay
                         else
                         {
                             _datarow.newrow("Country", str26, "No Error Message", "FAIL", driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
 
                         var Title = driver.Title;
@@ -341,7 +341,7 @@ namespace MoBankUI.MoPay
                 var str28 = exception2.ToString();
                 var screenshot2 = new Screenshot();
                 _datarow.newrow("Checkout", "Server Error", str28, "FAIL", driver);
-                screenshot2.screenshotfailed(driver);
+                screenshot2.Screenshotfailed(driver);
             }
             finally
             {

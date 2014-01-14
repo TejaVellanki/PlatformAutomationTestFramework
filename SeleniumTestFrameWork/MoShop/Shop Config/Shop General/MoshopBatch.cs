@@ -144,13 +144,13 @@ namespace MoBankUI.MoShop
             {
                 var str2 = exception.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", str2, "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                screenshot.Screenshotfailed(driver);
             }
 
             finally
             {
                 datarow.excelsave("MoshopConsole", driver, "teja.vellanki@mobankgroup.com");
-                screenshot.screenshotfailed(driver);
+                screenshot.Screenshotfailed(driver);
                 driver.Quit();
             }
         }

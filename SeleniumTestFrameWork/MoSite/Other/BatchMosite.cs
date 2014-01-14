@@ -62,12 +62,12 @@ namespace MoBankUI.MoSite.Other
             catch (Exception)
             {
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                screenshot.Screenshotfailed(driver);
             }
             finally
             {
                 datarow.excelsave("MoshopConsole", driver, "teja.vellanki@mobankgroup.com");
-                screenshot.screenshotfailed(driver);
+                screenshot.Screenshotfailed(driver);
                 driver.Quit();
             }
         }

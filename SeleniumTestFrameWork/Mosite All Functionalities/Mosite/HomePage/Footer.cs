@@ -22,7 +22,7 @@ namespace MoBankUI.Mosite.HomePage
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
             }
         }
 
@@ -82,7 +82,7 @@ namespace MoBankUI.Mosite.HomePage
                 {
                     var e = ex.ToString();
                     datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot.Screenshotfailed(driver);
                 }
 
                 try
@@ -108,7 +108,7 @@ namespace MoBankUI.Mosite.HomePage
                 {
                     var e = ex.ToString();
                     datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot.Screenshotfailed(driver);
                 }
 
                 try
@@ -133,7 +133,7 @@ namespace MoBankUI.Mosite.HomePage
                 {
                     var e = ex.ToString();
                     datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot.Screenshotfailed(driver);
                 }
                 try
                 {
@@ -156,20 +156,20 @@ namespace MoBankUI.Mosite.HomePage
                     {
                         datarow.newrow("Footer Element", "", "Footer Element Not Present" + mopowered, "FAIL", driver
                             );
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                 }
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
                     datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot.Screenshotfailed(driver);
                 }
             }
             catch (Exception)
             {
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
             }
 
             #endregion

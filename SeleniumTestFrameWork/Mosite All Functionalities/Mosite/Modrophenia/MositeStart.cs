@@ -27,7 +27,7 @@ namespace MoBankUI.Mosite.Modrophenia
                 var actual = exception.ToString();
                 var screenshot = new Screenshot();
                 _datarow.newrow("Exception", "Not Expected", actual, "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                screenshot.Screenshotfailed(driver);
             }
             finally
             {

@@ -28,7 +28,7 @@ namespace MoBankUI.Mosite.HomePage
                 {
                     var e = ex.ToString();
                     datarow.newrow("Basket Info Button", "Basket Info Button Is Expected", e, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
 
                 try
@@ -43,7 +43,7 @@ namespace MoBankUI.Mosite.HomePage
                         else
                         {
                             datarow.newrow("Basket Value", "(0)", value, "FAIL", driver);
-                            _screenshot.screenshotfailed(driver);
+                            _screenshot.Screenshotfailed(driver);
                         }
                     }
 
@@ -56,14 +56,14 @@ namespace MoBankUI.Mosite.HomePage
                     else
                     {
                         datarow.newrow("Basket Page Text", "Your basket is empty", basket, "FAIL", driver);
-                        _screenshot.screenshotfailed(driver);
+                        _screenshot.Screenshotfailed(driver);
                     }
                 }
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
                     datarow.newrow("Basket Info Text", "Basket Info Text Is Expected", e, "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
                 var basketurl = driver.Url;
                 var footer = new FooterTps();
@@ -73,7 +73,7 @@ namespace MoBankUI.Mosite.HomePage
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception", "Excepetion Not Expected", e, "FAIL", driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
             }
         }
     }

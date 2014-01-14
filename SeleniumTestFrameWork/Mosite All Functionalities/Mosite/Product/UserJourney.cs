@@ -40,10 +40,10 @@ namespace MoBankUI.Mosite.Product
                     productlink = CollectionMapV1.Productlink;
                 }
 
-                var Image = new Imagevalidation();
+                var image = new Imagevalidation();
                 new FooterTps();
 
-                Image.Homepageimage(driver, datarow);
+                image.Homepageimage(driver, datarow);
                 driver.Navigate().GoToUrl(url);
 
                 Thread.Sleep(5000);
@@ -53,7 +53,7 @@ namespace MoBankUI.Mosite.Product
                 driver.FindElement(By.XPath("" + categorylink + "" + cat + "")).Click();
 
                 // Activate After Debug
-                Image.categoryimage(driver, datarow);
+                image.categoryimage(driver, datarow);
 
                 // footer.Footer(driver, datarow);
                 GetXpathCount(driver, categorylink);
@@ -63,7 +63,7 @@ namespace MoBankUI.Mosite.Product
                 {
                     //*[@id="productList"]/article[1]/a/div[1]/img
                     // Category Image validation
-                    Image.categoryimage(driver, datarow);
+                    image.categoryimage(driver, datarow);
                     driver.FindElement(By.XPath("" + categorylink + "[" + 1 + "]" + cat + "")).Click();
 
                     if (IsElementPresent(driver, By.XPath("" + products + "[" + 1 + "]" + productlink + "")))
@@ -82,7 +82,7 @@ namespace MoBankUI.Mosite.Product
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Is Not Expected", e, "FAIL", driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
             }
         }
     }

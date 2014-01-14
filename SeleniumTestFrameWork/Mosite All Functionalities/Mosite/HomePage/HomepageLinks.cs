@@ -59,14 +59,14 @@ namespace MoBankUI.Mosite.HomePage
                     {
                         var e = ex.ToString();
                         datarow.newrow("Category Element Exception", "Exception Not Expected", e, "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                     var categorycount = GetXpathCount(driver, categorylink);
                     if (categorycount == 0)
                     {
                         datarow.newrow("Category Validation in  Page", "Atleast One Category/product",
                                        "No Categories/Products", "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                     //Running the loop through sub category pages. 
                     for (var k = 1; ; k++)
@@ -117,7 +117,7 @@ namespace MoBankUI.Mosite.HomePage
                                     var e = exc.ToString();
                                     datarow.newrow("Exception For Product Details", "Exception Not Expected", e, "FAIL",
                                                    driver);
-                                    screenshot.screenshotfailed(driver);
+                                    screenshot.Screenshotfailed(driver);
                                 }
                             }
 
@@ -141,7 +141,7 @@ namespace MoBankUI.Mosite.HomePage
                             var e = ex.ToString();
                             datarow.newrow("Category/Product Link Exception", "Exception Not Expected", e, "FAIL",
                                            driver);
-                            screenshot.screenshotfailed(driver);
+                            screenshot.Screenshotfailed(driver);
                         }
                     }
 
@@ -154,7 +154,7 @@ namespace MoBankUI.Mosite.HomePage
             catch (Exception)
             {
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                screenshot.Screenshotfailed(driver);
             }
         }
     }

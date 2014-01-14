@@ -97,7 +97,7 @@ namespace MoBankUI.Mosite
                     catch (Exception)
                     {
                         datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
-                        _screenshot.screenshotfailed(driver);
+                        _screenshot.Screenshotfailed(driver);
                     }
 
                     i++;
@@ -106,13 +106,13 @@ namespace MoBankUI.Mosite
             catch (Exception)
             {
                 datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
             }
 
             finally
             {
                 datarow.excelsave("Mosite", driver, "teja.vellanki@mobankgroup.com");
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
                 driver.Quit();
             }
         }

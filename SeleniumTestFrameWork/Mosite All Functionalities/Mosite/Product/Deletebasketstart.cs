@@ -17,7 +17,7 @@ namespace MoBankUI.Mosite.Product
             try
             {
                 var url = driver.PageSource;
-                var checkout = url.Contains("user-scalable=yes") ? CollectionMapV2.checkout : CollectionMapV1.checkout;
+                var checkout = url.Contains("user-scalable=yes") ? CollectionMapV2.Checkout : CollectionMapV1.Checkout;
 
                 var basket = new DeleteBasket();
                 basket.Basket(driver, datarow);
@@ -29,7 +29,7 @@ namespace MoBankUI.Mosite.Product
                     if (driver.PageSource.Contains("Product unavailable"))
                     {
                         datarow.newrow("Product Unavailable", "", "Product Unavilable", "FAIL", driver);
-                        _screenshot.screenshotfailed(driver);
+                        _screenshot.Screenshotfailed(driver);
                         productunavailabl(driver, l, datarow);
                         driver.FindElement(By.XPath(checkout)).Click();
                     }
@@ -44,7 +44,7 @@ namespace MoBankUI.Mosite.Product
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception", "Not Expected", e, "FAIL", driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
             }
         }
 
@@ -59,11 +59,11 @@ namespace MoBankUI.Mosite.Product
             if (url.Contains("user-scalable=yes"))
             {
                 deletebasket = CollectionMapV2.deletebasket;
-                homeimage = CollectionMapV2.homeimage;
+                homeimage = CollectionMapV2.Homeimage;
             }
             else
             {
-                deletebasket = CollectionMapV1.deletebasket;
+                deletebasket = CollectionMapV1.Deletebasket;
                 homeimage = CollectionMapV1.homeimage;
             }
 
@@ -123,7 +123,7 @@ namespace MoBankUI.Mosite.Product
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception", "Not Expected", e, "FAIL", driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
             }
         }
     }

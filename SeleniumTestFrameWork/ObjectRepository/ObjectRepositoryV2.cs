@@ -25,8 +25,8 @@
         public const string LowerFooter = "//*[@id='links']/div/div/div/a[1]/img";
         public const string poweredLink = "https://tablet.mobankdev.com/";
         public const string Search = "searchText";
-        public const string homeimage = "ui-link";
-        public const string checkout = "//a[@id='GoToCheckout']/span/span";
+        public const string Homeimage = "ui-link";
+        public const string Checkout = "//a[@id='GoToCheckout']/span/span";
         //*[@id="AddToBasketButton"]/div/div[2]/button
         public const string addtobasket = "//*[@id='AddToBasketButton']/div/div[2]/button";
         public const string deletebasket = "//form[@id='UpdateBasketForm']/ul/li/a/span";

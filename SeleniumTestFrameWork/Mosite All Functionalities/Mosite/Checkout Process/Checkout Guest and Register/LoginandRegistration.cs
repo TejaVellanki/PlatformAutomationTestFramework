@@ -29,7 +29,7 @@ namespace MoBankUI.Mosite
                 {
                     datarow.newrow("Login Name Element", "Login Name Field Is Expected",
                                    "Blocker-Login Name Field Is Not Present", "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot.Screenshotfailed(driver);
                 }
                 if (IsElementPresent(driver, By.XPath("//form[@id='ctl00']/section/div[2]/input"), 30))
                 {
@@ -47,7 +47,7 @@ namespace MoBankUI.Mosite
                 {
                     datarow.newrow("Login Password Element", "Login Password Field Is Expected",
                                    "Blocker - Login Password Field Is Not Present", "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot.Screenshotfailed(driver);
                 }
                 if (IsElementPresent(driver, By.XPath("//form[@id='ctl00']/section/div[3]/div/input"), 30))
                 {
@@ -61,7 +61,7 @@ namespace MoBankUI.Mosite
                 {
                     datarow.newrow("Login Element", "Login Button Is Expected", "Blocker - Login Button Is Not Present",
                                    "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot.Screenshotfailed(driver);
                 }
                 if (IsElementPresent(driver, By.Id("BasketInfo"), 30))
                 {
@@ -74,13 +74,13 @@ namespace MoBankUI.Mosite
                     else
                     {
                         datarow.newrow("Basket Value", "(1)", basvalue, "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                 }
                 else
                 {
                     datarow.newrow("Basket Value", "(1)", "No Basket Information", "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot.Screenshotfailed(driver);
                 }
 
                 if (IsElementPresent(driver,
@@ -138,14 +138,14 @@ namespace MoBankUI.Mosite
                     {
                         var e = ex.ToString();
                         datarow.newrow("Exception", "exception Not Expected", e, "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                 }
                 var loc = driver.Url;
                 if (loc.Contains("Error"))
                 {
                     datarow.newrow("Error Page", "Error Page After Logging Not Expected", loc, "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot.Screenshotfailed(driver);
                 }
 
 
@@ -179,14 +179,14 @@ namespace MoBankUI.Mosite
                     {
                         var loca = driver.Url;
                         datarow.newrow("Delivery Method", "Unexpected Format", loca, "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                 }
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
                     datarow.newrow("Delivery Method Exception", "Exception Not Expected", e, "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot.Screenshotfailed(driver);
                 }
                 // Click continue to next page 
                 try
@@ -201,14 +201,14 @@ namespace MoBankUI.Mosite
                     {
                         datarow.newrow("Continue Button in Checkout Page", "Error Not Expected",
                                        "Pagecontent_ButtonCheckoutStep2-Element Not Present", "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                 }
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
                     datarow.newrow("Continue Button Exception", "Exception Not Expected", e, "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot.Screenshotfailed(driver);
                 }
                 //Pay Button
                 try
@@ -224,21 +224,21 @@ namespace MoBankUI.Mosite
                     {
                         datarow.newrow("Confirm Button in Checkout page", "Error Not Expected",
                                        "Pagecontent_ButtonConfirmCheckout - Element Not Present", "FAIL", driver);
-                        screenshot.screenshotfailed(driver);
+                        screenshot.Screenshotfailed(driver);
                     }
                 }
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
                     datarow.newrow("Pay Button Exception", "Exception Not Expected", e, "FAIL", driver);
-                    screenshot.screenshotfailed(driver);
+                    screenshot.Screenshotfailed(driver);
                 }
             }
             catch (Exception ex)
             {
                 var exc = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", exc, "FAIL", driver);
-                screenshot.screenshotfailed(driver);
+                screenshot.Screenshotfailed(driver);
             }
         }
     }

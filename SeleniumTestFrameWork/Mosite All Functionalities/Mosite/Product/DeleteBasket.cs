@@ -15,7 +15,7 @@ namespace MoBankUI.Mosite.Product
             try
             {
                 var url = driver.PageSource;
-                var deletebasket = url.Contains("user-scalable=yes") ? CollectionMapV2.deletebasket : CollectionMapV1.deletebasket;
+                var deletebasket = url.Contains("user-scalable=yes") ? CollectionMapV2.deletebasket : CollectionMapV1.Deletebasket;
                 /*
                 if (IsElementPresent(driver,By.XPath("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span"),05))
                 {
@@ -34,14 +34,14 @@ namespace MoBankUI.Mosite.Product
                 {
                     datarow.newrow("Delete From Basket", "Delete Basket Element Expected",
                                    "//ul[@id='Basket']/li/a/span" + "Element Not Present", "FAIL", driver);
-                    _screenshot.screenshotfailed(driver);
+                    _screenshot.Screenshotfailed(driver);
                 }
             }
             catch (Exception ex)
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
             }
         }
 
@@ -60,7 +60,7 @@ namespace MoBankUI.Mosite.Product
                 categorylink = CollectionMapV2.Categorylink;
                 cat = CollectionMapV2.Cat;
                 products = CollectionMapV2.Products;
-                homeimage = CollectionMapV2.homeimage;
+                homeimage = CollectionMapV2.Homeimage;
                 productlink = CollectionMapV2.Productlink;
             }
             else
@@ -84,7 +84,7 @@ namespace MoBankUI.Mosite.Product
                     else
                     {
                         datarow.newrow("Delete Basket Value", "(0)", value, "FAIL", driver);
-                        _screenshot.screenshotfailed(driver);
+                        _screenshot.Screenshotfailed(driver);
                     }
                 }
                 //.Click("//*[@id='UpdateBasketForm']/div/div[2]/a/span/span");
@@ -126,7 +126,7 @@ namespace MoBankUI.Mosite.Product
             {
                 var e = ex.ToString();
                 datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
-                _screenshot.screenshotfailed(driver);
+                _screenshot.Screenshotfailed(driver);
             }
         }
     }
