@@ -24,7 +24,7 @@ namespace MoBankUI.MoPay
             var attribute = driver.FindElement(By.Id("SendSuccessfulTransactionReports")).GetAttribute("value");
             if (attribute == "true")
             {
-                datarow.newrow("Successful Transaction Option", "on", attribute, "PASS", driver);
+                datarow.Newrow("Successful Transaction Option", "on", attribute, "PASS", driver);
                 driver.FindElement(By.Id("SuccessfulTransactionReportEmail")).Clear();
                 driver.FindElement(By.Id("SuccessfulTransactionReportEmail")).SendKeys(str3);
             }
@@ -35,61 +35,61 @@ namespace MoBankUI.MoPay
 
                 if (driver.FindElement(By.Id("SendSuccessfulTransactionReports")).GetAttribute("value") == "true")
                 {
-                    datarow.newrow("Successful Transaction Option", "on", attribute, "PASS", driver);
+                    datarow.Newrow("Successful Transaction Option", "on", attribute, "PASS", driver);
                     driver.FindElement(By.Id("SuccessfulTransactionReportEmail")).Clear();
                     driver.FindElement(By.Id("SuccessfulTransactionReportEmail")).SendKeys(str3);
                 }
                 else
                 {
-                    datarow.newrow("Successful Transaction Option", "on", attribute, "FAIL", driver);
+                    datarow.Newrow("Successful Transaction Option", "on", attribute, "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
             }
             var actual = driver.FindElement(By.Id("SendDailyReports")).GetAttribute("value");
             if (actual == "true")
             {
-                datarow.newrow("Daily Email", "on", actual, "PASS", driver);
+                datarow.Newrow("Daily Email", "on", actual, "PASS", driver);
                 driver.FindElement(By.Id("DailyReportEmail")).Clear();
                 driver.FindElement(By.Id("DailyReportEmail")).SendKeys(str4);
             }
             else
             {
-                datarow.newrow("Daily Email", "off", actual, "PASS", driver);
+                datarow.Newrow("Daily Email", "off", actual, "PASS", driver);
                 driver.FindElement(By.Id("SendDailyReports")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
                 str10 = driver.FindElement(By.Id("SendDailyReports")).GetAttribute("value");
-                datarow.newrow("Daily Email", "ON", str10, str10 == "true" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Daily Email", "ON", str10, str10 == "true" ? "PASS" : "FAIL", driver);
             }
             if (driver.FindElement(By.Id("SendWeeklyReports")).GetAttribute("value") == "true")
             {
-                datarow.newrow("Weekly Email", "on", actual, "PASS", driver);
+                datarow.Newrow("Weekly Email", "on", actual, "PASS", driver);
                 driver.FindElement(By.Id("WeeklyReportEmail")).Clear();
                 driver.FindElement(By.Id("WeeklyReportEmail")).SendKeys(str5);
             }
             else
             {
-                datarow.newrow("Weekly Email", "off", actual, "PASS", driver);
+                datarow.Newrow("Weekly Email", "off", actual, "PASS", driver);
                 driver.FindElement(By.Id("SendWeeklyReports")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
                 str10 = driver.FindElement(By.Id("SendWeeklyReports")).GetAttribute("value");
-                datarow.newrow("Weekly Email", "ON", str10, str10 == "true" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Weekly Email", "ON", str10, str10 == "true" ? "PASS" : "FAIL", driver);
             }
             if (driver.FindElement(By.Id("SendMonthlyReports")).GetAttribute("value") == "true")
             {
-                datarow.newrow("Weekly Email", "on", actual, "PASS", driver);
+                datarow.Newrow("Weekly Email", "on", actual, "PASS", driver);
                 driver.FindElement(By.Id("MonthlyReportEmail")).Clear();
                 driver.FindElement(By.Id("MonthlyReportEmail")).SendKeys(str5);
             }
             else
             {
-                datarow.newrow("Monthly Email", "off", actual, "PASS", driver);
+                datarow.Newrow("Monthly Email", "off", actual, "PASS", driver);
                 driver.FindElement(By.Id("SendMonthlyReports")).Click();
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
                 str10 = driver.FindElement(By.Id("SendMonthlyReports")).GetAttribute("value");
-                datarow.newrow("Monthly Email", "ON", str10, str10 == "true" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Monthly Email", "ON", str10, str10 == "true" ? "PASS" : "FAIL", driver);
             }
             new SelectElement(driver.FindElement(By.Id("Notifications_1__Event"))).SelectByText("Pay");
             driver.FindElement(By.Id("Notifications_0__Url")).Clear();
@@ -103,8 +103,8 @@ namespace MoBankUI.MoPay
 
             var str13 = driver.FindElement(By.Id("Notifications_1__Url")).GetAttribute("Value");
             var str14 = driver.FindElement(By.Id("Notifications_2__Url")).GetAttribute("Value");
-            datarow.newrow("Pay Call Back URL", expected, str13, str13 == expected ? "PASS" : "FAIL", driver);
-            datarow.newrow("Token Call Back URL", str2, str14, str2 == str14 ? "PASS" : "FAIL", driver);
+            datarow.Newrow("Pay Call Back URL", expected, str13, str13 == expected ? "PASS" : "FAIL", driver);
+            datarow.Newrow("Token Call Back URL", str2, str14, str2 == str14 ? "PASS" : "FAIL", driver);
         }
     }
 }

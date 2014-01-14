@@ -32,7 +32,7 @@ namespace MoBankUI.Mosite
                 Console.Write(e);
                 var ex = e.ToString();
                 var scree = new Screenshot();
-                datarow.newrow("Exception", "Not Expected", ex, "FAIL", driver);
+                datarow.Newrow("Exception", "Not Expected", ex, "FAIL", driver);
                 scree.Screenshotfailed(driver);
             }
             finally

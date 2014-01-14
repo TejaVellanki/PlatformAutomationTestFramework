@@ -14,11 +14,11 @@ namespace MoBankUI.MoShop
         {
             try
             {
-                datarow.newrow("", "", "LOOK AND FEEL TAB", "", driver);
+                datarow.Newrow("", "", "LOOK AND FEEL TAB", "", driver);
                 driver.FindElement(By.LinkText("Look & Feel")).Click();
 
                 var actual = driver.Title;
-                datarow.newrow("LookAndFeel", "Look & Feel : mobank.co.uk/MoShop", actual,
+                datarow.Newrow("LookAndFeel", "Look & Feel : mobank.co.uk/MoShop", actual,
                     driver.Title == "Look & Feel : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
 
                 for (var i = 0; ; i++)
@@ -43,7 +43,7 @@ namespace MoBankUI.MoShop
                 if (attriute == "QA-TestShop")
                 {
 
-                    datarow.newrow("Customiastion Title", "QA-TestShop", attriute, "PASS", driver);
+                    datarow.Newrow("Customiastion Title", "QA-TestShop", attriute, "PASS", driver);
                     driver.FindElement(By.Id("Customisations_0__Title")).Click();
 
                     driver.FindElement(By.CssSelector("input.button")).Click();
@@ -51,7 +51,7 @@ namespace MoBankUI.MoShop
                     driver.FindElement(By.XPath("(//a[contains(text(),'…')])[3]")).Click();
 
                     var str4 = driver.Title;
-                    datarow.newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4,
+                    datarow.Newrow("Customisation Title", "Customisation : mobank.co.uk/MoShop", str4,
                         str4 == "Customisation : mobank.co.uk/MoShop" ? "PASS" : "FAIL",
                         driver);
 
@@ -95,15 +95,15 @@ namespace MoBankUI.MoShop
                     var str7 = driver.FindElement(By.Id("OrderConfirmationSuccessMessage")).GetAttribute("Value");
                     var str8 = driver.FindElement(By.Id("OrderConfirmationFailureMessage")).GetAttribute("Value");
                     var str9 = driver.FindElement(By.Id("OrderConfirmationDeclinedMessage")).GetAttribute("Value");
-                    datarow.newrow("Link Replacement", "ticklecompany", str5, str5 == "ticklecompany" ? "PASS" : "FAIL",
+                    datarow.Newrow("Link Replacement", "ticklecompany", str5, str5 == "ticklecompany" ? "PASS" : "FAIL",
                         driver);
-                    datarow.newrow("Order Confirmation", "Your order number is {0}.", str6,
+                    datarow.Newrow("Order Confirmation", "Your order number is {0}.", str6,
                         str6 == "Your order number is {0}." ? "PASS" : "FAIL", driver);
-                    datarow.newrow("ConfirmSuccess", "Your order has been succesfull", str7,
+                    datarow.Newrow("ConfirmSuccess", "Your order has been succesfull", str7,
                         str7 == "Your order has been succesfull" ? "PASS" : "FAIL", driver);
-                    datarow.newrow("Confirm Failure", "Your order couldnot be processed.", str8,
+                    datarow.Newrow("Confirm Failure", "Your order couldnot be processed.", str8,
                         str8 == "Your order couldnot be processed." ? "PASS" : "FAIL", driver);
-                    datarow.newrow("Confirm Declined", "Your order couldnot be processed.", str9,
+                    datarow.Newrow("Confirm Declined", "Your order couldnot be processed.", str9,
                         str9 == "Your order couldnot be processed." ? "PASS" : "FAIL", driver);
 
                     #endregion
@@ -117,7 +117,7 @@ namespace MoBankUI.MoShop
 
                     var str10 =
                         driver.FindElement(By.Id("ExternalLinks_1__LinkReplacement")).GetAttribute("Value");
-                    datarow.newrow("Link Replacement1", "TheTickleCompany", str10,
+                    datarow.Newrow("Link Replacement1", "TheTickleCompany", str10,
                         str10 == "TheTickleCompany" ? "PASS" : "FAIL", driver);
                     driver.FindElement(By.CssSelector("input.button")).Click();
                 }
@@ -125,7 +125,7 @@ namespace MoBankUI.MoShop
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
             }
             new LookandFeelImages();
             //images.images(driver,datarow);

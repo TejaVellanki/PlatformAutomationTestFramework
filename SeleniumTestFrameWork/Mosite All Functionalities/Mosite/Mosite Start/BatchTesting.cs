@@ -34,40 +34,40 @@ namespace MoBankUI.Mosite
                 {
                     if (function == "Search")
                     {
-                        datarow.newrow("", "", "Search", "", driver);
+                        datarow.Newrow("", "", "Search", "", driver);
                         new Searchsort().Search(driver);
                     }
                     if (function == "Test All Links in Mosite")
                     {
-                        datarow.newrow("", "", "All Links in Mosite - Validations", "", driver);
+                        datarow.Newrow("", "", "All Links in Mosite - Validations", "", driver);
                         var hom = new LinksTps();
                         hom.Links(datarow, driver, url);
                         i++;
                     }
                     if (function == "Test Footer Links")
                     {
-                        datarow.newrow("", "", "Footer Links", "", driver);
+                        datarow.Newrow("", "", "Footer Links", "", driver);
                         var footer = new FooterTps();
                         footer.Footerhome(driver, url, datarow);
                         i++;
                     }
                     if (function == "Test Basket Functionality")
                     {
-                        datarow.newrow("", "", "Basket Functionality", "", driver);
+                        datarow.Newrow("", "", "Basket Functionality", "", driver);
                         var basket = new BasketsTps();
                         basket.Basket(driver, datarow, url);
                         i++;
                     }
                     if (function == "Test Product page - Test Add Product to Basket")
                     {
-                        datarow.newrow("", "", "User Journey", "", driver);
+                        datarow.Newrow("", "", "User Journey", "", driver);
                         var userjour = new UserJourneyTps();
                         userjour.UserJourn(datarow, driver, url);
                         i++;
                     }
                     if (function == "Test Delete From Basket - Test product Unavailable")
                     {
-                        datarow.newrow("", "", "Delete From Basket", "", driver);
+                        datarow.Newrow("", "", "Delete From Basket", "", driver);
                         var delete = new Deletebasketstart();
                         delete.Deletebasstart(driver, datarow);
                         i++;
@@ -81,7 +81,7 @@ namespace MoBankUI.Mosite
 
                     if (function == "Test Registration/Login - CheckOut Pages")
                     {
-                        datarow.newrow("", "", "Registration/Login", "", driver);
+                        datarow.Newrow("", "", "Registration/Login", "", driver);
                         var login = new LoginRegistration();
                         login.Registration(driver, datarow);
                         i++;
@@ -90,13 +90,13 @@ namespace MoBankUI.Mosite
                     if (function != "Test Mopay") continue;
                     try
                     {
-                        datarow.newrow("", "", "Mopay", "", driver);
+                        datarow.Newrow("", "", "Mopay", "", driver);
                         var pay = new BatchPay();
                         pay.Batchpay(driver, url, datarow);
                     }
                     catch (Exception)
                     {
-                        datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
+                        datarow.Newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                         _screenshot.Screenshotfailed(driver);
                     }
 
@@ -105,7 +105,7 @@ namespace MoBankUI.Mosite
             }
             catch (Exception)
             {
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
+                datarow.Newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                 _screenshot.Screenshotfailed(driver);
             }
 

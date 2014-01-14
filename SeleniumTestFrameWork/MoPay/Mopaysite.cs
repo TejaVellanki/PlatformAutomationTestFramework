@@ -25,13 +25,13 @@ namespace MoBankUI.MoPay
             try
             {
                 var actual = driver.FindElement(By.XPath("//div[@id='total-amount']/dl/dd")).Text;
-                datarow.newrow("Currency Validation", "\x00a3", actual, actual.Contains("\x00a3") ? "PASS" : "FAIL",
+                datarow.Newrow("Currency Validation", "\x00a3", actual, actual.Contains("\x00a3") ? "PASS" : "FAIL",
                     driver);
             }
             catch (Exception exception)
             {
                 var str2 = exception.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", str2, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Not Expected", str2, "FAIL", driver);
             }
             var num = 0;
             var count = table.Rows.Count;
@@ -120,111 +120,111 @@ namespace MoBankUI.MoPay
                     Thread.Sleep(0xbb8);
                     if (Regex.IsMatch(str5, "^[0-9'']"))
                     {
-                        datarow.newrow("Card Number", str5, str5, "PASS", driver);
+                        datarow.Newrow("Card Number", str5, str5, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("Number required") ||
                              driver.PageSource.Contains("Number invalid"))
                     {
-                        datarow.newrow("Card Number", str5, "Number Invalid", "PASS", driver);
+                        datarow.Newrow("Card Number", str5, "Number Invalid", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Card Number", str5, "No Error Message Displayed", "FAIL", driver);
+                        datarow.Newrow("Card Number", str5, "No Error Message Displayed", "FAIL", driver);
                         screenshot.Screenshotfailed(driver);
                     }
-                    datarow.newrow("Card Type", "Visa Debit", "Visa Debit", "PASS", driver);
+                    datarow.Newrow("Card Type", "Visa Debit", "Visa Debit", "PASS", driver);
                     var regex = new Regex("^[0-9]{3}$");
                     if (regex.IsMatch(str6))
                     {
-                        datarow.newrow("Security Code", str6, "Valid 3 Digits", "PASS", driver);
+                        datarow.Newrow("Security Code", str6, "Valid 3 Digits", "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("Security code required") ||
                              driver.PageSource.Contains("Security code invalid"))
                     {
-                        datarow.newrow("Security Code", str6, "Security code required", "PASS", driver);
+                        datarow.Newrow("Security Code", str6, "Security code required", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Security Code", str6, "No Error Message Displayed", "FAIL", driver);
+                        datarow.Newrow("Security Code", str6, "No Error Message Displayed", "FAIL", driver);
                         screenshot.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(str8, "^[a-zA-Z'']"))
                     {
-                        datarow.newrow("Name on Card", str8, str8, "PASS", driver);
+                        datarow.Newrow("Name on Card", str8, str8, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("Name required"))
                     {
-                        datarow.newrow("Name on Card", str8, "Name Required", "PASS", driver);
+                        datarow.Newrow("Name on Card", str8, "Name Required", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Name on Card", str8, "No Error Message Displayed", "PASS", driver);
+                        datarow.Newrow("Name on Card", str8, "No Error Message Displayed", "PASS", driver);
                         screenshot.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(input, "^[a-zA-Z'']"))
                     {
-                        datarow.newrow("First Name", input, input, "PASS", driver);
+                        datarow.Newrow("First Name", input, input, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("The First Name field is required."))
                     {
-                        datarow.newrow("First Name", input, "The First Name field is required.", "PASS", driver
+                        datarow.Newrow("First Name", input, "The First Name field is required.", "PASS", driver
                             );
                     }
                     else
                     {
-                        datarow.newrow("First Name", input, "No Error Message Displayed", "FAIL", driver);
+                        datarow.Newrow("First Name", input, "No Error Message Displayed", "FAIL", driver);
                         screenshot.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(str4, "^[a-zA-Z'']"))
                     {
-                        datarow.newrow("Last Name", str4, str4, "PASS", driver);
+                        datarow.Newrow("Last Name", str4, str4, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("The Last Name field is required."))
                     {
-                        datarow.newrow("Last Name", str4, "The Last Name field is required.", "PASS", driver);
+                        datarow.Newrow("Last Name", str4, "The Last Name field is required.", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Last Name", str4, "No Error message Displayed", "FAIL", driver);
+                        datarow.Newrow("Last Name", str4, "No Error message Displayed", "FAIL", driver);
                         screenshot.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(str13, "^[a-zA-Z0-9'']"))
                     {
-                        datarow.newrow("Address", str13, str13, "PASS", driver);
+                        datarow.Newrow("Address", str13, str13, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("The Address field is required"))
                     {
-                        datarow.newrow("Address", str13, "The Address field is required", "PASS", driver);
+                        datarow.Newrow("Address", str13, "The Address field is required", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Address", str13, "No Error message Displayed", "FAIL", driver);
+                        datarow.Newrow("Address", str13, "No Error message Displayed", "FAIL", driver);
                         screenshot.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(str15, "^[a-zA-Z0-9'']"))
                     {
-                        datarow.newrow("Post Code", str15, str15, "PASS", driver);
+                        datarow.Newrow("Post Code", str15, str15, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("The Postcode field is required"))
                     {
-                        datarow.newrow("Post Code", str15, "The Postcode field is required.", "PASS", driver);
+                        datarow.Newrow("Post Code", str15, "The Postcode field is required.", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Post Code", str15, "No Error Message Displayed", "FAIL", driver);
+                        datarow.Newrow("Post Code", str15, "No Error Message Displayed", "FAIL", driver);
                         screenshot.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(str17, "^[a-zA-Z'']"))
                     {
-                        datarow.newrow("Country", str17, str17, "PASS", driver);
+                        datarow.Newrow("Country", str17, str17, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("The Country field is required."))
                     {
-                        datarow.newrow("Country", str17, "The Country field is required.", "PASS", driver);
+                        datarow.Newrow("Country", str17, "The Country field is required.", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Country", str17, "No Error Message", "FAIL", driver);
+                        datarow.Newrow("Country", str17, "No Error Message", "FAIL", driver);
                         screenshot.Screenshotfailed(driver);
                     }
                     if (driver.Title == "Secure Payment Page")
@@ -234,18 +234,18 @@ namespace MoBankUI.MoPay
                     var str22 = driver.Title;
                     if (location.Contains("State=Accepted") || str22.Contains("Payment Accepted"))
                     {
-                        datarow.newrow("Transaction", location, "State=Accepted", "PASS", driver);
+                        datarow.Newrow("Transaction", location, "State=Accepted", "PASS", driver);
                         break;
                     }
                     if (location.Contains("State=NotAccepted"))
                     {
-                        datarow.newrow("Transaction", location, "Transaction Declined", "FAIL", driver);
+                        datarow.Newrow("Transaction", location, "Transaction Declined", "FAIL", driver);
                         break;
                     }
                     if ((!driver.PageSource.Contains("Checkout Declined") &&
                          !driver.PageSource.Contains("Checkout Error")) && !driver.PageSource.Contains("Not Found"))
                         continue;
-                    datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver);
+                    datarow.Newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver);
                     break;
                 }
                 catch (Exception exception2)
@@ -253,7 +253,7 @@ namespace MoBankUI.MoPay
                     Console.Write(exception2);
                     var str23 = exception2.ToString();
                     var screenshot2 = new Screenshot();
-                    datarow.newrow("Exception", "Exceptio not Expected", str23, "FAIL", driver);
+                    datarow.Newrow("Exception", "Exceptio not Expected", str23, "FAIL", driver);
                     screenshot2.Screenshotfailed(driver);
                 }
             }

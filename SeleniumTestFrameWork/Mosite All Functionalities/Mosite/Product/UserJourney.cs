@@ -81,7 +81,7 @@ namespace MoBankUI.Mosite.Product
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Is Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Is Not Expected", e, "FAIL", driver);
                 _screenshot.Screenshotfailed(driver);
             }
         }

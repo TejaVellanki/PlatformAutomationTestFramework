@@ -132,25 +132,25 @@ namespace MoBankUI.MoShop
                 var str9 = driver.FindElement(By.Id("MappingItems_4__Selector")).GetAttribute("Value");
                 var str10 = driver.FindElement(By.Id("MappingItems_5__Selector")).GetAttribute("Value");
 
-                datarow.newrow("Product selector", "div[class^='singleproduct']>a", attribute,
+                datarow.Newrow("Product selector", "div[class^='singleproduct']>a", attribute,
                     attribute == "div[class^='singleproduct']>a" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Products Identifier", "/acatalog/glitter-tree-wrapping-paper.html", actual,
+                datarow.Newrow("Products Identifier", "/acatalog/glitter-tree-wrapping-paper.html", actual,
                     actual == "/acatalog/glitter-tree-wrapping-paper.html" ? "PASS" : "FAIL",
                     driver);
-                datarow.newrow("Products Idntifier Transformation", @"\/acatalog\/([a-z0-9\-_]+).html", str3,
+                datarow.Newrow("Products Idntifier Transformation", @"\/acatalog\/([a-z0-9\-_]+).html", str3,
                     str3 == @"\/acatalog\/([a-z0-9\-_]+).html" ? "PASS" : "FAIL",
                     driver);
-                datarow.newrow("Products Identifier Replacement", "$1", str4, str4 == "$1" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Product Mapping selector", "h1", str5, str5 == "h1" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Products Mapping Selector1", "#contentTab1,#contentTab2", str6,
+                datarow.Newrow("Products Identifier Replacement", "$1", str4, str4 == "$1" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Product Mapping selector", "h1", str5, str5 == "h1" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Products Mapping Selector1", "#contentTab1,#contentTab2", str6,
                     str6 == "#contentTab1,#contentTab2" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Products Mapping selector2", ".MagicZoomPlus", str7,
+                datarow.Newrow("Products Mapping selector2", ".MagicZoomPlus", str7,
                     str7 == ".MagicZoomPlus" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Products Mapping Selector3", "[retail_price_prompt]:first", str8,
+                datarow.Newrow("Products Mapping Selector3", "[retail_price_prompt]:first", str8,
                     str8 == "[retail_price_prompt]:first" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Products Mapping selector4", "[PROD_REF]:first", str9,
+                datarow.Newrow("Products Mapping selector4", "[PROD_REF]:first", str9,
                     str9 == "[PROD_REF]:first" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Products Mapping selector5",
+                datarow.Newrow("Products Mapping selector5",
                     ".itemAddtional strong:has([retail_price_prompt]):prev()", str10,
                     str10 == ".itemAddtional strong:has([retail_price_prompt]):prev()" ? "PASS" : "FAIL", driver);
 
@@ -159,7 +159,7 @@ namespace MoBankUI.MoShop
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception Not Expected", "", e, "FAIL");
+                datarow.Newrow("Exception Not Expected", "", e, "FAIL");
             }
             driver.FindElement(By.LinkText("Scrape")).Click();
         }

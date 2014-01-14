@@ -12,7 +12,7 @@ namespace MoBankUI.MoShop.Checkout
         {
             try
             {
-                datarow.newrow("", "", "ADDRESS CONFIGURATION", "", driver);
+                datarow.Newrow("", "", "ADDRESS CONFIGURATION", "", driver);
                 driver.FindElement(By.Id("DynamicSourceUrl")).Clear();
                 driver.FindElement(By.Id("DynamicSourceUrl"))
                       .SendKeys("https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?ACTION=Start");
@@ -42,21 +42,21 @@ namespace MoBankUI.MoShop.Checkout
                 var str6 = driver.FindElement(By.Id("Parameters")).GetAttribute("Value");
 
 
-                datarow.newrow("Dynamic Source URL",
+                datarow.Newrow("Dynamic Source URL",
                     "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?ACTION=Start", attribute,
                     attribute == "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?ACTION=Start"
                         ? "PASS"
                         : "FAIL", driver);
-                datarow.newrow("URL", "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl", actual,
+                datarow.Newrow("URL", "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl", actual,
                     actual == "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl" ? "PASS" : "FAIL",
                     driver);
-                datarow.newrow("Header Selector", "#idTableCheckoutSection h2", str3,
+                datarow.Newrow("Header Selector", "#idTableCheckoutSection h2", str3,
                     str3 == "#idTableCheckoutSection h2" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Success Selector", "#GENERALHOWFOUND", str4,
+                datarow.Newrow("Success Selector", "#GENERALHOWFOUND", str4,
                     str4 == "#GENERALHOWFOUND" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Error Selector", "#errormessage blockquote", str5,
+                datarow.Newrow("Error Selector", "#errormessage blockquote", str5,
                     str5 == "#errormessage blockquote" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Parameters",
+                datarow.Newrow("Parameters",
                     "RANDOM=0.346205551018105&SEQUENCE=0&ActCheckoutPhase=INVOICE&ActCheckoutPhase=DELIVER&ActCheckoutPhase=PRELIM&INVOICENAME={{FirstName}}+{{LastName}}&DELIVERNAME={{FirstName}}+{{LastName}}&INVOICEPOSTALCODE={{INVOICEPOSTALCODE}}&DELIVERPOSTALCODE={{INVOICEPOSTALCODE}}&INVOICEADDRESS1={{INVOICEADDRESS1}}&DELIVERADDRESS1={{INVOICEADDRESS1}}&INVOICEADDRESS2={{INVOICEADDRESS2}}&DELIVERADDRESS2={{INVOICEADDRESS2}}&INVOICEADDRESS3={{INVOICEADDRESS3}}&DELIVERADDRESS3={{INVOICEADDRESS3}}&LocationInvoiceCountry={{INVOICECOUNTRY}}&INVOICECOUNTRY={{INVOICECOUNTRY}}&LocationDeliveryCountry={{INVOICECOUNTRY}}&LocationInvoiceRegion=UndefinedRegion&INVOICEADDRESS4={{INVOICEADDRESS4}}&LocationDeliveryRegion=UndefinedRegion&DELIVERADDRESS4={{INVOICEADDRESS4}}&INVOICEPHONE={{INVOICEPHONE}}&DELIVERPHONE={{INVOICEPHONE}}&INVOICEEMAIL={{INVOICEEMAIL}}&DELIVEREMAIL={{INVOICEEMAIL}}&INVOICEEMAIL_CONFIRM={{INVOICEEMAIL}}&DELIVEREMAIL_CONFIRM={{INVOICEEMAIL}}&INVOICEUSERDEFINED={{INVOICEUSERDEFINED}}&ACTION_NEXT.x=87&ACTION_NEXT.y=12",
                     str6, str6 ==
                           "RANDOM=0.346205551018105&SEQUENCE=0&ActCheckoutPhase=INVOICE&ActCheckoutPhase=DELIVER&ActCheckoutPhase=PRELIM&INVOICENAME={{FirstName}}+{{LastName}}&DELIVERNAME={{FirstName}}+{{LastName}}&INVOICEPOSTALCODE={{INVOICEPOSTALCODE}}&DELIVERPOSTALCODE={{INVOICEPOSTALCODE}}&INVOICEADDRESS1={{INVOICEADDRESS1}}&DELIVERADDRESS1={{INVOICEADDRESS1}}&INVOICEADDRESS2={{INVOICEADDRESS2}}&DELIVERADDRESS2={{INVOICEADDRESS2}}&INVOICEADDRESS3={{INVOICEADDRESS3}}&DELIVERADDRESS3={{INVOICEADDRESS3}}&LocationInvoiceCountry={{INVOICECOUNTRY}}&INVOICECOUNTRY={{INVOICECOUNTRY}}&LocationDeliveryCountry={{INVOICECOUNTRY}}&LocationInvoiceRegion=UndefinedRegion&INVOICEADDRESS4={{INVOICEADDRESS4}}&LocationDeliveryRegion=UndefinedRegion&DELIVERADDRESS4={{INVOICEADDRESS4}}&INVOICEPHONE={{INVOICEPHONE}}&DELIVERPHONE={{INVOICEPHONE}}&INVOICEEMAIL={{INVOICEEMAIL}}&DELIVEREMAIL={{INVOICEEMAIL}}&INVOICEEMAIL_CONFIRM={{INVOICEEMAIL}}&DELIVEREMAIL_CONFIRM={{INVOICEEMAIL}}&INVOICEUSERDEFINED={{INVOICEUSERDEFINED}}&ACTION_NEXT.x=87&ACTION_NEXT.y=12"
@@ -70,104 +70,104 @@ namespace MoBankUI.MoShop.Checkout
                 #region Validations
 
                 var str13 = driver.FindElement(By.Id("LiveScrapeForm_Elements_0__Label")).GetAttribute("Value");
-                datarow.newrow("First Name", "First Name: *", str13, str13 == "First Name: *" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("First Name", "First Name: *", str13, str13 == "First Name: *" ? "PASS" : "FAIL", driver);
                 var str14 = Option(driver, By.Id("LiveScrapeForm_Elements_0__PropertyPath"), 30);
-                datarow.newrow("FirstName Property", "FirstName", str14, str14 == "FirstName" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("FirstName Property", "FirstName", str14, str14 == "FirstName" ? "PASS" : "FAIL", driver);
                 var str15 = driver.FindElement(By.Id("LiveScrapeForm_Elements_1__Label")).GetAttribute("Value");
-                datarow.newrow("LastName", "Last Name: *", str15, str15 == "Last Name: *" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("LastName", "Last Name: *", str15, str15 == "Last Name: *" ? "PASS" : "FAIL", driver);
                 var str16 = Option(driver, By.Id("LiveScrapeForm_Elements_1__PropertyPath"), 30);
-                datarow.newrow("Last Name Property", "LastName", str16, str16 == "LastName" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Last Name Property", "LastName", str16, str16 == "LastName" ? "PASS" : "FAIL", driver);
                 var str17 = driver.FindElement(By.Id("LiveScrapeForm_Elements_2__Label")).GetAttribute("Value");
-                datarow.newrow("PostCode", "Post Code: *", str17, str17 == "Post Code: *" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("PostCode", "Post Code: *", str17, str17 == "Post Code: *" ? "PASS" : "FAIL", driver);
                 var str18 = GetValue(driver, By.Id("LiveScrapeForm_Elements_2__LabelSelector"), 30);
-                datarow.newrow("PostCode Equation", ".actrequired:eq(1)", str18,
+                datarow.Newrow("PostCode Equation", ".actrequired:eq(1)", str18,
                     str18 == ".actrequired:eq(1)" ? "PASS" : "FAIL", driver);
                 var str19 = Option(driver, By.Id("LiveScrapeForm_Elements_2__PropertyPath"), 30);
-                datarow.newrow("Postcode Property", "PostCode", str19, str19 == "PostCode" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Postcode Property", "PostCode", str19, str19 == "PostCode" ? "PASS" : "FAIL", driver);
                 var str20 =
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_3__LabelSelector")).GetAttribute("Value");
-                datarow.newrow("Address Equation", ".actrequired:eq(2)", str20,
+                datarow.Newrow("Address Equation", ".actrequired:eq(2)", str20,
                     str20 == ".actrequired:eq(2)" ? "PASS" : "FAIL", driver);
                 var str21 = driver.FindElement(By.Id("LiveScrapeForm_Elements_3__Label")).GetAttribute("Value");
-                datarow.newrow("Address", "Address Line 1: *", str21, str21 == "Address Line 1: *" ? "PASS" : "FAIL",
+                datarow.Newrow("Address", "Address Line 1: *", str21, str21 == "Address Line 1: *" ? "PASS" : "FAIL",
                     driver);
                 var text = GetValue(driver, By.Id("id=LiveScrapeForm_Elements_3__PropertyPath"), 30);
                 if (text == "Address1")
                 {
-                    datarow.newrow("Address Property", "Address1", text, "PASS", driver);
+                    datarow.Newrow("Address Property", "Address1", text, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Address Property", "Address1", text, "PASS", driver);
+                    datarow.Newrow("Address Property", "Address1", text, "PASS", driver);
                 }
                 var str23 =
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_4__LabelSelector")).GetAttribute("Value");
-                datarow.newrow("Address Equation2", "#idBothAddressesTable tr:eq(5) td:eq(0)", str23,
+                datarow.Newrow("Address Equation2", "#idBothAddressesTable tr:eq(5) td:eq(0)", str23,
                     str23 == "#idBothAddressesTable tr:eq(5) td:eq(0)" ? "PASS" : "FAIL", driver);
                 var str24 = driver.FindElement(By.Id("LiveScrapeForm_Elements_4__Label")).GetAttribute("Value");
-                datarow.newrow("Address2", "Address Line 2:", str24, str24 == "Address Line 2:" ? "PASS" : "FAIL",
+                datarow.Newrow("Address2", "Address Line 2:", str24, str24 == "Address Line 2:" ? "PASS" : "FAIL",
                     driver);
                 var str25 = Option(driver, By.Id("LiveScrapeForm_Elements_4__PropertyPath"), 30);
-                datarow.newrow("Address2Property", "Address2", str25, str25 == "Address2" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Address2Property", "Address2", str25, str25 == "Address2" ? "PASS" : "FAIL", driver);
                 var str26 =
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_5__LabelSelector")).GetAttribute("Value");
-                datarow.newrow("City Equation", ".actrequired:eq(3)", str26,
+                datarow.Newrow("City Equation", ".actrequired:eq(3)", str26,
                     str26 == ".actrequired:eq(3)" ? "PASS" : "FAIL", driver);
                 var str27 = driver.FindElement(By.Id("LiveScrapeForm_Elements_5__Label")).GetAttribute("Value");
-                datarow.newrow("Billing City", "City/Town: *", str27, str27 == "City/Town: *" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Billing City", "City/Town: *", str27, str27 == "City/Town: *" ? "PASS" : "FAIL", driver);
                 var str28 = Option(driver, By.Id("LiveScrapeForm_Elements_5__PropertyPath"), 30);
-                datarow.newrow("Billing City Property", "BillingCity", str28, str28 == "BillingCity" ? "PASS" : "FAIL",
+                datarow.Newrow("Billing City Property", "BillingCity", str28, str28 == "BillingCity" ? "PASS" : "FAIL",
                     driver);
                 var str29 =
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_6__LabelSelector")).GetAttribute("Value");
-                datarow.newrow("Country Eqaution", "#idBothAddressesTable tr:eq(7) td:eq(0)", str29,
+                datarow.Newrow("Country Eqaution", "#idBothAddressesTable tr:eq(7) td:eq(0)", str29,
                     str29 == "#idBothAddressesTable tr:eq(7) td:eq(0)" ? "PASS" : "FAIL", driver);
                 var str30 = driver.FindElement(By.Id("LiveScrapeForm_Elements_6__Label")).GetAttribute("Value");
-                datarow.newrow("Country", "Country: *", str30, str30 == "Country: *" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Country", "Country: *", str30, str30 == "Country: *" ? "PASS" : "FAIL", driver);
                 var str31 =
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_6__KeysValuesSelector")).GetAttribute("Value");
-                datarow.newrow("Country Option", "#lstInvoiceCountry option", str31,
+                datarow.Newrow("Country Option", "#lstInvoiceCountry option", str31,
                     str31 == "#lstInvoiceCountry option" ? "PASS" : "FAIL", driver);
                 var str32 = Option(driver, By.Id("LiveScrapeForm_Elements_6__PropertyPath"), 30);
-                datarow.newrow("Country Property", "Country", str32, str32 == "Country" ? "PASS" : "FAIL", driver);
-                datarow.newrow("County Equation", "#idBothAddressesTable tr:eq(8) td:eq(0)", str29,
+                datarow.Newrow("Country Property", "Country", str32, str32 == "Country" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("County Equation", "#idBothAddressesTable tr:eq(8) td:eq(0)", str29,
                     driver.FindElement(By.Id("LiveScrapeForm_Elements_7__LabelSelector")).GetAttribute("Value") ==
                     "#idBothAddressesTable tr:eq(8) td:eq(0)"
                         ? "PASS"
                         : "FAIL", driver);
                 var str34 = driver.FindElement(By.Id("LiveScrapeForm_Elements_7__Label")).GetAttribute("Value");
-                datarow.newrow("County", "County:", str34, str34 == "County:" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("County", "County:", str34, str34 == "County:" ? "PASS" : "FAIL", driver);
                 var str35 = GetValue(driver, By.Id("LiveScrapeForm_Elements_7__PropertyPath"), 30);
                 if (str35 == "County")
                 {
-                    datarow.newrow("County Property", "County", str35, "PASS", driver);
+                    datarow.Newrow("County Property", "County", str35, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("County Property", "County", str35, "PASS", driver);
+                    datarow.Newrow("County Property", "County", str35, "PASS", driver);
                 }
                 var str36 = GetValue(driver, By.Id("LiveScrapeForm_Elements_8__LabelSelector"), 30);
-                datarow.newrow("Phone Equation", "#idBothAddressesTable tr:eq(9) td:eq(0)", str36,
+                datarow.Newrow("Phone Equation", "#idBothAddressesTable tr:eq(9) td:eq(0)", str36,
                     str36 == "#idBothAddressesTable tr:eq(9) td:eq(0)" ? "PASS" : "FAIL", driver);
                 var str37 = driver.FindElement(By.Id("LiveScrapeForm_Elements_8__Label")).GetAttribute("Value");
-                datarow.newrow("Phone Number", "Phone Number:", str37, str37 == "Phone Number:" ? "PASS" : "FAIL",
+                datarow.Newrow("Phone Number", "Phone Number:", str37, str37 == "Phone Number:" ? "PASS" : "FAIL",
                     driver);
                 var str38 = Option(driver, By.Id("LiveScrapeForm_Elements_8__PropertyPath"), 30);
-                datarow.newrow("Phone Property", "Phone", str38, str38 == "Phone" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Phone Property", "Phone", str38, str38 == "Phone" ? "PASS" : "FAIL", driver);
                 var str39 = GetValue(driver, By.Id("LiveScrapeForm_Elements_9__LabelSelector"), 30);
-                datarow.newrow("Email Equation", "#idINVOICEEMAILlabel", str39,
+                datarow.Newrow("Email Equation", "#idINVOICEEMAILlabel", str39,
                     str39 == "#idINVOICEEMAILlabel" ? "PASS" : "FAIL", driver);
                 var str40 = GetValue(driver, By.Id("LiveScrapeForm_Elements_9__Label"), 30);
-                datarow.newrow("Email", "Email Address: *", str40, str40 == "Email Address: *" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Email", "Email Address: *", str40, str40 == "Email Address: *" ? "PASS" : "FAIL", driver);
                 var str41 = Option(driver, By.Id("LiveScrapeForm_Elements_9__PropertyPath"), 30);
-                datarow.newrow("Email Property", "Email", str41, str41 == "Email" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Email Property", "Email", str41, str41 == "Email" ? "PASS" : "FAIL", driver);
 
                 #endregion
             }
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception not expectd", e, "FAIL");
+                datarow.Newrow("Exception", "Exception not expectd", e, "FAIL");
             }
 
             new DeliveryTab().Delivery(driver, datarow);

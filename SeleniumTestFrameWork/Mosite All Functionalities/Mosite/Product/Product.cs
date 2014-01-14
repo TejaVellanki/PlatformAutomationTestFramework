@@ -53,11 +53,11 @@ namespace MoBankUI.Mosite.Product
 
                 // Product Title
                 var title = driver.FindElement(By.ClassName(producttitle)).Text;
-                datarow.newrow("Product Title", "", title, "PASS", driver);
+                datarow.Newrow("Product Title", "", title, "PASS", driver);
 
                 if (IsElementPresent(driver, By.ClassName(producttitle)) == false)
                 {
-                    datarow.newrow("Product Title", "Product Title Element is Expected",
+                    datarow.Newrow("Product Title", "Product Title Element is Expected",
                                    "Product Title Element Not Found", "FAIL", driver);
                 }
 
@@ -194,14 +194,14 @@ namespace MoBankUI.Mosite.Product
                 {
                     driver.FindElement(By.XPath(addToBasket)).Click();
 
-                    datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected",
+                    datarow.Newrow("Add to Basket Button", "Add To Basket Button is Expected",
                                    addToBasket + "Add To Basket Element Is Present", "PASS", driver);
                     new SuccessMessage().Message(driver, datarow);
                 }
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
-                    datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected", e, "FAIL", driver);
+                    datarow.Newrow("Add to Basket Button", "Add To Basket Button is Expected", e, "FAIL", driver);
                     screenshot1.Screenshotfailed(driver);
                 }
 
@@ -210,11 +210,11 @@ namespace MoBankUI.Mosite.Product
 
                 if (basval == "(1)")
                 {
-                    datarow.newrow("Basket Value", "(1)", basval, "PASS", driver);
+                    datarow.Newrow("Basket Value", "(1)", basval, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Basket Value", "(1)", basval, "FAIL", driver);
+                    datarow.Newrow("Basket Value", "(1)", basval, "FAIL", driver);
                     screenshot1.Screenshotfailed(driver);
                 }
 
@@ -234,7 +234,7 @@ namespace MoBankUI.Mosite.Product
                 Thread.Sleep(3000);
                 var prirc = driver.FindElement(By.CssSelector("strong")).Text;
 
-                datarow.newrow("Price Change with Quantity in Basket Page", pric, prirc, pric == prirc ? "FAIL" : "PASS",
+                datarow.Newrow("Price Change with Quantity in Basket Page", pric, prirc, pric == prirc ? "FAIL" : "PASS",
                     driver);
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
@@ -245,11 +245,11 @@ namespace MoBankUI.Mosite.Product
 
                     if (value1 == "(4)")
                     {
-                        datarow.newrow("Basket Value", "(4)", value1, "PASS", driver);
+                        datarow.Newrow("Basket Value", "(4)", value1, "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Basket Value", "(4)", value1, "FAIL", driver);
+                        datarow.Newrow("Basket Value", "(4)", value1, "FAIL", driver);
                         screenshot1.Screenshotfailed(driver);
                     }
                 }
@@ -258,7 +258,7 @@ namespace MoBankUI.Mosite.Product
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 _screenshot.Screenshotfailed(driver);
             }
         }

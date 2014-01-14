@@ -35,11 +35,11 @@ namespace MoBankUI.Mosite.Product
                 if (IsElementPresent(driver, By.XPath(productdescription)))
                 {
                     var detail = driver.FindElement(By.XPath(detaiL)).Text;
-                    datarow.newrow("Product Detail", "", detail, "PASS", driver);
+                    datarow.Newrow("Product Detail", "", detail, "PASS", driver);
                 }
                 else if (!IsElementPresent(driver, By.XPath(productdescriptiontab)))
                 {
-                    datarow.newrow("Product Detail", "Product Details Element Is Expected",
+                    datarow.Newrow("Product Detail", "Product Details Element Is Expected",
                                    "Product Detail Element Not identified", "FAIL", driver);
                 }
                 else
@@ -48,11 +48,11 @@ namespace MoBankUI.Mosite.Product
                     if (IsElementPresent(driver, By.XPath(productdescription)))
                     {
                         var detail = driver.FindElement(By.XPath(detaiL)).Text;
-                        datarow.newrow("Product Detail", "", detail, "PASS", driver);
+                        datarow.Newrow("Product Detail", "", detail, "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Product Detail", "Product Details are Expected",
+                        datarow.Newrow("Product Detail", "Product Details are Expected",
                                        "Product Details Not identified", "FAIL", driver);
                     }
                 }

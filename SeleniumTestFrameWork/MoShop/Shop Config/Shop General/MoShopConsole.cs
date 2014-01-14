@@ -37,11 +37,11 @@ namespace MoBankUI.MoShop
 
                 if (actual == "Log On : mobank.co.uk/MoShop")
                 {
-                    datarow.newrow("MoshopTitle", "Log On : mobank.co.uk/MoShop", actual, "PASS", driver);
+                    datarow.Newrow("MoshopTitle", "Log On : mobank.co.uk/MoShop", actual, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("MoshopTitle", "Log On : mobank.co.uk/MoShop", actual, "FAIL", driver);
+                    datarow.Newrow("MoshopTitle", "Log On : mobank.co.uk/MoShop", actual, "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.Id("Email")).Clear();
@@ -55,11 +55,11 @@ namespace MoBankUI.MoShop
 
                 if (str2 == "mobank.co.uk/MoShop")
                 {
-                    datarow.newrow("MoshopHomepageTitle", "mobank.co.uk/MoShop", str2, "PASS", driver);
+                    datarow.Newrow("MoshopHomepageTitle", "mobank.co.uk/MoShop", str2, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("MoshopHomepageTitle", "mobank.co.uk/MoShop", str2, "FAIL", driver);
+                    datarow.Newrow("MoshopHomepageTitle", "mobank.co.uk/MoShop", str2, "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
                 //Expanding Manage and Security
@@ -74,11 +74,11 @@ namespace MoBankUI.MoShop
 
                 if (str3 == "Scrapes : mobank.co.uk/MoShop")
                 {
-                    datarow.newrow("Scrape Page", "Scrapes : mobank.co.uk/MoShop", str3, "PASS", driver);
+                    datarow.Newrow("Scrape Page", "Scrapes : mobank.co.uk/MoShop", str3, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Scrape Page", "Scrapes : mobank.co.uk/MoShop", str3, "FAIL", driver);
+                    datarow.Newrow("Scrape Page", "Scrapes : mobank.co.uk/MoShop", str3, "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
@@ -88,11 +88,11 @@ namespace MoBankUI.MoShop
                 var str4 = driver.Title;
                 if (str4 == "Shops : mobank.co.uk/MoShop")
                 {
-                    datarow.newrow("Shops Page", "Scrapes : mobank.co.uk/MoShop", str4, "PASS", driver);
+                    datarow.Newrow("Shops Page", "Scrapes : mobank.co.uk/MoShop", str4, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Shops Page", "Scrapes : mobank.co.uk/MoShop", str4, "FAIL", driver);
+                    datarow.Newrow("Shops Page", "Scrapes : mobank.co.uk/MoShop", str4, "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
@@ -102,12 +102,12 @@ namespace MoBankUI.MoShop
                 var str5 = driver.Title;
                 if (str5 == "Global Customisations : mobank.co.uk/MoShop")
                 {
-                    datarow.newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5,
+                    datarow.Newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5,
                                    "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5,
+                    datarow.Newrow("Global Customerisations Page", "Global Customisations : mobank.co.uk/MoShop", str5,
                                    "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
@@ -118,11 +118,11 @@ namespace MoBankUI.MoShop
                 var str6 = driver.Title;
                 if (str6 == "Transformations : mobank.co.uk/MoShop")
                 {
-                    datarow.newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "PASS", driver);
+                    datarow.Newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "FAIL", driver);
+                    datarow.Newrow("Transformations Page", "Transformations : mobank.co.uk/MoShop", str6, "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
@@ -133,11 +133,11 @@ namespace MoBankUI.MoShop
                 var str7 = driver.Title;
                 if (str7 == "mobank.co.uk/MoShop")
                 {
-                    datarow.newrow("Global settings Page", "mobank.co.uk/MoShop", str7, "PASS", driver);
+                    datarow.Newrow("Global settings Page", "mobank.co.uk/MoShop", str7, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Global settings Page", "mobank.co.uk/MoShop", str7, "FAIL", driver);
+                    datarow.Newrow("Global settings Page", "mobank.co.uk/MoShop", str7, "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
@@ -147,11 +147,11 @@ namespace MoBankUI.MoShop
                 var str8 = driver.Title;
                 if (str8 == "mobank.co.uk/MoShop")
                 {
-                    datarow.newrow("Security Page", "mobank.co.uk/MoShop", str8, "PASS", driver);
+                    datarow.Newrow("Security Page", "mobank.co.uk/MoShop", str8, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Security Page", "mobank.co.uk/MoShop", str8, "FAIL", driver);
+                    datarow.Newrow("Security Page", "mobank.co.uk/MoShop", str8, "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.CssSelector("#IndexMenu > ul > li > a")).Click();
@@ -167,11 +167,11 @@ namespace MoBankUI.MoShop
                 var str9 = driver.Title;
                 if (str9 == "Teja Vellanki : mobank.co.uk/MoShop")
                 {
-                    datarow.newrow("Account Page", "Teja Vellanki : mobank.co.uk/MoShop", str9, "PASS", driver);
+                    datarow.Newrow("Account Page", "Teja Vellanki : mobank.co.uk/MoShop", str9, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Account Page", "Teja Vellanki : mobank.co.uk/MoShop", str9, "FAIL", driver);
+                    datarow.Newrow("Account Page", "Teja Vellanki : mobank.co.uk/MoShop", str9, "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
                 driver.FindElement(By.LinkText("MoShop")).Click();
@@ -179,7 +179,7 @@ namespace MoBankUI.MoShop
             catch (Exception exception3)
             {
                 var str10 = exception3.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", str10, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Not Expected", str10, "FAIL", driver);
             }
         }
     }

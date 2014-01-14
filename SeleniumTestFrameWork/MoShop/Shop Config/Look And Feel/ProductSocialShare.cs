@@ -22,7 +22,7 @@ namespace MoBankUI.MoShop
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
             }
         }
     }

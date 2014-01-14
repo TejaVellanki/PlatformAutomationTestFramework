@@ -88,24 +88,24 @@ namespace MoBankUI.MoShop
 
                 #region validations
 
-                datarow.newrow("Home Page Logo Uploaded into Console", "css=img[alt=\"Home Image\"]",
+                datarow.Newrow("Home Page Logo Uploaded into Console", "css=img[alt=\"Home Image\"]",
                     "css=img[alt=\"Home Image\"]",
                     IsElementPresent(driver, By.CssSelector("img[alt=\"Home Image\"]"), 30) ? "PASS" : "FAIL");
 
-                datarow.newrow("Home Page Icon Uploaded into Console", "css=img[alt='Icon']", "css=img[alt='Icon']",
+                datarow.Newrow("Home Page Icon Uploaded into Console", "css=img[alt='Icon']", "css=img[alt='Icon']",
                     IsElementPresent(driver, By.CssSelector("img[alt='Icon']"), 30) ? "PASS" : "FAIL");
 
-                datarow.newrow("Custom Basket Image Uploaded into Console", "css=img[alt='Custom Basket Image']",
+                datarow.Newrow("Custom Basket Image Uploaded into Console", "css=img[alt='Custom Basket Image']",
                     "css=img[alt='Custom Basket Image']",
                     IsElementPresent(driver, By.CssSelector("img[alt='Custom Basket Image']"), 30) ? "PASS" : "FAIL");
 
-                datarow.newrow("Success Image Uploaded into Console", "css=img[alt='Custom Basket Image']",
+                datarow.Newrow("Success Image Uploaded into Console", "css=img[alt='Custom Basket Image']",
                     "css=img[alt='Custom Basket Image']",
                     IsElementPresent(driver, By.CssSelector("img[alt=\"Order confirmation success Image\"]"), 30)
                         ? "PASS"
                         : "FAIL");
 
-                datarow.newrow("Failure Image Uploaded into Console",
+                datarow.Newrow("Failure Image Uploaded into Console",
                     "css= img[alt=\"Order confirmation failure Image\"]",
                     "css= img[alt=\"Order confirmation failure Image\"]",
                     IsElementPresent(driver, By.CssSelector("img[alt=\"Order confirmation failure Image\"]"), 30)
@@ -117,7 +117,7 @@ namespace MoBankUI.MoShop
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exceprtion Not Expected", e, "FAIL");
+                datarow.Newrow("Exception", "Exceprtion Not Expected", e, "FAIL");
             }
         }
 

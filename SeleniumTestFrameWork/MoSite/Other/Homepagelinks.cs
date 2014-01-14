@@ -24,7 +24,7 @@ namespace MoBankUI.MoSite.Other
                 driver.FindElement(By.XPath("//html/body/div/div[2]/div/ul/li[" + i + "]/div/div/a/h2")).Click();
 
                 var expected = driver.Title;
-                datarow.newrow("Title", expected, actual, expected == actual ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Title", expected, actual, expected == actual ? "PASS" : "FAIL", driver);
                 num2++;
                 driver.Navigate().Back();
             }

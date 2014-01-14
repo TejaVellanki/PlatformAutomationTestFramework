@@ -33,7 +33,7 @@ namespace MoBankUI.MoSite.Other
             catch (Exception exception)
             {
                 var actual = exception.ToString();
-                datarow.newrow("Exception", "Not Expected", actual, "FAIL", driver);
+                datarow.Newrow("Exception", "Not Expected", actual, "FAIL", driver);
             }
         }
     }

@@ -16,12 +16,12 @@ namespace MoBankUI.MoShop
                 driver.FindElement(By.LinkText("MoShop")).Click();
 
                 var actual = driver.Title;
-                datarow.newrow("HomePage Title", "mobank.co.uk/MoShop", actual,
+                datarow.Newrow("HomePage Title", "mobank.co.uk/MoShop", actual,
                     actual == "mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.LinkText("Scrapes")).Click();
 
                 var str2 = driver.Title;
-                datarow.newrow("Scrape Page Title", "Scrapes :  mobank.co.uk/MoShop", str2,
+                datarow.Newrow("Scrape Page Title", "Scrapes :  mobank.co.uk/MoShop", str2,
                     str2 == "Scrapes : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
 
 
@@ -36,7 +36,7 @@ namespace MoBankUI.MoShop
 
 
                 var str3 = driver.Title;
-                datarow.newrow("Scrape Title", "Scrape :  mobank.co.uk/MoShop", str3,
+                datarow.Newrow("Scrape Title", "Scrape :  mobank.co.uk/MoShop", str3,
                     str3 == "Scrape : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.Id("Profiles_0__RootUrl")).Clear();
                 driver.FindElement(By.Id("Profiles_0__RootUrl")).SendKeys("http://www.the-tickle-company.co.uk/");
@@ -46,7 +46,7 @@ namespace MoBankUI.MoShop
 
                 var attribute = driver.FindElement(By.Id("Profiles_0__RootUrl")).GetAttribute("Value");
                 driver.FindElement(By.Id("Profiles_0__Encoding")).GetAttribute("Value");
-                datarow.newrow("Root URL", "http://www.the-tickle-company.co.uk/", attribute,
+                datarow.Newrow("Root URL", "http://www.the-tickle-company.co.uk/", attribute,
                     attribute == "http://www.the-tickle-company.co.uk/" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.Id("Pages_0__Name")).Clear();
                 driver.FindElement(By.Id("Pages_0__Name")).SendKeys("Categories");
@@ -56,7 +56,7 @@ namespace MoBankUI.MoShop
 
                 var str6 = driver.FindElement(By.Id("Pages_0__Name")).GetAttribute("Value");
                 driver.FindElement(By.Id("Pages_0__ObjectTypeName")).GetAttribute("option value");
-                datarow.newrow("Page Name", "Categories", str6, str6 == "Categories" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Page Name", "Categories", str6, str6 == "Categories" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
 
                 if (driver.PageSource.Contains("Server Error in '/' Application."))
@@ -71,7 +71,7 @@ namespace MoBankUI.MoShop
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "", e, "FAIL");
+                datarow.Newrow("Exception", "", e, "FAIL");
             }
             new CategoryScrape().ScarpeCategory(driver, datarow);
         }

@@ -11,7 +11,7 @@ namespace MoBankUI.MoShop.Checkout.Confirm
         {
             try
             {
-                datarow.newrow("", "", "CONFIRM CONFIGURATION", "", driver);
+                datarow.Newrow("", "", "CONFIRM CONFIGURATION", "", driver);
                 var confirm = driver.FindElement(By.XPath("//*[@id='Pages_1__Name']")).Text;
 
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
@@ -54,23 +54,23 @@ namespace MoBankUI.MoShop.Checkout.Confirm
                 //string str6 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Selector")).GetAttribute("Value");
                 // string str7 =driver.FindElement(By.Id("ScrapedDataValueConfigurations_1__Attribute")).GetAttribute("Value");
 
-                datarow.newrow("URL", "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl", attribute,
+                datarow.Newrow("URL", "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl", attribute,
                     attribute == "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl" ? "PASS" : "FAIL",
                     driver);
                 if (actual == "RANDOM=0.825800705309124&ACTION=GETPSPFORM&PAYMENTMETHOD=4")
                 {
-                    datarow.newrow("Parameters", "RANDOM=0.825800705309124&ACTION=GETPSPFORM&PAYMENTMETHOD=4", actual,
+                    datarow.Newrow("Parameters", "RANDOM=0.825800705309124&ACTION=GETPSPFORM&PAYMENTMETHOD=4", actual,
                                    "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Parameters", "RANDOM=0.825800705309124&ACTION=GETPSPFORM&PAYMENTMETHOD=4", actual,
+                    datarow.Newrow("Parameters", "RANDOM=0.825800705309124&ACTION=GETPSPFORM&PAYMENTMETHOD=4", actual,
                                    "PASS", driver);
                 }
-                datarow.newrow("Sequence", "30", str3, str3 == "30" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Scraped Data", "input[name='CALLBACKURLUSER']", str4,
+                datarow.Newrow("Sequence", "30", str3, str3 == "30" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Scraped Data", "input[name='CALLBACKURLUSER']", str4,
                     str4 == "input[name='CALLBACKURLUSER']" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Scrapped Data Configuration", "value", str5, str5 == "value" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Scrapped Data Configuration", "value", str5, str5 == "value" ? "PASS" : "FAIL", driver);
                 /*
                 if (str6 == "input[name=\"CALLBACKURLUSER\"]")
                 {
@@ -98,7 +98,7 @@ namespace MoBankUI.MoShop.Checkout.Confirm
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
         }
     }

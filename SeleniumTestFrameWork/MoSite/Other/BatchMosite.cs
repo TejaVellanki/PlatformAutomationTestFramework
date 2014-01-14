@@ -26,7 +26,7 @@ namespace MoBankUI.MoSite.Other
                     {
                         if (str == "Test All Links in Mosite")
                         {
-                            datarow.newrow("", "", "Test All Links in Mosite", "", driver);
+                            datarow.Newrow("", "", "Test All Links in Mosite", "", driver);
                             var tick = new Tickle();
                             tick.HomepageTabsTickle(datarow, driver, url);
                         }
@@ -34,34 +34,34 @@ namespace MoBankUI.MoSite.Other
 
                         if (str == "Test Footer Links")
                         {
-                            datarow.newrow("", "", "Test Footer Links", "", driver);
+                            datarow.Newrow("", "", "Test Footer Links", "", driver);
                         }
                         if (str == "Test Basket Functionality")
                         {
-                            datarow.newrow("", "", "Test Basket Functionality", "", driver);
+                            datarow.Newrow("", "", "Test Basket Functionality", "", driver);
                         }
                         if (str == "Test Produict Page - Test Add Product to Basket")
                         {
-                            datarow.newrow("", "", "Test Produict Page - Test Add Product to Basket", "", driver);
+                            datarow.Newrow("", "", "Test Produict Page - Test Add Product to Basket", "", driver);
                         }
                         if (str == "Test Delete From Basket - Test Product Unavailable")
                         {
-                            datarow.newrow("", "", "Test Delete From Basket - Test Product Unavailable", "", driver);
+                            datarow.Newrow("", "", "Test Delete From Basket - Test Product Unavailable", "", driver);
                         }
                         if (str == "Test Registration/Login - CheckOut Pages")
                         {
-                            datarow.newrow("", "", "Test Registration/Login - CheckOut Pages", "", driver);
+                            datarow.Newrow("", "", "Test Registration/Login - CheckOut Pages", "", driver);
                         }
                         if (str == "Test Mopay")
                         {
-                            datarow.newrow("", "", "Test Mopay", "", driver);
+                            datarow.Newrow("", "", "Test Mopay", "", driver);
                         }
                     }
                 }
             }
             catch (Exception)
             {
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
+                datarow.Newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                 screenshot.Screenshotfailed(driver);
             }
             finally

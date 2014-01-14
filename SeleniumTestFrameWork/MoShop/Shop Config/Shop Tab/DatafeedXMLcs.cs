@@ -49,7 +49,7 @@ namespace MoBankUI.MoShop
                             By.XPath("//div[@id='CataloguesControl']/div/table/tbody/tr[" + i + "]/th/input[4]"))
                             .Enabled)
                     {
-                        datarow.newrow("Datafeed Catalogue Selection",
+                        datarow.Newrow("Datafeed Catalogue Selection",
                             "Datafeed Catalogue is expected to be selected",
                             "Datafeed Catalogue is selected", "PASS", driver);
                     }
@@ -78,7 +78,7 @@ namespace MoBankUI.MoShop
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL");
+                datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL");
             }
         }
     }

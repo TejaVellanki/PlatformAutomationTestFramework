@@ -38,7 +38,7 @@ namespace MoBankUI
             MergeTable.Columns.Add("Total Number of Test Cases Passed/Failed");
         }
 
-        public void newrow(string validation, string expected, string actual, string passorfail)
+        public void Newrow(string validation, string expected, string actual, string passorfail)
         {
             var newrow = Dt.NewRow();
 
@@ -204,7 +204,7 @@ namespace MoBankUI
             }
         }
 
-        public void newrow(string validation, string expected, string actual, string passorfail, IWebDriver driver)
+        public void Newrow(string validation, string expected, string actual, string passorfail, IWebDriver driver)
         {
             var newrow = Dt.NewRow();
             newrow[0] = validation;

@@ -65,7 +65,7 @@ namespace MoBankUI.Mosite
                 var count = GetXpathCount(driver, field);
                 if (count == 0)
                 {
-                    datarow.newrow("User Data Form Details", "Expected User Form Fields",
+                    datarow.Newrow("User Data Form Details", "Expected User Form Fields",
                                    "User Form Fields Doesnot Exist", "FAIL", driver);
                 }
                 //Populating Customer Details from Excel Sheet
@@ -78,7 +78,7 @@ namespace MoBankUI.Mosite
                     {
                         driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).Clear();
                         driver.FindElement(By.XPath("" + field + "[" + i + "]" + fieldinput + "")).SendKeys("TEST");
-                        datarow.newrow("Form Field", "", valuet, "PASS", driver);
+                        datarow.Newrow("Form Field", "", valuet, "PASS", driver);
                     }
 
                     #region Country
@@ -110,12 +110,12 @@ namespace MoBankUI.Mosite
                                 // new SelectElement(driver.FindElement(By.Id("" + fieldcountry + "" + j + "" + countryvalue + "")))  new SelectElement(driver.FindElement(By.Id(""))).SelectByText("");ByText(value);
 
                             }
-                            datarow.newrow("Country Field", "", values, "PASS", driver);
+                            datarow.Newrow("Country Field", "", values, "PASS", driver);
                         }
                         catch (Exception ex)
                         {
                             var e = ex.ToString();
-                            datarow.newrow("Country Field Exception", "Exception Not Expected", e, "PASS", driver
+                            datarow.Newrow("Country Field Exception", "Exception Not Expected", e, "PASS", driver
                                 );
                         }
                     }
@@ -134,7 +134,7 @@ namespace MoBankUI.Mosite
                     catch (Exception ex)
                     {
                         var e = ex.ToString();
-                        datarow.newrow("Email Field Exception", "Exception Not Expected", e, "FAIL", driver
+                        datarow.Newrow("Email Field Exception", "Exception Not Expected", e, "FAIL", driver
                             );
                         screenshot1.Screenshotfailed(driver);
                     }
@@ -145,7 +145,7 @@ namespace MoBankUI.Mosite
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL", driver);
                 screenshot1.Screenshotfailed(driver);
             }
             try
@@ -189,7 +189,7 @@ namespace MoBankUI.Mosite
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception in DataForm", "Exception Not Expected", e, "FAIL", driver);
                 screenshot1.Screenshotfailed(driver);
             }
         }

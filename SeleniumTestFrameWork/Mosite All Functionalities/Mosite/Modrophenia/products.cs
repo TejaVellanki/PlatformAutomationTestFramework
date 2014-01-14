@@ -32,11 +32,11 @@ namespace MoBankUI.Mosite.Modrophenia
                 var str8 = dt.Rows[i]["Detail"].ToString();
                 var str9 = dt.Rows[i]["Item Number"].ToString();
                 var str10 = dt.Rows[i]["Variants"].ToString();
-                datarow.newrow(str7 + " Price", str6, actual, str6 == actual ? "PASS" : "FAIL", driver);
-                datarow.newrow(str7 + " Title", str7, str2, str7.ToUpper() == str2 ? "PASS" : "FAIL", driver);
-                datarow.newrow(str7 + " Detail", str8, str3, str8 == str3 ? "PASS" : "FAIL", driver);
-                datarow.newrow(str7 + " ItemNumber", expected, str9, expected == str9 ? "PASS" : "FAIL", driver);
-                datarow.newrow(str7 + " Variants", str5, str10,
+                datarow.Newrow(str7 + " Price", str6, actual, str6 == actual ? "PASS" : "FAIL", driver);
+                datarow.Newrow(str7 + " Title", str7, str2, str7.ToUpper() == str2 ? "PASS" : "FAIL", driver);
+                datarow.Newrow(str7 + " Detail", str8, str3, str8 == str3 ? "PASS" : "FAIL", driver);
+                datarow.Newrow(str7 + " ItemNumber", expected, str9, expected == str9 ? "PASS" : "FAIL", driver);
+                datarow.Newrow(str7 + " Variants", str5, str10,
                     str5.TrimStart(new char[0]) == str10.TrimStart(new char[0]) ? "PASS" : "FAIL", driver);
             }
         }
@@ -71,7 +71,7 @@ namespace MoBankUI.Mosite.Modrophenia
             catch (Exception exception3)
             {
                 var str8 = exception3.ToString();
-                datarow.newrow("Exception", "Not Expected", str8, "FAIL", driver);
+                datarow.Newrow("Exception", "Not Expected", str8, "FAIL", driver);
             }
         }
 
@@ -168,7 +168,7 @@ namespace MoBankUI.Mosite.Modrophenia
                             catch (Exception ex)
                             {
                                 var e = ex.ToString();
-                                datarow.newrow("Exception", "Exception Not Exopected", e, "FAIL");
+                                datarow.Newrow("Exception", "Exception Not Exopected", e, "FAIL");
                             }
                         } //*[@id="AddToBasketForm"]/ul/li[2]/fieldset/div[2]/div[2]/label
                         else
@@ -241,7 +241,7 @@ namespace MoBankUI.Mosite.Modrophenia
             catch (Exception ex)
             {
                 var str8 = ex.ToString();
-                datarow.newrow("Exception", "Not Expected", str8, "FAIL", driver);
+                datarow.Newrow("Exception", "Not Expected", str8, "FAIL", driver);
             }
         }
     }

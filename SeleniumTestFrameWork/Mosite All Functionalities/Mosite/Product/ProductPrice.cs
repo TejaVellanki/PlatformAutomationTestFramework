@@ -20,16 +20,16 @@ namespace MoBankUI.Mosite.Product
                 if (IsElementPresent(driver, By.ClassName(productprice)))
                 {
                     var price = driver.FindElement(By.ClassName(productprice)).Text;
-                    datarow.newrow("Product Price", "", price, "PASS", driver);
+                    datarow.Newrow("Product Price", "", price, "PASS", driver);
                 }
                 else if (!IsElementPresent(driver, By.Id(productprice)))
                 {
-                    datarow.newrow("Product Price", "Product Price is Expected", "Element Not Identified", "FAIL",
+                    datarow.Newrow("Product Price", "Product Price is Expected", "Element Not Identified", "FAIL",
                                    driver);
                 }
                 else
                 {
-                    datarow.newrow("Product Price", "Product Price is Expected", "Product Is Not Displayed", "FAIL",
+                    datarow.Newrow("Product Price", "Product Price is Expected", "Product Is Not Displayed", "FAIL",
                                    driver);
                 }
 

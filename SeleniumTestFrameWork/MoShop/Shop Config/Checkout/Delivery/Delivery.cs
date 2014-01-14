@@ -13,7 +13,7 @@ namespace MoBankUI.MoShop.Checkout.Delivery
         {
             try
             {
-                datarow.newrow("", "", "DELIVERY CONFIGURATION", "", driver);
+                datarow.Newrow("", "", "DELIVERY CONFIGURATION", "", driver);
                 driver.FindElement(By.LinkText("Checkout Process")).Click();
 
                 driver.FindElement(By.XPath("(//a[contains(text(),'…')])[2]")).Click();
@@ -126,39 +126,39 @@ namespace MoBankUI.MoShop.Checkout.Delivery
                     driver.FindElement(By.Id("ScrapedDataValueConfigurations_0__Selector")).GetAttribute("Value");
 
 
-                datarow.newrow("Delivery URL", "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?", text,
+                datarow.Newrow("Delivery URL", "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?", text,
                     text == "https://www.the-tickle-company.co.uk/cgi-bin/os000001.pl?" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Parameters",
+                datarow.Newrow("Parameters",
                     "RANDOM=0.708711438653157&SEQUENCE=1&ActCheckoutPhase=SHIPPING&ShippingClass={{ShippingClass}}&SHIPUSERDEFINED={{SHIPUSERDEFINED}}&ActCheckoutPhase=TANDC&ActCheckoutPhase=GENERAL&GENERALHOWFOUND={{GENERALHOWFOUND}}&GENERALWHYBUY={{GENERALWHYBUY}}&ACTION_NEXT.x=82&ACTION_NEXT.y=7{{AGREETERMSCONDITIONS}}",
                     attribute, attribute ==
                                "RANDOM=0.708711438653157&SEQUENCE=1&ActCheckoutPhase=SHIPPING&ShippingClass={{ShippingClass}}&SHIPUSERDEFINED={{SHIPUSERDEFINED}}&ActCheckoutPhase=TANDC&ActCheckoutPhase=GENERAL&GENERALHOWFOUND={{GENERALHOWFOUND}}&GENERALWHYBUY={{GENERALWHYBUY}}&ACTION_NEXT.x=82&ACTION_NEXT.y=7{{AGREETERMSCONDITIONS}}"
                         ? "PASS"
                         : "FAIL", driver);
-                datarow.newrow("Sequence", "20", actual, actual == "20" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Header Selector", "#idCheckoutForm > .checkout th.instruction:eq(1)", str4,
+                datarow.Newrow("Sequence", "20", actual, actual == "20" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Header Selector", "#idCheckoutForm > .checkout th.instruction:eq(1)", str4,
                     str4 == "#idCheckoutForm > .checkout th.instruction:eq(1)" ? "PASS" : "FAIL",
                     driver);
-                datarow.newrow("Success Selector", "#idPAYMENTMETHOD", str5,
+                datarow.Newrow("Success Selector", "#idPAYMENTMETHOD", str5,
                     str5 == "#idPAYMENTMETHOD" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Error Selector", "#errormessage blockquote", str6,
+                datarow.Newrow("Error Selector", "#errormessage blockquote", str6,
                     str6 == "#errormessage blockquote" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Label Selector", ".actrequired", str7, str7 == ".actrequired" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Selector Value", "select[name=\"ShippingClass\"] option", str8,
+                datarow.Newrow("Label Selector", ".actrequired", str7, str7 == ".actrequired" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Selector Value", "select[name=\"ShippingClass\"] option", str8,
                     str8 == "select[name=\"ShippingClass\"] option" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Label Selector1", "label[for=\"SHIPUSERDEFINED\"]", str9,
+                datarow.Newrow("Label Selector1", "label[for=\"SHIPUSERDEFINED\"]", str9,
                     str9 == "label[for=\"SHIPUSERDEFINED\"]" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Label Selector2", "label[for=\"idGENERALHOWFOUND\"]", str10,
+                datarow.Newrow("Label Selector2", "label[for=\"idGENERALHOWFOUND\"]", str10,
                     str10 == "label[for=\"idGENERALHOWFOUND\"]" ? "PASS" : "FAIL", driver);
-                datarow.newrow("LabelSelector3", "label[for=\"GENERALWHYBUY\"]", str11,
+                datarow.Newrow("LabelSelector3", "label[for=\"GENERALWHYBUY\"]", str11,
                     str11 == "label[for=\"GENERALWHYBUY\"]" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Keys Values Selector", "select[name=\"GENERALHOWFOUND\"] option", str12,
+                datarow.Newrow("Keys Values Selector", "select[name=\"GENERALHOWFOUND\"] option", str12,
                     str12 == "select[name=\"GENERALHOWFOUND\"] option" ? "PASS" : "FAIL",
                     driver);
-                datarow.newrow("Label selector4", "label[for=\"AGREETERMSCONDITIONS\"]", str13,
+                datarow.Newrow("Label selector4", "label[for=\"AGREETERMSCONDITIONS\"]", str13,
                     str13 == "label[for=\"AGREETERMSCONDITIONS\"]" ? "PASS" : "FAIL", driver);
-                datarow.newrow("CheckBox Replacement", "&AGREETERMSCONDITIONS=NO", str14,
+                datarow.Newrow("CheckBox Replacement", "&AGREETERMSCONDITIONS=NO", str14,
                     str14 == "&AGREETERMSCONDITIONS=NO" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Scrape Data Value", ".checkout-cart strong:eq(3)", str15,
+                datarow.Newrow("Scrape Data Value", ".checkout-cart strong:eq(3)", str15,
                     str15 == ".checkout-cart strong:eq(3)" ? "PASS" : "FAIL", driver);
 
                 #endregion
@@ -166,7 +166,7 @@ namespace MoBankUI.MoShop.Checkout.Delivery
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
             driver.FindElement(By.LinkText("Checkout Process")).Click();
 

@@ -19,7 +19,7 @@ namespace MoBankUI
                 request.Method = "GET";
                 request.ServicePoint.Expect100Continue = false;
                 request.ContentType = "application/x-www-form-urlencoded";
-                datarow.newrow("", "", "Validating Blob URL", "");
+                datarow.Newrow("", "", "Validating Blob URL", "");
                 using (var response = request.GetResponse())
                 {
                     using (var reader = new StreamReader(response.GetResponseStream()))
@@ -28,16 +28,16 @@ namespace MoBankUI
                         var rawHeaders = request.GetResponse().Headers.ToString();
                         if (rawHeaders.Contains("public"))
                         {
-                            datarow.newrow("Cache Control", "Cache Control is Public", rawHeaders, "PASS");
+                            datarow.Newrow("Cache Control", "Cache Control is Public", rawHeaders, "PASS");
                             var cache = rawHeaders.Split('f');
                             foreach (var s in cache.Where(s => s.Contains("Date")))
                             {
-                                datarow.newrow("Cache Control", "Cache Limit is Set to 30 Mins", s, "PASS");
+                                datarow.Newrow("Cache Control", "Cache Limit is Set to 30 Mins", s, "PASS");
                             }
                         }
                         else
                         {
-                            datarow.newrow("Cache Control", "Cache Control is not Public", rawHeaders, "PASS");
+                            datarow.Newrow("Cache Control", "Cache Control is not Public", rawHeaders, "PASS");
                         }
                     }
                 }
@@ -49,22 +49,22 @@ namespace MoBankUI
                 {
                     if (ss.Contains("http") || ss.Contains("https") || ss.Contains("blob"))
                     {
-                        datarow.newrow("CSS Validation", "Http/Https and Blob shouldnot contain inside the CSS Url",
+                        datarow.Newrow("CSS Validation", "Http/Https and Blob shouldnot contain inside the CSS Url",
                             ss, "FAIL");
                     }
                     else
                     {
-                        datarow.newrow("CSS Validation", "Http/Https and Blob shouldnot contain inside the CSS Url",
+                        datarow.Newrow("CSS Validation", "Http/Https and Blob shouldnot contain inside the CSS Url",
                             ss, "PASS");
                     }
 
 
                     break;
                 }
-                datarow.newrow("", "", "Validating GET for Search Results", "");
+                datarow.Newrow("", "", "Validating GET for Search Results", "");
                 foreach (var GET in selectedvalue.Where(GET => GET.Contains("GET")))
                 {
-                    datarow.newrow("Validate Search Results Using GET", "Search Results Using GET method", GET,
+                    datarow.Newrow("Validate Search Results Using GET", "Search Results Using GET method", GET,
                         "PASS");
                 }
 
@@ -74,7 +74,7 @@ namespace MoBankUI
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL");
+                datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL");
             }
         }
     }

@@ -31,20 +31,20 @@ namespace MoBankUI.MoSite.Other
                 switch (i)
                 {
                     case 1:
-                        datarow.newrow("HomepageTitle", homepageTitle, actual, homepageTitle == actual ? "PASS" : "FAIL",
+                        datarow.Newrow("HomepageTitle", homepageTitle, actual, homepageTitle == actual ? "PASS" : "FAIL",
                             driver);
                         break;
 
                     case 2:
-                        datarow.newrow("AboutUS", aboutus, actual, aboutus == actual ? "PASS" : "FAIL", driver);
+                        datarow.Newrow("AboutUS", aboutus, actual, aboutus == actual ? "PASS" : "FAIL", driver);
                         break;
 
                     case 3:
-                        datarow.newrow("Shipping", shipping, actual, shipping == actual ? "PASS" : "FAIL", driver);
+                        datarow.Newrow("Shipping", shipping, actual, shipping == actual ? "PASS" : "FAIL", driver);
                         break;
 
                     case 4:
-                        datarow.newrow("Terms And Conditions", terms, actual, terms == actual ? "PASS" : "FAIL", driver);
+                        datarow.Newrow("Terms And Conditions", terms, actual, terms == actual ? "PASS" : "FAIL", driver);
                         break;
                 }
             }

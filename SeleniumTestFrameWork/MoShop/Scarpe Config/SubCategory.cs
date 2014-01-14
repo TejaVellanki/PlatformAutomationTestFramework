@@ -65,24 +65,24 @@ namespace MoBankUI.MoShop
                 var str6 = driver.FindElement(By.Id("MappingItems_1__Selector")).GetAttribute("Value");
 
 
-                datarow.newrow("Subcategory Selector", "div[class^='leftNav'] a,.bdr a", attribute,
+                datarow.Newrow("Subcategory Selector", "div[class^='leftNav'] a,.bdr a", attribute,
                     attribute == "div[class^='leftNav'] a,.bdr a" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Sub-Category Identifier", "/acatalog/wrapping-paper-everyday.html", actual,
+                datarow.Newrow("Sub-Category Identifier", "/acatalog/wrapping-paper-everyday.html", actual,
                     actual == "/acatalog/wrapping-paper-everyday.html" ? "PASS" : "FAIL",
                     driver);
-                datarow.newrow("Sub-Category Identifier Transformation", @"\/([a-z0-9\-_]+).html", str3,
+                datarow.Newrow("Sub-Category Identifier Transformation", @"\/([a-z0-9\-_]+).html", str3,
                     str3 == @"\/([a-z0-9\-_]+).html" ? "PASS" : "FAIL",
                     driver);
-                datarow.newrow("Sub-Category Identifier Replacement", "$1", str4, str4 == "$1" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Sub-Category Identifier Replacement", "$1", str4, str4 == "$1" ? "PASS" : "FAIL", driver);
                 if (str5 == "h1,h2 :first")
                 {
-                    datarow.newrow("Sub Category mapping Selector", "h1,h2 :first", str5, "PASS", driver);
+                    datarow.Newrow("Sub Category mapping Selector", "h1,h2 :first", str5, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Sub-Category mapping Selector", "h1,h2 :first", str5, "FAIL", driver);
+                    datarow.Newrow("Sub-Category mapping Selector", "h1,h2 :first", str5, "FAIL", driver);
                 }
-                datarow.newrow("Sub-category mapping selector2", "#banner", str6, str6 == "#banner" ? "PASS" : "FAIL",
+                datarow.Newrow("Sub-category mapping selector2", "#banner", str6, str6 == "#banner" ? "PASS" : "FAIL",
                     driver);
 
                 #endregion
@@ -90,7 +90,7 @@ namespace MoBankUI.MoShop
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception Not Expected", "", e, "FAIL");
+                datarow.Newrow("Exception Not Expected", "", e, "FAIL");
             }
             new ProductScrape().Productscrape(driver, datarow);
         }

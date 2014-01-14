@@ -58,7 +58,7 @@ namespace MoBankUI.MoPay
                                 driver.FindElement(By.Id("Credentials_TypeModel_Password")).GetAttribute("value");
                             if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                             {
-                                datarow.newrow("Capturing Error Message",
+                                datarow.Newrow("Capturing Error Message",
                                                "An unexpected error has occured, please try again",
                                                "An unexpected error has occured, please try again", "PASS", driver
                                     );
@@ -82,7 +82,7 @@ namespace MoBankUI.MoPay
 
                                 if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                                 {
-                                    datarow.newrow("Capturing Error Message",
+                                    datarow.Newrow("Capturing Error Message",
                                                    "An unexpected error has occured, please try again",
                                                    "An unexpected error has occured, please try again", "FAIL", driver
                                         );
@@ -93,29 +93,29 @@ namespace MoBankUI.MoPay
 
                             if (attribute == "test_mobankgroup45556")
                             {
-                                datarow.newrow("PayProviderUserName", "mobank", "mobank", "PASS", driver);
+                                datarow.Newrow("PayProviderUserName", "mobank", "mobank", "PASS", driver);
                             }
                             else
                             {
-                                datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL", driver);
+                                datarow.Newrow("PayProviderUserName", "mobank", "mobank", "FAIL", driver);
                                 _screenshot.Screenshotfailed(driver);
                             }
                             if (str6 == "webservices@mobankgroup.com")
                             {
-                                datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "PASS", driver);
+                                datarow.Newrow("PayProviderIdentifier", "mobank", "mobank", "PASS", driver);
                             }
                             else
                             {
-                                datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "FAIL", driver);
+                                datarow.Newrow("PayProviderIdentifier", "mobank", "mobank", "FAIL", driver);
                                 _screenshot.Screenshotfailed(driver);
                             }
                             if (expected == "wj3JWWFX")
                             {
-                                datarow.newrow("Password", expected, "wj3JWWFX", "PASS", driver);
+                                datarow.Newrow("Password", expected, "wj3JWWFX", "PASS", driver);
                             }
                             else
                             {
-                                datarow.newrow("Password", expected, "wj3JWWFX", "FAIL", driver);
+                                datarow.Newrow("Password", expected, "wj3JWWFX", "FAIL", driver);
                                 _screenshot.Screenshotfailed(driver);
                             }
                             break;
@@ -129,7 +129,7 @@ namespace MoBankUI.MoPay
 
                         if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                         {
-                            datarow.newrow("Capturing Error Message",
+                            datarow.Newrow("Capturing Error Message",
                                            "An unexpected error has occured, please try again",
                                            "An unexpected error has occured, please try again", "PASS", driver);
                         }
@@ -151,7 +151,7 @@ namespace MoBankUI.MoPay
 
                             if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                             {
-                                datarow.newrow("Capturing Error Message",
+                                datarow.Newrow("Capturing Error Message",
                                                "An unexpected error has occured, please try again",
                                                "An unexpected error has occured, please try again", "FAIL", driver
                                     );
@@ -173,7 +173,7 @@ namespace MoBankUI.MoPay
 
                         if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                         {
-                            datarow.newrow("Capturing Error Message",
+                            datarow.Newrow("Capturing Error Message",
                                            "An unexpected error has occured, please try again",
                                            "An unexpected error has occured, please try again", "PASS", driver);
                         }
@@ -193,7 +193,7 @@ namespace MoBankUI.MoPay
 
                             if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                             {
-                                datarow.newrow("Capturing Error Message",
+                                datarow.Newrow("Capturing Error Message",
                                                "An unexpected error has occured, please try again",
                                                "An unexpected error has occured, please try again", "FAIL", driver
                                     );
@@ -203,20 +203,20 @@ namespace MoBankUI.MoPay
                         str6 = driver.FindElement(By.Id("Credentials_TypeModel_Password")).GetAttribute("value");
                         if (attribute == "mobank")
                         {
-                            datarow.newrow("PayProviderUserName", "mobank", "mobank", "PASS", driver);
+                            datarow.Newrow("PayProviderUserName", "mobank", "mobank", "PASS", driver);
                         }
                         else
                         {
-                            datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL", driver);
+                            datarow.Newrow("PayProviderUserName", "mobank", "mobank", "FAIL", driver);
                             _screenshot.Screenshotfailed(driver);
                         }
                         if (str6 == "secret")
                         {
-                            datarow.newrow("PayProviderPassword", str6, "secret", "PASS", driver);
+                            datarow.Newrow("PayProviderPassword", str6, "secret", "PASS", driver);
                         }
                         else
                         {
-                            datarow.newrow("PayProviderPassword", str6, "secret", "FAIL", driver);
+                            datarow.Newrow("PayProviderPassword", str6, "secret", "FAIL", driver);
                             _screenshot.Screenshotfailed(driver);
                         }
                         break;
@@ -244,7 +244,7 @@ namespace MoBankUI.MoPay
 
                     if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                     {
-                        datarow.newrow("Capturing Error Message",
+                        datarow.Newrow("Capturing Error Message",
                             "An unexpected error has occured, please try again",
                             "An unexpected error has occured, please try again", "PASS", driver);
                     }
@@ -262,7 +262,7 @@ namespace MoBankUI.MoPay
 
                         if (driver.PageSource.Contains("An unexpected error has occured, please try again"))
                         {
-                            datarow.newrow("Capturing Error Message",
+                            datarow.Newrow("Capturing Error Message",
                                 "An unexpected error has occured, please try again",
                                 "An unexpected error has occured, please try again", "FAIL", driver
                                 );
@@ -273,20 +273,20 @@ namespace MoBankUI.MoPay
                     str6 = driver.FindElement(By.Id("Credentials_TypeModel_XmlUserName")).GetAttribute("value");
                     if (attribute == str3)
                     {
-                        datarow.newrow("PayProviderUserName", "mobank", "mobank", "PASS", driver);
+                        datarow.Newrow("PayProviderUserName", "mobank", "mobank", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("PayProviderUserName", "mobank", "mobank", "FAIL", driver);
+                        datarow.Newrow("PayProviderUserName", "mobank", "mobank", "FAIL", driver);
                         _screenshot.Screenshotfailed(driver);
                     }
                     if (str6 == str2)
                     {
-                        datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "PASS", driver);
+                        datarow.Newrow("PayProviderIdentifier", "mobank", "mobank", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("PayProviderIdentifier", "mobank", "mobank", "FAIL", driver);
+                        datarow.Newrow("PayProviderIdentifier", "mobank", "mobank", "FAIL", driver);
                         _screenshot.Screenshotfailed(driver);
                     }
                 }

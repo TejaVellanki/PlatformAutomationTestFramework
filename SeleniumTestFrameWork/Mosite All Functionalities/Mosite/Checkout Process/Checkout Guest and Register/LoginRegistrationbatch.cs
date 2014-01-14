@@ -38,7 +38,7 @@ namespace MoBankUI.Mosite
                 }
                 else
                 {
-                    datarow.newrow("Checkout Process Not covered in the Framework", "Expected", logintitle, "FAIL",
+                    datarow.Newrow("Checkout Process Not covered in the Framework", "Expected", logintitle, "FAIL",
                                    driver);
                     screenshot.Screenshotfailed(driver);
                 }
@@ -46,7 +46,7 @@ namespace MoBankUI.Mosite
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Not Expected", e, "FAIL", driver);
                 screenshot.Screenshotfailed(driver);
             }
         }

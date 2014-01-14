@@ -152,7 +152,7 @@ namespace MoBankUI.MoShop.Checkout
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
             driver.FindElement(By.CssSelector("input.button")).Click();
         }

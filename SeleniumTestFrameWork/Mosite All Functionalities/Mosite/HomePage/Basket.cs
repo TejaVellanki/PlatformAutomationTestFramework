@@ -21,13 +21,13 @@ namespace MoBankUI.Mosite.HomePage
                 {
                     driver.FindElement(By.Id("BasketInfo")).Click();
 
-                    datarow.newrow("Basket Info Button", "Basket Info Button Is Expected",
+                    datarow.Newrow("Basket Info Button", "Basket Info Button Is Expected",
                                    "Basket Info Button is Present", "PASS", driver);
                 }
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
-                    datarow.newrow("Basket Info Button", "Basket Info Button Is Expected", e, "FAIL", driver);
+                    datarow.Newrow("Basket Info Button", "Basket Info Button Is Expected", e, "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
 
@@ -38,11 +38,11 @@ namespace MoBankUI.Mosite.HomePage
                         var value = driver.FindElement(By.Id("BasketInfo")).Text;
                         if (value == "(0)")
                         {
-                            datarow.newrow("Basket Value", "(0)", value, "PASS", driver);
+                            datarow.Newrow("Basket Value", "(0)", value, "PASS", driver);
                         }
                         else
                         {
-                            datarow.newrow("Basket Value", "(0)", value, "FAIL", driver);
+                            datarow.Newrow("Basket Value", "(0)", value, "FAIL", driver);
                             _screenshot.Screenshotfailed(driver);
                         }
                     }
@@ -51,18 +51,18 @@ namespace MoBankUI.Mosite.HomePage
                     var basket = driver.FindElement(By.Id(basketempty)).Text;
                     if (basket == "Your basket is empty")
                     {
-                        datarow.newrow("Basket Page Text", "Your basket is empty", basket, "PASS", driver);
+                        datarow.Newrow("Basket Page Text", "Your basket is empty", basket, "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Basket Page Text", "Your basket is empty", basket, "FAIL", driver);
+                        datarow.Newrow("Basket Page Text", "Your basket is empty", basket, "FAIL", driver);
                         _screenshot.Screenshotfailed(driver);
                     }
                 }
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
-                    datarow.newrow("Basket Info Text", "Basket Info Text Is Expected", e, "FAIL", driver);
+                    datarow.Newrow("Basket Info Text", "Basket Info Text Is Expected", e, "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
                 var basketurl = driver.Url;
@@ -72,7 +72,7 @@ namespace MoBankUI.Mosite.HomePage
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Excepetion Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Excepetion Not Expected", e, "FAIL", driver);
                 _screenshot.Screenshotfailed(driver);
             }
         }

@@ -32,7 +32,7 @@ namespace MoBankUI.MoShop
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
         }
 
@@ -53,8 +53,8 @@ namespace MoBankUI.MoShop
                         var action =
                             driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[5]")).Text;
 
-                        datarow.newrow("Scarpe Tilte", "", title, "PASS", driver);
-                        datarow.newrow("Scarpe Type", "", type, "PASS", driver);
+                        datarow.Newrow("Scarpe Tilte", "", title, "PASS", driver);
+                        datarow.Newrow("Scarpe Type", "", type, "PASS", driver);
                         Thread.Sleep(5000);
                         driver.Navigate().Refresh();
 
@@ -63,7 +63,7 @@ namespace MoBankUI.MoShop
                     catch (Exception ex)
                     {
                         var e = ex.ToString();
-                        datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
+                        datarow.Newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
                     }
                 }
                 else
@@ -74,7 +74,7 @@ namespace MoBankUI.MoShop
                     j++;
                 }
                 if (j != 10) continue;
-                datarow.newrow("Scarpe/Datafeed Start", "Scarpe/Datafeed should start",
+                datarow.Newrow("Scarpe/Datafeed Start", "Scarpe/Datafeed should start",
                     "Scarpe/Datafeed didnt start after 60 sec", "FAIL", driver);
                 break;
             }
@@ -99,16 +99,16 @@ namespace MoBankUI.MoShop
                                 driver.FindElement(By.XPath("//div[@id='Grid']/div[2]/table/tbody/tr/td[7]")).Text;
                             if (comp.Contains("100%"))
                             {
-                                datarow.newrow("Scarpe status", "", comp, "PASS", driver);
+                                datarow.Newrow("Scarpe status", "", comp, "PASS", driver);
                                 break;
                             }
-                            datarow.newrow("Scarpe/Datafeed status", "", comp, "PASS", driver);
+                            datarow.Newrow("Scarpe/Datafeed status", "", comp, "PASS", driver);
                             Thread.Sleep(5000);
                             driver.Navigate().Refresh();
                         }
                         catch (Exception)
                         {
-                            datarow.newrow("Scarpe/DataFeed Status", "100%", "100%", "PASS", driver);
+                            datarow.Newrow("Scarpe/DataFeed Status", "100%", "100%", "PASS", driver);
                             break;
                         }
                     }
@@ -119,7 +119,7 @@ namespace MoBankUI.MoShop
 
                 j++;
                 if (j != 10) continue;
-                datarow.newrow("Scarpe/Datafeed Start", "Scrape/Datafeed should start",
+                datarow.Newrow("Scarpe/Datafeed Start", "Scrape/Datafeed should start",
                     "Scrape/Datafeed didnt start after 60 sec", "FAIL", driver);
                 break;
             }
@@ -131,7 +131,7 @@ namespace MoBankUI.MoShop
             var completed = driver.FindElement(By.CssSelector("td.markedCell")).Text;
             if (completed.Contains("100%"))
             {
-                datarow.newrow("Scrape/DataFeed Job Completed", "", completed, "PASS", driver);
+                datarow.Newrow("Scrape/DataFeed Job Completed", "", completed, "PASS", driver);
             }
         }
     }

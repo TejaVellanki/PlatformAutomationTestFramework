@@ -40,7 +40,7 @@ namespace MoBankUI.Mosite
                             driver.FindElement(
                                 By.XPath("//html/body/div[1]/div[2]/div/form/div[" + i + "]/input"))
                                 .SendKeys("TEST");
-                            datarow.newrow("Registration Field Name", "", valuet, "PASS", driver);
+                            datarow.Newrow("Registration Field Name", "", valuet, "PASS", driver);
                         }
                         catch (Exception ex)
                         {
@@ -65,7 +65,7 @@ namespace MoBankUI.Mosite
                             values = values + "\r\n" + value;
                             new SelectElement(driver.FindElement(By.Id("Country"))).SelectByText(value.Text);
                         }
-                        datarow.newrow("Registration Field Countries", "", values, "PASS", driver);
+                        datarow.Newrow("Registration Field Countries", "", values, "PASS", driver);
                     }
 
                     if (valuet == "Continue")
@@ -78,7 +78,7 @@ namespace MoBankUI.Mosite
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
             }
         }
     }

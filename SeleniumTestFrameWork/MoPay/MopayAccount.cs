@@ -51,7 +51,7 @@ namespace MoBankUI.MoPay
                     if (driver.PageSource.Contains("Test Client Account"))
                     {
                         driver.FindElement(By.LinkText("Test Client Account")).Click();
-                        datarow.newrow("Test Client Tab", "Test Client Tab", "Test Client Account", "PASS", driver
+                        datarow.Newrow("Test Client Tab", "Test Client Tab", "Test Client Account", "PASS", driver
                             );
                     }
                     new SelectElement(driver.FindElement(By.Id("Provider_Id"))).SelectByText(text);
@@ -59,10 +59,10 @@ namespace MoBankUI.MoPay
                     Thread.Sleep(0x1388);
                     var attribute = driver.FindElement(By.Id("Name")).GetAttribute("Value");
                     var actual = driver.FindElement(By.Id("Provider_Id")).GetAttribute("Value");
-                    datarow.newrow("Account Name", expected, attribute, expected == attribute ? "PASS" : "FAIL", driver);
-                    datarow.newrow("Provider", text, actual, text == actual ? "PASS" : "FAIL", driver);
+                    datarow.Newrow("Account Name", expected, attribute, expected == attribute ? "PASS" : "FAIL", driver);
+                    datarow.Newrow("Provider", text, actual, text == actual ? "PASS" : "FAIL", driver);
                     var str8 = driver.Title;
-                    datarow.newrow("Details Tab", "Details : mopowered.co.uk", str8,
+                    datarow.Newrow("Details Tab", "Details : mopowered.co.uk", str8,
                         str8 == "Details : mopowered.co.uk" ? "PASS" : "FAIL", driver);
                     driver.FindElement(By.Id("PayProviderCheckOutReturnUri")).Clear();
                     driver.FindElement(By.Id("PayProviderCheckOutReturnUri")).SendKeys(str3);
@@ -77,7 +77,7 @@ namespace MoBankUI.MoPay
             catch (Exception exception)
             {
                 var str9 = exception.ToString();
-                datarow.newrow("Exception", "Not Expected", str9, "FAIL", driver);
+                datarow.Newrow("Exception", "Not Expected", str9, "FAIL", driver);
                 datarow.excelsave("MoPay Account Creation", driver, "teja.vellanki@mobankgroup.com");
             }
             finally

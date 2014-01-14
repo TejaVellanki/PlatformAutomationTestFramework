@@ -32,7 +32,7 @@ namespace MoBankUI.Mosite.Product
                 }
                 else
                 {
-                    datarow.newrow("Delete From Basket", "Delete Basket Element Expected",
+                    datarow.Newrow("Delete From Basket", "Delete Basket Element Expected",
                                    "//ul[@id='Basket']/li/a/span" + "Element Not Present", "FAIL", driver);
                     _screenshot.Screenshotfailed(driver);
                 }
@@ -40,7 +40,7 @@ namespace MoBankUI.Mosite.Product
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 _screenshot.Screenshotfailed(driver);
             }
         }
@@ -79,11 +79,11 @@ namespace MoBankUI.Mosite.Product
 
                     if (value == "(0)")
                     {
-                        datarow.newrow("Delete Basket Value", "(0)", value, "PASS", driver);
+                        datarow.Newrow("Delete Basket Value", "(0)", value, "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Delete Basket Value", "(0)", value, "FAIL", driver);
+                        datarow.Newrow("Delete Basket Value", "(0)", value, "FAIL", driver);
                         _screenshot.Screenshotfailed(driver);
                     }
                 }
@@ -125,7 +125,7 @@ namespace MoBankUI.Mosite.Product
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 _screenshot.Screenshotfailed(driver);
             }
         }

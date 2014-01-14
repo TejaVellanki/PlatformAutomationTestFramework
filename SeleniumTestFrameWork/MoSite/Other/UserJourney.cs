@@ -92,13 +92,13 @@ namespace MoBankUI.MoSite.Other
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 driver.FindElement(By.XPath("//p[@id='AddToBasketButton']/div[2]/input")).Click();
                 Thread.Sleep(0x1388);
-                datarow.newrow("Basket Value", "(1)", "(1)",
+                datarow.Newrow("Basket Value", "(1)", "(1)",
                     driver.FindElement(By.Id("BasketInfo")).Text == "(1)" ? "PASS" : "FAIL", driver);
                 driver.FindElement(By.XPath("//div[@id='AddedDetail']/ul/li/p/a/span/span")).Click();
 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10.0));
                 driver.FindElement(By.XPath("//a[@id='GoToCheckout']/span/span"));
-                datarow.newrow("Basket Value", "(1)", "(1)",
+                datarow.Newrow("Basket Value", "(1)", "(1)",
                     driver.FindElement(By.Id("BasketInfo")).Text == "(1)" ? "PASS" : "FAIL", driver);
                 Thread.Sleep(0x1388);
                 executor.ExecuteScript("window.scrollBy(0,80)", new object[0]);
@@ -135,7 +135,7 @@ namespace MoBankUI.MoSite.Other
             catch (Exception exception)
             {
                 var actual = exception.ToString();
-                datarow.newrow("Exception", "Not Expected", actual, "FAIL", driver);
+                datarow.Newrow("Exception", "Not Expected", actual, "FAIL", driver);
             }
         }
     }

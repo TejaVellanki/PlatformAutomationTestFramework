@@ -52,7 +52,7 @@ namespace MoBankUI.MoShop.Checkout
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Exopected", e, "FAIL");
+                    datarow.Newrow("Exception", "Exception Not Exopected", e, "FAIL");
                 }
 
                 driver.FindElement(By.Id("CountryMappings_0__Source")).Clear();
@@ -93,49 +93,49 @@ namespace MoBankUI.MoShop.Checkout
 
                 #region Validations
 
-                datarow.newrow("Basket Page URL", "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl", str8,
+                datarow.Newrow("Basket Page URL", "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl", str8,
                     str8 == "http://www.the-tickle-company.co.uk/cgi-bin/ca000001.pl" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Basket Page Parameters", "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}", str9,
+                datarow.Newrow("Basket Page Parameters", "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}", str9,
                     str9 == "SID=915&PAGE=PRODUCT&Q_{{ProductCode}}={{Quantity}}" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Basket Success Selector", "#productsresults form h2", str10,
+                datarow.Newrow("Basket Success Selector", "#productsresults form h2", str10,
                     str10 == "#productsresults form h2" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Basket Error Message", "body", str11, str11 == "body" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Basket Error Transformation", @"(?<=\<hr \/\>).*(?=\<hr \/\>)", str12,
+                datarow.Newrow("Basket Error Message", "body", str11, str11 == "body" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Basket Error Transformation", @"(?<=\<hr \/\>).*(?=\<hr \/\>)", str12,
                     str12 == @"(?<=\<hr \/\>).*(?=\<hr \/\>)" ? "PASS" : "FAIL",
                     driver);
                 if (str13 == "div#productsresults table:eq(0) tr:last-child td strong:eq(1)")
                 {
-                    datarow.newrow("Basket Total Selector",
+                    datarow.Newrow("Basket Total Selector",
                                    "div#productsresults table:eq(0) tr:last-child td strong:eq(1)",
                                    str13, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Basket Total Selector",
+                    datarow.Newrow("Basket Total Selector",
                                    "div#productsresults table:eq(0) tr:last-child td strong:eq(1)",
                                    str13, "PASS", driver);
                 }
-                datarow.newrow("Country Mappings", "UK", str14, str14 == "UK" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Country Mappings", "UK", str14, str14 == "UK" ? "PASS" : "FAIL", driver);
                 var str15 = driver.FindElement(By.Id("Pages_0__Name")).GetAttribute("Value");
                 var str16 = driver.FindElement(By.Id("Pages_1__Name")).GetAttribute("Value");
                 var str17 = driver.FindElement(By.Id("Pages_2__Name")).GetAttribute("Value");
-                datarow.newrow("Chekout Address", "Address", str15, str15 == "Address" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Checkout Delivery", "Delivery", str16, str16 == "Delivery" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Checkout Confirmation", "Confirm", str17, str17 == "Confirm" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Chekout Address", "Address", str15, str15 == "Address" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Checkout Delivery", "Delivery", str16, str16 == "Delivery" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Checkout Confirmation", "Confirm", str17, str17 == "Confirm" ? "PASS" : "FAIL", driver);
 
                 #endregion
 
                 driver.FindElement(By.LinkText("…")).Click();
 
                 var str18 = driver.Title;
-                datarow.newrow("Address Page Title", "Page Update : mobank.co.uk/MoShop", str18,
+                datarow.Newrow("Address Page Title", "Page Update : mobank.co.uk/MoShop", str18,
                     str18 == "Page Update : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver
                     );
             }
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Excepion Not Expected", e, "FAIL", driver);
             }
             new Addressconfig().AddressConfig(driver, datarow);
         }

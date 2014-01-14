@@ -60,21 +60,21 @@ namespace MoBankUI.MoShop
                 var str8 = driver.FindElement(By.Id("SubPages_0__Name")).GetAttribute("Value");
                 var str9 = driver.FindElement(By.Id("SubPages_0__ObjectTypeName")).GetAttribute("Value");
 
-                datarow.newrow("Selector", "#menu .lrga:gt(1)>a", attribute,
+                datarow.Newrow("Selector", "#menu .lrga:gt(1)>a", attribute,
                     attribute == "#menu .lrga:gt(1)>a" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Identifier", "/acatalog/gift-wrap.html", actual,
+                datarow.Newrow("Identifier", "/acatalog/gift-wrap.html", actual,
                     actual == "/acatalog/gift-wrap.html" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Identifier Tarnsformation pattern", @"\/acatalog\/([a-z0-9\-_]*).html", str3,
+                datarow.Newrow("Identifier Tarnsformation pattern", @"\/acatalog\/([a-z0-9\-_]*).html", str3,
                     str3 == @"\/acatalog\/([a-z0-9\-_]*).html" ? "PASS" : "FAIL",
                     driver);
-                datarow.newrow("Identifier Replacement", "$1", str4, str4 == "$1" ? "PASS" : "FAIL", driver);
-                datarow.newrow("DataPath", "Name", selectedLabel, selectedLabel == "Name" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Transformation ID", "Content Trim", str6, str6 == "Content Trim" ? "PASS" : "FAIL",
+                datarow.Newrow("Identifier Replacement", "$1", str4, str4 == "$1" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("DataPath", "Name", selectedLabel, selectedLabel == "Name" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Transformation ID", "Content Trim", str6, str6 == "Content Trim" ? "PASS" : "FAIL",
                     driver);
-                datarow.newrow("Mapping Selector", "a[class^='select']", str7,
+                datarow.Newrow("Mapping Selector", "a[class^='select']", str7,
                     str7 == "a[class^='select']" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Sub Pages", "Sub-Categories", str8, str8 == "Sub-Categories" ? "PASS" : "FAIL", driver);
-                datarow.newrow("Sub Category Type", "Category", str9, str9 == "Category" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Sub Pages", "Sub-Categories", str8, str8 == "Sub-Categories" ? "PASS" : "FAIL", driver);
+                datarow.Newrow("Sub Category Type", "Category", str9, str9 == "Category" ? "PASS" : "FAIL", driver);
 
                 #endregion
 
@@ -83,7 +83,7 @@ namespace MoBankUI.MoShop
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "", e, "FAIL");
+                datarow.Newrow("Exception", "", e, "FAIL");
             }
             new SubCategory().Subcategoryscrape(driver, datarow);
         }

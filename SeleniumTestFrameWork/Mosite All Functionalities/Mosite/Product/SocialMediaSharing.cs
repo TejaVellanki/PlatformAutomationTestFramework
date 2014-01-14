@@ -17,7 +17,7 @@ namespace MoBankUI.Mosite.Product
                 var window = Convert.ToString(str.Current);
                 driver.SwitchTo().Window(window);
                 var url = driver.Url;
-                datarow.newrow("Social Share URL", "", url, "PASS");
+                datarow.Newrow("Social Share URL", "", url, "PASS");
             }
             driver.SwitchTo().Window(parentwindow);
         }

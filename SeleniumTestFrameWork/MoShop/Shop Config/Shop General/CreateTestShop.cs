@@ -21,17 +21,17 @@ namespace MoBankUI.MoShop
                 driver.FindElement(By.CssSelector("input.button")).Click();
 
                 var title = driver.Title;
-                datarow.newrow("Test Shop Title", "Shop : mobank.co.uk/MoShop", title,
+                datarow.Newrow("Test Shop Title", "Shop : mobank.co.uk/MoShop", title,
                     title == "Shop : mobank.co.uk/MoShop" ? "PASS" : "FAIL", driver);
 
                 if (driver.FindElement(By.Id("IsOffLine")).Enabled)
                 {
-                    datarow.newrow("Shop Offline", "Shop should be offline", "Shop is Offline", "PASS", driver);
+                    datarow.Newrow("Shop Offline", "Shop should be offline", "Shop is Offline", "PASS", driver);
                     driver.FindElement(By.Id("IsOffLine")).Click();
                 }
                 else
                 {
-                    datarow.newrow("Shop Offline", "Shop should be offline", "Shop is not set to Offline", "FAIL",
+                    datarow.Newrow("Shop Offline", "Shop should be offline", "Shop is not set to Offline", "FAIL",
                                    driver);
                 }
                 driver.FindElement(By.Id("IsOffLine")).Click();
@@ -49,7 +49,7 @@ namespace MoBankUI.MoShop
 
                 if (driver.FindElement(By.Id("DefaultCatalogueId")).Enabled)
                 {
-                    datarow.newrow("Default Catalogue Selection", "Default Catalogue is expected to be selected",
+                    datarow.Newrow("Default Catalogue Selection", "Default Catalogue is expected to be selected",
                                    "Default Catalogue is selected", "PASS", driver);
                 }
                 else
@@ -68,7 +68,7 @@ namespace MoBankUI.MoShop
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception in Test Shop Page", "Exception not Expected", e, "FAIL");
+                datarow.Newrow("Exception in Test Shop Page", "Exception not Expected", e, "FAIL");
             }
         }
     }

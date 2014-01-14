@@ -293,7 +293,7 @@ namespace MoBankUI
                         Thread.Sleep(2000);
 
                         var mobileurl = driver.Url;
-                        datarow.newrow("Mobile URL Validation", "Mobile URL", mobileurl,
+                        datarow.Newrow("Mobile URL Validation", "Mobile URL", mobileurl,
                             mobileurl == url ? "FAIL" : "PASS", driver);
 
                         var testing = new BatchTesting();

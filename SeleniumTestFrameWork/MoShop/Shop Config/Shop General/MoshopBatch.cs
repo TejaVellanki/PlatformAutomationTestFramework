@@ -30,7 +30,7 @@ namespace MoBankUI.MoShop
 
                     if (str == "Create a Test Shop")
                     {
-                        datarow.newrow("", "", "Create a Test Shop", "", driver);
+                        datarow.Newrow("", "", "Create a Test Shop", "", driver);
                         var testshop = new CreateShop();
                         testshop.Testshop(driver, datarow);
 
@@ -50,7 +50,7 @@ namespace MoBankUI.MoShop
 
                     if (str == "Create a Test Scrape")
                     {
-                        datarow.newrow("", "", "Create a Test Scarpe", "", driver);
+                        datarow.Newrow("", "", "Create a Test Scarpe", "", driver);
                         new Createscrape().CreateScrape(driver, datarow);
                     }
 
@@ -60,7 +60,7 @@ namespace MoBankUI.MoShop
 
                     if (str == "Run Manual Scrape")
                     {
-                        datarow.newrow("", "", "Run Manual Scrape", "", driver);
+                        datarow.Newrow("", "", "Run Manual Scrape", "", driver);
                         var run = new RunScrape();
                         run.Runscrape(driver, datarow);
                     }
@@ -71,7 +71,7 @@ namespace MoBankUI.MoShop
 
                     if (str == "Validate Custom Domain Name Feature and Localisation")
                     {
-                        datarow.newrow("", "", "Validate Custom domain Name", "", driver);
+                        datarow.Newrow("", "", "Validate Custom domain Name", "", driver);
                         new Shop().Culture(driver, datarow);
                     }
 
@@ -84,7 +84,7 @@ namespace MoBankUI.MoShop
                         try
                         {
                             driver.Manage().Window.Size = new Size(400, 550);
-                            datarow.newrow("", "", "Run the Test Site", "", driver);
+                            datarow.Newrow("", "", "Run the Test Site", "", driver);
                             driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
 
                             new BlobStorage();
@@ -94,7 +94,7 @@ namespace MoBankUI.MoShop
                         catch (Exception ex)
                         {
                             var e = ex.ToString();
-                            datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                            datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                         }
                     }
 
@@ -106,10 +106,10 @@ namespace MoBankUI.MoShop
                     {
                         var datafeed = new DatafeedXml();
                         datafeed.Datafeed(driver, datarow);
-                        datarow.newrow("", "", "Run the Test Site-DataFeed", "", driver);
+                        datarow.Newrow("", "", "Run the Test Site-DataFeed", "", driver);
                         driver.Navigate().GoToUrl("http://testshop.mobankdev.com/");
 
-                        datarow.newrow("", "", "Footer Links", "", driver);
+                        datarow.Newrow("", "", "Footer Links", "", driver);
                         var footer = new FooterTps();
                         footer.Footerhome(driver, "http://testshop.mobankdev.com/", datarow);
                         var relatedproduct = new RelatedProducts();
@@ -143,7 +143,7 @@ namespace MoBankUI.MoShop
             catch (Exception exception)
             {
                 var str2 = exception.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", str2, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Not Expected", str2, "FAIL", driver);
                 screenshot.Screenshotfailed(driver);
             }
 
@@ -160,13 +160,13 @@ namespace MoBankUI.MoShop
         {
             var userjour = new UserJourneyTps();
             userjour.UserJourn(datarow, driver, "http://testshop.mobankdev.com/");
-            datarow.newrow("", "", "Delete From Basket", "", driver);
+            datarow.Newrow("", "", "Delete From Basket", "", driver);
             var delete = new Deletebasketstart();
             delete.Deletebasstart(driver, datarow);
-            datarow.newrow("", "", "Registration/Login", "", driver);
+            datarow.Newrow("", "", "Registration/Login", "", driver);
             var login = new LoginRegistration();
             login.Registration(driver, datarow);
-            datarow.newrow("", "", "Mopay", "", driver);
+            datarow.Newrow("", "", "Mopay", "", driver);
             var pay = new BatchPay();
             pay.Batchpay(driver, "http://testshop.mobankdev.com/", datarow);
         }

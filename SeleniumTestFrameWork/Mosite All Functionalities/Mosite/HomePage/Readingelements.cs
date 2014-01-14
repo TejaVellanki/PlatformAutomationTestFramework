@@ -29,7 +29,7 @@ namespace MoBankUI.Mosite.HomePage
             catch(Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Exopected", e, "FAIL");
+                datarow.Newrow("Exception", "Exception Not Exopected", e, "FAIL");
             }
         }
     }

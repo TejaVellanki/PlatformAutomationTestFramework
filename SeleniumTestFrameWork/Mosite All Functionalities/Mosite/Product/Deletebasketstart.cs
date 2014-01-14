@@ -28,7 +28,7 @@ namespace MoBankUI.Mosite.Product
                 {
                     if (driver.PageSource.Contains("Product unavailable"))
                     {
-                        datarow.newrow("Product Unavailable", "", "Product Unavilable", "FAIL", driver);
+                        datarow.Newrow("Product Unavailable", "", "Product Unavilable", "FAIL", driver);
                         _screenshot.Screenshotfailed(driver);
                         productunavailabl(driver, l, datarow);
                         driver.FindElement(By.XPath(checkout)).Click();
@@ -43,7 +43,7 @@ namespace MoBankUI.Mosite.Product
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Not Expected", e, "FAIL", driver);
                 _screenshot.Screenshotfailed(driver);
             }
         }
@@ -122,7 +122,7 @@ namespace MoBankUI.Mosite.Product
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Not Expected", e, "FAIL", driver);
                 _screenshot.Screenshotfailed(driver);
             }
         }

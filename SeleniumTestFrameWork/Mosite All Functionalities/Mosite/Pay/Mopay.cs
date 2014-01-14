@@ -40,7 +40,7 @@ namespace MoBankUI.Mosite.Pay
                             new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlPaymentOption"))).SelectByText(
                                 payment.Text);
                         }
-                        datarow.newrow("Payment Options", "", values, "PASS", driver);
+                        datarow.Newrow("Payment Options", "", values, "PASS", driver);
                     }
 
                     else if (IsElementPresent(driver, By.Id("Pagecontent_ddlCardType")))
@@ -54,13 +54,13 @@ namespace MoBankUI.Mosite.Pay
                             new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlCardType"))).SelectByText(
                                 payment.Text);
                         }
-                        datarow.newrow("Payment Options", "", values, "PASS", driver);
+                        datarow.Newrow("Payment Options", "", values, "PASS", driver);
                     }
                     // payment card number = id="Pagecontent_TextBoxCardNumber"
                     if (IsElementPresent(driver, By.Id("Pagecontent_TextBoxCardNumber")))
                     {
                         driver.FindElement(By.Id("Pagecontent_TextBoxCardNumber")).SendKeys("4111111111111111");
-                        datarow.newrow("Card Number", "", "4111111111111111", "PASS", driver);
+                        datarow.Newrow("Card Number", "", "4111111111111111", "PASS", driver);
                     }
 
                     // Expiry Month id="Pagecontent_ddlExpiryMonth"
@@ -74,7 +74,7 @@ namespace MoBankUI.Mosite.Pay
                         new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlExpiryMonth"))).SelectByText(
                             expirymonth.Text);
                     }
-                    datarow.newrow("Payment Options", "", valus, "PASS", driver);
+                    datarow.Newrow("Payment Options", "", valus, "PASS", driver);
 
                     // Expiry Date  id="Pagecontent_ddlExpiryYear"
 
@@ -88,54 +88,54 @@ namespace MoBankUI.Mosite.Pay
                         new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlExpiryYear"))).SelectByText(
                             expirydate.Text);
                     }
-                    datarow.newrow("Payment Options", "", vlus, "PASS", driver);
+                    datarow.Newrow("Payment Options", "", vlus, "PASS", driver);
                     // Name id="Pagecontent_TextBoxCardOwner"
                     if (IsElementPresent(driver, By.Id("Pagecontent_TextBoxCardOwner")))
                     {
                         driver.FindElement(By.Id("Pagecontent_TextBoxCardOwner")).SendKeys("Test Name");
-                        datarow.newrow("Card Name", "", "Test Name", "PASS", driver);
+                        datarow.Newrow("Card Name", "", "Test Name", "PASS", driver);
                     }
                     // 3 Digits id="Pagecontent_TextBoxCVV_Number" 
                     if (IsElementPresent(driver, By.Id("Pagecontent_TextBoxCVV_Number")))
                     {
                         driver.FindElement(By.Id("Pagecontent_TextBoxCVV_Number")).SendKeys("123");
-                        datarow.newrow("CVV Number", "", "123", "PASS", driver);
+                        datarow.Newrow("CVV Number", "", "123", "PASS", driver);
                     }
                     // Address 1 id="Pagecontent_TextBoxAddress1"
                     if (IsElementPresent(driver, By.Id("Pagecontent_TextBoxAddress1")))
                     {
                         driver.FindElement(By.Id("Pagecontent_TextBoxAddress1")).SendKeys("Test Address1");
-                        datarow.newrow("Address 1", "", "Test Address1", "PASS", driver);
+                        datarow.Newrow("Address 1", "", "Test Address1", "PASS", driver);
                     }
                     // Text box Address 2 id="Pagecontent_TextBoxAddress2" 
                     if (IsElementPresent(driver, By.Id("Pagecontent_TextBoxAddress2")))
                     {
                         driver.FindElement(By.Id("Pagecontent_TextBoxAddress2")).SendKeys("Test Address2");
-                        datarow.newrow("Test Address 2", "", "Test Address2", "PASS", driver);
+                        datarow.Newrow("Test Address 2", "", "Test Address2", "PASS", driver);
                     }
                     // Address 3 id="Pagecontent_TextBoxAddress3"
                     if (IsElementPresent(driver, By.Id("Pagecontent_TextBoxAddress3")))
                     {
                         driver.FindElement(By.Id("Pagecontent_TextBoxAddress3")).SendKeys("Test Address3");
-                        datarow.newrow("Test Address 3", "", "Test Address 2", "PASS", driver);
+                        datarow.Newrow("Test Address 3", "", "Test Address 2", "PASS", driver);
                     }
                     //Test City id="Pagecontent_TextBoxCity"
                     if (IsElementPresent(driver, By.Id("Pagecontent_TextBoxCity")))
                     {
                         driver.FindElement(By.Id("Pagecontent_TextBoxCity")).SendKeys("Test City");
-                        datarow.newrow("Test City", "", "Test City", "PASS", driver);
+                        datarow.Newrow("Test City", "", "Test City", "PASS", driver);
                     }
                     //Test State id="Pagecontent_TextBoxState"
                     if (IsElementPresent(driver, By.Id("Pagecontent_TextBoxState")))
                     {
                         driver.FindElement(By.Id("Pagecontent_TextBoxState")).SendKeys("Test State");
-                        datarow.newrow("Test State", "", "Test State", "PASS", driver);
+                        datarow.Newrow("Test State", "", "Test State", "PASS", driver);
                     }
                     //Test PostCode id="Pagecontent_TextBoxPostalCode"
                     if (IsElementPresent(driver, By.Id("Pagecontent_TextBoxPostalCode")))
                     {
                         driver.FindElement(By.Id("Pagecontent_TextBoxPostalCode")).SendKeys("Test Postcode");
-                        datarow.newrow("Test Postcode", "", "Test Postcode", "PASS", driver);
+                        datarow.Newrow("Test Postcode", "", "Test Postcode", "PASS", driver);
                     }
                     //Test Country id="Pagecontent_ddlCountry"
                     if (!IsElementPresent(driver, By.Id("Pagecontent_ddlCountry"))) return;
@@ -149,7 +149,7 @@ namespace MoBankUI.Mosite.Pay
                         new SelectElement(driver.FindElement(By.Id("Pagecontent_ddlCountry"))).SelectByText(
                             country.Text);
                     }
-                    datarow.newrow("Countries", "", vaus, "PASS", driver);
+                    datarow.Newrow("Countries", "", vaus, "PASS", driver);
                 }
 
                 else if (IsElementPresent(driver, By.Id("Card_Number")) || title1 == "Index")
@@ -161,12 +161,12 @@ namespace MoBankUI.Mosite.Pay
                     var url = driver.Title;
                     if (url == "Secure Payment Page")
                     {
-                        datarow.newrow("Mopay Method Not covered in Framework", "Expected", url, "FAIL", driver
+                        datarow.Newrow("Mopay Method Not covered in Framework", "Expected", url, "FAIL", driver
                             );
                     }
                     else
                     {
-                        datarow.newrow("MoPay Page Validation", "Not Expected",
+                        datarow.Newrow("MoPay Page Validation", "Not Expected",
                                        url + "-" + "User Could Not Reach Mopay Page", "FAIL", driver);
                     }
                 }
@@ -174,7 +174,7 @@ namespace MoBankUI.Mosite.Pay
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
             }
         }
 
@@ -189,13 +189,13 @@ namespace MoBankUI.Mosite.Pay
             try
             {
                 var totalamount = driver.FindElement(By.XPath("//div[@id='total-amount']/dl/dd")).Text;
-                datarow.newrow("Currency Validation", "₹", totalamount, totalamount.Contains("₹") ? "PASS" : "FAIL",
+                datarow.Newrow("Currency Validation", "₹", totalamount, totalamount.Contains("₹") ? "PASS" : "FAIL",
                     driver);
             }
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
             }
             var j = 0;
             var n = personaldata.Rows.Count;
@@ -298,16 +298,16 @@ namespace MoBankUI.Mosite.Pay
 
                     if (Regex.IsMatch(CardNumber, "^[0-9'']"))
                     {
-                        datarow.newrow("Card Number", CardNumber, CardNumber, "PASS", driver);
+                        datarow.Newrow("Card Number", CardNumber, CardNumber, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("Number required") ||
                              driver.PageSource.Contains("Number invalid"))
                     {
-                        datarow.newrow("Card Number", CardNumber, "Number Invalid", "PASS", driver);
+                        datarow.Newrow("Card Number", CardNumber, "Number Invalid", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Card Number", CardNumber, "No Error Message Displayed", "FAIL", driver);
+                        datarow.Newrow("Card Number", CardNumber, "No Error Message Displayed", "FAIL", driver);
                         screenshot1.Screenshotfailed(driver);
                     }
 
@@ -316,11 +316,11 @@ namespace MoBankUI.Mosite.Pay
                     {
                         if (driver.PageSource.Contains("Type required"))
                         {
-                            datarow.newrow("Card Type", CardType, "Type Required", "PASS", driver);
+                            datarow.Newrow("Card Type", CardType, "Type Required", "PASS", driver);
                         }
                         else
                         {
-                            datarow.newrow("Card Type", CardType, CardType, "FAIL", driver);
+                            datarow.Newrow("Card Type", CardType, CardType, "FAIL", driver);
 
                             screenshot1.Screenshotfailed(driver);
                         }
@@ -328,24 +328,24 @@ namespace MoBankUI.Mosite.Pay
 
                     else
                     {
-                        datarow.newrow("Card Type", "Visa Debit", "Visa Debit", "PASS", driver);
+                        datarow.Newrow("Card Type", "Visa Debit", "Visa Debit", "PASS", driver);
                     }
 
 
                     var reg = new Regex("^[0-9]{3}$");
                     if (reg.IsMatch(SecurityCode))
                     {
-                        datarow.newrow("Security Code", SecurityCode, "Valid 3 Digits", "PASS", driver);
+                        datarow.Newrow("Security Code", SecurityCode, "Valid 3 Digits", "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("Security code required") ||
                              driver.PageSource.Contains("Security code invalid"))
                     {
-                        datarow.newrow("Security Code", SecurityCode, "Security code required", "PASS", driver
+                        datarow.Newrow("Security Code", SecurityCode, "Security code required", "PASS", driver
                             );
                     }
                     else
                     {
-                        datarow.newrow("Security Code", SecurityCode, "No Error Message Displayed", "FAIL", driver
+                        datarow.Newrow("Security Code", SecurityCode, "No Error Message Displayed", "FAIL", driver
                             );
 
                         screenshot1.Screenshotfailed(driver);
@@ -353,94 +353,94 @@ namespace MoBankUI.Mosite.Pay
 
                     if (Regex.IsMatch(NameonCard, "^[a-zA-Z'']"))
                     {
-                        datarow.newrow("Name on Card", NameonCard, NameonCard, "PASS", driver);
+                        datarow.Newrow("Name on Card", NameonCard, NameonCard, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("Name required"))
                     {
-                        datarow.newrow("Name on Card", NameonCard, "Name Required", "PASS", driver);
+                        datarow.Newrow("Name on Card", NameonCard, "Name Required", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Name on Card", NameonCard, "No Error Message Displayed", "PASS", driver
+                        datarow.Newrow("Name on Card", NameonCard, "No Error Message Displayed", "PASS", driver
                             );
 
                         screenshot1.Screenshotfailed(driver);
                     }
                     if (Regex.IsMatch(FirstName, "^[a-zA-Z'']"))
                     {
-                        datarow.newrow("First Name", FirstName, FirstName, "PASS", driver);
+                        datarow.Newrow("First Name", FirstName, FirstName, "PASS", driver);
                     }
 
                     else if (driver.PageSource.Contains("The First Name field is required."))
                     {
-                        datarow.newrow("First Name", FirstName, "The First Name field is required.", "PASS", driver
+                        datarow.Newrow("First Name", FirstName, "The First Name field is required.", "PASS", driver
                             );
                     }
                     else
                     {
-                        datarow.newrow("First Name", FirstName, "No Error Message Displayed", "FAIL", driver);
+                        datarow.Newrow("First Name", FirstName, "No Error Message Displayed", "FAIL", driver);
 
                         screenshot1.Screenshotfailed(driver);
                     }
 
                     if (Regex.IsMatch(LastName, "^[a-zA-Z'']"))
                     {
-                        datarow.newrow("Last Name", LastName, LastName, "PASS", driver);
+                        datarow.Newrow("Last Name", LastName, LastName, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("The Last Name field is required."))
                     {
-                        datarow.newrow("Last Name", LastName, "The Last Name field is required.", "PASS", driver
+                        datarow.Newrow("Last Name", LastName, "The Last Name field is required.", "PASS", driver
                             );
                     }
                     else
                     {
-                        datarow.newrow("Last Name", LastName, "No Error message Displayed", "FAIL", driver);
+                        datarow.Newrow("Last Name", LastName, "No Error message Displayed", "FAIL", driver);
 
                         screenshot1.Screenshotfailed(driver);
                     }
 
                     if (Regex.IsMatch(Address, "^[a-zA-Z0-9'']"))
                     {
-                        datarow.newrow("Address", Address, Address, "PASS", driver);
+                        datarow.Newrow("Address", Address, Address, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("The Address field is required"))
                     {
-                        datarow.newrow("Address", Address, "The Address field is required", "PASS", driver);
+                        datarow.Newrow("Address", Address, "The Address field is required", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Address", Address, "No Error message Displayed", "FAIL", driver);
+                        datarow.Newrow("Address", Address, "No Error message Displayed", "FAIL", driver);
 
                         screenshot1.Screenshotfailed(driver);
                     }
 
                     if (Regex.IsMatch(PostCode, "^[a-zA-Z0-9'']"))
                     {
-                        datarow.newrow("Post Code", PostCode, PostCode, "PASS", driver);
+                        datarow.Newrow("Post Code", PostCode, PostCode, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("The Postcode field is required"))
                     {
-                        datarow.newrow("Post Code", PostCode, "The Postcode field is required.", "PASS", driver
+                        datarow.Newrow("Post Code", PostCode, "The Postcode field is required.", "PASS", driver
                             );
                     }
                     else
                     {
-                        datarow.newrow("Post Code", PostCode, "No Error Message Displayed", "FAIL", driver);
+                        datarow.Newrow("Post Code", PostCode, "No Error Message Displayed", "FAIL", driver);
 
                         screenshot1.Screenshotfailed(driver);
                     }
 
                     if (Regex.IsMatch(Country, "^[a-zA-Z'']"))
                     {
-                        datarow.newrow("Country", Country, Country, "PASS", driver);
+                        datarow.Newrow("Country", Country, Country, "PASS", driver);
                     }
                     else if (driver.PageSource.Contains("The Country field is required."))
                     {
-                        datarow.newrow("Country", Country, "The Country field is required.", "PASS", driver);
+                        datarow.Newrow("Country", Country, "The Country field is required.", "PASS", driver);
                     }
                     else
                     {
-                        datarow.newrow("Country", Country, "No Error Message", "FAIL", driver);
+                        datarow.Newrow("Country", Country, "No Error Message", "FAIL", driver);
                         screenshot1.Screenshotfailed(driver);
                     }
 
@@ -455,19 +455,19 @@ namespace MoBankUI.Mosite.Pay
                     var title1 = driver.Title;
                     if (url.Contains("State=Accepted") || title1.Contains("Payment Accepted"))
                     {
-                        datarow.newrow("Transaction", url, "State=Accepted", "PASS", driver);
+                        datarow.Newrow("Transaction", url, "State=Accepted", "PASS", driver);
                         break;
                     }
 
                     if (url.Contains("State=NotAccepted"))
                     {
-                        datarow.newrow("Transaction", url, "Transaction Declined", "FAIL", driver);
+                        datarow.Newrow("Transaction", url, "Transaction Declined", "FAIL", driver);
                         break;
                     }
 
                     if (!driver.PageSource.Contains("Checkout Declined") && !driver.PageSource.Contains("Error") &&
                         !driver.PageSource.Contains("Not Found")) continue;
-                    datarow.newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver);
+                    datarow.Newrow("Checkout", "Checkout Declined", "Checkout Declined", "PASS", driver);
                     break;
                 }
 
@@ -476,7 +476,7 @@ namespace MoBankUI.Mosite.Pay
                     Console.Write(e);
                     var ex = e.ToString();
                     var scree = new Screenshot();
-                    datarow.newrow("Exception", "Exceptio not Expected", ex, "FAIL", driver);
+                    datarow.Newrow("Exception", "Exceptio not Expected", ex, "FAIL", driver);
                     scree.Screenshotfailed(driver);
                 }
             }

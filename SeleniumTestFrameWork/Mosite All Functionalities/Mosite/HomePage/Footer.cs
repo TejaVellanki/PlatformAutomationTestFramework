@@ -21,7 +21,7 @@ namespace MoBankUI.Mosite.HomePage
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                 _screenshot.Screenshotfailed(driver);
             }
         }
@@ -74,14 +74,14 @@ namespace MoBankUI.Mosite.HomePage
                         driver.FindElement(By.XPath("" + footer + "[" + i + "]" + footerlink + "")).Click();
 
                         var Title = driver.Title;
-                        datarow.newrow("Footer Title", "", Title, "PASS", driver);
+                        datarow.Newrow("Footer Title", "", Title, "PASS", driver);
                         driver.Navigate().Back();
                     }
                 }
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                    datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.Screenshotfailed(driver);
                 }
 
@@ -93,7 +93,7 @@ namespace MoBankUI.Mosite.HomePage
                         driver.FindElement(By.XPath("" + sociallin + "[" + i + "]" + sociallink + "")).Click();
 
                         var tile = driver.Title;
-                        datarow.newrow("Footer Social Image Title", "", tile, "PASS", driver);
+                        datarow.Newrow("Footer Social Image Title", "", tile, "PASS", driver);
                         if (title == "testshop")
                         {
                             driver.Navigate().GoToUrl(url);
@@ -107,7 +107,7 @@ namespace MoBankUI.Mosite.HomePage
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                    datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.Screenshotfailed(driver);
                 }
 
@@ -119,7 +119,7 @@ namespace MoBankUI.Mosite.HomePage
                         driver.FindElement(By.XPath("" + lowerfooter + "[" + i + "]" + lowerfooterlink + "")).Click();
 
                         var tile = driver.Title;
-                        datarow.newrow("Lower Footer Title", "", tile, "PASS", driver);
+                        datarow.Newrow("Lower Footer Title", "", tile, "PASS", driver);
                         if (title == "testshop")
                         {
                         }
@@ -132,7 +132,7 @@ namespace MoBankUI.Mosite.HomePage
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                    datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.Screenshotfailed(driver);
                 }
                 try
@@ -142,7 +142,7 @@ namespace MoBankUI.Mosite.HomePage
                         driver.FindElement(By.XPath(mopowered)).Click();
 
                         var tile = driver.Title;
-                        datarow.newrow("Footer Title", "", tile, "PASS", driver);
+                        datarow.Newrow("Footer Title", "", tile, "PASS", driver);
                         if (title == "testshop")
                         {
                             driver.Navigate().GoToUrl(url);
@@ -154,7 +154,7 @@ namespace MoBankUI.Mosite.HomePage
                     }
                     else
                     {
-                        datarow.newrow("Footer Element", "", "Footer Element Not Present" + mopowered, "FAIL", driver
+                        datarow.Newrow("Footer Element", "", "Footer Element Not Present" + mopowered, "FAIL", driver
                             );
                         screenshot.Screenshotfailed(driver);
                     }
@@ -162,13 +162,13 @@ namespace MoBankUI.Mosite.HomePage
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
-                    datarow.newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
+                    datarow.Newrow("Exception", "Exception Not Expected", e, "FAIL", driver);
                     screenshot.Screenshotfailed(driver);
                 }
             }
             catch (Exception)
             {
-                datarow.newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
+                datarow.Newrow("Exception", "", "Exception Not Expected", "FAIL", driver);
                 _screenshot.Screenshotfailed(driver);
             }
 

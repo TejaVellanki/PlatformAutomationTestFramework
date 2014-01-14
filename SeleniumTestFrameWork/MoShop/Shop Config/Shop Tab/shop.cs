@@ -53,14 +53,14 @@ namespace MoBankUI.MoShop
                 driver.Navigate().GoToUrl("http://m.testshop.com");
 
                 var url = driver.Url;
-                datarow.newrow("Customa Domain Name", "http://m.testshop.com/", url,
+                datarow.Newrow("Customa Domain Name", "http://m.testshop.com/", url,
                     url == "http://m.testshop.com" ? "PASS" : "FAIL", driver);
             }
 
             catch (Exception ex)
             {
                 var e = ex.ToString();
-                datarow.newrow("Exception", "Exception Not Exopected", e, "PASS", driver);
+                datarow.Newrow("Exception", "Exception Not Exopected", e, "PASS", driver);
             }
         }
     }

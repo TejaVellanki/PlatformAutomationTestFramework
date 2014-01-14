@@ -132,30 +132,30 @@ namespace MoBankUI.MoSite.Other
                         .GetAttribute("value");
                     var selectedValue = driver.FindElement(By.Id("FormData_6__Value")).GetAttribute("Value");
                     var str21 = driver.FindElement(By.Id("FormData_9__Value")).GetAttribute("Value");
-                    datarow.newrow("FirstName",
+                    datarow.Newrow("FirstName",
                         Regex.IsMatch(attribute, "^[a-zA-Z'']") ? expected : "FirstName-Not in Expected Format",
                         attribute, "PASS", driver);
-                    datarow.newrow("Last Name",
+                    datarow.Newrow("Last Name",
                         Regex.IsMatch(input, "^[a-zA-Z'']") ? str3 : "LastName-Not in Expected Format", input,
                         "PASS", driver);
-                    datarow.newrow("Address",
+                    datarow.Newrow("Address",
                         Regex.IsMatch(str15, "^[a-zA-Z0-9'']") ? str5 : "Address-Not in Expected Format", str15,
                         "PASS", driver);
-                    datarow.newrow("Post Code",
+                    datarow.Newrow("Post Code",
                         Regex.IsMatch(str16, "^[a-zA-Z0-9'']") ? str8 : "PostCode-Not in Expected Format", str16,
                         "PASS", driver);
-                    datarow.newrow("City/Town",
+                    datarow.Newrow("City/Town",
                         Regex.IsMatch(str17, "^[a-zA-Z'']") ? str6 : "City-Not in Expected Format", str17, "PASS",
                         driver);
-                    datarow.newrow("Country",
+                    datarow.Newrow("Country",
                         Regex.IsMatch(selectedValue, "^[a-zA-Z'']") ? str4 : "Country-Not in Expected Format",
                         selectedValue, "PASS", driver);
-                    datarow.newrow("EMAIL", Regex.IsMatch(str21,
+                    datarow.Newrow("EMAIL", Regex.IsMatch(str21,
                         "^(?(\")(\"[^\"]+?\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1,3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9]{2,17}))$")
                         ? str9
                         : "Email-Not in Expected Format", str21, "PASS", driver);
                 }
-                datarow.newrow("Basket Value", "(1)", "(1)",
+                datarow.Newrow("Basket Value", "(1)", "(1)",
                     driver.FindElement(By.Id("BasketInfo")).Text == "(1)" ? "PASS" : "FAIL", driver);
                 var executor2 = (IJavaScriptExecutor) driver;
                 executor2.ExecuteScript("window.scrollBy(0,100)", new object[0]);
@@ -170,13 +170,13 @@ namespace MoBankUI.MoSite.Other
                 var text = driver.FindElement(By.CssSelector("div.ui-content.ui-body-c > p")).Text;
                 if (text == "TestFirstname,TestLastName, 0123456789, Test Address1, TestCity, TestCounty, TestPostcode")
                 {
-                    datarow.newrow("Details in Process summary page",
+                    datarow.Newrow("Details in Process summary page",
                                    "TestFirstname TestLastName, 0123456789, Test Address1, TestCity, TestCounty, TestPostcode",
                                    text, "PASS", driver);
                 }
                 else
                 {
-                    datarow.newrow("Details in Process summary page",
+                    datarow.Newrow("Details in Process summary page",
                                    "TestFirstname,TestLastName, 0123456789, Test Address1, TestCity, TestCounty, TestPostcode",
                                    text, "FAIL", driver);
                 }
@@ -187,7 +187,7 @@ namespace MoBankUI.MoSite.Other
             catch (Exception exception)
             {
                 var actual = exception.ToString();
-                datarow.newrow("Exception", "Not Expected", actual, "FAIL", driver);
+                datarow.Newrow("Exception", "Not Expected", actual, "FAIL", driver);
             }
         }
     }

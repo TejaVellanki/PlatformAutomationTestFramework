@@ -39,16 +39,16 @@ namespace MoBankUI.Mosite.HomePage
 
 
             var price = driver.FindElement(By.XPath(productprice)).Text;
-            datarow.newrow("Product Price", "", price, "PASS", driver);
+            datarow.Newrow("Product Price", "", price, "PASS", driver);
 
             //Deleted Click and  Expand Details Tab
 
             var detail = driver.FindElement(By.XPath(detaiL)).Text;
-            datarow.newrow("Product Detail", "", detail, "PASS", driver);
+            datarow.Newrow("Product Detail", "", detail, "PASS", driver);
 
 
             var titles = driver.FindElement(By.XPath(producttitle)).Text;
-            datarow.newrow("Product Title", "", titles, "PASS", driver);
+            datarow.Newrow("Product Title", "", titles, "PASS", driver);
 
             if (IsElementPresent(driver, By.Id("" + productVarinat + ""), 30))
             {
@@ -72,20 +72,20 @@ namespace MoBankUI.Mosite.HomePage
                             values = values + "\r\n" + value;
                             new SelectElement(driver.FindElement(By.Id(productVarinat))).SelectByText(value.Text);
                         }
-                        datarow.newrow("Variants", "", values, "PASS", driver);
+                        datarow.Newrow("Variants", "", values, "PASS", driver);
                     }
 
                     else
                     {
                         var varinats = driver.FindElement(By.Id("" + productVarinat + "")).GetAttribute("Value");
-                        datarow.newrow("Variants", "", varinats, "PASS", driver);
+                        datarow.Newrow("Variants", "", varinats, "PASS", driver);
                     }
                 }
                 catch (Exception ex)
                 {
                     var e = ex.ToString();
 
-                    datarow.newrow("Exception Not Expected", "Exception Not Expected", e, "FAIL");
+                    datarow.Newrow("Exception Not Expected", "Exception Not Expected", e, "FAIL");
                 }
             }
 
@@ -106,7 +106,7 @@ namespace MoBankUI.Mosite.HomePage
                         break;
                     }
                 }
-                datarow.newrow("Variants", "", values, "PASS", driver);
+                datarow.Newrow("Variants", "", values, "PASS", driver);
             }
         }
     }
