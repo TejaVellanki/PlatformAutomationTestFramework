@@ -47,8 +47,8 @@ namespace MoBankUI
             try
             {
                 var mopaytestharness = checkBox15.Checked;
-                var Mopayconsole = checkBox16.Checked;
-                var Moshop = checkBox11.Checked;
+                var mopayconsole = checkBox16.Checked;
+                var moshop = checkBox11.Checked;
                 var moPayAccount = checkBox17.Checked;
                 var moSite = checkBox12.Checked;
                 var mositetps = checkBox13.Checked;
@@ -58,7 +58,7 @@ namespace MoBankUI
                 {
                     Mopaytestharness();
                 }
-                if (Mopayconsole)
+                if (mopayconsole)
                 {
                     this.Mopayconsole();
                 }
@@ -66,7 +66,7 @@ namespace MoBankUI
                 {
                     mopayaccountcreation();
                 }
-                if (Moshop)
+                if (moshop)
                 {
                     Moshopconsole();
                 }

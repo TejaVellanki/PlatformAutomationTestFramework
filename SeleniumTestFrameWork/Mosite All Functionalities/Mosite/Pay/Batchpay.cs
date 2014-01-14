@@ -27,15 +27,15 @@ namespace MoBankUI.Mosite.Pay
                 driver.FindElement(By.Id("Pagecontent_ButtonCheckoutStep3")).Click();
 
                 datarow.newrow("", "", "Mopay", "", driver);
-                var Mopay = new MopayTps();
-                Mopay.Mopay(driver, datarow);
+                var mopay = new MopayTps();
+                mopay.Mopay(driver, datarow);
             }
             else
             {
                 // This is a general payment testing using Mopay and needs to be extended if the client offering more than one payment process for example Paypal. 
                 datarow.newrow("", "", "Mopay", "", driver);
-                var Mopay = new MopayTps();
-                Mopay.Mopay(driver, datarow);
+                var mopay = new MopayTps();
+                mopay.Mopay(driver, datarow);
             }
         }
     }

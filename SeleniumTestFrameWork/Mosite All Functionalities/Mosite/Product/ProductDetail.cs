@@ -10,18 +10,18 @@ namespace MoBankUI.Mosite.Product
         {
             string productdescription;
             string productdescriptiontab;
-            string Detail;
+            string detaiL;
             var pg = driver.PageSource;
 
             if (pg.Contains("user-scalable=yes"))
             {
                 productdescription = CollectionMapV2.ProductDescription;
                 productdescriptiontab = CollectionMapV2.ProductDescriptiontab;
-                Detail = CollectionMapV2.Detail;
+                detaiL = CollectionMapV2.Detail;
             }
             else
             {
-                Detail = CollectionMapV1.Detail;
+                detaiL = CollectionMapV1.Detail;
                 productdescription = CollectionMapV1.ProductDescription;
                 productdescriptiontab = CollectionMapV1.ProductDescriptiontab;
             }
@@ -34,7 +34,7 @@ namespace MoBankUI.Mosite.Product
 
                 if (IsElementPresent(driver, By.XPath(productdescription)))
                 {
-                    var detail = driver.FindElement(By.XPath(Detail)).Text;
+                    var detail = driver.FindElement(By.XPath(detaiL)).Text;
                     datarow.newrow("Product Detail", "", detail, "PASS", driver);
                 }
                 else if (!IsElementPresent(driver, By.XPath(productdescriptiontab)))
@@ -47,7 +47,7 @@ namespace MoBankUI.Mosite.Product
                     driver.FindElement(By.XPath(productdescriptiontab)).Click();
                     if (IsElementPresent(driver, By.XPath(productdescription)))
                     {
-                        var detail = driver.FindElement(By.XPath(Detail)).Text;
+                        var detail = driver.FindElement(By.XPath(detaiL)).Text;
                         datarow.newrow("Product Detail", "", detail, "PASS", driver);
                     }
                     else

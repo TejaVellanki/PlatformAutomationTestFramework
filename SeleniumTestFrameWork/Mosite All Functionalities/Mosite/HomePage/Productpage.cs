@@ -16,7 +16,7 @@ namespace MoBankUI.Mosite.HomePage
             string productprice;
             string productVarinat;
             string producttitle;
-            string Detail;
+            string detaiL;
 
 
             new Imagevalidation();
@@ -26,15 +26,15 @@ namespace MoBankUI.Mosite.HomePage
             {
                 productprice = CollectionMapV2.ProductPrice;
                 producttitle = CollectionMapV2.Producttitle;
-                Detail = CollectionMapV2.Detail;
+                detaiL = CollectionMapV2.Detail;
                 productVarinat = CollectionMapV2.ProductVariant;
             }
             else
             {
                 productprice = CollectionMapV1.ProductPrice;
                 producttitle = CollectionMapV1.Producttitle;
-                Detail = CollectionMapV1.Detail;
-                productVarinat = CollectionMapV1.productVariant;
+                detaiL = CollectionMapV1.Detail;
+                productVarinat = CollectionMapV1.ProductVariant;
             }
 
 
@@ -43,7 +43,7 @@ namespace MoBankUI.Mosite.HomePage
 
             //Deleted Click and  Expand Details Tab
 
-            var detail = driver.FindElement(By.XPath(Detail)).Text;
+            var detail = driver.FindElement(By.XPath(detaiL)).Text;
             datarow.newrow("Product Detail", "", detail, "PASS", driver);
 
 

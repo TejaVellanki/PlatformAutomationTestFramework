@@ -19,12 +19,12 @@
 
         public const string Producttitle = "//*[@id='mainContent']/div/div[1]/div[1]/h2";
 
-        public const string productVariant = "Variants_0__OptionValue";
+        public const string ProductVariant = "Variants_0__OptionValue";
         public const string productvariant2 = "OptionValue";
-        public const string addtobasket = "AddToBasket";
-        public const string checkout = "//*[@id='GoToCheckout']/span";
+        public const string Addtobasket = "AddToBasket";
+        public const string Checkout = "//*[@id='GoToCheckout']/span";
 
-        public const string deletebasket = "button.ui-btn-hidden";
+        public const string Deletebasket = "button.ui-btn-hidden";
         public const string homeimage = "//div[@id='main-page']/div[3]/a/img";
     }
 
