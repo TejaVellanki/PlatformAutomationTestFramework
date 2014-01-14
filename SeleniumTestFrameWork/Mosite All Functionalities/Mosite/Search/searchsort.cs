@@ -9,22 +9,22 @@ using OpenQA.Selenium;
 
 namespace MoBankUI.Mosite.Search
 {
-    public class searchsort
+    public class Searchsort
     {
-        public void search(IWebDriver driver)
+        public void Search(IWebDriver driver)
         {
-            string _names = null;
+            string names = null;
             driver.FindElement(By.CssSelector("input.ui-input-text.ui-body-d")).SendKeys("card");
             driver.FindElement(By.CssSelector("input.ui-input-text.ui-body-d")).SendKeys(Keys.Enter);
             var productnames = driver.FindElements(By.CssSelector("[itemprop='name']"));
             for (var i = 0; i < 32; i++)
             {
                 var _name = productnames[i].Text;
-                _names = _name + "\n" + _names;
+                names = _name + "\n" + names;
             }
 
-            if (_names == null) return;
-            var charArray = _names.ToCharArray();
+            if (names == null) return;
+            var charArray = names.ToCharArray();
             Array.Reverse(charArray);
         }
     }

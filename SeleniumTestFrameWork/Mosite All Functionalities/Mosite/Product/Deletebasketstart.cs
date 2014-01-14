@@ -12,7 +12,7 @@ namespace MoBankUI.Mosite.Product
         private readonly Screenshot _screenshot = new Screenshot();
 
         [Test]
-        public void deletebasstart(IWebDriver driver, Datarow datarow)
+        public void Deletebasstart(IWebDriver driver, Datarow datarow)
         {
             try
             {
@@ -89,15 +89,15 @@ namespace MoBankUI.Mosite.Product
                 {
                     categorylink = CollectionMapV2.Categorylink;
                     cat = CollectionMapV2.Cat;
-                    products = CollectionMapV2.products;
-                    productlink = CollectionMapV2.productlink;
+                    products = CollectionMapV2.Products;
+                    productlink = CollectionMapV2.Productlink;
                 }
                 else
                 {
                     categorylink = CollectionMapV1.Categorylink;
                     cat = CollectionMapV1.Cat;
-                    products = CollectionMapV1.products;
-                    productlink = CollectionMapV1.productlink;
+                    products = CollectionMapV1.Products;
+                    productlink = CollectionMapV1.Productlink;
                 }
                 //body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span
 
@@ -117,7 +117,7 @@ namespace MoBankUI.Mosite.Product
                     break;
                 }
                 var product = new ProductsTps();
-                product.product(driver, datarow);
+                product.Product(driver, datarow);
             }
             catch (Exception ex)
             {

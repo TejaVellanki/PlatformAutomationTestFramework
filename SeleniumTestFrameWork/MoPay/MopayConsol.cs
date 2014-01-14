@@ -372,7 +372,7 @@ namespace MoBankUI.MoPay
                     driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
                 }
                 Mopowered(driver);
-                new Mopayconsoleacctab().acctabs(driver, _datarow);
+                new Mopayconsoleacctab().Acctabs(driver, _datarow);
             }
             catch (Exception exception)
             {

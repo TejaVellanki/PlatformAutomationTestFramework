@@ -125,7 +125,7 @@ namespace MoBankUI.MoShop
                     {
                         var modrophenia = new Modrophenialive();
                         modrophenia.modrophenialiveproducts(driver);
-                        var products = new modropheniaproducts();
+                        var products = new Modropheniaproducts();
                         products.product(datarow, driver);
                     }
 
@@ -162,7 +162,7 @@ namespace MoBankUI.MoShop
             userjour.UserJourn(datarow, driver, "http://testshop.mobankdev.com/");
             datarow.newrow("", "", "Delete From Basket", "", driver);
             var delete = new Deletebasketstart();
-            delete.deletebasstart(driver, datarow);
+            delete.Deletebasstart(driver, datarow);
             datarow.newrow("", "", "Registration/Login", "", driver);
             var login = new LoginRegistration();
             login.Registration(driver, datarow);

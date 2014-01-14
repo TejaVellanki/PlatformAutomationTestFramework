@@ -16,7 +16,7 @@ namespace MoBankUI.Mosite.Modrophenia
             {
                 _datarow.col();
                 //  new Modrophenialive().modrophenialiveproducts(, driver);
-                new modropheniaproducts().product(_datarow, driver);
+                new Modropheniaproducts().product(_datarow, driver);
                 // new UserJourney().UserJourn(this.datarow,driver);
                 // new UserData().Userdata(this.datarow,driver);
                 // new Mopaysite().MoPay(driver, , this.datarow);

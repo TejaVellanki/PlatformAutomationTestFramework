@@ -7,8 +7,8 @@
 
         public const string Categorylink = "//*[@id='categoryList']/div/article";
         public const string Cat = "/a/span/span[1]/h3";
-        public const string products = "//*[@id='productList']/li";
-        public const string productlink = "/div/div[1]/a/img";
+        public const string Products = "//*[@id='productList']/li";
+        public const string Productlink = "/div/div[1]/a/img";
         public const string ProductPrice = "price";
         public const string ProductDescriptiontab = "//html/body/div/div[4]/div/div[2]/div[2]/div/div/h4/a/span";
         public const string productDescription = "//div[@id='mainContent']/div/div[2]/div[2]/div/div/div";

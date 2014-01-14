@@ -14,7 +14,7 @@ namespace MoBankUI
         public readonly DataTable MergeTable = new DataTable();
         public string TotalFail;
         public string TotalPass;
-        public DataTable clonetable = new DataTable();
+        public DataTable Clonetable = new DataTable();
         public DataTable dt = new DataTable();
         public GeneralLibrary generalLibrary;
 
@@ -99,10 +99,10 @@ namespace MoBankUI
                 generalLibrary.SaveAndCloseExcel(wb);
                 var ghdg = new GenerateEmail();
                 ghdg.SendEMail(ReportName, email);
-                clonetable = dt.Copy();
+                Clonetable = dt.Copy();
                 //mergeTable.Merge(clonetable);
                 var s = 0;
-                foreach (DataRow sourcerow in clonetable.Rows)
+                foreach (DataRow sourcerow in Clonetable.Rows)
                 {
                     if (s <= 2)
                     {

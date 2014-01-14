@@ -12,7 +12,7 @@ namespace MoBankUI
         private Control _c = new Control();
 */
 
-        public string ConvertDataTableToHtml(DataTable targetTable, string reportname, string p, string F)
+        public string ConvertDataTableToHtml(DataTable targetTable, string reportname, string p, string f)
         {
             #region TimeStamp
 
@@ -70,7 +70,7 @@ namespace MoBankUI
                     "<b>Test Run Name<br>Date And Time<br>Number Of Test cases Passed<br>Number Of Test Cases Failed</b></div>");
                 htmlBuilder.Append(
                     "<div id=\"content\"  face =\"Times New Roman\" size = '2' style=\"background-color:#CCFFFF;height:100px;width:300px;float:left;align='middle';\">");
-                htmlBuilder.Append("" + reportname + "<br>" + randomNumber + "<br>" + p + "<br>" + F + "</div>");
+                htmlBuilder.Append("" + reportname + "<br>" + randomNumber + "<br>" + p + "<br>" + f + "</div>");
             }
 
             htmlBuilder.Append("<div id=\"footer\" style=\"background-color:#E8E8E8;clear:both;text-align:center;\">");

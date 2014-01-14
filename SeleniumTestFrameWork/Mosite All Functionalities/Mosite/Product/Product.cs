@@ -12,9 +12,9 @@ namespace MoBankUI.Mosite.Product
     {
         private readonly Screenshot _screenshot = new Screenshot();
         //Product page validations
-        public void product(IWebDriver driver, Datarow datarow)
+        public void Product(IWebDriver driver, Datarow datarow)
         {
-            var Image = new Imagevalidation();
+            var image = new Imagevalidation();
             try
             {
                 var url = driver.PageSource;
@@ -45,7 +45,7 @@ namespace MoBankUI.Mosite.Product
 
                 #endregion
 
-                Image.productImage(driver, datarow);
+                image.productImage(driver, datarow);
                 new ProductDetail().Productdetail(driver, datarow);
                 new ProductPrice().Price(driver, datarow);
 

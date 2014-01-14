@@ -29,21 +29,21 @@ namespace MoBankUI.Mosite.Product
                 {
                     categorylink = CollectionMapV2.Categorylink;
                     cat = CollectionMapV2.Cat;
-                    products = CollectionMapV2.products;
-                    productlink = CollectionMapV2.productlink;
+                    products = CollectionMapV2.Products;
+                    productlink = CollectionMapV2.Productlink;
                 }
                 else
                 {
                     categorylink = CollectionMapV1.Categorylink;
                     cat = CollectionMapV1.Cat;
-                    products = CollectionMapV1.products;
-                    productlink = CollectionMapV1.productlink;
+                    products = CollectionMapV1.Products;
+                    productlink = CollectionMapV1.Productlink;
                 }
 
                 var Image = new Imagevalidation();
                 new FooterTps();
 
-                Image.homepageimage(driver, datarow);
+                Image.Homepageimage(driver, datarow);
                 driver.Navigate().GoToUrl(url);
 
                 Thread.Sleep(5000);
@@ -74,7 +74,7 @@ namespace MoBankUI.Mosite.Product
 
 
                 var prod = new ProductsTps();
-                prod.product(driver, datarow);
+                prod.Product(driver, datarow);
 
                 Thread.Sleep(5000);
             }

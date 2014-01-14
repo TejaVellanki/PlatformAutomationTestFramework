@@ -69,7 +69,7 @@ namespace MoBankUI
                 }
 
                 var image = new Imagevalidation();
-                image.homepageimage(driver, datarow);
+                image.Homepageimage(driver, datarow);
             }
             catch (Exception ex)
             {

@@ -17,15 +17,15 @@ namespace MoBankUI.Mosite.HomePage
             {
                 categorylink = CollectionMapV2.Categorylink;
                 cat = CollectionMapV2.Cat;
-                products = CollectionMapV2.products;
-                productlink = CollectionMapV2.productlink;
+                products = CollectionMapV2.Products;
+                productlink = CollectionMapV2.Productlink;
             }
             else
             {
                 categorylink = CollectionMapV1.Categorylink;
                 cat = CollectionMapV1.Cat;
-                products = CollectionMapV1.products;
-                productlink = CollectionMapV1.productlink;
+                products = CollectionMapV1.Products;
+                productlink = CollectionMapV1.Productlink;
             }
             // This method counts the categories,sub-categories, product pages and validate every product link
             var screenshot = new Screenshot();
@@ -35,7 +35,7 @@ namespace MoBankUI.Mosite.HomePage
                 var Image = new Imagevalidation();
                 //Home Page Image validation
 
-                Image.homepageimage(driver, datarow);
+                Image.Homepageimage(driver, datarow);
                 //Counting the number of Categories 
                 decimal linkcount = driver.FindElements(By.XPath(categorylink)).Count;
                 if (linkcount == 0)

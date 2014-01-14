@@ -10,7 +10,7 @@ namespace MoBankUI.MoPay
     {
         private readonly Screenshot _screenshot = new Screenshot();
 
-        public void acctabs(IWebDriver driver, Datarow datarow)
+        public void Acctabs(IWebDriver driver, Datarow datarow)
         {
             driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
             try

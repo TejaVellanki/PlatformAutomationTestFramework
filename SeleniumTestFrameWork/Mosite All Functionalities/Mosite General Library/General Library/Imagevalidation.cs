@@ -12,7 +12,7 @@ namespace MoBankUI
         private string _categoryimagecss;
         private int _l = 1;
 
-        public void homepageimage(IWebDriver driver, Datarow datarow)
+        public void Homepageimage(IWebDriver driver, Datarow datarow)
         {
             try
             {

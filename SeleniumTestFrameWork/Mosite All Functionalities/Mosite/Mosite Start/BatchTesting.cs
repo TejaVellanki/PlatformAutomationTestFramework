@@ -35,7 +35,7 @@ namespace MoBankUI.Mosite
                     if (function == "Search")
                     {
                         datarow.newrow("", "", "Search", "", driver);
-                        new searchsort().search(driver);
+                        new Searchsort().Search(driver);
                     }
                     if (function == "Test All Links in Mosite")
                     {
@@ -69,7 +69,7 @@ namespace MoBankUI.Mosite
                     {
                         datarow.newrow("", "", "Delete From Basket", "", driver);
                         var delete = new Deletebasketstart();
-                        delete.deletebasstart(driver, datarow);
+                        delete.Deletebasstart(driver, datarow);
                         i++;
                     }
 

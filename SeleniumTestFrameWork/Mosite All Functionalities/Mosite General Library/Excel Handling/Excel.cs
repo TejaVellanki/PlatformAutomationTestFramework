@@ -11,7 +11,7 @@ namespace MoBankUI
 {
     public class GeneralLibrary
     {
-        private Application xlApp;
+        private Application _xlApp;
 
         #region GetExcelData
 
@@ -64,7 +64,7 @@ namespace MoBankUI
         public Workbook CreateAndOpenExcelFile(string filePath, ref string fileName, string sheetName, string extension,
                                                bool displayAlerts, bool appendDateField)
         {
-            xlApp = new Application
+            _xlApp = new Application
             {
                 DisplayAlerts = displayAlerts,
                 ScreenUpdating = displayAlerts,
@@ -81,7 +81,7 @@ namespace MoBankUI
             }
 
 
-            var workbook = xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
+            var workbook = _xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
 
             workbook.SaveAs(filePath + "\\" + fileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
                 Type.Missing, XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing,
@@ -160,11 +160,11 @@ namespace MoBankUI
 
             workbook.Close(null, null, null);
 
-            if (xlApp != null)
+            if (_xlApp != null)
             {
-                xlApp.Quit();
+                _xlApp.Quit();
 
-                xlApp =
+                _xlApp =
                     null;
             }
 

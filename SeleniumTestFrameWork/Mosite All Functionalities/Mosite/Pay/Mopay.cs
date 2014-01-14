@@ -14,7 +14,7 @@ namespace MoBankUI.Mosite.Pay
     {
         //Testing the Payment page. 
         // Two Payment methods do the same 
-        private GeneralLibrary generalLibrary;
+        private GeneralLibrary _generalLibrary;
 /*
         private Screenshot screenshot = new Screenshot();
 */
@@ -181,8 +181,8 @@ namespace MoBankUI.Mosite.Pay
         [Test]
         public void MoPayTPS(IWebDriver driver, Datarow datarow)
         {
-            generalLibrary = new GeneralLibrary();
-            var dss = generalLibrary.GetExcelData(@"C:\Selenium\Input Data\CardDetails.xls", "CardDetails");
+            _generalLibrary = new GeneralLibrary();
+            var dss = _generalLibrary.GetExcelData(@"C:\Selenium\Input Data\CardDetails.xls", "CardDetails");
 
             var personaldata = dss.Tables[0];
             var screenshot1 = new Screenshot();

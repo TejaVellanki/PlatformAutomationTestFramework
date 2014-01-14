@@ -12,7 +12,7 @@ namespace MoBankUI.MoSite.Other
 {
     internal class Mositebatch
     {
-        public void mosite(IWebDriver driver, Datarow datarow, string urls, string items)
+        public void Mosite(IWebDriver driver, Datarow datarow, string urls, string items)
         {
             var screenshot = new Screenshot();
 

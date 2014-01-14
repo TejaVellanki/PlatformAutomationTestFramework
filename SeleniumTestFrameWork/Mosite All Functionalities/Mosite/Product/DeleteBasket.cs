@@ -59,17 +59,17 @@ namespace MoBankUI.Mosite.Product
             {
                 categorylink = CollectionMapV2.Categorylink;
                 cat = CollectionMapV2.Cat;
-                products = CollectionMapV2.products;
+                products = CollectionMapV2.Products;
                 homeimage = CollectionMapV2.homeimage;
-                productlink = CollectionMapV2.productlink;
+                productlink = CollectionMapV2.Productlink;
             }
             else
             {
                 categorylink = CollectionMapV1.Categorylink;
                 cat = CollectionMapV1.Cat;
-                products = CollectionMapV1.products;
+                products = CollectionMapV1.Products;
                 homeimage = CollectionMapV1.homeimage;
-                productlink = CollectionMapV1.productlink;
+                productlink = CollectionMapV1.Productlink;
             }
             try
             {
@@ -119,7 +119,7 @@ namespace MoBankUI.Mosite.Product
                     }
                 }
                 var prd = new ProductsTps();
-                prd.product(driver, datarow);
+                prd.Product(driver, datarow);
                 driver.FindElement(By.XPath("//a[@id='GoToCheckout']/span/span")).Click();
             }
             catch (Exception ex)

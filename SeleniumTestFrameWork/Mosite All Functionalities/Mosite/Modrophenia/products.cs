@@ -10,15 +10,15 @@ using OpenQA.Selenium.Support.UI;
 
 namespace MoBankUI.Mosite.Modrophenia
 {
-    internal class modropheniaproducts : Driverdefining
+    internal class Modropheniaproducts : Driverdefining
     {
-        private GeneralLibrary gereneralLibrary;
+        private GeneralLibrary _gereneralLibrary;
 
-        public void comparedatarow(IWebDriver driver, Datarow datarow, DataTable dt)
+        public void Comparedatarow(IWebDriver driver, Datarow datarow, DataTable dt)
         {
-            gereneralLibrary = new GeneralLibrary();
+            _gereneralLibrary = new GeneralLibrary();
             var table =
-                gereneralLibrary.GetExcelData(@"C:\\Input Data\ModrophenialiveProducts.xlsx", "Products").Tables
+                _gereneralLibrary.GetExcelData(@"C:\\Input Data\ModrophenialiveProducts.xlsx", "Products").Tables
                     [0];
             for (var i = 1; i < (table.Rows.Count - 1); i++)
             {
@@ -66,7 +66,7 @@ namespace MoBankUI.Mosite.Modrophenia
                 //iver.FindElement(By.Id()).Click()
 
                 loop(datarow, driver, dt);
-                comparedatarow(driver, datarow, dt);
+                Comparedatarow(driver, datarow, dt);
             }
             catch (Exception exception3)
             {
