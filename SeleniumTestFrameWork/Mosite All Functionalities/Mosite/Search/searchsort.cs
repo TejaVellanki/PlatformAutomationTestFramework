@@ -19,8 +19,8 @@ namespace MoBankUI.Mosite.Search
             var productnames = driver.FindElements(By.CssSelector("[itemprop='name']"));
             for (var i = 0; i < 32; i++)
             {
-                var _name = productnames[i].Text;
-                names = _name + "\n" + names;
+                var name = productnames[i].Text;
+                names = name + "\n" + names;
             }
 
             if (names == null) return;

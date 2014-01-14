@@ -14,7 +14,7 @@ namespace MoBankUI.Mosite.Modrophenia
             new GeneralLibrary();
             try
             {
-                _datarow.col();
+                _datarow.Col();
                 //  new Modrophenialive().modrophenialiveproducts(, driver);
                 new Modropheniaproducts().product(_datarow, driver);
                 // new UserJourney().UserJourn(this.datarow,driver);
@@ -32,7 +32,7 @@ namespace MoBankUI.Mosite.Modrophenia
             finally
             {
                 _datarow.excelsave("MoSiteReport", driver, "teja.vellanki@mobankgroup.com");
-                _datarow.dataflush();
+                _datarow.Dataflush();
                 driver.Quit();
             }
         }

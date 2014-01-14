@@ -15,14 +15,14 @@ namespace MoBankUI.Mosite.Product
 
             if (pg.Contains("user-scalable=yes"))
             {
-                productdescription = CollectionMapV2.productDescription;
+                productdescription = CollectionMapV2.ProductDescription;
                 productdescriptiontab = CollectionMapV2.ProductDescriptiontab;
-                Detail = CollectionMapV2.detail;
+                Detail = CollectionMapV2.Detail;
             }
             else
             {
-                Detail = CollectionMapV1.detail;
-                productdescription = CollectionMapV1.productDescription;
+                Detail = CollectionMapV1.Detail;
+                productdescription = CollectionMapV1.ProductDescription;
                 productdescriptiontab = CollectionMapV1.ProductDescriptiontab;
             }
 

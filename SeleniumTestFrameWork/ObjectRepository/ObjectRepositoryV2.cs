@@ -13,14 +13,14 @@
         public const string ProductDescriptiontab =
             "//*[@id='main-page']/div[5]/div[2]/div[2]/div/div/h4/a/span/span[1]/span";
 
-        public const string productDescription =
+        public const string ProductDescription =
             "//*[@id='main-page']/div[5]/div[2]/div[2]/div/div/div/span/div[1]/div/p";
 
-        public const string detail = "//*[@id='main-page']/div[5]/div[2]/div[2]/div/div/div/span/div[2]/div";
+        public const string Detail = "//*[@id='main-page']/div[5]/div[2]/div[2]/div/div/div/span/div[2]/div";
 
-        public const string producttitle = "productName";
-        public const string productVariant = "Variants_0__OptionValue";
-        public const string productvariant2 = "OptionValue";
+        public const string Producttitle = "productName";
+        public const string ProductVariant = "Variants_0__OptionValue";
+        public const string Productvariant2 = "OptionValue";
 
         public const string LowerFooter = "//*[@id='links']/div/div/div/a[1]/img";
         public const string poweredLink = "https://tablet.mobankdev.com/";

@@ -15,38 +15,38 @@ namespace MoBankUI
         public string TotalFail;
         public string TotalPass;
         public DataTable Clonetable = new DataTable();
-        public DataTable dt = new DataTable();
-        public GeneralLibrary generalLibrary;
+        public DataTable Dt = new DataTable();
+        public GeneralLibrary GeneralLibrary;
 
 /*
         private Screenshot screenshot = new Screenshot();
 */
 
-        public void dataflush()
+        public void Dataflush()
         {
-            dt.Clear();
+            Dt.Clear();
         }
 
-        public void col()
+        public void Col()
         {
-            dt.Columns.Add("Field Validated");
-            dt.Columns.Add("Expected Result");
-            dt.Columns.Add("Actual Result");
-            dt.Columns.Add("PASS or FAIL");
-            dt.Columns.Add("Total Number Of Test Cases Passed/Failed");
+            Dt.Columns.Add("Field Validated");
+            Dt.Columns.Add("Expected Result");
+            Dt.Columns.Add("Actual Result");
+            Dt.Columns.Add("PASS or FAIL");
+            Dt.Columns.Add("Total Number Of Test Cases Passed/Failed");
             MergeTable.Columns.Add("Merchant Name");
             MergeTable.Columns.Add("Total Number of Test Cases Passed/Failed");
         }
 
         public void newrow(string validation, string expected, string actual, string passorfail)
         {
-            var newrow = dt.NewRow();
+            var newrow = Dt.NewRow();
 
             newrow[0] = validation;
             newrow[1] = expected;
             newrow[2] = actual;
             newrow[3] = passorfail;
-            dt.Rows.Add(newrow);
+            Dt.Rows.Add(newrow);
         }
 
 
@@ -56,9 +56,9 @@ namespace MoBankUI
             {
                 var p = 0;
                 var f = 0;
-                for (var i = 0; i < dt.Rows.Count; i++)
+                for (var i = 0; i < Dt.Rows.Count; i++)
                 {
-                    var value = dt.Rows[i]["PASS or FAIL"].ToString();
+                    var value = Dt.Rows[i]["PASS or FAIL"].ToString();
                     if (value == "PASS")
                     {
                         p = p + 1;
@@ -75,7 +75,7 @@ namespace MoBankUI
                 TotalFail = F + TotalFail;
 
                 var d = 0;
-                foreach (DataRow dr in dt.Rows)
+                foreach (DataRow dr in Dt.Rows)
                 {
                     if (d == 0)
                     {
@@ -91,15 +91,15 @@ namespace MoBankUI
                     d++;
                 }
 
-                generalLibrary = new GeneralLibrary();
-                var wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report",
+                GeneralLibrary = new GeneralLibrary();
+                var wb = GeneralLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report",
                                                                     ".xlsx", false, true);
                 Worksheet ws = wb.Sheets[1];
-                generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
-                generalLibrary.SaveAndCloseExcel(wb);
+                GeneralLibrary.ConsolidatedXmlExportToExcel(Dt, ws, true, false, false);
+                GeneralLibrary.SaveAndCloseExcel(wb);
                 var ghdg = new GenerateEmail();
                 ghdg.SendEMail(ReportName, email);
-                Clonetable = dt.Copy();
+                Clonetable = Dt.Copy();
                 //mergeTable.Merge(clonetable);
                 var s = 0;
                 foreach (DataRow sourcerow in Clonetable.Rows)
@@ -122,12 +122,12 @@ namespace MoBankUI
                     }
                 }
 
-                dt.TableName = "MyTable";
+                Dt.TableName = "MyTable";
 
                 var Html = new ConverttoHtml();
-                Html.ConvertDataTableToHtml(dt, ReportName, P, F);
+                Html.ConvertDataTableToHtml(Dt, ReportName, P, F);
 
-                dt.WriteXml(@"C:\Selenium\Input Data\XML Reports\" + ReportName + ".xml");
+                Dt.WriteXml(@"C:\Selenium\Input Data\XML Reports\" + ReportName + ".xml");
                 foreach (var process in Process.GetProcessesByName("EXCEL").Where(process => process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE")))
                 {
                     process.Kill();
@@ -145,9 +145,9 @@ namespace MoBankUI
             {
                 var p = 0;
                 var f = 0;
-                for (var i = 0; i < dt.Rows.Count; i++)
+                for (var i = 0; i < Dt.Rows.Count; i++)
                 {
-                    var value = dt.Rows[i]["PASS or FAIL"].ToString();
+                    var value = Dt.Rows[i]["PASS or FAIL"].ToString();
                     if (value == "PASS")
                     {
                         p = p + 1;
@@ -162,7 +162,7 @@ namespace MoBankUI
 
 
                 var d = 0;
-                foreach (DataRow dr in dt.Rows)
+                foreach (DataRow dr in Dt.Rows)
                 {
                     if (d == 0)
                     {
@@ -180,13 +180,13 @@ namespace MoBankUI
 
                 var ReportName = "Consolidated Report";
 
-                generalLibrary = new GeneralLibrary();
+                GeneralLibrary = new GeneralLibrary();
 
-                var wb = generalLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report",
+                var wb = GeneralLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report",
                                                                     ".xlsx", false, true);
                 Worksheet ws = wb.Sheets[1];
-                generalLibrary.ConsolidatedXmlExportToExcel(MergeTable, ws, true, false, false);
-                generalLibrary.SaveAndCloseExcel(wb);
+                GeneralLibrary.ConsolidatedXmlExportToExcel(MergeTable, ws, true, false, false);
+                GeneralLibrary.SaveAndCloseExcel(wb);
                 var ghdg = new GenerateEmail();
                 ghdg.SendEMail(ReportName, emails);
 
@@ -206,12 +206,12 @@ namespace MoBankUI
 
         public void newrow(string validation, string expected, string actual, string passorfail, IWebDriver driver)
         {
-            var newrow = dt.NewRow();
+            var newrow = Dt.NewRow();
             newrow[0] = validation;
             newrow[1] = expected;
             newrow[2] = actual;
             newrow[3] = passorfail;
-            dt.Rows.Add(newrow);
+            Dt.Rows.Add(newrow);
         }
     }
 }

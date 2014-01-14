@@ -21,7 +21,7 @@ namespace MoBankUI.Mosite.Product
 
 
                 string producttitle;
-                string AddToBasket;
+                string addToBasket;
                 string checkout;
                 string basketvalue;
                 var screenshot1 = new Screenshot();
@@ -30,15 +30,15 @@ namespace MoBankUI.Mosite.Product
 
                 if (url.Contains("user-scalable=yes"))
                 {
-                    producttitle = CollectionMapV2.producttitle;
-                    AddToBasket = CollectionMapV2.addtobasket;
+                    producttitle = CollectionMapV2.Producttitle;
+                    addToBasket = CollectionMapV2.addtobasket;
                     checkout = CollectionMapV2.checkout;
                     basketvalue = BasketV2.basketvalue;
                 }
                 else
                 {
-                    producttitle = CollectionMapV1.producttitle;
-                    AddToBasket = CollectionMapV1.addtobasket;
+                    producttitle = CollectionMapV1.Producttitle;
+                    addToBasket = CollectionMapV1.addtobasket;
                     checkout = CollectionMapV1.checkout;
                     basketvalue = BasketV1.basketvalue;
                 }
@@ -192,10 +192,10 @@ namespace MoBankUI.Mosite.Product
 
                 try
                 {
-                    driver.FindElement(By.XPath(AddToBasket)).Click();
+                    driver.FindElement(By.XPath(addToBasket)).Click();
 
                     datarow.newrow("Add to Basket Button", "Add To Basket Button is Expected",
-                                   AddToBasket + "Add To Basket Element Is Present", "PASS", driver);
+                                   addToBasket + "Add To Basket Element Is Present", "PASS", driver);
                     new SuccessMessage().Message(driver, datarow);
                 }
                 catch (Exception ex)

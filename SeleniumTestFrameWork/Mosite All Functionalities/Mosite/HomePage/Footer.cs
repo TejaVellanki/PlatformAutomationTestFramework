@@ -15,8 +15,8 @@ namespace MoBankUI.Mosite.HomePage
             try
             {
                 Footer(driver, datarow, url);
-                var Image = new Imagevalidation();
-                Image.Homepageimage(driver, datarow);
+                var image = new Imagevalidation();
+                image.Homepageimage(driver, datarow);
             }
             catch (Exception ex)
             {

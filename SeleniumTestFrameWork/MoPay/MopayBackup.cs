@@ -50,7 +50,7 @@ namespace MoBankUI.MoPay
             _generalLibrary = new GeneralLibrary();
             var excelData = _generalLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "CardDetails");
             var set2 = _generalLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "Account");
-            _datarow.col();
+            _datarow.Col();
             var table = excelData.Tables[0];
             var table2 = set2.Tables[0];
             var count = table2.Rows.Count;

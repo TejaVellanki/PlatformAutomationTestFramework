@@ -13,13 +13,13 @@ namespace MoBankUI.MoPay
 
         public void HomepageTabs(IWebDriver driver)
         {
-            _datarow.col();
+            _datarow.Col();
             driver.Navigate().GoToUrl("https://devpay.mobankdev.com/Management");
             Thread.Sleep(3000);
-            var Title = driver.Title;
+            var title = driver.Title;
             try
             {
-                if (Title == "Log On : mopowered.co.uk")
+                if (title == "Log On : mopowered.co.uk")
                 {
                     driver.FindElement(
                         By.CssSelector(

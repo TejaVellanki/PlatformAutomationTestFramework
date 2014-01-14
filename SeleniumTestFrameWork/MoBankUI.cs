@@ -81,7 +81,7 @@ namespace MoBankUI
                 if (textBox3.Text != @"Please Enter Mosite URL's Seperated By Comma(,)")
                 {
                     var datarow = new Datarow();
-                    datarow.col();
+                    datarow.Col();
                     var urls = textBox3.Text;
                     if (urls != "")
                     {
@@ -89,7 +89,7 @@ namespace MoBankUI
                         var url = urls.Split(',');
                         foreach (var oneurl in url)
                         {
-                            datarow.dataflush();
+                            datarow.Dataflush();
                             Mositetp(oneurl, datarow);
                         }
                     }
@@ -341,7 +341,7 @@ namespace MoBankUI
             try
             {
                 var datarow = new Datarow();
-                datarow.col();
+                datarow.Col();
 
                 var items = checkedListBox2.CheckedItems.Cast<object>().Aggregate<object, string>(null, (current, item) => current + (item + ","));
                 var versions = checkedListBox5.CheckedItems.Cast<object>().Aggregate<object, string>(null, (current, version) => current + (version + ","));

@@ -11,13 +11,13 @@
         public const string Productlink = "/div/div[1]/a/img";
         public const string ProductPrice = "price";
         public const string ProductDescriptiontab = "//html/body/div/div[4]/div/div[2]/div[2]/div/div/h4/a/span";
-        public const string productDescription = "//div[@id='mainContent']/div/div[2]/div[2]/div/div/div";
+        public const string ProductDescription = "//div[@id='mainContent']/div/div[2]/div[2]/div/div/div";
 
-        public const string detail =
+        public const string Detail =
             "css=html.ui-mobile body#page-products-details.ui-mobile-viewport div#main-" +
             "page.ui-page div#mainContent.ui-content div.productDetailsContent div.ui-grid-a div.ui-block-b div.ui-collapsible-set div.ui-collapsible div.ui-collapsible-content";
 
-        public const string producttitle = "//*[@id='mainContent']/div/div[1]/div[1]/h2";
+        public const string Producttitle = "//*[@id='mainContent']/div/div[1]/div[1]/h2";
 
         public const string productVariant = "Variants_0__OptionValue";
         public const string productvariant2 = "OptionValue";

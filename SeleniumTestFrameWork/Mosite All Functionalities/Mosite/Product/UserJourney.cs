@@ -24,8 +24,8 @@ namespace MoBankUI.Mosite.Product
                 string cat;
                 string products;
                 string productlink;
-                var URL = driver.PageSource;
-                if (URL.Contains("user-scalable=yes"))
+                var uRl = driver.PageSource;
+                if (uRl.Contains("user-scalable=yes"))
                 {
                     categorylink = CollectionMapV2.Categorylink;
                     cat = CollectionMapV2.Cat;

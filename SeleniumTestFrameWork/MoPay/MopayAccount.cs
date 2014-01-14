@@ -19,7 +19,7 @@ namespace MoBankUI.MoPay
             var datarow = new Datarow();
             _genaralLibrary = new GeneralLibrary();
             var excelData = _genaralLibrary.GetExcelData(@"C:\\Input Data\CardDetails.xls", "AccountCreation");
-            datarow.col();
+            datarow.Col();
             var table = excelData.Tables[0];
             try
             {

@@ -13,10 +13,10 @@ namespace MoBankUI.Mosite.Modrophenia
 {
     internal class Modrophenialive : Driverdefining
     {
-        private GeneralLibrary generalLibrary;
-        public object xml { get; set; }
+        private GeneralLibrary _generalLibrary;
+        public object Xml { get; set; }
 
-        public void loop(IWebDriver driver, DataTable dt)
+        public void Loop(IWebDriver driver, DataTable dt)
         {
             var num = 1;
             while (true)
@@ -143,10 +143,10 @@ namespace MoBankUI.Mosite.Modrophenia
         {
             try
             {
-                generalLibrary = new GeneralLibrary();
+                _generalLibrary = new GeneralLibrary();
                 var dt = new DataTable();
                 var fileName = "ModrophenialiveProducts";
-                var workbook = generalLibrary.CreateAndOpenExcelFile(@"C:\\Input Data", ref fileName, "Products",
+                var workbook = _generalLibrary.CreateAndOpenExcelFile(@"C:\\Input Data", ref fileName, "Products",
                                                                           ".xlsx", false, false);
                 var ws = (Worksheet) workbook.Sheets[1];
                 new Datarow();
@@ -160,12 +160,12 @@ namespace MoBankUI.Mosite.Modrophenia
                 driver.FindElement(By.XPath("//div[@id='sidebarBox']/ul[2]/li[2]/a"));
                 driver.FindElement(By.LinkText("New Arrivals")).Click();
 
-                loop(driver, dt);
+                Loop(driver, dt);
                 driver.FindElement(By.LinkText("Sale Items")).Click();
 
-                loop(driver, dt);
-                generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
-                generalLibrary.SaveAndCloseExcel(workbook);
+                Loop(driver, dt);
+                _generalLibrary.ConsolidatedXmlExportToExcel(dt, ws, true, false, false);
+                _generalLibrary.SaveAndCloseExcel(workbook);
             }
             catch (Exception exception)
             {

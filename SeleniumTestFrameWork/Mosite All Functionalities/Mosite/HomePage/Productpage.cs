@@ -25,15 +25,15 @@ namespace MoBankUI.Mosite.HomePage
             if (url.Contains("user-scalable=yes"))
             {
                 productprice = CollectionMapV2.ProductPrice;
-                producttitle = CollectionMapV2.producttitle;
-                Detail = CollectionMapV2.detail;
-                productVarinat = CollectionMapV2.productVariant;
+                producttitle = CollectionMapV2.Producttitle;
+                Detail = CollectionMapV2.Detail;
+                productVarinat = CollectionMapV2.ProductVariant;
             }
             else
             {
                 productprice = CollectionMapV1.ProductPrice;
-                producttitle = CollectionMapV1.producttitle;
-                Detail = CollectionMapV1.detail;
+                producttitle = CollectionMapV1.Producttitle;
+                Detail = CollectionMapV1.Detail;
                 productVarinat = CollectionMapV1.productVariant;
             }
 
