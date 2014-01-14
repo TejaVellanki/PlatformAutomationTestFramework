@@ -48,23 +48,23 @@ namespace MoBankUI.Mosite.HomePage
 
                 if (pagesource.Contains("user-scalable=yes"))
                 {
-                    footer = FooterV2.footer;
-                    footerlink = FooterV2.footerlink;
-                    sociallink = FooterV2.sociallink;
-                    sociallin = FooterV2.sociallin;
-                    mopowered = FooterV2.mopowered;
-                    lowerfooter = FooterV2.lowerfooter;
+                    footer = FooterV2.Footer;
+                    footerlink = FooterV2.Footerlink;
+                    sociallink = FooterV2.Sociallink;
+                    sociallin = FooterV2.Sociallin;
+                    mopowered = FooterV2.Mopowered;
+                    lowerfooter = FooterV2.Lowerfooter;
                     lowerfooterlink = FooterV2.lowerfooterlink;
                 }
                 else
                 {
-                    footer = FooterV1.footer;
-                    footerlink = FooterV1.footerlink;
-                    sociallink = FooterV1.sociallink;
-                    sociallin = FooterV1.sociallin;
-                    mopowered = FooterV1.mopowered;
-                    lowerfooter = FooterV1.lowerfooter;
-                    lowerfooterlink = FooterV1.lowerfooterlink;
+                    footer = FooterV1.Footer;
+                    footerlink = FooterV1.Footerlink;
+                    sociallink = FooterV1.Sociallink;
+                    sociallin = FooterV1.Sociallin;
+                    mopowered = FooterV1.Mopowered;
+                    lowerfooter = FooterV1.Lowerfooter;
+                    lowerfooterlink = FooterV1.Lowerfooterlink;
                 }
                 try
                 {

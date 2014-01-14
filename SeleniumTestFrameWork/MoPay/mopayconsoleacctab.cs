@@ -236,7 +236,7 @@ namespace MoBankUI.MoPay
             finally
             {
                 _screenshot.Screenshotfailed(driver);
-                datarow.excelsave("MopayConsole", driver, "teja.vellanki@mobankgroup.com");
+                datarow.Excelsave("MopayConsole", driver, "teja.vellanki@mobankgroup.com");
                 driver.Quit();
             }
         }

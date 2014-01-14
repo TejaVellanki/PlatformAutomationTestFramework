@@ -23,23 +23,23 @@
         public const string Productvariant2 = "OptionValue";
 
         public const string LowerFooter = "//*[@id='links']/div/div/div/a[1]/img";
-        public const string poweredLink = "https://tablet.mobankdev.com/";
+        public const string PoweredLink = "https://tablet.mobankdev.com/";
         public const string Search = "searchText";
         public const string Homeimage = "ui-link";
         public const string Checkout = "//a[@id='GoToCheckout']/span/span";
         //*[@id="AddToBasketButton"]/div/div[2]/button
-        public const string addtobasket = "//*[@id='AddToBasketButton']/div/div[2]/button";
-        public const string deletebasket = "//form[@id='UpdateBasketForm']/ul/li/a/span";
+        public const string Addtobasket = "//*[@id='AddToBasketButton']/div/div[2]/button";
+        public const string Deletebasket = "//form[@id='UpdateBasketForm']/ul/li/a/span";
     }
 
     public static class FooterV2
     {
-        public const string footer = "//*[@id='main-page']/div[6]/article";
-        public const string footerlink = "/a/span";
-        public const string sociallin = "//*[@id='links']/div/div/div/a";
-        public const string sociallink = "/img";
-        public const string mopowered = "//*[@id='copyright']/a";
-        public const string lowerfooter = "//*[@id='main-page']/div[7]/ul/li";
+        public const string Footer = "//*[@id='main-page']/div[6]/article";
+        public const string Footerlink = "/a/span";
+        public const string Sociallin = "//*[@id='links']/div/div/div/a";
+        public const string Sociallink = "/img";
+        public const string Mopowered = "//*[@id='copyright']/a";
+        public const string Lowerfooter = "//*[@id='main-page']/div[7]/ul/li";
         public const string lowerfooterlink = "/a";
         //div[@id='main-page']/div[7]/div/div[2]/a/span/span
     }

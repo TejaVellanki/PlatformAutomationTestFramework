@@ -16,7 +16,7 @@ namespace MoBankUI.Mosite.Modrophenia
             {
                 _datarow.Col();
                 //  new Modrophenialive().modrophenialiveproducts(, driver);
-                new Modropheniaproducts().product(_datarow, driver);
+                new Modropheniaproducts().Product(_datarow, driver);
                 // new UserJourney().UserJourn(this.datarow,driver);
                 // new UserData().Userdata(this.datarow,driver);
                 // new Mopaysite().MoPay(driver, , this.datarow);
@@ -31,7 +31,7 @@ namespace MoBankUI.Mosite.Modrophenia
             }
             finally
             {
-                _datarow.excelsave("MoSiteReport", driver, "teja.vellanki@mobankgroup.com");
+                _datarow.Excelsave("MoSiteReport", driver, "teja.vellanki@mobankgroup.com");
                 _datarow.Dataflush();
                 driver.Quit();
             }

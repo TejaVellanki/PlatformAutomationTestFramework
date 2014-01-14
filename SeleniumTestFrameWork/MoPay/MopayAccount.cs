@@ -78,11 +78,11 @@ namespace MoBankUI.MoPay
             {
                 var str9 = exception.ToString();
                 datarow.Newrow("Exception", "Not Expected", str9, "FAIL", driver);
-                datarow.excelsave("MoPay Account Creation", driver, "teja.vellanki@mobankgroup.com");
+                datarow.Excelsave("MoPay Account Creation", driver, "teja.vellanki@mobankgroup.com");
             }
             finally
             {
-                datarow.excelsave("MoPay Account Creation", driver, "teja.vellanki@mobankgroup.com");
+                datarow.Excelsave("MoPay Account Creation", driver, "teja.vellanki@mobankgroup.com");
             }
         }
     }

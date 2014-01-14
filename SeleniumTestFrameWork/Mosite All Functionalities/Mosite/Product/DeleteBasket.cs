@@ -15,7 +15,7 @@ namespace MoBankUI.Mosite.Product
             try
             {
                 var url = driver.PageSource;
-                var deletebasket = url.Contains("user-scalable=yes") ? CollectionMapV2.deletebasket : CollectionMapV1.Deletebasket;
+                var deletebasket = url.Contains("user-scalable=yes") ? CollectionMapV2.Deletebasket : CollectionMapV1.Deletebasket;
                 /*
                 if (IsElementPresent(driver,By.XPath("//body[@id='Top']/div/div[2]/div[2]/ul/li[2]/a/span"),05))
                 {
@@ -28,7 +28,7 @@ namespace MoBankUI.Mosite.Product
                 {
                     driver.FindElement(By.XPath(deletebasket)).Click();
 
-                    basketvalidation(driver, datarow);
+                    Basketvalidation(driver, datarow);
                 }
                 else
                 {
@@ -46,7 +46,7 @@ namespace MoBankUI.Mosite.Product
         }
 
 
-        private void basketvalidation(IWebDriver driver, Datarow datarow)
+        private void Basketvalidation(IWebDriver driver, Datarow datarow)
         {
             string products;
             string productlink;
@@ -68,7 +68,7 @@ namespace MoBankUI.Mosite.Product
                 categorylink = CollectionMapV1.Categorylink;
                 cat = CollectionMapV1.Cat;
                 products = CollectionMapV1.Products;
-                homeimage = CollectionMapV1.homeimage;
+                homeimage = CollectionMapV1.Homeimage;
                 productlink = CollectionMapV1.Productlink;
             }
             try

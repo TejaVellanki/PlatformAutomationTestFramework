@@ -111,7 +111,7 @@ namespace MoBankUI.Mosite
 
             finally
             {
-                datarow.excelsave("Mosite", driver, "teja.vellanki@mobankgroup.com");
+                datarow.Excelsave("Mosite", driver, "teja.vellanki@mobankgroup.com");
                 _screenshot.Screenshotfailed(driver);
                 driver.Quit();
             }

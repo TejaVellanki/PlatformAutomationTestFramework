@@ -41,7 +41,7 @@ namespace MoBankUI.Mosite.Modrophenia
             }
         }
 
-        public void product(Datarow datarow, IWebDriver driver)
+        public void Product(Datarow datarow, IWebDriver driver)
         {
             try
             {

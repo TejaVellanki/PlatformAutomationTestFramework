@@ -346,7 +346,7 @@ namespace MoBankUI.MoPay
             finally
             {
                 new Screenshot().Screenshotnotifications(driver);
-                _datarow.excelsave("MoPayReport", driver, "teja.vellanki@mobankgroup.com");
+                _datarow.Excelsave("MoPayReport", driver, "teja.vellanki@mobankgroup.com");
                 new GenerateEmail().SendEMail("MoPayReport", null);
                 driver.Quit();
             }

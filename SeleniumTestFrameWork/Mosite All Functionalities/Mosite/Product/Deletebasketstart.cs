@@ -30,7 +30,7 @@ namespace MoBankUI.Mosite.Product
                     {
                         datarow.Newrow("Product Unavailable", "", "Product Unavilable", "FAIL", driver);
                         _screenshot.Screenshotfailed(driver);
-                        productunavailabl(driver, l, datarow);
+                        Productunavailabl(driver, l, datarow);
                         driver.FindElement(By.XPath(checkout)).Click();
                     }
                     else
@@ -50,7 +50,7 @@ namespace MoBankUI.Mosite.Product
 
         //Tests if the product is Unavailable
         [Test]
-        public void productunavailabl(IWebDriver driver, int l, Datarow datarow)
+        public void Productunavailabl(IWebDriver driver, int l, Datarow datarow)
         {
             string deletebasket;
             string homeimage;
@@ -58,13 +58,13 @@ namespace MoBankUI.Mosite.Product
 
             if (url.Contains("user-scalable=yes"))
             {
-                deletebasket = CollectionMapV2.deletebasket;
+                deletebasket = CollectionMapV2.Deletebasket;
                 homeimage = CollectionMapV2.Homeimage;
             }
             else
             {
                 deletebasket = CollectionMapV1.Deletebasket;
-                homeimage = CollectionMapV1.homeimage;
+                homeimage = CollectionMapV1.Homeimage;
             }
 
             try

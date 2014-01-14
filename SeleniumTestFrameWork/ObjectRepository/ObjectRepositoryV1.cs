@@ -20,28 +20,28 @@
         public const string Producttitle = "//*[@id='mainContent']/div/div[1]/div[1]/h2";
 
         public const string ProductVariant = "Variants_0__OptionValue";
-        public const string productvariant2 = "OptionValue";
+        public const string Productvariant2 = "OptionValue";
         public const string Addtobasket = "AddToBasket";
         public const string Checkout = "//*[@id='GoToCheckout']/span";
 
         public const string Deletebasket = "button.ui-btn-hidden";
-        public const string homeimage = "//div[@id='main-page']/div[3]/a/img";
+        public const string Homeimage = "//div[@id='main-page']/div[3]/a/img";
     }
 
     public static class FooterV1
     {
-        public const string footer = "//html/body/div/div[3]/ul/li";
-        public const string footerlink = "/div/div/a";
-        public const string sociallin = "//html/body/div/div[3]/div/a";
-        public const string sociallink = "/img";
-        public const string mopowered = "//html/body/div/div[3]/p/a";
-        public const string lowerfooter = "//html/body/div/div[3]/p[2]/a";
-        public const string lowerfooterlink = "";
+        public const string Footer = "//html/body/div/div[3]/ul/li";
+        public const string Footerlink = "/div/div/a";
+        public const string Sociallin = "//html/body/div/div[3]/div/a";
+        public const string Sociallink = "/img";
+        public const string Mopowered = "//html/body/div/div[3]/p/a";
+        public const string Lowerfooter = "//html/body/div/div[3]/p[2]/a";
+        public const string Lowerfooterlink = "";
     }
 
     public static class BasketV1
     {
-        public const string basketempty = "//form[@id='UpdateBasketForm']/ul/li";
+        public const string Basketempty = "//form[@id='UpdateBasketForm']/ul/li";
         public const string basketvalue = "//a[@id='BasketInfo']";
     }
 

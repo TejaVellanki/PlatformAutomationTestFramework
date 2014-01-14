@@ -45,14 +45,14 @@ namespace MoBankUI.Mosite
                     {
                         if (sr != split[3]) continue;
                         datarow.consolidatedreport(emails);
-                        datarow.excelsave("Mosite-" + sr + "", driver, emails);
+                        datarow.Excelsave("Mosite-" + sr + "", driver, emails);
 
                         driver.Quit();
                         break;
                     }
                     if (sr != split[2]) continue;
                     datarow.consolidatedreport(emails);
-                    datarow.excelsave("Mosite-" + sr + "", driver, emails);
+                    datarow.Excelsave("Mosite-" + sr + "", driver, emails);
 
                     driver.Quit();
                     break;

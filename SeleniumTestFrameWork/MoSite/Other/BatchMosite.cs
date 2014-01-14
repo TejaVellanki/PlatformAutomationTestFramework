@@ -66,7 +66,7 @@ namespace MoBankUI.MoSite.Other
             }
             finally
             {
-                datarow.excelsave("MoshopConsole", driver, "teja.vellanki@mobankgroup.com");
+                datarow.Excelsave("MoshopConsole", driver, "teja.vellanki@mobankgroup.com");
                 screenshot.Screenshotfailed(driver);
                 driver.Quit();
             }

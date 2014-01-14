@@ -50,7 +50,7 @@ namespace MoBankUI
         }
 
 
-        public void excelsave(string ReportName, IWebDriver driver, string email)
+        public void Excelsave(string reportName, IWebDriver driver, string email)
         {
             try
             {
@@ -92,13 +92,13 @@ namespace MoBankUI
                 }
 
                 GeneralLibrary = new GeneralLibrary();
-                var wb = GeneralLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref ReportName, "Report",
+                var wb = GeneralLibrary.CreateAndOpenExcelFile(@"C:\Selenium\Input Data", ref reportName, "Report",
                                                                     ".xlsx", false, true);
                 Worksheet ws = wb.Sheets[1];
                 GeneralLibrary.ConsolidatedXmlExportToExcel(Dt, ws, true, false, false);
                 GeneralLibrary.SaveAndCloseExcel(wb);
                 var ghdg = new GenerateEmail();
-                ghdg.SendEMail(ReportName, email);
+                ghdg.SendEMail(reportName, email);
                 Clonetable = Dt.Copy();
                 //mergeTable.Merge(clonetable);
                 var s = 0;
@@ -111,7 +111,7 @@ namespace MoBankUI
                             sourcerow["Total Number of Test Cases Passed/Failed"];
                         if (s == 0)
                         {
-                            destRow["Merchant Name"] = ReportName;
+                            destRow["Merchant Name"] = reportName;
                         }
                         MergeTable.Rows.Add(destRow);
                         s++;
@@ -125,9 +125,9 @@ namespace MoBankUI
                 Dt.TableName = "MyTable";
 
                 var Html = new ConverttoHtml();
-                Html.ConvertDataTableToHtml(Dt, ReportName, P, F);
+                Html.ConvertDataTableToHtml(Dt, reportName, P, F);
 
-                Dt.WriteXml(@"C:\Selenium\Input Data\XML Reports\" + ReportName + ".xml");
+                Dt.WriteXml(@"C:\Selenium\Input Data\XML Reports\" + reportName + ".xml");
                 foreach (var process in Process.GetProcessesByName("EXCEL").Where(process => process.MainModule.ModuleName.ToUpper().Equals("EXCEL.EXE")))
                 {
                     process.Kill();

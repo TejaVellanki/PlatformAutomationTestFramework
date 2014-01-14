@@ -32,10 +32,10 @@ namespace MoBankUI.Mosite.HomePage
 
             try
             {
-                var Image = new Imagevalidation();
+                var image = new Imagevalidation();
                 //Home Page Image validation
 
-                Image.Homepageimage(driver, datarow);
+                image.Homepageimage(driver, datarow);
                 //Counting the number of Categories 
                 decimal linkcount = driver.FindElements(By.XPath(categorylink)).Count;
                 if (linkcount == 0)
@@ -77,13 +77,13 @@ namespace MoBankUI.Mosite.HomePage
                             {
                                 //*[@id="productList"]/article[1]/a/div[1]/img
                                 // Category Image validation
-                                Image.categoryimage(driver, datarow);
+                                image.categoryimage(driver, datarow);
                                 driver.FindElement(By.XPath("" + categorylink + "[" + k + "]" + cat + "")).Click();
 
                                 var titlecategory = driver.Title;
 
                                 // Sub-Category Image validation
-                                Image.subcategoryimage(driver, datarow);
+                                image.subcategoryimage(driver, datarow);
 
                                 try
                                 {

@@ -126,7 +126,7 @@ namespace MoBankUI.MoShop
                         var modrophenia = new Modrophenialive();
                         modrophenia.modrophenialiveproducts(driver);
                         var products = new Modropheniaproducts();
-                        products.product(datarow, driver);
+                        products.Product(datarow, driver);
                     }
 
                     #endregion
@@ -149,7 +149,7 @@ namespace MoBankUI.MoShop
 
             finally
             {
-                datarow.excelsave("MoshopConsole", driver, "teja.vellanki@mobankgroup.com");
+                datarow.Excelsave("MoshopConsole", driver, "teja.vellanki@mobankgroup.com");
                 screenshot.Screenshotfailed(driver);
                 driver.Quit();
             }

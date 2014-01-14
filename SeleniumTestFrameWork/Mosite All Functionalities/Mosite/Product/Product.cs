@@ -31,7 +31,7 @@ namespace MoBankUI.Mosite.Product
                 if (url.Contains("user-scalable=yes"))
                 {
                     producttitle = CollectionMapV2.Producttitle;
-                    addToBasket = CollectionMapV2.addtobasket;
+                    addToBasket = CollectionMapV2.Addtobasket;
                     checkout = CollectionMapV2.Checkout;
                     basketvalue = BasketV2.basketvalue;
                 }
